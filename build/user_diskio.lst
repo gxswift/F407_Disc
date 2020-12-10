@@ -1,0 +1,418 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"user_diskio.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.USER_initialize,"ax",%progbits
+  18              		.align	1
+  19              		.global	USER_initialize
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	USER_initialize:
+  27              	.LVL0:
+  28              	.LFB131:
+  29              		.file 1 "Src/user_diskio.c"
+   1:Src/user_diskio.c **** /* USER CODE BEGIN Header */
+   2:Src/user_diskio.c **** /**
+   3:Src/user_diskio.c ****  ******************************************************************************
+   4:Src/user_diskio.c ****   * @file    user_diskio.c
+   5:Src/user_diskio.c ****   * @brief   This file includes a diskio driver skeleton to be completed by the user.
+   6:Src/user_diskio.c ****   ******************************************************************************
+   7:Src/user_diskio.c ****   * This notice applies to any and all portions of this file
+   8:Src/user_diskio.c ****   * that are not between comment pairs USER CODE BEGIN and
+   9:Src/user_diskio.c ****   * USER CODE END. Other portions of this file, whether 
+  10:Src/user_diskio.c ****   * inserted by the user or by software development tools
+  11:Src/user_diskio.c ****   * are owned by their respective copyright owners.
+  12:Src/user_diskio.c ****   *
+  13:Src/user_diskio.c ****   * Copyright (c) 2020 STMicroelectronics International N.V. 
+  14:Src/user_diskio.c ****   * All rights reserved.
+  15:Src/user_diskio.c ****   *
+  16:Src/user_diskio.c ****   * Redistribution and use in source and binary forms, with or without 
+  17:Src/user_diskio.c ****   * modification, are permitted, provided that the following conditions are met:
+  18:Src/user_diskio.c ****   *
+  19:Src/user_diskio.c ****   * 1. Redistribution of source code must retain the above copyright notice, 
+  20:Src/user_diskio.c ****   *    this list of conditions and the following disclaimer.
+  21:Src/user_diskio.c ****   * 2. Redistributions in binary form must reproduce the above copyright notice,
+  22:Src/user_diskio.c ****   *    this list of conditions and the following disclaimer in the documentation
+  23:Src/user_diskio.c ****   *    and/or other materials provided with the distribution.
+  24:Src/user_diskio.c ****   * 3. Neither the name of STMicroelectronics nor the names of other 
+  25:Src/user_diskio.c ****   *    contributors to this software may be used to endorse or promote products 
+  26:Src/user_diskio.c ****   *    derived from this software without specific written permission.
+  27:Src/user_diskio.c ****   * 4. This software, including modifications and/or derivative works of this 
+  28:Src/user_diskio.c ****   *    software, must execute solely and exclusively on microcontroller or
+  29:Src/user_diskio.c ****   *    microprocessor devices manufactured by or for STMicroelectronics.
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s 			page 2
+
+
+  30:Src/user_diskio.c ****   * 5. Redistribution and use of this software other than as permitted under 
+  31:Src/user_diskio.c ****   *    this license is void and will automatically terminate your rights under 
+  32:Src/user_diskio.c ****   *    this license. 
+  33:Src/user_diskio.c ****   *
+  34:Src/user_diskio.c ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
+  35:Src/user_diskio.c ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
+  36:Src/user_diskio.c ****   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+  37:Src/user_diskio.c ****   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
+  38:Src/user_diskio.c ****   * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  39:Src/user_diskio.c ****   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  40:Src/user_diskio.c ****   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  41:Src/user_diskio.c ****   * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  42:Src/user_diskio.c ****   * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  43:Src/user_diskio.c ****   * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  44:Src/user_diskio.c ****   * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+  45:Src/user_diskio.c ****   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  46:Src/user_diskio.c ****   *
+  47:Src/user_diskio.c ****   ******************************************************************************
+  48:Src/user_diskio.c ****   */
+  49:Src/user_diskio.c ****  /* USER CODE END Header */
+  50:Src/user_diskio.c **** 
+  51:Src/user_diskio.c **** #ifdef USE_OBSOLETE_USER_CODE_SECTION_0
+  52:Src/user_diskio.c **** /* 
+  53:Src/user_diskio.c ****  * Warning: the user section 0 is no more in use (starting from CubeMx version 4.16.0)
+  54:Src/user_diskio.c ****  * To be suppressed in the future. 
+  55:Src/user_diskio.c ****  * Kept to ensure backward compatibility with previous CubeMx versions when 
+  56:Src/user_diskio.c ****  * migrating projects. 
+  57:Src/user_diskio.c ****  * User code previously added there should be copied in the new user sections before 
+  58:Src/user_diskio.c ****  * the section contents can be deleted.
+  59:Src/user_diskio.c ****  */
+  60:Src/user_diskio.c **** /* USER CODE BEGIN 0 */
+  61:Src/user_diskio.c **** /* USER CODE END 0 */
+  62:Src/user_diskio.c **** #endif
+  63:Src/user_diskio.c **** 
+  64:Src/user_diskio.c **** /* USER CODE BEGIN DECL */
+  65:Src/user_diskio.c **** 
+  66:Src/user_diskio.c **** /* Includes ------------------------------------------------------------------*/
+  67:Src/user_diskio.c **** #include <string.h>
+  68:Src/user_diskio.c **** #include "ff_gen_drv.h"
+  69:Src/user_diskio.c **** 
+  70:Src/user_diskio.c **** /* Private typedef -----------------------------------------------------------*/
+  71:Src/user_diskio.c **** /* Private define ------------------------------------------------------------*/
+  72:Src/user_diskio.c **** 
+  73:Src/user_diskio.c **** /* Private variables ---------------------------------------------------------*/
+  74:Src/user_diskio.c **** /* Disk status */
+  75:Src/user_diskio.c **** static volatile DSTATUS Stat = STA_NOINIT;
+  76:Src/user_diskio.c **** 
+  77:Src/user_diskio.c **** /* USER CODE END DECL */
+  78:Src/user_diskio.c **** 
+  79:Src/user_diskio.c **** /* Private function prototypes -----------------------------------------------*/
+  80:Src/user_diskio.c **** DSTATUS USER_initialize (BYTE pdrv);
+  81:Src/user_diskio.c **** DSTATUS USER_status (BYTE pdrv);
+  82:Src/user_diskio.c **** DRESULT USER_read (BYTE pdrv, BYTE *buff, DWORD sector, UINT count);
+  83:Src/user_diskio.c **** #if _USE_WRITE == 1
+  84:Src/user_diskio.c ****   DRESULT USER_write (BYTE pdrv, const BYTE *buff, DWORD sector, UINT count);  
+  85:Src/user_diskio.c **** #endif /* _USE_WRITE == 1 */
+  86:Src/user_diskio.c **** #if _USE_IOCTL == 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s 			page 3
+
+
+  87:Src/user_diskio.c ****   DRESULT USER_ioctl (BYTE pdrv, BYTE cmd, void *buff);
+  88:Src/user_diskio.c **** #endif /* _USE_IOCTL == 1 */
+  89:Src/user_diskio.c **** 
+  90:Src/user_diskio.c **** Diskio_drvTypeDef  USER_Driver =
+  91:Src/user_diskio.c **** {
+  92:Src/user_diskio.c ****   USER_initialize,
+  93:Src/user_diskio.c ****   USER_status,
+  94:Src/user_diskio.c ****   USER_read, 
+  95:Src/user_diskio.c **** #if  _USE_WRITE
+  96:Src/user_diskio.c ****   USER_write,
+  97:Src/user_diskio.c **** #endif  /* _USE_WRITE == 1 */  
+  98:Src/user_diskio.c **** #if  _USE_IOCTL == 1
+  99:Src/user_diskio.c ****   USER_ioctl,
+ 100:Src/user_diskio.c **** #endif /* _USE_IOCTL == 1 */
+ 101:Src/user_diskio.c **** };
+ 102:Src/user_diskio.c **** 
+ 103:Src/user_diskio.c **** /* Private functions ---------------------------------------------------------*/
+ 104:Src/user_diskio.c **** 
+ 105:Src/user_diskio.c **** /**
+ 106:Src/user_diskio.c ****   * @brief  Initializes a Drive
+ 107:Src/user_diskio.c ****   * @param  pdrv: Physical drive number (0..)
+ 108:Src/user_diskio.c ****   * @retval DSTATUS: Operation status
+ 109:Src/user_diskio.c ****   */
+ 110:Src/user_diskio.c **** DSTATUS USER_initialize (
+ 111:Src/user_diskio.c **** 	BYTE pdrv           /* Physical drive nmuber to identify the drive */
+ 112:Src/user_diskio.c **** )
+ 113:Src/user_diskio.c **** {
+  30              		.loc 1 113 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+ 114:Src/user_diskio.c ****   /* USER CODE BEGIN INIT */
+ 115:Src/user_diskio.c ****     Stat = STA_NOINIT;
+  35              		.loc 1 115 5 view .LVU1
+  36              		.loc 1 115 10 is_stmt 0 view .LVU2
+  37 0000 024B     		ldr	r3, .L2
+  38 0002 0122     		movs	r2, #1
+  39 0004 1A70     		strb	r2, [r3]
+ 116:Src/user_diskio.c ****     return Stat;
+  40              		.loc 1 116 5 is_stmt 1 view .LVU3
+  41              		.loc 1 116 12 is_stmt 0 view .LVU4
+  42 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  43              	.LVL1:
+ 117:Src/user_diskio.c ****   /* USER CODE END INIT */
+ 118:Src/user_diskio.c **** }
+  44              		.loc 1 118 1 view .LVU5
+  45 0008 7047     		bx	lr
+  46              	.L3:
+  47 000a 00BF     		.align	2
+  48              	.L2:
+  49 000c 00000000 		.word	.LANCHOR0
+  50              		.cfi_endproc
+  51              	.LFE131:
+  53              		.section	.text.USER_status,"ax",%progbits
+  54              		.align	1
+  55              		.global	USER_status
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s 			page 4
+
+
+  56              		.syntax unified
+  57              		.thumb
+  58              		.thumb_func
+  59              		.fpu fpv4-sp-d16
+  61              	USER_status:
+  62              	.LVL2:
+  63              	.LFB132:
+ 119:Src/user_diskio.c ****  
+ 120:Src/user_diskio.c **** /**
+ 121:Src/user_diskio.c ****   * @brief  Gets Disk Status 
+ 122:Src/user_diskio.c ****   * @param  pdrv: Physical drive number (0..)
+ 123:Src/user_diskio.c ****   * @retval DSTATUS: Operation status
+ 124:Src/user_diskio.c ****   */
+ 125:Src/user_diskio.c **** DSTATUS USER_status (
+ 126:Src/user_diskio.c **** 	BYTE pdrv       /* Physical drive number to identify the drive */
+ 127:Src/user_diskio.c **** )
+ 128:Src/user_diskio.c **** {
+  64              		.loc 1 128 1 is_stmt 1 view -0
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              		@ link register save eliminated.
+ 129:Src/user_diskio.c ****   /* USER CODE BEGIN STATUS */
+ 130:Src/user_diskio.c ****     Stat = STA_NOINIT;
+  69              		.loc 1 130 5 view .LVU7
+  70              		.loc 1 130 10 is_stmt 0 view .LVU8
+  71 0000 024B     		ldr	r3, .L5
+  72 0002 0122     		movs	r2, #1
+  73 0004 1A70     		strb	r2, [r3]
+ 131:Src/user_diskio.c ****     return Stat;
+  74              		.loc 1 131 5 is_stmt 1 view .LVU9
+  75              		.loc 1 131 12 is_stmt 0 view .LVU10
+  76 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  77              	.LVL3:
+ 132:Src/user_diskio.c ****   /* USER CODE END STATUS */
+ 133:Src/user_diskio.c **** }
+  78              		.loc 1 133 1 view .LVU11
+  79 0008 7047     		bx	lr
+  80              	.L6:
+  81 000a 00BF     		.align	2
+  82              	.L5:
+  83 000c 00000000 		.word	.LANCHOR0
+  84              		.cfi_endproc
+  85              	.LFE132:
+  87              		.section	.text.USER_read,"ax",%progbits
+  88              		.align	1
+  89              		.global	USER_read
+  90              		.syntax unified
+  91              		.thumb
+  92              		.thumb_func
+  93              		.fpu fpv4-sp-d16
+  95              	USER_read:
+  96              	.LVL4:
+  97              	.LFB133:
+ 134:Src/user_diskio.c **** 
+ 135:Src/user_diskio.c **** /**
+ 136:Src/user_diskio.c ****   * @brief  Reads Sector(s) 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s 			page 5
+
+
+ 137:Src/user_diskio.c ****   * @param  pdrv: Physical drive number (0..)
+ 138:Src/user_diskio.c ****   * @param  *buff: Data buffer to store read data
+ 139:Src/user_diskio.c ****   * @param  sector: Sector address (LBA)
+ 140:Src/user_diskio.c ****   * @param  count: Number of sectors to read (1..128)
+ 141:Src/user_diskio.c ****   * @retval DRESULT: Operation result
+ 142:Src/user_diskio.c ****   */
+ 143:Src/user_diskio.c **** DRESULT USER_read (
+ 144:Src/user_diskio.c **** 	BYTE pdrv,      /* Physical drive nmuber to identify the drive */
+ 145:Src/user_diskio.c **** 	BYTE *buff,     /* Data buffer to store read data */
+ 146:Src/user_diskio.c **** 	DWORD sector,   /* Sector address in LBA */
+ 147:Src/user_diskio.c **** 	UINT count      /* Number of sectors to read */
+ 148:Src/user_diskio.c **** )
+ 149:Src/user_diskio.c **** {
+  98              		.loc 1 149 1 is_stmt 1 view -0
+  99              		.cfi_startproc
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102              		@ link register save eliminated.
+ 150:Src/user_diskio.c ****   /* USER CODE BEGIN READ */
+ 151:Src/user_diskio.c ****     return RES_OK;
+ 103              		.loc 1 151 5 view .LVU13
+ 152:Src/user_diskio.c ****   /* USER CODE END READ */
+ 153:Src/user_diskio.c **** }
+ 104              		.loc 1 153 1 is_stmt 0 view .LVU14
+ 105 0000 0020     		movs	r0, #0
+ 106              	.LVL5:
+ 107              		.loc 1 153 1 view .LVU15
+ 108 0002 7047     		bx	lr
+ 109              		.cfi_endproc
+ 110              	.LFE133:
+ 112              		.section	.text.USER_write,"ax",%progbits
+ 113              		.align	1
+ 114              		.global	USER_write
+ 115              		.syntax unified
+ 116              		.thumb
+ 117              		.thumb_func
+ 118              		.fpu fpv4-sp-d16
+ 120              	USER_write:
+ 121              	.LVL6:
+ 122              	.LFB134:
+ 154:Src/user_diskio.c **** 
+ 155:Src/user_diskio.c **** /**
+ 156:Src/user_diskio.c ****   * @brief  Writes Sector(s)  
+ 157:Src/user_diskio.c ****   * @param  pdrv: Physical drive number (0..)
+ 158:Src/user_diskio.c ****   * @param  *buff: Data to be written
+ 159:Src/user_diskio.c ****   * @param  sector: Sector address (LBA)
+ 160:Src/user_diskio.c ****   * @param  count: Number of sectors to write (1..128)
+ 161:Src/user_diskio.c ****   * @retval DRESULT: Operation result
+ 162:Src/user_diskio.c ****   */
+ 163:Src/user_diskio.c **** #if _USE_WRITE == 1
+ 164:Src/user_diskio.c **** DRESULT USER_write (
+ 165:Src/user_diskio.c **** 	BYTE pdrv,          /* Physical drive nmuber to identify the drive */
+ 166:Src/user_diskio.c **** 	const BYTE *buff,   /* Data to be written */
+ 167:Src/user_diskio.c **** 	DWORD sector,       /* Sector address in LBA */
+ 168:Src/user_diskio.c **** 	UINT count          /* Number of sectors to write */
+ 169:Src/user_diskio.c **** )
+ 170:Src/user_diskio.c **** { 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s 			page 6
+
+
+ 123              		.loc 1 170 1 is_stmt 1 view -0
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 0
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127              		@ link register save eliminated.
+ 171:Src/user_diskio.c ****   /* USER CODE BEGIN WRITE */
+ 172:Src/user_diskio.c ****   /* USER CODE HERE */
+ 173:Src/user_diskio.c ****     return RES_OK;
+ 128              		.loc 1 173 5 view .LVU17
+ 174:Src/user_diskio.c ****   /* USER CODE END WRITE */
+ 175:Src/user_diskio.c **** }
+ 129              		.loc 1 175 1 is_stmt 0 view .LVU18
+ 130 0000 0020     		movs	r0, #0
+ 131              	.LVL7:
+ 132              		.loc 1 175 1 view .LVU19
+ 133 0002 7047     		bx	lr
+ 134              		.cfi_endproc
+ 135              	.LFE134:
+ 137              		.section	.text.USER_ioctl,"ax",%progbits
+ 138              		.align	1
+ 139              		.global	USER_ioctl
+ 140              		.syntax unified
+ 141              		.thumb
+ 142              		.thumb_func
+ 143              		.fpu fpv4-sp-d16
+ 145              	USER_ioctl:
+ 146              	.LVL8:
+ 147              	.LFB135:
+ 176:Src/user_diskio.c **** #endif /* _USE_WRITE == 1 */
+ 177:Src/user_diskio.c **** 
+ 178:Src/user_diskio.c **** /**
+ 179:Src/user_diskio.c ****   * @brief  I/O control operation  
+ 180:Src/user_diskio.c ****   * @param  pdrv: Physical drive number (0..)
+ 181:Src/user_diskio.c ****   * @param  cmd: Control code
+ 182:Src/user_diskio.c ****   * @param  *buff: Buffer to send/receive control data
+ 183:Src/user_diskio.c ****   * @retval DRESULT: Operation result
+ 184:Src/user_diskio.c ****   */
+ 185:Src/user_diskio.c **** #if _USE_IOCTL == 1
+ 186:Src/user_diskio.c **** DRESULT USER_ioctl (
+ 187:Src/user_diskio.c **** 	BYTE pdrv,      /* Physical drive nmuber (0..) */
+ 188:Src/user_diskio.c **** 	BYTE cmd,       /* Control code */
+ 189:Src/user_diskio.c **** 	void *buff      /* Buffer to send/receive control data */
+ 190:Src/user_diskio.c **** )
+ 191:Src/user_diskio.c **** {
+ 148              		.loc 1 191 1 is_stmt 1 view -0
+ 149              		.cfi_startproc
+ 150              		@ args = 0, pretend = 0, frame = 0
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152              		@ link register save eliminated.
+ 192:Src/user_diskio.c ****   /* USER CODE BEGIN IOCTL */
+ 193:Src/user_diskio.c ****     DRESULT res = RES_ERROR;
+ 153              		.loc 1 193 5 view .LVU21
+ 194:Src/user_diskio.c ****     return res;
+ 154              		.loc 1 194 5 view .LVU22
+ 195:Src/user_diskio.c ****   /* USER CODE END IOCTL */
+ 196:Src/user_diskio.c **** }
+ 155              		.loc 1 196 1 is_stmt 0 view .LVU23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s 			page 7
+
+
+ 156 0000 0120     		movs	r0, #1
+ 157              	.LVL9:
+ 158              		.loc 1 196 1 view .LVU24
+ 159 0002 7047     		bx	lr
+ 160              		.cfi_endproc
+ 161              	.LFE135:
+ 163              		.global	USER_Driver
+ 164              		.section	.data.Stat,"aw"
+ 165              		.set	.LANCHOR0,. + 0
+ 168              	Stat:
+ 169 0000 01       		.byte	1
+ 170              		.section	.data.USER_Driver,"aw"
+ 171              		.align	2
+ 174              	USER_Driver:
+ 175 0000 00000000 		.word	USER_initialize
+ 176 0004 00000000 		.word	USER_status
+ 177 0008 00000000 		.word	USER_read
+ 178 000c 00000000 		.word	USER_write
+ 179 0010 00000000 		.word	USER_ioctl
+ 180              		.text
+ 181              	.Letext0:
+ 182              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 183              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 184              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 185              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 186              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 187              		.file 7 "Middlewares/Third_Party/FatFs/src/integer.h"
+ 188              		.file 8 "Middlewares/Third_Party/FatFs/src/diskio.h"
+ 189              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 190              		.file 10 "Drivers/CMSIS/Include/core_cm4.h"
+ 191              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 192              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 193              		.file 13 "Middlewares/Third_Party/FatFs/src/ff_gen_drv.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 user_diskio.c
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:18     .text.USER_initialize:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:26     .text.USER_initialize:00000000 USER_initialize
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:49     .text.USER_initialize:0000000c $d
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:54     .text.USER_status:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:61     .text.USER_status:00000000 USER_status
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:83     .text.USER_status:0000000c $d
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:88     .text.USER_read:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:95     .text.USER_read:00000000 USER_read
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:113    .text.USER_write:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:120    .text.USER_write:00000000 USER_write
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:138    .text.USER_ioctl:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:145    .text.USER_ioctl:00000000 USER_ioctl
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:174    .data.USER_Driver:00000000 USER_Driver
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:168    .data.Stat:00000000 Stat
+C:\Users\gx\AppData\Local\Temp\ccNuOoP7.s:171    .data.USER_Driver:00000000 $d
+
+NO UNDEFINED SYMBOLS
