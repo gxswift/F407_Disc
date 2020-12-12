@@ -55,8 +55,32 @@
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */     
+/* USER CODE BEGIN Includes */    
+#include "lcd.h" 
+/*
+void LCD_Init(void);
+void LCD_Clear(uin16_t Color);
+*/
+osThreadId LEDHandle;
+char pWriteBuffer[2048];
+void LED_Flicker(void *pvparameters)
+{
+  printf("GCC printf test\r\n");
+  LCD_Init();
+  LCD_Clear(0xFF00);
+  LCD_DrawLine();
+  while (1)
+  {
+    HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9 | GPIO_PIN_10);
+    vTaskDelay(500);
 
+    vTaskList((char *)&pWriteBuffer);
+    printf("[task information]\r\n");
+    printf("task name\tstate\tprior\tstack\tnumber\r\n");
+    printf("------------------------------------------------\r\n");
+    printf("%s\r\n", pWriteBuffer);
+  }
+}
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -82,7 +106,7 @@ osThreadId defaultTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-   
+
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
@@ -98,12 +122,12 @@ void PostSleepProcessing(uint32_t *ulExpectedIdleTime);
 /* USER CODE BEGIN PREPOSTSLEEP */
 __weak void PreSleepProcessing(uint32_t *ulExpectedIdleTime)
 {
-/* place for user code */ 
+  /* place for user code */
 }
 
 __weak void PostSleepProcessing(uint32_t *ulExpectedIdleTime)
 {
-/* place for user code */
+  /* place for user code */
 }
 /* USER CODE END PREPOSTSLEEP */
 
@@ -114,7 +138,7 @@ __weak void PostSleepProcessing(uint32_t *ulExpectedIdleTime)
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-       
+
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -136,6 +160,8 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  osThreadDef(LED_task, LED_Flicker, osPriorityNormal, 0, 128);
+  LEDHandle = osThreadCreate(osThread(LED_task), NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
@@ -160,7 +186,7 @@ void StartDefaultTask(void const * argument)
 
   /* USER CODE BEGIN StartDefaultTask */
   /* Infinite loop */
-  for(;;)
+  for (;;)
   {
     osDelay(1);
   }
@@ -169,7 +195,7 @@ void StartDefaultTask(void const * argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-     
+
 /* USER CODE END Application */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

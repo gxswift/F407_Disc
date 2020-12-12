@@ -1,8 +1,13 @@
 #MicroXplorer Configuration settings - do not modify
-FREERTOS.IPParameters=Tasks01,configUSE_TIMERS,configUSE_TICKLESS_IDLE
+FREERTOS.IPParameters=Tasks01,configUSE_TIMERS,configUSE_TICKLESS_IDLE,configUSE_STATS_FORMATTING_FUNCTIONS,configUSE_TRACE_FACILITY
 FREERTOS.Tasks01=defaultTask,0,128,StartDefaultTask,Default,NULL
+FREERTOS.configUSE_STATS_FORMATTING_FUNCTIONS=1
 FREERTOS.configUSE_TICKLESS_IDLE=1
 FREERTOS.configUSE_TIMERS=1
+FREERTOS.configUSE_TRACE_FACILITY=1
+FSMC.BusTurnAroundDuration1=0
+FSMC.DataSetupTime1=60
+FSMC.IPParameters=DataSetupTime1,BusTurnAroundDuration1
 File.Version=6
 KeepUserPlacement=false
 Mcu.Family=STM32F4
