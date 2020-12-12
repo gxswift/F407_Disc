@@ -55,8 +55,8 @@
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */    
-#include "lcd.h" 
+/* USER CODE BEGIN Includes */
+#include "lcd.h"
 /*
 void LCD_Init(void);
 void LCD_Clear(uin16_t Color);
@@ -65,10 +65,9 @@ osThreadId LEDHandle;
 char pWriteBuffer[2048];
 void LED_Flicker(void *pvparameters)
 {
+  vTaskDelay(500);
   printf("GCC printf test\r\n");
-  LCD_Init();
-  LCD_Clear(0xFF00);
-  LCD_DrawLine();
+
   while (1)
   {
     HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9 | GPIO_PIN_10);
@@ -79,6 +78,19 @@ void LED_Flicker(void *pvparameters)
     printf("task name\tstate\tprior\tstack\tnumber\r\n");
     printf("------------------------------------------------\r\n");
     printf("%s\r\n", pWriteBuffer);
+  }
+}
+
+osThreadId UIHandle;
+void UI_task(void *pvparameters)
+{
+  LCD_Init();
+  LCD_Clear(0xFF00);
+  LCD_DrawLine();
+
+  while (1)
+  {
+    vTaskDelay(1000);
   }
 }
 /* USER CODE END Includes */
@@ -109,7 +121,7 @@ osThreadId defaultTaskHandle;
 
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
+void StartDefaultTask(void const *argument);
 
 extern void MX_FATFS_Init(void);
 extern void MX_USB_DEVICE_Init(void);
@@ -136,7 +148,8 @@ __weak void PostSleepProcessing(uint32_t *ulExpectedIdleTime)
   * @param  None
   * @retval None
   */
-void MX_FREERTOS_Init(void) {
+void MX_FREERTOS_Init(void)
+{
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -162,6 +175,9 @@ void MX_FREERTOS_Init(void) {
   /* add threads, ... */
   osThreadDef(LED_task, LED_Flicker, osPriorityNormal, 0, 128);
   LEDHandle = osThreadCreate(osThread(LED_task), NULL);
+
+  osThreadDef(UI_task, UI_task, osPriorityNormal, 0, 128);
+  LEDHandle = osThreadCreate(osThread(UI_task), NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
@@ -176,7 +192,7 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
+void StartDefaultTask(void const *argument)
 {
   /* init code for FATFS */
   MX_FATFS_Init();

@@ -18,17 +18,24 @@ void LCD_WriteReg(uint16_t LCD_Reg, uint16_t LCD_RegValue)
 	LCD->LCD_REG = LCD_Reg;		 //写入要写的寄存器序号
 	LCD->LCD_RAM = LCD_RegValue; //写入数据
 }
+//0x548066
+static uint32_t LCD_ReadID(void)
+{
+	uint16_t buf[4];
 
+	LCD_WR_REG(0x04);  
+	buf[0] = LCD_RD_DATA();        // 第一个读取数据无效
+	buf[1] = LCD_RD_DATA()&0x00ff; // 只有低8位数据有效
+	buf[2] = LCD_RD_DATA()&0x00ff; // 只有低8位数据有效
+	buf[3] = LCD_RD_DATA()&0x00ff; // 只有低8位数据有效
+	return (buf[1] << 16) + (buf[2] << 8) + buf[3];  
+}
+//ILI9488
 void LCD_Init(void)
 {
 	//------------------------------------
-	uint8_t ID;
-	LCD_WR_REG(0);
-	LCD_WR_DATA(1);
-	HAL_Delay(50);
-	LCD_WR_REG(0);
-	HAL_Delay(1);
-	ID = LCD_RD_DATA();
+	uint32_t ID;
+	ID = LCD_ReadID();
 	printf("ID = %x\r\n",ID);
 	//------------------------------------
 	LCD_WR_REG(0XF1);
@@ -129,9 +136,9 @@ void LCD_Init(void)
 	LCD_WR_DATA(0x31); // Adjust Flicker
 	LCD_WR_DATA(0x80);
 
-	LCD_WR_REG(0x11);
+	LCD_WR_REG(0x11);//Exit Sleep
 	HAL_Delay(120);
-	LCD_WR_REG(0x29);
+	LCD_WR_REG(0x29);//display on
 
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, 1); //点亮背光
 }
@@ -159,10 +166,17 @@ void LCD_Clear(uint16_t Color)
 
 	LCD_SetWindow(0, 0, 320, 480);
 
-	for (index = 0; index < 153600; index++)
+	for (index = 0; index < 320*480; index++)
 	{
 		LCD->LCD_RAM = Color;
 	}
+}
+
+
+void LCD_DrawPoint(uint16_t x, uint16_t y, uint16_t color)
+{
+	LCD_SetWindow(x, y, x, y);
+	LCD_WR_DATA(color);
 }
 
 void LCD_DraWR()
@@ -173,16 +187,9 @@ void LCD_DraWR()
 
 	for (index = 0; index < 153600; index++)
 	{
-		LCD->LCD_RAM = 0x1111;
+		LCD->LCD_RAM = 0x1180;
 	}
 }
-void LCD_DrawPoint(uint16_t x, uint16_t y, uint16_t color)
-{
-	LCD_SetWindow(x, y, x, y);
-	LCD_WR_DATA(color);
-}
-
-
 void LCD_DrawLine()
 {
 	uint16_t i, j;
