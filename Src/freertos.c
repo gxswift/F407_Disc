@@ -85,25 +85,48 @@ void LED_Flicker(void *pvparameters)
 
 extern WM_HWIN CreateSoftWare(void);
 extern WM_HWIN HeadWindow(void);
+extern void GIFTask(void); 
+
+
+/*
+extern void GUIDEMO_Main();
+STemWin/GUI_DEMO/GUIDEMO_Bitmap.c \
+STemWin/GUI_DEMO/GUIDEMO_ColorBar.c \
+STemWin/GUI_DEMO/GUIDEMO_Conf.c \
+STemWin/GUI_DEMO/GUIDEMO_Cursor.c \
+STemWin/GUI_DEMO/GUIDEMO_Graph.c \
+STemWin/GUI_DEMO/GUIDEMO_IconView.c \
+STemWin/GUI_DEMO/GUIDEMO_Intro.c \
+STemWin/GUI_DEMO/GUIDEMO_Listview.c \
+STemWin/GUI_DEMO/GUIDEMO_RadialMenu.c \
+STemWin/GUI_DEMO/GUIDEMO_Resource.c \
+STemWin/GUI_DEMO/GUIDEMO_Speed.c \
+STemWin/GUI_DEMO/GUIDEMO_Start.c \
+STemWin/GUI_DEMO/GUIDEMO_Treeview.c \
+STemWin/GUI_DEMO/GUIDEMO_VScreen.c \
+STemWin/GUI_DEMO/GUIDEMO.c
+*/
 osThreadId UIHandle;
 void UI_task(void *pvparameters)
 {
 
   LCD_Init();
-  LCD_Clear(0xFF00);
+  /*
+  LCD_Clear(0xFFFF);  
   LCD_DrawLine();
-
   HAL_Delay(3000);
+  */
+  WM_SetCreateFlags(WM_CF_MEMDEV);
+  GUI_Init();
 
-  	WM_SetCreateFlags(WM_CF_MEMDEV);
-	GUI_Init();
+  GIFTask();
   CreateSoftWare();
   HeadWindow();
- // GUIDEMO_Main();
+//  GUIDEMO_Main();
   while (1)
   {
     GUI_Exec();
-   // vTaskDelay(1000);
+    // vTaskDelay(1000);
   }
 }
 /* USER CODE END Includes */
@@ -189,7 +212,7 @@ void MX_FREERTOS_Init(void)
   osThreadDef(LED_task, LED_Flicker, osPriorityNormal, 0, 128);
   LEDHandle = osThreadCreate(osThread(LED_task), NULL);
 
-  osThreadDef(UI_task, UI_task, osPriorityBelowNormal, 0, 1024*2);
+  osThreadDef(UI_task, UI_task, osPriorityBelowNormal, 0, 1024 * 2);
   UIHandle = osThreadCreate(osThread(UI_task), NULL);
   /* USER CODE END RTOS_THREADS */
 

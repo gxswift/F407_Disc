@@ -108,7 +108,7 @@ static void _cbDialog(WM_MESSAGE *pMsg)
     sprintf(str, "Compile time:\r\n%s--%s", __DATE__, __TIME__);
     GUI_DispStringHCenterAt(str, 240, 120);
 
-    sprintf(str, "Drop disconnect!");
+    sprintf(str, "emwin test!");
     GUI_DispStringHCenterAt(str, 240, 170);
 
     break;
