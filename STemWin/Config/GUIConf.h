@@ -59,7 +59,7 @@ Purpose     : Configures emWins abilities, fonts etc.
 *       Multi layer/display support
 */
 #define GUI_NUM_LAYERS            1    // Maximum number of available layers
-
+#define OS_SUPPORT
 /*********************************************************************
 *
 *       Multi tasking support

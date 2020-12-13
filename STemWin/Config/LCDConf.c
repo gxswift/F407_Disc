@@ -43,7 +43,7 @@ Purpose     : Display controller configuration (single layer)
 */
 #include "GUI.h"
 #include "GUIDRV_FlexColor.h"
-#include "lcd/bsp_lcd.h"
+#include "lcd.h"
 
 /*********************************************************************
 *
@@ -54,8 +54,8 @@ Purpose     : Display controller configuration (single layer)
 //
 // 显示尺寸
 //
-#define XSIZE_PHYS            LCD_DEFAULT_WIDTH    //【修改】
-#define YSIZE_PHYS            LCD_DEFAULT_HEIGTH   //【修改】
+#define XSIZE_PHYS            480    //【修改】
+#define YSIZE_PHYS            320   //【修改】
 /*
 #define TOUCH_AD_TOP 	 			  226    //YPhys0
 #define TOUCH_AD_BOTTOM  			3854   //YPhys1

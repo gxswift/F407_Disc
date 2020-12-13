@@ -27,6 +27,10 @@ typedef struct
 #define D2U_R2L 7 //从下到上,从右到左
 
 
+void LCD_WRITE_CMD(uint16_t data);
+void LCD_WRITE_DATA(uint16_t data);
+uint16_t LCD_READ_DATA(void);
+
 void LCD_Init(void);
 void LCD_Clear(uint16_t Color);
 void LCD_DrawLine();

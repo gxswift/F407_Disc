@@ -103,7 +103,13 @@ Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc.c \
 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c \
 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_data.c \
 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c \
-user/lcd.c
+user/lcd.c \
+STemWin/Config/GUIConf.c \
+STemWin/Config/LCDConf.c \
+STemWin/GUI_X/GUI_X_OS.c \
+$(shell find ./STemWin/GUI_Demo -name '*.c') \
+UI/info.c \
+UI/head.c
 # ASM sources
 ASM_SOURCES =  \
 startup_stm32f407xx.s
@@ -172,9 +178,10 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
 -IDrivers/CMSIS/Include\
 -IDrivers/CMSIS/Include\
--Iuser
-
-
+-Iuser\
+-ISTemWin/inc\
+-ISTemWin/Config\
+-ISTemWin/GUI_Demo
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
@@ -197,6 +204,9 @@ LDSCRIPT = STM32F407ZGTx_FLASH.ld
 
 # libraries
 LIBS = -lc -lm -lnosys 
+LIBS += STemWin/Lib/STemWin_CM4_OS_wc32_ot.a \
+#Drivers/CMSIS/Lib/GCC/libarm_cortexM4l_math.a \
+#Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a
 LIBDIR = 
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 

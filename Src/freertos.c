@@ -57,6 +57,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "lcd.h"
+#include "GUIDEMO.h"
+#include "GUI.h"
 /*
 void LCD_Init(void);
 void LCD_Clear(uin16_t Color);
@@ -81,16 +83,27 @@ void LED_Flicker(void *pvparameters)
   }
 }
 
+extern WM_HWIN CreateSoftWare(void);
+extern WM_HWIN HeadWindow(void);
 osThreadId UIHandle;
 void UI_task(void *pvparameters)
 {
+
   LCD_Init();
   LCD_Clear(0xFF00);
   LCD_DrawLine();
 
+  HAL_Delay(3000);
+
+  	WM_SetCreateFlags(WM_CF_MEMDEV);
+	GUI_Init();
+  CreateSoftWare();
+  HeadWindow();
+ // GUIDEMO_Main();
   while (1)
   {
-    vTaskDelay(1000);
+    GUI_Exec();
+   // vTaskDelay(1000);
   }
 }
 /* USER CODE END Includes */
@@ -176,8 +189,8 @@ void MX_FREERTOS_Init(void)
   osThreadDef(LED_task, LED_Flicker, osPriorityNormal, 0, 128);
   LEDHandle = osThreadCreate(osThread(LED_task), NULL);
 
-  osThreadDef(UI_task, UI_task, osPriorityNormal, 0, 128);
-  LEDHandle = osThreadCreate(osThread(UI_task), NULL);
+  osThreadDef(UI_task, UI_task, osPriorityBelowNormal, 0, 1024*2);
+  UIHandle = osThreadCreate(osThread(UI_task), NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
