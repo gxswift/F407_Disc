@@ -43,7 +43,7 @@ Purpose     : Config / System dependent externals for GUI
 */
 
 #include "GUI.h"
-#include "touch/bsp_touch.h"
+#include "touch.h"
 void GUI_TOUCH_X_ActivateX(void) {
 }
 
@@ -61,7 +61,7 @@ int  GUI_TOUCH_X_MeasureY(void) {
 
 
 int  GUI_TOUCH_X_MeasureY(void) {
-  return XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_Y);//4095-
+  return 4095-XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_Y);//4095-
 }
 
 int  GUI_TOUCH_X_MeasureX(void) {

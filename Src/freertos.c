@@ -55,10 +55,11 @@
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
+/* USER CODE BEGIN Includes */     
 #include "lcd.h"
 #include "GUIDEMO.h"
 #include "GUI.h"
+#include "touch.h"
 /*
 void LCD_Init(void);
 void LCD_Clear(uin16_t Color);
@@ -73,7 +74,7 @@ void LED_Flicker(void *pvparameters)
   while (1)
   {
     HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9 | GPIO_PIN_10);
-    vTaskDelay(500);
+    vTaskDelay(2000);
 
     vTaskList((char *)&pWriteBuffer);
     printf("[task information]\r\n");
@@ -129,6 +130,16 @@ void UI_task(void *pvparameters)
     // vTaskDelay(1000);
   }
 }
+osThreadId TouchHandle;
+static void Touch_task(void *pvParameters)//触摸
+{
+	while(1)
+	{
+		GUI_TOUCH_Exec();	
+		vTaskDelay(10);
+	}
+}
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -157,7 +168,7 @@ osThreadId defaultTaskHandle;
 
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const *argument);
+void StartDefaultTask(void const * argument);
 
 extern void MX_FATFS_Init(void);
 extern void MX_USB_DEVICE_Init(void);
@@ -184,8 +195,7 @@ __weak void PostSleepProcessing(uint32_t *ulExpectedIdleTime)
   * @param  None
   * @retval None
   */
-void MX_FREERTOS_Init(void)
-{
+void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
@@ -214,6 +224,9 @@ void MX_FREERTOS_Init(void)
 
   osThreadDef(UI_task, UI_task, osPriorityBelowNormal, 0, 1024 * 2);
   UIHandle = osThreadCreate(osThread(UI_task), NULL);
+
+    osThreadDef(touch_task, Touch_task, osPriorityBelowNormal, 0, 512);
+  TouchHandle = osThreadCreate(osThread(touch_task), NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
@@ -228,7 +241,7 @@ void MX_FREERTOS_Init(void)
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const *argument)
+void StartDefaultTask(void const * argument)
 {
   /* init code for FATFS */
   MX_FATFS_Init();

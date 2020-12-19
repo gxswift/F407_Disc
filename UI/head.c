@@ -31,7 +31,7 @@
 **********************************************************************
 */
 #define ID_WINDOW_0 (GUI_ID_USER + 0x00)
-
+#define ID_IMAGE_0 (GUI_ID_USER + 0x02)
 // USER START (Optionally insert additional defines)
 // USER END
 
@@ -50,11 +50,12 @@
 *       _aDialogCreate
 */
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
-	{WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 480, 30, 0, 0x0, 0},
+	{WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 480, 40, 0, 0x0, 0},
+	{IMAGE_CreateIndirect, "Image", ID_IMAGE_0, 0, 0, 100, 40, 0, 0, 0},
 	// USER START (Optionally insert additional widgets)
 	// USER END
 };
-
+//IMAGE_CF_TILE		IMAGE_CF_ALPHA
 /*********************************************************************
 *
 *       Static code
@@ -74,16 +75,28 @@ char str_time[15];
 RTC_TimeTypeDef RTC_Time;
 RTC_DateTypeDef RTC_Date;
 
+extern unsigned char acPic[37641UL + 1];
 static void _cbDialog(WM_MESSAGE *pMsg)
 {
-
+	WM_HWIN hItem;
 	GUI_RECT Rect;
-
+	U32 FileSize;
 	// USER START (Optionally insert additional variables)
 	// USER END
 
 	switch (pMsg->MsgId)
 	{
+	case WM_INIT_DIALOG:
+		//
+		// Initialization of 'Image'
+		//
+		hItem = WM_GetDialogItem(pMsg->hWin, ID_IMAGE_0);
+		//	GUI_GIF_GetInfo(acPic, sizeof(acPic), &GifInfo);
+
+		IMAGE_SetGIF(hItem, acPic, sizeof(acPic));
+		// USER START (Optionally insert additional code for further widget initialization)
+		// USER END
+		break;
 		// USER START (Optionally insert additional message handling)
 	case WM_TIMER:
 
@@ -95,27 +108,27 @@ static void _cbDialog(WM_MESSAGE *pMsg)
 		Rect.x0 = 400;
 		Rect.x1 = 480;
 		Rect.y0 = 0;
-		Rect.y1 = 30;
+		Rect.y1 = 40;
 
 		WM_InvalidateArea(&Rect);
 		//WM_InvalidateWindow(pMsg->hWin);
 		break;
 	case WM_PAINT:
-		GUI_DrawGradientV(0, 0, 479, 15, GUI_LIGHTBLUE, 0x00FF3030);
-		GUI_DrawGradientV(0, 15, 479, 30, 0x00FF3030, GUI_LIGHTBLUE);
+		GUI_DrawGradientV(100 ,0, 479, 20, GUI_LIGHTBLUE, 0x00FF3030);
+		GUI_DrawGradientV(100, 15, 479, 40, 0x00FF3030, GUI_LIGHTBLUE);
 
 		GUI_SetTextMode(GUI_TM_TRANS);
 		GUI_SetFont(GUI_FONT_20B_1);
 		GUI_SetColor(GUI_BLACK);
 		GUI_DispStringHCenterAt("GX emwin test", 240, 5);
 
-		GUI_SetFont(GUI_FONT_13B_1);
+		GUI_SetFont(GUI_FONT_16B_1);
 		if (1)
 		{
 			sprintf(str_time, "%02d:%02d:%02d", RTC_Time.Hours, RTC_Time.Minutes, RTC_Time.Seconds);
 			GUI_DispStringHCenterAt(str_time, 440, 2);
 			sprintf(str_time, "20%02d/%d/%d", RTC_Date.Year, RTC_Date.Month, RTC_Date.Date);
-			GUI_DispStringHCenterAt(str_time, 440, 17);
+			GUI_DispStringHCenterAt(str_time, 440, 22);
 		}
 
 		break;

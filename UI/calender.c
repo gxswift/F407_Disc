@@ -58,7 +58,7 @@
 *       _aDialogCreate
 */
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
-    {WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 30, 480, 320, 0, 0x0, 0},
+    {WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 40, 480, 280, 0, 0x0, 0},
     {SPINBOX_CreateIndirect, "Spinbox", ID_SPINBOX_0, 100, 240, 55, 40, 0, 0x0, 0},
     {SPINBOX_CreateIndirect, "Spinbox", ID_SPINBOX_1, 170, 240, 55, 40, 0, 0x0, 0},
     {SPINBOX_CreateIndirect, "Spinbox", ID_SPINBOX_2, 240, 240, 55, 40, 0, 0x0, 0},
@@ -66,7 +66,7 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
     {CHECKBOX_CreateIndirect, "check", ID_CHECKBOX_0, 345, 40, 100, 20, 0, 0x0, 0},
 
     //	{ BUTTON_CreateIndirect, "Upgrade", ID_BUTTON_0, 350, 70, 80, 40, 0, 0x0, 0 },
-    {BUTTON_CreateIndirect, "EXIT", ID_BUTTON_1, 350, 160, 80, 40, 0, 0x0, 0},
+    {BUTTON_CreateIndirect, "CANCEL", ID_BUTTON_1, 350, 160, 80, 40, 0, 0x0, 0},
     {BUTTON_CreateIndirect, "OK", ID_BUTTON_2, 350, 230, 80, 40, 0, 0x0, 0},
 
     // USER START (Optionally insert additional widgets)
@@ -117,7 +117,7 @@ static void _cbDialog(WM_MESSAGE *pMsg)
   switch (pMsg->MsgId)
   {
   case WM_PAINT:
-    GUI_DrawGradientV(0, 0, 479, 319, GUI_LIGHTBLUE, GUI_BLUE);
+    GUI_DrawGradientV(0, 0, 479, 280, GUI_LIGHTBLUE, GUI_BLUE);
 
     GUI_SetTextMode(GUI_TM_TRANS);
     GUI_SetColor(GUI_BLACK);
@@ -148,7 +148,6 @@ static void _cbDialog(WM_MESSAGE *pMsg)
       hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1 + i);
 
       BUTTON_SetFont(hItem, &GUI_Font20_1);
-      BUTTON_SetText(hItem, "Cancel");
     }
 
     hItem = WM_GetDialogItem(pMsg->hWin, ID_SPINBOX_0);

@@ -54,7 +54,7 @@
 *       _aDialogCreate
 */
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
-    {WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 30, 480, 320, 0, 0x0, 0},
+    {WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 40, 480, 280, 0, 0x0, 0},
     // USER START (Optionally insert additional widgets)
     {BUTTON_CreateIndirect, "Return", ID_BUTTON_0, 300, 210, 80, 40, 0, 0x0, 0},
     {BUTTON_CreateIndirect, "Upgrade", ID_BUTTON_1, 100, 210, 80, 40, 0, 0x0, 0},
@@ -79,6 +79,7 @@ char str[40];
 *
 *       _cbDialog
 */
+extern WM_HWIN CalenderWindow(void);
 static void _cbDialog(WM_MESSAGE *pMsg)
 {
 
@@ -93,7 +94,7 @@ static void _cbDialog(WM_MESSAGE *pMsg)
   switch (pMsg->MsgId)
   {
   case WM_PAINT:
-    GUI_DrawGradientV(0, 0, 479, 319, GUI_LIGHTBLUE, GUI_BLUE);
+    GUI_DrawGradientV(0, 0, 479, 280, GUI_LIGHTBLUE, GUI_BLUE);
     GUI_SetTextMode(GUI_TM_TRANS);
     GUI_SetFont(GUI_FONT_20_1);
     ver_h = VH;
@@ -145,6 +146,7 @@ static void _cbDialog(WM_MESSAGE *pMsg)
         // USER START (Optionally insert code for reacting on notification message)
         hItem = pMsg->hWin;
         WM_DeleteWindow(hItem);
+        CalenderWindow();
         //	H_Hand = SelectWindow();
         // USER END
         break;
