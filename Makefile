@@ -113,6 +113,7 @@ UI/info.c \
 UI/head.c \
 UI/gif.c \
 UI/calender.c \
+UI/game.c \
 $(shell find ./emWin/GUI_Demo -name '*.c') #GUIDEMO
 
 

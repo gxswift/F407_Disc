@@ -80,6 +80,7 @@ char str[40];
 *       _cbDialog
 */
 extern WM_HWIN CalenderWindow(void);
+extern void Startup(WM_HWIN hWin, uint16_t xpos, uint16_t ypos);
 static void _cbDialog(WM_MESSAGE *pMsg)
 {
 
@@ -171,7 +172,9 @@ static void _cbDialog(WM_MESSAGE *pMsg)
 			FLASH_WaitForLastOperation((uint32_t)5000);
 			HAL_FLASH_Lock();
 			*/
-        NVIC_SystemReset();
+     hItem = pMsg->hWin;
+    Startup(hItem,20,0);
+       // NVIC_SystemReset();
         // USER END
         break;
         // USER START (Optionally insert additional code for further notification handling)
