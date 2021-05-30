@@ -1,0 +1,661 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"GUI_X_OS.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.GUI_X_GetTime,"ax",%progbits
+  18              		.align	1
+  19              		.global	GUI_X_GetTime
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	GUI_X_GetTime:
+  27              	.LFB5:
+  28              		.file 1 "emWin/GUI_X/GUI_X_OS.c"
+   1:emWin/GUI_X/GUI_X_OS.c **** /*********************************************************************
+   2:emWin/GUI_X/GUI_X_OS.c **** *                SEGGER Microcontroller GmbH & Co. KG                *
+   3:emWin/GUI_X/GUI_X_OS.c **** *        Solutions for real time microcontroller applications        *
+   4:emWin/GUI_X/GUI_X_OS.c **** **********************************************************************
+   5:emWin/GUI_X/GUI_X_OS.c **** *                                                                    *
+   6:emWin/GUI_X/GUI_X_OS.c **** *        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+   7:emWin/GUI_X/GUI_X_OS.c **** *                                                                    *
+   8:emWin/GUI_X/GUI_X_OS.c **** *        Internet: www.segger.com    Support:  support@segger.com    *
+   9:emWin/GUI_X/GUI_X_OS.c **** *                                                                    *
+  10:emWin/GUI_X/GUI_X_OS.c **** **********************************************************************
+  11:emWin/GUI_X/GUI_X_OS.c **** 
+  12:emWin/GUI_X/GUI_X_OS.c **** ** emWin V5.44 - Graphical user interface for embedded applications **
+  13:emWin/GUI_X/GUI_X_OS.c **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  14:emWin/GUI_X/GUI_X_OS.c **** emWin is protected by  international copyright laws.  Knowledge of the
+  15:emWin/GUI_X/GUI_X_OS.c **** source code may not be used to write a similar product.  This file may
+  16:emWin/GUI_X/GUI_X_OS.c **** only be used in accordance with the following terms:
+  17:emWin/GUI_X/GUI_X_OS.c **** 
+  18:emWin/GUI_X/GUI_X_OS.c **** The  software has  been licensed  to STMicroelectronics International
+  19:emWin/GUI_X/GUI_X_OS.c **** N.V. a Dutch company with a Swiss branch and its headquarters in Plan-
+  20:emWin/GUI_X/GUI_X_OS.c **** les-Ouates, Geneva, 39 Chemin du Champ des Filles, Switzerland for the
+  21:emWin/GUI_X/GUI_X_OS.c **** purposes of creating libraries for ARM Cortex-M-based 32-bit microcon_
+  22:emWin/GUI_X/GUI_X_OS.c **** troller products commercialized by Licensee only, sublicensed and dis_
+  23:emWin/GUI_X/GUI_X_OS.c **** tributed under the terms and conditions of the End User License Agree_
+  24:emWin/GUI_X/GUI_X_OS.c **** ment supplied by STMicroelectronics International N.V.
+  25:emWin/GUI_X/GUI_X_OS.c **** Full source code is available at: www.segger.com
+  26:emWin/GUI_X/GUI_X_OS.c **** 
+  27:emWin/GUI_X/GUI_X_OS.c **** We appreciate your understanding and fairness.
+  28:emWin/GUI_X/GUI_X_OS.c **** ----------------------------------------------------------------------
+  29:emWin/GUI_X/GUI_X_OS.c **** File        : GUI_X_OS.C
+  30:emWin/GUI_X/GUI_X_OS.c **** Purpose     : This file provides emWin Interface with FreeRTOS
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 2
+
+
+  31:emWin/GUI_X/GUI_X_OS.c **** ---------------------------END-OF-HEADER------------------------------
+  32:emWin/GUI_X/GUI_X_OS.c **** */
+  33:emWin/GUI_X/GUI_X_OS.c **** 
+  34:emWin/GUI_X/GUI_X_OS.c **** /**
+  35:emWin/GUI_X/GUI_X_OS.c ****   ******************************************************************************
+  36:emWin/GUI_X/GUI_X_OS.c ****   * @attention
+  37:emWin/GUI_X/GUI_X_OS.c ****   *
+  38:emWin/GUI_X/GUI_X_OS.c ****   * <h2><center>&copy; Copyright (c) 2018 STMicroelectronics. 
+  39:emWin/GUI_X/GUI_X_OS.c ****   * All rights reserved.</center></h2>
+  40:emWin/GUI_X/GUI_X_OS.c ****   *
+  41:emWin/GUI_X/GUI_X_OS.c ****   * This software component is licensed by ST under Ultimate Liberty license SLA0044,
+  42:emWin/GUI_X/GUI_X_OS.c ****   * the "License"; You may not use this file except in compliance with the License.
+  43:emWin/GUI_X/GUI_X_OS.c ****   * You may obtain a copy of the License at:
+  44:emWin/GUI_X/GUI_X_OS.c ****   *                      http://www.st.com/SLA0044
+  45:emWin/GUI_X/GUI_X_OS.c ****   *
+  46:emWin/GUI_X/GUI_X_OS.c ****   ******************************************************************************
+  47:emWin/GUI_X/GUI_X_OS.c ****   */
+  48:emWin/GUI_X/GUI_X_OS.c **** 
+  49:emWin/GUI_X/GUI_X_OS.c **** /* Includes ------------------------------------------------------------------*/
+  50:emWin/GUI_X/GUI_X_OS.c **** 
+  51:emWin/GUI_X/GUI_X_OS.c **** #include "GUI.h"
+  52:emWin/GUI_X/GUI_X_OS.c ****     
+  53:emWin/GUI_X/GUI_X_OS.c ****     /* FreeRTOS include files */
+  54:emWin/GUI_X/GUI_X_OS.c **** #include "cmsis_os.h"
+  55:emWin/GUI_X/GUI_X_OS.c ****     
+  56:emWin/GUI_X/GUI_X_OS.c **** /*********************************************************************
+  57:emWin/GUI_X/GUI_X_OS.c **** *
+  58:emWin/GUI_X/GUI_X_OS.c **** * Global data
+  59:emWin/GUI_X/GUI_X_OS.c **** */
+  60:emWin/GUI_X/GUI_X_OS.c **** static osMutexId osMutex;
+  61:emWin/GUI_X/GUI_X_OS.c **** static osSemaphoreId osSemaphore;
+  62:emWin/GUI_X/GUI_X_OS.c **** /*********************************************************************
+  63:emWin/GUI_X/GUI_X_OS.c **** *
+  64:emWin/GUI_X/GUI_X_OS.c **** * Timing:
+  65:emWin/GUI_X/GUI_X_OS.c **** * GUI_X_GetTime()
+  66:emWin/GUI_X/GUI_X_OS.c **** * GUI_X_Delay(int)
+  67:emWin/GUI_X/GUI_X_OS.c **** 
+  68:emWin/GUI_X/GUI_X_OS.c **** Some timing dependent routines require a GetTime
+  69:emWin/GUI_X/GUI_X_OS.c **** and delay function. Default time unit (tick), normally is
+  70:emWin/GUI_X/GUI_X_OS.c **** 1 ms.
+  71:emWin/GUI_X/GUI_X_OS.c **** */
+  72:emWin/GUI_X/GUI_X_OS.c **** 
+  73:emWin/GUI_X/GUI_X_OS.c **** int GUI_X_GetTime(void)
+  74:emWin/GUI_X/GUI_X_OS.c **** {
+  29              		.loc 1 74 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  75:emWin/GUI_X/GUI_X_OS.c ****   return ((int) osKernelSysTick());
+  38              		.loc 1 75 3 view .LVU1
+  39              		.loc 1 75 17 is_stmt 0 view .LVU2
+  40 0002 FFF7FEFF 		bl	osKernelSysTick
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 3
+
+
+  41              	.LVL0:
+  76:emWin/GUI_X/GUI_X_OS.c **** }
+  42              		.loc 1 76 1 view .LVU3
+  43 0006 08BD     		pop	{r3, pc}
+  44              		.cfi_endproc
+  45              	.LFE5:
+  47              		.section	.text.GUI_X_Delay,"ax",%progbits
+  48              		.align	1
+  49              		.global	GUI_X_Delay
+  50              		.syntax unified
+  51              		.thumb
+  52              		.thumb_func
+  53              		.fpu fpv4-sp-d16
+  55              	GUI_X_Delay:
+  56              	.LVL1:
+  57              	.LFB6:
+  77:emWin/GUI_X/GUI_X_OS.c **** 
+  78:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_Delay(int ms)
+  79:emWin/GUI_X/GUI_X_OS.c **** {
+  58              		.loc 1 79 1 is_stmt 1 view -0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		.loc 1 79 1 is_stmt 0 view .LVU5
+  63 0000 08B5     		push	{r3, lr}
+  64              	.LCFI1:
+  65              		.cfi_def_cfa_offset 8
+  66              		.cfi_offset 3, -8
+  67              		.cfi_offset 14, -4
+  80:emWin/GUI_X/GUI_X_OS.c ****   osDelay( ms );
+  68              		.loc 1 80 3 is_stmt 1 view .LVU6
+  69 0002 FFF7FEFF 		bl	osDelay
+  70              	.LVL2:
+  81:emWin/GUI_X/GUI_X_OS.c **** }
+  71              		.loc 1 81 1 is_stmt 0 view .LVU7
+  72 0006 08BD     		pop	{r3, pc}
+  73              		.cfi_endproc
+  74              	.LFE6:
+  76              		.section	.text.GUI_X_Init,"ax",%progbits
+  77              		.align	1
+  78              		.global	GUI_X_Init
+  79              		.syntax unified
+  80              		.thumb
+  81              		.thumb_func
+  82              		.fpu fpv4-sp-d16
+  84              	GUI_X_Init:
+  85              	.LFB7:
+  82:emWin/GUI_X/GUI_X_OS.c **** 
+  83:emWin/GUI_X/GUI_X_OS.c **** /*********************************************************************
+  84:emWin/GUI_X/GUI_X_OS.c **** *
+  85:emWin/GUI_X/GUI_X_OS.c **** * GUI_X_Init()
+  86:emWin/GUI_X/GUI_X_OS.c **** *
+  87:emWin/GUI_X/GUI_X_OS.c **** * Note:
+  88:emWin/GUI_X/GUI_X_OS.c **** * GUI_X_Init() is called from GUI_Init is a possibility to init
+  89:emWin/GUI_X/GUI_X_OS.c **** * some hardware which needs to be up and running before the GUI.
+  90:emWin/GUI_X/GUI_X_OS.c **** * If not required, leave this routine blank.
+  91:emWin/GUI_X/GUI_X_OS.c **** */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 4
+
+
+  92:emWin/GUI_X/GUI_X_OS.c **** 
+  93:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_Init(void) {
+  86              		.loc 1 93 23 is_stmt 1 view -0
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 0
+  89              		@ frame_needed = 0, uses_anonymous_args = 0
+  90              		@ link register save eliminated.
+  94:emWin/GUI_X/GUI_X_OS.c **** }
+  91              		.loc 1 94 1 view .LVU9
+  92 0000 7047     		bx	lr
+  93              		.cfi_endproc
+  94              	.LFE7:
+  96              		.section	.text.GUI_X_ExecIdle,"ax",%progbits
+  97              		.align	1
+  98              		.global	GUI_X_ExecIdle
+  99              		.syntax unified
+ 100              		.thumb
+ 101              		.thumb_func
+ 102              		.fpu fpv4-sp-d16
+ 104              	GUI_X_ExecIdle:
+ 105              	.LFB8:
+  95:emWin/GUI_X/GUI_X_OS.c **** 
+  96:emWin/GUI_X/GUI_X_OS.c **** 
+  97:emWin/GUI_X/GUI_X_OS.c **** /*********************************************************************
+  98:emWin/GUI_X/GUI_X_OS.c **** *
+  99:emWin/GUI_X/GUI_X_OS.c **** * GUI_X_ExecIdle
+ 100:emWin/GUI_X/GUI_X_OS.c **** *
+ 101:emWin/GUI_X/GUI_X_OS.c **** * Note:
+ 102:emWin/GUI_X/GUI_X_OS.c **** * Called if WM is in idle state
+ 103:emWin/GUI_X/GUI_X_OS.c **** */
+ 104:emWin/GUI_X/GUI_X_OS.c **** 
+ 105:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_ExecIdle(void) {}
+ 106              		.loc 1 105 27 view -0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              		@ link register save eliminated.
+ 111              		.loc 1 105 28 view .LVU11
+ 112 0000 7047     		bx	lr
+ 113              		.cfi_endproc
+ 114              	.LFE8:
+ 116              		.section	.text.GUI_X_InitOS,"ax",%progbits
+ 117              		.align	1
+ 118              		.global	GUI_X_InitOS
+ 119              		.syntax unified
+ 120              		.thumb
+ 121              		.thumb_func
+ 122              		.fpu fpv4-sp-d16
+ 124              	GUI_X_InitOS:
+ 125              	.LFB9:
+ 106:emWin/GUI_X/GUI_X_OS.c **** 
+ 107:emWin/GUI_X/GUI_X_OS.c **** /*********************************************************************
+ 108:emWin/GUI_X/GUI_X_OS.c **** *
+ 109:emWin/GUI_X/GUI_X_OS.c **** * Multitasking:
+ 110:emWin/GUI_X/GUI_X_OS.c **** *
+ 111:emWin/GUI_X/GUI_X_OS.c **** * GUI_X_InitOS()
+ 112:emWin/GUI_X/GUI_X_OS.c **** * GUI_X_GetTaskId()
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 5
+
+
+ 113:emWin/GUI_X/GUI_X_OS.c **** * GUI_X_Lock()
+ 114:emWin/GUI_X/GUI_X_OS.c **** * GUI_X_Unlock()
+ 115:emWin/GUI_X/GUI_X_OS.c **** *
+ 116:emWin/GUI_X/GUI_X_OS.c **** * Note:
+ 117:emWin/GUI_X/GUI_X_OS.c **** * The following routines are required only if emWin is used in a
+ 118:emWin/GUI_X/GUI_X_OS.c **** * true multi task environment, which means you have more than one
+ 119:emWin/GUI_X/GUI_X_OS.c **** * thread using the emWin API.
+ 120:emWin/GUI_X/GUI_X_OS.c **** * In this case the
+ 121:emWin/GUI_X/GUI_X_OS.c **** * #define GUI_OS 1
+ 122:emWin/GUI_X/GUI_X_OS.c **** * needs to be in GUIConf.h
+ 123:emWin/GUI_X/GUI_X_OS.c **** */
+ 124:emWin/GUI_X/GUI_X_OS.c **** 
+ 125:emWin/GUI_X/GUI_X_OS.c **** /* Init OS */
+ 126:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_InitOS(void)
+ 127:emWin/GUI_X/GUI_X_OS.c **** { 
+ 126              		.loc 1 127 1 view -0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 8
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130 0000 10B5     		push	{r4, lr}
+ 131              	.LCFI2:
+ 132              		.cfi_def_cfa_offset 8
+ 133              		.cfi_offset 4, -8
+ 134              		.cfi_offset 14, -4
+ 135 0002 82B0     		sub	sp, sp, #8
+ 136              	.LCFI3:
+ 137              		.cfi_def_cfa_offset 16
+ 128:emWin/GUI_X/GUI_X_OS.c ****   /* Create Mutex lock */
+ 129:emWin/GUI_X/GUI_X_OS.c ****   osMutexDef(MUTEX);
+ 138              		.loc 1 129 3 view .LVU13
+ 139 0004 0024     		movs	r4, #0
+ 140 0006 0194     		str	r4, [sp, #4]
+ 130:emWin/GUI_X/GUI_X_OS.c ****   
+ 131:emWin/GUI_X/GUI_X_OS.c ****   /* Create the Mutex used by the two threads */
+ 132:emWin/GUI_X/GUI_X_OS.c ****   osMutex = osMutexCreate(osMutex(MUTEX));
+ 141              		.loc 1 132 3 view .LVU14
+ 142              		.loc 1 132 13 is_stmt 0 view .LVU15
+ 143 0008 01A8     		add	r0, sp, #4
+ 144 000a FFF7FEFF 		bl	osMutexCreate
+ 145              	.LVL3:
+ 146              		.loc 1 132 11 view .LVU16
+ 147 000e 054B     		ldr	r3, .L9
+ 148 0010 1860     		str	r0, [r3]
+ 133:emWin/GUI_X/GUI_X_OS.c ****   
+ 134:emWin/GUI_X/GUI_X_OS.c ****   /* Create Semaphore lock */
+ 135:emWin/GUI_X/GUI_X_OS.c ****   osSemaphoreDef(SEM);
+ 149              		.loc 1 135 3 is_stmt 1 view .LVU17
+ 150 0012 0094     		str	r4, [sp]
+ 136:emWin/GUI_X/GUI_X_OS.c ****   
+ 137:emWin/GUI_X/GUI_X_OS.c ****   /* Create the Semaphore used by the two threads */
+ 138:emWin/GUI_X/GUI_X_OS.c ****   osSemaphore= osSemaphoreCreate(osSemaphore(SEM), 1);  
+ 151              		.loc 1 138 3 view .LVU18
+ 152              		.loc 1 138 16 is_stmt 0 view .LVU19
+ 153 0014 0121     		movs	r1, #1
+ 154 0016 6846     		mov	r0, sp
+ 155 0018 FFF7FEFF 		bl	osSemaphoreCreate
+ 156              	.LVL4:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 6
+
+
+ 157              		.loc 1 138 14 view .LVU20
+ 158 001c 024B     		ldr	r3, .L9+4
+ 159 001e 1860     		str	r0, [r3]
+ 139:emWin/GUI_X/GUI_X_OS.c **** }
+ 160              		.loc 1 139 1 view .LVU21
+ 161 0020 02B0     		add	sp, sp, #8
+ 162              	.LCFI4:
+ 163              		.cfi_def_cfa_offset 8
+ 164              		@ sp needed
+ 165 0022 10BD     		pop	{r4, pc}
+ 166              	.L10:
+ 167              		.align	2
+ 168              	.L9:
+ 169 0024 00000000 		.word	.LANCHOR0
+ 170 0028 00000000 		.word	.LANCHOR1
+ 171              		.cfi_endproc
+ 172              	.LFE9:
+ 174              		.section	.text.GUI_X_Unlock,"ax",%progbits
+ 175              		.align	1
+ 176              		.global	GUI_X_Unlock
+ 177              		.syntax unified
+ 178              		.thumb
+ 179              		.thumb_func
+ 180              		.fpu fpv4-sp-d16
+ 182              	GUI_X_Unlock:
+ 183              	.LFB10:
+ 140:emWin/GUI_X/GUI_X_OS.c **** 
+ 141:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_Unlock(void)
+ 142:emWin/GUI_X/GUI_X_OS.c **** { 
+ 184              		.loc 1 142 1 is_stmt 1 view -0
+ 185              		.cfi_startproc
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188 0000 08B5     		push	{r3, lr}
+ 189              	.LCFI5:
+ 190              		.cfi_def_cfa_offset 8
+ 191              		.cfi_offset 3, -8
+ 192              		.cfi_offset 14, -4
+ 143:emWin/GUI_X/GUI_X_OS.c ****   osMutexRelease(osMutex);
+ 193              		.loc 1 143 3 view .LVU23
+ 194 0002 024B     		ldr	r3, .L13
+ 195 0004 1868     		ldr	r0, [r3]
+ 196 0006 FFF7FEFF 		bl	osMutexRelease
+ 197              	.LVL5:
+ 144:emWin/GUI_X/GUI_X_OS.c **** }
+ 198              		.loc 1 144 1 is_stmt 0 view .LVU24
+ 199 000a 08BD     		pop	{r3, pc}
+ 200              	.L14:
+ 201              		.align	2
+ 202              	.L13:
+ 203 000c 00000000 		.word	.LANCHOR0
+ 204              		.cfi_endproc
+ 205              	.LFE10:
+ 207              		.section	.text.GUI_X_Lock,"ax",%progbits
+ 208              		.align	1
+ 209              		.global	GUI_X_Lock
+ 210              		.syntax unified
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 7
+
+
+ 211              		.thumb
+ 212              		.thumb_func
+ 213              		.fpu fpv4-sp-d16
+ 215              	GUI_X_Lock:
+ 216              	.LFB11:
+ 145:emWin/GUI_X/GUI_X_OS.c **** 
+ 146:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_Lock(void)
+ 147:emWin/GUI_X/GUI_X_OS.c **** {
+ 217              		.loc 1 147 1 is_stmt 1 view -0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221 0000 08B5     		push	{r3, lr}
+ 222              	.LCFI6:
+ 223              		.cfi_def_cfa_offset 8
+ 224              		.cfi_offset 3, -8
+ 225              		.cfi_offset 14, -4
+ 148:emWin/GUI_X/GUI_X_OS.c ****   osMutexWait(osMutex , osWaitForever) ;
+ 226              		.loc 1 148 3 view .LVU26
+ 227 0002 4FF0FF31 		mov	r1, #-1
+ 228 0006 024B     		ldr	r3, .L17
+ 229 0008 1868     		ldr	r0, [r3]
+ 230 000a FFF7FEFF 		bl	osMutexWait
+ 231              	.LVL6:
+ 149:emWin/GUI_X/GUI_X_OS.c **** }
+ 232              		.loc 1 149 1 is_stmt 0 view .LVU27
+ 233 000e 08BD     		pop	{r3, pc}
+ 234              	.L18:
+ 235              		.align	2
+ 236              	.L17:
+ 237 0010 00000000 		.word	.LANCHOR0
+ 238              		.cfi_endproc
+ 239              	.LFE11:
+ 241              		.section	.text.GUI_X_GetTaskId,"ax",%progbits
+ 242              		.align	1
+ 243              		.global	GUI_X_GetTaskId
+ 244              		.syntax unified
+ 245              		.thumb
+ 246              		.thumb_func
+ 247              		.fpu fpv4-sp-d16
+ 249              	GUI_X_GetTaskId:
+ 250              	.LFB12:
+ 150:emWin/GUI_X/GUI_X_OS.c **** 
+ 151:emWin/GUI_X/GUI_X_OS.c **** /* Get Task handle */
+ 152:emWin/GUI_X/GUI_X_OS.c **** U32 GUI_X_GetTaskId(void) 
+ 153:emWin/GUI_X/GUI_X_OS.c **** { 
+ 251              		.loc 1 153 1 is_stmt 1 view -0
+ 252              		.cfi_startproc
+ 253              		@ args = 0, pretend = 0, frame = 0
+ 254              		@ frame_needed = 0, uses_anonymous_args = 0
+ 255 0000 08B5     		push	{r3, lr}
+ 256              	.LCFI7:
+ 257              		.cfi_def_cfa_offset 8
+ 258              		.cfi_offset 3, -8
+ 259              		.cfi_offset 14, -4
+ 154:emWin/GUI_X/GUI_X_OS.c ****   return ((U32) osThreadGetId());
+ 260              		.loc 1 154 3 view .LVU29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 8
+
+
+ 261              		.loc 1 154 17 is_stmt 0 view .LVU30
+ 262 0002 FFF7FEFF 		bl	osThreadGetId
+ 263              	.LVL7:
+ 155:emWin/GUI_X/GUI_X_OS.c **** }
+ 264              		.loc 1 155 1 view .LVU31
+ 265 0006 08BD     		pop	{r3, pc}
+ 266              		.cfi_endproc
+ 267              	.LFE12:
+ 269              		.section	.text.GUI_X_WaitEvent,"ax",%progbits
+ 270              		.align	1
+ 271              		.global	GUI_X_WaitEvent
+ 272              		.syntax unified
+ 273              		.thumb
+ 274              		.thumb_func
+ 275              		.fpu fpv4-sp-d16
+ 277              	GUI_X_WaitEvent:
+ 278              	.LFB13:
+ 156:emWin/GUI_X/GUI_X_OS.c **** 
+ 157:emWin/GUI_X/GUI_X_OS.c **** 
+ 158:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_WaitEvent (void) 
+ 159:emWin/GUI_X/GUI_X_OS.c **** {
+ 279              		.loc 1 159 1 is_stmt 1 view -0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283 0000 08B5     		push	{r3, lr}
+ 284              	.LCFI8:
+ 285              		.cfi_def_cfa_offset 8
+ 286              		.cfi_offset 3, -8
+ 287              		.cfi_offset 14, -4
+ 160:emWin/GUI_X/GUI_X_OS.c ****   osSemaphoreWait(osSemaphore , osWaitForever) ;
+ 288              		.loc 1 160 3 view .LVU33
+ 289 0002 4FF0FF31 		mov	r1, #-1
+ 290 0006 024B     		ldr	r3, .L23
+ 291 0008 1868     		ldr	r0, [r3]
+ 292 000a FFF7FEFF 		bl	osSemaphoreWait
+ 293              	.LVL8:
+ 161:emWin/GUI_X/GUI_X_OS.c **** }
+ 294              		.loc 1 161 1 is_stmt 0 view .LVU34
+ 295 000e 08BD     		pop	{r3, pc}
+ 296              	.L24:
+ 297              		.align	2
+ 298              	.L23:
+ 299 0010 00000000 		.word	.LANCHOR1
+ 300              		.cfi_endproc
+ 301              	.LFE13:
+ 303              		.section	.text.GUI_X_SignalEvent,"ax",%progbits
+ 304              		.align	1
+ 305              		.global	GUI_X_SignalEvent
+ 306              		.syntax unified
+ 307              		.thumb
+ 308              		.thumb_func
+ 309              		.fpu fpv4-sp-d16
+ 311              	GUI_X_SignalEvent:
+ 312              	.LFB14:
+ 162:emWin/GUI_X/GUI_X_OS.c **** 
+ 163:emWin/GUI_X/GUI_X_OS.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 9
+
+
+ 164:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_SignalEvent (void) 
+ 165:emWin/GUI_X/GUI_X_OS.c **** {
+ 313              		.loc 1 165 1 is_stmt 1 view -0
+ 314              		.cfi_startproc
+ 315              		@ args = 0, pretend = 0, frame = 0
+ 316              		@ frame_needed = 0, uses_anonymous_args = 0
+ 317 0000 08B5     		push	{r3, lr}
+ 318              	.LCFI9:
+ 319              		.cfi_def_cfa_offset 8
+ 320              		.cfi_offset 3, -8
+ 321              		.cfi_offset 14, -4
+ 166:emWin/GUI_X/GUI_X_OS.c ****   osMutexRelease(osSemaphore);
+ 322              		.loc 1 166 3 view .LVU36
+ 323 0002 024B     		ldr	r3, .L27
+ 324 0004 1868     		ldr	r0, [r3]
+ 325 0006 FFF7FEFF 		bl	osMutexRelease
+ 326              	.LVL9:
+ 167:emWin/GUI_X/GUI_X_OS.c **** }
+ 327              		.loc 1 167 1 is_stmt 0 view .LVU37
+ 328 000a 08BD     		pop	{r3, pc}
+ 329              	.L28:
+ 330              		.align	2
+ 331              	.L27:
+ 332 000c 00000000 		.word	.LANCHOR1
+ 333              		.cfi_endproc
+ 334              	.LFE14:
+ 336              		.section	.text.GUI_X_Log,"ax",%progbits
+ 337              		.align	1
+ 338              		.global	GUI_X_Log
+ 339              		.syntax unified
+ 340              		.thumb
+ 341              		.thumb_func
+ 342              		.fpu fpv4-sp-d16
+ 344              	GUI_X_Log:
+ 345              	.LVL10:
+ 346              	.LFB15:
+ 168:emWin/GUI_X/GUI_X_OS.c **** 
+ 169:emWin/GUI_X/GUI_X_OS.c **** /*********************************************************************
+ 170:emWin/GUI_X/GUI_X_OS.c **** *
+ 171:emWin/GUI_X/GUI_X_OS.c **** * Logging: OS dependent
+ 172:emWin/GUI_X/GUI_X_OS.c **** 
+ 173:emWin/GUI_X/GUI_X_OS.c **** Note:
+ 174:emWin/GUI_X/GUI_X_OS.c **** Logging is used in higher debug levels only. The typical target
+ 175:emWin/GUI_X/GUI_X_OS.c **** build does not use logging and does therefor not require any of
+ 176:emWin/GUI_X/GUI_X_OS.c **** the logging routines below. For a release build without logging
+ 177:emWin/GUI_X/GUI_X_OS.c **** the routines below may be eliminated to save some space.
+ 178:emWin/GUI_X/GUI_X_OS.c **** (If the linker is not function aware and eliminates unreferenced
+ 179:emWin/GUI_X/GUI_X_OS.c **** functions automatically)
+ 180:emWin/GUI_X/GUI_X_OS.c **** 
+ 181:emWin/GUI_X/GUI_X_OS.c **** */
+ 182:emWin/GUI_X/GUI_X_OS.c **** 
+ 183:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_Log (const char *s) { }
+ 347              		.loc 1 183 32 is_stmt 1 view -0
+ 348              		.cfi_startproc
+ 349              		@ args = 0, pretend = 0, frame = 0
+ 350              		@ frame_needed = 0, uses_anonymous_args = 0
+ 351              		@ link register save eliminated.
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 10
+
+
+ 352              		.loc 1 183 34 view .LVU39
+ 353 0000 7047     		bx	lr
+ 354              		.cfi_endproc
+ 355              	.LFE15:
+ 357              		.section	.text.GUI_X_Warn,"ax",%progbits
+ 358              		.align	1
+ 359              		.global	GUI_X_Warn
+ 360              		.syntax unified
+ 361              		.thumb
+ 362              		.thumb_func
+ 363              		.fpu fpv4-sp-d16
+ 365              	GUI_X_Warn:
+ 366              	.LVL11:
+ 367              	.LFB16:
+ 184:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_Warn (const char *s) { }
+ 368              		.loc 1 184 33 view -0
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 0
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372              		@ link register save eliminated.
+ 373              		.loc 1 184 35 view .LVU41
+ 374 0000 7047     		bx	lr
+ 375              		.cfi_endproc
+ 376              	.LFE16:
+ 378              		.section	.text.GUI_X_ErrorOut,"ax",%progbits
+ 379              		.align	1
+ 380              		.global	GUI_X_ErrorOut
+ 381              		.syntax unified
+ 382              		.thumb
+ 383              		.thumb_func
+ 384              		.fpu fpv4-sp-d16
+ 386              	GUI_X_ErrorOut:
+ 387              	.LVL12:
+ 388              	.LFB17:
+ 185:emWin/GUI_X/GUI_X_OS.c **** void GUI_X_ErrorOut(const char *s) { }
+ 389              		.loc 1 185 36 view -0
+ 390              		.cfi_startproc
+ 391              		@ args = 0, pretend = 0, frame = 0
+ 392              		@ frame_needed = 0, uses_anonymous_args = 0
+ 393              		@ link register save eliminated.
+ 394              		.loc 1 185 38 view .LVU43
+ 395 0000 7047     		bx	lr
+ 396              		.cfi_endproc
+ 397              	.LFE17:
+ 399              		.section	.bss.osMutex,"aw",%nobits
+ 400              		.align	2
+ 401              		.set	.LANCHOR0,. + 0
+ 404              	osMutex:
+ 405 0000 00000000 		.space	4
+ 406              		.section	.bss.osSemaphore,"aw",%nobits
+ 407              		.align	2
+ 408              		.set	.LANCHOR1,. + 0
+ 411              	osSemaphore:
+ 412 0000 00000000 		.space	4
+ 413              		.text
+ 414              	.Letext0:
+ 415              		.file 2 "emWin/inc/LCD.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 11
+
+
+ 416              		.file 3 "emWin/inc/GUI.h"
+ 417              		.file 4 "emWin/inc/GUI_Type.h"
+ 418              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 419              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 420              		.file 7 "Inc/FreeRTOSConfig.h"
+ 421              		.file 8 "Middlewares/Third_Party/FreeRTOS/Source/include/queue.h"
+ 422              		.file 9 "Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h"
+ 423              		.file 10 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cco4YNjP.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 GUI_X_OS.c
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:18     .text.GUI_X_GetTime:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:26     .text.GUI_X_GetTime:00000000 GUI_X_GetTime
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:48     .text.GUI_X_Delay:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:55     .text.GUI_X_Delay:00000000 GUI_X_Delay
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:77     .text.GUI_X_Init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:84     .text.GUI_X_Init:00000000 GUI_X_Init
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:97     .text.GUI_X_ExecIdle:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:104    .text.GUI_X_ExecIdle:00000000 GUI_X_ExecIdle
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:117    .text.GUI_X_InitOS:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:124    .text.GUI_X_InitOS:00000000 GUI_X_InitOS
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:169    .text.GUI_X_InitOS:00000024 $d
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:175    .text.GUI_X_Unlock:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:182    .text.GUI_X_Unlock:00000000 GUI_X_Unlock
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:203    .text.GUI_X_Unlock:0000000c $d
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:208    .text.GUI_X_Lock:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:215    .text.GUI_X_Lock:00000000 GUI_X_Lock
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:237    .text.GUI_X_Lock:00000010 $d
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:242    .text.GUI_X_GetTaskId:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:249    .text.GUI_X_GetTaskId:00000000 GUI_X_GetTaskId
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:270    .text.GUI_X_WaitEvent:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:277    .text.GUI_X_WaitEvent:00000000 GUI_X_WaitEvent
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:299    .text.GUI_X_WaitEvent:00000010 $d
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:304    .text.GUI_X_SignalEvent:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:311    .text.GUI_X_SignalEvent:00000000 GUI_X_SignalEvent
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:332    .text.GUI_X_SignalEvent:0000000c $d
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:337    .text.GUI_X_Log:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:344    .text.GUI_X_Log:00000000 GUI_X_Log
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:358    .text.GUI_X_Warn:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:365    .text.GUI_X_Warn:00000000 GUI_X_Warn
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:379    .text.GUI_X_ErrorOut:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:386    .text.GUI_X_ErrorOut:00000000 GUI_X_ErrorOut
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:400    .bss.osMutex:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:404    .bss.osMutex:00000000 osMutex
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:407    .bss.osSemaphore:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cco4YNjP.s:411    .bss.osSemaphore:00000000 osSemaphore
+
+UNDEFINED SYMBOLS
+osKernelSysTick
+osDelay
+osMutexCreate
+osSemaphoreCreate
+osMutexRelease
+osMutexWait
+osThreadGetId
+osSemaphoreWait

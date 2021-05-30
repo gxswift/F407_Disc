@@ -158,7 +158,7 @@ int main(void)
   MX_I2C1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  printf("Compiled %s %s\r\n",__DATE__,__TIME__);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

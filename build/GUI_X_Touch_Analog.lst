@@ -1,0 +1,221 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"GUI_X_Touch_Analog.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.GUI_TOUCH_X_ActivateX,"ax",%progbits
+  18              		.align	1
+  19              		.global	GUI_TOUCH_X_ActivateX
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	GUI_TOUCH_X_ActivateX:
+  27              	.LFB126:
+  28              		.file 1 "emWin/GUI_X/GUI_X_Touch_Analog.c"
+   1:emWin/GUI_X/GUI_X_Touch_Analog.c **** /*********************************************************************
+   2:emWin/GUI_X/GUI_X_Touch_Analog.c **** *                SEGGER Microcontroller GmbH & Co. KG                *
+   3:emWin/GUI_X/GUI_X_Touch_Analog.c **** *        Solutions for real time microcontroller applications        *
+   4:emWin/GUI_X/GUI_X_Touch_Analog.c **** **********************************************************************
+   5:emWin/GUI_X/GUI_X_Touch_Analog.c **** *                                                                    *
+   6:emWin/GUI_X/GUI_X_Touch_Analog.c **** *        (c) 1996 - 2015  SEGGER Microcontroller GmbH & Co. KG       *
+   7:emWin/GUI_X/GUI_X_Touch_Analog.c **** *                                                                    *
+   8:emWin/GUI_X/GUI_X_Touch_Analog.c **** *        Internet: www.segger.com    Support:  support@segger.com    *
+   9:emWin/GUI_X/GUI_X_Touch_Analog.c **** *                                                                    *
+  10:emWin/GUI_X/GUI_X_Touch_Analog.c **** **********************************************************************
+  11:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+  12:emWin/GUI_X/GUI_X_Touch_Analog.c **** ** emWin V5.30 - Graphical user interface for embedded applications **
+  13:emWin/GUI_X/GUI_X_Touch_Analog.c **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  14:emWin/GUI_X/GUI_X_Touch_Analog.c **** emWin is protected by  international copyright laws.  Knowledge of the
+  15:emWin/GUI_X/GUI_X_Touch_Analog.c **** source code may not be used to write a similar product.  This file may
+  16:emWin/GUI_X/GUI_X_Touch_Analog.c **** only be used in accordance with the following terms:
+  17:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+  18:emWin/GUI_X/GUI_X_Touch_Analog.c **** The software has been licensed to  ARM LIMITED whose registered office
+  19:emWin/GUI_X/GUI_X_Touch_Analog.c **** is situated at  110 Fulbourn Road,  Cambridge CB1 9NJ,  England solely
+  20:emWin/GUI_X/GUI_X_Touch_Analog.c **** for  the  purposes  of  creating  libraries  for  ARM7, ARM9, Cortex-M
+  21:emWin/GUI_X/GUI_X_Touch_Analog.c **** series,  and   Cortex-R4   processor-based  devices,  sublicensed  and
+  22:emWin/GUI_X/GUI_X_Touch_Analog.c **** distributed as part of the  MDK-ARM  Professional  under the terms and
+  23:emWin/GUI_X/GUI_X_Touch_Analog.c **** conditions  of  the   End  User  License  supplied  with  the  MDK-ARM
+  24:emWin/GUI_X/GUI_X_Touch_Analog.c **** Professional. 
+  25:emWin/GUI_X/GUI_X_Touch_Analog.c **** Full source code is available at: www.segger.com
+  26:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+  27:emWin/GUI_X/GUI_X_Touch_Analog.c **** We appreciate your understanding and fairness.
+  28:emWin/GUI_X/GUI_X_Touch_Analog.c **** ----------------------------------------------------------------------
+  29:emWin/GUI_X/GUI_X_Touch_Analog.c **** Licensing information
+  30:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s 			page 2
+
+
+  31:emWin/GUI_X/GUI_X_Touch_Analog.c **** Licensor:                 SEGGER Software GmbH
+  32:emWin/GUI_X/GUI_X_Touch_Analog.c **** Licensed to:              ARM Ltd
+  33:emWin/GUI_X/GUI_X_Touch_Analog.c **** Licensed SEGGER software: emWin
+  34:emWin/GUI_X/GUI_X_Touch_Analog.c **** License number:           GUI-00181
+  35:emWin/GUI_X/GUI_X_Touch_Analog.c **** License model:            LES-SLA-20007, Agreement, effective since October 1st 2011 
+  36:emWin/GUI_X/GUI_X_Touch_Analog.c **** Licensed product:         MDK-ARM Professional
+  37:emWin/GUI_X/GUI_X_Touch_Analog.c **** Licensed platform:        ARM7/9, Cortex-M/R4
+  38:emWin/GUI_X/GUI_X_Touch_Analog.c **** Licensed number of seats: -
+  39:emWin/GUI_X/GUI_X_Touch_Analog.c **** ----------------------------------------------------------------------
+  40:emWin/GUI_X/GUI_X_Touch_Analog.c **** File        : GUI_TOUCH_X.C
+  41:emWin/GUI_X/GUI_X_Touch_Analog.c **** Purpose     : Config / System dependent externals for GUI
+  42:emWin/GUI_X/GUI_X_Touch_Analog.c **** ---------------------------END-OF-HEADER------------------------------
+  43:emWin/GUI_X/GUI_X_Touch_Analog.c **** */
+  44:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+  45:emWin/GUI_X/GUI_X_Touch_Analog.c **** #include "GUI.h"
+  46:emWin/GUI_X/GUI_X_Touch_Analog.c **** #include "touch.h"
+  47:emWin/GUI_X/GUI_X_Touch_Analog.c **** void GUI_TOUCH_X_ActivateX(void) {
+  29              		.loc 1 47 34 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  48:emWin/GUI_X/GUI_X_Touch_Analog.c **** }
+  34              		.loc 1 48 1 view .LVU1
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE126:
+  39              		.section	.text.GUI_TOUCH_X_ActivateY,"ax",%progbits
+  40              		.align	1
+  41              		.global	GUI_TOUCH_X_ActivateY
+  42              		.syntax unified
+  43              		.thumb
+  44              		.thumb_func
+  45              		.fpu fpv4-sp-d16
+  47              	GUI_TOUCH_X_ActivateY:
+  48              	.LFB127:
+  49:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+  50:emWin/GUI_X/GUI_X_Touch_Analog.c **** void GUI_TOUCH_X_ActivateY(void) {
+  49              		.loc 1 50 34 view -0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53              		@ link register save eliminated.
+  51:emWin/GUI_X/GUI_X_Touch_Analog.c **** }
+  54              		.loc 1 51 1 view .LVU3
+  55 0000 7047     		bx	lr
+  56              		.cfi_endproc
+  57              	.LFE127:
+  59              		.section	.text.GUI_TOUCH_X_MeasureY,"ax",%progbits
+  60              		.align	1
+  61              		.global	GUI_TOUCH_X_MeasureY
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  65              		.fpu fpv4-sp-d16
+  67              	GUI_TOUCH_X_MeasureY:
+  68              	.LFB128:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s 			page 3
+
+
+  52:emWin/GUI_X/GUI_X_Touch_Analog.c **** /*
+  53:emWin/GUI_X/GUI_X_Touch_Analog.c **** int  GUI_TOUCH_X_MeasureX(void) {
+  54:emWin/GUI_X/GUI_X_Touch_Analog.c ****   return XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_Y);
+  55:emWin/GUI_X/GUI_X_Touch_Analog.c **** }
+  56:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+  57:emWin/GUI_X/GUI_X_Touch_Analog.c **** int  GUI_TOUCH_X_MeasureY(void) {
+  58:emWin/GUI_X/GUI_X_Touch_Analog.c ****   return XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_X);
+  59:emWin/GUI_X/GUI_X_Touch_Analog.c **** }
+  60:emWin/GUI_X/GUI_X_Touch_Analog.c **** */
+  61:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+  62:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+  63:emWin/GUI_X/GUI_X_Touch_Analog.c **** int  GUI_TOUCH_X_MeasureY(void) {
+  69              		.loc 1 63 33 view -0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73 0000 08B5     		push	{r3, lr}
+  74              	.LCFI0:
+  75              		.cfi_def_cfa_offset 8
+  76              		.cfi_offset 3, -8
+  77              		.cfi_offset 14, -4
+  64:emWin/GUI_X/GUI_X_Touch_Analog.c ****   return 4095-XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_Y);//4095-
+  78              		.loc 1 64 3 view .LVU5
+  79              		.loc 1 64 15 is_stmt 0 view .LVU6
+  80 0002 D020     		movs	r0, #208
+  81 0004 FFF7FEFF 		bl	XPT2046_ReadAdc_Fliter
+  82              	.LVL0:
+  65:emWin/GUI_X/GUI_X_Touch_Analog.c **** }
+  83              		.loc 1 65 1 view .LVU7
+  84 0008 C0F57F60 		rsb	r0, r0, #4080
+  85 000c 0F30     		adds	r0, r0, #15
+  86 000e 08BD     		pop	{r3, pc}
+  87              		.cfi_endproc
+  88              	.LFE128:
+  90              		.section	.text.GUI_TOUCH_X_MeasureX,"ax",%progbits
+  91              		.align	1
+  92              		.global	GUI_TOUCH_X_MeasureX
+  93              		.syntax unified
+  94              		.thumb
+  95              		.thumb_func
+  96              		.fpu fpv4-sp-d16
+  98              	GUI_TOUCH_X_MeasureX:
+  99              	.LFB129:
+  66:emWin/GUI_X/GUI_X_Touch_Analog.c **** 
+  67:emWin/GUI_X/GUI_X_Touch_Analog.c **** int  GUI_TOUCH_X_MeasureX(void) {
+ 100              		.loc 1 67 33 is_stmt 1 view -0
+ 101              		.cfi_startproc
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104 0000 08B5     		push	{r3, lr}
+ 105              	.LCFI1:
+ 106              		.cfi_def_cfa_offset 8
+ 107              		.cfi_offset 3, -8
+ 108              		.cfi_offset 14, -4
+  68:emWin/GUI_X/GUI_X_Touch_Analog.c ****   return XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_X);//4095-
+ 109              		.loc 1 68 3 view .LVU9
+ 110              		.loc 1 68 10 is_stmt 0 view .LVU10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s 			page 4
+
+
+ 111 0002 9020     		movs	r0, #144
+ 112 0004 FFF7FEFF 		bl	XPT2046_ReadAdc_Fliter
+ 113              	.LVL1:
+  69:emWin/GUI_X/GUI_X_Touch_Analog.c **** }
+ 114              		.loc 1 69 1 view .LVU11
+ 115 0008 08BD     		pop	{r3, pc}
+ 116              		.cfi_endproc
+ 117              	.LFE129:
+ 119              		.text
+ 120              	.Letext0:
+ 121              		.file 2 "emWin/inc/LCD.h"
+ 122              		.file 3 "emWin/inc/GUI.h"
+ 123              		.file 4 "emWin/inc/GUI_Type.h"
+ 124              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 125              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 126              		.file 7 "Drivers/CMSIS/Include/core_cm4.h"
+ 127              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 128              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 129              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 130              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 131              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 132              		.file 13 "user/touch.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 GUI_X_Touch_Analog.c
+C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s:18     .text.GUI_TOUCH_X_ActivateX:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s:26     .text.GUI_TOUCH_X_ActivateX:00000000 GUI_TOUCH_X_ActivateX
+C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s:40     .text.GUI_TOUCH_X_ActivateY:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s:47     .text.GUI_TOUCH_X_ActivateY:00000000 GUI_TOUCH_X_ActivateY
+C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s:60     .text.GUI_TOUCH_X_MeasureY:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s:67     .text.GUI_TOUCH_X_MeasureY:00000000 GUI_TOUCH_X_MeasureY
+C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s:91     .text.GUI_TOUCH_X_MeasureX:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccSfOPt8.s:98     .text.GUI_TOUCH_X_MeasureX:00000000 GUI_TOUCH_X_MeasureX
+
+UNDEFINED SYMBOLS
+XPT2046_ReadAdc_Fliter
