@@ -1003,7 +1003,11 @@ void GIFTask(void)
     {
       i = 0;
       if (++times > 1)
+      {
+        WM_DeleteWindow(hProgBar);
+        WM_DeleteWindow(hProgBar_H);
         break;
+      }
     }
   }
 }

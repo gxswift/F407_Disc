@@ -107,6 +107,7 @@ STemWin/GUI_DEMO/GUIDEMO_Treeview.c \
 STemWin/GUI_DEMO/GUIDEMO_VScreen.c \
 STemWin/GUI_DEMO/GUIDEMO.c
 */
+extern void GUIDEMO_Main(void);
 osThreadId UIHandle;
 void UI_task(void *pvparameters)
 {
@@ -121,9 +122,9 @@ void UI_task(void *pvparameters)
   GUI_Init();
 
   GIFTask();
-  CreateSoftWare();
-  HeadWindow();
-//  GUIDEMO_Main();
+ // CreateSoftWare();
+ // HeadWindow();
+  GUIDEMO_Main();
   while (1)
   {
     GUI_Exec();

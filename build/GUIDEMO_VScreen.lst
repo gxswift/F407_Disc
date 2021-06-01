@@ -1,0 +1,729 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"GUIDEMO_VScreen.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._Loop,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_Loop:
+  26              	.LVL0:
+  27              	.LFB0:
+  28              		.file 1 "emWin/GUI_Demo/GUIDEMO_VScreen.c"
+   1:emWin/GUI_Demo/GUIDEMO_VScreen.c **** /*********************************************************************
+   2:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *          Portions COPYRIGHT 2017 STMicroelectronics                 *
+   3:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *          Portions SEGGER Microcontroller GmbH & Co. KG             *
+   4:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *        Solutions for real time microcontroller applications        *
+   5:emWin/GUI_Demo/GUIDEMO_VScreen.c **** **********************************************************************
+   6:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *                                                                    *
+   7:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *        (c) 1996 - 2015  SEGGER Microcontroller GmbH & Co. KG       *
+   8:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *                                                                    *
+   9:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *        Internet: www.segger.com    Support:  support@segger.com    *
+  10:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *                                                                    *
+  11:emWin/GUI_Demo/GUIDEMO_VScreen.c **** **********************************************************************
+  12:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+  13:emWin/GUI_Demo/GUIDEMO_VScreen.c **** ** emWin V5.28 - Graphical user interface for embedded applications **
+  14:emWin/GUI_Demo/GUIDEMO_VScreen.c **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  15:emWin/GUI_Demo/GUIDEMO_VScreen.c **** emWin is protected by  international copyright laws.  Knowledge of the
+  16:emWin/GUI_Demo/GUIDEMO_VScreen.c **** source code may not be used to write a similar product.  This file may
+  17:emWin/GUI_Demo/GUIDEMO_VScreen.c **** only be used in accordance with the following terms:
+  18:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+  19:emWin/GUI_Demo/GUIDEMO_VScreen.c **** The  software has  been licensed  to STMicroelectronics International
+  20:emWin/GUI_Demo/GUIDEMO_VScreen.c **** N.V. a Dutch company with a Swiss branch and its headquarters in Plan-
+  21:emWin/GUI_Demo/GUIDEMO_VScreen.c **** les-Ouates, Geneva, 39 Chemin du Champ des Filles, Switzerland for the
+  22:emWin/GUI_Demo/GUIDEMO_VScreen.c **** purposes of creating libraries for ARM Cortex-M-based 32-bit microcon_
+  23:emWin/GUI_Demo/GUIDEMO_VScreen.c **** troller products commercialized by Licensee only, sublicensed and dis_
+  24:emWin/GUI_Demo/GUIDEMO_VScreen.c **** tributed under the terms and conditions of the End User License Agree_
+  25:emWin/GUI_Demo/GUIDEMO_VScreen.c **** ment supplied by STMicroelectronics International N.V.
+  26:emWin/GUI_Demo/GUIDEMO_VScreen.c **** Full source code is available at: www.segger.com
+  27:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+  28:emWin/GUI_Demo/GUIDEMO_VScreen.c **** We appreciate your understanding and fairness.
+  29:emWin/GUI_Demo/GUIDEMO_VScreen.c **** ----------------------------------------------------------------------
+  30:emWin/GUI_Demo/GUIDEMO_VScreen.c **** File        : GUIDEMO_VScreen.c
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 2
+
+
+  31:emWin/GUI_Demo/GUIDEMO_VScreen.c **** Purpose     : Virtual screen demo
+  32:emWin/GUI_Demo/GUIDEMO_VScreen.c **** ----------------------------------------------------------------------
+  33:emWin/GUI_Demo/GUIDEMO_VScreen.c **** */
+  34:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+  35:emWin/GUI_Demo/GUIDEMO_VScreen.c **** /**
+  36:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   ******************************************************************************
+  37:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * @file    GUIDEMO_VScreen.c
+  38:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * @author  MCD Application Team
+  39:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * @brief   Virtual screen demo
+  40:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   ******************************************************************************
+  41:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * @attention
+  42:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *
+  43:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * <h2><center>&copy; Copyright © 2017 STMicroelectronics International N.V. 
+  44:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * All rights reserved.</center></h2>
+  45:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *
+  46:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * Redistribution and use in source and binary forms, with or without 
+  47:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * modification, are permitted, provided that the following conditions are met:
+  48:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *
+  49:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * 1. Redistribution of source code must retain the above copyright notice, 
+  50:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *    this list of conditions and the following disclaimer.
+  51:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * 2. Redistributions in binary form must reproduce the above copyright notice,
+  52:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *    this list of conditions and the following disclaimer in the documentation
+  53:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *    and/or other materials provided with the distribution.
+  54:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * 3. Neither the name of STMicroelectronics nor the names of other 
+  55:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *    contributors to this software may be used to endorse or promote products 
+  56:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *    derived from this software without specific written permission.
+  57:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * 4. This software, including modifications and/or derivative works of this 
+  58:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *    software, must execute solely and exclusively on microcontroller or
+  59:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *    microprocessor devices manufactured by or for STMicroelectronics.
+  60:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * 5. Redistribution and use of this software other than as permitted under 
+  61:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *    this license is void and will automatically terminate your rights under 
+  62:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *    this license. 
+  63:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *
+  64:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
+  65:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
+  66:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+  67:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
+  68:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  69:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  70:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  71:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  72:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  73:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  74:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+  75:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  76:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   *
+  77:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   ******************************************************************************
+  78:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   */
+  79:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+  80:emWin/GUI_Demo/GUIDEMO_VScreen.c **** #include <stdlib.h>
+  81:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+  82:emWin/GUI_Demo/GUIDEMO_VScreen.c **** #include "GUIDEMO.h"
+  83:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+  84:emWin/GUI_Demo/GUIDEMO_VScreen.c **** #if (SHOW_GUIDEMO_VSCREEN)
+  85:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+  86:emWin/GUI_Demo/GUIDEMO_VScreen.c **** /*********************************************************************
+  87:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 3
+
+
+  88:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *       Static code
+  89:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *
+  90:emWin/GUI_Demo/GUIDEMO_VScreen.c **** **********************************************************************
+  91:emWin/GUI_Demo/GUIDEMO_VScreen.c **** */
+  92:emWin/GUI_Demo/GUIDEMO_VScreen.c **** /*********************************************************************
+  93:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *
+  94:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *       _Loop
+  95:emWin/GUI_Demo/GUIDEMO_VScreen.c **** */
+  96:emWin/GUI_Demo/GUIDEMO_VScreen.c **** static int _Loop(int y, int d, int n, int Delay) {
+  29              		.loc 1 96 50 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 96 50 is_stmt 0 view .LVU1
+  34 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 24
+  37              		.cfi_offset 3, -24
+  38              		.cfi_offset 4, -20
+  39              		.cfi_offset 5, -16
+  40              		.cfi_offset 6, -12
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43 0002 0546     		mov	r5, r0
+  44 0004 0F46     		mov	r7, r1
+  45 0006 1446     		mov	r4, r2
+  46 0008 1E46     		mov	r6, r3
+  47              	.LVL1:
+  48              	.L3:
+  97:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   do {
+  49              		.loc 1 97 3 is_stmt 1 view .LVU2
+  98:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     y += d;
+  50              		.loc 1 98 5 view .LVU3
+  51              		.loc 1 98 7 is_stmt 0 view .LVU4
+  52 000a 3D44     		add	r5, r5, r7
+  53              	.LVL2:
+  99:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_SetOrg(0, y);
+  54              		.loc 1 99 5 is_stmt 1 view .LVU5
+  55 000c 2946     		mov	r1, r5
+  56 000e 0020     		movs	r0, #0
+  57 0010 FFF7FEFF 		bl	GUI_SetOrg
+  58              	.LVL3:
+ 100:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_Delay(Delay);
+  59              		.loc 1 100 5 view .LVU6
+  60 0014 3046     		mov	r0, r6
+  61 0016 FFF7FEFF 		bl	GUI_Delay
+  62              	.LVL4:
+ 101:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     if (GUIDEMO_CheckCancel()) {
+  63              		.loc 1 101 5 view .LVU7
+  64              		.loc 1 101 9 is_stmt 0 view .LVU8
+  65 001a FFF7FEFF 		bl	GUIDEMO_CheckCancel
+  66              	.LVL5:
+  67              		.loc 1 101 8 view .LVU9
+  68 001e 18B9     		cbnz	r0, .L4
+ 102:emWin/GUI_Demo/GUIDEMO_VScreen.c ****       return 1;
+ 103:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     }
+ 104:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   } while (--n);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 4
+
+
+  69              		.loc 1 104 11 is_stmt 1 view .LVU10
+  70              	.LVL6:
+  71              		.loc 1 104 3 is_stmt 0 view .LVU11
+  72 0020 013C     		subs	r4, r4, #1
+  73              	.LVL7:
+  74              		.loc 1 104 3 view .LVU12
+  75 0022 F2D1     		bne	.L3
+ 105:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   return 0;
+  76              		.loc 1 105 10 view .LVU13
+  77 0024 2046     		mov	r0, r4
+  78 0026 00E0     		b	.L1
+  79              	.L4:
+ 102:emWin/GUI_Demo/GUIDEMO_VScreen.c ****       return 1;
+  80              		.loc 1 102 14 view .LVU14
+  81 0028 0120     		movs	r0, #1
+  82              	.L1:
+ 106:emWin/GUI_Demo/GUIDEMO_VScreen.c **** }
+  83              		.loc 1 106 1 view .LVU15
+  84 002a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  85              		.loc 1 106 1 view .LVU16
+  86              		.cfi_endproc
+  87              	.LFE0:
+  89              		.section	.rodata._DemoVScreen.str1.4,"aMS",%progbits,1
+  90              		.align	2
+  91              	.LC1:
+  92 0000 44656661 		.ascii	"Default screen\000"
+  92      756C7420 
+  92      73637265 
+  92      656E00
+  93 000f 00       		.align	2
+  94              	.LC2:
+  95 0010 48657265 		.ascii	"Here is the\012virtual screen\000"
+  95      20697320 
+  95      7468650A 
+  95      76697274 
+  95      75616C20 
+  96              		.section	.text._DemoVScreen,"ax",%progbits
+  97              		.align	1
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu fpv4-sp-d16
+ 103              	_DemoVScreen:
+ 104              	.LFB1:
+ 107:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+ 108:emWin/GUI_Demo/GUIDEMO_VScreen.c **** /*********************************************************************
+ 109:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *
+ 110:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *       _DemoVScreen
+ 111:emWin/GUI_Demo/GUIDEMO_VScreen.c **** */
+ 112:emWin/GUI_Demo/GUIDEMO_VScreen.c **** static void _DemoVScreen(void) {
+ 105              		.loc 1 112 32 is_stmt 1 view -0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 16
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 110              	.LCFI1:
+ 111              		.cfi_def_cfa_offset 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 5
+
+
+ 112              		.cfi_offset 4, -20
+ 113              		.cfi_offset 5, -16
+ 114              		.cfi_offset 6, -12
+ 115              		.cfi_offset 7, -8
+ 116              		.cfi_offset 14, -4
+ 117 0002 87B0     		sub	sp, sp, #28
+ 118              	.LCFI2:
+ 119              		.cfi_def_cfa_offset 48
+ 113:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   int xSize, ySize, j, n;
+ 120              		.loc 1 113 3 view .LVU18
+ 114:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   int _aDelay[] = { 20, 5};
+ 121              		.loc 1 114 3 view .LVU19
+ 122              		.loc 1 114 7 is_stmt 0 view .LVU20
+ 123 0004 504B     		ldr	r3, .L17
+ 124 0006 93E80300 		ldm	r3, {r0, r1}
+ 125 000a 06AB     		add	r3, sp, #24
+ 126 000c 03E90300 		stmdb	r3, {r0, r1}
+ 115:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_RECT Rect;
+ 127              		.loc 1 115 3 is_stmt 1 view .LVU21
+ 116:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   xSize = LCD_GetXSize();
+ 128              		.loc 1 116 3 view .LVU22
+ 129              		.loc 1 116 11 is_stmt 0 view .LVU23
+ 130 0010 FFF7FEFF 		bl	LCD_GetXSize
+ 131              	.LVL8:
+ 132 0014 0646     		mov	r6, r0
+ 133              	.LVL9:
+ 117:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   ySize = LCD_GetYSize();
+ 134              		.loc 1 117 3 is_stmt 1 view .LVU24
+ 135              		.loc 1 117 11 is_stmt 0 view .LVU25
+ 136 0016 FFF7FEFF 		bl	LCD_GetYSize
+ 137              	.LVL10:
+ 138              		.loc 1 117 11 view .LVU26
+ 139 001a 0446     		mov	r4, r0
+ 140              	.LVL11:
+ 118:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_SetFont(&GUI_FontComic24B_ASCII);
+ 141              		.loc 1 118 3 is_stmt 1 view .LVU27
+ 142 001c 4B48     		ldr	r0, .L17+4
+ 143              	.LVL12:
+ 144              		.loc 1 118 3 is_stmt 0 view .LVU28
+ 145 001e FFF7FEFF 		bl	GUI_SetFont
+ 146              	.LVL13:
+ 119:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_SetTextMode(GUI_TM_TRANS);
+ 147              		.loc 1 119 3 is_stmt 1 view .LVU29
+ 148 0022 0220     		movs	r0, #2
+ 149 0024 FFF7FEFF 		bl	GUI_SetTextMode
+ 150              	.LVL14:
+ 120:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   Rect.x0 = 0;
+ 151              		.loc 1 120 3 view .LVU30
+ 152              		.loc 1 120 11 is_stmt 0 view .LVU31
+ 153 0028 0025     		movs	r5, #0
+ 154 002a ADF80850 		strh	r5, [sp, #8]	@ movhi
+ 121:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   Rect.y0 = 0;
+ 155              		.loc 1 121 3 is_stmt 1 view .LVU32
+ 156              		.loc 1 121 11 is_stmt 0 view .LVU33
+ 157 002e ADF80A50 		strh	r5, [sp, #10]	@ movhi
+ 122:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   Rect.x1 = xSize - 1;
+ 158              		.loc 1 122 3 is_stmt 1 view .LVU34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 6
+
+
+ 159              		.loc 1 122 19 is_stmt 0 view .LVU35
+ 160 0032 013E     		subs	r6, r6, #1
+ 161              	.LVL15:
+ 162              		.loc 1 122 11 view .LVU36
+ 163 0034 ADF80C60 		strh	r6, [sp, #12]	@ movhi
+ 123:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   Rect.y1 = ySize - 1;
+ 164              		.loc 1 123 3 is_stmt 1 view .LVU37
+ 165              		.loc 1 123 19 is_stmt 0 view .LVU38
+ 166 0038 A6B2     		uxth	r6, r4
+ 167              	.LVL16:
+ 168              		.loc 1 123 19 view .LVU39
+ 169 003a 731E     		subs	r3, r6, #1
+ 170              		.loc 1 123 11 view .LVU40
+ 171 003c ADF80E30 		strh	r3, [sp, #14]	@ movhi
+ 124:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_SetColor(GUI_WHITE);
+ 172              		.loc 1 124 3 is_stmt 1 view .LVU41
+ 173 0040 6FF07F40 		mvn	r0, #-16777216
+ 174 0044 FFF7FEFF 		bl	GUI_SetColor
+ 175              	.LVL17:
+ 125:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_DispStringInRect("Default screen", &Rect, GUI_TA_HCENTER | GUI_TA_VCENTER);
+ 176              		.loc 1 125 3 view .LVU42
+ 177 0048 0E22     		movs	r2, #14
+ 178 004a 02A9     		add	r1, sp, #8
+ 179 004c 4048     		ldr	r0, .L17+8
+ 180 004e FFF7FEFF 		bl	GUI_DispStringInRect
+ 181              	.LVL18:
+ 126:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_Delay(250);
+ 182              		.loc 1 126 3 view .LVU43
+ 183 0052 FA20     		movs	r0, #250
+ 184 0054 FFF7FEFF 		bl	GUI_Delay
+ 185              	.LVL19:
+ 127:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   Rect.y0 += ySize;
+ 186              		.loc 1 127 3 view .LVU44
+ 187              		.loc 1 127 11 is_stmt 0 view .LVU45
+ 188 0058 BDF80A10 		ldrh	r1, [sp, #10]
+ 189 005c 3144     		add	r1, r1, r6
+ 190 005e 09B2     		sxth	r1, r1
+ 191 0060 ADF80A10 		strh	r1, [sp, #10]	@ movhi
+ 128:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   Rect.y1 += ySize;
+ 192              		.loc 1 128 3 is_stmt 1 view .LVU46
+ 193              		.loc 1 128 11 is_stmt 0 view .LVU47
+ 194 0064 BDF80E30 		ldrh	r3, [sp, #14]
+ 195 0068 3344     		add	r3, r3, r6
+ 196 006a 1BB2     		sxth	r3, r3
+ 197 006c ADF80E30 		strh	r3, [sp, #14]	@ movhi
+ 129:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_DrawGradientV(Rect.x0, Rect.y0, Rect.x1, Rect.y1, 0xFFFFFF, 0x000000);
+ 198              		.loc 1 129 3 is_stmt 1 view .LVU48
+ 199 0070 0195     		str	r5, [sp, #4]
+ 200 0072 6FF07F42 		mvn	r2, #-16777216
+ 201 0076 0092     		str	r2, [sp]
+ 202 0078 BDF90C20 		ldrsh	r2, [sp, #12]
+ 203 007c BDF90800 		ldrsh	r0, [sp, #8]
+ 204 0080 FFF7FEFF 		bl	GUI_DrawGradientV
+ 205              	.LVL20:
+ 130:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   Rect.y1 -= ySize / 3;
+ 206              		.loc 1 130 3 view .LVU49
+ 207              		.loc 1 130 20 is_stmt 0 view .LVU50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 7
+
+
+ 208 0084 334B     		ldr	r3, .L17+12
+ 209 0086 83FB0423 		smull	r2, r3, r3, r4
+ 210 008a E617     		asrs	r6, r4, #31
+ 211 008c C3EBE473 		rsb	r3, r3, r4, asr #31
+ 212              		.loc 1 130 11 view .LVU51
+ 213 0090 BDF80E20 		ldrh	r2, [sp, #14]
+ 214 0094 1344     		add	r3, r3, r2
+ 215 0096 ADF80E30 		strh	r3, [sp, #14]	@ movhi
+ 131:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_SetColor(GUI_DARKGREEN);
+ 216              		.loc 1 131 3 is_stmt 1 view .LVU52
+ 217 009a 4FF40040 		mov	r0, #32768
+ 218 009e FFF7FEFF 		bl	GUI_SetColor
+ 219              	.LVL21:
+ 132:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_DispStringInRect("Here is the\nvirtual screen", &Rect, GUI_TA_HCENTER | GUI_TA_VCENTER);
+ 220              		.loc 1 132 3 view .LVU53
+ 221 00a2 0E22     		movs	r2, #14
+ 222 00a4 02A9     		add	r1, sp, #8
+ 223 00a6 2C48     		ldr	r0, .L17+16
+ 224 00a8 FFF7FEFF 		bl	GUI_DispStringInRect
+ 225              	.LVL22:
+ 133:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   n = ySize / 5;
+ 226              		.loc 1 133 3 view .LVU54
+ 227              		.loc 1 133 5 is_stmt 0 view .LVU55
+ 228 00ac 2B4B     		ldr	r3, .L17+20
+ 229 00ae 83FB0423 		smull	r2, r3, r3, r4
+ 230 00b2 C6EB6306 		rsb	r6, r6, r3, asr #1
+ 231              	.LVL23:
+ 134:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   for (j = 0; j < GUI_COUNTOF(_aDelay); j++) {
+ 232              		.loc 1 134 3 is_stmt 1 view .LVU56
+ 233              		.loc 1 134 3 is_stmt 0 view .LVU57
+ 234 00b6 00E0     		b	.L7
+ 235              	.LVL24:
+ 236              	.L15:
+ 237              		.loc 1 134 41 is_stmt 1 discriminator 2 view .LVU58
+ 238              		.loc 1 134 42 is_stmt 0 discriminator 2 view .LVU59
+ 239 00b8 0135     		adds	r5, r5, #1
+ 240              	.LVL25:
+ 241              	.L7:
+ 242              		.loc 1 134 15 is_stmt 1 discriminator 1 view .LVU60
+ 243              		.loc 1 134 3 is_stmt 0 discriminator 1 view .LVU61
+ 244 00ba 012D     		cmp	r5, #1
+ 245 00bc 28D8     		bhi	.L14
+ 135:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     if (_Loop(0, 5, n, _aDelay[j]) == 1) {
+ 246              		.loc 1 135 5 is_stmt 1 view .LVU62
+ 247              		.loc 1 135 9 is_stmt 0 view .LVU63
+ 248 00be 06AB     		add	r3, sp, #24
+ 249 00c0 03EB8503 		add	r3, r3, r5, lsl #2
+ 250 00c4 53F8087C 		ldr	r7, [r3, #-8]
+ 251 00c8 3B46     		mov	r3, r7
+ 252 00ca 3246     		mov	r2, r6
+ 253 00cc 0521     		movs	r1, #5
+ 254 00ce 0020     		movs	r0, #0
+ 255 00d0 FFF7FEFF 		bl	_Loop
+ 256              	.LVL26:
+ 257              		.loc 1 135 8 view .LVU64
+ 258 00d4 0128     		cmp	r0, #1
+ 259 00d6 35D0     		beq	.L6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 8
+
+
+ 136:emWin/GUI_Demo/GUIDEMO_VScreen.c ****       return;
+ 137:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     }
+ 138:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_SetOrg(0, ySize);
+ 260              		.loc 1 138 5 is_stmt 1 view .LVU65
+ 261 00d8 2146     		mov	r1, r4
+ 262 00da 0020     		movs	r0, #0
+ 263 00dc FFF7FEFF 		bl	GUI_SetOrg
+ 264              	.LVL27:
+ 139:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_Delay(250);
+ 265              		.loc 1 139 5 view .LVU66
+ 266 00e0 FA20     		movs	r0, #250
+ 267 00e2 FFF7FEFF 		bl	GUI_Delay
+ 268              	.LVL28:
+ 140:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     if (_Loop(ySize, -5, n, _aDelay[j]) == 1) {
+ 269              		.loc 1 140 5 view .LVU67
+ 270              		.loc 1 140 9 is_stmt 0 view .LVU68
+ 271 00e6 3B46     		mov	r3, r7
+ 272 00e8 3246     		mov	r2, r6
+ 273 00ea 6FF00401 		mvn	r1, #4
+ 274 00ee 2046     		mov	r0, r4
+ 275 00f0 FFF7FEFF 		bl	_Loop
+ 276              	.LVL29:
+ 277              		.loc 1 140 8 view .LVU69
+ 278 00f4 0128     		cmp	r0, #1
+ 279 00f6 25D0     		beq	.L6
+ 141:emWin/GUI_Demo/GUIDEMO_VScreen.c ****       return;
+ 142:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     }
+ 143:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_SetOrg(0, 0);
+ 280              		.loc 1 143 5 is_stmt 1 view .LVU70
+ 281 00f8 0021     		movs	r1, #0
+ 282 00fa 0846     		mov	r0, r1
+ 283 00fc FFF7FEFF 		bl	GUI_SetOrg
+ 284              	.LVL30:
+ 144:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_Delay(250);
+ 285              		.loc 1 144 5 view .LVU71
+ 286 0100 FA20     		movs	r0, #250
+ 287 0102 FFF7FEFF 		bl	GUI_Delay
+ 288              	.LVL31:
+ 145:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     if (GUIDEMO_CheckCancel()) {
+ 289              		.loc 1 145 5 view .LVU72
+ 290              		.loc 1 145 9 is_stmt 0 view .LVU73
+ 291 0106 FFF7FEFF 		bl	GUIDEMO_CheckCancel
+ 292              	.LVL32:
+ 293              		.loc 1 145 8 view .LVU74
+ 294 010a 0028     		cmp	r0, #0
+ 295 010c D4D0     		beq	.L15
+ 296 010e 19E0     		b	.L6
+ 297              	.L14:
+ 146:emWin/GUI_Demo/GUIDEMO_VScreen.c ****       return;
+ 147:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     }
+ 148:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   }
+ 149:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   for (j = 0; j < 5; j++) {
+ 298              		.loc 1 149 10 view .LVU75
+ 299 0110 0025     		movs	r5, #0
+ 300              	.LVL33:
+ 301              	.L10:
+ 302              		.loc 1 149 15 is_stmt 1 discriminator 1 view .LVU76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 9
+
+
+ 303              		.loc 1 149 3 is_stmt 0 discriminator 1 view .LVU77
+ 304 0112 042D     		cmp	r5, #4
+ 305 0114 12DC     		bgt	.L16
+ 150:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_SetOrg(0, ySize);
+ 306              		.loc 1 150 5 is_stmt 1 view .LVU78
+ 307 0116 2146     		mov	r1, r4
+ 308 0118 0020     		movs	r0, #0
+ 309 011a FFF7FEFF 		bl	GUI_SetOrg
+ 310              	.LVL34:
+ 151:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_Delay(200);
+ 311              		.loc 1 151 5 view .LVU79
+ 312 011e C820     		movs	r0, #200
+ 313 0120 FFF7FEFF 		bl	GUI_Delay
+ 314              	.LVL35:
+ 152:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_SetOrg(0, 0);
+ 315              		.loc 1 152 5 view .LVU80
+ 316 0124 0021     		movs	r1, #0
+ 317 0126 0846     		mov	r0, r1
+ 318 0128 FFF7FEFF 		bl	GUI_SetOrg
+ 319              	.LVL36:
+ 153:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_Delay(200);
+ 320              		.loc 1 153 5 view .LVU81
+ 321 012c C820     		movs	r0, #200
+ 322 012e FFF7FEFF 		bl	GUI_Delay
+ 323              	.LVL37:
+ 154:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     if (GUIDEMO_CheckCancel()) {
+ 324              		.loc 1 154 5 view .LVU82
+ 325              		.loc 1 154 9 is_stmt 0 view .LVU83
+ 326 0132 FFF7FEFF 		bl	GUIDEMO_CheckCancel
+ 327              	.LVL38:
+ 328              		.loc 1 154 8 view .LVU84
+ 329 0136 28B9     		cbnz	r0, .L6
+ 149:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_SetOrg(0, ySize);
+ 330              		.loc 1 149 22 is_stmt 1 discriminator 2 view .LVU85
+ 149:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_SetOrg(0, ySize);
+ 331              		.loc 1 149 23 is_stmt 0 discriminator 2 view .LVU86
+ 332 0138 0135     		adds	r5, r5, #1
+ 333              	.LVL39:
+ 149:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     GUI_SetOrg(0, ySize);
+ 334              		.loc 1 149 23 discriminator 2 view .LVU87
+ 335 013a EAE7     		b	.L10
+ 336              	.L16:
+ 155:emWin/GUI_Demo/GUIDEMO_VScreen.c ****       return;
+ 156:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     }
+ 157:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   }
+ 158:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUIDEMO_Delay(1000);
+ 337              		.loc 1 158 3 is_stmt 1 view .LVU88
+ 338 013c 4FF47A70 		mov	r0, #1000
+ 339 0140 FFF7FEFF 		bl	GUIDEMO_Delay
+ 340              	.LVL40:
+ 341              	.L6:
+ 159:emWin/GUI_Demo/GUIDEMO_VScreen.c **** }
+ 342              		.loc 1 159 1 is_stmt 0 view .LVU89
+ 343 0144 07B0     		add	sp, sp, #28
+ 344              	.LCFI3:
+ 345              		.cfi_def_cfa_offset 20
+ 346              		@ sp needed
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 10
+
+
+ 347 0146 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 348              	.LVL41:
+ 349              	.L18:
+ 350              		.loc 1 159 1 view .LVU90
+ 351              		.align	2
+ 352              	.L17:
+ 353 0148 00000000 		.word	.LANCHOR0
+ 354 014c 00000000 		.word	GUI_FontComic24B_ASCII
+ 355 0150 00000000 		.word	.LC1
+ 356 0154 56555555 		.word	1431655766
+ 357 0158 10000000 		.word	.LC2
+ 358 015c 67666666 		.word	1717986919
+ 359              		.cfi_endproc
+ 360              	.LFE1:
+ 362              		.section	.rodata.GUIDEMO_VScreen.str1.4,"aMS",%progbits,1
+ 363              		.align	2
+ 364              	.LC3:
+ 365 0000 44656D6F 		.ascii	"Demonstrates how to use\012virtual screens\000"
+ 365      6E737472 
+ 365      61746573 
+ 365      20686F77 
+ 365      20746F20 
+ 366              		.align	2
+ 367              	.LC4:
+ 368 0028 56536372 		.ascii	"VScreen demo\000"
+ 368      65656E20 
+ 368      64656D6F 
+ 368      00
+ 369              		.section	.text.GUIDEMO_VScreen,"ax",%progbits
+ 370              		.align	1
+ 371              		.global	GUIDEMO_VScreen
+ 372              		.syntax unified
+ 373              		.thumb
+ 374              		.thumb_func
+ 375              		.fpu fpv4-sp-d16
+ 377              	GUIDEMO_VScreen:
+ 378              	.LFB2:
+ 160:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+ 161:emWin/GUI_Demo/GUIDEMO_VScreen.c **** /*********************************************************************
+ 162:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *
+ 163:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *       Public code
+ 164:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *
+ 165:emWin/GUI_Demo/GUIDEMO_VScreen.c **** **********************************************************************
+ 166:emWin/GUI_Demo/GUIDEMO_VScreen.c **** */
+ 167:emWin/GUI_Demo/GUIDEMO_VScreen.c **** /*********************************************************************
+ 168:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *
+ 169:emWin/GUI_Demo/GUIDEMO_VScreen.c **** *       GUIDEMO_VScreen
+ 170:emWin/GUI_Demo/GUIDEMO_VScreen.c **** */
+ 171:emWin/GUI_Demo/GUIDEMO_VScreen.c **** void GUIDEMO_VScreen(void) {
+ 379              		.loc 1 171 28 is_stmt 1 view -0
+ 380              		.cfi_startproc
+ 381              		@ args = 0, pretend = 0, frame = 0
+ 382              		@ frame_needed = 0, uses_anonymous_args = 0
+ 383 0000 10B5     		push	{r4, lr}
+ 384              	.LCFI4:
+ 385              		.cfi_def_cfa_offset 8
+ 386              		.cfi_offset 4, -8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 11
+
+
+ 387              		.cfi_offset 14, -4
+ 172:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   int ySize, vySize;
+ 388              		.loc 1 172 3 view .LVU92
+ 173:emWin/GUI_Demo/GUIDEMO_VScreen.c **** 
+ 174:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   ySize  = LCD_GetYSize();
+ 389              		.loc 1 174 3 view .LVU93
+ 390              		.loc 1 174 12 is_stmt 0 view .LVU94
+ 391 0002 FFF7FEFF 		bl	LCD_GetYSize
+ 392              	.LVL42:
+ 393 0006 0446     		mov	r4, r0
+ 394              	.LVL43:
+ 175:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   vySize = LCD_GetVYSize();
+ 395              		.loc 1 175 3 is_stmt 1 view .LVU95
+ 396              		.loc 1 175 12 is_stmt 0 view .LVU96
+ 397 0008 FFF7FEFF 		bl	LCD_GetVYSize
+ 398              	.LVL44:
+ 176:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   if (vySize < (ySize << 1)) {
+ 399              		.loc 1 176 3 is_stmt 1 view .LVU97
+ 400              		.loc 1 176 6 is_stmt 0 view .LVU98
+ 401 000c B0EB440F 		cmp	r0, r4, lsl #1
+ 402 0010 00DA     		bge	.L22
+ 403              	.LVL45:
+ 404              	.L19:
+ 177:emWin/GUI_Demo/GUIDEMO_VScreen.c ****     return;
+ 178:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   }
+ 179:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUIDEMO_ShowIntro("VScreen demo",
+ 180:emWin/GUI_Demo/GUIDEMO_VScreen.c ****                     "Demonstrates how to use\n"
+ 181:emWin/GUI_Demo/GUIDEMO_VScreen.c ****                     "virtual screens");
+ 182:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUIDEMO_DrawBk(1);
+ 183:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   _DemoVScreen();
+ 184:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_SetOrg(0, 0);
+ 185:emWin/GUI_Demo/GUIDEMO_VScreen.c **** }
+ 405              		.loc 1 185 1 view .LVU99
+ 406 0012 10BD     		pop	{r4, pc}
+ 407              	.LVL46:
+ 408              	.L22:
+ 179:emWin/GUI_Demo/GUIDEMO_VScreen.c ****                     "Demonstrates how to use\n"
+ 409              		.loc 1 179 3 is_stmt 1 view .LVU100
+ 410 0014 0649     		ldr	r1, .L23
+ 411 0016 0748     		ldr	r0, .L23+4
+ 412              	.LVL47:
+ 179:emWin/GUI_Demo/GUIDEMO_VScreen.c ****                     "Demonstrates how to use\n"
+ 413              		.loc 1 179 3 is_stmt 0 view .LVU101
+ 414 0018 FFF7FEFF 		bl	GUIDEMO_ShowIntro
+ 415              	.LVL48:
+ 182:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   _DemoVScreen();
+ 416              		.loc 1 182 3 is_stmt 1 view .LVU102
+ 417 001c 0120     		movs	r0, #1
+ 418 001e FFF7FEFF 		bl	GUIDEMO_DrawBk
+ 419              	.LVL49:
+ 183:emWin/GUI_Demo/GUIDEMO_VScreen.c ****   GUI_SetOrg(0, 0);
+ 420              		.loc 1 183 3 view .LVU103
+ 421 0022 FFF7FEFF 		bl	_DemoVScreen
+ 422              	.LVL50:
+ 184:emWin/GUI_Demo/GUIDEMO_VScreen.c **** }
+ 423              		.loc 1 184 3 view .LVU104
+ 424 0026 0021     		movs	r1, #0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 12
+
+
+ 425 0028 0846     		mov	r0, r1
+ 426 002a FFF7FEFF 		bl	GUI_SetOrg
+ 427              	.LVL51:
+ 428 002e F0E7     		b	.L19
+ 429              	.L24:
+ 430              		.align	2
+ 431              	.L23:
+ 432 0030 00000000 		.word	.LC3
+ 433 0034 28000000 		.word	.LC4
+ 434              		.cfi_endproc
+ 435              	.LFE2:
+ 437              		.section	.rodata
+ 438              		.align	2
+ 439              		.set	.LANCHOR0,. + 0
+ 440              	.LC0:
+ 441 0000 14000000 		.word	20
+ 442 0004 05000000 		.word	5
+ 443              		.text
+ 444              	.Letext0:
+ 445              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 446              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 447              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 448              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 449              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 450              		.file 7 "emWin/inc/LCD.h"
+ 451              		.file 8 "emWin/inc/GUI.h"
+ 452              		.file 9 "emWin/inc/GUI_Type.h"
+ 453              		.file 10 "emWin/inc/WM.h"
+ 454              		.file 11 "emWin/inc/LCD_Protected.h"
+ 455              		.file 12 "emWin/inc/GUI_Private.h"
+ 456              		.file 13 "emWin/inc/WM_Intern.h"
+ 457              		.file 14 "emWin/inc/WIDGET.h"
+ 458              		.file 15 "emWin/GUI_Demo/GUIDEMO.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 GUIDEMO_VScreen.c
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:18     .text._Loop:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:25     .text._Loop:00000000 _Loop
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:90     .rodata._DemoVScreen.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:97     .text._DemoVScreen:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:103    .text._DemoVScreen:00000000 _DemoVScreen
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:353    .text._DemoVScreen:00000148 $d
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:363    .rodata.GUIDEMO_VScreen.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:370    .text.GUIDEMO_VScreen:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:377    .text.GUIDEMO_VScreen:00000000 GUIDEMO_VScreen
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:432    .text.GUIDEMO_VScreen:00000030 $d
+C:\Users\gx\AppData\Local\Temp\ccFbC0Pe.s:438    .rodata:00000000 $d
+
+UNDEFINED SYMBOLS
+GUI_SetOrg
+GUI_Delay
+GUIDEMO_CheckCancel
+LCD_GetXSize
+LCD_GetYSize
+GUI_SetFont
+GUI_SetTextMode
+GUI_SetColor
+GUI_DispStringInRect
+GUI_DrawGradientV
+GUIDEMO_Delay
+GUI_FontComic24B_ASCII
+LCD_GetVYSize
+GUIDEMO_ShowIntro
+GUIDEMO_DrawBk

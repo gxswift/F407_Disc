@@ -1,0 +1,865 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"GUIDEMO_Cursor.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ShowCursorType,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_ShowCursorType:
+  26              	.LVL0:
+  27              	.LFB0:
+  28              		.file 1 "emWin/GUI_Demo/GUIDEMO_Cursor.c"
+   1:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /*********************************************************************
+   2:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *          Portions COPYRIGHT 2017 STMicroelectronics                 *
+   3:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *          Portions SEGGER Microcontroller GmbH & Co. KG             *
+   4:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *        Solutions for real time microcontroller applications        *
+   5:emWin/GUI_Demo/GUIDEMO_Cursor.c **** **********************************************************************
+   6:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *                                                                    *
+   7:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *        (c) 1996 - 2015  SEGGER Microcontroller GmbH & Co. KG       *
+   8:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *                                                                    *
+   9:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *        Internet: www.segger.com    Support:  support@segger.com    *
+  10:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *                                                                    *
+  11:emWin/GUI_Demo/GUIDEMO_Cursor.c **** **********************************************************************
+  12:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  13:emWin/GUI_Demo/GUIDEMO_Cursor.c **** ** emWin V5.28 - Graphical user interface for embedded applications **
+  14:emWin/GUI_Demo/GUIDEMO_Cursor.c **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  15:emWin/GUI_Demo/GUIDEMO_Cursor.c **** emWin is protected by  international copyright laws.  Knowledge of the
+  16:emWin/GUI_Demo/GUIDEMO_Cursor.c **** source code may not be used to write a similar product.  This file may
+  17:emWin/GUI_Demo/GUIDEMO_Cursor.c **** only be used in accordance with the following terms:
+  18:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  19:emWin/GUI_Demo/GUIDEMO_Cursor.c **** The  software has  been licensed  to STMicroelectronics International
+  20:emWin/GUI_Demo/GUIDEMO_Cursor.c **** N.V. a Dutch company with a Swiss branch and its headquarters in Plan-
+  21:emWin/GUI_Demo/GUIDEMO_Cursor.c **** les-Ouates, Geneva, 39 Chemin du Champ des Filles, Switzerland for the
+  22:emWin/GUI_Demo/GUIDEMO_Cursor.c **** purposes of creating libraries for ARM Cortex-M-based 32-bit microcon_
+  23:emWin/GUI_Demo/GUIDEMO_Cursor.c **** troller products commercialized by Licensee only, sublicensed and dis_
+  24:emWin/GUI_Demo/GUIDEMO_Cursor.c **** tributed under the terms and conditions of the End User License Agree_
+  25:emWin/GUI_Demo/GUIDEMO_Cursor.c **** ment supplied by STMicroelectronics International N.V.
+  26:emWin/GUI_Demo/GUIDEMO_Cursor.c **** Full source code is available at: www.segger.com
+  27:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  28:emWin/GUI_Demo/GUIDEMO_Cursor.c **** We appreciate your understanding and fairness.
+  29:emWin/GUI_Demo/GUIDEMO_Cursor.c **** ----------------------------------------------------------------------
+  30:emWin/GUI_Demo/GUIDEMO_Cursor.c **** File        : GUIDEMO_Cursor.c
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 2
+
+
+  31:emWin/GUI_Demo/GUIDEMO_Cursor.c **** Purpose     : shows Cursor-API
+  32:emWin/GUI_Demo/GUIDEMO_Cursor.c **** ----------------------------------------------------------------------
+  33:emWin/GUI_Demo/GUIDEMO_Cursor.c **** */
+  34:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  35:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /**
+  36:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   ******************************************************************************
+  37:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * @file    GUIDEMO_Cursor.c
+  38:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * @author  MCD Application Team
+  39:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * @brief   shows Cursor-API
+  40:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   ******************************************************************************
+  41:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * @attention
+  42:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *
+  43:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * <h2><center>&copy; Copyright © 2017 STMicroelectronics International N.V. 
+  44:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * All rights reserved.</center></h2>
+  45:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *
+  46:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * Redistribution and use in source and binary forms, with or without 
+  47:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * modification, are permitted, provided that the following conditions are met:
+  48:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *
+  49:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * 1. Redistribution of source code must retain the above copyright notice, 
+  50:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *    this list of conditions and the following disclaimer.
+  51:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * 2. Redistributions in binary form must reproduce the above copyright notice,
+  52:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *    this list of conditions and the following disclaimer in the documentation
+  53:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *    and/or other materials provided with the distribution.
+  54:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * 3. Neither the name of STMicroelectronics nor the names of other 
+  55:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *    contributors to this software may be used to endorse or promote products 
+  56:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *    derived from this software without specific written permission.
+  57:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * 4. This software, including modifications and/or derivative works of this 
+  58:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *    software, must execute solely and exclusively on microcontroller or
+  59:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *    microprocessor devices manufactured by or for STMicroelectronics.
+  60:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * 5. Redistribution and use of this software other than as permitted under 
+  61:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *    this license is void and will automatically terminate your rights under 
+  62:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *    this license. 
+  63:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *
+  64:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
+  65:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
+  66:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+  67:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
+  68:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  69:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  70:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  71:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  72:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  73:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  74:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+  75:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  76:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   *
+  77:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   ******************************************************************************
+  78:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   */
+  79:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  80:emWin/GUI_Demo/GUIDEMO_Cursor.c **** #include "GUIDEMO.h"
+  81:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  82:emWin/GUI_Demo/GUIDEMO_Cursor.c **** #if (SHOW_GUIDEMO_CURSOR && GUI_SUPPORT_CURSOR && GUI_SUPPORT_TOUCH)
+  83:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  84:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /*********************************************************************
+  85:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+  86:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *       defines
+  87:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 3
+
+
+  88:emWin/GUI_Demo/GUIDEMO_Cursor.c **** **********************************************************************
+  89:emWin/GUI_Demo/GUIDEMO_Cursor.c **** */
+  90:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  91:emWin/GUI_Demo/GUIDEMO_Cursor.c **** #define countof(Obj) (sizeof(Obj)/sizeof(Obj[0]))
+  92:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  93:emWin/GUI_Demo/GUIDEMO_Cursor.c **** #define NUM_CURSORS   3
+  94:emWin/GUI_Demo/GUIDEMO_Cursor.c **** #define XMAX         28
+  95:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+  96:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /*********************************************************************
+  97:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+  98:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *       types
+  99:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ 100:emWin/GUI_Demo/GUIDEMO_Cursor.c **** **********************************************************************
+ 101:emWin/GUI_Demo/GUIDEMO_Cursor.c **** */
+ 102:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 103:emWin/GUI_Demo/GUIDEMO_Cursor.c **** typedef struct {
+ 104:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   const GUI_CURSOR* pCursor;
+ 105:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   char              Size;
+ 106:emWin/GUI_Demo/GUIDEMO_Cursor.c **** } CURSOR_INFO;
+ 107:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 108:emWin/GUI_Demo/GUIDEMO_Cursor.c **** typedef struct {
+ 109:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   const CURSOR_INFO aCursor[NUM_CURSORS];
+ 110:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   const char*       pType;
+ 111:emWin/GUI_Demo/GUIDEMO_Cursor.c **** } CURSORTYPE_INFO;
+ 112:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 113:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /*********************************************************************
+ 114:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ 115:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *       static data
+ 116:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ 117:emWin/GUI_Demo/GUIDEMO_Cursor.c **** **********************************************************************
+ 118:emWin/GUI_Demo/GUIDEMO_Cursor.c **** */
+ 119:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 120:emWin/GUI_Demo/GUIDEMO_Cursor.c **** static const CURSORTYPE_INFO _CursorArrow = {
+ 121:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   &GUI_CursorArrowS, 'S',
+ 122:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   &GUI_CursorArrowM, 'M',
+ 123:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #if (NUM_CURSORS == 3)
+ 124:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     &GUI_CursorArrowL, 'L',
+ 125:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     "arrow cursors"
+ 126:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #else
+ 127:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     "arrow\ncursors"
+ 128:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #endif
+ 129:emWin/GUI_Demo/GUIDEMO_Cursor.c **** };
+ 130:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 131:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 132:emWin/GUI_Demo/GUIDEMO_Cursor.c **** static const CURSORTYPE_INFO _CursorArrowI = {
+ 133:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   &GUI_CursorArrowSI, 'S',
+ 134:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   &GUI_CursorArrowMI, 'M',
+ 135:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #if (NUM_CURSORS == 3)
+ 136:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     &GUI_CursorArrowLI, 'L',
+ 137:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     "inverted arrow cursors"
+ 138:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #else
+ 139:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     "inverted\narrow cursors"
+ 140:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #endif
+ 141:emWin/GUI_Demo/GUIDEMO_Cursor.c **** };
+ 142:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 143:emWin/GUI_Demo/GUIDEMO_Cursor.c **** static const CURSORTYPE_INFO _CursorCross = {
+ 144:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   &GUI_CursorCrossS, 'S',
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 4
+
+
+ 145:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   &GUI_CursorCrossM, 'M',
+ 146:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #if (NUM_CURSORS == 3)
+ 147:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     &GUI_CursorCrossL, 'L',
+ 148:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     "cross cursors"
+ 149:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #else
+ 150:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     "cross\ncursors"
+ 151:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #endif
+ 152:emWin/GUI_Demo/GUIDEMO_Cursor.c **** };
+ 153:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 154:emWin/GUI_Demo/GUIDEMO_Cursor.c **** static const CURSORTYPE_INFO _CursorCrossI = {
+ 155:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   &GUI_CursorCrossSI, 'S',
+ 156:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   &GUI_CursorCrossMI, 'M',
+ 157:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #if (NUM_CURSORS == 3)
+ 158:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     &GUI_CursorCrossLI, 'L',
+ 159:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     "inverted cross cursors"
+ 160:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #else
+ 161:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     "inverted\ncross cursors"
+ 162:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #endif
+ 163:emWin/GUI_Demo/GUIDEMO_Cursor.c **** };
+ 164:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 165:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /*********************************************************************
+ 166:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ 167:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *       static code
+ 168:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ 169:emWin/GUI_Demo/GUIDEMO_Cursor.c **** **********************************************************************
+ 170:emWin/GUI_Demo/GUIDEMO_Cursor.c **** */
+ 171:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /*********************************************************************
+ 172:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ 173:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *       _ShowCursorType
+ 174:emWin/GUI_Demo/GUIDEMO_Cursor.c **** */
+ 175:emWin/GUI_Demo/GUIDEMO_Cursor.c **** static void _ShowCursorType(const CURSORTYPE_INFO* pCursorType, int x0, int y0) {
+  29              		.loc 1 175 81 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 16
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 175 81 is_stmt 0 view .LVU1
+  34 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 36
+  37              		.cfi_offset 4, -36
+  38              		.cfi_offset 5, -32
+  39              		.cfi_offset 6, -28
+  40              		.cfi_offset 7, -24
+  41              		.cfi_offset 8, -20
+  42              		.cfi_offset 9, -16
+  43              		.cfi_offset 10, -12
+  44              		.cfi_offset 11, -8
+  45              		.cfi_offset 14, -4
+  46 0004 85B0     		sub	sp, sp, #20
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_offset 56
+  49 0006 0546     		mov	r5, r0
+  50 0008 8946     		mov	r9, r1
+  51 000a 1646     		mov	r6, r2
+ 176:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   const GUI_CURSOR * pCursor;
+  52              		.loc 1 176 3 is_stmt 1 view .LVU2
+ 177:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   char Char;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 5
+
+
+  53              		.loc 1 177 3 view .LVU3
+ 178:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   int i, x, y;
+  54              		.loc 1 178 3 view .LVU4
+ 179:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   int yMax = 0;
+  55              		.loc 1 179 3 view .LVU5
+  56              	.LVL1:
+ 180:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   int yHot = 0;
+  57              		.loc 1 180 3 view .LVU6
+ 181:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 182:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   //
+ 183:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   // Calculate height and width of biggest cursor
+ 184:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   //
+ 185:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   for (i = 0; i < NUM_CURSORS; i++) {
+  58              		.loc 1 185 3 view .LVU7
+ 180:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   int yHot = 0;
+  59              		.loc 1 180 7 is_stmt 0 view .LVU8
+  60 000c 0023     		movs	r3, #0
+  61 000e 0393     		str	r3, [sp, #12]
+ 179:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   int yHot = 0;
+  62              		.loc 1 179 7 view .LVU9
+  63 0010 9B46     		mov	fp, r3
+  64              		.loc 1 185 3 view .LVU10
+  65 0012 00E0     		b	.L2
+  66              	.LVL2:
+  67              	.L3:
+  68              		.loc 1 185 32 is_stmt 1 discriminator 2 view .LVU11
+  69              		.loc 1 185 33 is_stmt 0 discriminator 2 view .LVU12
+  70 0014 0133     		adds	r3, r3, #1
+  71              	.LVL3:
+  72              	.L2:
+  73              		.loc 1 185 15 is_stmt 1 discriminator 1 view .LVU13
+  74              		.loc 1 185 3 is_stmt 0 discriminator 1 view .LVU14
+  75 0016 022B     		cmp	r3, #2
+  76 0018 09DC     		bgt	.L8
+ 186:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     pCursor = pCursorType->aCursor[i].pCursor;
+  77              		.loc 1 186 5 is_stmt 1 view .LVU15
+  78              		.loc 1 186 13 is_stmt 0 view .LVU16
+  79 001a 55F83300 		ldr	r0, [r5, r3, lsl #3]
+  80              	.LVL4:
+ 187:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     if (pCursor->pBitmap->YSize > yMax) {
+  81              		.loc 1 187 5 is_stmt 1 view .LVU17
+  82              		.loc 1 187 16 is_stmt 0 view .LVU18
+  83 001e 0268     		ldr	r2, [r0]
+  84              		.loc 1 187 25 view .LVU19
+  85 0020 5188     		ldrh	r1, [r2, #2]
+  86              		.loc 1 187 8 view .LVU20
+  87 0022 5945     		cmp	r1, fp
+  88 0024 F6DD     		ble	.L3
+ 188:emWin/GUI_Demo/GUIDEMO_Cursor.c ****       yMax = pCursor->pBitmap->YSize;
+  89              		.loc 1 188 7 is_stmt 1 view .LVU21
+  90              	.LVL5:
+ 189:emWin/GUI_Demo/GUIDEMO_Cursor.c ****       yHot = pCursor->yHot;
+  91              		.loc 1 189 7 view .LVU22
+  92              		.loc 1 189 12 is_stmt 0 view .LVU23
+  93 0026 8268     		ldr	r2, [r0, #8]
+  94 0028 0392     		str	r2, [sp, #12]
+  95              	.LVL6:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 6
+
+
+ 188:emWin/GUI_Demo/GUIDEMO_Cursor.c ****       yMax = pCursor->pBitmap->YSize;
+  96              		.loc 1 188 12 view .LVU24
+  97 002a 8B46     		mov	fp, r1
+  98 002c F2E7     		b	.L3
+  99              	.LVL7:
+ 100              	.L8:
+ 190:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     }
+ 191:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   }
+ 192:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_SetFont(&GUI_Font13_ASCII);
+ 101              		.loc 1 192 3 is_stmt 1 view .LVU25
+ 102 002e 2448     		ldr	r0, .L9
+ 103 0030 FFF7FEFF 		bl	GUI_SetFont
+ 104              	.LVL8:
+ 193:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #if (NUM_CURSORS != 3)
+ 194:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     GUI_SetLBorder(x0);
+ 195:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   #endif
+ 196:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_DispStringAt(pCursorType->pType, x0, y0);
+ 105              		.loc 1 196 3 view .LVU26
+ 106 0034 3246     		mov	r2, r6
+ 107 0036 4946     		mov	r1, r9
+ 108 0038 A869     		ldr	r0, [r5, #24]
+ 109 003a FFF7FEFF 		bl	GUI_DispStringAt
+ 110              	.LVL9:
+ 197:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   y0 += GUI_GetFontDistY() + 1;
+ 111              		.loc 1 197 3 view .LVU27
+ 112              		.loc 1 197 9 is_stmt 0 view .LVU28
+ 113 003e FFF7FEFF 		bl	GUI_GetFontDistY
+ 114              	.LVL10:
+ 115              		.loc 1 197 28 view .LVU29
+ 116 0042 0130     		adds	r0, r0, #1
+ 117              		.loc 1 197 6 view .LVU30
+ 118 0044 0644     		add	r6, r6, r0
+ 119              	.LVL11:
+ 198:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_SetFont(&GUI_Font13B_ASCII);
+ 120              		.loc 1 198 3 is_stmt 1 view .LVU31
+ 121 0046 1F48     		ldr	r0, .L9+4
+ 122 0048 FFF7FEFF 		bl	GUI_SetFont
+ 123              	.LVL12:
+ 199:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   for (i = 0; i < NUM_CURSORS; i++) {
+ 124              		.loc 1 199 3 view .LVU32
+ 125              		.loc 1 199 10 is_stmt 0 view .LVU33
+ 126 004c 0024     		movs	r4, #0
+ 127              		.loc 1 199 3 view .LVU34
+ 128 004e 31E0     		b	.L5
+ 129              	.LVL13:
+ 130              	.L6:
+ 200:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     pCursor = pCursorType->aCursor[i].pCursor;
+ 131              		.loc 1 200 5 is_stmt 1 discriminator 3 view .LVU35
+ 132              		.loc 1 200 13 is_stmt 0 discriminator 3 view .LVU36
+ 133 0050 55F83470 		ldr	r7, [r5, r4, lsl #3]
+ 134              	.LVL14:
+ 201:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     Char    = pCursorType->aCursor[i].Size;
+ 135              		.loc 1 201 5 is_stmt 1 discriminator 3 view .LVU37
+ 136              		.loc 1 201 13 is_stmt 0 discriminator 3 view .LVU38
+ 137 0054 E300     		lsls	r3, r4, #3
+ 138 0056 0293     		str	r3, [sp, #8]
+ 139 0058 05EBC402 		add	r2, r5, r4, lsl #3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 7
+
+
+ 140              	.LVL15:
+ 202:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     y = y0 + yHot - pCursor->yHot;
+ 141              		.loc 1 202 5 is_stmt 1 discriminator 3 view .LVU39
+ 142              		.loc 1 202 12 is_stmt 0 discriminator 3 view .LVU40
+ 143 005c 0399     		ldr	r1, [sp, #12]
+ 144 005e 8B19     		adds	r3, r1, r6
+ 145              		.loc 1 202 28 discriminator 3 view .LVU41
+ 146 0060 B968     		ldr	r1, [r7, #8]
+ 147              		.loc 1 202 7 discriminator 3 view .LVU42
+ 148 0062 591A     		subs	r1, r3, r1
+ 149 0064 0191     		str	r1, [sp, #4]
+ 150              	.LVL16:
+ 203:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     x = ((pCursor->pBitmap->XSize - GUI_GetCharDistX(Char)) >> 1);
+ 151              		.loc 1 203 5 is_stmt 1 discriminator 3 view .LVU43
+ 152              		.loc 1 203 18 is_stmt 0 discriminator 3 view .LVU44
+ 153 0066 3B68     		ldr	r3, [r7]
+ 154              		.loc 1 203 27 discriminator 3 view .LVU45
+ 155 0068 B3F80080 		ldrh	r8, [r3]
+ 156              		.loc 1 203 37 discriminator 3 view .LVU46
+ 157 006c 92F804A0 		ldrb	r10, [r2, #4]	@ zero_extendqisi2
+ 158 0070 5046     		mov	r0, r10
+ 159 0072 FFF7FEFF 		bl	GUI_GetCharDistX
+ 160              	.LVL17:
+ 161              		.loc 1 203 35 discriminator 3 view .LVU47
+ 162 0076 A8EB0008 		sub	r8, r8, r0
+ 163              		.loc 1 203 7 discriminator 3 view .LVU48
+ 164 007a 4FEA6808 		asr	r8, r8, #1
+ 165              	.LVL18:
+ 204:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     GUI_DrawBitmap(pCursor->pBitmap, x0 + XMAX * i + 5,     y);
+ 166              		.loc 1 204 5 is_stmt 1 discriminator 3 view .LVU49
+ 167              		.loc 1 204 48 is_stmt 0 discriminator 3 view .LVU50
+ 168 007e 029B     		ldr	r3, [sp, #8]
+ 169 0080 191B     		subs	r1, r3, r4
+ 170              		.loc 1 204 41 discriminator 3 view .LVU51
+ 171 0082 09EB8101 		add	r1, r9, r1, lsl #2
+ 172              		.loc 1 204 5 discriminator 3 view .LVU52
+ 173 0086 019A     		ldr	r2, [sp, #4]
+ 174 0088 0531     		adds	r1, r1, #5
+ 175 008a 3868     		ldr	r0, [r7]
+ 176 008c FFF7FEFF 		bl	GUI_DrawBitmap
+ 177              	.LVL19:
+ 205:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     GUI_DispCharAt(Char,             x0 + XMAX * i + 5 + x, y0 + yMax + 2);
+ 178              		.loc 1 205 5 is_stmt 1 discriminator 3 view .LVU53
+ 179              		.loc 1 205 41 is_stmt 0 discriminator 3 view .LVU54
+ 180 0090 C4EBC401 		rsb	r1, r4, r4, lsl #3
+ 181 0094 09EB8101 		add	r1, r9, r1, lsl #2
+ 182              		.loc 1 205 56 discriminator 3 view .LVU55
+ 183 0098 18FA81F8 		uxtah	r8, r8, r1
+ 184              	.LVL20:
+ 185              		.loc 1 205 56 discriminator 3 view .LVU56
+ 186 009c 08F10501 		add	r1, r8, #5
+ 187              		.loc 1 205 64 discriminator 3 view .LVU57
+ 188 00a0 06EB0B02 		add	r2, r6, fp
+ 189 00a4 92B2     		uxth	r2, r2
+ 190              		.loc 1 205 71 discriminator 3 view .LVU58
+ 191 00a6 0232     		adds	r2, r2, #2
+ 192              		.loc 1 205 5 discriminator 3 view .LVU59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 8
+
+
+ 193 00a8 12B2     		sxth	r2, r2
+ 194 00aa 09B2     		sxth	r1, r1
+ 195 00ac 5046     		mov	r0, r10
+ 196 00ae FFF7FEFF 		bl	GUI_DispCharAt
+ 197              	.LVL21:
+ 199:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     pCursor = pCursorType->aCursor[i].pCursor;
+ 198              		.loc 1 199 32 is_stmt 1 discriminator 3 view .LVU60
+ 199:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     pCursor = pCursorType->aCursor[i].pCursor;
+ 199              		.loc 1 199 33 is_stmt 0 discriminator 3 view .LVU61
+ 200 00b2 0134     		adds	r4, r4, #1
+ 201              	.LVL22:
+ 202              	.L5:
+ 199:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     pCursor = pCursorType->aCursor[i].pCursor;
+ 203              		.loc 1 199 15 is_stmt 1 discriminator 1 view .LVU62
+ 199:emWin/GUI_Demo/GUIDEMO_Cursor.c ****     pCursor = pCursorType->aCursor[i].pCursor;
+ 204              		.loc 1 199 3 is_stmt 0 discriminator 1 view .LVU63
+ 205 00b4 022C     		cmp	r4, #2
+ 206 00b6 CBDD     		ble	.L6
+ 206:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   }
+ 207:emWin/GUI_Demo/GUIDEMO_Cursor.c **** }
+ 207              		.loc 1 207 1 view .LVU64
+ 208 00b8 05B0     		add	sp, sp, #20
+ 209              	.LCFI2:
+ 210              		.cfi_def_cfa_offset 36
+ 211              		@ sp needed
+ 212 00ba BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 213              	.LVL23:
+ 214              	.L10:
+ 215              		.loc 1 207 1 view .LVU65
+ 216 00be 00BF     		.align	2
+ 217              	.L9:
+ 218 00c0 00000000 		.word	GUI_Font13_ASCII
+ 219 00c4 00000000 		.word	GUI_Font13B_ASCII
+ 220              		.cfi_endproc
+ 221              	.LFE0:
+ 223              		.section	.rodata._DispCursor.str1.4,"aMS",%progbits,1
+ 224              		.align	2
+ 225              	.LC0:
+ 226 0000 41766169 		.ascii	"Available cursors\000"
+ 226      6C61626C 
+ 226      65206375 
+ 226      72736F72 
+ 226      7300
+ 227              		.global	__aeabi_i2d
+ 228              		.global	__aeabi_ddiv
+ 229              		.global	__aeabi_d2iz
+ 230              		.section	.text._DispCursor,"ax",%progbits
+ 231              		.align	1
+ 232              		.syntax unified
+ 233              		.thumb
+ 234              		.thumb_func
+ 235              		.fpu fpv4-sp-d16
+ 237              	_DispCursor:
+ 238              	.LFB1:
+ 208:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 209:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /*********************************************************************
+ 210:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 9
+
+
+ 211:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *       _DispCursor
+ 212:emWin/GUI_Demo/GUIDEMO_Cursor.c **** */
+ 213:emWin/GUI_Demo/GUIDEMO_Cursor.c **** static void _DispCursor(void) {
+ 239              		.loc 1 213 31 is_stmt 1 view -0
+ 240              		.cfi_startproc
+ 241              		@ args = 0, pretend = 0, frame = 0
+ 242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 243 0000 10B5     		push	{r4, lr}
+ 244              	.LCFI3:
+ 245              		.cfi_def_cfa_offset 8
+ 246              		.cfi_offset 4, -8
+ 247              		.cfi_offset 14, -4
+ 214:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   int y0, dx, dy, xSize;
+ 248              		.loc 1 214 3 view .LVU67
+ 215:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 216:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   xSize = LCD_GetXSize();
+ 249              		.loc 1 216 3 view .LVU68
+ 250              		.loc 1 216 11 is_stmt 0 view .LVU69
+ 251 0002 FFF7FEFF 		bl	LCD_GetXSize
+ 252              	.LVL24:
+ 253 0006 0446     		mov	r4, r0
+ 254              	.LVL25:
+ 217:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_SetTextMode(GUI_TM_TRANS);
+ 255              		.loc 1 217 3 is_stmt 1 view .LVU70
+ 256 0008 0220     		movs	r0, #2
+ 257              	.LVL26:
+ 258              		.loc 1 217 3 is_stmt 0 view .LVU71
+ 259 000a FFF7FEFF 		bl	GUI_SetTextMode
+ 260              	.LVL27:
+ 218:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_SetFont(&GUI_FontRounded22);
+ 261              		.loc 1 218 3 is_stmt 1 view .LVU72
+ 262 000e 1648     		ldr	r0, .L13
+ 263 0010 FFF7FEFF 		bl	GUI_SetFont
+ 264              	.LVL28:
+ 219:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_DispStringHCenterAt("Available cursors", xSize*2/3, 12);
+ 265              		.loc 1 219 3 view .LVU73
+ 266              		.loc 1 219 53 is_stmt 0 view .LVU74
+ 267 0014 6100     		lsls	r1, r4, #1
+ 268              		.loc 1 219 3 view .LVU75
+ 269 0016 154B     		ldr	r3, .L13+4
+ 270 0018 83FB0123 		smull	r2, r3, r3, r1
+ 271 001c 0C22     		movs	r2, #12
+ 272 001e A3EBE171 		sub	r1, r3, r1, asr #31
+ 273 0022 1348     		ldr	r0, .L13+8
+ 274 0024 FFF7FEFF 		bl	GUI_DispStringHCenterAt
+ 275              	.LVL29:
+ 220:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   //
+ 221:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   // Display the cursors
+ 222:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   //
+ 223:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   y0 = 68;
+ 276              		.loc 1 223 3 is_stmt 1 view .LVU76
+ 224:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   dx = ((int)(xSize / 2.5)) +25;
+ 277              		.loc 1 224 3 view .LVU77
+ 278              		.loc 1 224 21 is_stmt 0 view .LVU78
+ 279 0028 2046     		mov	r0, r4
+ 280 002a FFF7FEFF 		bl	__aeabi_i2d
+ 281              	.LVL30:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 10
+
+
+ 282 002e 0022     		movs	r2, #0
+ 283 0030 104B     		ldr	r3, .L13+12
+ 284 0032 FFF7FEFF 		bl	__aeabi_ddiv
+ 285              	.LVL31:
+ 286              		.loc 1 224 9 view .LVU79
+ 287 0036 FFF7FEFF 		bl	__aeabi_d2iz
+ 288              	.LVL32:
+ 289              		.loc 1 224 6 view .LVU80
+ 290 003a 00F11904 		add	r4, r0, #25
+ 291              	.LVL33:
+ 225:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   dy = 75;
+ 292              		.loc 1 225 3 is_stmt 1 view .LVU81
+ 226:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   _ShowCursorType(&_CursorArrow,    5, y0);
+ 293              		.loc 1 226 3 view .LVU82
+ 294 003e 4422     		movs	r2, #68
+ 295 0040 0521     		movs	r1, #5
+ 296 0042 0D48     		ldr	r0, .L13+16
+ 297 0044 FFF7FEFF 		bl	_ShowCursorType
+ 298              	.LVL34:
+ 227:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   _ShowCursorType(&_CursorCross,    5, y0 + dy);
+ 299              		.loc 1 227 3 view .LVU83
+ 300 0048 8F22     		movs	r2, #143
+ 301 004a 0521     		movs	r1, #5
+ 302 004c 0B48     		ldr	r0, .L13+20
+ 303 004e FFF7FEFF 		bl	_ShowCursorType
+ 304              	.LVL35:
+ 228:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   _ShowCursorType(&_CursorArrowI,  dx, y0);
+ 305              		.loc 1 228 3 view .LVU84
+ 306 0052 4422     		movs	r2, #68
+ 307 0054 2146     		mov	r1, r4
+ 308 0056 0A48     		ldr	r0, .L13+24
+ 309 0058 FFF7FEFF 		bl	_ShowCursorType
+ 310              	.LVL36:
+ 229:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   _ShowCursorType(&_CursorCrossI,  dx, y0 + dy);
+ 311              		.loc 1 229 3 view .LVU85
+ 312 005c 8F22     		movs	r2, #143
+ 313 005e 2146     		mov	r1, r4
+ 314 0060 0848     		ldr	r0, .L13+28
+ 315 0062 FFF7FEFF 		bl	_ShowCursorType
+ 316              	.LVL37:
+ 230:emWin/GUI_Demo/GUIDEMO_Cursor.c **** }
+ 317              		.loc 1 230 1 is_stmt 0 view .LVU86
+ 318 0066 10BD     		pop	{r4, pc}
+ 319              	.LVL38:
+ 320              	.L14:
+ 321              		.loc 1 230 1 view .LVU87
+ 322              		.align	2
+ 323              	.L13:
+ 324 0068 00000000 		.word	GUI_FontRounded22
+ 325 006c 56555555 		.word	1431655766
+ 326 0070 00000000 		.word	.LC0
+ 327 0074 00000440 		.word	1074003968
+ 328 0078 00000000 		.word	.LANCHOR0
+ 329 007c 00000000 		.word	.LANCHOR1
+ 330 0080 00000000 		.word	.LANCHOR2
+ 331 0084 00000000 		.word	.LANCHOR3
+ 332              		.cfi_endproc
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 11
+
+
+ 333              	.LFE1:
+ 335              		.section	.rodata.GUIDEMO_Cursor.str1.4,"aMS",%progbits,1
+ 336              		.align	2
+ 337              	.LC1:
+ 338 0000 5354656D 		.ascii	"STemWin supports\012software cursor\000"
+ 338      57696E20 
+ 338      73757070 
+ 338      6F727473 
+ 338      0A736F66 
+ 339 0021 000000   		.align	2
+ 340              	.LC2:
+ 341 0024 43757273 		.ascii	"Cursor\000"
+ 341      6F7200
+ 342              		.section	.text.GUIDEMO_Cursor,"ax",%progbits
+ 343              		.align	1
+ 344              		.global	GUIDEMO_Cursor
+ 345              		.syntax unified
+ 346              		.thumb
+ 347              		.thumb_func
+ 348              		.fpu fpv4-sp-d16
+ 350              	GUIDEMO_Cursor:
+ 351              	.LFB2:
+ 231:emWin/GUI_Demo/GUIDEMO_Cursor.c **** 
+ 232:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /*********************************************************************
+ 233:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ 234:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *       public code
+ 235:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ 236:emWin/GUI_Demo/GUIDEMO_Cursor.c **** **********************************************************************
+ 237:emWin/GUI_Demo/GUIDEMO_Cursor.c **** */
+ 238:emWin/GUI_Demo/GUIDEMO_Cursor.c **** /*********************************************************************
+ 239:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *
+ 240:emWin/GUI_Demo/GUIDEMO_Cursor.c **** *       GUIDEMO_Cursor
+ 241:emWin/GUI_Demo/GUIDEMO_Cursor.c **** */
+ 242:emWin/GUI_Demo/GUIDEMO_Cursor.c **** void GUIDEMO_Cursor(void) {
+ 352              		.loc 1 242 27 is_stmt 1 view -0
+ 353              		.cfi_startproc
+ 354              		@ args = 0, pretend = 0, frame = 0
+ 355              		@ frame_needed = 0, uses_anonymous_args = 0
+ 356 0000 08B5     		push	{r3, lr}
+ 357              	.LCFI4:
+ 358              		.cfi_def_cfa_offset 8
+ 359              		.cfi_offset 3, -8
+ 360              		.cfi_offset 14, -4
+ 243:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUIDEMO_ShowIntro("Cursor",
+ 361              		.loc 1 243 3 view .LVU89
+ 362 0002 0C49     		ldr	r1, .L17
+ 363 0004 0C48     		ldr	r0, .L17+4
+ 364 0006 FFF7FEFF 		bl	GUIDEMO_ShowIntro
+ 365              	.LVL39:
+ 244:emWin/GUI_Demo/GUIDEMO_Cursor.c ****                     "STemWin supports\n"
+ 245:emWin/GUI_Demo/GUIDEMO_Cursor.c ****                     "software cursor");
+ 246:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUIDEMO_DrawBk(1);
+ 366              		.loc 1 246 3 view .LVU90
+ 367 000a 0120     		movs	r0, #1
+ 368 000c FFF7FEFF 		bl	GUIDEMO_DrawBk
+ 369              	.LVL40:
+ 247:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_CURSOR_Hide();
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 12
+
+
+ 370              		.loc 1 247 3 view .LVU91
+ 371 0010 FFF7FEFF 		bl	GUI_CURSOR_Hide
+ 372              	.LVL41:
+ 248:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   _DispCursor();
+ 373              		.loc 1 248 3 view .LVU92
+ 374 0014 FFF7FEFF 		bl	_DispCursor
+ 375              	.LVL42:
+ 249:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUIDEMO_Wait(4000);
+ 376              		.loc 1 249 3 view .LVU93
+ 377 0018 4FF47A60 		mov	r0, #4000
+ 378 001c FFF7FEFF 		bl	GUIDEMO_Wait
+ 379              	.LVL43:
+ 250:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_CURSOR_Show();
+ 380              		.loc 1 250 3 view .LVU94
+ 381 0020 FFF7FEFF 		bl	GUI_CURSOR_Show
+ 382              	.LVL44:
+ 251:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_CURSOR_SetPosition(0,0);
+ 383              		.loc 1 251 3 view .LVU95
+ 384 0024 0021     		movs	r1, #0
+ 385 0026 0846     		mov	r0, r1
+ 386 0028 FFF7FEFF 		bl	GUI_CURSOR_SetPosition
+ 387              	.LVL45:
+ 252:emWin/GUI_Demo/GUIDEMO_Cursor.c ****   GUI_CURSOR_Select(&GUI_CursorArrowM);
+ 388              		.loc 1 252 3 view .LVU96
+ 389 002c 0348     		ldr	r0, .L17+8
+ 390 002e FFF7FEFF 		bl	GUI_CURSOR_Select
+ 391              	.LVL46:
+ 253:emWin/GUI_Demo/GUIDEMO_Cursor.c **** }
+ 392              		.loc 1 253 1 is_stmt 0 view .LVU97
+ 393 0032 08BD     		pop	{r3, pc}
+ 394              	.L18:
+ 395              		.align	2
+ 396              	.L17:
+ 397 0034 00000000 		.word	.LC1
+ 398 0038 24000000 		.word	.LC2
+ 399 003c 00000000 		.word	GUI_CursorArrowM
+ 400              		.cfi_endproc
+ 401              	.LFE2:
+ 403              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 404              		.align	2
+ 405              	.LC3:
+ 406 0000 696E7665 		.ascii	"inverted cross cursors\000"
+ 406      72746564 
+ 406      2063726F 
+ 406      73732063 
+ 406      7572736F 
+ 407 0017 00       		.align	2
+ 408              	.LC4:
+ 409 0018 63726F73 		.ascii	"cross cursors\000"
+ 409      73206375 
+ 409      72736F72 
+ 409      7300
+ 410 0026 0000     		.align	2
+ 411              	.LC5:
+ 412 0028 696E7665 		.ascii	"inverted arrow cursors\000"
+ 412      72746564 
+ 412      20617272 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 13
+
+
+ 412      6F772063 
+ 412      7572736F 
+ 413 003f 00       		.align	2
+ 414              	.LC6:
+ 415 0040 6172726F 		.ascii	"arrow cursors\000"
+ 415      77206375 
+ 415      72736F72 
+ 415      7300
+ 416              		.section	.rodata._CursorArrow,"a"
+ 417              		.align	2
+ 418              		.set	.LANCHOR0,. + 0
+ 421              	_CursorArrow:
+ 422 0000 00000000 		.word	GUI_CursorArrowS
+ 423 0004 53       		.byte	83
+ 424 0005 000000   		.space	3
+ 425 0008 00000000 		.word	GUI_CursorArrowM
+ 426 000c 4D       		.byte	77
+ 427 000d 000000   		.space	3
+ 428 0010 00000000 		.word	GUI_CursorArrowL
+ 429 0014 4C       		.byte	76
+ 430 0015 000000   		.space	3
+ 431 0018 40000000 		.word	.LC6
+ 432              		.section	.rodata._CursorArrowI,"a"
+ 433              		.align	2
+ 434              		.set	.LANCHOR2,. + 0
+ 437              	_CursorArrowI:
+ 438 0000 00000000 		.word	GUI_CursorArrowSI
+ 439 0004 53       		.byte	83
+ 440 0005 000000   		.space	3
+ 441 0008 00000000 		.word	GUI_CursorArrowMI
+ 442 000c 4D       		.byte	77
+ 443 000d 000000   		.space	3
+ 444 0010 00000000 		.word	GUI_CursorArrowLI
+ 445 0014 4C       		.byte	76
+ 446 0015 000000   		.space	3
+ 447 0018 28000000 		.word	.LC5
+ 448              		.section	.rodata._CursorCross,"a"
+ 449              		.align	2
+ 450              		.set	.LANCHOR1,. + 0
+ 453              	_CursorCross:
+ 454 0000 00000000 		.word	GUI_CursorCrossS
+ 455 0004 53       		.byte	83
+ 456 0005 000000   		.space	3
+ 457 0008 00000000 		.word	GUI_CursorCrossM
+ 458 000c 4D       		.byte	77
+ 459 000d 000000   		.space	3
+ 460 0010 00000000 		.word	GUI_CursorCrossL
+ 461 0014 4C       		.byte	76
+ 462 0015 000000   		.space	3
+ 463 0018 18000000 		.word	.LC4
+ 464              		.section	.rodata._CursorCrossI,"a"
+ 465              		.align	2
+ 466              		.set	.LANCHOR3,. + 0
+ 469              	_CursorCrossI:
+ 470 0000 00000000 		.word	GUI_CursorCrossSI
+ 471 0004 53       		.byte	83
+ 472 0005 000000   		.space	3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 14
+
+
+ 473 0008 00000000 		.word	GUI_CursorCrossMI
+ 474 000c 4D       		.byte	77
+ 475 000d 000000   		.space	3
+ 476 0010 00000000 		.word	GUI_CursorCrossLI
+ 477 0014 4C       		.byte	76
+ 478 0015 000000   		.space	3
+ 479 0018 00000000 		.word	.LC3
+ 480              		.text
+ 481              	.Letext0:
+ 482              		.file 2 "emWin/inc/LCD.h"
+ 483              		.file 3 "emWin/inc/GUI.h"
+ 484              		.file 4 "emWin/inc/GUI_Type.h"
+ 485              		.file 5 "emWin/inc/WM.h"
+ 486              		.file 6 "emWin/inc/LCD_Protected.h"
+ 487              		.file 7 "emWin/inc/GUI_Private.h"
+ 488              		.file 8 "emWin/inc/WM_Intern.h"
+ 489              		.file 9 "emWin/inc/WIDGET.h"
+ 490              		.file 10 "emWin/GUI_Demo/GUIDEMO.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 GUIDEMO_Cursor.c
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:18     .text._ShowCursorType:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:25     .text._ShowCursorType:00000000 _ShowCursorType
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:218    .text._ShowCursorType:000000c0 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:224    .rodata._DispCursor.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:231    .text._DispCursor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:237    .text._DispCursor:00000000 _DispCursor
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:324    .text._DispCursor:00000068 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:336    .rodata.GUIDEMO_Cursor.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:343    .text.GUIDEMO_Cursor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:350    .text.GUIDEMO_Cursor:00000000 GUIDEMO_Cursor
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:397    .text.GUIDEMO_Cursor:00000034 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:404    .rodata.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:417    .rodata._CursorArrow:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:421    .rodata._CursorArrow:00000000 _CursorArrow
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:433    .rodata._CursorArrowI:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:437    .rodata._CursorArrowI:00000000 _CursorArrowI
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:449    .rodata._CursorCross:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:453    .rodata._CursorCross:00000000 _CursorCross
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:465    .rodata._CursorCrossI:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s:469    .rodata._CursorCrossI:00000000 _CursorCrossI
+
+UNDEFINED SYMBOLS
+GUI_SetFont
+GUI_DispStringAt
+GUI_GetFontDistY
+GUI_GetCharDistX
+GUI_DrawBitmap
+GUI_DispCharAt
+GUI_Font13_ASCII
+GUI_Font13B_ASCII
+__aeabi_i2d
+__aeabi_ddiv
+__aeabi_d2iz
+LCD_GetXSize
+GUI_SetTextMode
+GUI_DispStringHCenterAt
+GUI_FontRounded22
+GUIDEMO_ShowIntro
+GUIDEMO_DrawBk
+GUI_CURSOR_Hide
+GUIDEMO_Wait
+GUI_CURSOR_Show
+GUI_CURSOR_SetPosition
+GUI_CURSOR_Select
+GUI_CursorArrowM
+GUI_CursorArrowS
+GUI_CursorArrowL
+GUI_CursorArrowSI
+GUI_CursorArrowMI
+GUI_CursorArrowLI
+GUI_CursorCrossS
+GUI_CursorCrossM
+GUI_CursorCrossL
+GUI_CursorCrossSI
+GUI_CursorCrossMI
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccXgE0VU.s 			page 16
+
+
+GUI_CursorCrossLI

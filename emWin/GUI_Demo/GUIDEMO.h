@@ -40,7 +40,7 @@ Purpose     : Configuration file of GUIDemo
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright © 2017 STMicroelectronics International N.V. 
+  * <h2><center>&copy; Copyright ? 2017 STMicroelectronics International N.V. 
   * All rights reserved.</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -192,7 +192,7 @@ extern "C" {     /* Make sure we have C-declarations in C++ programs */
   #define GUIDEMO_USE_VNC         (0)
 #endif
 #ifndef   GUIDEMO_USE_AUTO_BK
-  #define GUIDEMO_USE_AUTO_BK     (1)
+  #define GUIDEMO_USE_AUTO_BK     (0)//?????
 #endif
 
 #define GUIDEMO_CF_SHOW_SPRITES (GUIDEMO_SHOW_SPRITES <<  0)

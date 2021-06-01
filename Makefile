@@ -114,9 +114,9 @@ UI/head.c \
 UI/gif.c \
 UI/calender.c \
 UI/game.c \
-$(shell find ./emWin/GUI_Demo -name '*.c') #GUIDEMO
-
-
+$(wildcard emWin/GUI_Demo/*.c)
+#$(wildcard UI/*.c)
+#$(shell find ./emWin/GUI_Demo -name '*.c') #GUIDEMO
 
 # ASM sources
 ASM_SOURCES =  \

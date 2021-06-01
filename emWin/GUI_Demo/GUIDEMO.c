@@ -40,7 +40,7 @@ Purpose     : Several GUIDEMO routines
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright © 2017 STMicroelectronics International N.V. 
+  * <h2><center>&copy; Copyright ? 2017 STMicroelectronics International N.V. 
   * All rights reserved.</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -775,7 +775,6 @@ void GUIDEMO_Main(void) {
   int                     NumFreeBytes;
   int                     BitsPerPixel;
 #endif
-
   GUI_MEMDEV_SetAnimationCallback(_cbEffect, (void *)&_Pressed);
   WM_SetCallback(WM_HBKWIN, _cbBk);
   BUTTON_SetReactOnLevel();

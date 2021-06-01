@@ -1,0 +1,855 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"GUIDEMO_Speed.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._GetPixelsPerSecond,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_GetPixelsPerSecond:
+  26              	.LFB0:
+  27              		.file 1 "emWin/GUI_Demo/GUIDEMO_Speed.c"
+   1:emWin/GUI_Demo/GUIDEMO_Speed.c **** /*********************************************************************
+   2:emWin/GUI_Demo/GUIDEMO_Speed.c **** *          Portions COPYRIGHT 2017 STMicroelectronics                 *
+   3:emWin/GUI_Demo/GUIDEMO_Speed.c **** *          Portions SEGGER Microcontroller GmbH & Co. KG             *
+   4:emWin/GUI_Demo/GUIDEMO_Speed.c **** *        Solutions for real time microcontroller applications        *
+   5:emWin/GUI_Demo/GUIDEMO_Speed.c **** **********************************************************************
+   6:emWin/GUI_Demo/GUIDEMO_Speed.c **** *                                                                    *
+   7:emWin/GUI_Demo/GUIDEMO_Speed.c **** *        (c) 1996 - 2015  SEGGER Microcontroller GmbH & Co. KG       *
+   8:emWin/GUI_Demo/GUIDEMO_Speed.c **** *                                                                    *
+   9:emWin/GUI_Demo/GUIDEMO_Speed.c **** *        Internet: www.segger.com    Support:  support@segger.com    *
+  10:emWin/GUI_Demo/GUIDEMO_Speed.c **** *                                                                    *
+  11:emWin/GUI_Demo/GUIDEMO_Speed.c **** **********************************************************************
+  12:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+  13:emWin/GUI_Demo/GUIDEMO_Speed.c **** ** emWin V5.28 - Graphical user interface for embedded applications **
+  14:emWin/GUI_Demo/GUIDEMO_Speed.c **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  15:emWin/GUI_Demo/GUIDEMO_Speed.c **** emWin is protected by  international copyright laws.  Knowledge of the
+  16:emWin/GUI_Demo/GUIDEMO_Speed.c **** source code may not be used to write a similar product.  This file may
+  17:emWin/GUI_Demo/GUIDEMO_Speed.c **** only be used in accordance with the following terms:
+  18:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+  19:emWin/GUI_Demo/GUIDEMO_Speed.c **** The  software has  been licensed  to STMicroelectronics International
+  20:emWin/GUI_Demo/GUIDEMO_Speed.c **** N.V. a Dutch company with a Swiss branch and its headquarters in Plan-
+  21:emWin/GUI_Demo/GUIDEMO_Speed.c **** les-Ouates, Geneva, 39 Chemin du Champ des Filles, Switzerland for the
+  22:emWin/GUI_Demo/GUIDEMO_Speed.c **** purposes of creating libraries for ARM Cortex-M-based 32-bit microcon_
+  23:emWin/GUI_Demo/GUIDEMO_Speed.c **** troller products commercialized by Licensee only, sublicensed and dis_
+  24:emWin/GUI_Demo/GUIDEMO_Speed.c **** tributed under the terms and conditions of the End User License Agree_
+  25:emWin/GUI_Demo/GUIDEMO_Speed.c **** ment supplied by STMicroelectronics International N.V.
+  26:emWin/GUI_Demo/GUIDEMO_Speed.c **** Full source code is available at: www.segger.com
+  27:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+  28:emWin/GUI_Demo/GUIDEMO_Speed.c **** We appreciate your understanding and fairness.
+  29:emWin/GUI_Demo/GUIDEMO_Speed.c **** ----------------------------------------------------------------------
+  30:emWin/GUI_Demo/GUIDEMO_Speed.c **** File        : GUIDEMO_Speed.c
+  31:emWin/GUI_Demo/GUIDEMO_Speed.c **** Purpose     : Speed demo
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 2
+
+
+  32:emWin/GUI_Demo/GUIDEMO_Speed.c **** ----------------------------------------------------------------------
+  33:emWin/GUI_Demo/GUIDEMO_Speed.c **** */
+  34:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+  35:emWin/GUI_Demo/GUIDEMO_Speed.c **** /**
+  36:emWin/GUI_Demo/GUIDEMO_Speed.c ****   ******************************************************************************
+  37:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * @file    GUIDEMO_Speed.c
+  38:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * @author  MCD Application Team
+  39:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * @brief   Speed demo
+  40:emWin/GUI_Demo/GUIDEMO_Speed.c ****   ******************************************************************************
+  41:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * @attention
+  42:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *
+  43:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * <h2><center>&copy; Copyright © 2017 STMicroelectronics International N.V. 
+  44:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * All rights reserved.</center></h2>
+  45:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *
+  46:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * Redistribution and use in source and binary forms, with or without 
+  47:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * modification, are permitted, provided that the following conditions are met:
+  48:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *
+  49:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * 1. Redistribution of source code must retain the above copyright notice, 
+  50:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *    this list of conditions and the following disclaimer.
+  51:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * 2. Redistributions in binary form must reproduce the above copyright notice,
+  52:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *    this list of conditions and the following disclaimer in the documentation
+  53:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *    and/or other materials provided with the distribution.
+  54:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * 3. Neither the name of STMicroelectronics nor the names of other 
+  55:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *    contributors to this software may be used to endorse or promote products 
+  56:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *    derived from this software without specific written permission.
+  57:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * 4. This software, including modifications and/or derivative works of this 
+  58:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *    software, must execute solely and exclusively on microcontroller or
+  59:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *    microprocessor devices manufactured by or for STMicroelectronics.
+  60:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * 5. Redistribution and use of this software other than as permitted under 
+  61:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *    this license is void and will automatically terminate your rights under 
+  62:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *    this license. 
+  63:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *
+  64:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
+  65:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
+  66:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+  67:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
+  68:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  69:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+  70:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  71:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
+  72:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  73:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  74:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+  75:emWin/GUI_Demo/GUIDEMO_Speed.c ****   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  76:emWin/GUI_Demo/GUIDEMO_Speed.c ****   *
+  77:emWin/GUI_Demo/GUIDEMO_Speed.c ****   ******************************************************************************
+  78:emWin/GUI_Demo/GUIDEMO_Speed.c ****   */
+  79:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+  80:emWin/GUI_Demo/GUIDEMO_Speed.c **** #include <stdlib.h>  /* for rand */
+  81:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+  82:emWin/GUI_Demo/GUIDEMO_Speed.c **** #include "GUIDEMO.h"
+  83:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+  84:emWin/GUI_Demo/GUIDEMO_Speed.c **** #if (SHOW_GUIDEMO_SPEED)
+  85:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+  86:emWin/GUI_Demo/GUIDEMO_Speed.c **** /*********************************************************************
+  87:emWin/GUI_Demo/GUIDEMO_Speed.c **** *
+  88:emWin/GUI_Demo/GUIDEMO_Speed.c **** *       Static data
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 3
+
+
+  89:emWin/GUI_Demo/GUIDEMO_Speed.c **** *
+  90:emWin/GUI_Demo/GUIDEMO_Speed.c **** **********************************************************************
+  91:emWin/GUI_Demo/GUIDEMO_Speed.c **** */
+  92:emWin/GUI_Demo/GUIDEMO_Speed.c **** static const GUI_COLOR _aColor[8] = {
+  93:emWin/GUI_Demo/GUIDEMO_Speed.c ****   0x000000, 
+  94:emWin/GUI_Demo/GUIDEMO_Speed.c ****   0x0000FF, 
+  95:emWin/GUI_Demo/GUIDEMO_Speed.c ****   0x00FF00, 
+  96:emWin/GUI_Demo/GUIDEMO_Speed.c ****   0x00FFFF, 
+  97:emWin/GUI_Demo/GUIDEMO_Speed.c ****   0xFF0000, 
+  98:emWin/GUI_Demo/GUIDEMO_Speed.c ****   0xFF00FF, 
+  99:emWin/GUI_Demo/GUIDEMO_Speed.c ****   0xFFFF00, 
+ 100:emWin/GUI_Demo/GUIDEMO_Speed.c ****   0xFFFFFF
+ 101:emWin/GUI_Demo/GUIDEMO_Speed.c **** };
+ 102:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+ 103:emWin/GUI_Demo/GUIDEMO_Speed.c **** /*********************************************************************
+ 104:emWin/GUI_Demo/GUIDEMO_Speed.c **** *
+ 105:emWin/GUI_Demo/GUIDEMO_Speed.c **** *       Static code
+ 106:emWin/GUI_Demo/GUIDEMO_Speed.c **** *
+ 107:emWin/GUI_Demo/GUIDEMO_Speed.c **** **********************************************************************
+ 108:emWin/GUI_Demo/GUIDEMO_Speed.c **** */
+ 109:emWin/GUI_Demo/GUIDEMO_Speed.c **** /*********************************************************************
+ 110:emWin/GUI_Demo/GUIDEMO_Speed.c **** *
+ 111:emWin/GUI_Demo/GUIDEMO_Speed.c **** *       _GetPixelsPerSecond
+ 112:emWin/GUI_Demo/GUIDEMO_Speed.c **** */
+ 113:emWin/GUI_Demo/GUIDEMO_Speed.c **** static U32 _GetPixelsPerSecond(void) {
+  28              		.loc 1 113 38 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 32
+  35              		.cfi_offset 4, -32
+  36              		.cfi_offset 5, -28
+  37              		.cfi_offset 6, -24
+  38              		.cfi_offset 7, -20
+  39              		.cfi_offset 8, -16
+  40              		.cfi_offset 9, -12
+  41              		.cfi_offset 10, -8
+  42              		.cfi_offset 14, -4
+ 114:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_COLOR Color, BkColor;
+  43              		.loc 1 114 3 view .LVU1
+ 115:emWin/GUI_Demo/GUIDEMO_Speed.c ****   U32 x0, y0, x1, y1, xSize, ySize;
+  44              		.loc 1 115 3 view .LVU2
+ 116:emWin/GUI_Demo/GUIDEMO_Speed.c ****   I32 t, t0;
+  45              		.loc 1 116 3 view .LVU3
+ 117:emWin/GUI_Demo/GUIDEMO_Speed.c ****   U32 Cnt, PixelsPerSecond, PixelCnt;
+  46              		.loc 1 117 3 view .LVU4
+ 118:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+ 119:emWin/GUI_Demo/GUIDEMO_Speed.c ****   //
+ 120:emWin/GUI_Demo/GUIDEMO_Speed.c ****   // Find an area which is not obstructed by any windows
+ 121:emWin/GUI_Demo/GUIDEMO_Speed.c ****   //
+ 122:emWin/GUI_Demo/GUIDEMO_Speed.c ****   xSize   = LCD_GetXSize();
+  47              		.loc 1 122 3 view .LVU5
+  48              		.loc 1 122 13 is_stmt 0 view .LVU6
+  49 0004 FFF7FEFF 		bl	LCD_GetXSize
+  50              	.LVL0:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 4
+
+
+  51 0008 8046     		mov	r8, r0
+  52              	.LVL1:
+ 123:emWin/GUI_Demo/GUIDEMO_Speed.c ****   ySize   = LCD_GetYSize();
+  53              		.loc 1 123 3 is_stmt 1 view .LVU7
+  54              		.loc 1 123 13 is_stmt 0 view .LVU8
+  55 000a FFF7FEFF 		bl	LCD_GetYSize
+  56              	.LVL2:
+  57              		.loc 1 123 13 view .LVU9
+  58 000e 8146     		mov	r9, r0
+  59              	.LVL3:
+ 124:emWin/GUI_Demo/GUIDEMO_Speed.c ****   Cnt     = 0;
+  60              		.loc 1 124 3 is_stmt 1 view .LVU10
+ 125:emWin/GUI_Demo/GUIDEMO_Speed.c ****   x0      = 0;
+  61              		.loc 1 125 3 view .LVU11
+ 126:emWin/GUI_Demo/GUIDEMO_Speed.c ****   x1      = xSize - 1;
+  62              		.loc 1 126 3 view .LVU12
+  63              		.loc 1 126 11 is_stmt 0 view .LVU13
+  64 0010 08F1FF37 		add	r7, r8, #-1
+  65              	.LVL4:
+ 127:emWin/GUI_Demo/GUIDEMO_Speed.c ****   y0      = 65;
+  66              		.loc 1 127 3 is_stmt 1 view .LVU14
+ 128:emWin/GUI_Demo/GUIDEMO_Speed.c ****   y1      = ySize - 60 - 1;
+  67              		.loc 1 128 3 view .LVU15
+  68              		.loc 1 128 11 is_stmt 0 view .LVU16
+  69 0014 A0F13D06 		sub	r6, r0, #61
+  70              	.LVL5:
+ 129:emWin/GUI_Demo/GUIDEMO_Speed.c ****   Color   = GUI_GetColor();
+  71              		.loc 1 129 3 is_stmt 1 view .LVU17
+  72              		.loc 1 129 13 is_stmt 0 view .LVU18
+  73 0018 FFF7FEFF 		bl	GUI_GetColor
+  74              	.LVL6:
+  75              		.loc 1 129 13 view .LVU19
+  76 001c 8246     		mov	r10, r0
+  77              	.LVL7:
+ 130:emWin/GUI_Demo/GUIDEMO_Speed.c ****   BkColor = GUI_GetBkColor();
+  78              		.loc 1 130 3 is_stmt 1 view .LVU20
+  79              		.loc 1 130 13 is_stmt 0 view .LVU21
+  80 001e FFF7FEFF 		bl	GUI_GetBkColor
+  81              	.LVL8:
+ 131:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_SetColor(BkColor);
+  82              		.loc 1 131 3 is_stmt 1 view .LVU22
+  83 0022 FFF7FEFF 		bl	GUI_SetColor
+  84              	.LVL9:
+ 132:emWin/GUI_Demo/GUIDEMO_Speed.c ****   //
+ 133:emWin/GUI_Demo/GUIDEMO_Speed.c ****   // Repeat fill as often as possible in 100 ms
+ 134:emWin/GUI_Demo/GUIDEMO_Speed.c ****   //
+ 135:emWin/GUI_Demo/GUIDEMO_Speed.c ****   t0 = GUIDEMO_GetTime();
+  85              		.loc 1 135 3 view .LVU23
+  86              		.loc 1 135 8 is_stmt 0 view .LVU24
+  87 0026 FFF7FEFF 		bl	GUIDEMO_GetTime
+  88              	.LVL10:
+  89 002a 0546     		mov	r5, r0
+  90              	.LVL11:
+ 124:emWin/GUI_Demo/GUIDEMO_Speed.c ****   x0      = 0;
+  91              		.loc 1 124 11 view .LVU25
+  92 002c 0024     		movs	r4, #0
+  93              	.LVL12:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 5
+
+
+  94              	.L2:
+ 136:emWin/GUI_Demo/GUIDEMO_Speed.c ****   do {
+  95              		.loc 1 136 3 is_stmt 1 discriminator 1 view .LVU26
+ 137:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_FillRect(x0, y0, x1, y1);
+  96              		.loc 1 137 5 discriminator 1 view .LVU27
+  97 002e 3346     		mov	r3, r6
+  98 0030 3A46     		mov	r2, r7
+  99 0032 4121     		movs	r1, #65
+ 100 0034 0020     		movs	r0, #0
+ 101 0036 FFF7FEFF 		bl	GUI_FillRect
+ 102              	.LVL13:
+ 138:emWin/GUI_Demo/GUIDEMO_Speed.c ****     Cnt++;
+ 103              		.loc 1 138 5 discriminator 1 view .LVU28
+ 104              		.loc 1 138 8 is_stmt 0 discriminator 1 view .LVU29
+ 105 003a 0134     		adds	r4, r4, #1
+ 106              	.LVL14:
+ 139:emWin/GUI_Demo/GUIDEMO_Speed.c ****     t = GUIDEMO_GetTime();    
+ 107              		.loc 1 139 5 is_stmt 1 discriminator 1 view .LVU30
+ 108              		.loc 1 139 9 is_stmt 0 discriminator 1 view .LVU31
+ 109 003c FFF7FEFF 		bl	GUIDEMO_GetTime
+ 110              	.LVL15:
+ 140:emWin/GUI_Demo/GUIDEMO_Speed.c ****   } while ((t - (t0 + 100)) <= 0);
+ 111              		.loc 1 140 11 is_stmt 1 discriminator 1 view .LVU32
+ 112              		.loc 1 140 21 is_stmt 0 discriminator 1 view .LVU33
+ 113 0040 05F16403 		add	r3, r5, #100
+ 114              		.loc 1 140 15 discriminator 1 view .LVU34
+ 115 0044 C31A     		subs	r3, r0, r3
+ 116              		.loc 1 140 3 discriminator 1 view .LVU35
+ 117 0046 002B     		cmp	r3, #0
+ 118 0048 F1DD     		ble	.L2
+ 141:emWin/GUI_Demo/GUIDEMO_Speed.c ****   //
+ 142:emWin/GUI_Demo/GUIDEMO_Speed.c ****   // Compute result
+ 143:emWin/GUI_Demo/GUIDEMO_Speed.c ****   //
+ 144:emWin/GUI_Demo/GUIDEMO_Speed.c ****   t -= t0;
+ 119              		.loc 1 144 3 is_stmt 1 view .LVU36
+ 120              		.loc 1 144 5 is_stmt 0 view .LVU37
+ 121 004a 401B     		subs	r0, r0, r5
+ 122              	.LVL16:
+ 145:emWin/GUI_Demo/GUIDEMO_Speed.c ****   PixelCnt = (x1 - x0 + 1) * (y1 - y0 + 1) * Cnt;
+ 123              		.loc 1 145 3 is_stmt 1 view .LVU38
+ 124              		.loc 1 145 39 is_stmt 0 view .LVU39
+ 125 004c A9F17D09 		sub	r9, r9, #125
+ 126              	.LVL17:
+ 127              		.loc 1 145 28 view .LVU40
+ 128 0050 08FB09F8 		mul	r8, r8, r9
+ 129              	.LVL18:
+ 130              		.loc 1 145 12 view .LVU41
+ 131 0054 04FB08F4 		mul	r4, r4, r8
+ 132              	.LVL19:
+ 146:emWin/GUI_Demo/GUIDEMO_Speed.c ****   PixelsPerSecond = PixelCnt / t * 1000;   
+ 133              		.loc 1 146 3 is_stmt 1 view .LVU42
+ 134              		.loc 1 146 30 is_stmt 0 view .LVU43
+ 135 0058 B4FBF0F0 		udiv	r0, r4, r0
+ 136              	.LVL20:
+ 137              		.loc 1 146 19 view .LVU44
+ 138 005c 4FF47A75 		mov	r5, #1000
+ 139              	.LVL21:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 6
+
+
+ 140              		.loc 1 146 19 view .LVU45
+ 141 0060 05FB00F5 		mul	r5, r5, r0
+ 142              	.LVL22:
+ 147:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_SetColor(Color);
+ 143              		.loc 1 147 3 is_stmt 1 view .LVU46
+ 144 0064 5046     		mov	r0, r10
+ 145 0066 FFF7FEFF 		bl	GUI_SetColor
+ 146              	.LVL23:
+ 148:emWin/GUI_Demo/GUIDEMO_Speed.c ****   return PixelsPerSecond;
+ 147              		.loc 1 148 3 view .LVU47
+ 149:emWin/GUI_Demo/GUIDEMO_Speed.c **** }
+ 148              		.loc 1 149 1 is_stmt 0 view .LVU48
+ 149 006a 2846     		mov	r0, r5
+ 150 006c BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 151              		.loc 1 149 1 view .LVU49
+ 152              		.cfi_endproc
+ 153              	.LFE0:
+ 155              		.section	.rodata.GUIDEMO_Speed.str1.4,"aMS",%progbits,1
+ 156              		.align	2
+ 157              	.LC0:
+ 158 0000 4D756C74 		.ascii	"Multi layer clipping\012Highly optimized drivers\000"
+ 158      69206C61 
+ 158      79657220 
+ 158      636C6970 
+ 158      70696E67 
+ 159 002e 0000     		.align	2
+ 160              	.LC1:
+ 161 0030 48696768 		.ascii	"High speed\000"
+ 161      20737065 
+ 161      656400
+ 162 003b 00       		.align	2
+ 163              	.LC2:
+ 164 003c 50697865 		.ascii	"Pixels/sec: \000"
+ 164      6C732F73 
+ 164      65633A20 
+ 164      00
+ 165              		.section	.text.GUIDEMO_Speed,"ax",%progbits
+ 166              		.align	1
+ 167              		.global	GUIDEMO_Speed
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.fpu fpv4-sp-d16
+ 173              	GUIDEMO_Speed:
+ 174              	.LFB1:
+ 150:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+ 151:emWin/GUI_Demo/GUIDEMO_Speed.c **** /*********************************************************************
+ 152:emWin/GUI_Demo/GUIDEMO_Speed.c **** *
+ 153:emWin/GUI_Demo/GUIDEMO_Speed.c **** *       Public code
+ 154:emWin/GUI_Demo/GUIDEMO_Speed.c **** *
+ 155:emWin/GUI_Demo/GUIDEMO_Speed.c **** **********************************************************************
+ 156:emWin/GUI_Demo/GUIDEMO_Speed.c **** */
+ 157:emWin/GUI_Demo/GUIDEMO_Speed.c **** /*********************************************************************
+ 158:emWin/GUI_Demo/GUIDEMO_Speed.c **** *
+ 159:emWin/GUI_Demo/GUIDEMO_Speed.c **** *       GUIDEMO_Speed
+ 160:emWin/GUI_Demo/GUIDEMO_Speed.c **** */
+ 161:emWin/GUI_Demo/GUIDEMO_Speed.c **** void GUIDEMO_Speed(void) {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 7
+
+
+ 175              		.loc 1 161 26 is_stmt 1 view -0
+ 176              		.cfi_startproc
+ 177              		@ args = 0, pretend = 0, frame = 80
+ 178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 180              	.LCFI1:
+ 181              		.cfi_def_cfa_offset 36
+ 182              		.cfi_offset 4, -36
+ 183              		.cfi_offset 5, -32
+ 184              		.cfi_offset 6, -28
+ 185              		.cfi_offset 7, -24
+ 186              		.cfi_offset 8, -20
+ 187              		.cfi_offset 9, -16
+ 188              		.cfi_offset 10, -12
+ 189              		.cfi_offset 11, -8
+ 190              		.cfi_offset 14, -4
+ 191 0004 95B0     		sub	sp, sp, #84
+ 192              	.LCFI2:
+ 193              		.cfi_def_cfa_offset 120
+ 162:emWin/GUI_Demo/GUIDEMO_Speed.c ****   int      TimeStart, i;
+ 194              		.loc 1 162 3 view .LVU51
+ 163:emWin/GUI_Demo/GUIDEMO_Speed.c ****   U32      PixelsPerSecond;
+ 195              		.loc 1 163 3 view .LVU52
+ 164:emWin/GUI_Demo/GUIDEMO_Speed.c ****   unsigned aColorIndex[8];
+ 196              		.loc 1 164 3 view .LVU53
+ 165:emWin/GUI_Demo/GUIDEMO_Speed.c ****   int      xSize, ySize, vySize;
+ 197              		.loc 1 165 3 view .LVU54
+ 166:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_RECT Rect, ClipRect;
+ 198              		.loc 1 166 3 view .LVU55
+ 167:emWin/GUI_Demo/GUIDEMO_Speed.c ****   char     cText[40] = { 0 };
+ 199              		.loc 1 167 3 view .LVU56
+ 200              		.loc 1 167 12 is_stmt 0 view .LVU57
+ 201 0006 0021     		movs	r1, #0
+ 202 0008 0091     		str	r1, [sp]
+ 203 000a 2422     		movs	r2, #36
+ 204 000c 01A8     		add	r0, sp, #4
+ 205 000e FFF7FEFF 		bl	memset
+ 206              	.LVL24:
+ 168:emWin/GUI_Demo/GUIDEMO_Speed.c **** 
+ 169:emWin/GUI_Demo/GUIDEMO_Speed.c ****   xSize  = LCD_GetXSize();
+ 207              		.loc 1 169 3 is_stmt 1 view .LVU58
+ 208              		.loc 1 169 12 is_stmt 0 view .LVU59
+ 209 0012 FFF7FEFF 		bl	LCD_GetXSize
+ 210              	.LVL25:
+ 211 0016 8046     		mov	r8, r0
+ 212              	.LVL26:
+ 170:emWin/GUI_Demo/GUIDEMO_Speed.c ****   ySize  = LCD_GetYSize();
+ 213              		.loc 1 170 3 is_stmt 1 view .LVU60
+ 214              		.loc 1 170 12 is_stmt 0 view .LVU61
+ 215 0018 FFF7FEFF 		bl	LCD_GetYSize
+ 216              	.LVL27:
+ 217              		.loc 1 170 12 view .LVU62
+ 218 001c 0746     		mov	r7, r0
+ 219              	.LVL28:
+ 171:emWin/GUI_Demo/GUIDEMO_Speed.c ****   vySize = LCD_GetVYSize();
+ 220              		.loc 1 171 3 is_stmt 1 view .LVU63
+ 221              		.loc 1 171 12 is_stmt 0 view .LVU64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 8
+
+
+ 222 001e FFF7FEFF 		bl	LCD_GetVYSize
+ 223              	.LVL29:
+ 224              		.loc 1 171 12 view .LVU65
+ 225 0022 0446     		mov	r4, r0
+ 226              	.LVL30:
+ 172:emWin/GUI_Demo/GUIDEMO_Speed.c **** #if GUI_SUPPORT_CURSOR
+ 173:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_CURSOR_Hide();
+ 227              		.loc 1 173 3 is_stmt 1 view .LVU66
+ 228 0024 FFF7FEFF 		bl	GUI_CURSOR_Hide
+ 229              	.LVL31:
+ 174:emWin/GUI_Demo/GUIDEMO_Speed.c **** #endif
+ 175:emWin/GUI_Demo/GUIDEMO_Speed.c ****   if (vySize > ySize) {
+ 230              		.loc 1 175 3 view .LVU67
+ 231              		.loc 1 175 6 is_stmt 0 view .LVU68
+ 232 0028 A742     		cmp	r7, r4
+ 233 002a 05DB     		blt	.L12
+ 234              	.L5:
+ 176:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.x0 = 0;
+ 177:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.y0 = 0;
+ 178:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.x1 = xSize;
+ 179:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.y1 = ySize;
+ 180:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetClipRect(&ClipRect);
+ 181:emWin/GUI_Demo/GUIDEMO_Speed.c ****   }
+ 182:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUIDEMO_ShowIntro("High speed",
+ 235              		.loc 1 182 3 is_stmt 1 view .LVU69
+ 236 002c 5149     		ldr	r1, .L13
+ 237 002e 5248     		ldr	r0, .L13+4
+ 238 0030 FFF7FEFF 		bl	GUIDEMO_ShowIntro
+ 239              	.LVL32:
+ 183:emWin/GUI_Demo/GUIDEMO_Speed.c ****                     "Multi layer clipping\n"
+ 184:emWin/GUI_Demo/GUIDEMO_Speed.c ****                     "Highly optimized drivers");
+ 185:emWin/GUI_Demo/GUIDEMO_Speed.c ****   for (i = 0; i< 8; i++) {
+ 240              		.loc 1 185 3 view .LVU70
+ 241              		.loc 1 185 10 is_stmt 0 view .LVU71
+ 242 0034 0024     		movs	r4, #0
+ 243              	.LVL33:
+ 244              		.loc 1 185 3 view .LVU72
+ 245 0036 17E0     		b	.L6
+ 246              	.LVL34:
+ 247              	.L12:
+ 176:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.x0 = 0;
+ 248              		.loc 1 176 5 is_stmt 1 view .LVU73
+ 176:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.x0 = 0;
+ 249              		.loc 1 176 17 is_stmt 0 view .LVU74
+ 250 0038 0023     		movs	r3, #0
+ 251 003a ADF82830 		strh	r3, [sp, #40]	@ movhi
+ 177:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.x1 = xSize;
+ 252              		.loc 1 177 5 is_stmt 1 view .LVU75
+ 177:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.x1 = xSize;
+ 253              		.loc 1 177 17 is_stmt 0 view .LVU76
+ 254 003e ADF82A30 		strh	r3, [sp, #42]	@ movhi
+ 178:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.y1 = ySize;
+ 255              		.loc 1 178 5 is_stmt 1 view .LVU77
+ 178:emWin/GUI_Demo/GUIDEMO_Speed.c ****     ClipRect.y1 = ySize;
+ 256              		.loc 1 178 17 is_stmt 0 view .LVU78
+ 257 0042 ADF82C80 		strh	r8, [sp, #44]	@ movhi
+ 179:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetClipRect(&ClipRect);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 9
+
+
+ 258              		.loc 1 179 5 is_stmt 1 view .LVU79
+ 179:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetClipRect(&ClipRect);
+ 259              		.loc 1 179 17 is_stmt 0 view .LVU80
+ 260 0046 ADF82E70 		strh	r7, [sp, #46]	@ movhi
+ 180:emWin/GUI_Demo/GUIDEMO_Speed.c ****   }
+ 261              		.loc 1 180 5 is_stmt 1 view .LVU81
+ 262 004a 0AA8     		add	r0, sp, #40
+ 263 004c FFF7FEFF 		bl	GUI_SetClipRect
+ 264              	.LVL35:
+ 265 0050 ECE7     		b	.L5
+ 266              	.LVL36:
+ 267              	.L7:
+ 186:emWin/GUI_Demo/GUIDEMO_Speed.c ****     aColorIndex[i] = GUI_Color2Index(_aColor[i]);
+ 268              		.loc 1 186 5 discriminator 3 view .LVU82
+ 269              		.loc 1 186 22 is_stmt 0 discriminator 3 view .LVU83
+ 270 0052 4A4B     		ldr	r3, .L13+8
+ 271 0054 53F82400 		ldr	r0, [r3, r4, lsl #2]
+ 272 0058 FFF7FEFF 		bl	GUI_Color2Index
+ 273              	.LVL37:
+ 274              		.loc 1 186 20 discriminator 3 view .LVU84
+ 275 005c 14AB     		add	r3, sp, #80
+ 276 005e 03EB8403 		add	r3, r3, r4, lsl #2
+ 277 0062 43F8200C 		str	r0, [r3, #-32]
+ 185:emWin/GUI_Demo/GUIDEMO_Speed.c ****     aColorIndex[i] = GUI_Color2Index(_aColor[i]);
+ 278              		.loc 1 185 21 is_stmt 1 discriminator 3 view .LVU85
+ 185:emWin/GUI_Demo/GUIDEMO_Speed.c ****     aColorIndex[i] = GUI_Color2Index(_aColor[i]);
+ 279              		.loc 1 185 22 is_stmt 0 discriminator 3 view .LVU86
+ 280 0066 0134     		adds	r4, r4, #1
+ 281              	.LVL38:
+ 282              	.L6:
+ 185:emWin/GUI_Demo/GUIDEMO_Speed.c ****     aColorIndex[i] = GUI_Color2Index(_aColor[i]);
+ 283              		.loc 1 185 15 is_stmt 1 discriminator 1 view .LVU87
+ 185:emWin/GUI_Demo/GUIDEMO_Speed.c ****     aColorIndex[i] = GUI_Color2Index(_aColor[i]);
+ 284              		.loc 1 185 3 is_stmt 0 discriminator 1 view .LVU88
+ 285 0068 072C     		cmp	r4, #7
+ 286 006a F2DD     		ble	.L7
+ 187:emWin/GUI_Demo/GUIDEMO_Speed.c ****   }  
+ 188:emWin/GUI_Demo/GUIDEMO_Speed.c ****   TimeStart = GUIDEMO_GetTime();
+ 287              		.loc 1 188 3 is_stmt 1 view .LVU89
+ 288              		.loc 1 188 15 is_stmt 0 view .LVU90
+ 289 006c FFF7FEFF 		bl	GUIDEMO_GetTime
+ 290              	.LVL39:
+ 291 0070 8346     		mov	fp, r0
+ 292              	.LVL40:
+ 189:emWin/GUI_Demo/GUIDEMO_Speed.c ****   for (i = 0; ((GUIDEMO_GetTime() - TimeStart) < 5000) && (GUIDEMO_CheckCancel() == 0); i++) {
+ 293              		.loc 1 189 3 is_stmt 1 view .LVU91
+ 294              		.loc 1 189 10 is_stmt 0 view .LVU92
+ 295 0072 4FF0000A 		mov	r10, #0
+ 296              		.loc 1 189 3 view .LVU93
+ 297 0076 3CE0     		b	.L8
+ 298              	.LVL41:
+ 299              	.L10:
+ 190:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetColorIndex(aColorIndex[i&7]);
+ 300              		.loc 1 190 5 is_stmt 1 view .LVU94
+ 301              		.loc 1 190 36 is_stmt 0 view .LVU95
+ 302 0078 0AF00703 		and	r3, r10, #7
+ 303              		.loc 1 190 34 view .LVU96
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 10
+
+
+ 304 007c 14AA     		add	r2, sp, #80
+ 305 007e 02EB8303 		add	r3, r2, r3, lsl #2
+ 306              		.loc 1 190 5 view .LVU97
+ 307 0082 53F8200C 		ldr	r0, [r3, #-32]
+ 308 0086 FFF7FEFF 		bl	GUI_SetColorIndex
+ 309              	.LVL42:
+ 191:emWin/GUI_Demo/GUIDEMO_Speed.c ****     //
+ 192:emWin/GUI_Demo/GUIDEMO_Speed.c ****     // Calculate random positions
+ 193:emWin/GUI_Demo/GUIDEMO_Speed.c ****     //
+ 194:emWin/GUI_Demo/GUIDEMO_Speed.c ****     Rect.x0 = rand() % xSize - xSize / 2;
+ 310              		.loc 1 194 5 is_stmt 1 view .LVU98
+ 311              		.loc 1 194 15 is_stmt 0 view .LVU99
+ 312 008a FFF7FEFF 		bl	rand
+ 313              	.LVL43:
+ 314              		.loc 1 194 22 view .LVU100
+ 315 008e 90FBF8F4 		sdiv	r4, r0, r8
+ 316 0092 08FB1404 		mls	r4, r8, r4, r0
+ 317              		.loc 1 194 38 view .LVU101
+ 318 0096 08EBD870 		add	r0, r8, r8, lsr #31
+ 319              		.loc 1 194 30 view .LVU102
+ 320 009a A4EB6004 		sub	r4, r4, r0, asr #1
+ 321 009e A6B2     		uxth	r6, r4
+ 322 00a0 24B2     		sxth	r4, r4
+ 195:emWin/GUI_Demo/GUIDEMO_Speed.c ****     Rect.y0 = rand() % ySize - ySize / 2;
+ 323              		.loc 1 195 5 is_stmt 1 view .LVU103
+ 324              		.loc 1 195 15 is_stmt 0 view .LVU104
+ 325 00a2 FFF7FEFF 		bl	rand
+ 326              	.LVL44:
+ 327              		.loc 1 195 22 view .LVU105
+ 328 00a6 90FBF7F5 		sdiv	r5, r0, r7
+ 329 00aa 07FB1505 		mls	r5, r7, r5, r0
+ 330              		.loc 1 195 38 view .LVU106
+ 331 00ae 07EBD770 		add	r0, r7, r7, lsr #31
+ 332              		.loc 1 195 30 view .LVU107
+ 333 00b2 A5EB6005 		sub	r5, r5, r0, asr #1
+ 334 00b6 1FFA85F9 		uxth	r9, r5
+ 335 00ba 2DB2     		sxth	r5, r5
+ 196:emWin/GUI_Demo/GUIDEMO_Speed.c ****     Rect.x1 = Rect.x0 + 20 + rand() % xSize;
+ 336              		.loc 1 196 5 is_stmt 1 view .LVU108
+ 337              		.loc 1 196 30 is_stmt 0 view .LVU109
+ 338 00bc FFF7FEFF 		bl	rand
+ 339              	.LVL45:
+ 340              		.loc 1 196 37 view .LVU110
+ 341 00c0 90FBF8F3 		sdiv	r3, r0, r8
+ 342 00c4 08FB1300 		mls	r0, r8, r3, r0
+ 343              		.loc 1 196 28 view .LVU111
+ 344 00c8 0644     		add	r6, r6, r0
+ 345 00ca 1436     		adds	r6, r6, #20
+ 346 00cc 36B2     		sxth	r6, r6
+ 197:emWin/GUI_Demo/GUIDEMO_Speed.c ****     Rect.y1 = Rect.y0 + 20 + rand() % ySize;
+ 347              		.loc 1 197 5 is_stmt 1 view .LVU112
+ 348              		.loc 1 197 30 is_stmt 0 view .LVU113
+ 349 00ce FFF7FEFF 		bl	rand
+ 350              	.LVL46:
+ 351              		.loc 1 197 37 view .LVU114
+ 352 00d2 90FBF7F3 		sdiv	r3, r0, r7
+ 353 00d6 07FB1303 		mls	r3, r7, r3, r0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 11
+
+
+ 354              		.loc 1 197 28 view .LVU115
+ 355 00da 4B44     		add	r3, r3, r9
+ 356 00dc 1433     		adds	r3, r3, #20
+ 198:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_FillRect(Rect.x0, Rect.y0, Rect.x1, Rect.y1);
+ 357              		.loc 1 198 5 is_stmt 1 view .LVU116
+ 358 00de 1BB2     		sxth	r3, r3
+ 359 00e0 3246     		mov	r2, r6
+ 360 00e2 2946     		mov	r1, r5
+ 361 00e4 2046     		mov	r0, r4
+ 362 00e6 FFF7FEFF 		bl	GUI_FillRect
+ 363              	.LVL47:
+ 199:emWin/GUI_Demo/GUIDEMO_Speed.c ****     //
+ 200:emWin/GUI_Demo/GUIDEMO_Speed.c ****     // Clip rectangle to visible area and add the number of pixels (for speed computation)
+ 201:emWin/GUI_Demo/GUIDEMO_Speed.c ****     //
+ 202:emWin/GUI_Demo/GUIDEMO_Speed.c ****     if (Rect.x1 >= xSize) {
+ 364              		.loc 1 202 5 view .LVU117
+ 203:emWin/GUI_Demo/GUIDEMO_Speed.c ****       Rect.x1 = xSize - 1;
+ 204:emWin/GUI_Demo/GUIDEMO_Speed.c ****     }
+ 205:emWin/GUI_Demo/GUIDEMO_Speed.c ****     if (Rect.y1 >= ySize) {
+ 365              		.loc 1 205 5 view .LVU118
+ 206:emWin/GUI_Demo/GUIDEMO_Speed.c ****       Rect.y1 = ySize - 1;
+ 207:emWin/GUI_Demo/GUIDEMO_Speed.c ****     }
+ 208:emWin/GUI_Demo/GUIDEMO_Speed.c ****     if (Rect.x0 < 0 ) {
+ 366              		.loc 1 208 5 view .LVU119
+ 209:emWin/GUI_Demo/GUIDEMO_Speed.c ****       Rect.x0 = 0;
+ 210:emWin/GUI_Demo/GUIDEMO_Speed.c ****     }
+ 211:emWin/GUI_Demo/GUIDEMO_Speed.c ****     if (Rect.y1 < 0) {
+ 367              		.loc 1 211 5 view .LVU120
+ 212:emWin/GUI_Demo/GUIDEMO_Speed.c ****       Rect.y1 = 0;
+ 213:emWin/GUI_Demo/GUIDEMO_Speed.c ****     }
+ 214:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_Exec();
+ 368              		.loc 1 214 5 view .LVU121
+ 369 00ea FFF7FEFF 		bl	GUI_Exec
+ 370              	.LVL48:
+ 189:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetColorIndex(aColorIndex[i&7]);
+ 371              		.loc 1 189 89 view .LVU122
+ 189:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetColorIndex(aColorIndex[i&7]);
+ 372              		.loc 1 189 90 is_stmt 0 view .LVU123
+ 373 00ee 0AF1010A 		add	r10, r10, #1
+ 374              	.LVL49:
+ 375              	.L8:
+ 189:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetColorIndex(aColorIndex[i&7]);
+ 376              		.loc 1 189 15 is_stmt 1 discriminator 1 view .LVU124
+ 189:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetColorIndex(aColorIndex[i&7]);
+ 377              		.loc 1 189 17 is_stmt 0 discriminator 1 view .LVU125
+ 378 00f2 FFF7FEFF 		bl	GUIDEMO_GetTime
+ 379              	.LVL50:
+ 189:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetColorIndex(aColorIndex[i&7]);
+ 380              		.loc 1 189 35 discriminator 1 view .LVU126
+ 381 00f6 A0EB0B00 		sub	r0, r0, fp
+ 189:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetColorIndex(aColorIndex[i&7]);
+ 382              		.loc 1 189 3 discriminator 1 view .LVU127
+ 383 00fa 41F28733 		movw	r3, #4999
+ 384 00fe 9842     		cmp	r0, r3
+ 385 0100 03DC     		bgt	.L9
+ 189:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetColorIndex(aColorIndex[i&7]);
+ 386              		.loc 1 189 60 discriminator 3 view .LVU128
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 12
+
+
+ 387 0102 FFF7FEFF 		bl	GUIDEMO_CheckCancel
+ 388              	.LVL51:
+ 189:emWin/GUI_Demo/GUIDEMO_Speed.c ****     GUI_SetColorIndex(aColorIndex[i&7]);
+ 389              		.loc 1 189 56 discriminator 3 view .LVU129
+ 390 0106 0028     		cmp	r0, #0
+ 391 0108 B6D0     		beq	.L10
+ 392              	.L9:
+ 215:emWin/GUI_Demo/GUIDEMO_Speed.c ****     //
+ 216:emWin/GUI_Demo/GUIDEMO_Speed.c ****     // Allow short breaks so we do not use all available CPU time ...
+ 217:emWin/GUI_Demo/GUIDEMO_Speed.c ****     //
+ 218:emWin/GUI_Demo/GUIDEMO_Speed.c ****   }
+ 219:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUIDEMO_NotifyStartNext();
+ 393              		.loc 1 219 3 is_stmt 1 view .LVU130
+ 394 010a FFF7FEFF 		bl	GUIDEMO_NotifyStartNext
+ 395              	.LVL52:
+ 220:emWin/GUI_Demo/GUIDEMO_Speed.c ****   PixelsPerSecond = _GetPixelsPerSecond();
+ 396              		.loc 1 220 3 view .LVU131
+ 397              		.loc 1 220 21 is_stmt 0 view .LVU132
+ 398 010e FFF7FEFF 		bl	_GetPixelsPerSecond
+ 399              	.LVL53:
+ 400 0112 0446     		mov	r4, r0
+ 401              	.LVL54:
+ 221:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_SetClipRect(NULL);
+ 402              		.loc 1 221 3 is_stmt 1 view .LVU133
+ 403 0114 0020     		movs	r0, #0
+ 404              	.LVL55:
+ 405              		.loc 1 221 3 is_stmt 0 view .LVU134
+ 406 0116 FFF7FEFF 		bl	GUI_SetClipRect
+ 407              	.LVL56:
+ 222:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUIDEMO_DrawBk(0);
+ 408              		.loc 1 222 3 is_stmt 1 view .LVU135
+ 409 011a 0020     		movs	r0, #0
+ 410 011c FFF7FEFF 		bl	GUIDEMO_DrawBk
+ 411              	.LVL57:
+ 223:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_SetColor(GUI_WHITE);
+ 412              		.loc 1 223 3 view .LVU136
+ 413 0120 6FF07F40 		mvn	r0, #-16777216
+ 414 0124 FFF7FEFF 		bl	GUI_SetColor
+ 415              	.LVL58:
+ 224:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_SetTextMode(GUI_TM_TRANS);
+ 416              		.loc 1 224 3 view .LVU137
+ 417 0128 0220     		movs	r0, #2
+ 418 012a FFF7FEFF 		bl	GUI_SetTextMode
+ 419              	.LVL59:
+ 225:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_SetFont(&GUI_FontRounded22);
+ 420              		.loc 1 225 3 view .LVU138
+ 421 012e 1448     		ldr	r0, .L13+12
+ 422 0130 FFF7FEFF 		bl	GUI_SetFont
+ 423              	.LVL60:
+ 226:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_DrawBitmap(&bmSTLogo70x35, 5, 5);
+ 424              		.loc 1 226 3 view .LVU139
+ 425 0134 0522     		movs	r2, #5
+ 426 0136 1146     		mov	r1, r2
+ 427 0138 1248     		ldr	r0, .L13+16
+ 428 013a FFF7FEFF 		bl	GUI_DrawBitmap
+ 429              	.LVL61:
+ 227:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUIDEMO_AddStringToString(cText, "Pixels/sec: ");
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 13
+
+
+ 430              		.loc 1 227 3 view .LVU140
+ 431 013e 1249     		ldr	r1, .L13+20
+ 432 0140 6846     		mov	r0, sp
+ 433 0142 FFF7FEFF 		bl	GUIDEMO_AddStringToString
+ 434              	.LVL62:
+ 228:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUIDEMO_AddIntToString(cText, PixelsPerSecond);
+ 435              		.loc 1 228 3 view .LVU141
+ 436 0146 2146     		mov	r1, r4
+ 437 0148 6846     		mov	r0, sp
+ 438 014a FFF7FEFF 		bl	GUIDEMO_AddIntToString
+ 439              	.LVL63:
+ 229:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_DispStringHCenterAt(cText, xSize >> 1, (ySize - GUI_GetFontSizeY()) >> 1);
+ 440              		.loc 1 229 3 view .LVU142
+ 441              		.loc 1 229 55 is_stmt 0 view .LVU143
+ 442 014e FFF7FEFF 		bl	GUI_GetFontSizeY
+ 443              	.LVL64:
+ 444              		.loc 1 229 53 view .LVU144
+ 445 0152 3A1A     		subs	r2, r7, r0
+ 446              		.loc 1 229 3 view .LVU145
+ 447 0154 5210     		asrs	r2, r2, #1
+ 448 0156 4FEA6801 		asr	r1, r8, #1
+ 449 015a 6846     		mov	r0, sp
+ 450 015c FFF7FEFF 		bl	GUI_DispStringHCenterAt
+ 451              	.LVL65:
+ 230:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUIDEMO_Delay(4000);
+ 452              		.loc 1 230 3 is_stmt 1 view .LVU146
+ 453 0160 4FF47A60 		mov	r0, #4000
+ 454 0164 FFF7FEFF 		bl	GUIDEMO_Delay
+ 455              	.LVL66:
+ 231:emWin/GUI_Demo/GUIDEMO_Speed.c **** #if GUI_SUPPORT_CURSOR
+ 232:emWin/GUI_Demo/GUIDEMO_Speed.c ****   GUI_CURSOR_Show();
+ 456              		.loc 1 232 3 view .LVU147
+ 457 0168 FFF7FEFF 		bl	GUI_CURSOR_Show
+ 458              	.LVL67:
+ 233:emWin/GUI_Demo/GUIDEMO_Speed.c **** #endif
+ 234:emWin/GUI_Demo/GUIDEMO_Speed.c **** }
+ 459              		.loc 1 234 1 is_stmt 0 view .LVU148
+ 460 016c 15B0     		add	sp, sp, #84
+ 461              	.LCFI3:
+ 462              		.cfi_def_cfa_offset 36
+ 463              		@ sp needed
+ 464 016e BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 465              	.LVL68:
+ 466              	.L14:
+ 467              		.loc 1 234 1 view .LVU149
+ 468 0172 00BF     		.align	2
+ 469              	.L13:
+ 470 0174 00000000 		.word	.LC0
+ 471 0178 30000000 		.word	.LC1
+ 472 017c 00000000 		.word	.LANCHOR0
+ 473 0180 00000000 		.word	GUI_FontRounded22
+ 474 0184 00000000 		.word	bmSTLogo70x35
+ 475 0188 3C000000 		.word	.LC2
+ 476              		.cfi_endproc
+ 477              	.LFE1:
+ 479              		.section	.rodata._aColor,"a"
+ 480              		.align	2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 14
+
+
+ 481              		.set	.LANCHOR0,. + 0
+ 484              	_aColor:
+ 485 0000 00000000 		.word	0
+ 486 0004 FF000000 		.word	255
+ 487 0008 00FF0000 		.word	65280
+ 488 000c FFFF0000 		.word	65535
+ 489 0010 0000FF00 		.word	16711680
+ 490 0014 FF00FF00 		.word	16711935
+ 491 0018 00FFFF00 		.word	16776960
+ 492 001c FFFFFF00 		.word	16777215
+ 493              		.text
+ 494              	.Letext0:
+ 495              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 496              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 497              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 498              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 499              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 500              		.file 7 "emWin/inc/LCD.h"
+ 501              		.file 8 "emWin/inc/GUI.h"
+ 502              		.file 9 "emWin/inc/GUI_Type.h"
+ 503              		.file 10 "emWin/inc/WM.h"
+ 504              		.file 11 "emWin/inc/LCD_Protected.h"
+ 505              		.file 12 "emWin/inc/GUI_Private.h"
+ 506              		.file 13 "emWin/inc/WM_Intern.h"
+ 507              		.file 14 "emWin/inc/WIDGET.h"
+ 508              		.file 15 "emWin/GUI_Demo/GUIDEMO.h"
+ 509              		.file 16 "<built-in>"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 GUIDEMO_Speed.c
+C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s:18     .text._GetPixelsPerSecond:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s:25     .text._GetPixelsPerSecond:00000000 _GetPixelsPerSecond
+C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s:156    .rodata.GUIDEMO_Speed.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s:166    .text.GUIDEMO_Speed:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s:173    .text.GUIDEMO_Speed:00000000 GUIDEMO_Speed
+C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s:470    .text.GUIDEMO_Speed:00000174 $d
+C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s:480    .rodata._aColor:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccdT2UQb.s:484    .rodata._aColor:00000000 _aColor
+
+UNDEFINED SYMBOLS
+LCD_GetXSize
+LCD_GetYSize
+GUI_GetColor
+GUI_GetBkColor
+GUI_SetColor
+GUIDEMO_GetTime
+GUI_FillRect
+memset
+LCD_GetVYSize
+GUI_CURSOR_Hide
+GUIDEMO_ShowIntro
+GUI_SetClipRect
+GUI_Color2Index
+GUI_SetColorIndex
+rand
+GUI_Exec
+GUIDEMO_CheckCancel
+GUIDEMO_NotifyStartNext
+GUIDEMO_DrawBk
+GUI_SetTextMode
+GUI_SetFont
+GUI_DrawBitmap
+GUIDEMO_AddStringToString
+GUIDEMO_AddIntToString
+GUI_GetFontSizeY
+GUI_DispStringHCenterAt
+GUIDEMO_Delay
+GUI_CURSOR_Show
+GUI_FontRounded22
+bmSTLogo70x35
