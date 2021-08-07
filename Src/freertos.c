@@ -109,22 +109,24 @@ STemWin/GUI_DEMO/GUIDEMO.c
 */
 extern void GUIDEMO_Main(void);
 osThreadId UIHandle;
+#define EMWIN 1
+#define LVGL  2
+#define GUI EMWIN
+
+#define GUIDEMO 0
 void UI_task(void *pvparameters)
 {
 
   LCD_Init();
-  /*
-  LCD_Clear(0xFFFF);  
-  LCD_DrawLine();
-  HAL_Delay(3000);
-  */
   WM_SetCreateFlags(WM_CF_MEMDEV);
   GUI_Init();
-
-  GIFTask();
- // CreateSoftWare();
- // HeadWindow();
+#if GUIDEMO
   GUIDEMO_Main();
+#else
+  GIFTask();
+  CreateSoftWare();
+  HeadWindow();
+#endif
   while (1)
   {
     GUI_Exec();

@@ -193,6 +193,10 @@ C_INCLUDES =  \
 # compile gcc flags
 # compile gcc flagsASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
+
+LVGL_DIR ?= lvgl #创建lvgl的根目录
+LVGL_DIR_NAME ?= lvgl
+
 CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
 ifeq ($(DEBUG), 1)
@@ -214,14 +218,16 @@ LDSCRIPT = STM32F407ZGTx_FLASH.ld
 LIBS = -lc -lm -lnosys 
 LIBS += emWin/Lib/STemWin_CM4_OS_wc32_ot.a \
 #Drivers/CMSIS/Lib/GCC/libarm_cortexM4l_math.a \
-#Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a
+Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a
 LIBDIR = 
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
 
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 
-
+flash: $(BUILD_DIR)/$(TARGET).hex
+	.\FlashLoader\STMFlashLoader.exe -c --pn 5 --br 115200 --db 8 --pr EVEN --sb 1 --ec OFF  --to 10000 --co ON -Dtr --Lo -Rts --Hi -Dtr --Hi \
+	-i STM32F4_05_07_15_17_1024K -e --all -d --fn $(BUILD_DIR)/$(TARGET).hex  -Dtr --Lo -Rts --Lo -Dtr --Hi
 #######################################
 # build the application
 #######################################
