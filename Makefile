@@ -105,6 +105,14 @@ Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_data.c \
 Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c \
 user/lcd.c \
 user/touch.c \
+
+
+# GUI = LVGL
+GUI = EMWIN
+
+ifeq ($(GUI),EMWIN)
+
+C_SOURCES += \
 emWin/Config/GUIConf.c \
 emWin/Config/LCDConf.c \
 emWin/GUI_X/GUI_X_OS.c \
@@ -117,6 +125,32 @@ UI/game.c \
 $(wildcard emWin/GUI_Demo/*.c)
 #$(wildcard UI/*.c)
 #$(shell find ./emWin/GUI_Demo -name '*.c') #GUIDEMO
+LIBS += emWin/Lib/STemWin_CM4_OS_wc32_ot.a \
+
+C_DEFS += \
+-DEMWIN
+
+endif
+
+ifeq ($(GUI),LVGL)
+#创建lvgl的根目录
+LVGL_DIR ?= lvgl
+LVGL_DIR_NAME ?= lvgl
+include $(LVGL_DIR)/$(LVGL_DIR_NAME)/lvgl.mk
+
+C_SOURCES += $(CSRCS)
+
+C_SOURCES += \
+lvgl/lv_port_disp.c \
+lvgl/lv_port_fs.c \
+lvgl/lv_port_indev.c \
+
+C_INCLUDES += \
+-Ilvgl \
+
+
+
+endif
 
 # ASM sources
 ASM_SOURCES =  \
@@ -163,7 +197,7 @@ MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 AS_DEFS = 
 
 # C defines
-C_DEFS =  \
+C_DEFS +=  \
 -DUSE_HAL_DRIVER \
 -DSTM32F407xx
 
@@ -173,7 +207,7 @@ AS_INCLUDES =  \
 -I\Inc
 
 # C includes
-C_INCLUDES =  \
+C_INCLUDES +=  \
 -IInc \
 -IDrivers/STM32F4xx_HAL_Driver/Inc \
 -IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy \
@@ -194,10 +228,7 @@ C_INCLUDES =  \
 # compile gcc flagsASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
 
-LVGL_DIR ?= lvgl #创建lvgl的根目录
-LVGL_DIR_NAME ?= lvgl
-
-CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+CFLAGS += $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
@@ -215,8 +246,7 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 LDSCRIPT = STM32F407ZGTx_FLASH.ld
 
 # libraries
-LIBS = -lc -lm -lnosys 
-LIBS += emWin/Lib/STemWin_CM4_OS_wc32_ot.a \
+LIBS += -lc -lm -lnosys 
 #Drivers/CMSIS/Lib/GCC/libarm_cortexM4l_math.a \
 Drivers/CMSIS/Lib/GCC/libarm_cortexM4lf_math.a
 LIBDIR = 

@@ -34,4 +34,6 @@ uint16_t LCD_READ_DATA(void);
 void LCD_Init(void);
 void LCD_Clear(uint16_t Color);
 void LCD_DrawLine();
+
+void LCD_Draw(uint16_t x1, uint16_t y1,uint16_t x2, uint16_t y2,uint16_t *data);
 #endif

@@ -311,6 +311,16 @@ void LCD_DrawPoint(uint16_t x, uint16_t y, uint16_t color)
 	LCD_WRITE_DATA(color);
 }
 
+void LCD_Draw(uint16_t x1, uint16_t y1,uint16_t x2, uint16_t y2,uint16_t *data)
+{
+	LCD_SetWindow(x1, y1, x2, y2);
+	for (size_t i = 0; i < (x2-x1)*(y2-y1); i++)
+	{
+		LCD_WRITE_DATA(*data++);
+	}
+	
+
+}
 void LCD_DraWR()
 {
 	uint32_t index = 0;

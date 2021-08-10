@@ -56,10 +56,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */     
-#include "lcd.h"
-#include "GUIDEMO.h"
-#include "GUI.h"
-#include "touch.h"
+
+
 /*
 void LCD_Init(void);
 void LCD_Clear(uin16_t Color);
@@ -83,6 +81,15 @@ void LED_Flicker(void *pvparameters)
     printf("%s\r\n", pWriteBuffer);
   }
 }
+
+osThreadId UIHandle;
+
+#ifdef EMWIN
+
+#include "lcd.h"
+#include "GUIDEMO.h"
+#include "GUI.h"
+#include "touch.h"
 
 extern WM_HWIN CreateSoftWare(void);
 extern WM_HWIN HeadWindow(void);
@@ -108,37 +115,87 @@ STemWin/GUI_DEMO/GUIDEMO_VScreen.c \
 STemWin/GUI_DEMO/GUIDEMO.c
 */
 extern void GUIDEMO_Main(void);
-osThreadId UIHandle;
-#define EMWIN 1
-#define LVGL  2
-#define GUI EMWIN
 
-#define GUIDEMO 0
 void UI_task(void *pvparameters)
 {
 
   LCD_Init();
   WM_SetCreateFlags(WM_CF_MEMDEV);
   GUI_Init();
-#if GUIDEMO
-  GUIDEMO_Main();
-#else
-  GIFTask();
+  // GUIDEMO_Main();
+  // GIFTask();
   CreateSoftWare();
   HeadWindow();
-#endif
   while (1)
   {
     GUI_Exec();
-    // vTaskDelay(1000);
   }
 }
+
+#else
+#include "lv_port_disp.h"
+#include "lvgl/lvgl.h"
+#include "../lvgl/lvgl/examples/lv_examples.h"
+void lv_example_btn_3(void)
+{
+    /*Properties to transition*/
+    static lv_style_prop_t props[] = {
+            LV_STYLE_TRANSFORM_WIDTH, LV_STYLE_TRANSFORM_HEIGHT, LV_STYLE_TEXT_LETTER_SPACE, 0
+    };
+
+    /*Transition descriptor when going back to the default state.
+     *Add some delay to be sure the press transition is visible even if the press was very short*/
+    static lv_style_transition_dsc_t transition_dsc_def;
+    lv_style_transition_dsc_init(&transition_dsc_def, props, lv_anim_path_overshoot, 250, 100, NULL);
+
+    /*Transition descriptor when going to pressed state.
+     *No delay, go to presses state immediately*/
+    static lv_style_transition_dsc_t transition_dsc_pr;
+    lv_style_transition_dsc_init(&transition_dsc_pr, props, lv_anim_path_ease_in_out, 250, 0, NULL);
+
+    /*Add only the new transition to he default state*/
+    static lv_style_t style_def;
+    lv_style_init(&style_def);
+    lv_style_set_transition(&style_def, &transition_dsc_def);
+
+    /*Add the transition and some transformation to the presses state.*/
+    static lv_style_t style_pr;
+    lv_style_init(&style_pr);
+    lv_style_set_transform_width(&style_pr, 10);
+    lv_style_set_transform_height(&style_pr, -10);
+    lv_style_set_text_letter_space(&style_pr, 10);
+    lv_style_set_transition(&style_pr, &transition_dsc_pr);
+
+    lv_obj_t * btn1 = lv_btn_create(lv_scr_act());
+    lv_obj_align(btn1, LV_ALIGN_CENTER, 0, -80);
+    lv_obj_add_style(btn1, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(btn1, &style_def, 0);
+
+    lv_obj_t * label = lv_label_create(btn1);
+    lv_label_set_text(label, "Gum");
+}
+void UI_task(void *pvparameters)
+{
+  lv_init();
+  lv_port_disp_init();
+  lv_example_btn_3();
+  while(1)
+  {
+    vTaskDelay(5);
+    lv_task_handler();
+    lv_tick_inc(5);
+  }
+}
+#endif
+
 osThreadId TouchHandle;
 static void Touch_task(void *pvParameters)//触摸
 {
 	while(1)
 	{
+    #ifdef EMWIN
 		GUI_TOUCH_Exec();	
+    #endif
 		vTaskDelay(10);
 	}
 }
