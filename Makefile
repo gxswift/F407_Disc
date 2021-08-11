@@ -107,8 +107,8 @@ user/lcd.c \
 user/touch.c \
 
 
-# GUI = LVGL
-GUI = EMWIN
+GUI = LVGL
+# GUI = EMWIN
 
 ifeq ($(GUI),EMWIN)
 
@@ -147,6 +147,7 @@ lvgl/lv_port_indev.c \
 
 C_INCLUDES += \
 -Ilvgl \
+-Ilvgl/lvgl \
 
 
 

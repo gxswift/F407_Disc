@@ -43,7 +43,7 @@ Purpose     : Config / System dependent externals for GUI
 */
 
 #include "GUI.h"
-#include "Board_Touch.h"
+#include "touch.h"
 
 /*********************************************************************
 *

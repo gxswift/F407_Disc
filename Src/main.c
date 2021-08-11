@@ -125,6 +125,7 @@ void MX_FREERTOS_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
+// extern void UI_task(void const * argument);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -159,6 +160,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   printf("Compiled %s %s\r\n",__DATE__,__TIME__);
+  // UI_task(NULL);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
