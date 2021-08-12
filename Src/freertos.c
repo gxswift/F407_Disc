@@ -141,16 +141,19 @@ void UI_task(void const * argument)
 void UI_task(void const * argument)
 {
   lv_init();
-  printf("11111\r\n");
   lv_port_disp_init();
-  printf("222222\r\n");
-  // lv_port_indev_init();
-  lv_example_btn_1();
+  lv_port_indev_init();
+  // lv_example_btn_2();
+  // lv_example_bar_2();
+  // lv_example_btnmatrix_3();
+  // lv_example_keyboard_1();
+  // lv_example_animimg_1();//杯子动画
+  // lv_example_canvas_2();
+  lv_example_scroll_6();
   while(1)
   {
-    // lv_tick_inc(5);
     HAL_Delay(5);
-    lv_task_handler();printf("66666\r\n");
+    lv_task_handler();
 
   }
 }

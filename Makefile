@@ -128,7 +128,14 @@ $(wildcard emWin/GUI_Demo/*.c)
 LIBS += emWin/Lib/STemWin_CM4_OS_wc32_ot.a \
 
 C_DEFS += \
--DEMWIN
+-DEMWIN \
+-DLV_CONF_INCLUDE_SIMPLE
+
+C_INCLUDES +=  \
+-IemWin/inc \
+-IemWin/Config \
+-IemWin/GUI_Demo \
+-IDrivers/CMSIS/Include
 
 endif
 
@@ -221,10 +228,7 @@ C_INCLUDES +=  \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
 -IDrivers/CMSIS/Include \
 -Iuser \
--IemWin/inc \
--IemWin/Config \
--IemWin/GUI_Demo \
--IDrivers/CMSIS/Include
+
 # compile gcc flags
 # compile gcc flagsASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 

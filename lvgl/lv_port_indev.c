@@ -193,12 +193,13 @@ static void touchpad_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data)
     static lv_coord_t last_y = 0;
 
     /*Save the pressed coordinates and the state*/
-    touchpad_get_xy(&last_x, &last_y);
-    if(last_x > 30 && last_y > 30) 
+        /*Save the pressed coordinates and the state*/
+    if(!XPT2046_EXTI_Read()) 
     {
+        touchpad_get_xy(&last_x, &last_y);
         data->state = LV_INDEV_STATE_PR;
-    } 
-    else 
+        printf("x=%d,y=%d\r\n",last_x,last_y);
+    } else 
     {
         data->state = LV_INDEV_STATE_REL;
     }
@@ -220,8 +221,8 @@ static bool touchpad_is_pressed(void)
 static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y)
 {
     /*Your code comes here*/
-    (*x) = XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_X);
-    (*y) = 4095-XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_Y);//4095-
+    (*x) = 319-XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_Y)*320/4095;
+    (*y) = 479-XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_X)*480/4095;//4095-
 }
 #if 0
 /*------------------

@@ -40,7 +40,7 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-#define MY_DISP_HOR_RES (480)
+#define MY_DISP_HOR_RES (320)
 void lv_port_disp_init(void)
 {
     /*-------------------------
@@ -100,8 +100,8 @@ void lv_port_disp_init(void)
     /*Set up the functions to access to your display*/
 
     /*Set the resolution of the display*/
-    disp_drv.hor_res = 480;
-    disp_drv.ver_res = 320;
+    disp_drv.hor_res = 320;
+    disp_drv.ver_res = 480;
 
     /*Used to copy the buffer's content to the display*/
     disp_drv.flush_cb = disp_flush;
@@ -139,16 +139,18 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
 {
     /*The most simple case (but also the slowest) to put all pixels to the screen one-by-one*/
 
-    // int32_t x;
-    // int32_t y;
-    // for(y = area->y1; y <= area->y2; y++) {
-    //     for(x = area->x1; x <= area->x2; x++) {
-    //         /*Put a pixel to the display. For example:*/
-    //         /*put_px(x, y, *color_p)*/
-    //         color_p++;
-    //     }
-    // }
-    LCD_Draw(area->x1,area->x2,area->y1,area->y2,color_p);
+    int32_t x;
+    int32_t y;
+    LCD_SetWindow(area->x1, area->y1, area->x2, area->y2);
+    for(y = area->y1; y <= area->y2; y++) {
+        for(x = area->x1; x <= area->x2; x++) {
+            /*Put a pixel to the display. For example:*/
+            /*put_px(x, y, *color_p)*/
+            LCD_WRITE_DATA(*(uint16_t*)color_p);
+            color_p++;
+        }
+    }
+    // LCD_Draw(area->x1,area->y1,area->x2,area->y2,(uint16_t *)color_p);
     /*IMPORTANT!!!
      *Inform the graphics library that you are ready with the flushing*/
     lv_disp_flush_ready(disp_drv);

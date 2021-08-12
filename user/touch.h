@@ -29,6 +29,7 @@ typedef struct
 #define XPT2046_MISO_READ() HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_2)
 //#define PEN  		PBin(1) 
 #define XPT2046_EXTI_Read() HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1)
+
 /******************************* XPT2046 触摸屏参数定义 ***************************/
 #define XPT2046_CHANNEL_X 0x90 //驱动YN YP，测量X+
 #define XPT2046_CHANNEL_Y 0xd0 //驱动XN XP，测量Y+
