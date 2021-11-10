@@ -1,0 +1,811 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_event_2.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.event_cb.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 54686520 		.ascii	"The last button event:\012LV_EVENT_PRESSED\000"
+  20      6C617374 
+  20      20627574 
+  20      746F6E20 
+  20      6576656E 
+  21              		.align	2
+  22              	.LC1:
+  23 0028 54686520 		.ascii	"The last button event:\012LV_EVENT_CLICKED\000"
+  23      6C617374 
+  23      20627574 
+  23      746F6E20 
+  23      6576656E 
+  24              		.align	2
+  25              	.LC2:
+  26 0050 54686520 		.ascii	"The last button event:\012LV_EVENT_LONG_PRESSED\000"
+  26      6C617374 
+  26      20627574 
+  26      746F6E20 
+  26      6576656E 
+  27 007d 000000   		.align	2
+  28              	.LC3:
+  29 0080 54686520 		.ascii	"The last button event:\012LV_EVENT_LONG_PRESSED_REP"
+  29      6C617374 
+  29      20627574 
+  29      746F6E20 
+  29      6576656E 
+  30 00b0 45415400 		.ascii	"EAT\000"
+  31              		.section	.text.event_cb,"ax",%progbits
+  32              		.align	1
+  33              		.arch armv7e-m
+  34              		.syntax unified
+  35              		.thumb
+  36              		.thumb_func
+  37              		.fpu fpv4-sp-d16
+  39              	event_cb:
+  40              	.LVL0:
+  41              	.LFB189:
+  42              		.file 1 "lvgl/lvgl/examples/event/lv_example_event_2.c"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 2
+
+
+   1:lvgl/lvgl/examples/event/lv_example_event_2.c **** #include "../lv_examples.h"
+   2:lvgl/lvgl/examples/event/lv_example_event_2.c **** #if LV_BUILD_EXAMPLES && LV_USE_SWITCH
+   3:lvgl/lvgl/examples/event/lv_example_event_2.c **** 
+   4:lvgl/lvgl/examples/event/lv_example_event_2.c **** static void event_cb(lv_event_t * e)
+   5:lvgl/lvgl/examples/event/lv_example_event_2.c **** {
+  43              		.loc 1 5 1 view -0
+  44              		.cfi_startproc
+  45              		@ args = 0, pretend = 0, frame = 0
+  46              		@ frame_needed = 0, uses_anonymous_args = 0
+  47              		.loc 1 5 1 is_stmt 0 view .LVU1
+  48 0000 38B5     		push	{r3, r4, r5, lr}
+  49              	.LCFI0:
+  50              		.cfi_def_cfa_offset 16
+  51              		.cfi_offset 3, -16
+  52              		.cfi_offset 4, -12
+  53              		.cfi_offset 5, -8
+  54              		.cfi_offset 14, -4
+  55 0002 0546     		mov	r5, r0
+   6:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_event_code_t code = lv_event_get_code(e);
+  56              		.loc 1 6 5 is_stmt 1 view .LVU2
+  57              		.loc 1 6 28 is_stmt 0 view .LVU3
+  58 0004 FFF7FEFF 		bl	lv_event_get_code
+  59              	.LVL1:
+  60              		.loc 1 6 28 view .LVU4
+  61 0008 0446     		mov	r4, r0
+  62              	.LVL2:
+   7:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_obj_t * label = lv_event_get_user_data(e);
+  63              		.loc 1 7 5 is_stmt 1 view .LVU5
+  64              		.loc 1 7 24 is_stmt 0 view .LVU6
+  65 000a 2846     		mov	r0, r5
+  66 000c FFF7FEFF 		bl	lv_event_get_user_data
+  67              	.LVL3:
+   8:lvgl/lvgl/examples/event/lv_example_event_2.c **** 
+   9:lvgl/lvgl/examples/event/lv_example_event_2.c ****     switch(code) {
+  68              		.loc 1 9 5 is_stmt 1 view .LVU7
+  69 0010 631E     		subs	r3, r4, #1
+  70 0012 062B     		cmp	r3, #6
+  71 0014 08D8     		bhi	.L1
+  72 0016 DFE803F0 		tbb	[pc, r3]
+  73              	.L4:
+  74 001a 04       		.byte	(.L7-.L4)/2
+  75 001b 07       		.byte	(.L1-.L4)/2
+  76 001c 07       		.byte	(.L1-.L4)/2
+  77 001d 07       		.byte	(.L1-.L4)/2
+  78 001e 0C       		.byte	(.L6-.L4)/2
+  79 001f 10       		.byte	(.L5-.L4)/2
+  80 0020 08       		.byte	(.L3-.L4)/2
+  81 0021 00       		.p2align 1
+  82              	.L7:
+  10:lvgl/lvgl/examples/event/lv_example_event_2.c ****     case LV_EVENT_PRESSED:
+  11:lvgl/lvgl/examples/event/lv_example_event_2.c ****         lv_label_set_text(label, "The last button event:\nLV_EVENT_PRESSED");
+  83              		.loc 1 11 9 view .LVU8
+  84 0022 0849     		ldr	r1, .L9
+  85 0024 FFF7FEFF 		bl	lv_label_set_text
+  86              	.LVL4:
+  12:lvgl/lvgl/examples/event/lv_example_event_2.c ****         break;
+  87              		.loc 1 12 9 view .LVU9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 3
+
+
+  88              	.L1:
+  13:lvgl/lvgl/examples/event/lv_example_event_2.c ****     case LV_EVENT_CLICKED:
+  14:lvgl/lvgl/examples/event/lv_example_event_2.c ****         lv_label_set_text(label, "The last button event:\nLV_EVENT_CLICKED");
+  15:lvgl/lvgl/examples/event/lv_example_event_2.c ****         break;
+  16:lvgl/lvgl/examples/event/lv_example_event_2.c ****     case LV_EVENT_LONG_PRESSED:
+  17:lvgl/lvgl/examples/event/lv_example_event_2.c ****         lv_label_set_text(label, "The last button event:\nLV_EVENT_LONG_PRESSED");
+  18:lvgl/lvgl/examples/event/lv_example_event_2.c ****         break;
+  19:lvgl/lvgl/examples/event/lv_example_event_2.c ****     case LV_EVENT_LONG_PRESSED_REPEAT:
+  20:lvgl/lvgl/examples/event/lv_example_event_2.c ****         lv_label_set_text(label, "The last button event:\nLV_EVENT_LONG_PRESSED_REPEAT");
+  21:lvgl/lvgl/examples/event/lv_example_event_2.c ****         break;
+  22:lvgl/lvgl/examples/event/lv_example_event_2.c ****     default:
+  23:lvgl/lvgl/examples/event/lv_example_event_2.c ****         break;
+  24:lvgl/lvgl/examples/event/lv_example_event_2.c ****     }
+  25:lvgl/lvgl/examples/event/lv_example_event_2.c **** }
+  89              		.loc 1 25 1 is_stmt 0 view .LVU10
+  90 0028 38BD     		pop	{r3, r4, r5, pc}
+  91              	.LVL5:
+  92              	.L3:
+  14:lvgl/lvgl/examples/event/lv_example_event_2.c ****         break;
+  93              		.loc 1 14 9 is_stmt 1 view .LVU11
+  94 002a 0749     		ldr	r1, .L9+4
+  95 002c FFF7FEFF 		bl	lv_label_set_text
+  96              	.LVL6:
+  15:lvgl/lvgl/examples/event/lv_example_event_2.c ****     case LV_EVENT_LONG_PRESSED:
+  97              		.loc 1 15 9 view .LVU12
+  98 0030 FAE7     		b	.L1
+  99              	.LVL7:
+ 100              	.L6:
+  17:lvgl/lvgl/examples/event/lv_example_event_2.c ****         break;
+ 101              		.loc 1 17 9 view .LVU13
+ 102 0032 0649     		ldr	r1, .L9+8
+ 103 0034 FFF7FEFF 		bl	lv_label_set_text
+ 104              	.LVL8:
+  18:lvgl/lvgl/examples/event/lv_example_event_2.c ****     case LV_EVENT_LONG_PRESSED_REPEAT:
+ 105              		.loc 1 18 9 view .LVU14
+ 106 0038 F6E7     		b	.L1
+ 107              	.LVL9:
+ 108              	.L5:
+  20:lvgl/lvgl/examples/event/lv_example_event_2.c ****         break;
+ 109              		.loc 1 20 9 view .LVU15
+ 110 003a 0549     		ldr	r1, .L9+12
+ 111 003c FFF7FEFF 		bl	lv_label_set_text
+ 112              	.LVL10:
+  21:lvgl/lvgl/examples/event/lv_example_event_2.c ****     default:
+ 113              		.loc 1 21 9 view .LVU16
+ 114              		.loc 1 25 1 is_stmt 0 view .LVU17
+ 115 0040 F2E7     		b	.L1
+ 116              	.L10:
+ 117 0042 00BF     		.align	2
+ 118              	.L9:
+ 119 0044 00000000 		.word	.LC0
+ 120 0048 28000000 		.word	.LC1
+ 121 004c 50000000 		.word	.LC2
+ 122 0050 80000000 		.word	.LC3
+ 123              		.cfi_endproc
+ 124              	.LFE189:
+ 126              		.section	.rodata.lv_example_event_2.str1.4,"aMS",%progbits,1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 4
+
+
+ 127              		.align	2
+ 128              	.LC4:
+ 129 0000 436C6963 		.ascii	"Click me!\000"
+ 129      6B206D65 
+ 129      2100
+ 130 000a 0000     		.align	2
+ 131              	.LC5:
+ 132 000c 54686520 		.ascii	"The last button event:\012None\000"
+ 132      6C617374 
+ 132      20627574 
+ 132      746F6E20 
+ 132      6576656E 
+ 133              		.section	.text.lv_example_event_2,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	lv_example_event_2
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 139              		.fpu fpv4-sp-d16
+ 141              	lv_example_event_2:
+ 142              	.LFB190:
+  26:lvgl/lvgl/examples/event/lv_example_event_2.c **** 
+  27:lvgl/lvgl/examples/event/lv_example_event_2.c **** /**
+  28:lvgl/lvgl/examples/event/lv_example_event_2.c ****  * Handle multiple events
+  29:lvgl/lvgl/examples/event/lv_example_event_2.c ****  */
+  30:lvgl/lvgl/examples/event/lv_example_event_2.c **** void lv_example_event_2(void)
+  31:lvgl/lvgl/examples/event/lv_example_event_2.c **** {
+ 143              		.loc 1 31 1 is_stmt 1 view -0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147 0000 38B5     		push	{r3, r4, r5, lr}
+ 148              	.LCFI1:
+ 149              		.cfi_def_cfa_offset 16
+ 150              		.cfi_offset 3, -16
+ 151              		.cfi_offset 4, -12
+ 152              		.cfi_offset 5, -8
+ 153              		.cfi_offset 14, -4
+  32:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_obj_t * btn = lv_btn_create(lv_scr_act());
+ 154              		.loc 1 32 5 view .LVU19
+ 155              	.LBB10:
+ 156              	.LBI10:
+ 157              		.file 2 "lvgl/lvgl/examples/event/../../src/core/lv_disp.h"
+   1:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+   2:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @file lv_disp.h
+   3:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  *
+   4:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+   5:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+   6:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** #ifndef LV_DISP_H
+   7:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** #define LV_DISP_H
+   8:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+   9:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** extern "C" {
+  11:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** #endif
+  12:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  13:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /*********************
+  14:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  *      INCLUDES
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 5
+
+
+  15:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  *********************/
+  16:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** #include "../hal/lv_hal.h"
+  17:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** #include "lv_obj.h"
+  18:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** #include "lv_theme.h"
+  19:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  20:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /*********************
+  21:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  *      DEFINES
+  22:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  *********************/
+  23:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  24:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**********************
+  25:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  *      TYPEDEFS
+  26:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  **********************/
+  27:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  28:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** typedef enum {
+  29:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** } lv_scr_load_anim_t;
+  40:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  41:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**********************
+  42:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  **********************/
+  44:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  45:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+  46:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Return with a pointer to the active screen
+  47:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * screen)
+  49:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+  51:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  53:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+  54:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * screen)
+  57:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+  59:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  61:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+  62:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Make a screen active
+  63:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param scr pointer to a screen
+  64:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+  65:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  67:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+  68:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 6
+
+
+  72:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  74:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+  75:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * layer)
+  77:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+  80:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  82:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+  83:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Get the theme of a display
+  84:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  85:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+  87:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  89:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+  90:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Get the theme of a display
+  91:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  92:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+  94:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+  96:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+  97:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Set the background color of a display
+  98:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  99:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param color color of the background
+ 100:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ 101:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+ 103:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+ 104:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Set the background image of a display
+ 105:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 106:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ 108:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+ 110:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+ 111:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Opacity of the background
+ 112:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 113:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param opa opacity (0..255)
+ 114:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ 115:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+ 117:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+ 118:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Switch screen with animation
+ 119:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param time time of the animation
+ 122:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param delay delay before the transition
+ 123:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ 125:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+ 127:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+ 128:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 7
+
+
+ 129:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ 132:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+ 134:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+ 135:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Manually trigger an activity on a display
+ 136:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ 138:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+ 140:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+ 141:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ 144:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+ 146:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+ 147:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 150:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ 152:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+ 154:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /*------------------------------------------------
+ 155:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * To improve backward compatibility
+ 156:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Recommended only if you have one display
+ 157:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  *------------------------------------------------*/
+ 158:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** 
+ 159:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** /**
+ 160:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * Get the active screen of the default display
+ 161:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  * @return pointer to the active screen
+ 162:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****  */
+ 163:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 158              		.loc 2 163 26 view .LVU20
+ 159              	.LBB11:
+ 164:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** {
+ 165:lvgl/lvgl/examples/event/../../src/core/lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 160              		.loc 2 165 5 view .LVU21
+ 161              		.loc 2 165 12 is_stmt 0 view .LVU22
+ 162 0002 FFF7FEFF 		bl	lv_disp_get_default
+ 163              	.LVL11:
+ 164 0006 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 165              	.LVL12:
+ 166              	.LBE11:
+ 167              	.LBE10:
+ 168              		.loc 1 32 22 view .LVU23
+ 169 000a FFF7FEFF 		bl	lv_btn_create
+ 170              	.LVL13:
+ 171 000e 0446     		mov	r4, r0
+ 172              	.LVL14:
+  33:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_obj_set_size(btn, 100, 50);
+ 173              		.loc 1 33 5 is_stmt 1 view .LVU24
+ 174 0010 3222     		movs	r2, #50
+ 175 0012 6421     		movs	r1, #100
+ 176 0014 FFF7FEFF 		bl	lv_obj_set_size
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 8
+
+
+ 177              	.LVL15:
+  34:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_obj_center(btn);
+ 178              		.loc 1 34 5 view .LVU25
+ 179              	.LBB12:
+ 180              	.LBI12:
+ 181              		.file 3 "lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h"
+   1:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+   2:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @file lv_obj_pos.h
+   3:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *
+   4:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+   5:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+   6:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** #ifndef LV_OBJ_POS_H
+   7:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** #define LV_OBJ_POS_H
+   8:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+   9:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** extern "C" {
+  11:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** #endif
+  12:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  13:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /*********************
+  14:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *      INCLUDES
+  15:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *********************/
+  16:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** #include "../misc/lv_area.h"
+  17:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  18:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /*********************
+  19:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *      DEFINES
+  20:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *********************/
+  21:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  22:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**********************
+  23:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *      TYPEDEFS
+  24:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  **********************/
+  25:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** struct _lv_obj_t;
+  26:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  27:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** typedef void (*lv_layout_update_cb_t)(struct _lv_obj_t *, void * user_data);
+  28:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** typedef struct {
+  29:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****     lv_layout_update_cb_t cb;
+  30:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****     void * user_data;
+  31:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** }lv_layout_dsc_t;
+  32:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  33:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**********************
+  34:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * GLOBAL PROTOTYPES
+  35:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  **********************/
+  36:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  37:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+  38:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Set the relative the position of an object (relative to the parent's top left corner)
+  39:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  40:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param x         new distance from the left side of the parent plus the parent's left padding
+  41:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param y         new distance from the top side of the parent  plus the parent's right padding
+  42:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+  43:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_pos(struct _lv_obj_t * obj, lv_coord_t x, lv_coord_t y);
+  44:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  45:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+  46:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Set the x coordinate of a object
+  47:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  48:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param x         new distance from the left side from the parent plus the parent's left padding
+  49:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+  50:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_x(struct _lv_obj_t * obj, lv_coord_t x);
+  51:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 9
+
+
+  52:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+  53:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Set the y coordinate of a object
+  54:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  55:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param y         new distance from the top of the parent  plus the parent's top padding
+  56:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+  57:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_y(struct _lv_obj_t * obj, lv_coord_t y);
+  58:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  59:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+  60:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Set the size of an object.
+  61:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  62:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param w         the new width
+  63:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param h         the new height
+  64:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @note            possible values are:
+  65:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  66:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  67:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_PCT(x)     to set size in percentage of the parent's content area size 
+  68:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  69:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+  70:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_size(struct _lv_obj_t * obj, lv_coord_t w, lv_coord_t h);
+  71:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  72:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+  73:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Recalculate the size of the object
+  74:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  75:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @return          true: the size has been changed
+  76:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+  77:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** bool lv_obj_refr_size(struct _lv_obj_t * obj);
+  78:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  79:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+  80:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Set the width of an object
+  81:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  82:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param w         the new width
+  83:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @note            possible values are:
+  84:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  85:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  86:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  87:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  88:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+  89:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_width(struct _lv_obj_t * obj, lv_coord_t w);
+  90:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+  91:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+  92:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Set the height of an object
+  93:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  94:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param h         the new height
+  95:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @note            possible values are:
+  96:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  97:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  98:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  99:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+ 100:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 101:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 102:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 103:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 104:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Set the width reduced by the left and right padding and the border width.
+ 105:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+ 106:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param w         the width without paddings in pixels
+ 107:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 108:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_content_width(struct _lv_obj_t * obj, lv_coord_t w);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 10
+
+
+ 109:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 110:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 111:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Set the height reduced by the top and bottom padding and the border width.
+ 112:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+ 113:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param h         the height without paddings in pixels
+ 114:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 115:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_content_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 116:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 117:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 118:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Set a layout for an object
+ 119:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+ 120:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param layout    pointer to a layout descriptor to set
+ 121:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 122:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_layout(struct _lv_obj_t * obj, uint32_t layout);
+ 123:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 124:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 125:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Test whether the and object is positioned by a layout or not
+ 126:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to test
+ 127:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @return true:    positioned by a layout; false: not positioned by a layout
+ 128:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 129:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** bool lv_obj_is_layout_positioned(const struct _lv_obj_t * obj);
+ 130:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 131:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 132:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Mark the object for layout update.
+ 133:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 134:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 135:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_mark_layout_as_dirty(struct _lv_obj_t * obj);
+ 136:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 137:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 138:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Update the layout of an object.
+ 139:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 140:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 141:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_update_layout(const struct _lv_obj_t * obj);
+ 142:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 143:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 144:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Regsiter a new layout
+ 145:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param cb        the layout update callback
+ 146:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param user_data custom data that will be passed to `cb`
+ 147:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @return          the ID of the new layout
+ 148:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 149:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** uint32_t lv_layout_register(lv_layout_update_cb_t cb, void * user_data);
+ 150:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 151:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 152:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Change the alignment of an object.
+ 153:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 154:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 155:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 156:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_set_align(struct _lv_obj_t * obj, lv_align_t align);
+ 157:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 158:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 159:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Change the alignment of an object and set new coordinates.
+ 160:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Equivalent to:
+ 161:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * lv_obj_set_align(obj, align);
+ 162:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * lv_obj_set_pos(obj, x_ofs, y_ofs);
+ 163:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 164:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 165:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 11
+
+
+ 166:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 167:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 168:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_align(struct _lv_obj_t * obj, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs);
+ 169:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 170:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 171:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Align an object to an other object.
+ 172:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 173:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param base      pointer to an other object (if NULL `obj`s parent is used). 'obj' will be align
+ 174:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum)
+ 175:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 176:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 177:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @note            if the position or size of `base` changes `obj` needs to be aligned manually ag
+ 178:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 179:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** void lv_obj_align_to(struct _lv_obj_t * obj, const struct _lv_obj_t * base, lv_align_t align, lv_co
+ 180:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** 
+ 181:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** /**
+ 182:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * Align an object to the center on its parent.
+ 183:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 184:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  * @note            if the parent size changes `obj` needs to be aligned manually again
+ 185:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****  */
+ 186:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** static inline void lv_obj_center(struct _lv_obj_t * obj)
+ 182              		.loc 3 186 20 view .LVU26
+ 183              	.LBB13:
+ 187:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** {
+ 188:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h ****     lv_obj_align(obj, LV_ALIGN_CENTER, 0, 0);
+ 184              		.loc 3 188 5 view .LVU27
+ 185 0018 0023     		movs	r3, #0
+ 186 001a 1A46     		mov	r2, r3
+ 187 001c 0921     		movs	r1, #9
+ 188 001e 2046     		mov	r0, r4
+ 189 0020 FFF7FEFF 		bl	lv_obj_align
+ 190              	.LVL16:
+ 191              		.loc 3 188 5 is_stmt 0 view .LVU28
+ 192              	.LBE13:
+ 193              	.LBE12:
+  35:lvgl/lvgl/examples/event/lv_example_event_2.c **** 
+  36:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_obj_t * btn_label = lv_label_create(btn);
+ 194              		.loc 1 36 5 is_stmt 1 view .LVU29
+ 195              		.loc 1 36 28 is_stmt 0 view .LVU30
+ 196 0024 2046     		mov	r0, r4
+ 197 0026 FFF7FEFF 		bl	lv_label_create
+ 198              	.LVL17:
+ 199 002a 0546     		mov	r5, r0
+ 200              	.LVL18:
+  37:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_label_set_text(btn_label, "Click me!");
+ 201              		.loc 1 37 5 is_stmt 1 view .LVU31
+ 202 002c 0C49     		ldr	r1, .L13
+ 203 002e FFF7FEFF 		bl	lv_label_set_text
+ 204              	.LVL19:
+  38:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_obj_center(btn_label);
+ 205              		.loc 1 38 5 view .LVU32
+ 206              	.LBB14:
+ 207              	.LBI14:
+ 186:lvgl/lvgl/examples/event/../../src/core/lv_obj_pos.h **** {
+ 208              		.loc 3 186 20 view .LVU33
+ 209              	.LBB15:
+ 210              		.loc 3 188 5 view .LVU34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 12
+
+
+ 211 0032 0023     		movs	r3, #0
+ 212 0034 1A46     		mov	r2, r3
+ 213 0036 0921     		movs	r1, #9
+ 214 0038 2846     		mov	r0, r5
+ 215 003a FFF7FEFF 		bl	lv_obj_align
+ 216              	.LVL20:
+ 217              		.loc 3 188 5 is_stmt 0 view .LVU35
+ 218              	.LBE15:
+ 219              	.LBE14:
+  39:lvgl/lvgl/examples/event/lv_example_event_2.c **** 
+  40:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_obj_t * info_label = lv_label_create(lv_scr_act());
+ 220              		.loc 1 40 5 is_stmt 1 view .LVU36
+ 221              	.LBB16:
+ 222              	.LBI16:
+ 163:lvgl/lvgl/examples/event/../../src/core/lv_disp.h **** {
+ 223              		.loc 2 163 26 view .LVU37
+ 224              	.LBB17:
+ 225              		.loc 2 165 5 view .LVU38
+ 226              		.loc 2 165 12 is_stmt 0 view .LVU39
+ 227 003e FFF7FEFF 		bl	lv_disp_get_default
+ 228              	.LVL21:
+ 229 0042 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 230              	.LVL22:
+ 231              	.LBE17:
+ 232              	.LBE16:
+ 233              		.loc 1 40 29 view .LVU40
+ 234 0046 FFF7FEFF 		bl	lv_label_create
+ 235              	.LVL23:
+ 236 004a 0546     		mov	r5, r0
+ 237              	.LVL24:
+  41:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_label_set_text(info_label, "The last button event:\nNone");
+ 238              		.loc 1 41 5 is_stmt 1 view .LVU41
+ 239 004c 0549     		ldr	r1, .L13+4
+ 240 004e FFF7FEFF 		bl	lv_label_set_text
+ 241              	.LVL25:
+  42:lvgl/lvgl/examples/event/lv_example_event_2.c **** 
+  43:lvgl/lvgl/examples/event/lv_example_event_2.c ****     lv_obj_add_event_cb(btn, event_cb, LV_EVENT_ALL, info_label);
+ 242              		.loc 1 43 5 view .LVU42
+ 243 0052 2B46     		mov	r3, r5
+ 244 0054 0022     		movs	r2, #0
+ 245 0056 0449     		ldr	r1, .L13+8
+ 246 0058 2046     		mov	r0, r4
+ 247 005a FFF7FEFF 		bl	lv_obj_add_event_cb
+ 248              	.LVL26:
+  44:lvgl/lvgl/examples/event/lv_example_event_2.c **** }
+ 249              		.loc 1 44 1 is_stmt 0 view .LVU43
+ 250 005e 38BD     		pop	{r3, r4, r5, pc}
+ 251              	.LVL27:
+ 252              	.L14:
+ 253              		.loc 1 44 1 view .LVU44
+ 254              		.align	2
+ 255              	.L13:
+ 256 0060 00000000 		.word	.LC4
+ 257 0064 0C000000 		.word	.LC5
+ 258 0068 00000000 		.word	event_cb
+ 259              		.cfi_endproc
+ 260              	.LFE190:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 13
+
+
+ 262              		.text
+ 263              	.Letext0:
+ 264              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 265              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 266              		.file 6 "lvgl/lvgl/examples/event/../../src/misc/lv_ll.h"
+ 267              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 268              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 269              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 270              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 271              		.file 11 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 272              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 273              		.file 13 "lvgl/lvgl/examples/event/../../src/core/lv_obj.h"
+ 274              		.file 14 "lvgl/lvgl/examples/event/../../src/core/lv_group.h"
+ 275              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 276              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 277              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 278              		.file 18 "lvgl/lvgl/examples/event/../../src/core/lv_obj_scroll.h"
+ 279              		.file 19 "lvgl/lvgl/examples/event/../../src/core/lv_obj_style.h"
+ 280              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 281              		.file 21 "lvgl/lvgl/examples/event/../../src/core/lv_obj_class.h"
+ 282              		.file 22 "lvgl/lvgl/examples/event/../../src/core/lv_event.h"
+ 283              		.file 23 "lvgl/lvgl/examples/event/../../src/widgets/lv_arc.h"
+ 284              		.file 24 "lvgl/lvgl/examples/event/../../src/widgets/lv_btn.h"
+ 285              		.file 25 "lvgl/lvgl/examples/event/../../src/widgets/lv_img.h"
+ 286              		.file 26 "lvgl/lvgl/examples/event/../../src/widgets/lv_label.h"
+ 287              		.file 27 "lvgl/lvgl/examples/event/../../src/widgets/lv_line.h"
+ 288              		.file 28 "lvgl/lvgl/examples/event/../../src/widgets/lv_table.h"
+ 289              		.file 29 "lvgl/lvgl/examples/event/../../src/widgets/lv_checkbox.h"
+ 290              		.file 30 "lvgl/lvgl/examples/event/../../src/widgets/lv_bar.h"
+ 291              		.file 31 "lvgl/lvgl/examples/event/../../src/widgets/lv_slider.h"
+ 292              		.file 32 "lvgl/lvgl/examples/event/../../src/widgets/lv_btnmatrix.h"
+ 293              		.file 33 "lvgl/lvgl/examples/event/../../src/widgets/lv_dropdown.h"
+ 294              		.file 34 "lvgl/lvgl/examples/event/../../src/widgets/lv_roller.h"
+ 295              		.file 35 "lvgl/lvgl/examples/event/../../src/widgets/lv_textarea.h"
+ 296              		.file 36 "lvgl/lvgl/examples/event/../../src/widgets/lv_canvas.h"
+ 297              		.file 37 "lvgl/lvgl/examples/event/../../src/widgets/lv_switch.h"
+ 298              		.file 38 "lvgl/lvgl/examples/event/../../src/extra/widgets/animimg/lv_animimg.h"
+ 299              		.file 39 "lvgl/lvgl/examples/event/../../src/extra/widgets/calendar/lv_calendar.h"
+ 300              		.file 40 "lvgl/lvgl/examples/event/../../src/extra/widgets/calendar/lv_calendar_header_arrow.h"
+ 301              		.file 41 "lvgl/lvgl/examples/event/../../src/extra/widgets/calendar/lv_calendar_header_dropdown.h"
+ 302              		.file 42 "lvgl/lvgl/examples/event/../../src/extra/widgets/chart/lv_chart.h"
+ 303              		.file 43 "lvgl/lvgl/examples/event/../../src/extra/widgets/keyboard/lv_keyboard.h"
+ 304              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 305              		.file 45 "lvgl/lvgl/examples/event/../../src/extra/widgets/list/lv_list.h"
+ 306              		.file 46 "lvgl/lvgl/examples/event/../../src/extra/widgets/msgbox/lv_msgbox.h"
+ 307              		.file 47 "lvgl/lvgl/examples/event/../../src/extra/widgets/meter/lv_meter.h"
+ 308              		.file 48 "lvgl/lvgl/examples/event/../../src/extra/widgets/spinbox/lv_spinbox.h"
+ 309              		.file 49 "lvgl/lvgl/examples/event/../../src/extra/widgets/spinner/lv_spinner.h"
+ 310              		.file 50 "lvgl/lvgl/examples/event/../../src/extra/widgets/tabview/lv_tabview.h"
+ 311              		.file 51 "lvgl/lvgl/examples/event/../../src/extra/widgets/tileview/lv_tileview.h"
+ 312              		.file 52 "lvgl/lvgl/examples/event/../../src/extra/widgets/win/lv_win.h"
+ 313              		.file 53 "lvgl/lvgl/examples/event/../../src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 314              		.file 54 "lvgl/lvgl/examples/event/../../src/extra/widgets/led/lv_led.h"
+ 315              		.file 55 "lvgl/lvgl/examples/event/../../src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 316              		.file 56 "lvgl/lvgl/examples/event/../../src/extra/widgets/span/lv_span.h"
+ 317              		.file 57 "lvgl/lvgl/examples/event/../../src/extra/layouts/grid/lv_grid.h"
+ 318              		.file 58 "lvgl/lvgl/examples/event/../../src/hal/lv_hal_disp.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 14
+
+
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5gwvks.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_event_2.c
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:18     .rodata.event_cb.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:32     .text.event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:39     .text.event_cb:00000000 event_cb
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:74     .text.event_cb:0000001a $d
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:119    .text.event_cb:00000044 $d
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:127    .rodata.lv_example_event_2.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:134    .text.lv_example_event_2:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:141    .text.lv_example_event_2:00000000 lv_example_event_2
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:256    .text.lv_example_event_2:00000060 $d
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:81     .text.event_cb:00000021 $d
+C:\Users\gx\AppData\Local\Temp\cc5gwvks.s:81     .text.event_cb:00000022 $t
+
+UNDEFINED SYMBOLS
+lv_event_get_code
+lv_event_get_user_data
+lv_label_set_text
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_btn_create
+lv_obj_set_size
+lv_obj_align
+lv_label_create
+lv_obj_add_event_cb

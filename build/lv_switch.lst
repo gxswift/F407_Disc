@@ -1,0 +1,1618 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_switch.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.draw_main,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	draw_main:
+  26              	.LVL0:
+  27              	.LFB161:
+  28              		.file 1 "lvgl/lvgl/src/widgets/lv_switch.c"
+   1:lvgl/lvgl/src/widgets/lv_switch.c **** /**
+   2:lvgl/lvgl/src/widgets/lv_switch.c ****  * @file lv_sw.c
+   3:lvgl/lvgl/src/widgets/lv_switch.c ****  *
+   4:lvgl/lvgl/src/widgets/lv_switch.c ****  */
+   5:lvgl/lvgl/src/widgets/lv_switch.c **** 
+   6:lvgl/lvgl/src/widgets/lv_switch.c **** /*********************
+   7:lvgl/lvgl/src/widgets/lv_switch.c ****  *      INCLUDES
+   8:lvgl/lvgl/src/widgets/lv_switch.c ****  *********************/
+   9:lvgl/lvgl/src/widgets/lv_switch.c **** #include "lv_switch.h"
+  10:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  11:lvgl/lvgl/src/widgets/lv_switch.c **** #if LV_USE_SWITCH != 0
+  12:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  13:lvgl/lvgl/src/widgets/lv_switch.c **** /*Testing of dependencies*/
+  14:lvgl/lvgl/src/widgets/lv_switch.c **** #if LV_USE_SLIDER == 0
+  15:lvgl/lvgl/src/widgets/lv_switch.c ****     #error "lv_sw: lv_slider is required. Enable it in lv_conf.h (LV_USE_SLIDER 1)"
+  16:lvgl/lvgl/src/widgets/lv_switch.c **** #endif
+  17:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  18:lvgl/lvgl/src/widgets/lv_switch.c **** #include "../misc/lv_assert.h"
+  19:lvgl/lvgl/src/widgets/lv_switch.c **** #include "../misc/lv_math.h"
+  20:lvgl/lvgl/src/widgets/lv_switch.c **** #include "../core/lv_indev.h"
+  21:lvgl/lvgl/src/widgets/lv_switch.c **** #include "../core/lv_disp.h"
+  22:lvgl/lvgl/src/widgets/lv_switch.c **** #include "lv_img.h"
+  23:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  24:lvgl/lvgl/src/widgets/lv_switch.c **** /*********************
+  25:lvgl/lvgl/src/widgets/lv_switch.c ****  *      DEFINES
+  26:lvgl/lvgl/src/widgets/lv_switch.c ****  *********************/
+  27:lvgl/lvgl/src/widgets/lv_switch.c **** #define MY_CLASS &lv_switch_class
+  28:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  29:lvgl/lvgl/src/widgets/lv_switch.c **** /**********************
+  30:lvgl/lvgl/src/widgets/lv_switch.c ****  *      TYPEDEFS
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 2
+
+
+  31:lvgl/lvgl/src/widgets/lv_switch.c ****  **********************/
+  32:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  33:lvgl/lvgl/src/widgets/lv_switch.c **** /**********************
+  34:lvgl/lvgl/src/widgets/lv_switch.c ****  *  STATIC PROTOTYPES
+  35:lvgl/lvgl/src/widgets/lv_switch.c ****  **********************/
+  36:lvgl/lvgl/src/widgets/lv_switch.c **** static void lv_switch_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj);
+  37:lvgl/lvgl/src/widgets/lv_switch.c **** static void lv_switch_event(const lv_obj_class_t * class_p, lv_event_t * e);
+  38:lvgl/lvgl/src/widgets/lv_switch.c **** static void draw_main(lv_event_t * e);
+  39:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  40:lvgl/lvgl/src/widgets/lv_switch.c **** /**********************
+  41:lvgl/lvgl/src/widgets/lv_switch.c ****  *  STATIC VARIABLES
+  42:lvgl/lvgl/src/widgets/lv_switch.c ****  **********************/
+  43:lvgl/lvgl/src/widgets/lv_switch.c **** const lv_obj_class_t lv_switch_class = {
+  44:lvgl/lvgl/src/widgets/lv_switch.c ****     .constructor_cb = lv_switch_constructor,
+  45:lvgl/lvgl/src/widgets/lv_switch.c ****     .event_cb = lv_switch_event,
+  46:lvgl/lvgl/src/widgets/lv_switch.c ****     .width_def =  (4 * LV_DPI_DEF) / 10,
+  47:lvgl/lvgl/src/widgets/lv_switch.c ****     .height_def = (4 * LV_DPI_DEF) / 17,
+  48:lvgl/lvgl/src/widgets/lv_switch.c ****     .group_def = LV_OBJ_CLASS_GROUP_DEF_TRUE,
+  49:lvgl/lvgl/src/widgets/lv_switch.c ****     .instance_size = sizeof(lv_switch_t),
+  50:lvgl/lvgl/src/widgets/lv_switch.c ****     .base_class = &lv_obj_class
+  51:lvgl/lvgl/src/widgets/lv_switch.c **** };
+  52:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  53:lvgl/lvgl/src/widgets/lv_switch.c **** /**********************
+  54:lvgl/lvgl/src/widgets/lv_switch.c ****  *      MACROS
+  55:lvgl/lvgl/src/widgets/lv_switch.c ****  **********************/
+  56:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  57:lvgl/lvgl/src/widgets/lv_switch.c **** /**********************
+  58:lvgl/lvgl/src/widgets/lv_switch.c ****  *   GLOBAL FUNCTIONS
+  59:lvgl/lvgl/src/widgets/lv_switch.c ****  **********************/
+  60:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  61:lvgl/lvgl/src/widgets/lv_switch.c **** lv_obj_t * lv_switch_create(lv_obj_t * parent)
+  62:lvgl/lvgl/src/widgets/lv_switch.c **** {
+  63:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_LOG_INFO("begin")
+  64:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_t * obj = lv_obj_class_create_obj(MY_CLASS, parent);
+  65:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_class_init_obj(obj);
+  66:lvgl/lvgl/src/widgets/lv_switch.c ****     return obj;
+  67:lvgl/lvgl/src/widgets/lv_switch.c **** }
+  68:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  69:lvgl/lvgl/src/widgets/lv_switch.c **** /**********************
+  70:lvgl/lvgl/src/widgets/lv_switch.c ****  *   STATIC FUNCTIONS
+  71:lvgl/lvgl/src/widgets/lv_switch.c ****  **********************/
+  72:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  73:lvgl/lvgl/src/widgets/lv_switch.c **** static void lv_switch_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
+  74:lvgl/lvgl/src/widgets/lv_switch.c **** {
+  75:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_UNUSED(class_p);
+  76:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_TRACE_OBJ_CREATE("begin");
+  77:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  78:lvgl/lvgl/src/widgets/lv_switch.c ****    lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
+  79:lvgl/lvgl/src/widgets/lv_switch.c ****    lv_obj_add_flag(obj, LV_OBJ_FLAG_CHECKABLE);
+  80:lvgl/lvgl/src/widgets/lv_switch.c ****    lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+  81:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  82:lvgl/lvgl/src/widgets/lv_switch.c ****    LV_TRACE_OBJ_CREATE("finished");
+  83:lvgl/lvgl/src/widgets/lv_switch.c **** }
+  84:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  85:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  86:lvgl/lvgl/src/widgets/lv_switch.c **** static void lv_switch_event(const lv_obj_class_t * class_p, lv_event_t * e)
+  87:lvgl/lvgl/src/widgets/lv_switch.c **** {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 3
+
+
+  88:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_UNUSED(class_p);
+  89:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  90:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_res_t res;
+  91:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  92:lvgl/lvgl/src/widgets/lv_switch.c ****     /*Call the ancestor's event handler*/
+  93:lvgl/lvgl/src/widgets/lv_switch.c ****     res = lv_obj_event_base(MY_CLASS, e);
+  94:lvgl/lvgl/src/widgets/lv_switch.c ****     if(res != LV_RES_OK) return;
+  95:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  96:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_event_code_t code = lv_event_get_code(e);
+  97:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_t * obj = lv_event_get_target(e);
+  98:lvgl/lvgl/src/widgets/lv_switch.c **** 
+  99:lvgl/lvgl/src/widgets/lv_switch.c ****     if(code == LV_EVENT_REFR_EXT_DRAW_SIZE) {
+ 100:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_left = lv_obj_get_style_pad_left(obj,   LV_PART_KNOB);
+ 101:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_right = lv_obj_get_style_pad_right(obj,  LV_PART_KNOB);
+ 102:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_top = lv_obj_get_style_pad_top(obj,    LV_PART_KNOB);
+ 103:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_bottom = lv_obj_get_style_pad_bottom(obj, LV_PART_KNOB);
+ 104:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 105:lvgl/lvgl/src/widgets/lv_switch.c ****         /*The smaller size is the knob diameter*/
+ 106:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_size = LV_MAX4(knob_left, knob_right, knob_bottom, knob_top);
+ 107:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_size += 2;         /*For rounding error*/
+ 108:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_size += lv_obj_calculate_ext_draw_size(obj, LV_PART_KNOB);
+ 109:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 110:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t * s = lv_event_get_param(e);
+ 111:lvgl/lvgl/src/widgets/lv_switch.c ****         *s = LV_MAX(*s, knob_size);
+ 112:lvgl/lvgl/src/widgets/lv_switch.c ****         *s = LV_MAX(*s, lv_obj_calculate_ext_draw_size(obj, LV_PART_INDICATOR));
+ 113:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 114:lvgl/lvgl/src/widgets/lv_switch.c ****     else if(code == LV_EVENT_CLICKED) {
+ 115:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_obj_invalidate(obj);
+ 116:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 117:lvgl/lvgl/src/widgets/lv_switch.c ****     else if(code == LV_EVENT_DRAW_MAIN) {
+ 118:lvgl/lvgl/src/widgets/lv_switch.c ****         draw_main(e);
+ 119:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 120:lvgl/lvgl/src/widgets/lv_switch.c **** }
+ 121:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 122:lvgl/lvgl/src/widgets/lv_switch.c **** static void draw_main(lv_event_t * e)
+ 123:lvgl/lvgl/src/widgets/lv_switch.c **** {
+  29              		.loc 1 123 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 120
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 123 1 is_stmt 0 view .LVU1
+  34 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 36
+  37              		.cfi_offset 4, -36
+  38              		.cfi_offset 5, -32
+  39              		.cfi_offset 6, -28
+  40              		.cfi_offset 7, -24
+  41              		.cfi_offset 8, -20
+  42              		.cfi_offset 9, -16
+  43              		.cfi_offset 10, -12
+  44              		.cfi_offset 11, -8
+  45              		.cfi_offset 14, -4
+  46 0004 9FB0     		sub	sp, sp, #124
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_offset 160
+  49 0006 0546     		mov	r5, r0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 4
+
+
+ 124:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_t * obj = lv_event_get_target(e);
+  50              		.loc 1 124 5 is_stmt 1 view .LVU2
+  51              		.loc 1 124 22 is_stmt 0 view .LVU3
+  52 0008 FFF7FEFF 		bl	lv_event_get_target
+  53              	.LVL1:
+  54              		.loc 1 124 22 view .LVU4
+  55 000c 0446     		mov	r4, r0
+  56              	.LVL2:
+ 125:lvgl/lvgl/src/widgets/lv_switch.c ****     const lv_area_t * clip_area = lv_event_get_param(e);
+  57              		.loc 1 125 5 is_stmt 1 view .LVU5
+  58              		.loc 1 125 35 is_stmt 0 view .LVU6
+  59 000e 2846     		mov	r0, r5
+  60              	.LVL3:
+  61              		.loc 1 125 35 view .LVU7
+  62 0010 FFF7FEFF 		bl	lv_event_get_param
+  63              	.LVL4:
+  64 0014 0646     		mov	r6, r0
+  65              	.LVL5:
+ 126:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_base_dir_t base_dir = lv_obj_get_style_base_dir(obj, LV_PART_MAIN);
+  66              		.loc 1 126 5 is_stmt 1 view .LVU8
+  67              	.LBB32:
+  68              	.LBI32:
+  69              		.file 2 "lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h"
+   1:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_width(const struct _lv_obj_t * obj, uint32_t part)
+   2:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+   3:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_WIDTH);
+   4:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+   5:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+   6:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+   7:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_min_width(const struct _lv_obj_t * obj, uint32_t part)
+   8:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+   9:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MIN_WIDTH);
+  10:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  11:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  12:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  13:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_max_width(const struct _lv_obj_t * obj, uint32_t part)
+  14:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  15:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MAX_WIDTH);
+  16:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  17:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  18:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  19:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_height(const struct _lv_obj_t * obj, uint32_t part)
+  20:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  21:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_HEIGHT);
+  22:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  23:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  24:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  25:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_min_height(const struct _lv_obj_t * obj, uint32_t part)
+  26:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  27:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MIN_HEIGHT);
+  28:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  29:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  30:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  31:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_max_height(const struct _lv_obj_t * obj, uint32_t part)
+  32:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  33:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MAX_HEIGHT);
+  34:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 5
+
+
+  35:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  36:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  37:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_x(const struct _lv_obj_t * obj, uint32_t part)
+  38:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  39:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_X);
+  40:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  41:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  42:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  43:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_y(const struct _lv_obj_t * obj, uint32_t part)
+  44:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  45:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_Y);
+  46:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  47:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  48:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  49:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_align_t lv_obj_get_style_align(const struct _lv_obj_t * obj, uint32_t part)
+  50:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  51:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_ALIGN);
+  52:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_align_t)v.num;
+  53:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  54:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  55:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_width(const struct _lv_obj_t * obj, uint32_t pa
+  56:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  57:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_WIDTH);
+  58:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  59:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  60:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  61:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_height(const struct _lv_obj_t * obj, uint32_t p
+  62:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  63:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_HEIGHT);
+  64:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  65:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  66:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  67:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_translate_x(const struct _lv_obj_t * obj, uint32_t part)
+  68:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  69:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSLATE_X);
+  70:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  71:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  72:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  73:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_translate_y(const struct _lv_obj_t * obj, uint32_t part)
+  74:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  75:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSLATE_Y);
+  76:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  77:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  78:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  79:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_zoom(const struct _lv_obj_t * obj, uint32_t par
+  80:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  81:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_ZOOM);
+  82:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  83:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  84:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  85:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_angle(const struct _lv_obj_t * obj, uint32_t pa
+  86:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  87:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_ANGLE);
+  88:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  89:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  90:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  91:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_top(const struct _lv_obj_t * obj, uint32_t part)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 6
+
+
+  92:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  93:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_TOP);
+  94:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  95:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+  96:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+  97:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_bottom(const struct _lv_obj_t * obj, uint32_t part)
+  98:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  99:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_BOTTOM);
+ 100:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 101:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 102:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 103:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_left(const struct _lv_obj_t * obj, uint32_t part)
+ 104:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 105:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_LEFT);
+ 106:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 107:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 108:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 109:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_right(const struct _lv_obj_t * obj, uint32_t part)
+ 110:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 111:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_RIGHT);
+ 112:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 113:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 114:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 115:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_row(const struct _lv_obj_t * obj, uint32_t part)
+ 116:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 117:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_ROW);
+ 118:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 119:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 120:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 121:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_column(const struct _lv_obj_t * obj, uint32_t part)
+ 122:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 123:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_COLUMN);
+ 124:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 125:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 126:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 127:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_radius(const struct _lv_obj_t * obj, uint32_t part)
+ 128:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 129:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_RADIUS);
+ 130:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 131:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 132:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 133:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline bool lv_obj_get_style_clip_corner(const struct _lv_obj_t * obj, uint32_t part)
+ 134:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 135:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_CLIP_CORNER);
+ 136:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (bool)v.num;
+ 137:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 138:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 139:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_opa_t lv_obj_get_style_opa(const struct _lv_obj_t * obj, uint32_t part)
+ 140:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 141:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_OPA);
+ 142:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_opa_t)v.num;
+ 143:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 144:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 145:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline const lv_color_filter_dsc_t * lv_obj_get_style_color_filter_dsc(const struct _lv_obj_
+ 146:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 147:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_COLOR_FILTER_DSC);
+ 148:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (const lv_color_filter_dsc_t *)v.ptr;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 7
+
+
+ 149:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 150:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 151:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_opa_t lv_obj_get_style_color_filter_opa(const struct _lv_obj_t * obj, uint32_t par
+ 152:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 153:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_COLOR_FILTER_OPA);
+ 154:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_opa_t)v.num;
+ 155:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 156:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 157:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline uint32_t lv_obj_get_style_anim_time(const struct _lv_obj_t * obj, uint32_t part)
+ 158:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 159:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_ANIM_TIME);
+ 160:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (uint32_t)v.num;
+ 161:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 162:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 163:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline uint32_t lv_obj_get_style_anim_speed(const struct _lv_obj_t * obj, uint32_t part)
+ 164:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 165:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_ANIM_SPEED);
+ 166:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (uint32_t)v.num;
+ 167:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 168:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 169:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline const lv_style_transition_dsc_t * lv_obj_get_style_transition(const struct _lv_obj_t 
+ 170:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 171:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSITION);
+ 172:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (const lv_style_transition_dsc_t *)v.ptr;
+ 173:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 174:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 175:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_blend_mode_t lv_obj_get_style_blend_mode(const struct _lv_obj_t * obj, uint32_t pa
+ 176:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 177:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_BLEND_MODE);
+ 178:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_blend_mode_t)v.num;
+ 179:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 180:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 181:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline uint16_t lv_obj_get_style_layout(const struct _lv_obj_t * obj, uint32_t part)
+ 182:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 183:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_LAYOUT);
+ 184:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (uint16_t)v.num;
+ 185:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 186:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
+ 187:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_base_dir_t lv_obj_get_style_base_dir(const struct _lv_obj_t * obj, uint32_t part)
+  70              		.loc 2 187 29 view .LVU9
+  71              	.LBB33:
+ 188:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 189:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_BASE_DIR);
+  72              		.loc 2 189 5 view .LVU10
+  73              		.loc 2 189 26 is_stmt 0 view .LVU11
+  74 0016 41F26A42 		movw	r2, #5226
+  75 001a 0021     		movs	r1, #0
+  76 001c 2046     		mov	r0, r4
+  77              	.LVL6:
+  78              		.loc 2 189 26 view .LVU12
+  79 001e FFF7FEFF 		bl	lv_obj_get_style_prop
+  80              	.LVL7:
+ 190:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_base_dir_t)v.num;
+  81              		.loc 2 190 5 is_stmt 1 view .LVU13
+  82              		.loc 2 190 12 is_stmt 0 view .LVU14
+  83 0022 C7B2     		uxtb	r7, r0
+  84              	.LVL8:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 8
+
+
+  85              		.loc 2 190 12 view .LVU15
+  86              	.LBE33:
+  87              	.LBE32:
+ 127:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 128:lvgl/lvgl/src/widgets/lv_switch.c ****     /*Calculate the indicator area*/
+ 129:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t bg_left = lv_obj_get_style_pad_left(obj,     LV_PART_MAIN);
+  88              		.loc 1 129 5 is_stmt 1 view .LVU16
+  89              	.LBB34:
+  90              	.LBI34:
+ 103:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+  91              		.loc 2 103 26 view .LVU17
+  92              	.LBB35:
+ 105:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  93              		.loc 2 105 5 view .LVU18
+ 105:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  94              		.loc 2 105 26 is_stmt 0 view .LVU19
+  95 0024 41F21202 		movw	r2, #4114
+  96 0028 0021     		movs	r1, #0
+  97 002a 2046     		mov	r0, r4
+  98 002c FFF7FEFF 		bl	lv_obj_get_style_prop
+  99              	.LVL9:
+ 100 0030 8346     		mov	fp, r0
+ 106:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 101              		.loc 2 106 5 is_stmt 1 view .LVU20
+ 102              	.LVL10:
+ 106:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 103              		.loc 2 106 5 is_stmt 0 view .LVU21
+ 104              	.LBE35:
+ 105              	.LBE34:
+ 130:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t bg_right = lv_obj_get_style_pad_right(obj,   LV_PART_MAIN);
+ 106              		.loc 1 130 5 is_stmt 1 view .LVU22
+ 107              	.LBB36:
+ 108              	.LBI36:
+ 109:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 109              		.loc 2 109 26 view .LVU23
+ 110              	.LBB37:
+ 111:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 111              		.loc 2 111 5 view .LVU24
+ 111:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 112              		.loc 2 111 26 is_stmt 0 view .LVU25
+ 113 0032 41F21302 		movw	r2, #4115
+ 114 0036 0021     		movs	r1, #0
+ 115 0038 2046     		mov	r0, r4
+ 116 003a FFF7FEFF 		bl	lv_obj_get_style_prop
+ 117              	.LVL11:
+ 118 003e 8246     		mov	r10, r0
+ 112:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 119              		.loc 2 112 5 is_stmt 1 view .LVU26
+ 120              	.LVL12:
+ 112:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 121              		.loc 2 112 5 is_stmt 0 view .LVU27
+ 122              	.LBE37:
+ 123              	.LBE36:
+ 131:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t bg_top = lv_obj_get_style_pad_top(obj,       LV_PART_MAIN);
+ 124              		.loc 1 131 5 is_stmt 1 view .LVU28
+ 125              	.LBB38:
+ 126              	.LBI38:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 9
+
+
+  91:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 127              		.loc 2 91 26 view .LVU29
+ 128              	.LBB39:
+  93:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 129              		.loc 2 93 5 view .LVU30
+  93:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 130              		.loc 2 93 26 is_stmt 0 view .LVU31
+ 131 0040 41F21002 		movw	r2, #4112
+ 132 0044 0021     		movs	r1, #0
+ 133 0046 2046     		mov	r0, r4
+ 134 0048 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 135              	.LVL13:
+ 136 004c 8146     		mov	r9, r0
+  94:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 137              		.loc 2 94 5 is_stmt 1 view .LVU32
+ 138              	.LVL14:
+  94:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 139              		.loc 2 94 5 is_stmt 0 view .LVU33
+ 140              	.LBE39:
+ 141              	.LBE38:
+ 132:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t bg_bottom = lv_obj_get_style_pad_bottom(obj, LV_PART_MAIN);
+ 142              		.loc 1 132 5 is_stmt 1 view .LVU34
+ 143              	.LBB40:
+ 144              	.LBI40:
+  97:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 145              		.loc 2 97 26 view .LVU35
+ 146              	.LBB41:
+  99:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 147              		.loc 2 99 5 view .LVU36
+  99:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 148              		.loc 2 99 26 is_stmt 0 view .LVU37
+ 149 004e 41F21102 		movw	r2, #4113
+ 150 0052 0021     		movs	r1, #0
+ 151 0054 2046     		mov	r0, r4
+ 152 0056 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 153              	.LVL15:
+ 154 005a 8046     		mov	r8, r0
+ 100:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 155              		.loc 2 100 5 is_stmt 1 view .LVU38
+ 156              	.LVL16:
+ 100:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 157              		.loc 2 100 5 is_stmt 0 view .LVU39
+ 158              	.LBE41:
+ 159              	.LBE40:
+ 133:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 134:lvgl/lvgl/src/widgets/lv_switch.c ****     bool chk = lv_obj_get_state(obj) & LV_STATE_CHECKED;
+ 160              		.loc 1 134 5 is_stmt 1 view .LVU40
+ 161              		.loc 1 134 16 is_stmt 0 view .LVU41
+ 162 005c 2046     		mov	r0, r4
+ 163 005e FFF7FEFF 		bl	lv_obj_get_state
+ 164              	.LVL17:
+ 135:lvgl/lvgl/src/widgets/lv_switch.c ****     /*Draw the indicator in checked state*/
+ 136:lvgl/lvgl/src/widgets/lv_switch.c ****     if(chk) {
+ 165              		.loc 1 136 5 is_stmt 1 view .LVU42
+ 166              		.loc 1 136 7 is_stmt 0 view .LVU43
+ 167 0062 10F00105 		ands	r5, r0, #1
+ 168              	.LVL18:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 10
+
+
+ 169              		.loc 1 136 7 view .LVU44
+ 170 0066 62D1     		bne	.L8
+ 171              	.LVL19:
+ 172              	.L2:
+ 137:lvgl/lvgl/src/widgets/lv_switch.c ****         /*Respect the background's padding*/
+ 138:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_area_t indic_area;
+ 139:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_area_copy(&indic_area, &obj->coords);
+ 140:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.x1 += bg_left;
+ 141:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.x2 -= bg_right;
+ 142:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.y1 += bg_top;
+ 143:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.y2 -= bg_bottom;
+ 144:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 145:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_draw_rect_dsc_t draw_indic_dsc;
+ 146:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_draw_rect_dsc_init(&draw_indic_dsc);
+ 147:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_obj_init_draw_rect_dsc(obj, LV_PART_INDICATOR, &draw_indic_dsc);
+ 148:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_draw_rect(&indic_area, clip_area, &draw_indic_dsc);
+ 149:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 150:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 151:lvgl/lvgl/src/widgets/lv_switch.c ****     /*Draw the knob*/
+ 152:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t objh = lv_obj_get_height(obj);
+ 173              		.loc 1 152 5 is_stmt 1 view .LVU45
+ 174              		.loc 1 152 23 is_stmt 0 view .LVU46
+ 175 0068 2046     		mov	r0, r4
+ 176 006a FFF7FEFF 		bl	lv_obj_get_height
+ 177              	.LVL20:
+ 153:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t knob_size = objh;
+ 178              		.loc 1 153 5 is_stmt 1 view .LVU47
+ 154:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_area_t knob_area;
+ 179              		.loc 1 154 5 view .LVU48
+ 155:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 156:lvgl/lvgl/src/widgets/lv_switch.c ****     /*Left*/
+ 157:lvgl/lvgl/src/widgets/lv_switch.c ****     if((base_dir != LV_BASE_DIR_RTL && !chk) || (base_dir == LV_BASE_DIR_RTL && chk)) {
+ 180              		.loc 1 157 5 view .LVU49
+ 181              		.loc 1 157 7 is_stmt 0 view .LVU50
+ 182 006e 012F     		cmp	r7, #1
+ 183 0070 02D0     		beq	.L3
+ 184              		.loc 1 157 37 discriminator 1 view .LVU51
+ 185 0072 002D     		cmp	r5, #0
+ 186 0074 00F08380 		beq	.L4
+ 187              	.L3:
+ 188              		.loc 1 157 46 discriminator 3 view .LVU52
+ 189 0078 012F     		cmp	r7, #1
+ 190 007a 7DD0     		beq	.L9
+ 191              	.L5:
+ 158:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_area.x1 = obj->coords.x1 + bg_left;
+ 159:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_area.x2 = knob_area.x1 + knob_size;
+ 160:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 161:lvgl/lvgl/src/widgets/lv_switch.c ****     else {
+ 162:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_area.x2 = obj->coords.x2 - bg_right;
+ 192              		.loc 1 162 9 is_stmt 1 view .LVU53
+ 193              		.loc 1 162 35 is_stmt 0 view .LVU54
+ 194 007c 238B     		ldrh	r3, [r4, #24]
+ 195              		.loc 1 162 39 view .LVU55
+ 196 007e A3EB0A0A 		sub	r10, r3, r10
+ 197              	.LVL21:
+ 198              		.loc 1 162 39 view .LVU56
+ 199 0082 1FFA8AFB 		uxth	fp, r10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 11
+
+
+ 200              	.LVL22:
+ 201              		.loc 1 162 22 view .LVU57
+ 202 0086 ADF874A0 		strh	r10, [sp, #116]	@ movhi
+ 163:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_area.x1 = knob_area.x2 - knob_size;
+ 203              		.loc 1 163 9 is_stmt 1 view .LVU58
+ 204              		.loc 1 163 37 is_stmt 0 view .LVU59
+ 205 008a ABEB0000 		sub	r0, fp, r0
+ 206              	.LVL23:
+ 207              		.loc 1 163 22 view .LVU60
+ 208 008e ADF87000 		strh	r0, [sp, #112]	@ movhi
+ 209              	.L6:
+ 164:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 165:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 166:lvgl/lvgl/src/widgets/lv_switch.c ****     knob_area.y1 = obj->coords.y1 + bg_top;
+ 210              		.loc 1 166 5 is_stmt 1 view .LVU61
+ 211              		.loc 1 166 31 is_stmt 0 view .LVU62
+ 212 0092 E08A     		ldrh	r0, [r4, #22]
+ 213              		.loc 1 166 35 view .LVU63
+ 214 0094 8144     		add	r9, r9, r0
+ 215              	.LVL24:
+ 216              		.loc 1 166 18 view .LVU64
+ 217 0096 ADF87290 		strh	r9, [sp, #114]	@ movhi
+ 167:lvgl/lvgl/src/widgets/lv_switch.c ****     knob_area.y2 = obj->coords.y2 - bg_bottom;
+ 218              		.loc 1 167 5 is_stmt 1 view .LVU65
+ 219              		.loc 1 167 31 is_stmt 0 view .LVU66
+ 220 009a 608B     		ldrh	r0, [r4, #26]
+ 221              		.loc 1 167 35 view .LVU67
+ 222 009c A0EB0808 		sub	r8, r0, r8
+ 223              	.LVL25:
+ 224              		.loc 1 167 18 view .LVU68
+ 225 00a0 ADF87680 		strh	r8, [sp, #118]	@ movhi
+ 168:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 169:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t knob_left = lv_obj_get_style_pad_left(obj, LV_PART_KNOB);
+ 226              		.loc 1 169 5 is_stmt 1 view .LVU69
+ 227              	.LVL26:
+ 228              	.LBB42:
+ 229              	.LBI42:
+ 103:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 230              		.loc 2 103 26 view .LVU70
+ 231              	.LBB43:
+ 105:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 232              		.loc 2 105 5 view .LVU71
+ 105:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 233              		.loc 2 105 26 is_stmt 0 view .LVU72
+ 234 00a4 41F21202 		movw	r2, #4114
+ 235 00a8 4FF44031 		mov	r1, #196608
+ 236 00ac 2046     		mov	r0, r4
+ 237 00ae FFF7FEFF 		bl	lv_obj_get_style_prop
+ 238              	.LVL27:
+ 239 00b2 8046     		mov	r8, r0
+ 240              	.LVL28:
+ 106:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 241              		.loc 2 106 5 is_stmt 1 view .LVU73
+ 106:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 242              		.loc 2 106 5 is_stmt 0 view .LVU74
+ 243              	.LBE43:
+ 244              	.LBE42:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 12
+
+
+ 170:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t knob_right = lv_obj_get_style_pad_right(obj, LV_PART_KNOB);
+ 245              		.loc 1 170 5 is_stmt 1 view .LVU75
+ 246              	.LBB44:
+ 247              	.LBI44:
+ 109:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 248              		.loc 2 109 26 view .LVU76
+ 249              	.LBB45:
+ 111:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 250              		.loc 2 111 5 view .LVU77
+ 111:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 251              		.loc 2 111 26 is_stmt 0 view .LVU78
+ 252 00b4 41F21302 		movw	r2, #4115
+ 253 00b8 4FF44031 		mov	r1, #196608
+ 254 00bc 2046     		mov	r0, r4
+ 255 00be FFF7FEFF 		bl	lv_obj_get_style_prop
+ 256              	.LVL29:
+ 257 00c2 0546     		mov	r5, r0
+ 258              	.LVL30:
+ 112:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 259              		.loc 2 112 5 is_stmt 1 view .LVU79
+ 112:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 260              		.loc 2 112 5 is_stmt 0 view .LVU80
+ 261              	.LBE45:
+ 262              	.LBE44:
+ 171:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t knob_top = lv_obj_get_style_pad_top(obj, LV_PART_KNOB);
+ 263              		.loc 1 171 5 is_stmt 1 view .LVU81
+ 264              	.LBB46:
+ 265              	.LBI46:
+  91:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 266              		.loc 2 91 26 view .LVU82
+ 267              	.LBB47:
+  93:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 268              		.loc 2 93 5 view .LVU83
+  93:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 269              		.loc 2 93 26 is_stmt 0 view .LVU84
+ 270 00c4 41F21002 		movw	r2, #4112
+ 271 00c8 4FF44031 		mov	r1, #196608
+ 272 00cc 2046     		mov	r0, r4
+ 273 00ce FFF7FEFF 		bl	lv_obj_get_style_prop
+ 274              	.LVL31:
+ 275 00d2 0746     		mov	r7, r0
+ 276              	.LVL32:
+  94:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 277              		.loc 2 94 5 is_stmt 1 view .LVU85
+  94:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 278              		.loc 2 94 5 is_stmt 0 view .LVU86
+ 279              	.LBE47:
+ 280              	.LBE46:
+ 172:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_coord_t knob_bottom = lv_obj_get_style_pad_bottom(obj, LV_PART_KNOB);
+ 281              		.loc 1 172 5 is_stmt 1 view .LVU87
+ 282              	.LBB48:
+ 283              	.LBI48:
+  97:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 284              		.loc 2 97 26 view .LVU88
+ 285              	.LBB49:
+  99:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 286              		.loc 2 99 5 view .LVU89
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 13
+
+
+  99:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 287              		.loc 2 99 26 is_stmt 0 view .LVU90
+ 288 00d4 41F21102 		movw	r2, #4113
+ 289 00d8 4FF44031 		mov	r1, #196608
+ 290 00dc 2046     		mov	r0, r4
+ 291 00de FFF7FEFF 		bl	lv_obj_get_style_prop
+ 292              	.LVL33:
+ 100:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 293              		.loc 2 100 5 is_stmt 1 view .LVU91
+ 100:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 294              		.loc 2 100 5 is_stmt 0 view .LVU92
+ 295              	.LBE49:
+ 296              	.LBE48:
+ 173:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 174:lvgl/lvgl/src/widgets/lv_switch.c ****     /*Apply the paddings on the knob area*/
+ 175:lvgl/lvgl/src/widgets/lv_switch.c ****     knob_area.x1 -= knob_left;
+ 297              		.loc 1 175 5 is_stmt 1 view .LVU93
+ 298              		.loc 1 175 18 is_stmt 0 view .LVU94
+ 299 00e2 BDF87030 		ldrh	r3, [sp, #112]
+ 300 00e6 A3EB0803 		sub	r3, r3, r8
+ 301 00ea ADF87030 		strh	r3, [sp, #112]	@ movhi
+ 176:lvgl/lvgl/src/widgets/lv_switch.c ****     knob_area.x2 += knob_right;
+ 302              		.loc 1 176 5 is_stmt 1 view .LVU95
+ 303              		.loc 1 176 18 is_stmt 0 view .LVU96
+ 304 00ee BDF87430 		ldrh	r3, [sp, #116]
+ 305 00f2 1D44     		add	r5, r5, r3
+ 306              	.LVL34:
+ 307              		.loc 1 176 18 view .LVU97
+ 308 00f4 ADF87450 		strh	r5, [sp, #116]	@ movhi
+ 177:lvgl/lvgl/src/widgets/lv_switch.c ****     knob_area.y1 -= knob_top;
+ 309              		.loc 1 177 5 is_stmt 1 view .LVU98
+ 310              		.loc 1 177 18 is_stmt 0 view .LVU99
+ 311 00f8 BDF87230 		ldrh	r3, [sp, #114]
+ 312 00fc DB1B     		subs	r3, r3, r7
+ 313 00fe ADF87230 		strh	r3, [sp, #114]	@ movhi
+ 178:lvgl/lvgl/src/widgets/lv_switch.c ****     knob_area.y2 += knob_bottom;
+ 314              		.loc 1 178 5 is_stmt 1 view .LVU100
+ 315              		.loc 1 178 18 is_stmt 0 view .LVU101
+ 316 0102 BDF87630 		ldrh	r3, [sp, #118]
+ 317 0106 0344     		add	r3, r3, r0
+ 318 0108 ADF87630 		strh	r3, [sp, #118]	@ movhi
+ 179:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 180:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_draw_rect_dsc_t knob_rect_dsc;
+ 319              		.loc 1 180 5 is_stmt 1 view .LVU102
+ 181:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_draw_rect_dsc_init(&knob_rect_dsc);
+ 320              		.loc 1 181 5 view .LVU103
+ 321 010c 0FA8     		add	r0, sp, #60
+ 322              	.LVL35:
+ 323              		.loc 1 181 5 is_stmt 0 view .LVU104
+ 324 010e FFF7FEFF 		bl	lv_draw_rect_dsc_init
+ 325              	.LVL36:
+ 182:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_init_draw_rect_dsc(obj, LV_PART_KNOB, &knob_rect_dsc);
+ 326              		.loc 1 182 5 is_stmt 1 view .LVU105
+ 327 0112 0FAA     		add	r2, sp, #60
+ 328 0114 4FF44031 		mov	r1, #196608
+ 329 0118 2046     		mov	r0, r4
+ 330 011a FFF7FEFF 		bl	lv_obj_init_draw_rect_dsc
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 14
+
+
+ 331              	.LVL37:
+ 183:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 184:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_draw_rect(&knob_area, clip_area, &knob_rect_dsc);
+ 332              		.loc 1 184 5 view .LVU106
+ 333 011e 0FAA     		add	r2, sp, #60
+ 334 0120 3146     		mov	r1, r6
+ 335 0122 1CA8     		add	r0, sp, #112
+ 336 0124 FFF7FEFF 		bl	lv_draw_rect
+ 337              	.LVL38:
+ 185:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 186:lvgl/lvgl/src/widgets/lv_switch.c **** }
+ 338              		.loc 1 186 1 is_stmt 0 view .LVU107
+ 339 0128 1FB0     		add	sp, sp, #124
+ 340              	.LCFI2:
+ 341              		.cfi_remember_state
+ 342              		.cfi_def_cfa_offset 36
+ 343              		@ sp needed
+ 344 012a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 345              	.LVL39:
+ 346              	.L8:
+ 347              	.LCFI3:
+ 348              		.cfi_restore_state
+ 349              	.LBB50:
+ 138:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_area_copy(&indic_area, &obj->coords);
+ 350              		.loc 1 138 9 is_stmt 1 view .LVU108
+ 139:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.x1 += bg_left;
+ 351              		.loc 1 139 9 view .LVU109
+ 352              	.LBB51:
+ 353              	.LBI51:
+ 354              		.file 3 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @file lv_area.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifndef LV_AREA_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_AREA_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include "../lv_conf_internal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <string.h>
+  18:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdbool.h>
+  19:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdint.h>
+  20:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  21:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  22:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      DEFINES
+  23:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  24:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  25:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_MAX_REDUCE    8192
+  26:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  27:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #if LV_USE_LARGE_COORD
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 15
+
+
+  28:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int32_t lv_coord_t;
+  29:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #else
+  30:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int16_t lv_coord_t;
+  31:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  32:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  33:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*To allow some special values in the end reduce the max value*/
+  34:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MAX ((lv_coord_t)((uint32_t)((uint32_t)1 << (8 * sizeof(lv_coord_t) - 1)) - _LV_CO
+  35:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MIN (-LV_COORD_MAX)
+  36:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MAX);
+  38:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MIN);
+  39:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  40:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+  41:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      TYPEDEFS
+  42:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+  43:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  44:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+  45:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Represents a point on the screen.
+  46:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+  47:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  48:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x;
+  49:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y;
+  50:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_point_t;
+  51:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  52:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Represents an area of the screen.*/
+  53:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  54:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x1;
+  55:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y1;
+  56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x2;
+  57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y2;
+  58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_area_t;
+  59:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  60:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Alignments*/
+  61:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  62:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_DEFAULT = 0,
+  63:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_LEFT,
+  64:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_MID,
+  65:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_RIGHT,
+  66:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_LEFT,
+  67:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_MID,
+  68:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_RIGHT,
+  69:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_LEFT_MID,
+  70:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_RIGHT_MID,
+  71:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_CENTER,
+  72:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  73:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_LEFT,
+  74:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_MID,
+  75:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_RIGHT,
+  76:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_LEFT,
+  77:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_MID,
+  78:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_RIGHT,
+  79:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_TOP,
+  80:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_MID,
+  81:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_BOTTOM,
+  82:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_TOP,
+  83:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_MID,
+  84:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_BOTTOM,
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 16
+
+
+  85:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  86:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_align_t;
+  87:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  88:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  89:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_NONE     = 0x00,
+  90:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_LEFT     = (1 << 0),
+  91:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_RIGHT    = (1 << 1),
+  92:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_TOP      = (1 << 2),
+  93:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_BOTTOM   = (1 << 3),
+  94:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_HOR      = LV_DIR_LEFT | LV_DIR_RIGHT,
+  95:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_VER      = LV_DIR_TOP | LV_DIR_BOTTOM,
+  96:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_ALL      = LV_DIR_HOR | LV_DIR_VER,
+  97:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  98:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  99:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_dir_t;
+ 100:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 101:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+ 102:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * GLOBAL PROTOTYPES
+ 103:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+ 104:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 105:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 106:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Initialize an area
+ 107:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 108:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x1 left coordinate of the area
+ 109:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y1 top coordinate of the area
+ 110:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x2 right coordinate of the area
+ 111:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y2 bottom coordinate of the area
+ 112:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set(lv_area_t * area_p, lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2);
+ 114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 116:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Copy an area
+ 117:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param dest pointer to the destination area
+ 118:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param src pointer to the source area
+ 119:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 120:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** inline static void lv_area_copy(lv_area_t * dest, const lv_area_t * src)
+ 355              		.loc 3 120 20 view .LVU110
+ 356              	.LBB52:
+ 121:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 122:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x1 = src->x1;
+ 357              		.loc 3 122 5 view .LVU111
+ 358              		.loc 3 122 19 is_stmt 0 view .LVU112
+ 359 012e B4F91400 		ldrsh	r0, [r4, #20]
+ 360              	.LVL40:
+ 123:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y1 = src->y1;
+ 361              		.loc 3 123 5 is_stmt 1 view .LVU113
+ 362              		.loc 3 123 19 is_stmt 0 view .LVU114
+ 363 0132 B4F91620 		ldrsh	r2, [r4, #22]
+ 124:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x2 = src->x2;
+ 364              		.loc 3 124 5 is_stmt 1 view .LVU115
+ 365              		.loc 3 124 19 is_stmt 0 view .LVU116
+ 366 0136 B4F91810 		ldrsh	r1, [r4, #24]
+ 125:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y2 = src->y2;
+ 367              		.loc 3 125 5 is_stmt 1 view .LVU117
+ 368              		.loc 3 125 19 is_stmt 0 view .LVU118
+ 369 013a B4F91A30 		ldrsh	r3, [r4, #26]
+ 370              	.LVL41:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 17
+
+
+ 371              		.loc 3 125 19 view .LVU119
+ 372              	.LBE52:
+ 373              	.LBE51:
+ 140:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.x2 -= bg_right;
+ 374              		.loc 1 140 9 is_stmt 1 view .LVU120
+ 140:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.x2 -= bg_right;
+ 375              		.loc 1 140 23 is_stmt 0 view .LVU121
+ 376 013e 5844     		add	r0, r0, fp
+ 377 0140 ADF80000 		strh	r0, [sp]	@ movhi
+ 141:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.y1 += bg_top;
+ 378              		.loc 1 141 9 is_stmt 1 view .LVU122
+ 141:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.y1 += bg_top;
+ 379              		.loc 1 141 23 is_stmt 0 view .LVU123
+ 380 0144 A1EB0A01 		sub	r1, r1, r10
+ 381 0148 ADF80410 		strh	r1, [sp, #4]	@ movhi
+ 142:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.y2 -= bg_bottom;
+ 382              		.loc 1 142 9 is_stmt 1 view .LVU124
+ 142:lvgl/lvgl/src/widgets/lv_switch.c ****         indic_area.y2 -= bg_bottom;
+ 383              		.loc 1 142 23 is_stmt 0 view .LVU125
+ 384 014c 4A44     		add	r2, r2, r9
+ 385 014e ADF80220 		strh	r2, [sp, #2]	@ movhi
+ 143:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 386              		.loc 1 143 9 is_stmt 1 view .LVU126
+ 143:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 387              		.loc 1 143 23 is_stmt 0 view .LVU127
+ 388 0152 A3EB0803 		sub	r3, r3, r8
+ 389 0156 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 145:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_draw_rect_dsc_init(&draw_indic_dsc);
+ 390              		.loc 1 145 9 is_stmt 1 view .LVU128
+ 146:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_obj_init_draw_rect_dsc(obj, LV_PART_INDICATOR, &draw_indic_dsc);
+ 391              		.loc 1 146 9 view .LVU129
+ 392 015a 02A8     		add	r0, sp, #8
+ 393 015c FFF7FEFF 		bl	lv_draw_rect_dsc_init
+ 394              	.LVL42:
+ 147:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_draw_rect(&indic_area, clip_area, &draw_indic_dsc);
+ 395              		.loc 1 147 9 view .LVU130
+ 396 0160 02AA     		add	r2, sp, #8
+ 397 0162 4FF40031 		mov	r1, #131072
+ 398 0166 2046     		mov	r0, r4
+ 399 0168 FFF7FEFF 		bl	lv_obj_init_draw_rect_dsc
+ 400              	.LVL43:
+ 148:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 401              		.loc 1 148 9 view .LVU131
+ 402 016c 02AA     		add	r2, sp, #8
+ 403 016e 3146     		mov	r1, r6
+ 404 0170 6846     		mov	r0, sp
+ 405 0172 FFF7FEFF 		bl	lv_draw_rect
+ 406              	.LVL44:
+ 407 0176 77E7     		b	.L2
+ 408              	.LVL45:
+ 409              	.L9:
+ 148:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 410              		.loc 1 148 9 is_stmt 0 view .LVU132
+ 411              	.LBE50:
+ 157:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_area.x1 = obj->coords.x1 + bg_left;
+ 412              		.loc 1 157 78 discriminator 4 view .LVU133
+ 413 0178 002D     		cmp	r5, #0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 18
+
+
+ 414 017a 3FF47FAF 		beq	.L5
+ 415              	.L4:
+ 158:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_area.x2 = knob_area.x1 + knob_size;
+ 416              		.loc 1 158 9 is_stmt 1 view .LVU134
+ 158:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_area.x2 = knob_area.x1 + knob_size;
+ 417              		.loc 1 158 35 is_stmt 0 view .LVU135
+ 418 017e A38A     		ldrh	r3, [r4, #20]
+ 158:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_area.x2 = knob_area.x1 + knob_size;
+ 419              		.loc 1 158 39 view .LVU136
+ 420 0180 9B44     		add	fp, fp, r3
+ 421              	.LVL46:
+ 158:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_area.x2 = knob_area.x1 + knob_size;
+ 422              		.loc 1 158 22 view .LVU137
+ 423 0182 ADF870B0 		strh	fp, [sp, #112]	@ movhi
+ 159:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 424              		.loc 1 159 9 is_stmt 1 view .LVU138
+ 159:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 425              		.loc 1 159 37 is_stmt 0 view .LVU139
+ 426 0186 10FA8BF0 		uxtah	r0, r0, fp
+ 427              	.LVL47:
+ 159:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 428              		.loc 1 159 22 view .LVU140
+ 429 018a ADF87400 		strh	r0, [sp, #116]	@ movhi
+ 430 018e 80E7     		b	.L6
+ 431              		.cfi_endproc
+ 432              	.LFE161:
+ 434              		.section	.text.lv_switch_event,"ax",%progbits
+ 435              		.align	1
+ 436              		.syntax unified
+ 437              		.thumb
+ 438              		.thumb_func
+ 439              		.fpu fpv4-sp-d16
+ 441              	lv_switch_event:
+ 442              	.LVL48:
+ 443              	.LFB160:
+  87:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_UNUSED(class_p);
+ 444              		.loc 1 87 1 is_stmt 1 view -0
+ 445              		.cfi_startproc
+ 446              		@ args = 0, pretend = 0, frame = 0
+ 447              		@ frame_needed = 0, uses_anonymous_args = 0
+  87:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_UNUSED(class_p);
+ 448              		.loc 1 87 1 is_stmt 0 view .LVU142
+ 449 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 450              	.LCFI4:
+ 451              		.cfi_def_cfa_offset 32
+ 452              		.cfi_offset 3, -32
+ 453              		.cfi_offset 4, -28
+ 454              		.cfi_offset 5, -24
+ 455              		.cfi_offset 6, -20
+ 456              		.cfi_offset 7, -16
+ 457              		.cfi_offset 8, -12
+ 458              		.cfi_offset 9, -8
+ 459              		.cfi_offset 14, -4
+ 460 0004 0C46     		mov	r4, r1
+  88:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 461              		.loc 1 88 5 is_stmt 1 view .LVU143
+  90:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 19
+
+
+ 462              		.loc 1 90 5 view .LVU144
+  93:lvgl/lvgl/src/widgets/lv_switch.c ****     if(res != LV_RES_OK) return;
+ 463              		.loc 1 93 5 view .LVU145
+  93:lvgl/lvgl/src/widgets/lv_switch.c ****     if(res != LV_RES_OK) return;
+ 464              		.loc 1 93 11 is_stmt 0 view .LVU146
+ 465 0006 3548     		ldr	r0, .L20
+ 466              	.LVL49:
+  93:lvgl/lvgl/src/widgets/lv_switch.c ****     if(res != LV_RES_OK) return;
+ 467              		.loc 1 93 11 view .LVU147
+ 468 0008 FFF7FEFF 		bl	lv_obj_event_base
+ 469              	.LVL50:
+  94:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 470              		.loc 1 94 5 is_stmt 1 view .LVU148
+  94:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 471              		.loc 1 94 7 is_stmt 0 view .LVU149
+ 472 000c 0128     		cmp	r0, #1
+ 473 000e 01D0     		beq	.L17
+ 474              	.LVL51:
+ 475              	.L10:
+ 120:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 476              		.loc 1 120 1 view .LVU150
+ 477 0010 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 478              	.LVL52:
+ 479              	.L17:
+  96:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 480              		.loc 1 96 5 is_stmt 1 view .LVU151
+  96:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 481              		.loc 1 96 28 is_stmt 0 view .LVU152
+ 482 0014 2046     		mov	r0, r4
+ 483              	.LVL53:
+  96:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 484              		.loc 1 96 28 view .LVU153
+ 485 0016 FFF7FEFF 		bl	lv_event_get_code
+ 486              	.LVL54:
+ 487 001a 0546     		mov	r5, r0
+ 488              	.LVL55:
+  97:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 489              		.loc 1 97 5 is_stmt 1 view .LVU154
+  97:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 490              		.loc 1 97 22 is_stmt 0 view .LVU155
+ 491 001c 2046     		mov	r0, r4
+ 492 001e FFF7FEFF 		bl	lv_event_get_target
+ 493              	.LVL56:
+ 494 0022 0646     		mov	r6, r0
+ 495              	.LVL57:
+  99:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_left = lv_obj_get_style_pad_left(obj,   LV_PART_KNOB);
+ 496              		.loc 1 99 5 is_stmt 1 view .LVU156
+  99:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_left = lv_obj_get_style_pad_left(obj,   LV_PART_KNOB);
+ 497              		.loc 1 99 7 is_stmt 0 view .LVU157
+ 498 0024 132D     		cmp	r5, #19
+ 499 0026 07D0     		beq	.L18
+ 114:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_obj_invalidate(obj);
+ 500              		.loc 1 114 10 is_stmt 1 view .LVU158
+ 114:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_obj_invalidate(obj);
+ 501              		.loc 1 114 12 is_stmt 0 view .LVU159
+ 502 0028 072D     		cmp	r5, #7
+ 503 002a 54D0     		beq	.L19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 20
+
+
+ 117:lvgl/lvgl/src/widgets/lv_switch.c ****         draw_main(e);
+ 504              		.loc 1 117 10 is_stmt 1 view .LVU160
+ 117:lvgl/lvgl/src/widgets/lv_switch.c ****         draw_main(e);
+ 505              		.loc 1 117 12 is_stmt 0 view .LVU161
+ 506 002c 152D     		cmp	r5, #21
+ 507 002e EFD1     		bne	.L10
+ 118:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 508              		.loc 1 118 9 is_stmt 1 view .LVU162
+ 509 0030 2046     		mov	r0, r4
+ 510              	.LVL58:
+ 118:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 511              		.loc 1 118 9 is_stmt 0 view .LVU163
+ 512 0032 FFF7FEFF 		bl	draw_main
+ 513              	.LVL59:
+ 514 0036 EBE7     		b	.L10
+ 515              	.LVL60:
+ 516              	.L18:
+ 517              	.LBB53:
+ 100:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_right = lv_obj_get_style_pad_right(obj,  LV_PART_KNOB);
+ 518              		.loc 1 100 9 is_stmt 1 view .LVU164
+ 519              	.LBB54:
+ 520              	.LBI54:
+ 103:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 521              		.loc 2 103 26 view .LVU165
+ 522              	.LBB55:
+ 105:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 523              		.loc 2 105 5 view .LVU166
+ 105:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 524              		.loc 2 105 26 is_stmt 0 view .LVU167
+ 525 0038 41F21202 		movw	r2, #4114
+ 526 003c 4FF44031 		mov	r1, #196608
+ 527 0040 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 528              	.LVL61:
+ 106:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 529              		.loc 2 106 5 is_stmt 1 view .LVU168
+ 106:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 530              		.loc 2 106 12 is_stmt 0 view .LVU169
+ 531 0044 0FFA80F8 		sxth	r8, r0
+ 532              	.LVL62:
+ 106:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 533              		.loc 2 106 12 view .LVU170
+ 534              	.LBE55:
+ 535              	.LBE54:
+ 101:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_top = lv_obj_get_style_pad_top(obj,    LV_PART_KNOB);
+ 536              		.loc 1 101 9 is_stmt 1 view .LVU171
+ 537              	.LBB56:
+ 538              	.LBI56:
+ 109:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 539              		.loc 2 109 26 view .LVU172
+ 540              	.LBB57:
+ 111:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 541              		.loc 2 111 5 view .LVU173
+ 111:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 542              		.loc 2 111 26 is_stmt 0 view .LVU174
+ 543 0048 41F21302 		movw	r2, #4115
+ 544 004c 4FF44031 		mov	r1, #196608
+ 545 0050 3046     		mov	r0, r6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 21
+
+
+ 546 0052 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 547              	.LVL63:
+ 112:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 548              		.loc 2 112 5 is_stmt 1 view .LVU175
+ 112:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 549              		.loc 2 112 12 is_stmt 0 view .LVU176
+ 550 0056 07B2     		sxth	r7, r0
+ 551              	.LVL64:
+ 112:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 552              		.loc 2 112 12 view .LVU177
+ 553              	.LBE57:
+ 554              	.LBE56:
+ 102:lvgl/lvgl/src/widgets/lv_switch.c ****         lv_coord_t knob_bottom = lv_obj_get_style_pad_bottom(obj, LV_PART_KNOB);
+ 555              		.loc 1 102 9 is_stmt 1 view .LVU178
+ 556              	.LBB58:
+ 557              	.LBI58:
+  91:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 558              		.loc 2 91 26 view .LVU179
+ 559              	.LBB59:
+  93:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 560              		.loc 2 93 5 view .LVU180
+  93:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 561              		.loc 2 93 26 is_stmt 0 view .LVU181
+ 562 0058 41F21002 		movw	r2, #4112
+ 563 005c 4FF44031 		mov	r1, #196608
+ 564 0060 3046     		mov	r0, r6
+ 565 0062 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 566              	.LVL65:
+  94:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 567              		.loc 2 94 5 is_stmt 1 view .LVU182
+  94:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 568              		.loc 2 94 12 is_stmt 0 view .LVU183
+ 569 0066 0FFA80F9 		sxth	r9, r0
+ 570              	.LVL66:
+  94:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 571              		.loc 2 94 12 view .LVU184
+ 572              	.LBE59:
+ 573              	.LBE58:
+ 103:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 574              		.loc 1 103 9 is_stmt 1 view .LVU185
+ 575              	.LBB60:
+ 576              	.LBI60:
+  97:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
+ 577              		.loc 2 97 26 view .LVU186
+ 578              	.LBB61:
+  99:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 579              		.loc 2 99 5 view .LVU187
+  99:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 580              		.loc 2 99 26 is_stmt 0 view .LVU188
+ 581 006a 41F21102 		movw	r2, #4113
+ 582 006e 4FF44031 		mov	r1, #196608
+ 583 0072 3046     		mov	r0, r6
+ 584 0074 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 585              	.LVL67:
+ 100:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 586              		.loc 2 100 5 is_stmt 1 view .LVU189
+ 100:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 22
+
+
+ 587              		.loc 2 100 12 is_stmt 0 view .LVU190
+ 588 0078 05B2     		sxth	r5, r0
+ 589              	.LVL68:
+ 100:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
+ 590              		.loc 2 100 12 view .LVU191
+ 591              	.LBE61:
+ 592              	.LBE60:
+ 106:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_size += 2;         /*For rounding error*/
+ 593              		.loc 1 106 9 is_stmt 1 view .LVU192
+ 106:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_size += 2;         /*For rounding error*/
+ 594              		.loc 1 106 32 is_stmt 0 view .LVU193
+ 595 007a 4D45     		cmp	r5, r9
+ 596 007c B8BF     		it	lt
+ 597 007e 4D46     		movlt	r5, r9
+ 598              	.LVL69:
+ 106:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_size += 2;         /*For rounding error*/
+ 599              		.loc 1 106 32 view .LVU194
+ 600 0080 4745     		cmp	r7, r8
+ 601 0082 B8BF     		it	lt
+ 602 0084 4746     		movlt	r7, r8
+ 603              	.LVL70:
+ 106:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_size += 2;         /*For rounding error*/
+ 604              		.loc 1 106 20 view .LVU195
+ 605 0086 BD42     		cmp	r5, r7
+ 606 0088 B8BF     		it	lt
+ 607 008a 3D46     		movlt	r5, r7
+ 608              	.LVL71:
+ 107:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_size += lv_obj_calculate_ext_draw_size(obj, LV_PART_KNOB);
+ 609              		.loc 1 107 9 is_stmt 1 view .LVU196
+ 107:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_size += lv_obj_calculate_ext_draw_size(obj, LV_PART_KNOB);
+ 610              		.loc 1 107 19 is_stmt 0 view .LVU197
+ 611 008c 0235     		adds	r5, r5, #2
+ 612              	.LVL72:
+ 107:lvgl/lvgl/src/widgets/lv_switch.c ****         knob_size += lv_obj_calculate_ext_draw_size(obj, LV_PART_KNOB);
+ 613              		.loc 1 107 19 view .LVU198
+ 614 008e ADB2     		uxth	r5, r5
+ 615              	.LVL73:
+ 108:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 616              		.loc 1 108 9 is_stmt 1 view .LVU199
+ 108:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 617              		.loc 1 108 22 is_stmt 0 view .LVU200
+ 618 0090 4FF44031 		mov	r1, #196608
+ 619 0094 3046     		mov	r0, r6
+ 620              	.LVL74:
+ 108:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 621              		.loc 1 108 22 view .LVU201
+ 622 0096 FFF7FEFF 		bl	lv_obj_calculate_ext_draw_size
+ 623              	.LVL75:
+ 108:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 624              		.loc 1 108 19 view .LVU202
+ 625 009a 15FA80F5 		uxtah	r5, r5, r0
+ 626              	.LVL76:
+ 108:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 627              		.loc 1 108 19 view .LVU203
+ 628 009e 2DB2     		sxth	r5, r5
+ 629              	.LVL77:
+ 110:lvgl/lvgl/src/widgets/lv_switch.c ****         *s = LV_MAX(*s, knob_size);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 23
+
+
+ 630              		.loc 1 110 9 is_stmt 1 view .LVU204
+ 110:lvgl/lvgl/src/widgets/lv_switch.c ****         *s = LV_MAX(*s, knob_size);
+ 631              		.loc 1 110 26 is_stmt 0 view .LVU205
+ 632 00a0 2046     		mov	r0, r4
+ 633 00a2 FFF7FEFF 		bl	lv_event_get_param
+ 634              	.LVL78:
+ 635 00a6 0446     		mov	r4, r0
+ 636              	.LVL79:
+ 111:lvgl/lvgl/src/widgets/lv_switch.c ****         *s = LV_MAX(*s, lv_obj_calculate_ext_draw_size(obj, LV_PART_INDICATOR));
+ 637              		.loc 1 111 9 is_stmt 1 view .LVU206
+ 111:lvgl/lvgl/src/widgets/lv_switch.c ****         *s = LV_MAX(*s, lv_obj_calculate_ext_draw_size(obj, LV_PART_INDICATOR));
+ 638              		.loc 1 111 14 is_stmt 0 view .LVU207
+ 639 00a8 B0F90000 		ldrsh	r0, [r0]
+ 640              	.LVL80:
+ 111:lvgl/lvgl/src/widgets/lv_switch.c ****         *s = LV_MAX(*s, lv_obj_calculate_ext_draw_size(obj, LV_PART_INDICATOR));
+ 641              		.loc 1 111 14 view .LVU208
+ 642 00ac 8542     		cmp	r5, r0
+ 643 00ae B8BF     		it	lt
+ 644 00b0 0546     		movlt	r5, r0
+ 645              	.LVL81:
+ 111:lvgl/lvgl/src/widgets/lv_switch.c ****         *s = LV_MAX(*s, lv_obj_calculate_ext_draw_size(obj, LV_PART_INDICATOR));
+ 646              		.loc 1 111 12 view .LVU209
+ 647 00b2 2580     		strh	r5, [r4]	@ movhi
+ 112:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 648              		.loc 1 112 9 is_stmt 1 view .LVU210
+ 112:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 649              		.loc 1 112 14 is_stmt 0 view .LVU211
+ 650 00b4 4FF40031 		mov	r1, #131072
+ 651 00b8 3046     		mov	r0, r6
+ 652 00ba FFF7FEFF 		bl	lv_obj_calculate_ext_draw_size
+ 653              	.LVL82:
+ 112:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 654              		.loc 1 112 12 view .LVU212
+ 655 00be 8542     		cmp	r5, r0
+ 656 00c0 03DD     		ble	.L13
+ 112:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 657              		.loc 1 112 12 discriminator 1 view .LVU213
+ 658 00c2 B4F90000 		ldrsh	r0, [r4]
+ 659              	.L14:
+ 112:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 660              		.loc 1 112 12 discriminator 4 view .LVU214
+ 661 00c6 2080     		strh	r0, [r4]	@ movhi
+ 662              	.LBE53:
+ 663 00c8 A2E7     		b	.L10
+ 664              	.L13:
+ 665              	.LBB62:
+ 112:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 666              		.loc 1 112 14 discriminator 2 view .LVU215
+ 667 00ca 4FF40031 		mov	r1, #131072
+ 668 00ce 3046     		mov	r0, r6
+ 669 00d0 FFF7FEFF 		bl	lv_obj_calculate_ext_draw_size
+ 670              	.LVL83:
+ 671 00d4 F7E7     		b	.L14
+ 672              	.LVL84:
+ 673              	.L19:
+ 112:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 674              		.loc 1 112 14 discriminator 2 view .LVU216
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 24
+
+
+ 675              	.LBE62:
+ 115:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 676              		.loc 1 115 9 is_stmt 1 view .LVU217
+ 677 00d6 FFF7FEFF 		bl	lv_obj_invalidate
+ 678              	.LVL85:
+ 115:lvgl/lvgl/src/widgets/lv_switch.c ****     }
+ 679              		.loc 1 115 9 is_stmt 0 view .LVU218
+ 680 00da 99E7     		b	.L10
+ 681              	.L21:
+ 682              		.align	2
+ 683              	.L20:
+ 684 00dc 00000000 		.word	.LANCHOR0
+ 685              		.cfi_endproc
+ 686              	.LFE160:
+ 688              		.section	.text.lv_switch_constructor,"ax",%progbits
+ 689              		.align	1
+ 690              		.syntax unified
+ 691              		.thumb
+ 692              		.thumb_func
+ 693              		.fpu fpv4-sp-d16
+ 695              	lv_switch_constructor:
+ 696              	.LVL86:
+ 697              	.LFB159:
+  74:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_UNUSED(class_p);
+ 698              		.loc 1 74 1 is_stmt 1 view -0
+ 699              		.cfi_startproc
+ 700              		@ args = 0, pretend = 0, frame = 0
+ 701              		@ frame_needed = 0, uses_anonymous_args = 0
+  74:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_UNUSED(class_p);
+ 702              		.loc 1 74 1 is_stmt 0 view .LVU220
+ 703 0000 10B5     		push	{r4, lr}
+ 704              	.LCFI5:
+ 705              		.cfi_def_cfa_offset 8
+ 706              		.cfi_offset 4, -8
+ 707              		.cfi_offset 14, -4
+ 708 0002 0C46     		mov	r4, r1
+  75:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_TRACE_OBJ_CREATE("begin");
+ 709              		.loc 1 75 5 is_stmt 1 view .LVU221
+  76:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 710              		.loc 1 76 5 view .LVU222
+  76:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 711              		.loc 1 76 5 view .LVU223
+  76:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 712              		.loc 1 76 5 view .LVU224
+  76:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 713              		.loc 1 76 33 view .LVU225
+  78:lvgl/lvgl/src/widgets/lv_switch.c ****    lv_obj_add_flag(obj, LV_OBJ_FLAG_CHECKABLE);
+ 714              		.loc 1 78 4 view .LVU226
+ 715 0004 1021     		movs	r1, #16
+ 716              	.LVL87:
+  78:lvgl/lvgl/src/widgets/lv_switch.c ****    lv_obj_add_flag(obj, LV_OBJ_FLAG_CHECKABLE);
+ 717              		.loc 1 78 4 is_stmt 0 view .LVU227
+ 718 0006 2046     		mov	r0, r4
+ 719              	.LVL88:
+  78:lvgl/lvgl/src/widgets/lv_switch.c ****    lv_obj_add_flag(obj, LV_OBJ_FLAG_CHECKABLE);
+ 720              		.loc 1 78 4 view .LVU228
+ 721 0008 FFF7FEFF 		bl	lv_obj_clear_flag
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 25
+
+
+ 722              	.LVL89:
+  79:lvgl/lvgl/src/widgets/lv_switch.c ****    lv_obj_add_flag(obj, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+ 723              		.loc 1 79 4 is_stmt 1 view .LVU229
+ 724 000c 0821     		movs	r1, #8
+ 725 000e 2046     		mov	r0, r4
+ 726 0010 FFF7FEFF 		bl	lv_obj_add_flag
+ 727              	.LVL90:
+  80:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 728              		.loc 1 80 4 view .LVU230
+ 729 0014 4FF40071 		mov	r1, #512
+ 730 0018 2046     		mov	r0, r4
+ 731 001a FFF7FEFF 		bl	lv_obj_add_flag
+ 732              	.LVL91:
+  82:lvgl/lvgl/src/widgets/lv_switch.c **** }
+ 733              		.loc 1 82 4 view .LVU231
+  82:lvgl/lvgl/src/widgets/lv_switch.c **** }
+ 734              		.loc 1 82 4 view .LVU232
+  82:lvgl/lvgl/src/widgets/lv_switch.c **** }
+ 735              		.loc 1 82 4 view .LVU233
+  82:lvgl/lvgl/src/widgets/lv_switch.c **** }
+ 736              		.loc 1 82 35 view .LVU234
+  83:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 737              		.loc 1 83 1 is_stmt 0 view .LVU235
+ 738 001e 10BD     		pop	{r4, pc}
+  83:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 739              		.loc 1 83 1 view .LVU236
+ 740              		.cfi_endproc
+ 741              	.LFE159:
+ 743              		.section	.text.lv_switch_create,"ax",%progbits
+ 744              		.align	1
+ 745              		.global	lv_switch_create
+ 746              		.syntax unified
+ 747              		.thumb
+ 748              		.thumb_func
+ 749              		.fpu fpv4-sp-d16
+ 751              	lv_switch_create:
+ 752              	.LVL92:
+ 753              	.LFB158:
+  62:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_LOG_INFO("begin")
+ 754              		.loc 1 62 1 is_stmt 1 view -0
+ 755              		.cfi_startproc
+ 756              		@ args = 0, pretend = 0, frame = 0
+ 757              		@ frame_needed = 0, uses_anonymous_args = 0
+  62:lvgl/lvgl/src/widgets/lv_switch.c ****     LV_LOG_INFO("begin")
+ 758              		.loc 1 62 1 is_stmt 0 view .LVU238
+ 759 0000 10B5     		push	{r4, lr}
+ 760              	.LCFI6:
+ 761              		.cfi_def_cfa_offset 8
+ 762              		.cfi_offset 4, -8
+ 763              		.cfi_offset 14, -4
+ 764 0002 0146     		mov	r1, r0
+  63:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_t * obj = lv_obj_class_create_obj(MY_CLASS, parent);
+ 765              		.loc 1 63 5 is_stmt 1 view .LVU239
+  63:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_t * obj = lv_obj_class_create_obj(MY_CLASS, parent);
+ 766              		.loc 1 63 5 view .LVU240
+  63:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_t * obj = lv_obj_class_create_obj(MY_CLASS, parent);
+ 767              		.loc 1 63 5 view .LVU241
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 26
+
+
+  64:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_class_init_obj(obj);
+ 768              		.loc 1 64 5 view .LVU242
+  64:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_class_init_obj(obj);
+ 769              		.loc 1 64 22 is_stmt 0 view .LVU243
+ 770 0004 0348     		ldr	r0, .L26
+ 771              	.LVL93:
+  64:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_class_init_obj(obj);
+ 772              		.loc 1 64 22 view .LVU244
+ 773 0006 FFF7FEFF 		bl	lv_obj_class_create_obj
+ 774              	.LVL94:
+  64:lvgl/lvgl/src/widgets/lv_switch.c ****     lv_obj_class_init_obj(obj);
+ 775              		.loc 1 64 22 view .LVU245
+ 776 000a 0446     		mov	r4, r0
+ 777              	.LVL95:
+  65:lvgl/lvgl/src/widgets/lv_switch.c ****     return obj;
+ 778              		.loc 1 65 5 is_stmt 1 view .LVU246
+ 779 000c FFF7FEFF 		bl	lv_obj_class_init_obj
+ 780              	.LVL96:
+  66:lvgl/lvgl/src/widgets/lv_switch.c **** }
+ 781              		.loc 1 66 5 view .LVU247
+  67:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 782              		.loc 1 67 1 is_stmt 0 view .LVU248
+ 783 0010 2046     		mov	r0, r4
+ 784 0012 10BD     		pop	{r4, pc}
+ 785              	.LVL97:
+ 786              	.L27:
+  67:lvgl/lvgl/src/widgets/lv_switch.c **** 
+ 787              		.loc 1 67 1 view .LVU249
+ 788              		.align	2
+ 789              	.L26:
+ 790 0014 00000000 		.word	.LANCHOR0
+ 791              		.cfi_endproc
+ 792              	.LFE158:
+ 794              		.global	lv_switch_class
+ 795              		.section	.rodata.lv_switch_class,"a"
+ 796              		.align	2
+ 797              		.set	.LANCHOR0,. + 0
+ 800              	lv_switch_class:
+ 801 0000 00000000 		.word	lv_obj_class
+ 802 0004 00000000 		.word	lv_switch_constructor
+ 803 0008 00000000 		.space	8
+ 803      00000000 
+ 804 0010 00000000 		.word	lv_switch_event
+ 805 0014 3400     		.short	52
+ 806 0016 1E00     		.short	30
+ 807 0018 44       		.byte	68
+ 808 0019 02       		.byte	2
+ 809 001a 00       		.byte	0
+ 810 001b 00       		.space	1
+ 811              		.text
+ 812              	.Letext0:
+ 813              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 814              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 815              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 816              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 817              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 818              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 27
+
+
+ 819              		.file 10 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 820              		.file 11 "lvgl/lvgl/src/widgets/../core/../misc/lv_types.h"
+ 821              		.file 12 "lvgl/lvgl/src/widgets/../core/../misc/lv_color.h"
+ 822              		.file 13 "lvgl/lvgl/src/widgets/../core/../misc/lv_txt.h"
+ 823              		.file 14 "lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h"
+ 824              		.file 15 "lvgl/lvgl/src/widgets/../core/../misc/lv_style.h"
+ 825              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_ll.h"
+ 826              		.file 17 "lvgl/lvgl/src/widgets/../core/lv_obj.h"
+ 827              		.file 18 "lvgl/lvgl/src/widgets/../core/lv_group.h"
+ 828              		.file 19 "lvgl/lvgl/src/widgets/../core/lv_obj_scroll.h"
+ 829              		.file 20 "lvgl/lvgl/src/widgets/../core/lv_obj_style.h"
+ 830              		.file 21 "lvgl/lvgl/src/widgets/../core/../draw/lv_draw_rect.h"
+ 831              		.file 22 "lvgl/lvgl/src/widgets/../core/../draw/lv_draw_label.h"
+ 832              		.file 23 "lvgl/lvgl/src/widgets/../core/lv_obj_class.h"
+ 833              		.file 24 "lvgl/lvgl/src/widgets/../core/lv_event.h"
+ 834              		.file 25 "lvgl/lvgl/src/widgets/lv_switch.h"
+ 835              		.file 26 "lvgl/lvgl/src/widgets/lv_img.h"
+ 836              		.file 27 "lvgl/lvgl/src/widgets/../core/lv_obj_draw.h"
+ 837              		.file 28 "lvgl/lvgl/src/widgets/../core/lv_obj_pos.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7dqyci.s 			page 28
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_switch.c
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:18     .text.draw_main:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:25     .text.draw_main:00000000 draw_main
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:435    .text.lv_switch_event:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:441    .text.lv_switch_event:00000000 lv_switch_event
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:684    .text.lv_switch_event:000000dc $d
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:689    .text.lv_switch_constructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:695    .text.lv_switch_constructor:00000000 lv_switch_constructor
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:744    .text.lv_switch_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:751    .text.lv_switch_create:00000000 lv_switch_create
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:790    .text.lv_switch_create:00000014 $d
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:800    .rodata.lv_switch_class:00000000 lv_switch_class
+C:\Users\gx\AppData\Local\Temp\cc7dqyci.s:796    .rodata.lv_switch_class:00000000 $d
+
+UNDEFINED SYMBOLS
+lv_event_get_target
+lv_event_get_param
+lv_obj_get_style_prop
+lv_obj_get_state
+lv_obj_get_height
+lv_draw_rect_dsc_init
+lv_obj_init_draw_rect_dsc
+lv_draw_rect
+lv_obj_event_base
+lv_event_get_code
+lv_obj_calculate_ext_draw_size
+lv_obj_invalidate
+lv_obj_clear_flag
+lv_obj_add_flag
+lv_obj_class_create_obj
+lv_obj_class_init_obj
+lv_obj_class

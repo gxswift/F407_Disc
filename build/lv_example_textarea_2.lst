@@ -1,0 +1,1120 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_textarea_2.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.ta_event_cb.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 6C76676C 		.ascii	"lvgl/lvgl/examples/widgets/textarea/lv_example_text"
+  20      2F6C7667 
+  20      6C2F6578 
+  20      616D706C 
+  20      65732F77 
+  21 0033 61726561 		.ascii	"area_2.c\000"
+  21      5F322E63 
+  21      00
+  22              		.align	2
+  23              	.LC1:
+  24 003c 52656164 		.ascii	"Ready, current text: %s\000"
+  24      792C2063 
+  24      75727265 
+  24      6E742074 
+  24      6578743A 
+  25              		.section	.text.ta_event_cb,"ax",%progbits
+  26              		.align	1
+  27              		.arch armv7e-m
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  31              		.fpu fpv4-sp-d16
+  33              	ta_event_cb:
+  34              	.LVL0:
+  35              	.LFB190:
+  36              		.file 1 "lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c"
+   1:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** #include "../../lv_examples.h"
+   2:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** #if LV_USE_TEXTAREA && LV_USE_KEYBOARD && LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+   4:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** static void ta_event_cb(lv_event_t * e);
+   5:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+   6:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** static lv_obj_t * kb;
+   7:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+   8:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** void lv_example_textarea_2(void)
+   9:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** {
+  10:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     /*Create the password box*/
+  11:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_t * pwd_ta = lv_textarea_create(lv_scr_act());
+  12:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_text(pwd_ta, "");
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 2
+
+
+  13:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_password_mode(pwd_ta, true);
+  14:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_one_line(pwd_ta, true);
+  15:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_width(pwd_ta, lv_pct(40));
+  16:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_pos(pwd_ta, 5, 20);
+  17:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_add_event_cb(pwd_ta, ta_event_cb, LV_EVENT_ALL, NULL);
+  18:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+  19:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     /*Create a label and position it above the text box*/
+  20:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_t * pwd_label = lv_label_create(lv_scr_act());
+  21:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_label_set_text(pwd_label, "Password:");
+  22:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_align_to(pwd_label, pwd_ta, LV_ALIGN_OUT_TOP_LEFT, 0, 0);
+  23:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+  24:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     /*Create the one-line mode text area*/
+  25:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_t * text_ta = lv_textarea_create(lv_scr_act());
+  26:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_one_line(text_ta, true);
+  27:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_password_mode(text_ta, false);
+  28:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_width(text_ta, lv_pct(40));
+  29:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_add_event_cb(text_ta, ta_event_cb, LV_EVENT_ALL, NULL);
+  30:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_align(text_ta, LV_ALIGN_TOP_RIGHT, -5, 20);
+  31:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+  32:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+  33:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     /*Create a label and position it above the text box*/
+  34:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_t * oneline_label = lv_label_create(lv_scr_act());
+  35:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_label_set_text(oneline_label, "Text:");
+  36:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_align_to(oneline_label, text_ta, LV_ALIGN_OUT_TOP_LEFT, 0, 0);
+  37:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+  38:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     /*Create a keyboard*/
+  39:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     kb = lv_keyboard_create(lv_scr_act());
+  40:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_size(kb,  LV_HOR_RES, LV_VER_RES / 2);
+  41:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+  42:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_keyboard_set_textarea(kb, pwd_ta); /*Focus it on one of the text areas to start*/
+  43:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** }
+  44:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+  45:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** static void ta_event_cb(lv_event_t * e)
+  46:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** {
+  37              		.loc 1 46 1 view -0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 0, uses_anonymous_args = 0
+  41              		.loc 1 46 1 is_stmt 0 view .LVU1
+  42 0000 30B5     		push	{r4, r5, lr}
+  43              	.LCFI0:
+  44              		.cfi_def_cfa_offset 12
+  45              		.cfi_offset 4, -12
+  46              		.cfi_offset 5, -8
+  47              		.cfi_offset 14, -4
+  48 0002 83B0     		sub	sp, sp, #12
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 24
+  51 0004 0546     		mov	r5, r0
+  47:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_event_code_t code = lv_event_get_code(e);
+  52              		.loc 1 47 5 is_stmt 1 view .LVU2
+  53              		.loc 1 47 28 is_stmt 0 view .LVU3
+  54 0006 FFF7FEFF 		bl	lv_event_get_code
+  55              	.LVL1:
+  56              		.loc 1 47 28 view .LVU4
+  57 000a 0446     		mov	r4, r0
+  58              	.LVL2:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 3
+
+
+  48:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_t * ta = lv_event_get_target(e);
+  59              		.loc 1 48 5 is_stmt 1 view .LVU5
+  60              		.loc 1 48 21 is_stmt 0 view .LVU6
+  61 000c 2846     		mov	r0, r5
+  62 000e FFF7FEFF 		bl	lv_event_get_target
+  63              	.LVL3:
+  49:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     if(code == LV_EVENT_CLICKED || code == LV_EVENT_FOCUSED) {
+  64              		.loc 1 49 5 is_stmt 1 view .LVU7
+  65              		.loc 1 49 7 is_stmt 0 view .LVU8
+  66 0012 072C     		cmp	r4, #7
+  67 0014 05D0     		beq	.L2
+  68              		.loc 1 49 33 discriminator 1 view .LVU9
+  69 0016 0E2C     		cmp	r4, #14
+  70 0018 03D0     		beq	.L2
+  50:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****         /*Focus on the clicked text area*/
+  51:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****         if(kb != NULL) lv_keyboard_set_textarea(kb, ta);
+  52:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     }
+  53:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+  54:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     else if(code == LV_EVENT_READY) {
+  71              		.loc 1 54 10 is_stmt 1 view .LVU10
+  72              		.loc 1 54 12 is_stmt 0 view .LVU11
+  73 001a 1F2C     		cmp	r4, #31
+  74 001c 0AD0     		beq	.L6
+  75              	.LVL4:
+  76              	.L1:
+  55:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****         LV_LOG_USER("Ready, current text: %s", lv_textarea_get_text(ta));
+  56:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     }
+  57:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** }
+  77              		.loc 1 57 1 view .LVU12
+  78 001e 03B0     		add	sp, sp, #12
+  79              	.LCFI2:
+  80              		.cfi_remember_state
+  81              		.cfi_def_cfa_offset 12
+  82              		@ sp needed
+  83 0020 30BD     		pop	{r4, r5, pc}
+  84              	.LVL5:
+  85              	.L2:
+  86              	.LCFI3:
+  87              		.cfi_restore_state
+  51:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     }
+  88              		.loc 1 51 9 is_stmt 1 view .LVU13
+  51:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     }
+  89              		.loc 1 51 15 is_stmt 0 view .LVU14
+  90 0022 0A4B     		ldr	r3, .L7
+  91 0024 1B68     		ldr	r3, [r3]
+  51:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     }
+  92              		.loc 1 51 11 view .LVU15
+  93 0026 002B     		cmp	r3, #0
+  94 0028 F9D0     		beq	.L1
+  51:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     }
+  95              		.loc 1 51 24 is_stmt 1 discriminator 1 view .LVU16
+  96 002a 0146     		mov	r1, r0
+  97 002c 1846     		mov	r0, r3
+  98              	.LVL6:
+  51:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     }
+  99              		.loc 1 51 24 is_stmt 0 discriminator 1 view .LVU17
+ 100 002e FFF7FEFF 		bl	lv_keyboard_set_textarea
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 4
+
+
+ 101              	.LVL7:
+  51:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     }
+ 102              		.loc 1 51 24 discriminator 1 view .LVU18
+ 103 0032 F4E7     		b	.L1
+ 104              	.LVL8:
+ 105              	.L6:
+  55:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****         LV_LOG_USER("Ready, current text: %s", lv_textarea_get_text(ta));
+ 106              		.loc 1 55 9 is_stmt 1 view .LVU19
+ 107 0034 FFF7FEFF 		bl	lv_textarea_get_text
+ 108              	.LVL9:
+  55:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****         LV_LOG_USER("Ready, current text: %s", lv_textarea_get_text(ta));
+ 109              		.loc 1 55 9 is_stmt 0 view .LVU20
+ 110 0038 0190     		str	r0, [sp, #4]
+ 111 003a 054B     		ldr	r3, .L7+4
+ 112 003c 0093     		str	r3, [sp]
+ 113 003e 054B     		ldr	r3, .L7+8
+ 114 0040 3722     		movs	r2, #55
+ 115 0042 0549     		ldr	r1, .L7+12
+ 116 0044 0420     		movs	r0, #4
+ 117 0046 FFF7FEFF 		bl	_lv_log_add
+ 118              	.LVL10:
+  55:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****         LV_LOG_USER("Ready, current text: %s", lv_textarea_get_text(ta));
+ 119              		.loc 1 55 73 is_stmt 1 view .LVU21
+ 120              		.loc 1 57 1 is_stmt 0 view .LVU22
+ 121 004a E8E7     		b	.L1
+ 122              	.L8:
+ 123              		.align	2
+ 124              	.L7:
+ 125 004c 00000000 		.word	.LANCHOR0
+ 126 0050 3C000000 		.word	.LC1
+ 127 0054 00000000 		.word	.LANCHOR1
+ 128 0058 00000000 		.word	.LC0
+ 129              		.cfi_endproc
+ 130              	.LFE190:
+ 132              		.section	.rodata.lv_example_textarea_2.str1.4,"aMS",%progbits,1
+ 133              		.align	2
+ 134              	.LC2:
+ 135 0000 00       		.ascii	"\000"
+ 136 0001 000000   		.align	2
+ 137              	.LC3:
+ 138 0004 50617373 		.ascii	"Password:\000"
+ 138      776F7264 
+ 138      3A00
+ 139 000e 0000     		.align	2
+ 140              	.LC4:
+ 141 0010 54657874 		.ascii	"Text:\000"
+ 141      3A00
+ 142              		.section	.text.lv_example_textarea_2,"ax",%progbits
+ 143              		.align	1
+ 144              		.global	lv_example_textarea_2
+ 145              		.syntax unified
+ 146              		.thumb
+ 147              		.thumb_func
+ 148              		.fpu fpv4-sp-d16
+ 150              	lv_example_textarea_2:
+ 151              	.LFB189:
+   9:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     /*Create the password box*/
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 5
+
+
+ 152              		.loc 1 9 1 is_stmt 1 view -0
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 156 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 157              	.LCFI4:
+ 158              		.cfi_def_cfa_offset 20
+ 159              		.cfi_offset 4, -20
+ 160              		.cfi_offset 5, -16
+ 161              		.cfi_offset 6, -12
+ 162              		.cfi_offset 7, -8
+ 163              		.cfi_offset 14, -4
+ 164 0002 83B0     		sub	sp, sp, #12
+ 165              	.LCFI5:
+ 166              		.cfi_def_cfa_offset 32
+  11:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_text(pwd_ta, "");
+ 167              		.loc 1 11 5 view .LVU24
+ 168              	.LBB16:
+ 169              	.LBI16:
+ 170              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_disp.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @file lv_disp.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifndef LV_DISP_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #define LV_DISP_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "../hal/lv_hal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_obj.h"
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_theme.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      DEFINES
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      TYPEDEFS
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** typedef enum {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 6
+
+
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** } lv_scr_load_anim_t;
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the active screen
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Make a screen active
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to a screen
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * layer)
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 7
+
+
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background color of a display
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param color color of the background
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background image of a display
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Opacity of the background
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param opa opacity (0..255)
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Switch screen with animation
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param time time of the animation
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param delay delay before the transition
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Manually trigger an activity on a display
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 8
+
+
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*------------------------------------------------
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * To improve backward compatibility
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Recommended only if you have one display
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *------------------------------------------------*/
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the active screen of the default display
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 171              		.loc 2 163 26 view .LVU25
+ 172              	.LBB17:
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 173              		.loc 2 165 5 view .LVU26
+ 174              		.loc 2 165 12 is_stmt 0 view .LVU27
+ 175 0004 FFF7FEFF 		bl	lv_disp_get_default
+ 176              	.LVL11:
+ 177 0008 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 178              	.LVL12:
+ 179              	.LBE17:
+ 180              	.LBE16:
+  11:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_text(pwd_ta, "");
+ 181              		.loc 1 11 25 view .LVU28
+ 182 000c FFF7FEFF 		bl	lv_textarea_create
+ 183              	.LVL13:
+ 184 0010 0446     		mov	r4, r0
+ 185              	.LVL14:
+  12:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_password_mode(pwd_ta, true);
+ 186              		.loc 1 12 5 is_stmt 1 view .LVU29
+ 187 0012 3F49     		ldr	r1, .L11
+ 188 0014 FFF7FEFF 		bl	lv_textarea_set_text
+ 189              	.LVL15:
+  13:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_one_line(pwd_ta, true);
+ 190              		.loc 1 13 5 view .LVU30
+ 191 0018 0121     		movs	r1, #1
+ 192 001a 2046     		mov	r0, r4
+ 193 001c FFF7FEFF 		bl	lv_textarea_set_password_mode
+ 194              	.LVL16:
+  14:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_width(pwd_ta, lv_pct(40));
+ 195              		.loc 1 14 5 view .LVU31
+ 196 0020 0121     		movs	r1, #1
+ 197 0022 2046     		mov	r0, r4
+ 198 0024 FFF7FEFF 		bl	lv_textarea_set_one_line
+ 199              	.LVL17:
+  15:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_pos(pwd_ta, 5, 20);
+ 200              		.loc 1 15 5 view .LVU32
+ 201              		.file 3 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @file lv_area.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifndef LV_AREA_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_AREA_H
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 9
+
+
+   8:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include "../lv_conf_internal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <string.h>
+  18:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdbool.h>
+  19:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdint.h>
+  20:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  21:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  22:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      DEFINES
+  23:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  24:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  25:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_MAX_REDUCE    8192
+  26:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  27:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #if LV_USE_LARGE_COORD
+  28:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int32_t lv_coord_t;
+  29:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #else
+  30:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int16_t lv_coord_t;
+  31:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  32:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  33:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*To allow some special values in the end reduce the max value*/
+  34:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MAX ((lv_coord_t)((uint32_t)((uint32_t)1 << (8 * sizeof(lv_coord_t) - 1)) - _LV_CO
+  35:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MIN (-LV_COORD_MAX)
+  36:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MAX);
+  38:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MIN);
+  39:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  40:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+  41:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      TYPEDEFS
+  42:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+  43:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  44:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+  45:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Represents a point on the screen.
+  46:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+  47:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  48:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x;
+  49:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y;
+  50:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_point_t;
+  51:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  52:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Represents an area of the screen.*/
+  53:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  54:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x1;
+  55:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y1;
+  56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x2;
+  57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y2;
+  58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_area_t;
+  59:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  60:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Alignments*/
+  61:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  62:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_DEFAULT = 0,
+  63:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_LEFT,
+  64:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_MID,
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 10
+
+
+  65:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_RIGHT,
+  66:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_LEFT,
+  67:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_MID,
+  68:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_RIGHT,
+  69:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_LEFT_MID,
+  70:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_RIGHT_MID,
+  71:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_CENTER,
+  72:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  73:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_LEFT,
+  74:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_MID,
+  75:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_RIGHT,
+  76:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_LEFT,
+  77:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_MID,
+  78:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_RIGHT,
+  79:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_TOP,
+  80:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_MID,
+  81:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_BOTTOM,
+  82:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_TOP,
+  83:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_MID,
+  84:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_BOTTOM,
+  85:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  86:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_align_t;
+  87:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  88:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  89:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_NONE     = 0x00,
+  90:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_LEFT     = (1 << 0),
+  91:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_RIGHT    = (1 << 1),
+  92:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_TOP      = (1 << 2),
+  93:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_BOTTOM   = (1 << 3),
+  94:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_HOR      = LV_DIR_LEFT | LV_DIR_RIGHT,
+  95:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_VER      = LV_DIR_TOP | LV_DIR_BOTTOM,
+  96:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_ALL      = LV_DIR_HOR | LV_DIR_VER,
+  97:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  98:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  99:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_dir_t;
+ 100:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 101:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+ 102:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * GLOBAL PROTOTYPES
+ 103:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+ 104:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 105:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 106:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Initialize an area
+ 107:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 108:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x1 left coordinate of the area
+ 109:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y1 top coordinate of the area
+ 110:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x2 right coordinate of the area
+ 111:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y2 bottom coordinate of the area
+ 112:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set(lv_area_t * area_p, lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2);
+ 114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 116:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Copy an area
+ 117:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param dest pointer to the destination area
+ 118:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param src pointer to the source area
+ 119:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 120:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** inline static void lv_area_copy(lv_area_t * dest, const lv_area_t * src)
+ 121:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 11
+
+
+ 122:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x1 = src->x1;
+ 123:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y1 = src->y1;
+ 124:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x2 = src->x2;
+ 125:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y2 = src->y2;
+ 126:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
+ 127:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 128:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 129:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the width of an area
+ 130:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 131:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return the width of the area (if x1 == x2 -> width = 1)
+ 132:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 133:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** static inline lv_coord_t lv_area_get_width(const lv_area_t * area_p)
+ 134:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 135:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     return (lv_coord_t)(area_p->x2 - area_p->x1 + 1);
+ 136:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
+ 137:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 138:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 139:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the height of an area
+ 140:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 141:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return the height of the area (if y1 == y2 -> height = 1)
+ 142:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 143:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** static inline lv_coord_t lv_area_get_height(const lv_area_t * area_p)
+ 144:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 145:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     return (lv_coord_t)(area_p->y2 - area_p->y1 + 1);
+ 146:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
+ 147:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 148:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 149:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Set the width of an area
+ 150:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 151:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param w the new width of the area (w == 1 makes x1 == x2)
+ 152:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 153:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set_width(lv_area_t * area_p, lv_coord_t w);
+ 154:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 155:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 156:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Set the height of an area
+ 157:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 158:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param h the new height of the area (h == 1 makes y1 == y2)
+ 159:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 160:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set_height(lv_area_t * area_p, lv_coord_t h);
+ 161:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 162:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 163:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Set the position of an area (width and height will be kept)
+ 164:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 165:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x the new x coordinate of the area
+ 166:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y the new y coordinate of the area
+ 167:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 168:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void _lv_area_set_pos(lv_area_t * area_p, lv_coord_t x, lv_coord_t y);
+ 169:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 170:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 171:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Return with area of an area (x * y)
+ 172:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 173:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return size of area
+ 174:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 175:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** uint32_t lv_area_get_size(const lv_area_t * area_p);
+ 176:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 177:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_increase(lv_area_t * area, lv_coord_t w_extra, lv_coord_t h_extra);
+ 178:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 12
+
+
+ 179:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_move(lv_area_t * area, lv_coord_t x_ofs, lv_coord_t y_ofs);
+ 180:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 181:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 182:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the common parts of two areas
+ 183:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param res_p pointer to an area, the result will be stored her
+ 184:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a1_p pointer to the first area
+ 185:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a2_p pointer to the second area
+ 186:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return false: the two area has NO common parts, res_p is invalid
+ 187:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 188:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_intersect(lv_area_t * res_p, const lv_area_t * a1_p, const lv_area_t * a2_p);
+ 189:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 190:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 191:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Join two areas into a third which involves the other two
+ 192:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param res_p pointer to an area, the result will be stored here
+ 193:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a1_p pointer to the first area
+ 194:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a2_p pointer to the second area
+ 195:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 196:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void _lv_area_join(lv_area_t * a_res_p, const lv_area_t * a1_p, const lv_area_t * a2_p);
+ 197:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 198:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 199:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Check if a point is on an area
+ 200:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a_p pointer to an area
+ 201:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param p_p pointer to a point
+ 202:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param radius radius of area (e.g. for rounded rectangle)
+ 203:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return false:the point is out of the area
+ 204:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 205:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_is_point_on(const lv_area_t * a_p, const lv_point_t * p_p, lv_coord_t radius);
+ 206:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 207:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 208:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Check if two area has common parts
+ 209:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a1_p pointer to an area.
+ 210:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a2_p pointer to an other area
+ 211:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return false: a1_p and a2_p has no common parts
+ 212:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 213:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_is_on(const lv_area_t * a1_p, const lv_area_t * a2_p);
+ 214:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 215:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 216:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Check if an area is fully on an other
+ 217:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param ain_p pointer to an area which could be in 'aholder_p'
+ 218:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param aholder_p pointer to an area which could involve 'ain_p'
+ 219:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param radius radius of `aholder_p` (e.g. for rounded rectangle)
+ 220:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return true: `ain_p` is fully inside `aholder_p`
+ 221:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 222:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_is_in(const lv_area_t * ain_p, const lv_area_t * aholder_p, lv_coord_t radius);
+ 223:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 224:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 225:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 226:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Check if an area is fully out of an other
+ 227:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param aout_p pointer to an area which could be in 'aholder_p'
+ 228:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param aholder_p pointer to an area which could involve 'ain_p'
+ 229:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param radius radius of `aholder_p` (e.g. for rounded rectangle)
+ 230:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return true: `aout_p` is fully outside `aholder_p`
+ 231:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 232:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_is_out(const lv_area_t * aout_p, const lv_area_t * aholder_p, lv_coord_t radius);
+ 233:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 234:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 235:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Align an area to an other
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 13
+
+
+ 236:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param base an are where the other will be aligned
+ 237:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param to_align the area to align
+ 238:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param align `LV_ALIGN_...`
+ 239:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 240:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_align(const lv_area_t * base, lv_area_t * to_align, lv_align_t align, lv_coord_t ofs_x
+ 241:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 242:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+ 243:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      MACROS
+ 244:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+ 245:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 246:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #if LV_USE_LARGE_COORD
+ 247:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_SHIFT    (29)
+ 248:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #else
+ 249:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_SHIFT    (13)
+ 250:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+ 251:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 252:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_MASK     (3 << _LV_COORD_TYPE_SHIFT)
+ 253:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_PLAIN(x)      ((x) & (~_LV_COORD_TYPE_MASK))  /*Remove type specifiers*/
+ 254:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 255:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_PX       (0 << _LV_COORD_TYPE_SHIFT)
+ 256:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_SPEC     (1 << _LV_COORD_TYPE_SHIFT)
+ 257:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_RESERVED (3 << _LV_COORD_TYPE_SHIFT)
+ 258:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 259:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_IS_PX(x)     ((((x) & _LV_COORD_TYPE_MASK) == _LV_COORD_TYPE_PX) ? true : false)
+ 260:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_IS_SPEC(x)   ((((x) & _LV_COORD_TYPE_MASK) == _LV_COORD_TYPE_SPEC) ? true : false)
+ 261:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 262:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_SET_SPEC(x)   ((x) | _LV_COORD_TYPE_SPEC)
+ 263:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 264:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*Special coordinates*/
+ 265:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_PCT(x)               (x < 0 ? LV_COORD_SET_SPEC(1000 - (x)) : LV_COORD_SET_SPEC(x))
+ 266:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_IS_PCT(x)      ((LV_COORD_IS_SPEC(x) && _LV_COORD_PLAIN(x) <= 2000) ? true : false
+ 267:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_GET_PCT(x)     (_LV_COORD_PLAIN(x) > 1000 ? 1000 - _LV_COORD_PLAIN(x) : _LV_COORD_
+ 268:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_SIZE_CONTENT         LV_COORD_SET_SPEC(2001)
+ 269:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 270:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_SIZE_CONTENT);
+ 271:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 272:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 273:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Convert a percentage value to `lv_coord_t`.
+ 274:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Percentage values are stored in special range
+ 275:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x the percentage (0..1000)
+ 276:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return a coordinate that stores the percentage
+ 277:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 278:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** static inline lv_coord_t lv_pct(lv_coord_t x)
+ 279:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 280:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     return LV_PCT(x);
+ 202              		.loc 3 280 5 view .LVU33
+  15:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_pos(pwd_ta, 5, 20);
+ 203              		.loc 1 15 5 is_stmt 0 view .LVU34
+ 204 0028 42F22801 		movw	r1, #8232
+ 205 002c 2046     		mov	r0, r4
+ 206 002e FFF7FEFF 		bl	lv_obj_set_width
+ 207              	.LVL18:
+  16:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_add_event_cb(pwd_ta, ta_event_cb, LV_EVENT_ALL, NULL);
+ 208              		.loc 1 16 5 is_stmt 1 view .LVU35
+ 209 0032 1422     		movs	r2, #20
+ 210 0034 0521     		movs	r1, #5
+ 211 0036 2046     		mov	r0, r4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 14
+
+
+ 212 0038 FFF7FEFF 		bl	lv_obj_set_pos
+ 213              	.LVL19:
+  17:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+ 214              		.loc 1 17 5 view .LVU36
+ 215 003c 354F     		ldr	r7, .L11+4
+ 216 003e 0023     		movs	r3, #0
+ 217 0040 1A46     		mov	r2, r3
+ 218 0042 3946     		mov	r1, r7
+ 219 0044 2046     		mov	r0, r4
+ 220 0046 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 221              	.LVL20:
+  20:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_label_set_text(pwd_label, "Password:");
+ 222              		.loc 1 20 5 view .LVU37
+ 223              	.LBB18:
+ 224              	.LBI18:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 225              		.loc 2 163 26 view .LVU38
+ 226              	.LBB19:
+ 227              		.loc 2 165 5 view .LVU39
+ 228              		.loc 2 165 12 is_stmt 0 view .LVU40
+ 229 004a FFF7FEFF 		bl	lv_disp_get_default
+ 230              	.LVL21:
+ 231 004e FFF7FEFF 		bl	lv_disp_get_scr_act
+ 232              	.LVL22:
+ 233              	.LBE19:
+ 234              	.LBE18:
+  20:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_label_set_text(pwd_label, "Password:");
+ 235              		.loc 1 20 28 view .LVU41
+ 236 0052 FFF7FEFF 		bl	lv_label_create
+ 237              	.LVL23:
+ 238 0056 0546     		mov	r5, r0
+ 239              	.LVL24:
+  21:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_align_to(pwd_label, pwd_ta, LV_ALIGN_OUT_TOP_LEFT, 0, 0);
+ 240              		.loc 1 21 5 is_stmt 1 view .LVU42
+ 241 0058 2F49     		ldr	r1, .L11+8
+ 242 005a FFF7FEFF 		bl	lv_label_set_text
+ 243              	.LVL25:
+  22:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+ 244              		.loc 1 22 5 view .LVU43
+ 245 005e 0026     		movs	r6, #0
+ 246 0060 0096     		str	r6, [sp]
+ 247 0062 3346     		mov	r3, r6
+ 248 0064 0A22     		movs	r2, #10
+ 249 0066 2146     		mov	r1, r4
+ 250 0068 2846     		mov	r0, r5
+ 251 006a FFF7FEFF 		bl	lv_obj_align_to
+ 252              	.LVL26:
+  25:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_one_line(text_ta, true);
+ 253              		.loc 1 25 5 view .LVU44
+ 254              	.LBB20:
+ 255              	.LBI20:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 256              		.loc 2 163 26 view .LVU45
+ 257              	.LBB21:
+ 258              		.loc 2 165 5 view .LVU46
+ 259              		.loc 2 165 12 is_stmt 0 view .LVU47
+ 260 006e FFF7FEFF 		bl	lv_disp_get_default
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 15
+
+
+ 261              	.LVL27:
+ 262 0072 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 263              	.LVL28:
+ 264              	.LBE21:
+ 265              	.LBE20:
+  25:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_one_line(text_ta, true);
+ 266              		.loc 1 25 26 view .LVU48
+ 267 0076 FFF7FEFF 		bl	lv_textarea_create
+ 268              	.LVL29:
+ 269 007a 0546     		mov	r5, r0
+ 270              	.LVL30:
+  26:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_textarea_set_password_mode(text_ta, false);
+ 271              		.loc 1 26 5 is_stmt 1 view .LVU49
+ 272 007c 0121     		movs	r1, #1
+ 273 007e FFF7FEFF 		bl	lv_textarea_set_one_line
+ 274              	.LVL31:
+  27:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_width(text_ta, lv_pct(40));
+ 275              		.loc 1 27 5 view .LVU50
+ 276 0082 3146     		mov	r1, r6
+ 277 0084 2846     		mov	r0, r5
+ 278 0086 FFF7FEFF 		bl	lv_textarea_set_password_mode
+ 279              	.LVL32:
+  28:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_add_event_cb(text_ta, ta_event_cb, LV_EVENT_ALL, NULL);
+ 280              		.loc 1 28 5 view .LVU51
+ 281              		.loc 3 280 5 view .LVU52
+  28:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_add_event_cb(text_ta, ta_event_cb, LV_EVENT_ALL, NULL);
+ 282              		.loc 1 28 5 is_stmt 0 view .LVU53
+ 283 008a 42F22801 		movw	r1, #8232
+ 284 008e 2846     		mov	r0, r5
+ 285 0090 FFF7FEFF 		bl	lv_obj_set_width
+ 286              	.LVL33:
+  29:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_align(text_ta, LV_ALIGN_TOP_RIGHT, -5, 20);
+ 287              		.loc 1 29 5 is_stmt 1 view .LVU54
+ 288 0094 3346     		mov	r3, r6
+ 289 0096 3246     		mov	r2, r6
+ 290 0098 3946     		mov	r1, r7
+ 291 009a 2846     		mov	r0, r5
+ 292 009c FFF7FEFF 		bl	lv_obj_add_event_cb
+ 293              	.LVL34:
+  30:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+ 294              		.loc 1 30 5 view .LVU55
+ 295 00a0 1423     		movs	r3, #20
+ 296 00a2 6FF00402 		mvn	r2, #4
+ 297 00a6 0321     		movs	r1, #3
+ 298 00a8 2846     		mov	r0, r5
+ 299 00aa FFF7FEFF 		bl	lv_obj_align
+ 300              	.LVL35:
+  34:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_label_set_text(oneline_label, "Text:");
+ 301              		.loc 1 34 5 view .LVU56
+ 302              	.LBB22:
+ 303              	.LBI22:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 304              		.loc 2 163 26 view .LVU57
+ 305              	.LBB23:
+ 306              		.loc 2 165 5 view .LVU58
+ 307              		.loc 2 165 12 is_stmt 0 view .LVU59
+ 308 00ae FFF7FEFF 		bl	lv_disp_get_default
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 16
+
+
+ 309              	.LVL36:
+ 310 00b2 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 311              	.LVL37:
+ 312              	.LBE23:
+ 313              	.LBE22:
+  34:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_label_set_text(oneline_label, "Text:");
+ 314              		.loc 1 34 32 view .LVU60
+ 315 00b6 FFF7FEFF 		bl	lv_label_create
+ 316              	.LVL38:
+ 317 00ba 0746     		mov	r7, r0
+ 318              	.LVL39:
+  35:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_align_to(oneline_label, text_ta, LV_ALIGN_OUT_TOP_LEFT, 0, 0);
+ 319              		.loc 1 35 5 is_stmt 1 view .LVU61
+ 320 00bc 1749     		ldr	r1, .L11+12
+ 321 00be FFF7FEFF 		bl	lv_label_set_text
+ 322              	.LVL40:
+  36:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+ 323              		.loc 1 36 5 view .LVU62
+ 324 00c2 0096     		str	r6, [sp]
+ 325 00c4 3346     		mov	r3, r6
+ 326 00c6 0A22     		movs	r2, #10
+ 327 00c8 2946     		mov	r1, r5
+ 328 00ca 3846     		mov	r0, r7
+ 329 00cc FFF7FEFF 		bl	lv_obj_align_to
+ 330              	.LVL41:
+  39:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_size(kb,  LV_HOR_RES, LV_VER_RES / 2);
+ 331              		.loc 1 39 5 view .LVU63
+ 332              	.LBB24:
+ 333              	.LBI24:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 334              		.loc 2 163 26 view .LVU64
+ 335              	.LBB25:
+ 336              		.loc 2 165 5 view .LVU65
+ 337              		.loc 2 165 12 is_stmt 0 view .LVU66
+ 338 00d0 FFF7FEFF 		bl	lv_disp_get_default
+ 339              	.LVL42:
+ 340 00d4 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 341              	.LVL43:
+ 342              	.LBE25:
+ 343              	.LBE24:
+  39:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_size(kb,  LV_HOR_RES, LV_VER_RES / 2);
+ 344              		.loc 1 39 10 view .LVU67
+ 345 00d8 FFF7FEFF 		bl	lv_keyboard_create
+ 346              	.LVL44:
+ 347 00dc 0546     		mov	r5, r0
+ 348              	.LVL45:
+  39:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_size(kb,  LV_HOR_RES, LV_VER_RES / 2);
+ 349              		.loc 1 39 8 view .LVU68
+ 350 00de 104F     		ldr	r7, .L11+16
+ 351              	.LVL46:
+  39:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c ****     lv_obj_set_size(kb,  LV_HOR_RES, LV_VER_RES / 2);
+ 352              		.loc 1 39 8 view .LVU69
+ 353 00e0 3860     		str	r0, [r7]
+  40:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+ 354              		.loc 1 40 5 is_stmt 1 view .LVU70
+ 355 00e2 FFF7FEFF 		bl	lv_disp_get_default
+ 356              	.LVL47:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 17
+
+
+ 357 00e6 FFF7FEFF 		bl	lv_disp_get_hor_res
+ 358              	.LVL48:
+ 359 00ea 0646     		mov	r6, r0
+  40:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+ 360              		.loc 1 40 38 is_stmt 0 view .LVU71
+ 361 00ec FFF7FEFF 		bl	lv_disp_get_default
+ 362              	.LVL49:
+ 363 00f0 FFF7FEFF 		bl	lv_disp_get_ver_res
+ 364              	.LVL50:
+  40:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+ 365              		.loc 1 40 5 view .LVU72
+ 366 00f4 00EBD070 		add	r0, r0, r0, lsr #31
+ 367 00f8 40F34F02 		sbfx	r2, r0, #1, #16
+ 368 00fc 3146     		mov	r1, r6
+ 369 00fe 2846     		mov	r0, r5
+ 370 0100 FFF7FEFF 		bl	lv_obj_set_size
+ 371              	.LVL51:
+  42:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** }
+ 372              		.loc 1 42 5 is_stmt 1 view .LVU73
+ 373 0104 2146     		mov	r1, r4
+ 374 0106 3868     		ldr	r0, [r7]
+ 375 0108 FFF7FEFF 		bl	lv_keyboard_set_textarea
+ 376              	.LVL52:
+  43:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+ 377              		.loc 1 43 1 is_stmt 0 view .LVU74
+ 378 010c 03B0     		add	sp, sp, #12
+ 379              	.LCFI6:
+ 380              		.cfi_def_cfa_offset 20
+ 381              		@ sp needed
+ 382 010e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 383              	.LVL53:
+ 384              	.L12:
+  43:lvgl/lvgl/examples/widgets/textarea/lv_example_textarea_2.c **** 
+ 385              		.loc 1 43 1 view .LVU75
+ 386              		.align	2
+ 387              	.L11:
+ 388 0110 00000000 		.word	.LC2
+ 389 0114 00000000 		.word	ta_event_cb
+ 390 0118 04000000 		.word	.LC3
+ 391 011c 10000000 		.word	.LC4
+ 392 0120 00000000 		.word	.LANCHOR0
+ 393              		.cfi_endproc
+ 394              	.LFE189:
+ 396              		.section	.bss.kb,"aw",%nobits
+ 397              		.align	2
+ 398              		.set	.LANCHOR0,. + 0
+ 401              	kb:
+ 402 0000 00000000 		.space	4
+ 403              		.section	.rodata.__func__.12325,"a"
+ 404              		.align	2
+ 405              		.set	.LANCHOR1,. + 0
+ 408              	__func__.12325:
+ 409 0000 74615F65 		.ascii	"ta_event_cb\000"
+ 409      76656E74 
+ 409      5F636200 
+ 410              		.text
+ 411              	.Letext0:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 18
+
+
+ 412              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 413              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 414              		.file 6 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 415              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 416              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 417              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 418              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 419              		.file 11 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 420              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 421              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 422              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 423              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 424              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 425              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 426              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 427              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 428              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 429              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 430              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 431              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 432              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 433              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 434              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 435              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 436              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 437              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 438              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 439              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 440              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 441              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 442              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 443              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 444              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 445              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 446              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 447              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 448              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 449              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 450              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 451              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 452              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 453              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 454              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 455              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 456              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 457              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 458              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 459              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 460              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 461              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 462              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 463              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 464              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 465              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_log.h"
+ 466              		.file 58 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_disp.h"
+ 467              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_textarea_2.c
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:18     .rodata.ta_event_cb.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:26     .text.ta_event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:33     .text.ta_event_cb:00000000 ta_event_cb
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:125    .text.ta_event_cb:0000004c $d
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:133    .rodata.lv_example_textarea_2.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:143    .text.lv_example_textarea_2:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:150    .text.lv_example_textarea_2:00000000 lv_example_textarea_2
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:388    .text.lv_example_textarea_2:00000110 $d
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:397    .bss.kb:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:401    .bss.kb:00000000 kb
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:404    .rodata.__func__.12325:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc1pl8b7.s:408    .rodata.__func__.12325:00000000 __func__.12325
+
+UNDEFINED SYMBOLS
+lv_event_get_code
+lv_event_get_target
+lv_keyboard_set_textarea
+lv_textarea_get_text
+_lv_log_add
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_textarea_create
+lv_textarea_set_text
+lv_textarea_set_password_mode
+lv_textarea_set_one_line
+lv_obj_set_width
+lv_obj_set_pos
+lv_obj_add_event_cb
+lv_label_create
+lv_label_set_text
+lv_obj_align_to
+lv_obj_align
+lv_keyboard_create
+lv_disp_get_hor_res
+lv_disp_get_ver_res
+lv_obj_set_size

@@ -1,0 +1,514 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_msgbox_1.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.event_cb.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 6C76676C 		.ascii	"lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox"
+  20      2F6C7667 
+  20      6C2F6578 
+  20      616D706C 
+  20      65732F77 
+  21 0033 5F312E63 		.ascii	"_1.c\000"
+  21      00
+  22              		.align	2
+  23              	.LC1:
+  24 0038 42757474 		.ascii	"Button %s clicked\000"
+  24      6F6E2025 
+  24      7320636C 
+  24      69636B65 
+  24      6400
+  25              		.section	.text.event_cb,"ax",%progbits
+  26              		.align	1
+  27              		.arch armv7e-m
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  31              		.fpu fpv4-sp-d16
+  33              	event_cb:
+  34              	.LVL0:
+  35              	.LFB189:
+  36              		.file 1 "lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c"
+   1:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** #include "../../lv_examples.h"
+   2:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** #if LV_USE_MSGBOX && LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** 
+   4:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** static void event_cb(lv_event_t * e)
+   5:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** {
+  37              		.loc 1 5 1 view -0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 0, uses_anonymous_args = 0
+  41              		.loc 1 5 1 is_stmt 0 view .LVU1
+  42 0000 00B5     		push	{lr}
+  43              	.LCFI0:
+  44              		.cfi_def_cfa_offset 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 2
+
+
+  45              		.cfi_offset 14, -4
+  46 0002 83B0     		sub	sp, sp, #12
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_offset 16
+   6:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c ****     lv_obj_t * obj = lv_event_get_current_target(e);
+  49              		.loc 1 6 5 is_stmt 1 view .LVU2
+  50              		.loc 1 6 22 is_stmt 0 view .LVU3
+  51 0004 FFF7FEFF 		bl	lv_event_get_current_target
+  52              	.LVL1:
+   7:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c ****     LV_LOG_USER("Button %s clicked", lv_msgbox_get_active_btn_text(obj));
+  53              		.loc 1 7 5 is_stmt 1 view .LVU4
+  54 0008 FFF7FEFF 		bl	lv_msgbox_get_active_btn_text
+  55              	.LVL2:
+  56              		.loc 1 7 5 is_stmt 0 view .LVU5
+  57 000c 0190     		str	r0, [sp, #4]
+  58 000e 054B     		ldr	r3, .L3
+  59 0010 0093     		str	r3, [sp]
+  60 0012 054B     		ldr	r3, .L3+4
+  61 0014 0722     		movs	r2, #7
+  62 0016 0549     		ldr	r1, .L3+8
+  63 0018 0420     		movs	r0, #4
+  64 001a FFF7FEFF 		bl	_lv_log_add
+  65              	.LVL3:
+  66              		.loc 1 7 73 is_stmt 1 view .LVU6
+   8:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** }
+  67              		.loc 1 8 1 is_stmt 0 view .LVU7
+  68 001e 03B0     		add	sp, sp, #12
+  69              	.LCFI2:
+  70              		.cfi_def_cfa_offset 4
+  71              		@ sp needed
+  72 0020 5DF804FB 		ldr	pc, [sp], #4
+  73              	.L4:
+  74              		.align	2
+  75              	.L3:
+  76 0024 38000000 		.word	.LC1
+  77 0028 00000000 		.word	.LANCHOR0
+  78 002c 00000000 		.word	.LC0
+  79              		.cfi_endproc
+  80              	.LFE189:
+  82              		.section	.rodata.lv_example_msgbox_1.str1.4,"aMS",%progbits,1
+  83              		.align	2
+  84              	.LC2:
+  85 0000 54686973 		.ascii	"This is a message box with two buttons.\000"
+  85      20697320 
+  85      61206D65 
+  85      73736167 
+  85      6520626F 
+  86              		.align	2
+  87              	.LC3:
+  88 0028 48656C6C 		.ascii	"Hello\000"
+  88      6F00
+  89              		.section	.text.lv_example_msgbox_1,"ax",%progbits
+  90              		.align	1
+  91              		.global	lv_example_msgbox_1
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 3
+
+
+  95              		.fpu fpv4-sp-d16
+  97              	lv_example_msgbox_1:
+  98              	.LFB190:
+   9:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** 
+  10:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** void lv_example_msgbox_1(void)
+  11:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** {
+  99              		.loc 1 11 1 is_stmt 1 view -0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103 0000 10B5     		push	{r4, lr}
+ 104              	.LCFI3:
+ 105              		.cfi_def_cfa_offset 8
+ 106              		.cfi_offset 4, -8
+ 107              		.cfi_offset 14, -4
+ 108 0002 82B0     		sub	sp, sp, #8
+ 109              	.LCFI4:
+ 110              		.cfi_def_cfa_offset 16
+  12:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c ****     static const char * btns[] ={"Apply", "Close", ""};
+ 111              		.loc 1 12 5 view .LVU9
+  13:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** 
+  14:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c ****     lv_obj_t * mbox1 = lv_msgbox_create(NULL, "Hello", "This is a message box with two buttons.", b
+ 112              		.loc 1 14 5 view .LVU10
+ 113              		.loc 1 14 24 is_stmt 0 view .LVU11
+ 114 0004 0123     		movs	r3, #1
+ 115 0006 0093     		str	r3, [sp]
+ 116 0008 094B     		ldr	r3, .L7
+ 117 000a 0A4A     		ldr	r2, .L7+4
+ 118 000c 0A49     		ldr	r1, .L7+8
+ 119 000e 0020     		movs	r0, #0
+ 120 0010 FFF7FEFF 		bl	lv_msgbox_create
+ 121              	.LVL4:
+ 122 0014 0446     		mov	r4, r0
+ 123              	.LVL5:
+  15:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c ****     lv_obj_add_event_cb(mbox1, event_cb, LV_EVENT_VALUE_CHANGED, NULL);
+ 124              		.loc 1 15 5 is_stmt 1 view .LVU12
+ 125 0016 0023     		movs	r3, #0
+ 126 0018 1C22     		movs	r2, #28
+ 127 001a 0849     		ldr	r1, .L7+12
+ 128 001c FFF7FEFF 		bl	lv_obj_add_event_cb
+ 129              	.LVL6:
+  16:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c ****     lv_obj_center(mbox1);
+ 130              		.loc 1 16 5 view .LVU13
+ 131              	.LBB4:
+ 132              	.LBI4:
+ 133              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @file lv_obj_pos.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #ifndef LV_OBJ_POS_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #define LV_OBJ_POS_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #endif
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 4
+
+
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #include "../misc/lv_area.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /*********************
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *      DEFINES
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *********************/
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**********************
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *      TYPEDEFS
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  **********************/
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** struct _lv_obj_t;
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** typedef void (*lv_layout_update_cb_t)(struct _lv_obj_t *, void * user_data);
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** typedef struct {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****     lv_layout_update_cb_t cb;
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****     void * user_data;
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** }lv_layout_dsc_t;
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**********************
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * GLOBAL PROTOTYPES
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  **********************/
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the relative the position of an object (relative to the parent's top left corner)
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x         new distance from the left side of the parent plus the parent's left padding
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y         new distance from the top side of the parent  plus the parent's right padding
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_pos(struct _lv_obj_t * obj, lv_coord_t x, lv_coord_t y);
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the x coordinate of a object
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x         new distance from the left side from the parent plus the parent's left padding
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_x(struct _lv_obj_t * obj, lv_coord_t x);
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the y coordinate of a object
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y         new distance from the top of the parent  plus the parent's top padding
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_y(struct _lv_obj_t * obj, lv_coord_t y);
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the size of an object.
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param w         the new width
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param h         the new height
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            possible values are:
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_PCT(x)     to set size in percentage of the parent's content area size 
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 5
+
+
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_size(struct _lv_obj_t * obj, lv_coord_t w, lv_coord_t h);
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Recalculate the size of the object
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @return          true: the size has been changed
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** bool lv_obj_refr_size(struct _lv_obj_t * obj);
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the width of an object
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param w         the new width
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            possible values are:
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_width(struct _lv_obj_t * obj, lv_coord_t w);
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the height of an object
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param h         the new height
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            possible values are:
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the width reduced by the left and right padding and the border width.
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param w         the width without paddings in pixels
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_content_width(struct _lv_obj_t * obj, lv_coord_t w);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the height reduced by the top and bottom padding and the border width.
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param h         the height without paddings in pixels
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_content_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set a layout for an object
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param layout    pointer to a layout descriptor to set
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_layout(struct _lv_obj_t * obj, uint32_t layout);
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Test whether the and object is positioned by a layout or not
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 6
+
+
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to test
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @return true:    positioned by a layout; false: not positioned by a layout
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** bool lv_obj_is_layout_positioned(const struct _lv_obj_t * obj);
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Mark the object for layout update.
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_mark_layout_as_dirty(struct _lv_obj_t * obj);
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Update the layout of an object.
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_update_layout(const struct _lv_obj_t * obj);
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Regsiter a new layout
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param cb        the layout update callback
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param user_data custom data that will be passed to `cb`
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @return          the ID of the new layout
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** uint32_t lv_layout_register(lv_layout_update_cb_t cb, void * user_data);
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Change the alignment of an object.
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_align(struct _lv_obj_t * obj, lv_align_t align);
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Change the alignment of an object and set new coordinates.
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Equivalent to:
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * lv_obj_set_align(obj, align);
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * lv_obj_set_pos(obj, x_ofs, y_ofs);
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 167:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 168:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_align(struct _lv_obj_t * obj, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs);
+ 169:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 170:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 171:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Align an object to an other object.
+ 172:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 173:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param base      pointer to an other object (if NULL `obj`s parent is used). 'obj' will be align
+ 174:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum)
+ 175:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 176:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 177:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            if the position or size of `base` changes `obj` needs to be aligned manually ag
+ 178:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 179:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_align_to(struct _lv_obj_t * obj, const struct _lv_obj_t * base, lv_align_t align, lv_co
+ 180:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 181:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 182:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Align an object to the center on its parent.
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 7
+
+
+ 183:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 184:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            if the parent size changes `obj` needs to be aligned manually again
+ 185:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 186:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** static inline void lv_obj_center(struct _lv_obj_t * obj)
+ 134              		.loc 2 186 20 view .LVU14
+ 135              	.LBB5:
+ 187:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** {
+ 188:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****     lv_obj_align(obj, LV_ALIGN_CENTER, 0, 0);
+ 136              		.loc 2 188 5 view .LVU15
+ 137 0020 0023     		movs	r3, #0
+ 138 0022 1A46     		mov	r2, r3
+ 139 0024 0921     		movs	r1, #9
+ 140 0026 2046     		mov	r0, r4
+ 141 0028 FFF7FEFF 		bl	lv_obj_align
+ 142              	.LVL7:
+ 143              		.loc 2 188 5 is_stmt 0 view .LVU16
+ 144              	.LBE5:
+ 145              	.LBE4:
+  17:lvgl/lvgl/examples/widgets/msgbox/lv_example_msgbox_1.c **** }
+ 146              		.loc 1 17 1 view .LVU17
+ 147 002c 02B0     		add	sp, sp, #8
+ 148              	.LCFI5:
+ 149              		.cfi_def_cfa_offset 8
+ 150              		@ sp needed
+ 151 002e 10BD     		pop	{r4, pc}
+ 152              	.LVL8:
+ 153              	.L8:
+ 154              		.loc 1 17 1 view .LVU18
+ 155              		.align	2
+ 156              	.L7:
+ 157 0030 00000000 		.word	.LANCHOR1
+ 158 0034 00000000 		.word	.LC2
+ 159 0038 28000000 		.word	.LC3
+ 160 003c 00000000 		.word	event_cb
+ 161              		.cfi_endproc
+ 162              	.LFE190:
+ 164              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 165              		.align	2
+ 166              	.LC4:
+ 167 0000 4170706C 		.ascii	"Apply\000"
+ 167      7900
+ 168 0006 0000     		.align	2
+ 169              	.LC5:
+ 170 0008 436C6F73 		.ascii	"Close\000"
+ 170      6500
+ 171 000e 0000     		.align	2
+ 172              	.LC6:
+ 173 0010 00       		.ascii	"\000"
+ 174              		.section	.data.btns.12318,"aw"
+ 175              		.align	2
+ 176              		.set	.LANCHOR1,. + 0
+ 179              	btns.12318:
+ 180 0000 00000000 		.word	.LC4
+ 181 0004 08000000 		.word	.LC5
+ 182 0008 10000000 		.word	.LC6
+ 183              		.section	.rodata.__func__.12314,"a"
+ 184              		.align	2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 8
+
+
+ 185              		.set	.LANCHOR0,. + 0
+ 188              	__func__.12314:
+ 189 0000 6576656E 		.ascii	"event_cb\000"
+ 189      745F6362 
+ 189      00
+ 190              		.text
+ 191              	.Letext0:
+ 192              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 193              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 194              		.file 5 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 195              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 196              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 197              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 198              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 199              		.file 10 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 200              		.file 11 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 201              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 202              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 203              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 204              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 205              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 206              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 207              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 208              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 209              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 210              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 211              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 212              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 213              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 214              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 215              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 216              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 217              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 218              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 219              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 220              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 221              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 222              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 223              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 224              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 225              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 226              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 227              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 228              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 229              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 230              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 231              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 232              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 233              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 234              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 235              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 236              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 237              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 238              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 239              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 240              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 241              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 9
+
+
+ 242              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 243              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 244              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 245              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 246              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_log.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_msgbox_1.c
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:18     .rodata.event_cb.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:26     .text.event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:33     .text.event_cb:00000000 event_cb
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:76     .text.event_cb:00000024 $d
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:83     .rodata.lv_example_msgbox_1.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:90     .text.lv_example_msgbox_1:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:97     .text.lv_example_msgbox_1:00000000 lv_example_msgbox_1
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:157    .text.lv_example_msgbox_1:00000030 $d
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:165    .rodata.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:175    .data.btns.12318:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:179    .data.btns.12318:00000000 btns.12318
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:184    .rodata.__func__.12314:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccnMqwWr.s:188    .rodata.__func__.12314:00000000 __func__.12314
+
+UNDEFINED SYMBOLS
+lv_event_get_current_target
+lv_msgbox_get_active_btn_text
+_lv_log_add
+lv_msgbox_create
+lv_obj_add_event_cb
+lv_obj_align

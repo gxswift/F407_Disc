@@ -1,0 +1,2653 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_anim_timeline_1.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.anim_timeline_create,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	anim_timeline_create:
+  26              	.LFB191:
+  27              		.file 1 "lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c"
+   1:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** #include "../lv_examples.h"
+   2:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** #if LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+   4:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static lv_anim_timeline_t * anim_timeline = NULL; 
+   5:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+   6:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static lv_obj_t * obj1 = NULL;
+   7:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static lv_obj_t * obj2 = NULL;
+   8:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static lv_obj_t * obj3 = NULL;
+   9:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  10:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static const lv_coord_t obj_width = 90;
+  11:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static const lv_coord_t obj_height = 70;
+  12:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  13:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static void set_width(void * var, int32_t v)
+  14:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** {
+  15:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_width((lv_obj_t *)var, v);
+  16:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+  17:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  18:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static void set_height(void * var, int32_t v)
+  19:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** {
+  20:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_height((lv_obj_t *)var, v);
+  21:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+  22:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  23:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static void anim_timeline_create(void)
+  24:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** {
+  28              		.loc 1 24 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 408
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 2
+
+
+  35              		.cfi_offset 4, -36
+  36              		.cfi_offset 5, -32
+  37              		.cfi_offset 6, -28
+  38              		.cfi_offset 7, -24
+  39              		.cfi_offset 8, -20
+  40              		.cfi_offset 9, -16
+  41              		.cfi_offset 10, -12
+  42              		.cfi_offset 11, -8
+  43              		.cfi_offset 14, -4
+  44 0004 E7B0     		sub	sp, sp, #412
+  45              	.LCFI1:
+  46              		.cfi_def_cfa_offset 448
+  25:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     /* obj1 */
+  26:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_t a1;
+  47              		.loc 1 26 5 view .LVU1
+  27:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_init(&a1);
+  48              		.loc 1 27 5 view .LVU2
+  49 0006 55A8     		add	r0, sp, #340
+  50 0008 FFF7FEFF 		bl	lv_anim_init
+  51              	.LVL0:
+  28:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_var(&a1, obj1);
+  52              		.loc 1 28 5 view .LVU3
+  53 000c 544E     		ldr	r6, .L3
+  54 000e 3368     		ldr	r3, [r6]
+  55              	.LVL1:
+  56              	.LBB86:
+  57              	.LBI86:
+  58              		.file 2 "lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h"
+   1:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+   2:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @file lv_anim.h
+   3:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *
+   4:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+   5:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+   6:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #ifndef LV_ANIM_H
+   7:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #define LV_ANIM_H
+   8:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+   9:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** extern "C" {
+  11:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #endif
+  12:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  13:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /*********************
+  14:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *      INCLUDES
+  15:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *********************/
+  16:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #include "../lv_conf_internal.h"
+  17:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  18:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #include <stdint.h>
+  19:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #include <stdbool.h>
+  20:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #include <string.h>
+  21:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  22:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /*********************
+  23:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *      DEFINES
+  24:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *********************/
+  25:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  26:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**********************
+  27:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *      TYPEDEFS
+  28:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  **********************/
+  29:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 3
+
+
+  30:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Can be used to indicate if animations are enabled or disabled in a case*/
+  31:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef enum {
+  32:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     LV_ANIM_OFF,
+  33:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     LV_ANIM_ON,
+  34:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }lv_anim_enable_t;
+  35:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  36:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #define LV_ANIM_REPEAT_INFINITE      0xFFFF
+  37:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** LV_EXPORT_CONST_INT(LV_ANIM_REPEAT_INFINITE);
+  38:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  39:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** struct _lv_anim_t;
+  40:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  41:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Get the current value during an animation*/
+  42:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef int32_t (*lv_anim_path_cb_t)(const struct _lv_anim_t *);
+  43:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  44:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Generic prototype of "animator" functions.
+  45:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * First parameter is the variable to animate.
+  46:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Second parameter is the value to set.
+  47:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Compatible with `lv_xxx_set_yyy(obj, value)` functions
+  48:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * The `x` in `_xcb_t` means its not a fully generic prototype because
+  49:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * it doesn't receive `lv_anim_t *` as its first argument*/
+  50:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef void (*lv_anim_exec_xcb_t)(void *, int32_t);
+  51:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  52:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Same as `lv_anim_exec_xcb_t` but receives `lv_anim_t *` as the first parameter.
+  53:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * It's more consistent but less convenient. Might be used by binding generator functions.*/
+  54:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef void (*lv_anim_custom_exec_cb_t)(struct _lv_anim_t *, int32_t);
+  55:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  56:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Callback to call when the animation is ready*/
+  57:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef void (*lv_anim_ready_cb_t)(struct _lv_anim_t *);
+  58:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  59:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Callback to call when the animation really stars (considering `delay`)*/
+  60:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef void (*lv_anim_start_cb_t)(struct _lv_anim_t *);
+  61:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  62:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Callback used when the animation values are relative to get the current value*/
+  63:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef int32_t (*lv_anim_get_value_cb_t)(struct _lv_anim_t *);
+  64:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  65:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Describes an animation*/
+  66:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef struct _lv_anim_t {
+  67:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     void * var;                          /**<Variable to animate*/
+  68:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_exec_xcb_t exec_cb;          /**< Function to execute to animate*/
+  69:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_start_cb_t start_cb;         /**< Call it when the animation is starts (considering `de
+  70:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_ready_cb_t ready_cb;         /**< Call it when the animation is ready*/
+  71:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_get_value_cb_t get_value_cb; /**< Get the current value in relative mode*/
+  72:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #if LV_USE_USER_DATA
+  73:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     void * user_data; /**< Custom user data*/
+  74:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #endif
+  75:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_path_cb_t path_cb;         /**< Describe the path (curve) of animations*/
+  76:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t start_value;               /**< Start value*/
+  77:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t current_value;             /**< Current value*/
+  78:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t end_value;                 /**< End value*/
+  79:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t time;                /**< Animation time in ms*/
+  80:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t act_time;            /**< Current time in animation. Set to negative to make delay.*/
+  81:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint32_t playback_delay;     /**< Wait before play back*/
+  82:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint32_t playback_time;      /**< Duration of playback animation*/
+  83:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint32_t repeat_delay;       /**< Wait before repeat*/
+  84:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint16_t repeat_cnt;         /**< Repeat count for the animation*/
+  85:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint8_t early_apply  : 1;    /**< 1: Apply start value immediately even is there is `delay`*/
+  86:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 4
+
+
+  87:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     /*Animation system use these - user shouldn't set*/
+  88:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint8_t playback_now : 1; /**< Play back is in progress*/
+  89:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint8_t run_round : 1;    /**< Indicates the animation has run in this round*/
+  90:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint8_t start_cb_called : 1;    /**< Indicates that the `start_cb` was already called*/
+  91:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint32_t time_orig;
+  92:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** } lv_anim_t;
+  93:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  94:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**********************
+  95:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * GLOBAL PROTOTYPES
+  96:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  **********************/
+  97:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  98:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+  99:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Init. the animation module
+ 100:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 101:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** void _lv_anim_core_init(void);
+ 102:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 103:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 104:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Initialize an animation variable.
+ 105:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * E.g.:
+ 106:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * lv_anim_t a;
+ 107:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * lv_anim_init(&a);
+ 108:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * lv_anim_set_...(&a);
+ 109:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * lv_anim_start(&a);
+ 110:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a     pointer to an `lv_anim_t` variable to initialize
+ 111:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 112:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** void lv_anim_init(lv_anim_t * a);
+ 113:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 114:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 115:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a variable to animate
+ 116:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a     pointer to an initialized `lv_anim_t` variable
+ 117:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param var   pointer to a variable to animate
+ 118:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 119:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_var(lv_anim_t * a, void * var)
+  59              		.loc 2 119 20 view .LVU4
+  60              	.LBB87:
+ 120:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->var = var;
+  61              		.loc 2 121 5 view .LVU5
+  62              		.loc 2 121 12 is_stmt 0 view .LVU6
+  63 0010 5593     		str	r3, [sp, #340]
+  64              	.LVL2:
+  65              		.loc 2 121 12 view .LVU7
+  66              	.LBE87:
+  67              	.LBE86:
+  29:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_values(&a1, 0, obj_width);
+  68              		.loc 1 29 5 is_stmt 1 view .LVU8
+  69              	.LBB88:
+  70              	.LBI88:
+ 122:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 123:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 124:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 125:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a function to animate `var`
+ 126:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 127:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param exec_cb   a function to execute during animation
+ 128:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *                  LVGL's built-in functions can be used.
+ 129:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *                  E.g. lv_obj_set_x
+ 130:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 5
+
+
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_exec_cb(lv_anim_t * a, lv_anim_exec_xcb_t exec_cb)
+ 132:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->exec_cb = exec_cb;
+ 134:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 135:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 136:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 137:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set the duration of an animation
+ 138:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 139:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param duration  duration of the animation in milliseconds
+ 140:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 141:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_time(lv_anim_t * a, uint32_t duration)
+ 142:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->time = duration;
+ 144:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 145:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 146:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 147:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a delay before starting the animation
+ 148:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 149:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param delay     delay before the animation in milliseconds
+ 150:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 151:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_delay(lv_anim_t * a, uint32_t delay)
+ 152:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 153:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->act_time = -(int32_t)(delay);
+ 154:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 155:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 156:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 157:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set the start and end values of an animation
+ 158:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 159:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param start     the start value
+ 160:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param end       the end value
+ 161:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 162:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_values(lv_anim_t * a, int32_t start, int32_t end)
+  71              		.loc 2 162 20 view .LVU9
+  72              	.LBB89:
+ 163:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->start_value = start;
+  73              		.loc 2 164 5 view .LVU10
+  74              		.loc 2 164 20 is_stmt 0 view .LVU11
+  75 0012 0024     		movs	r4, #0
+  76 0014 5C94     		str	r4, [sp, #368]
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+  77              		.loc 2 165 5 is_stmt 1 view .LVU12
+  78              		.loc 2 165 22 is_stmt 0 view .LVU13
+  79 0016 5D94     		str	r4, [sp, #372]
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+  80              		.loc 2 166 5 is_stmt 1 view .LVU14
+  81              		.loc 2 166 18 is_stmt 0 view .LVU15
+  82 0018 4FF05A0A 		mov	r10, #90
+  83 001c CDF878A1 		str	r10, [sp, #376]
+  84              	.LVL3:
+  85              		.loc 2 166 18 view .LVU16
+  86              	.LBE89:
+  87              	.LBE88:
+  30:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_early_apply(&a1, false);
+  88              		.loc 1 30 5 is_stmt 1 view .LVU17
+  89              	.LBB90:
+  90              	.LBI90:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 6
+
+
+ 167:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 168:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 169:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 170:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Similar to `lv_anim_set_exec_cb` but `lv_anim_custom_exec_cb_t` receives
+ 171:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * `lv_anim_t * ` as its first parameter instead of `void *`.
+ 172:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * This function might be used when LVGL is binded to other languages because
+ 173:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * it's more consistent to have `lv_anim_t *` as first parameter.
+ 174:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * The variable to animate can be stored in the animation's `user_sata`
+ 175:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 176:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param exec_cb   a function to execute.
+ 177:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 178:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_custom_exec_cb(lv_anim_t * a, lv_anim_custom_exec_cb_t exec_cb)
+ 179:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 180:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->var     = a;
+ 181:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->exec_cb = (lv_anim_exec_xcb_t)exec_cb;
+ 182:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 183:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 184:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 185:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set the path (curve) of the animation.
+ 186:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 187:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param path_cb a function the get the current value of the animation.
+ 188:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 189:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_path_cb(lv_anim_t * a, lv_anim_path_cb_t path_cb)
+ 190:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->path_cb = path_cb;
+ 192:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 193:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 194:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 195:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a function call when the animation really starts (considering `delay`)
+ 196:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 197:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param start_cb  a function call when the animation starts
+ 198:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 199:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_start_cb(lv_anim_t * a, lv_anim_ready_cb_t start_cb)
+ 200:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 201:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->start_cb = start_cb;
+ 202:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 203:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 204:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 205:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a function to use the current value of the variable and make start and end value
+ 206:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * relative the the returned current value.
+ 207:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a             pointer to an initialized `lv_anim_t` variable
+ 208:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param get_value_cb  a function call when the animation starts
+ 209:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 210:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_get_value_cb(lv_anim_t * a, lv_anim_get_value_cb_t get_value_cb)
+ 211:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 212:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->get_value_cb = get_value_cb;
+ 213:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 214:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 215:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 216:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a function call when the animation is ready
+ 217:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 218:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param ready_cb  a function call when the animation is ready
+ 219:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 220:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_ready_cb(lv_anim_t * a, lv_anim_ready_cb_t ready_cb)
+ 221:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 222:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->ready_cb = ready_cb;
+ 223:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 7
+
+
+ 224:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 225:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Make the animation to play back to when the forward direction is ready
+ 226:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 227:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param time      the duration of the playback animation in in milliseconds. 0: disable playback
+ 228:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 229:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_playback_time(lv_anim_t * a, uint32_t time)
+ 230:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 231:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->playback_time = time;
+ 232:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 233:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 234:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 235:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Make the animation to play back to when the forward direction is ready
+ 236:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 237:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param delay     delay in milliseconds before starting the playback animation.
+ 238:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 239:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_playback_delay(lv_anim_t * a, uint32_t delay)
+ 240:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 241:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->playback_delay = delay;
+ 242:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 243:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 244:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 245:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Make the animation repeat itself.
+ 246:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 247:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param cnt       repeat count or `LV_ANIM_REPEAT_INFINITE` for infinite repetition. 0: to disabl
+ 248:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 249:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_repeat_count(lv_anim_t * a, uint16_t cnt)
+ 250:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 251:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->repeat_cnt = cnt;
+ 252:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 253:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 254:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 255:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a delay before repeating the animation.
+ 256:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 257:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param delay     delay in milliseconds before repeating the animation.
+ 258:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 259:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_repeat_delay(lv_anim_t * a, uint32_t delay)
+ 260:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 261:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->repeat_delay = delay;
+ 262:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 263:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 264:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 265:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a whether the animation's should be applied immediately or only when the delay expired.
+ 266:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 267:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param en        true: apply the start value immediately in `lv_anim_start`;
+ 268:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *                  false: apply the start value only when `delay` ms is elapsed and the animations
+ 269:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 270:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_early_apply(lv_anim_t * a, bool en)
+  91              		.loc 2 270 20 view .LVU18
+  92              	.LBB91:
+ 271:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 272:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->early_apply = en;
+  93              		.loc 2 272 5 view .LVU19
+  94              		.loc 2 272 20 is_stmt 0 view .LVU20
+  95 0020 9DF89231 		ldrb	r3, [sp, #402]	@ zero_extendqisi2
+  96 0024 64F30003 		bfi	r3, r4, #0, #1
+  97 0028 8DF89231 		strb	r3, [sp, #402]
+  98              	.LVL4:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 8
+
+
+  99              		.loc 2 272 20 view .LVU21
+ 100              	.LBE91:
+ 101              	.LBE90:
+  31:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_exec_cb(&a1, (lv_anim_exec_xcb_t)set_width);
+ 102              		.loc 1 31 5 is_stmt 1 view .LVU22
+ 103              	.LBB92:
+ 104              	.LBI92:
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 105              		.loc 2 131 20 view .LVU23
+ 106              	.LBB93:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 107              		.loc 2 133 5 view .LVU24
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 108              		.loc 2 133 16 is_stmt 0 view .LVU25
+ 109 002c DFF84091 		ldr	r9, .L3+16
+ 110 0030 CDF85891 		str	r9, [sp, #344]
+ 111              	.LVL5:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 112              		.loc 2 133 16 view .LVU26
+ 113              	.LBE93:
+ 114              	.LBE92:
+  32:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_path_cb(&a1, lv_anim_path_overshoot);
+ 115              		.loc 1 32 5 is_stmt 1 view .LVU27
+ 116              	.LBB94:
+ 117              	.LBI94:
+ 189:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 118              		.loc 2 189 20 view .LVU28
+ 119              	.LBB95:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 120              		.loc 2 191 5 view .LVU29
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 121              		.loc 2 191 16 is_stmt 0 view .LVU30
+ 122 0034 DFF83C81 		ldr	r8, .L3+20
+ 123 0038 CDF86C81 		str	r8, [sp, #364]
+ 124              	.LVL6:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 125              		.loc 2 191 16 view .LVU31
+ 126              	.LBE95:
+ 127              	.LBE94:
+  33:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_time(&a1, 300);
+ 128              		.loc 1 33 5 is_stmt 1 view .LVU32
+ 129              	.LBB96:
+ 130              	.LBI96:
+ 141:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 131              		.loc 2 141 20 view .LVU33
+ 132              	.LBB97:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 133              		.loc 2 143 5 view .LVU34
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 134              		.loc 2 143 13 is_stmt 0 view .LVU35
+ 135 003c 4FF49675 		mov	r5, #300
+ 136 0040 5F95     		str	r5, [sp, #380]
+ 137              	.LVL7:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 138              		.loc 2 143 13 view .LVU36
+ 139              	.LBE97:
+ 140              	.LBE96:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 9
+
+
+  34:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  35:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_t a2;
+ 141              		.loc 1 35 5 is_stmt 1 view .LVU37
+  36:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_init(&a2);
+ 142              		.loc 1 36 5 view .LVU38
+ 143 0042 44A8     		add	r0, sp, #272
+ 144 0044 FFF7FEFF 		bl	lv_anim_init
+ 145              	.LVL8:
+  37:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_var(&a2, obj1);
+ 146              		.loc 1 37 5 view .LVU39
+ 147 0048 3368     		ldr	r3, [r6]
+ 148              	.LVL9:
+ 149              	.LBB98:
+ 150              	.LBI98:
+ 119:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 151              		.loc 2 119 20 view .LVU40
+ 152              	.LBB99:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 153              		.loc 2 121 5 view .LVU41
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 154              		.loc 2 121 12 is_stmt 0 view .LVU42
+ 155 004a 4493     		str	r3, [sp, #272]
+ 156              	.LVL10:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 157              		.loc 2 121 12 view .LVU43
+ 158              	.LBE99:
+ 159              	.LBE98:
+  38:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_values(&a2, 0, obj_height);
+ 160              		.loc 1 38 5 is_stmt 1 view .LVU44
+ 161              	.LBB100:
+ 162              	.LBI100:
+ 162:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 163              		.loc 2 162 20 view .LVU45
+ 164              	.LBB101:
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 165              		.loc 2 164 5 view .LVU46
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 166              		.loc 2 164 20 is_stmt 0 view .LVU47
+ 167 004c 4B94     		str	r4, [sp, #300]
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 168              		.loc 2 165 5 is_stmt 1 view .LVU48
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 169              		.loc 2 165 22 is_stmt 0 view .LVU49
+ 170 004e 4C94     		str	r4, [sp, #304]
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 171              		.loc 2 166 5 is_stmt 1 view .LVU50
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 172              		.loc 2 166 18 is_stmt 0 view .LVU51
+ 173 0050 4627     		movs	r7, #70
+ 174 0052 4D97     		str	r7, [sp, #308]
+ 175              	.LVL11:
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 176              		.loc 2 166 18 view .LVU52
+ 177              	.LBE101:
+ 178              	.LBE100:
+  39:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_early_apply(&a2, false);
+ 179              		.loc 1 39 5 is_stmt 1 view .LVU53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 10
+
+
+ 180              	.LBB102:
+ 181              	.LBI102:
+ 270:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 182              		.loc 2 270 20 view .LVU54
+ 183              	.LBB103:
+ 184              		.loc 2 272 5 view .LVU55
+ 185              		.loc 2 272 20 is_stmt 0 view .LVU56
+ 186 0054 9DF84E31 		ldrb	r3, [sp, #334]	@ zero_extendqisi2
+ 187 0058 64F30003 		bfi	r3, r4, #0, #1
+ 188 005c 8DF84E31 		strb	r3, [sp, #334]
+ 189              	.LVL12:
+ 190              		.loc 2 272 20 view .LVU57
+ 191              	.LBE103:
+ 192              	.LBE102:
+  40:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_exec_cb(&a2, (lv_anim_exec_xcb_t)set_height);
+ 193              		.loc 1 40 5 is_stmt 1 view .LVU58
+ 194              	.LBB104:
+ 195              	.LBI104:
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 196              		.loc 2 131 20 view .LVU59
+ 197              	.LBB105:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 198              		.loc 2 133 5 view .LVU60
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 199              		.loc 2 133 16 is_stmt 0 view .LVU61
+ 200 0060 404E     		ldr	r6, .L3+4
+ 201 0062 4596     		str	r6, [sp, #276]
+ 202              	.LVL13:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 203              		.loc 2 133 16 view .LVU62
+ 204              	.LBE105:
+ 205              	.LBE104:
+  41:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_path_cb(&a2, lv_anim_path_ease_out);
+ 206              		.loc 1 41 5 is_stmt 1 view .LVU63
+ 207              	.LBB106:
+ 208              	.LBI106:
+ 189:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 209              		.loc 2 189 20 view .LVU64
+ 210              	.LBB107:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 211              		.loc 2 191 5 view .LVU65
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 212              		.loc 2 191 16 is_stmt 0 view .LVU66
+ 213 0064 404B     		ldr	r3, .L3+8
+ 214 0066 4A93     		str	r3, [sp, #296]
+ 215              	.LVL14:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 216              		.loc 2 191 16 view .LVU67
+ 217              	.LBE107:
+ 218              	.LBE106:
+  42:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_time(&a2, 300);
+ 219              		.loc 1 42 5 is_stmt 1 view .LVU68
+ 220              	.LBB108:
+ 221              	.LBI108:
+ 141:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 222              		.loc 2 141 20 view .LVU69
+ 223              	.LBB109:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 11
+
+
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 224              		.loc 2 143 5 view .LVU70
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 225              		.loc 2 143 13 is_stmt 0 view .LVU71
+ 226 0068 4E95     		str	r5, [sp, #312]
+ 227              	.LVL15:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 228              		.loc 2 143 13 view .LVU72
+ 229              	.LBE109:
+ 230              	.LBE108:
+  43:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  44:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     /* obj2 */
+  45:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_t a3;
+ 231              		.loc 1 45 5 is_stmt 1 view .LVU73
+  46:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_init(&a3);
+ 232              		.loc 1 46 5 view .LVU74
+ 233 006a 33A8     		add	r0, sp, #204
+ 234 006c FFF7FEFF 		bl	lv_anim_init
+ 235              	.LVL16:
+  47:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_var(&a3, obj2);
+ 236              		.loc 1 47 5 view .LVU75
+ 237 0070 DFF804B1 		ldr	fp, .L3+24
+ 238 0074 DBF80030 		ldr	r3, [fp]
+ 239              	.LVL17:
+ 240              	.LBB110:
+ 241              	.LBI110:
+ 119:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 242              		.loc 2 119 20 view .LVU76
+ 243              	.LBB111:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 244              		.loc 2 121 5 view .LVU77
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 245              		.loc 2 121 12 is_stmt 0 view .LVU78
+ 246 0078 3393     		str	r3, [sp, #204]
+ 247              	.LVL18:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 248              		.loc 2 121 12 view .LVU79
+ 249              	.LBE111:
+ 250              	.LBE110:
+  48:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_values(&a3, 0, obj_width);
+ 251              		.loc 1 48 5 is_stmt 1 view .LVU80
+ 252              	.LBB112:
+ 253              	.LBI112:
+ 162:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 254              		.loc 2 162 20 view .LVU81
+ 255              	.LBB113:
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 256              		.loc 2 164 5 view .LVU82
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 257              		.loc 2 164 20 is_stmt 0 view .LVU83
+ 258 007a 3A94     		str	r4, [sp, #232]
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 259              		.loc 2 165 5 is_stmt 1 view .LVU84
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 260              		.loc 2 165 22 is_stmt 0 view .LVU85
+ 261 007c 3B94     		str	r4, [sp, #236]
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 12
+
+
+ 262              		.loc 2 166 5 is_stmt 1 view .LVU86
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 263              		.loc 2 166 18 is_stmt 0 view .LVU87
+ 264 007e CDF8F0A0 		str	r10, [sp, #240]
+ 265              	.LVL19:
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 266              		.loc 2 166 18 view .LVU88
+ 267              	.LBE113:
+ 268              	.LBE112:
+  49:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_early_apply(&a3, false);
+ 269              		.loc 1 49 5 is_stmt 1 view .LVU89
+ 270              	.LBB114:
+ 271              	.LBI114:
+ 270:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 272              		.loc 2 270 20 view .LVU90
+ 273              	.LBB115:
+ 274              		.loc 2 272 5 view .LVU91
+ 275              		.loc 2 272 20 is_stmt 0 view .LVU92
+ 276 0082 9DF80A31 		ldrb	r3, [sp, #266]	@ zero_extendqisi2
+ 277 0086 64F30003 		bfi	r3, r4, #0, #1
+ 278 008a 8DF80A31 		strb	r3, [sp, #266]
+ 279              	.LVL20:
+ 280              		.loc 2 272 20 view .LVU93
+ 281              	.LBE115:
+ 282              	.LBE114:
+  50:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_exec_cb(&a3, (lv_anim_exec_xcb_t)set_width);
+ 283              		.loc 1 50 5 is_stmt 1 view .LVU94
+ 284              	.LBB116:
+ 285              	.LBI116:
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 286              		.loc 2 131 20 view .LVU95
+ 287              	.LBB117:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 288              		.loc 2 133 5 view .LVU96
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 289              		.loc 2 133 16 is_stmt 0 view .LVU97
+ 290 008e CDF8D090 		str	r9, [sp, #208]
+ 291              	.LVL21:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 292              		.loc 2 133 16 view .LVU98
+ 293              	.LBE117:
+ 294              	.LBE116:
+  51:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_path_cb(&a3, lv_anim_path_overshoot);
+ 295              		.loc 1 51 5 is_stmt 1 view .LVU99
+ 296              	.LBB118:
+ 297              	.LBI118:
+ 189:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 298              		.loc 2 189 20 view .LVU100
+ 299              	.LBB119:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 300              		.loc 2 191 5 view .LVU101
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 301              		.loc 2 191 16 is_stmt 0 view .LVU102
+ 302 0092 CDF8E480 		str	r8, [sp, #228]
+ 303              	.LVL22:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 304              		.loc 2 191 16 view .LVU103
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 13
+
+
+ 305              	.LBE119:
+ 306              	.LBE118:
+  52:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_time(&a3, 300);
+ 307              		.loc 1 52 5 is_stmt 1 view .LVU104
+ 308              	.LBB120:
+ 309              	.LBI120:
+ 141:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 310              		.loc 2 141 20 view .LVU105
+ 311              	.LBB121:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 312              		.loc 2 143 5 view .LVU106
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 313              		.loc 2 143 13 is_stmt 0 view .LVU107
+ 314 0096 3D95     		str	r5, [sp, #244]
+ 315              	.LVL23:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 316              		.loc 2 143 13 view .LVU108
+ 317              	.LBE121:
+ 318              	.LBE120:
+  53:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  54:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_t a4;
+ 319              		.loc 1 54 5 is_stmt 1 view .LVU109
+  55:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_init(&a4);
+ 320              		.loc 1 55 5 view .LVU110
+ 321 0098 22A8     		add	r0, sp, #136
+ 322 009a FFF7FEFF 		bl	lv_anim_init
+ 323              	.LVL24:
+  56:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_var(&a4, obj2);
+ 324              		.loc 1 56 5 view .LVU111
+ 325 009e DBF80030 		ldr	r3, [fp]
+ 326              	.LVL25:
+ 327              	.LBB122:
+ 328              	.LBI122:
+ 119:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 329              		.loc 2 119 20 view .LVU112
+ 330              	.LBB123:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 331              		.loc 2 121 5 view .LVU113
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 332              		.loc 2 121 12 is_stmt 0 view .LVU114
+ 333 00a2 2293     		str	r3, [sp, #136]
+ 334              	.LVL26:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 335              		.loc 2 121 12 view .LVU115
+ 336              	.LBE123:
+ 337              	.LBE122:
+  57:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_values(&a4, 0, obj_height);
+ 338              		.loc 1 57 5 is_stmt 1 view .LVU116
+ 339              	.LBB124:
+ 340              	.LBI124:
+ 162:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 341              		.loc 2 162 20 view .LVU117
+ 342              	.LBB125:
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 343              		.loc 2 164 5 view .LVU118
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 344              		.loc 2 164 20 is_stmt 0 view .LVU119
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 14
+
+
+ 345 00a4 2994     		str	r4, [sp, #164]
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 346              		.loc 2 165 5 is_stmt 1 view .LVU120
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 347              		.loc 2 165 22 is_stmt 0 view .LVU121
+ 348 00a6 2A94     		str	r4, [sp, #168]
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 349              		.loc 2 166 5 is_stmt 1 view .LVU122
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 350              		.loc 2 166 18 is_stmt 0 view .LVU123
+ 351 00a8 2B97     		str	r7, [sp, #172]
+ 352              	.LVL27:
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 353              		.loc 2 166 18 view .LVU124
+ 354              	.LBE125:
+ 355              	.LBE124:
+  58:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_early_apply(&a4, false);
+ 356              		.loc 1 58 5 is_stmt 1 view .LVU125
+ 357              	.LBB126:
+ 358              	.LBI126:
+ 270:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 359              		.loc 2 270 20 view .LVU126
+ 360              	.LBB127:
+ 361              		.loc 2 272 5 view .LVU127
+ 362              		.loc 2 272 20 is_stmt 0 view .LVU128
+ 363 00aa 9DF8C630 		ldrb	r3, [sp, #198]	@ zero_extendqisi2
+ 364 00ae 64F30003 		bfi	r3, r4, #0, #1
+ 365 00b2 8DF8C630 		strb	r3, [sp, #198]
+ 366              	.LVL28:
+ 367              		.loc 2 272 20 view .LVU129
+ 368              	.LBE127:
+ 369              	.LBE126:
+  59:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_exec_cb(&a4, (lv_anim_exec_xcb_t)set_height);
+ 370              		.loc 1 59 5 is_stmt 1 view .LVU130
+ 371              	.LBB128:
+ 372              	.LBI128:
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 373              		.loc 2 131 20 view .LVU131
+ 374              	.LBB129:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 375              		.loc 2 133 5 view .LVU132
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 376              		.loc 2 133 16 is_stmt 0 view .LVU133
+ 377 00b6 2396     		str	r6, [sp, #140]
+ 378              	.LVL29:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 379              		.loc 2 133 16 view .LVU134
+ 380              	.LBE129:
+ 381              	.LBE128:
+  60:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_path_cb(&a4, lv_anim_path_ease_out);
+ 382              		.loc 1 60 5 is_stmt 1 view .LVU135
+ 383              	.LBB130:
+ 384              	.LBI130:
+ 189:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 385              		.loc 2 189 20 view .LVU136
+ 386              	.LBB131:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 15
+
+
+ 387              		.loc 2 191 5 view .LVU137
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 388              		.loc 2 191 16 is_stmt 0 view .LVU138
+ 389 00b8 2B4B     		ldr	r3, .L3+8
+ 390 00ba 2893     		str	r3, [sp, #160]
+ 391              	.LVL30:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 392              		.loc 2 191 16 view .LVU139
+ 393              	.LBE131:
+ 394              	.LBE130:
+  61:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_time(&a4, 300);
+ 395              		.loc 1 61 5 is_stmt 1 view .LVU140
+ 396              	.LBB132:
+ 397              	.LBI132:
+ 141:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 398              		.loc 2 141 20 view .LVU141
+ 399              	.LBB133:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 400              		.loc 2 143 5 view .LVU142
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 401              		.loc 2 143 13 is_stmt 0 view .LVU143
+ 402 00bc 2C95     		str	r5, [sp, #176]
+ 403              	.LVL31:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 404              		.loc 2 143 13 view .LVU144
+ 405              	.LBE133:
+ 406              	.LBE132:
+  62:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  63:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     /* obj3 */
+  64:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_t a5;
+ 407              		.loc 1 64 5 is_stmt 1 view .LVU145
+  65:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_init(&a5);
+ 408              		.loc 1 65 5 view .LVU146
+ 409 00be 11A8     		add	r0, sp, #68
+ 410 00c0 FFF7FEFF 		bl	lv_anim_init
+ 411              	.LVL32:
+  66:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_var(&a5, obj3);
+ 412              		.loc 1 66 5 view .LVU147
+ 413 00c4 DFF8B4B0 		ldr	fp, .L3+28
+ 414 00c8 DBF80030 		ldr	r3, [fp]
+ 415              	.LVL33:
+ 416              	.LBB134:
+ 417              	.LBI134:
+ 119:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 418              		.loc 2 119 20 view .LVU148
+ 419              	.LBB135:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 420              		.loc 2 121 5 view .LVU149
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 421              		.loc 2 121 12 is_stmt 0 view .LVU150
+ 422 00cc 1193     		str	r3, [sp, #68]
+ 423              	.LVL34:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 424              		.loc 2 121 12 view .LVU151
+ 425              	.LBE135:
+ 426              	.LBE134:
+  67:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_values(&a5, 0, obj_width);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 16
+
+
+ 427              		.loc 1 67 5 is_stmt 1 view .LVU152
+ 428              	.LBB136:
+ 429              	.LBI136:
+ 162:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 430              		.loc 2 162 20 view .LVU153
+ 431              	.LBB137:
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 432              		.loc 2 164 5 view .LVU154
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 433              		.loc 2 164 20 is_stmt 0 view .LVU155
+ 434 00ce 1894     		str	r4, [sp, #96]
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 435              		.loc 2 165 5 is_stmt 1 view .LVU156
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 436              		.loc 2 165 22 is_stmt 0 view .LVU157
+ 437 00d0 1994     		str	r4, [sp, #100]
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 438              		.loc 2 166 5 is_stmt 1 view .LVU158
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 439              		.loc 2 166 18 is_stmt 0 view .LVU159
+ 440 00d2 CDF868A0 		str	r10, [sp, #104]
+ 441              	.LVL35:
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 442              		.loc 2 166 18 view .LVU160
+ 443              	.LBE137:
+ 444              	.LBE136:
+  68:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_early_apply(&a5, false);
+ 445              		.loc 1 68 5 is_stmt 1 view .LVU161
+ 446              	.LBB138:
+ 447              	.LBI138:
+ 270:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 448              		.loc 2 270 20 view .LVU162
+ 449              	.LBB139:
+ 450              		.loc 2 272 5 view .LVU163
+ 451              		.loc 2 272 20 is_stmt 0 view .LVU164
+ 452 00d6 9DF88230 		ldrb	r3, [sp, #130]	@ zero_extendqisi2
+ 453 00da 64F30003 		bfi	r3, r4, #0, #1
+ 454 00de 8DF88230 		strb	r3, [sp, #130]
+ 455              	.LVL36:
+ 456              		.loc 2 272 20 view .LVU165
+ 457              	.LBE139:
+ 458              	.LBE138:
+  69:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_exec_cb(&a5, (lv_anim_exec_xcb_t)set_width);
+ 459              		.loc 1 69 5 is_stmt 1 view .LVU166
+ 460              	.LBB140:
+ 461              	.LBI140:
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 462              		.loc 2 131 20 view .LVU167
+ 463              	.LBB141:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 464              		.loc 2 133 5 view .LVU168
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 465              		.loc 2 133 16 is_stmt 0 view .LVU169
+ 466 00e2 CDF84890 		str	r9, [sp, #72]
+ 467              	.LVL37:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 468              		.loc 2 133 16 view .LVU170
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 17
+
+
+ 469              	.LBE141:
+ 470              	.LBE140:
+  70:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_path_cb(&a5, lv_anim_path_overshoot);
+ 471              		.loc 1 70 5 is_stmt 1 view .LVU171
+ 472              	.LBB142:
+ 473              	.LBI142:
+ 189:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 474              		.loc 2 189 20 view .LVU172
+ 475              	.LBB143:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 476              		.loc 2 191 5 view .LVU173
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 477              		.loc 2 191 16 is_stmt 0 view .LVU174
+ 478 00e6 CDF85C80 		str	r8, [sp, #92]
+ 479              	.LVL38:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 480              		.loc 2 191 16 view .LVU175
+ 481              	.LBE143:
+ 482              	.LBE142:
+  71:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_time(&a5, 300);
+ 483              		.loc 1 71 5 is_stmt 1 view .LVU176
+ 484              	.LBB144:
+ 485              	.LBI144:
+ 141:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 486              		.loc 2 141 20 view .LVU177
+ 487              	.LBB145:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 488              		.loc 2 143 5 view .LVU178
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 489              		.loc 2 143 13 is_stmt 0 view .LVU179
+ 490 00ea 1B95     		str	r5, [sp, #108]
+ 491              	.LVL39:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 492              		.loc 2 143 13 view .LVU180
+ 493              	.LBE145:
+ 494              	.LBE144:
+  72:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  73:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_t a6;
+ 495              		.loc 1 73 5 is_stmt 1 view .LVU181
+  74:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_init(&a6);
+ 496              		.loc 1 74 5 view .LVU182
+ 497 00ec 6846     		mov	r0, sp
+ 498 00ee FFF7FEFF 		bl	lv_anim_init
+ 499              	.LVL40:
+  75:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_var(&a6, obj3);
+ 500              		.loc 1 75 5 view .LVU183
+ 501 00f2 DBF80030 		ldr	r3, [fp]
+ 502              	.LVL41:
+ 503              	.LBB146:
+ 504              	.LBI146:
+ 119:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 505              		.loc 2 119 20 view .LVU184
+ 506              	.LBB147:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 507              		.loc 2 121 5 view .LVU185
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 508              		.loc 2 121 12 is_stmt 0 view .LVU186
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 18
+
+
+ 509 00f6 0093     		str	r3, [sp]
+ 510              	.LVL42:
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 511              		.loc 2 121 12 view .LVU187
+ 512              	.LBE147:
+ 513              	.LBE146:
+  76:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_values(&a6, 0, obj_height);
+ 514              		.loc 1 76 5 is_stmt 1 view .LVU188
+ 515              	.LBB148:
+ 516              	.LBI148:
+ 162:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 517              		.loc 2 162 20 view .LVU189
+ 518              	.LBB149:
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 519              		.loc 2 164 5 view .LVU190
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 520              		.loc 2 164 20 is_stmt 0 view .LVU191
+ 521 00f8 0794     		str	r4, [sp, #28]
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 522              		.loc 2 165 5 is_stmt 1 view .LVU192
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 523              		.loc 2 165 22 is_stmt 0 view .LVU193
+ 524 00fa 0894     		str	r4, [sp, #32]
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 525              		.loc 2 166 5 is_stmt 1 view .LVU194
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 526              		.loc 2 166 18 is_stmt 0 view .LVU195
+ 527 00fc 0997     		str	r7, [sp, #36]
+ 528              	.LVL43:
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 529              		.loc 2 166 18 view .LVU196
+ 530              	.LBE149:
+ 531              	.LBE148:
+  77:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_early_apply(&a6, false);
+ 532              		.loc 1 77 5 is_stmt 1 view .LVU197
+ 533              	.LBB150:
+ 534              	.LBI150:
+ 270:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 535              		.loc 2 270 20 view .LVU198
+ 536              	.LBB151:
+ 537              		.loc 2 272 5 view .LVU199
+ 538              		.loc 2 272 20 is_stmt 0 view .LVU200
+ 539 00fe 9DF83E30 		ldrb	r3, [sp, #62]	@ zero_extendqisi2
+ 540 0102 64F30003 		bfi	r3, r4, #0, #1
+ 541 0106 8DF83E30 		strb	r3, [sp, #62]
+ 542              	.LVL44:
+ 543              		.loc 2 272 20 view .LVU201
+ 544              	.LBE151:
+ 545              	.LBE150:
+  78:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_exec_cb(&a6, (lv_anim_exec_xcb_t)set_height);
+ 546              		.loc 1 78 5 is_stmt 1 view .LVU202
+ 547              	.LBB152:
+ 548              	.LBI152:
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 549              		.loc 2 131 20 view .LVU203
+ 550              	.LBB153:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 19
+
+
+ 551              		.loc 2 133 5 view .LVU204
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 552              		.loc 2 133 16 is_stmt 0 view .LVU205
+ 553 010a 0196     		str	r6, [sp, #4]
+ 554              	.LVL45:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 555              		.loc 2 133 16 view .LVU206
+ 556              	.LBE153:
+ 557              	.LBE152:
+  79:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_path_cb(&a6, lv_anim_path_ease_out);
+ 558              		.loc 1 79 5 is_stmt 1 view .LVU207
+ 559              	.LBB154:
+ 560              	.LBI154:
+ 189:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 561              		.loc 2 189 20 view .LVU208
+ 562              	.LBB155:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 563              		.loc 2 191 5 view .LVU209
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 564              		.loc 2 191 16 is_stmt 0 view .LVU210
+ 565 010c 164B     		ldr	r3, .L3+8
+ 566 010e 0693     		str	r3, [sp, #24]
+ 567              	.LVL46:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 568              		.loc 2 191 16 view .LVU211
+ 569              	.LBE155:
+ 570              	.LBE154:
+  80:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_set_time(&a6, 300);
+ 571              		.loc 1 80 5 is_stmt 1 view .LVU212
+ 572              	.LBB156:
+ 573              	.LBI156:
+ 141:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 574              		.loc 2 141 20 view .LVU213
+ 575              	.LBB157:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 576              		.loc 2 143 5 view .LVU214
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 577              		.loc 2 143 13 is_stmt 0 view .LVU215
+ 578 0110 0A95     		str	r5, [sp, #40]
+ 579              	.LVL47:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 580              		.loc 2 143 13 view .LVU216
+ 581              	.LBE157:
+ 582              	.LBE156:
+  81:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  82:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     /* Create anim timeline */
+  83:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     anim_timeline = lv_anim_timeline_create();
+ 583              		.loc 1 83 5 is_stmt 1 view .LVU217
+ 584              		.loc 1 83 21 is_stmt 0 view .LVU218
+ 585 0112 FFF7FEFF 		bl	lv_anim_timeline_create
+ 586              	.LVL48:
+ 587              		.loc 1 83 19 view .LVU219
+ 588 0116 154D     		ldr	r5, .L3+12
+ 589 0118 2860     		str	r0, [r5]
+  84:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_add(anim_timeline, 0, &a1);
+ 590              		.loc 1 84 5 is_stmt 1 view .LVU220
+ 591 011a 55AA     		add	r2, sp, #340
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 20
+
+
+ 592 011c 2146     		mov	r1, r4
+ 593 011e FFF7FEFF 		bl	lv_anim_timeline_add
+ 594              	.LVL49:
+  85:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_add(anim_timeline, 0, &a2);
+ 595              		.loc 1 85 5 view .LVU221
+ 596 0122 44AA     		add	r2, sp, #272
+ 597 0124 2146     		mov	r1, r4
+ 598 0126 2868     		ldr	r0, [r5]
+ 599 0128 FFF7FEFF 		bl	lv_anim_timeline_add
+ 600              	.LVL50:
+  86:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_add(anim_timeline, 200, &a3);
+ 601              		.loc 1 86 5 view .LVU222
+ 602 012c 33AA     		add	r2, sp, #204
+ 603 012e C821     		movs	r1, #200
+ 604 0130 2868     		ldr	r0, [r5]
+ 605 0132 FFF7FEFF 		bl	lv_anim_timeline_add
+ 606              	.LVL51:
+  87:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_add(anim_timeline, 200, &a4);
+ 607              		.loc 1 87 5 view .LVU223
+ 608 0136 22AA     		add	r2, sp, #136
+ 609 0138 C821     		movs	r1, #200
+ 610 013a 2868     		ldr	r0, [r5]
+ 611 013c FFF7FEFF 		bl	lv_anim_timeline_add
+ 612              	.LVL52:
+  88:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_add(anim_timeline, 400, &a5);
+ 613              		.loc 1 88 5 view .LVU224
+ 614 0140 11AA     		add	r2, sp, #68
+ 615 0142 4FF4C871 		mov	r1, #400
+ 616 0146 2868     		ldr	r0, [r5]
+ 617 0148 FFF7FEFF 		bl	lv_anim_timeline_add
+ 618              	.LVL53:
+  89:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_add(anim_timeline, 400, &a6);
+ 619              		.loc 1 89 5 view .LVU225
+ 620 014c 6A46     		mov	r2, sp
+ 621 014e 4FF4C871 		mov	r1, #400
+ 622 0152 2868     		ldr	r0, [r5]
+ 623 0154 FFF7FEFF 		bl	lv_anim_timeline_add
+ 624              	.LVL54:
+  90:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 625              		.loc 1 90 1 is_stmt 0 view .LVU226
+ 626 0158 67B0     		add	sp, sp, #412
+ 627              	.LCFI2:
+ 628              		.cfi_def_cfa_offset 36
+ 629              		@ sp needed
+ 630 015a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 631              	.L4:
+ 632 015e 00BF     		.align	2
+ 633              	.L3:
+ 634 0160 00000000 		.word	.LANCHOR0
+ 635 0164 00000000 		.word	set_height
+ 636 0168 00000000 		.word	lv_anim_path_ease_out
+ 637 016c 00000000 		.word	.LANCHOR3
+ 638 0170 00000000 		.word	set_width
+ 639 0174 00000000 		.word	lv_anim_path_overshoot
+ 640 0178 00000000 		.word	.LANCHOR1
+ 641 017c 00000000 		.word	.LANCHOR2
+ 642              		.cfi_endproc
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 21
+
+
+ 643              	.LFE191:
+ 645              		.section	.text.set_height,"ax",%progbits
+ 646              		.align	1
+ 647              		.syntax unified
+ 648              		.thumb
+ 649              		.thumb_func
+ 650              		.fpu fpv4-sp-d16
+ 652              	set_height:
+ 653              	.LVL55:
+ 654              	.LFB190:
+  19:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_height((lv_obj_t *)var, v);
+ 655              		.loc 1 19 1 is_stmt 1 view -0
+ 656              		.cfi_startproc
+ 657              		@ args = 0, pretend = 0, frame = 0
+ 658              		@ frame_needed = 0, uses_anonymous_args = 0
+  19:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_height((lv_obj_t *)var, v);
+ 659              		.loc 1 19 1 is_stmt 0 view .LVU228
+ 660 0000 08B5     		push	{r3, lr}
+ 661              	.LCFI3:
+ 662              		.cfi_def_cfa_offset 8
+ 663              		.cfi_offset 3, -8
+ 664              		.cfi_offset 14, -4
+  20:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 665              		.loc 1 20 5 is_stmt 1 view .LVU229
+ 666 0002 09B2     		sxth	r1, r1
+ 667              	.LVL56:
+  20:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 668              		.loc 1 20 5 is_stmt 0 view .LVU230
+ 669 0004 FFF7FEFF 		bl	lv_obj_set_height
+ 670              	.LVL57:
+  21:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 671              		.loc 1 21 1 view .LVU231
+ 672 0008 08BD     		pop	{r3, pc}
+ 673              		.cfi_endproc
+ 674              	.LFE190:
+ 676              		.section	.text.set_width,"ax",%progbits
+ 677              		.align	1
+ 678              		.syntax unified
+ 679              		.thumb
+ 680              		.thumb_func
+ 681              		.fpu fpv4-sp-d16
+ 683              	set_width:
+ 684              	.LVL58:
+ 685              	.LFB189:
+  14:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_width((lv_obj_t *)var, v);
+ 686              		.loc 1 14 1 is_stmt 1 view -0
+ 687              		.cfi_startproc
+ 688              		@ args = 0, pretend = 0, frame = 0
+ 689              		@ frame_needed = 0, uses_anonymous_args = 0
+  14:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_width((lv_obj_t *)var, v);
+ 690              		.loc 1 14 1 is_stmt 0 view .LVU233
+ 691 0000 08B5     		push	{r3, lr}
+ 692              	.LCFI4:
+ 693              		.cfi_def_cfa_offset 8
+ 694              		.cfi_offset 3, -8
+ 695              		.cfi_offset 14, -4
+  15:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 22
+
+
+ 696              		.loc 1 15 5 is_stmt 1 view .LVU234
+ 697 0002 09B2     		sxth	r1, r1
+ 698              	.LVL59:
+  15:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 699              		.loc 1 15 5 is_stmt 0 view .LVU235
+ 700 0004 FFF7FEFF 		bl	lv_obj_set_width
+ 701              	.LVL60:
+  16:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 702              		.loc 1 16 1 view .LVU236
+ 703 0008 08BD     		pop	{r3, pc}
+ 704              		.cfi_endproc
+ 705              	.LFE189:
+ 707              		.section	.text.slider_prg_event_handler,"ax",%progbits
+ 708              		.align	1
+ 709              		.syntax unified
+ 710              		.thumb
+ 711              		.thumb_func
+ 712              		.fpu fpv4-sp-d16
+ 714              	slider_prg_event_handler:
+ 715              	.LVL61:
+ 716              	.LFB195:
+  91:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  92:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static void btn_start_event_handler(lv_event_t * e)
+  93:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** {
+  94:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * btn = lv_event_get_target(e);
+  95:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+  96:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     if (!anim_timeline) {
+  97:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         anim_timeline_create();
+  98:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+  99:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 100:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     bool reverse = lv_obj_has_state(btn, LV_STATE_CHECKED);
+ 101:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_set_reverse(anim_timeline, reverse);
+ 102:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_start(anim_timeline);
+ 103:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 104:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 105:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static void btn_del_event_handler(lv_event_t * e)
+ 106:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** {
+ 107:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     LV_UNUSED(e);
+ 108:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     if (anim_timeline) {
+ 109:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         lv_anim_timeline_del(anim_timeline);
+ 110:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         anim_timeline = NULL;
+ 111:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 112:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 113:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 114:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static void btn_stop_event_handler(lv_event_t * e)
+ 115:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** {
+ 116:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     LV_UNUSED(e);
+ 117:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     if (anim_timeline) {
+ 118:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         lv_anim_timeline_stop(anim_timeline);
+ 119:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 120:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 121:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 122:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** static void slider_prg_event_handler(lv_event_t * e)
+ 123:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** {
+ 717              		.loc 1 123 1 is_stmt 1 view -0
+ 718              		.cfi_startproc
+ 719              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 23
+
+
+ 720              		@ frame_needed = 0, uses_anonymous_args = 0
+ 721              		.loc 1 123 1 is_stmt 0 view .LVU238
+ 722 0000 10B5     		push	{r4, lr}
+ 723              	.LCFI5:
+ 724              		.cfi_def_cfa_offset 8
+ 725              		.cfi_offset 4, -8
+ 726              		.cfi_offset 14, -4
+ 124:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * slider = lv_event_get_target(e);
+ 727              		.loc 1 124 5 is_stmt 1 view .LVU239
+ 728              		.loc 1 124 25 is_stmt 0 view .LVU240
+ 729 0002 FFF7FEFF 		bl	lv_event_get_target
+ 730              	.LVL62:
+ 731              		.loc 1 124 25 view .LVU241
+ 732 0006 0446     		mov	r4, r0
+ 733              	.LVL63:
+ 125:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 126:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     if (!anim_timeline) {
+ 734              		.loc 1 126 5 is_stmt 1 view .LVU242
+ 735              		.loc 1 126 9 is_stmt 0 view .LVU243
+ 736 0008 074B     		ldr	r3, .L13
+ 737 000a 1B68     		ldr	r3, [r3]
+ 738              		.loc 1 126 8 view .LVU244
+ 739 000c 43B1     		cbz	r3, .L12
+ 740              	.LVL64:
+ 741              	.L10:
+ 127:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         anim_timeline_create();
+ 128:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 129:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 130:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     int32_t progress = lv_slider_get_value(slider);
+ 742              		.loc 1 130 5 is_stmt 1 view .LVU245
+ 743              	.LBB158:
+ 744              	.LBI158:
+ 745              		.file 3 "lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h"
+   1:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**
+   2:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @file lv_slider.h
+   3:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  *
+   4:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  */
+   5:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+   6:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #ifndef LV_SLIDER_H
+   7:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #define LV_SLIDER_H
+   8:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+   9:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** extern "C" {
+  11:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #endif
+  12:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  13:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /*********************
+  14:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  *      INCLUDES
+  15:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  *********************/
+  16:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #include "../lv_conf_internal.h"
+  17:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  18:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #if LV_USE_SLIDER != 0
+  19:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  20:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /*Testing of dependencies*/
+  21:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #if LV_USE_BAR == 0
+  22:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #error "lv_slider: lv_bar is required. Enable it in lv_conf.h (LV_USE_BAR 1)"
+  23:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #endif
+  24:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 24
+
+
+  25:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #include "../core/lv_obj.h"
+  26:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** #include "lv_bar.h"
+  27:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  28:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /*********************
+  29:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  *      DEFINES
+  30:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  *********************/
+  31:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  32:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**********************
+  33:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  *      TYPEDEFS
+  34:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  **********************/
+  35:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  36:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** enum {
+  37:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     LV_SLIDER_MODE_NORMAL = LV_BAR_MODE_NORMAL,
+  38:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     LV_SLIDER_MODE_SYMMETRICAL = LV_BAR_MODE_SYMMETRICAL,
+  39:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     LV_SLIDER_MODE_RANGE = LV_BAR_MODE_RANGE
+  40:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** };
+  41:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** typedef uint8_t lv_slider_mode_t;
+  42:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  43:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** typedef struct {
+  44:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     lv_bar_t bar;       /*Add the ancestor's type first*/
+  45:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     lv_area_t left_knob_area;
+  46:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     lv_area_t right_knob_area;
+  47:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     int32_t * value_to_set; /*Which bar value to set*/
+  48:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     uint8_t dragging : 1;       /*1: the slider is being dragged*/
+  49:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     uint8_t left_knob_focus : 1; /*1: with encoder now the right knob can be adjusted*/
+  50:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** }lv_slider_t;
+  51:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  52:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** extern const lv_obj_class_t lv_slider_class;
+  53:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  54:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**
+  55:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * `type` field in `lv_obj_draw_part_dsc_t` if `class_p = lv_slider_class`
+  56:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * Used in `LV_EVENT_DRAW_PART_BEGIN` and `LV_EVENT_DRAW_PART_END`
+  57:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  */
+  58:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** typedef enum {
+  59:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     LV_SLIDER_DRAW_PART_KNOB,           /**< The main (right) knob's rectangle*/
+  60:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     LV_SLIDER_DRAW_PART_KNOB_LEFT,      /**< The left knob's rectangle*/
+  61:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** }lv_slider_draw_part_type_t;
+  62:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  63:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**********************
+  64:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * GLOBAL PROTOTYPES
+  65:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  **********************/
+  66:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  67:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**
+  68:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * Create a slider objects
+  69:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param parent    pointer to an object, it will be the parent of the new slider.
+  70:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @return          pointer to the created slider
+  71:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  */
+  72:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** lv_obj_t * lv_slider_create(lv_obj_t * parent);
+  73:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  74:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /*=====================
+  75:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * Setter functions
+  76:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  *====================*/
+  77:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  78:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**
+  79:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * Set a new value on the slider
+  80:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param obj       pointer to a slider object
+  81:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param value     the new value
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 25
+
+
+  82:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param anim      LV_ANIM_ON: set the value with an animation; LV_ANIM_OFF: change the value imme
+  83:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  */
+  84:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** static inline void lv_slider_set_value(lv_obj_t * obj, int32_t value, lv_anim_enable_t anim)
+  85:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** {
+  86:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     lv_bar_set_value(obj, value, anim);
+  87:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** }
+  88:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+  89:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**
+  90:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * Set a new value for the left knob of a slider
+  91:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param obj       pointer to a slider object
+  92:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param value     new value
+  93:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param anim      LV_ANIM_ON: set the value with an animation; LV_ANIM_OFF: change the value imme
+  94:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  */
+  95:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** static inline void lv_slider_set_left_value(lv_obj_t * obj, int32_t value, lv_anim_enable_t anim)
+  96:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** {
+  97:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     lv_bar_set_start_value(obj, value, anim);
+  98:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** }
+  99:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+ 100:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**
+ 101:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * Set minimum and the maximum values of a bar
+ 102:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param obj       pointer to the slider object
+ 103:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param min       minimum value
+ 104:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param max       maximum value
+ 105:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  */
+ 106:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** static inline void lv_slider_set_range(lv_obj_t * obj, int32_t min, int32_t max)
+ 107:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** {
+ 108:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     lv_bar_set_range(obj, min, max);
+ 109:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** }
+ 110:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+ 111:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**
+ 112:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * Set the mode of slider.
+ 113:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param obj       pointer to a slider object
+ 114:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param mode      the mode of the slider. See ::lv_slider_mode_t
+ 115:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  */
+ 116:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** static inline void lv_slider_set_mode(lv_obj_t * obj, lv_slider_mode_t mode)
+ 117:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** {
+ 118:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     lv_bar_set_mode(obj, (lv_bar_mode_t)mode);
+ 119:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** }
+ 120:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+ 121:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /*=====================
+ 122:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * Getter functions
+ 123:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  *====================*/
+ 124:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** 
+ 125:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** /**
+ 126:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * Get the value of the main knob of a slider
+ 127:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @param obj       pointer to a slider object
+ 128:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  * @return          the value of the main knob of the slider
+ 129:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****  */
+ 130:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** static inline int32_t lv_slider_get_value(const lv_obj_t * obj)
+ 746              		.loc 3 130 23 view .LVU246
+ 747              	.LBB159:
+ 131:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** {
+ 132:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h ****     return lv_bar_get_value(obj);
+ 748              		.loc 3 132 5 view .LVU247
+ 749              		.loc 3 132 12 is_stmt 0 view .LVU248
+ 750 000e 2046     		mov	r0, r4
+ 751 0010 FFF7FEFF 		bl	lv_bar_get_value
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 26
+
+
+ 752              	.LVL65:
+ 753              		.loc 3 132 12 view .LVU249
+ 754              	.LBE159:
+ 755              	.LBE158:
+ 131:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_set_progress(anim_timeline, progress);
+ 756              		.loc 1 131 5 is_stmt 1 view .LVU250
+ 757 0014 81B2     		uxth	r1, r0
+ 758 0016 044B     		ldr	r3, .L13
+ 759 0018 1868     		ldr	r0, [r3]
+ 760              	.LVL66:
+ 761              		.loc 1 131 5 is_stmt 0 view .LVU251
+ 762 001a FFF7FEFF 		bl	lv_anim_timeline_set_progress
+ 763              	.LVL67:
+ 132:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 764              		.loc 1 132 1 view .LVU252
+ 765 001e 10BD     		pop	{r4, pc}
+ 766              	.LVL68:
+ 767              	.L12:
+ 127:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 768              		.loc 1 127 9 is_stmt 1 view .LVU253
+ 769 0020 FFF7FEFF 		bl	anim_timeline_create
+ 770              	.LVL69:
+ 127:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 771              		.loc 1 127 9 is_stmt 0 view .LVU254
+ 772 0024 F3E7     		b	.L10
+ 773              	.L14:
+ 774 0026 00BF     		.align	2
+ 775              	.L13:
+ 776 0028 00000000 		.word	.LANCHOR3
+ 777              		.cfi_endproc
+ 778              	.LFE195:
+ 780              		.section	.text.btn_stop_event_handler,"ax",%progbits
+ 781              		.align	1
+ 782              		.syntax unified
+ 783              		.thumb
+ 784              		.thumb_func
+ 785              		.fpu fpv4-sp-d16
+ 787              	btn_stop_event_handler:
+ 788              	.LVL70:
+ 789              	.LFB194:
+ 115:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     LV_UNUSED(e);
+ 790              		.loc 1 115 1 is_stmt 1 view -0
+ 791              		.cfi_startproc
+ 792              		@ args = 0, pretend = 0, frame = 0
+ 793              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     LV_UNUSED(e);
+ 794              		.loc 1 115 1 is_stmt 0 view .LVU256
+ 795 0000 08B5     		push	{r3, lr}
+ 796              	.LCFI6:
+ 797              		.cfi_def_cfa_offset 8
+ 798              		.cfi_offset 3, -8
+ 799              		.cfi_offset 14, -4
+ 116:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     if (anim_timeline) {
+ 800              		.loc 1 116 5 is_stmt 1 view .LVU257
+ 117:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         lv_anim_timeline_stop(anim_timeline);
+ 801              		.loc 1 117 5 view .LVU258
+ 117:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         lv_anim_timeline_stop(anim_timeline);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 27
+
+
+ 802              		.loc 1 117 9 is_stmt 0 view .LVU259
+ 803 0002 034B     		ldr	r3, .L18
+ 804 0004 1868     		ldr	r0, [r3]
+ 805              	.LVL71:
+ 117:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         lv_anim_timeline_stop(anim_timeline);
+ 806              		.loc 1 117 8 view .LVU260
+ 807 0006 08B1     		cbz	r0, .L15
+ 118:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 808              		.loc 1 118 9 is_stmt 1 view .LVU261
+ 809 0008 FFF7FEFF 		bl	lv_anim_timeline_stop
+ 810              	.LVL72:
+ 811              	.L15:
+ 120:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 812              		.loc 1 120 1 is_stmt 0 view .LVU262
+ 813 000c 08BD     		pop	{r3, pc}
+ 814              	.L19:
+ 815 000e 00BF     		.align	2
+ 816              	.L18:
+ 817 0010 00000000 		.word	.LANCHOR3
+ 818              		.cfi_endproc
+ 819              	.LFE194:
+ 821              		.section	.text.btn_del_event_handler,"ax",%progbits
+ 822              		.align	1
+ 823              		.syntax unified
+ 824              		.thumb
+ 825              		.thumb_func
+ 826              		.fpu fpv4-sp-d16
+ 828              	btn_del_event_handler:
+ 829              	.LVL73:
+ 830              	.LFB193:
+ 106:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     LV_UNUSED(e);
+ 831              		.loc 1 106 1 is_stmt 1 view -0
+ 832              		.cfi_startproc
+ 833              		@ args = 0, pretend = 0, frame = 0
+ 834              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     LV_UNUSED(e);
+ 835              		.loc 1 106 1 is_stmt 0 view .LVU264
+ 836 0000 08B5     		push	{r3, lr}
+ 837              	.LCFI7:
+ 838              		.cfi_def_cfa_offset 8
+ 839              		.cfi_offset 3, -8
+ 840              		.cfi_offset 14, -4
+ 107:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     if (anim_timeline) {
+ 841              		.loc 1 107 5 is_stmt 1 view .LVU265
+ 108:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         lv_anim_timeline_del(anim_timeline);
+ 842              		.loc 1 108 5 view .LVU266
+ 108:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         lv_anim_timeline_del(anim_timeline);
+ 843              		.loc 1 108 9 is_stmt 0 view .LVU267
+ 844 0002 044B     		ldr	r3, .L23
+ 845 0004 1868     		ldr	r0, [r3]
+ 846              	.LVL74:
+ 108:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         lv_anim_timeline_del(anim_timeline);
+ 847              		.loc 1 108 8 view .LVU268
+ 848 0006 20B1     		cbz	r0, .L20
+ 109:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         anim_timeline = NULL;
+ 849              		.loc 1 109 9 is_stmt 1 view .LVU269
+ 850 0008 FFF7FEFF 		bl	lv_anim_timeline_del
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 28
+
+
+ 851              	.LVL75:
+ 110:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 852              		.loc 1 110 9 view .LVU270
+ 110:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 853              		.loc 1 110 23 is_stmt 0 view .LVU271
+ 854 000c 014B     		ldr	r3, .L23
+ 855 000e 0022     		movs	r2, #0
+ 856 0010 1A60     		str	r2, [r3]
+ 857              	.L20:
+ 112:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 858              		.loc 1 112 1 view .LVU272
+ 859 0012 08BD     		pop	{r3, pc}
+ 860              	.L24:
+ 861              		.align	2
+ 862              	.L23:
+ 863 0014 00000000 		.word	.LANCHOR3
+ 864              		.cfi_endproc
+ 865              	.LFE193:
+ 867              		.section	.text.btn_start_event_handler,"ax",%progbits
+ 868              		.align	1
+ 869              		.syntax unified
+ 870              		.thumb
+ 871              		.thumb_func
+ 872              		.fpu fpv4-sp-d16
+ 874              	btn_start_event_handler:
+ 875              	.LVL76:
+ 876              	.LFB192:
+  93:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * btn = lv_event_get_target(e);
+ 877              		.loc 1 93 1 is_stmt 1 view -0
+ 878              		.cfi_startproc
+ 879              		@ args = 0, pretend = 0, frame = 0
+ 880              		@ frame_needed = 0, uses_anonymous_args = 0
+  93:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * btn = lv_event_get_target(e);
+ 881              		.loc 1 93 1 is_stmt 0 view .LVU274
+ 882 0000 10B5     		push	{r4, lr}
+ 883              	.LCFI8:
+ 884              		.cfi_def_cfa_offset 8
+ 885              		.cfi_offset 4, -8
+ 886              		.cfi_offset 14, -4
+  94:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 887              		.loc 1 94 5 is_stmt 1 view .LVU275
+  94:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 888              		.loc 1 94 22 is_stmt 0 view .LVU276
+ 889 0002 FFF7FEFF 		bl	lv_event_get_target
+ 890              	.LVL77:
+  94:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 891              		.loc 1 94 22 view .LVU277
+ 892 0006 0446     		mov	r4, r0
+ 893              	.LVL78:
+  96:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         anim_timeline_create();
+ 894              		.loc 1 96 5 is_stmt 1 view .LVU278
+  96:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         anim_timeline_create();
+ 895              		.loc 1 96 9 is_stmt 0 view .LVU279
+ 896 0008 094B     		ldr	r3, .L29
+ 897 000a 1B68     		ldr	r3, [r3]
+  96:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****         anim_timeline_create();
+ 898              		.loc 1 96 8 view .LVU280
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 29
+
+
+ 899 000c 63B1     		cbz	r3, .L28
+ 900              	.LVL79:
+ 901              	.L26:
+ 100:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_set_reverse(anim_timeline, reverse);
+ 902              		.loc 1 100 5 is_stmt 1 view .LVU281
+ 100:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_set_reverse(anim_timeline, reverse);
+ 903              		.loc 1 100 20 is_stmt 0 view .LVU282
+ 904 000e 0121     		movs	r1, #1
+ 905 0010 2046     		mov	r0, r4
+ 906 0012 FFF7FEFF 		bl	lv_obj_has_state
+ 907              	.LVL80:
+ 908 0016 0146     		mov	r1, r0
+ 909              	.LVL81:
+ 101:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_start(anim_timeline);
+ 910              		.loc 1 101 5 is_stmt 1 view .LVU283
+ 911 0018 054C     		ldr	r4, .L29
+ 912              	.LVL82:
+ 101:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_anim_timeline_start(anim_timeline);
+ 913              		.loc 1 101 5 is_stmt 0 view .LVU284
+ 914 001a 2068     		ldr	r0, [r4]
+ 915 001c FFF7FEFF 		bl	lv_anim_timeline_set_reverse
+ 916              	.LVL83:
+ 102:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 917              		.loc 1 102 5 is_stmt 1 view .LVU285
+ 918 0020 2068     		ldr	r0, [r4]
+ 919 0022 FFF7FEFF 		bl	lv_anim_timeline_start
+ 920              	.LVL84:
+ 103:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 921              		.loc 1 103 1 is_stmt 0 view .LVU286
+ 922 0026 10BD     		pop	{r4, pc}
+ 923              	.LVL85:
+ 924              	.L28:
+  97:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 925              		.loc 1 97 9 is_stmt 1 view .LVU287
+ 926 0028 FFF7FEFF 		bl	anim_timeline_create
+ 927              	.LVL86:
+  97:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     }
+ 928              		.loc 1 97 9 is_stmt 0 view .LVU288
+ 929 002c EFE7     		b	.L26
+ 930              	.L30:
+ 931 002e 00BF     		.align	2
+ 932              	.L29:
+ 933 0030 00000000 		.word	.LANCHOR3
+ 934              		.cfi_endproc
+ 935              	.LFE192:
+ 937              		.section	.rodata.lv_example_anim_timeline_1.str1.4,"aMS",%progbits,1
+ 938              		.align	2
+ 939              	.LC0:
+ 940 0000 53746172 		.ascii	"Start\000"
+ 940      7400
+ 941 0006 0000     		.align	2
+ 942              	.LC1:
+ 943 0008 44656C65 		.ascii	"Delete\000"
+ 943      746500
+ 944 000f 00       		.align	2
+ 945              	.LC2:
+ 946 0010 53746F70 		.ascii	"Stop\000"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 30
+
+
+ 946      00
+ 947              		.section	.text.lv_example_anim_timeline_1,"ax",%progbits
+ 948              		.align	1
+ 949              		.global	lv_example_anim_timeline_1
+ 950              		.syntax unified
+ 951              		.thumb
+ 952              		.thumb_func
+ 953              		.fpu fpv4-sp-d16
+ 955              	lv_example_anim_timeline_1:
+ 956              	.LFB196:
+ 133:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 134:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** /**
+ 135:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****  * Create an animation timeline
+ 136:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****  */
+ 137:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** void lv_example_anim_timeline_1(void)
+ 138:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** {
+ 957              		.loc 1 138 1 is_stmt 1 view -0
+ 958              		.cfi_startproc
+ 959              		@ args = 0, pretend = 0, frame = 0
+ 960              		@ frame_needed = 0, uses_anonymous_args = 0
+ 961 0000 38B5     		push	{r3, r4, r5, lr}
+ 962              	.LCFI9:
+ 963              		.cfi_def_cfa_offset 16
+ 964              		.cfi_offset 3, -16
+ 965              		.cfi_offset 4, -12
+ 966              		.cfi_offset 5, -8
+ 967              		.cfi_offset 14, -4
+ 139:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * par = lv_scr_act();
+ 968              		.loc 1 139 5 view .LVU290
+ 969              	.LBB160:
+ 970              	.LBI160:
+ 971              		.file 4 "lvgl/lvgl/examples/anim/../../src/core/lv_disp.h"
+   1:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+   2:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @file lv_disp.h
+   3:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *
+   4:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+   5:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+   6:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #ifndef LV_DISP_H
+   7:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #define LV_DISP_H
+   8:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+   9:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** extern "C" {
+  11:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #endif
+  12:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  13:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /*********************
+  14:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *      INCLUDES
+  15:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *********************/
+  16:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #include "../hal/lv_hal.h"
+  17:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #include "lv_obj.h"
+  18:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #include "lv_theme.h"
+  19:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  20:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /*********************
+  21:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *      DEFINES
+  22:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *********************/
+  23:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  24:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**********************
+  25:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *      TYPEDEFS
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 31
+
+
+  26:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  **********************/
+  27:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  28:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** typedef enum {
+  29:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** } lv_scr_load_anim_t;
+  40:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  41:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**********************
+  42:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  **********************/
+  44:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  45:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  46:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Return with a pointer to the active screen
+  47:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * screen)
+  49:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  51:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  53:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  54:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * screen)
+  57:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  59:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  61:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  62:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Make a screen active
+  63:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param scr pointer to a screen
+  64:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  65:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  67:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  68:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  72:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  74:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  75:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * layer)
+  77:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  80:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  82:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 32
+
+
+  83:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get the theme of a display
+  84:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  85:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  87:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  89:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  90:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get the theme of a display
+  91:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  92:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  94:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  96:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  97:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Set the background color of a display
+  98:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  99:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param color color of the background
+ 100:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 101:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 103:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 104:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Set the background image of a display
+ 105:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 106:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 108:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 110:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 111:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Opacity of the background
+ 112:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 113:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param opa opacity (0..255)
+ 114:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 115:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 117:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 118:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Switch screen with animation
+ 119:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param time time of the animation
+ 122:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param delay delay before the transition
+ 123:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 125:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 127:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 128:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 132:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 134:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 135:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Manually trigger an activity on a display
+ 136:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 138:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 33
+
+
+ 140:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 141:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 144:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 146:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 147:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 150:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 152:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 154:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /*------------------------------------------------
+ 155:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * To improve backward compatibility
+ 156:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Recommended only if you have one display
+ 157:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *------------------------------------------------*/
+ 158:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 159:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 160:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get the active screen of the default display
+ 161:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the active screen
+ 162:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 163:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 972              		.loc 4 163 26 view .LVU291
+ 973              	.LBB161:
+ 164:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** {
+ 165:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 974              		.loc 4 165 5 view .LVU292
+ 975              		.loc 4 165 12 is_stmt 0 view .LVU293
+ 976 0002 FFF7FEFF 		bl	lv_disp_get_default
+ 977              	.LVL87:
+ 978 0006 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 979              	.LVL88:
+ 980 000a 0446     		mov	r4, r0
+ 981              	.LVL89:
+ 982              		.loc 4 165 12 view .LVU294
+ 983              	.LBE161:
+ 984              	.LBE160:
+ 140:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_flex_flow(par, LV_FLEX_FLOW_ROW);
+ 985              		.loc 1 140 5 is_stmt 1 view .LVU295
+ 986 000c 0021     		movs	r1, #0
+ 987 000e FFF7FEFF 		bl	lv_obj_set_flex_flow
+ 988              	.LVL90:
+ 141:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_flex_align(par, LV_FLEX_ALIGN_SPACE_AROUND, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_CENT
+ 989              		.loc 1 141 5 view .LVU296
+ 990 0012 0223     		movs	r3, #2
+ 991 0014 1A46     		mov	r2, r3
+ 992 0016 0421     		movs	r1, #4
+ 993 0018 2046     		mov	r0, r4
+ 994 001a FFF7FEFF 		bl	lv_obj_set_flex_align
+ 995              	.LVL91:
+ 142:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 143:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     /* create btn_start */
+ 144:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * btn_start = lv_btn_create(par);
+ 996              		.loc 1 144 5 view .LVU297
+ 997              		.loc 1 144 28 is_stmt 0 view .LVU298
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 34
+
+
+ 998 001e 2046     		mov	r0, r4
+ 999 0020 FFF7FEFF 		bl	lv_btn_create
+ 1000              	.LVL92:
+ 1001 0024 0546     		mov	r5, r0
+ 1002              	.LVL93:
+ 145:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_add_event_cb(btn_start, btn_start_event_handler, LV_EVENT_VALUE_CHANGED, NULL);
+ 1003              		.loc 1 145 5 is_stmt 1 view .LVU299
+ 1004 0026 0023     		movs	r3, #0
+ 1005 0028 1C22     		movs	r2, #28
+ 1006 002a 4C49     		ldr	r1, .L33
+ 1007 002c FFF7FEFF 		bl	lv_obj_add_event_cb
+ 1008              	.LVL94:
+ 146:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_add_flag(btn_start, LV_OBJ_FLAG_IGNORE_LAYOUT);
+ 1009              		.loc 1 146 5 view .LVU300
+ 1010 0030 4FF40041 		mov	r1, #32768
+ 1011 0034 2846     		mov	r0, r5
+ 1012 0036 FFF7FEFF 		bl	lv_obj_add_flag
+ 1013              	.LVL95:
+ 147:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_add_flag(btn_start, LV_OBJ_FLAG_CHECKABLE);
+ 1014              		.loc 1 147 5 view .LVU301
+ 1015 003a 0821     		movs	r1, #8
+ 1016 003c 2846     		mov	r0, r5
+ 1017 003e FFF7FEFF 		bl	lv_obj_add_flag
+ 1018              	.LVL96:
+ 148:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_align(btn_start, LV_ALIGN_TOP_MID, -100, 20);
+ 1019              		.loc 1 148 5 view .LVU302
+ 1020 0042 1423     		movs	r3, #20
+ 1021 0044 6FF06302 		mvn	r2, #99
+ 1022 0048 0221     		movs	r1, #2
+ 1023 004a 2846     		mov	r0, r5
+ 1024 004c FFF7FEFF 		bl	lv_obj_align
+ 1025              	.LVL97:
+ 149:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 150:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * label_start = lv_label_create(btn_start);
+ 1026              		.loc 1 150 5 view .LVU303
+ 1027              		.loc 1 150 30 is_stmt 0 view .LVU304
+ 1028 0050 2846     		mov	r0, r5
+ 1029 0052 FFF7FEFF 		bl	lv_label_create
+ 1030              	.LVL98:
+ 1031 0056 0546     		mov	r5, r0
+ 1032              	.LVL99:
+ 151:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_label_set_text(label_start, "Start");
+ 1033              		.loc 1 151 5 is_stmt 1 view .LVU305
+ 1034 0058 4149     		ldr	r1, .L33+4
+ 1035 005a FFF7FEFF 		bl	lv_label_set_text
+ 1036              	.LVL100:
+ 152:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_center(label_start);
+ 1037              		.loc 1 152 5 view .LVU306
+ 1038              	.LBB162:
+ 1039              	.LBI162:
+ 1040              		.file 5 "lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h"
+   1:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+   2:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @file lv_obj_pos.h
+   3:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *
+   4:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+   5:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+   6:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** #ifndef LV_OBJ_POS_H
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 35
+
+
+   7:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** #define LV_OBJ_POS_H
+   8:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+   9:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** extern "C" {
+  11:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** #endif
+  12:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  13:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /*********************
+  14:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *      INCLUDES
+  15:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *********************/
+  16:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** #include "../misc/lv_area.h"
+  17:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  18:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /*********************
+  19:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *      DEFINES
+  20:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *********************/
+  21:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  22:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**********************
+  23:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *      TYPEDEFS
+  24:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  **********************/
+  25:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** struct _lv_obj_t;
+  26:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  27:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** typedef void (*lv_layout_update_cb_t)(struct _lv_obj_t *, void * user_data);
+  28:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** typedef struct {
+  29:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****     lv_layout_update_cb_t cb;
+  30:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****     void * user_data;
+  31:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** }lv_layout_dsc_t;
+  32:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  33:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**********************
+  34:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * GLOBAL PROTOTYPES
+  35:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  **********************/
+  36:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  37:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+  38:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Set the relative the position of an object (relative to the parent's top left corner)
+  39:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  40:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param x         new distance from the left side of the parent plus the parent's left padding
+  41:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param y         new distance from the top side of the parent  plus the parent's right padding
+  42:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+  43:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_pos(struct _lv_obj_t * obj, lv_coord_t x, lv_coord_t y);
+  44:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  45:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+  46:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Set the x coordinate of a object
+  47:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  48:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param x         new distance from the left side from the parent plus the parent's left padding
+  49:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+  50:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_x(struct _lv_obj_t * obj, lv_coord_t x);
+  51:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  52:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+  53:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Set the y coordinate of a object
+  54:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  55:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param y         new distance from the top of the parent  plus the parent's top padding
+  56:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+  57:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_y(struct _lv_obj_t * obj, lv_coord_t y);
+  58:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  59:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+  60:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Set the size of an object.
+  61:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  62:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param w         the new width
+  63:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param h         the new height
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 36
+
+
+  64:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @note            possible values are:
+  65:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  66:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  67:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_PCT(x)     to set size in percentage of the parent's content area size 
+  68:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  69:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+  70:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_size(struct _lv_obj_t * obj, lv_coord_t w, lv_coord_t h);
+  71:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  72:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+  73:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Recalculate the size of the object
+  74:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  75:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @return          true: the size has been changed
+  76:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+  77:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** bool lv_obj_refr_size(struct _lv_obj_t * obj);
+  78:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  79:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+  80:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Set the width of an object
+  81:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  82:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param w         the new width
+  83:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @note            possible values are:
+  84:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  85:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  86:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  87:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  88:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+  89:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_width(struct _lv_obj_t * obj, lv_coord_t w);
+  90:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+  91:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+  92:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Set the height of an object
+  93:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  94:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param h         the new height
+  95:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @note            possible values are:
+  96:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  97:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  98:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  99:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+ 100:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 101:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 102:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 103:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 104:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Set the width reduced by the left and right padding and the border width.
+ 105:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+ 106:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param w         the width without paddings in pixels
+ 107:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 108:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_content_width(struct _lv_obj_t * obj, lv_coord_t w);
+ 109:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 110:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 111:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Set the height reduced by the top and bottom padding and the border width.
+ 112:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+ 113:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param h         the height without paddings in pixels
+ 114:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 115:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_content_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 116:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 117:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 118:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Set a layout for an object
+ 119:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+ 120:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param layout    pointer to a layout descriptor to set
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 37
+
+
+ 121:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 122:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_layout(struct _lv_obj_t * obj, uint32_t layout);
+ 123:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 124:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 125:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Test whether the and object is positioned by a layout or not
+ 126:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to test
+ 127:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @return true:    positioned by a layout; false: not positioned by a layout
+ 128:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 129:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** bool lv_obj_is_layout_positioned(const struct _lv_obj_t * obj);
+ 130:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 131:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 132:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Mark the object for layout update.
+ 133:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 134:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 135:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_mark_layout_as_dirty(struct _lv_obj_t * obj);
+ 136:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 137:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 138:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Update the layout of an object.
+ 139:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 140:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 141:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_update_layout(const struct _lv_obj_t * obj);
+ 142:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 143:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 144:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Regsiter a new layout
+ 145:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param cb        the layout update callback
+ 146:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param user_data custom data that will be passed to `cb`
+ 147:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @return          the ID of the new layout
+ 148:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 149:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** uint32_t lv_layout_register(lv_layout_update_cb_t cb, void * user_data);
+ 150:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 151:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 152:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Change the alignment of an object.
+ 153:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 154:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 155:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 156:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_set_align(struct _lv_obj_t * obj, lv_align_t align);
+ 157:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 158:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 159:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Change the alignment of an object and set new coordinates.
+ 160:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Equivalent to:
+ 161:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * lv_obj_set_align(obj, align);
+ 162:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * lv_obj_set_pos(obj, x_ofs, y_ofs);
+ 163:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 164:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 165:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 166:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 167:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 168:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_align(struct _lv_obj_t * obj, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs);
+ 169:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 170:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 171:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Align an object to an other object.
+ 172:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 173:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param base      pointer to an other object (if NULL `obj`s parent is used). 'obj' will be align
+ 174:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum)
+ 175:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 176:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 177:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @note            if the position or size of `base` changes `obj` needs to be aligned manually ag
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 38
+
+
+ 178:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 179:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** void lv_obj_align_to(struct _lv_obj_t * obj, const struct _lv_obj_t * base, lv_align_t align, lv_co
+ 180:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** 
+ 181:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** /**
+ 182:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * Align an object to the center on its parent.
+ 183:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 184:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  * @note            if the parent size changes `obj` needs to be aligned manually again
+ 185:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****  */
+ 186:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** static inline void lv_obj_center(struct _lv_obj_t * obj)
+ 1041              		.loc 5 186 20 view .LVU307
+ 1042              	.LBB163:
+ 187:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** {
+ 188:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h ****     lv_obj_align(obj, LV_ALIGN_CENTER, 0, 0);
+ 1043              		.loc 5 188 5 view .LVU308
+ 1044 005e 0023     		movs	r3, #0
+ 1045 0060 1A46     		mov	r2, r3
+ 1046 0062 0921     		movs	r1, #9
+ 1047 0064 2846     		mov	r0, r5
+ 1048 0066 FFF7FEFF 		bl	lv_obj_align
+ 1049              	.LVL101:
+ 1050              		.loc 5 188 5 is_stmt 0 view .LVU309
+ 1051              	.LBE163:
+ 1052              	.LBE162:
+ 153:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 154:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     /* create btn_del */
+ 155:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * btn_del = lv_btn_create(par);
+ 1053              		.loc 1 155 5 is_stmt 1 view .LVU310
+ 1054              		.loc 1 155 26 is_stmt 0 view .LVU311
+ 1055 006a 2046     		mov	r0, r4
+ 1056 006c FFF7FEFF 		bl	lv_btn_create
+ 1057              	.LVL102:
+ 1058 0070 0546     		mov	r5, r0
+ 1059              	.LVL103:
+ 156:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_add_event_cb(btn_del, btn_del_event_handler, LV_EVENT_CLICKED, NULL);
+ 1060              		.loc 1 156 5 is_stmt 1 view .LVU312
+ 1061 0072 0023     		movs	r3, #0
+ 1062 0074 0722     		movs	r2, #7
+ 1063 0076 3B49     		ldr	r1, .L33+8
+ 1064 0078 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 1065              	.LVL104:
+ 157:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_add_flag(btn_del, LV_OBJ_FLAG_IGNORE_LAYOUT);
+ 1066              		.loc 1 157 5 view .LVU313
+ 1067 007c 4FF40041 		mov	r1, #32768
+ 1068 0080 2846     		mov	r0, r5
+ 1069 0082 FFF7FEFF 		bl	lv_obj_add_flag
+ 1070              	.LVL105:
+ 158:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_align(btn_del, LV_ALIGN_TOP_MID, 0, 20);
+ 1071              		.loc 1 158 5 view .LVU314
+ 1072 0086 1423     		movs	r3, #20
+ 1073 0088 0022     		movs	r2, #0
+ 1074 008a 0221     		movs	r1, #2
+ 1075 008c 2846     		mov	r0, r5
+ 1076 008e FFF7FEFF 		bl	lv_obj_align
+ 1077              	.LVL106:
+ 159:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 160:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * label_del = lv_label_create(btn_del);
+ 1078              		.loc 1 160 5 view .LVU315
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 39
+
+
+ 1079              		.loc 1 160 28 is_stmt 0 view .LVU316
+ 1080 0092 2846     		mov	r0, r5
+ 1081 0094 FFF7FEFF 		bl	lv_label_create
+ 1082              	.LVL107:
+ 1083 0098 0546     		mov	r5, r0
+ 1084              	.LVL108:
+ 161:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_label_set_text(label_del, "Delete");
+ 1085              		.loc 1 161 5 is_stmt 1 view .LVU317
+ 1086 009a 3349     		ldr	r1, .L33+12
+ 1087 009c FFF7FEFF 		bl	lv_label_set_text
+ 1088              	.LVL109:
+ 162:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_center(label_del);
+ 1089              		.loc 1 162 5 view .LVU318
+ 1090              	.LBB164:
+ 1091              	.LBI164:
+ 186:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** {
+ 1092              		.loc 5 186 20 view .LVU319
+ 1093              	.LBB165:
+ 1094              		.loc 5 188 5 view .LVU320
+ 1095 00a0 0023     		movs	r3, #0
+ 1096 00a2 1A46     		mov	r2, r3
+ 1097 00a4 0921     		movs	r1, #9
+ 1098 00a6 2846     		mov	r0, r5
+ 1099 00a8 FFF7FEFF 		bl	lv_obj_align
+ 1100              	.LVL110:
+ 1101              		.loc 5 188 5 is_stmt 0 view .LVU321
+ 1102              	.LBE165:
+ 1103              	.LBE164:
+ 163:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 164:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     /* create btn_stop */
+ 165:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * btn_stop = lv_btn_create(par);
+ 1104              		.loc 1 165 5 is_stmt 1 view .LVU322
+ 1105              		.loc 1 165 27 is_stmt 0 view .LVU323
+ 1106 00ac 2046     		mov	r0, r4
+ 1107 00ae FFF7FEFF 		bl	lv_btn_create
+ 1108              	.LVL111:
+ 1109 00b2 0546     		mov	r5, r0
+ 1110              	.LVL112:
+ 166:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_add_event_cb(btn_stop, btn_stop_event_handler, LV_EVENT_CLICKED, NULL);
+ 1111              		.loc 1 166 5 is_stmt 1 view .LVU324
+ 1112 00b4 0023     		movs	r3, #0
+ 1113 00b6 0722     		movs	r2, #7
+ 1114 00b8 2C49     		ldr	r1, .L33+16
+ 1115 00ba FFF7FEFF 		bl	lv_obj_add_event_cb
+ 1116              	.LVL113:
+ 167:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_add_flag(btn_stop, LV_OBJ_FLAG_IGNORE_LAYOUT);
+ 1117              		.loc 1 167 5 view .LVU325
+ 1118 00be 4FF40041 		mov	r1, #32768
+ 1119 00c2 2846     		mov	r0, r5
+ 1120 00c4 FFF7FEFF 		bl	lv_obj_add_flag
+ 1121              	.LVL114:
+ 168:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_align(btn_stop, LV_ALIGN_TOP_MID, 100, 20);
+ 1122              		.loc 1 168 5 view .LVU326
+ 1123 00c8 1423     		movs	r3, #20
+ 1124 00ca 6422     		movs	r2, #100
+ 1125 00cc 0221     		movs	r1, #2
+ 1126 00ce 2846     		mov	r0, r5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 40
+
+
+ 1127 00d0 FFF7FEFF 		bl	lv_obj_align
+ 1128              	.LVL115:
+ 169:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 170:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * label_stop = lv_label_create(btn_stop);
+ 1129              		.loc 1 170 5 view .LVU327
+ 1130              		.loc 1 170 29 is_stmt 0 view .LVU328
+ 1131 00d4 2846     		mov	r0, r5
+ 1132 00d6 FFF7FEFF 		bl	lv_label_create
+ 1133              	.LVL116:
+ 1134 00da 0546     		mov	r5, r0
+ 1135              	.LVL117:
+ 171:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_label_set_text(label_stop, "Stop");
+ 1136              		.loc 1 171 5 is_stmt 1 view .LVU329
+ 1137 00dc 2449     		ldr	r1, .L33+20
+ 1138 00de FFF7FEFF 		bl	lv_label_set_text
+ 1139              	.LVL118:
+ 172:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_center(label_stop);
+ 1140              		.loc 1 172 5 view .LVU330
+ 1141              	.LBB166:
+ 1142              	.LBI166:
+ 186:lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h **** {
+ 1143              		.loc 5 186 20 view .LVU331
+ 1144              	.LBB167:
+ 1145              		.loc 5 188 5 view .LVU332
+ 1146 00e2 0023     		movs	r3, #0
+ 1147 00e4 1A46     		mov	r2, r3
+ 1148 00e6 0921     		movs	r1, #9
+ 1149 00e8 2846     		mov	r0, r5
+ 1150 00ea FFF7FEFF 		bl	lv_obj_align
+ 1151              	.LVL119:
+ 1152              		.loc 5 188 5 is_stmt 0 view .LVU333
+ 1153              	.LBE167:
+ 1154              	.LBE166:
+ 173:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 174:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     /* create slider_prg */
+ 175:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_t * slider_prg = lv_slider_create(par);
+ 1155              		.loc 1 175 5 is_stmt 1 view .LVU334
+ 1156              		.loc 1 175 29 is_stmt 0 view .LVU335
+ 1157 00ee 2046     		mov	r0, r4
+ 1158 00f0 FFF7FEFF 		bl	lv_slider_create
+ 1159              	.LVL120:
+ 1160 00f4 0546     		mov	r5, r0
+ 1161              	.LVL121:
+ 176:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_add_event_cb(slider_prg, slider_prg_event_handler, LV_EVENT_VALUE_CHANGED, NULL);
+ 1162              		.loc 1 176 5 is_stmt 1 view .LVU336
+ 1163 00f6 0023     		movs	r3, #0
+ 1164 00f8 1C22     		movs	r2, #28
+ 1165 00fa 1E49     		ldr	r1, .L33+24
+ 1166 00fc FFF7FEFF 		bl	lv_obj_add_event_cb
+ 1167              	.LVL122:
+ 177:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_add_flag(slider_prg, LV_OBJ_FLAG_IGNORE_LAYOUT);
+ 1168              		.loc 1 177 5 view .LVU337
+ 1169 0100 4FF40041 		mov	r1, #32768
+ 1170 0104 2846     		mov	r0, r5
+ 1171 0106 FFF7FEFF 		bl	lv_obj_add_flag
+ 1172              	.LVL123:
+ 178:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_align(slider_prg, LV_ALIGN_BOTTOM_MID, 0, -20);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 41
+
+
+ 1173              		.loc 1 178 5 view .LVU338
+ 1174 010a 6FF01303 		mvn	r3, #19
+ 1175 010e 0022     		movs	r2, #0
+ 1176 0110 0521     		movs	r1, #5
+ 1177 0112 2846     		mov	r0, r5
+ 1178 0114 FFF7FEFF 		bl	lv_obj_align
+ 1179              	.LVL124:
+ 179:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_slider_set_range(slider_prg, 0, 65535);
+ 1180              		.loc 1 179 5 view .LVU339
+ 1181              	.LBB168:
+ 1182              	.LBI168:
+ 106:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** {
+ 1183              		.loc 3 106 20 view .LVU340
+ 1184              	.LBB169:
+ 108:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** }
+ 1185              		.loc 3 108 5 view .LVU341
+ 1186 0118 4FF6FF72 		movw	r2, #65535
+ 1187 011c 0021     		movs	r1, #0
+ 1188 011e 2846     		mov	r0, r5
+ 1189 0120 FFF7FEFF 		bl	lv_bar_set_range
+ 1190              	.LVL125:
+ 108:lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h **** }
+ 1191              		.loc 3 108 5 is_stmt 0 view .LVU342
+ 1192              	.LBE169:
+ 1193              	.LBE168:
+ 180:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 181:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     /* create 3 objects */
+ 182:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     obj1 = lv_obj_create(par);
+ 1194              		.loc 1 182 5 is_stmt 1 view .LVU343
+ 1195              		.loc 1 182 12 is_stmt 0 view .LVU344
+ 1196 0124 2046     		mov	r0, r4
+ 1197 0126 FFF7FEFF 		bl	lv_obj_create
+ 1198              	.LVL126:
+ 1199              		.loc 1 182 10 view .LVU345
+ 1200 012a 134B     		ldr	r3, .L33+28
+ 1201 012c 1860     		str	r0, [r3]
+ 183:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_size(obj1, obj_width, obj_height);
+ 1202              		.loc 1 183 5 is_stmt 1 view .LVU346
+ 1203 012e 4622     		movs	r2, #70
+ 1204 0130 5A21     		movs	r1, #90
+ 1205 0132 FFF7FEFF 		bl	lv_obj_set_size
+ 1206              	.LVL127:
+ 184:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 185:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     obj2 = lv_obj_create(par);
+ 1207              		.loc 1 185 5 view .LVU347
+ 1208              		.loc 1 185 12 is_stmt 0 view .LVU348
+ 1209 0136 2046     		mov	r0, r4
+ 1210 0138 FFF7FEFF 		bl	lv_obj_create
+ 1211              	.LVL128:
+ 1212              		.loc 1 185 10 view .LVU349
+ 1213 013c 0F4B     		ldr	r3, .L33+32
+ 1214 013e 1860     		str	r0, [r3]
+ 186:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_size(obj2, obj_width, obj_height);
+ 1215              		.loc 1 186 5 is_stmt 1 view .LVU350
+ 1216 0140 4622     		movs	r2, #70
+ 1217 0142 5A21     		movs	r1, #90
+ 1218 0144 FFF7FEFF 		bl	lv_obj_set_size
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 42
+
+
+ 1219              	.LVL129:
+ 187:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** 
+ 188:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     obj3 = lv_obj_create(par);
+ 1220              		.loc 1 188 5 view .LVU351
+ 1221              		.loc 1 188 12 is_stmt 0 view .LVU352
+ 1222 0148 2046     		mov	r0, r4
+ 1223 014a FFF7FEFF 		bl	lv_obj_create
+ 1224              	.LVL130:
+ 1225              		.loc 1 188 10 view .LVU353
+ 1226 014e 0C4B     		ldr	r3, .L33+36
+ 1227 0150 1860     		str	r0, [r3]
+ 189:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c ****     lv_obj_set_size(obj3, obj_width, obj_height);
+ 1228              		.loc 1 189 5 is_stmt 1 view .LVU354
+ 1229 0152 4622     		movs	r2, #70
+ 1230 0154 5A21     		movs	r1, #90
+ 1231 0156 FFF7FEFF 		bl	lv_obj_set_size
+ 1232              	.LVL131:
+ 190:lvgl/lvgl/examples/anim/lv_example_anim_timeline_1.c **** }
+ 1233              		.loc 1 190 1 is_stmt 0 view .LVU355
+ 1234 015a 38BD     		pop	{r3, r4, r5, pc}
+ 1235              	.LVL132:
+ 1236              	.L34:
+ 1237              		.loc 1 190 1 view .LVU356
+ 1238              		.align	2
+ 1239              	.L33:
+ 1240 015c 00000000 		.word	btn_start_event_handler
+ 1241 0160 00000000 		.word	.LC0
+ 1242 0164 00000000 		.word	btn_del_event_handler
+ 1243 0168 08000000 		.word	.LC1
+ 1244 016c 00000000 		.word	btn_stop_event_handler
+ 1245 0170 10000000 		.word	.LC2
+ 1246 0174 00000000 		.word	slider_prg_event_handler
+ 1247 0178 00000000 		.word	.LANCHOR0
+ 1248 017c 00000000 		.word	.LANCHOR1
+ 1249 0180 00000000 		.word	.LANCHOR2
+ 1250              		.cfi_endproc
+ 1251              	.LFE196:
+ 1253              		.section	.bss.anim_timeline,"aw",%nobits
+ 1254              		.align	2
+ 1255              		.set	.LANCHOR3,. + 0
+ 1258              	anim_timeline:
+ 1259 0000 00000000 		.space	4
+ 1260              		.section	.bss.obj1,"aw",%nobits
+ 1261              		.align	2
+ 1262              		.set	.LANCHOR0,. + 0
+ 1265              	obj1:
+ 1266 0000 00000000 		.space	4
+ 1267              		.section	.bss.obj2,"aw",%nobits
+ 1268              		.align	2
+ 1269              		.set	.LANCHOR1,. + 0
+ 1272              	obj2:
+ 1273 0000 00000000 		.space	4
+ 1274              		.section	.bss.obj3,"aw",%nobits
+ 1275              		.align	2
+ 1276              		.set	.LANCHOR2,. + 0
+ 1279              	obj3:
+ 1280 0000 00000000 		.space	4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 43
+
+
+ 1281              		.text
+ 1282              	.Letext0:
+ 1283              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1284              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1285              		.file 8 "lvgl/lvgl/examples/anim/../../src/misc/lv_ll.h"
+ 1286              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 1287              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 1288              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 1289              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 1290              		.file 13 "lvgl/lvgl/examples/anim/../../src/misc/lv_anim_timeline.h"
+ 1291              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 1292              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 1293              		.file 16 "lvgl/lvgl/examples/anim/../../src/core/lv_obj.h"
+ 1294              		.file 17 "lvgl/lvgl/examples/anim/../../src/core/lv_group.h"
+ 1295              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 1296              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 1297              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 1298              		.file 21 "lvgl/lvgl/examples/anim/../../src/core/lv_obj_scroll.h"
+ 1299              		.file 22 "lvgl/lvgl/examples/anim/../../src/core/lv_obj_style.h"
+ 1300              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 1301              		.file 24 "lvgl/lvgl/examples/anim/../../src/core/lv_obj_class.h"
+ 1302              		.file 25 "lvgl/lvgl/examples/anim/../../src/core/lv_event.h"
+ 1303              		.file 26 "lvgl/lvgl/examples/anim/../../src/widgets/lv_arc.h"
+ 1304              		.file 27 "lvgl/lvgl/examples/anim/../../src/widgets/lv_btn.h"
+ 1305              		.file 28 "lvgl/lvgl/examples/anim/../../src/widgets/lv_img.h"
+ 1306              		.file 29 "lvgl/lvgl/examples/anim/../../src/widgets/lv_label.h"
+ 1307              		.file 30 "lvgl/lvgl/examples/anim/../../src/widgets/lv_line.h"
+ 1308              		.file 31 "lvgl/lvgl/examples/anim/../../src/widgets/lv_table.h"
+ 1309              		.file 32 "lvgl/lvgl/examples/anim/../../src/widgets/lv_checkbox.h"
+ 1310              		.file 33 "lvgl/lvgl/examples/anim/../../src/widgets/lv_bar.h"
+ 1311              		.file 34 "lvgl/lvgl/examples/anim/../../src/widgets/lv_btnmatrix.h"
+ 1312              		.file 35 "lvgl/lvgl/examples/anim/../../src/widgets/lv_dropdown.h"
+ 1313              		.file 36 "lvgl/lvgl/examples/anim/../../src/widgets/lv_roller.h"
+ 1314              		.file 37 "lvgl/lvgl/examples/anim/../../src/widgets/lv_textarea.h"
+ 1315              		.file 38 "lvgl/lvgl/examples/anim/../../src/widgets/lv_canvas.h"
+ 1316              		.file 39 "lvgl/lvgl/examples/anim/../../src/widgets/lv_switch.h"
+ 1317              		.file 40 "lvgl/lvgl/examples/anim/../../src/extra/widgets/animimg/lv_animimg.h"
+ 1318              		.file 41 "lvgl/lvgl/examples/anim/../../src/extra/widgets/calendar/lv_calendar.h"
+ 1319              		.file 42 "lvgl/lvgl/examples/anim/../../src/extra/widgets/calendar/lv_calendar_header_arrow.h"
+ 1320              		.file 43 "lvgl/lvgl/examples/anim/../../src/extra/widgets/calendar/lv_calendar_header_dropdown.h"
+ 1321              		.file 44 "lvgl/lvgl/examples/anim/../../src/extra/widgets/chart/lv_chart.h"
+ 1322              		.file 45 "lvgl/lvgl/examples/anim/../../src/extra/widgets/keyboard/lv_keyboard.h"
+ 1323              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 1324              		.file 47 "lvgl/lvgl/examples/anim/../../src/extra/widgets/list/lv_list.h"
+ 1325              		.file 48 "lvgl/lvgl/examples/anim/../../src/extra/widgets/msgbox/lv_msgbox.h"
+ 1326              		.file 49 "lvgl/lvgl/examples/anim/../../src/extra/widgets/meter/lv_meter.h"
+ 1327              		.file 50 "lvgl/lvgl/examples/anim/../../src/extra/widgets/spinbox/lv_spinbox.h"
+ 1328              		.file 51 "lvgl/lvgl/examples/anim/../../src/extra/widgets/spinner/lv_spinner.h"
+ 1329              		.file 52 "lvgl/lvgl/examples/anim/../../src/extra/widgets/tabview/lv_tabview.h"
+ 1330              		.file 53 "lvgl/lvgl/examples/anim/../../src/extra/widgets/tileview/lv_tileview.h"
+ 1331              		.file 54 "lvgl/lvgl/examples/anim/../../src/extra/widgets/win/lv_win.h"
+ 1332              		.file 55 "lvgl/lvgl/examples/anim/../../src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 1333              		.file 56 "lvgl/lvgl/examples/anim/../../src/extra/widgets/led/lv_led.h"
+ 1334              		.file 57 "lvgl/lvgl/examples/anim/../../src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 1335              		.file 58 "lvgl/lvgl/examples/anim/../../src/extra/widgets/span/lv_span.h"
+ 1336              		.file 59 "lvgl/lvgl/examples/anim/../../src/extra/layouts/grid/lv_grid.h"
+ 1337              		.file 60 "lvgl/lvgl/examples/anim/../../src/hal/lv_hal_disp.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 44
+
+
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 45
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_anim_timeline_1.c
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:18     .text.anim_timeline_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:25     .text.anim_timeline_create:00000000 anim_timeline_create
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:634    .text.anim_timeline_create:00000160 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:652    .text.set_height:00000000 set_height
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:683    .text.set_width:00000000 set_width
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:646    .text.set_height:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:677    .text.set_width:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:708    .text.slider_prg_event_handler:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:714    .text.slider_prg_event_handler:00000000 slider_prg_event_handler
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:776    .text.slider_prg_event_handler:00000028 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:781    .text.btn_stop_event_handler:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:787    .text.btn_stop_event_handler:00000000 btn_stop_event_handler
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:817    .text.btn_stop_event_handler:00000010 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:822    .text.btn_del_event_handler:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:828    .text.btn_del_event_handler:00000000 btn_del_event_handler
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:863    .text.btn_del_event_handler:00000014 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:868    .text.btn_start_event_handler:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:874    .text.btn_start_event_handler:00000000 btn_start_event_handler
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:933    .text.btn_start_event_handler:00000030 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:938    .rodata.lv_example_anim_timeline_1.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:948    .text.lv_example_anim_timeline_1:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:955    .text.lv_example_anim_timeline_1:00000000 lv_example_anim_timeline_1
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:1240   .text.lv_example_anim_timeline_1:0000015c $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:1254   .bss.anim_timeline:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:1258   .bss.anim_timeline:00000000 anim_timeline
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:1261   .bss.obj1:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:1265   .bss.obj1:00000000 obj1
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:1268   .bss.obj2:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:1272   .bss.obj2:00000000 obj2
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:1275   .bss.obj3:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s:1279   .bss.obj3:00000000 obj3
+
+UNDEFINED SYMBOLS
+lv_anim_init
+lv_anim_timeline_create
+lv_anim_timeline_add
+lv_anim_path_ease_out
+lv_anim_path_overshoot
+lv_obj_set_height
+lv_obj_set_width
+lv_event_get_target
+lv_bar_get_value
+lv_anim_timeline_set_progress
+lv_anim_timeline_stop
+lv_anim_timeline_del
+lv_obj_has_state
+lv_anim_timeline_set_reverse
+lv_anim_timeline_start
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_obj_set_flex_flow
+lv_obj_set_flex_align
+lv_btn_create
+lv_obj_add_event_cb
+lv_obj_add_flag
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQCjKlC.s 			page 46
+
+
+lv_obj_align
+lv_label_create
+lv_label_set_text
+lv_slider_create
+lv_bar_set_range
+lv_obj_create
+lv_obj_set_size

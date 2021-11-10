@@ -1,0 +1,891 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_spinner.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.lv_spinner_constructor,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	lv_spinner_constructor:
+  26              	.LVL0:
+  27              	.LFB190:
+  28              		.file 1 "lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c"
+   1:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /**
+   2:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  * @file lv_spinner.c
+   3:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *
+   4:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  */
+   5:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+   6:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /*********************
+   7:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *      INCLUDES
+   8:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *********************/
+   9:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** #include "lv_spinner.h"
+  10:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** #if LV_USE_SPINNER
+  11:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  12:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /*********************
+  13:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *      DEFINES
+  14:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *********************/
+  15:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  16:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /**********************
+  17:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *      TYPEDEFS
+  18:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  **********************/
+  19:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  20:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /**********************
+  21:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *  STATIC PROTOTYPES
+  22:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  **********************/
+  23:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** static void lv_spinner_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj);
+  24:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** static void arc_anim_start_angle(void * obj, int32_t v);
+  25:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** static void arc_anim_end_angle(void * obj, int32_t v);
+  26:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  27:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /**********************
+  28:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *  STATIC VARIABLES
+  29:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  **********************/
+  30:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** const lv_obj_class_t lv_spinner_class = {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 2
+
+
+  31:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****         .base_class = &lv_arc_class,
+  32:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****         .constructor_cb = lv_spinner_constructor
+  33:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** };
+  34:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  35:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** static uint32_t time_param;
+  36:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** static uint32_t arc_length_param;
+  37:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  38:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /**********************
+  39:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *      MACROS
+  40:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  **********************/
+  41:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  42:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /**********************
+  43:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *   GLOBAL FUNCTIONS
+  44:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  **********************/
+  45:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  46:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /**
+  47:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  * Create a spinner object
+  48:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  * @param par pointer to an object, it will be the parent of the new spinner
+  49:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  * @return pointer to the created spinner
+  50:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  */
+  51:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** lv_obj_t * lv_spinner_create(lv_obj_t * parent, uint32_t time, uint32_t arc_length)
+  52:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** {
+  53:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     time_param = time;
+  54:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     arc_length_param = arc_length;
+  55:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  56:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_obj_t * obj = lv_obj_class_create_obj(&lv_spinner_class, parent);
+  57:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_obj_class_init_obj(obj);
+  58:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     return obj;
+  59:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** }
+  60:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  61:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  62:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** /**********************
+  63:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *   STATIC FUNCTIONS
+  64:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  **********************/
+  65:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  66:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** static void lv_spinner_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
+  67:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** {
+  29              		.loc 1 67 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 72
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 67 1 is_stmt 0 view .LVU1
+  34 0000 70B5     		push	{r4, r5, r6, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 16
+  37              		.cfi_offset 4, -16
+  38              		.cfi_offset 5, -12
+  39              		.cfi_offset 6, -8
+  40              		.cfi_offset 14, -4
+  41 0002 92B0     		sub	sp, sp, #72
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_offset 88
+  44 0004 0C46     		mov	r4, r1
+  68:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     LV_TRACE_OBJ_CREATE("begin");
+  45              		.loc 1 68 5 is_stmt 1 view .LVU2
+  46              		.loc 1 68 5 view .LVU3
+  47              		.loc 1 68 5 view .LVU4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 3
+
+
+  48              		.loc 1 68 33 view .LVU5
+  69:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  70:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     LV_UNUSED(class_p);
+  49              		.loc 1 70 5 view .LVU6
+  71:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  72:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE);
+  50              		.loc 1 72 5 view .LVU7
+  51 0006 0221     		movs	r1, #2
+  52              	.LVL1:
+  53              		.loc 1 72 5 is_stmt 0 view .LVU8
+  54 0008 2046     		mov	r0, r4
+  55              	.LVL2:
+  56              		.loc 1 72 5 view .LVU9
+  57 000a FFF7FEFF 		bl	lv_obj_clear_flag
+  58              	.LVL3:
+  73:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  74:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_t a;
+  59              		.loc 1 74 5 is_stmt 1 view .LVU10
+  75:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_init(&a);
+  60              		.loc 1 75 5 view .LVU11
+  61 000e 01A8     		add	r0, sp, #4
+  62 0010 FFF7FEFF 		bl	lv_anim_init
+  63              	.LVL4:
+  76:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_set_var(&a, obj);
+  64              		.loc 1 76 5 view .LVU12
+  65              	.LBB18:
+  66              	.LBI18:
+  67              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_anim.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @file lv_anim.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #ifndef LV_ANIM_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #define LV_ANIM_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #include "../lv_conf_internal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  18:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #include <stdint.h>
+  19:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #include <stdbool.h>
+  20:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #include <string.h>
+  21:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  22:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /*********************
+  23:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *      DEFINES
+  24:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *********************/
+  25:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  26:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**********************
+  27:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *      TYPEDEFS
+  28:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  **********************/
+  29:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 4
+
+
+  30:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /** Can be used to indicate if animations are enabled or disabled in a case*/
+  31:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** typedef enum {
+  32:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     LV_ANIM_OFF,
+  33:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     LV_ANIM_ON,
+  34:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }lv_anim_enable_t;
+  35:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  36:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #define LV_ANIM_REPEAT_INFINITE      0xFFFF
+  37:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** LV_EXPORT_CONST_INT(LV_ANIM_REPEAT_INFINITE);
+  38:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  39:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** struct _lv_anim_t;
+  40:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  41:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /** Get the current value during an animation*/
+  42:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** typedef int32_t (*lv_anim_path_cb_t)(const struct _lv_anim_t *);
+  43:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  44:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /** Generic prototype of "animator" functions.
+  45:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * First parameter is the variable to animate.
+  46:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Second parameter is the value to set.
+  47:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Compatible with `lv_xxx_set_yyy(obj, value)` functions
+  48:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * The `x` in `_xcb_t` means its not a fully generic prototype because
+  49:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * it doesn't receive `lv_anim_t *` as its first argument*/
+  50:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** typedef void (*lv_anim_exec_xcb_t)(void *, int32_t);
+  51:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  52:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /** Same as `lv_anim_exec_xcb_t` but receives `lv_anim_t *` as the first parameter.
+  53:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * It's more consistent but less convenient. Might be used by binding generator functions.*/
+  54:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** typedef void (*lv_anim_custom_exec_cb_t)(struct _lv_anim_t *, int32_t);
+  55:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  56:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /** Callback to call when the animation is ready*/
+  57:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** typedef void (*lv_anim_ready_cb_t)(struct _lv_anim_t *);
+  58:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  59:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /** Callback to call when the animation really stars (considering `delay`)*/
+  60:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** typedef void (*lv_anim_start_cb_t)(struct _lv_anim_t *);
+  61:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  62:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /** Callback used when the animation values are relative to get the current value*/
+  63:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** typedef int32_t (*lv_anim_get_value_cb_t)(struct _lv_anim_t *);
+  64:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  65:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /** Describes an animation*/
+  66:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** typedef struct _lv_anim_t {
+  67:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     void * var;                          /**<Variable to animate*/
+  68:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     lv_anim_exec_xcb_t exec_cb;          /**< Function to execute to animate*/
+  69:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     lv_anim_start_cb_t start_cb;         /**< Call it when the animation is starts (considering `de
+  70:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     lv_anim_ready_cb_t ready_cb;         /**< Call it when the animation is ready*/
+  71:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     lv_anim_get_value_cb_t get_value_cb; /**< Get the current value in relative mode*/
+  72:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #if LV_USE_USER_DATA
+  73:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     void * user_data; /**< Custom user data*/
+  74:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** #endif
+  75:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     lv_anim_path_cb_t path_cb;         /**< Describe the path (curve) of animations*/
+  76:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     int32_t start_value;               /**< Start value*/
+  77:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     int32_t current_value;             /**< Current value*/
+  78:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     int32_t end_value;                 /**< End value*/
+  79:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     int32_t time;                /**< Animation time in ms*/
+  80:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     int32_t act_time;            /**< Current time in animation. Set to negative to make delay.*/
+  81:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint32_t playback_delay;     /**< Wait before play back*/
+  82:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint32_t playback_time;      /**< Duration of playback animation*/
+  83:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint32_t repeat_delay;       /**< Wait before repeat*/
+  84:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint16_t repeat_cnt;         /**< Repeat count for the animation*/
+  85:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint8_t early_apply  : 1;    /**< 1: Apply start value immediately even is there is `delay`*/
+  86:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 5
+
+
+  87:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     /*Animation system use these - user shouldn't set*/
+  88:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint8_t playback_now : 1; /**< Play back is in progress*/
+  89:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint8_t run_round : 1;    /**< Indicates the animation has run in this round*/
+  90:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint8_t start_cb_called : 1;    /**< Indicates that the `start_cb` was already called*/
+  91:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint32_t time_orig;
+  92:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** } lv_anim_t;
+  93:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  94:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**********************
+  95:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * GLOBAL PROTOTYPES
+  96:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  **********************/
+  97:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+  98:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+  99:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Init. the animation module
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** void _lv_anim_core_init(void);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Initialize an animation variable.
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * E.g.:
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * lv_anim_t a;
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * lv_anim_init(&a);
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * lv_anim_set_...(&a);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * lv_anim_start(&a);
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a     pointer to an `lv_anim_t` variable to initialize
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** void lv_anim_init(lv_anim_t * a);
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Set a variable to animate
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a     pointer to an initialized `lv_anim_t` variable
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param var   pointer to a variable to animate
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_var(lv_anim_t * a, void * var)
+  68              		.loc 2 119 20 view .LVU13
+  69              	.LBB19:
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->var = var;
+  70              		.loc 2 121 5 view .LVU14
+  71              		.loc 2 121 12 is_stmt 0 view .LVU15
+  72 0014 0194     		str	r4, [sp, #4]
+  73              	.LVL5:
+  74              		.loc 2 121 12 view .LVU16
+  75              	.LBE19:
+  76              	.LBE18:
+  77:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_set_exec_cb(&a, arc_anim_end_angle);
+  77              		.loc 1 77 5 is_stmt 1 view .LVU17
+  78              	.LBB20:
+  79              	.LBI20:
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Set a function to animate `var`
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param exec_cb   a function to execute during animation
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *                  LVGL's built-in functions can be used.
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *                  E.g. lv_obj_set_x
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 6
+
+
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_exec_cb(lv_anim_t * a, lv_anim_exec_xcb_t exec_cb)
+  80              		.loc 2 131 20 view .LVU18
+  81              	.LBB21:
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->exec_cb = exec_cb;
+  82              		.loc 2 133 5 view .LVU19
+  83              		.loc 2 133 16 is_stmt 0 view .LVU20
+  84 0016 164B     		ldr	r3, .L3
+  85 0018 0293     		str	r3, [sp, #8]
+  86              	.LVL6:
+  87              		.loc 2 133 16 view .LVU21
+  88              	.LBE21:
+  89              	.LBE20:
+  78:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_set_repeat_count(&a, LV_ANIM_REPEAT_INFINITE);
+  90              		.loc 1 78 5 is_stmt 1 view .LVU22
+  91              	.LBB22:
+  92              	.LBI22:
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Set the duration of an animation
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param duration  duration of the animation in milliseconds
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_time(lv_anim_t * a, uint32_t duration)
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->time = duration;
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Set a delay before starting the animation
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param delay     delay before the animation in milliseconds
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_delay(lv_anim_t * a, uint32_t delay)
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->act_time = -(int32_t)(delay);
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Set the start and end values of an animation
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param start     the start value
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param end       the end value
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_values(lv_anim_t * a, int32_t start, int32_t end)
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->start_value = start;
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->current_value = start;
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->end_value = end;
+ 167:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 168:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 169:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 170:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Similar to `lv_anim_set_exec_cb` but `lv_anim_custom_exec_cb_t` receives
+ 171:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * `lv_anim_t * ` as its first parameter instead of `void *`.
+ 172:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * This function might be used when LVGL is binded to other languages because
+ 173:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * it's more consistent to have `lv_anim_t *` as first parameter.
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 7
+
+
+ 174:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * The variable to animate can be stored in the animation's `user_sata`
+ 175:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 176:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param exec_cb   a function to execute.
+ 177:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 178:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_custom_exec_cb(lv_anim_t * a, lv_anim_custom_exec_cb_t exec_cb)
+ 179:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 180:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->var     = a;
+ 181:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->exec_cb = (lv_anim_exec_xcb_t)exec_cb;
+ 182:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 183:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 184:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 185:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Set the path (curve) of the animation.
+ 186:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 187:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param path_cb a function the get the current value of the animation.
+ 188:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 189:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_path_cb(lv_anim_t * a, lv_anim_path_cb_t path_cb)
+ 190:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 191:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->path_cb = path_cb;
+ 192:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 193:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 194:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 195:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Set a function call when the animation really starts (considering `delay`)
+ 196:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 197:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param start_cb  a function call when the animation starts
+ 198:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 199:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_start_cb(lv_anim_t * a, lv_anim_ready_cb_t start_cb)
+ 200:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 201:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->start_cb = start_cb;
+ 202:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 203:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 204:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 205:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Set a function to use the current value of the variable and make start and end value
+ 206:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * relative the the returned current value.
+ 207:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a             pointer to an initialized `lv_anim_t` variable
+ 208:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param get_value_cb  a function call when the animation starts
+ 209:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 210:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_get_value_cb(lv_anim_t * a, lv_anim_get_value_cb_t get_value_cb)
+ 211:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 212:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->get_value_cb = get_value_cb;
+ 213:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 214:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 215:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 216:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Set a function call when the animation is ready
+ 217:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 218:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param ready_cb  a function call when the animation is ready
+ 219:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 220:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_ready_cb(lv_anim_t * a, lv_anim_ready_cb_t ready_cb)
+ 221:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 222:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->ready_cb = ready_cb;
+ 223:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 224:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 225:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Make the animation to play back to when the forward direction is ready
+ 226:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 227:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param time      the duration of the playback animation in in milliseconds. 0: disable playback
+ 228:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 229:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_playback_time(lv_anim_t * a, uint32_t time)
+ 230:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 8
+
+
+ 231:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->playback_time = time;
+ 232:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 233:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 234:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 235:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Make the animation to play back to when the forward direction is ready
+ 236:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 237:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param delay     delay in milliseconds before starting the playback animation.
+ 238:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 239:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_playback_delay(lv_anim_t * a, uint32_t delay)
+ 240:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 241:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->playback_delay = delay;
+ 242:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 243:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
+ 244:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /**
+ 245:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * Make the animation repeat itself.
+ 246:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 247:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * @param cnt       repeat count or `LV_ANIM_REPEAT_INFINITE` for infinite repetition. 0: to disabl
+ 248:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
+ 249:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_repeat_count(lv_anim_t * a, uint16_t cnt)
+  93              		.loc 2 249 20 view .LVU23
+  94              	.LBB23:
+ 250:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 251:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->repeat_cnt = cnt;
+  95              		.loc 2 251 5 view .LVU24
+  96              		.loc 2 251 19 is_stmt 0 view .LVU25
+  97 001a 4FF6FF73 		movw	r3, #65535
+  98 001e ADF84030 		strh	r3, [sp, #64]	@ movhi
+  99              	.LVL7:
+ 100              		.loc 2 251 19 view .LVU26
+ 101              	.LBE23:
+ 102              	.LBE22:
+  79:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_set_time(&a, time_param);
+ 103              		.loc 1 79 5 is_stmt 1 view .LVU27
+ 104 0022 144B     		ldr	r3, .L3+4
+ 105 0024 1B68     		ldr	r3, [r3]
+ 106              	.LVL8:
+ 107              	.LBB24:
+ 108              	.LBI24:
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 109              		.loc 2 141 20 view .LVU28
+ 110              	.LBB25:
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 111              		.loc 2 143 5 view .LVU29
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 112              		.loc 2 143 13 is_stmt 0 view .LVU30
+ 113 0026 0B93     		str	r3, [sp, #44]
+ 114              	.LVL9:
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 115              		.loc 2 143 13 view .LVU31
+ 116              	.LBE25:
+ 117              	.LBE24:
+  80:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_set_values(&a, arc_length_param, 360 + arc_length_param);
+ 118              		.loc 1 80 5 is_stmt 1 view .LVU32
+ 119 0028 134B     		ldr	r3, .L3+8
+ 120 002a 1B68     		ldr	r3, [r3]
+ 121              		.loc 1 80 50 is_stmt 0 view .LVU33
+ 122 002c 03F5B472 		add	r2, r3, #360
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 9
+
+
+ 123              	.LVL10:
+ 124              	.LBB26:
+ 125              	.LBI26:
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 126              		.loc 2 162 20 is_stmt 1 view .LVU34
+ 127              	.LBB27:
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->current_value = start;
+ 128              		.loc 2 164 5 view .LVU35
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->current_value = start;
+ 129              		.loc 2 164 20 is_stmt 0 view .LVU36
+ 130 0030 0893     		str	r3, [sp, #32]
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->end_value = end;
+ 131              		.loc 2 165 5 is_stmt 1 view .LVU37
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->end_value = end;
+ 132              		.loc 2 165 22 is_stmt 0 view .LVU38
+ 133 0032 0993     		str	r3, [sp, #36]
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 134              		.loc 2 166 5 is_stmt 1 view .LVU39
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 135              		.loc 2 166 18 is_stmt 0 view .LVU40
+ 136 0034 0A92     		str	r2, [sp, #40]
+ 137              	.LVL11:
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 138              		.loc 2 166 18 view .LVU41
+ 139              	.LBE27:
+ 140              	.LBE26:
+  81:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_start(&a);
+ 141              		.loc 1 81 5 is_stmt 1 view .LVU42
+ 142 0036 01A8     		add	r0, sp, #4
+ 143 0038 FFF7FEFF 		bl	lv_anim_start
+ 144              	.LVL12:
+  82:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  83:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_set_path_cb(&a, lv_anim_path_ease_in_out);
+ 145              		.loc 1 83 5 view .LVU43
+ 146              	.LBB28:
+ 147              	.LBI28:
+ 189:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 148              		.loc 2 189 20 view .LVU44
+ 149              	.LBB29:
+ 191:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 150              		.loc 2 191 5 view .LVU45
+ 191:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 151              		.loc 2 191 16 is_stmt 0 view .LVU46
+ 152 003c 0F4B     		ldr	r3, .L3+12
+ 153 003e 0793     		str	r3, [sp, #28]
+ 154              	.LVL13:
+ 191:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 155              		.loc 2 191 16 view .LVU47
+ 156              	.LBE29:
+ 157              	.LBE28:
+  84:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_set_values(&a, 0, 360);
+ 158              		.loc 1 84 5 is_stmt 1 view .LVU48
+ 159              	.LBB30:
+ 160              	.LBI30:
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 161              		.loc 2 162 20 view .LVU49
+ 162              	.LBB31:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 10
+
+
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->current_value = start;
+ 163              		.loc 2 164 5 view .LVU50
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->current_value = start;
+ 164              		.loc 2 164 20 is_stmt 0 view .LVU51
+ 165 0040 0025     		movs	r5, #0
+ 166 0042 0895     		str	r5, [sp, #32]
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->end_value = end;
+ 167              		.loc 2 165 5 is_stmt 1 view .LVU52
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->end_value = end;
+ 168              		.loc 2 165 22 is_stmt 0 view .LVU53
+ 169 0044 0995     		str	r5, [sp, #36]
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 170              		.loc 2 166 5 is_stmt 1 view .LVU54
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 171              		.loc 2 166 18 is_stmt 0 view .LVU55
+ 172 0046 4FF4B476 		mov	r6, #360
+ 173 004a 0A96     		str	r6, [sp, #40]
+ 174              	.LVL14:
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 175              		.loc 2 166 18 view .LVU56
+ 176              	.LBE31:
+ 177              	.LBE30:
+  85:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_set_exec_cb(&a, arc_anim_start_angle);
+ 178              		.loc 1 85 5 is_stmt 1 view .LVU57
+ 179              	.LBB32:
+ 180              	.LBI32:
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
+ 181              		.loc 2 131 20 view .LVU58
+ 182              	.LBB33:
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 183              		.loc 2 133 5 view .LVU59
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 184              		.loc 2 133 16 is_stmt 0 view .LVU60
+ 185 004c 0C4B     		ldr	r3, .L3+16
+ 186 004e 0293     		str	r3, [sp, #8]
+ 187              	.LVL15:
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** }
+ 188              		.loc 2 133 16 view .LVU61
+ 189              	.LBE33:
+ 190              	.LBE32:
+  86:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_anim_start(&a);
+ 191              		.loc 1 86 5 is_stmt 1 view .LVU62
+ 192 0050 01A8     		add	r0, sp, #4
+ 193 0052 FFF7FEFF 		bl	lv_anim_start
+ 194              	.LVL16:
+  87:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  88:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_arc_set_bg_angles(obj, 0, 360);
+ 195              		.loc 1 88 5 view .LVU63
+ 196 0056 3246     		mov	r2, r6
+ 197 0058 2946     		mov	r1, r5
+ 198 005a 2046     		mov	r0, r4
+ 199 005c FFF7FEFF 		bl	lv_arc_set_bg_angles
+ 200              	.LVL17:
+  89:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_arc_set_rotation(obj, 270);
+ 201              		.loc 1 89 5 view .LVU64
+ 202 0060 4FF48771 		mov	r1, #270
+ 203 0064 2046     		mov	r0, r4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 11
+
+
+ 204 0066 FFF7FEFF 		bl	lv_arc_set_rotation
+ 205              	.LVL18:
+  90:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** }
+ 206              		.loc 1 90 1 is_stmt 0 view .LVU65
+ 207 006a 12B0     		add	sp, sp, #72
+ 208              	.LCFI2:
+ 209              		.cfi_def_cfa_offset 16
+ 210              		@ sp needed
+ 211 006c 70BD     		pop	{r4, r5, r6, pc}
+ 212              	.LVL19:
+ 213              	.L4:
+ 214              		.loc 1 90 1 view .LVU66
+ 215 006e 00BF     		.align	2
+ 216              	.L3:
+ 217 0070 00000000 		.word	arc_anim_end_angle
+ 218 0074 00000000 		.word	.LANCHOR0
+ 219 0078 00000000 		.word	.LANCHOR1
+ 220 007c 00000000 		.word	lv_anim_path_ease_in_out
+ 221 0080 00000000 		.word	arc_anim_start_angle
+ 222              		.cfi_endproc
+ 223              	.LFE190:
+ 225              		.section	.text.arc_anim_start_angle,"ax",%progbits
+ 226              		.align	1
+ 227              		.syntax unified
+ 228              		.thumb
+ 229              		.thumb_func
+ 230              		.fpu fpv4-sp-d16
+ 232              	arc_anim_start_angle:
+ 233              	.LVL20:
+ 234              	.LFB191:
+  91:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  92:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  93:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** static void arc_anim_start_angle(void * obj, int32_t v)
+  94:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** {
+ 235              		.loc 1 94 1 is_stmt 1 view -0
+ 236              		.cfi_startproc
+ 237              		@ args = 0, pretend = 0, frame = 0
+ 238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 239              		.loc 1 94 1 is_stmt 0 view .LVU68
+ 240 0000 08B5     		push	{r3, lr}
+ 241              	.LCFI3:
+ 242              		.cfi_def_cfa_offset 8
+ 243              		.cfi_offset 3, -8
+ 244              		.cfi_offset 14, -4
+  95:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_arc_set_start_angle(obj, (uint16_t) v);
+ 245              		.loc 1 95 5 is_stmt 1 view .LVU69
+ 246 0002 89B2     		uxth	r1, r1
+ 247              	.LVL21:
+ 248              		.loc 1 95 5 is_stmt 0 view .LVU70
+ 249 0004 FFF7FEFF 		bl	lv_arc_set_start_angle
+ 250              	.LVL22:
+  96:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** }
+ 251              		.loc 1 96 1 view .LVU71
+ 252 0008 08BD     		pop	{r3, pc}
+ 253              		.cfi_endproc
+ 254              	.LFE191:
+ 256              		.section	.text.arc_anim_end_angle,"ax",%progbits
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 12
+
+
+ 257              		.align	1
+ 258              		.syntax unified
+ 259              		.thumb
+ 260              		.thumb_func
+ 261              		.fpu fpv4-sp-d16
+ 263              	arc_anim_end_angle:
+ 264              	.LVL23:
+ 265              	.LFB192:
+  97:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  98:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+  99:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** static void arc_anim_end_angle(void * obj, int32_t v)
+ 100:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** {
+ 266              		.loc 1 100 1 is_stmt 1 view -0
+ 267              		.cfi_startproc
+ 268              		@ args = 0, pretend = 0, frame = 0
+ 269              		@ frame_needed = 0, uses_anonymous_args = 0
+ 270              		.loc 1 100 1 is_stmt 0 view .LVU73
+ 271 0000 08B5     		push	{r3, lr}
+ 272              	.LCFI4:
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 3, -8
+ 275              		.cfi_offset 14, -4
+ 101:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_arc_set_end_angle(obj, (uint16_t) v);
+ 276              		.loc 1 101 5 is_stmt 1 view .LVU74
+ 277 0002 89B2     		uxth	r1, r1
+ 278              	.LVL24:
+ 279              		.loc 1 101 5 is_stmt 0 view .LVU75
+ 280 0004 FFF7FEFF 		bl	lv_arc_set_end_angle
+ 281              	.LVL25:
+ 102:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** }
+ 282              		.loc 1 102 1 view .LVU76
+ 283 0008 08BD     		pop	{r3, pc}
+ 284              		.cfi_endproc
+ 285              	.LFE192:
+ 287              		.section	.text.lv_spinner_create,"ax",%progbits
+ 288              		.align	1
+ 289              		.global	lv_spinner_create
+ 290              		.syntax unified
+ 291              		.thumb
+ 292              		.thumb_func
+ 293              		.fpu fpv4-sp-d16
+ 295              	lv_spinner_create:
+ 296              	.LVL26:
+ 297              	.LFB189:
+  52:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     time_param = time;
+ 298              		.loc 1 52 1 is_stmt 1 view -0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+  52:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     time_param = time;
+ 302              		.loc 1 52 1 is_stmt 0 view .LVU78
+ 303 0000 10B5     		push	{r4, lr}
+ 304              	.LCFI5:
+ 305              		.cfi_def_cfa_offset 8
+ 306              		.cfi_offset 4, -8
+ 307              		.cfi_offset 14, -4
+  53:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     arc_length_param = arc_length;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 13
+
+
+ 308              		.loc 1 53 5 is_stmt 1 view .LVU79
+  53:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     arc_length_param = arc_length;
+ 309              		.loc 1 53 16 is_stmt 0 view .LVU80
+ 310 0002 064B     		ldr	r3, .L11
+ 311 0004 1960     		str	r1, [r3]
+  54:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+ 312              		.loc 1 54 5 is_stmt 1 view .LVU81
+  54:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+ 313              		.loc 1 54 22 is_stmt 0 view .LVU82
+ 314 0006 064B     		ldr	r3, .L11+4
+ 315 0008 1A60     		str	r2, [r3]
+  56:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_obj_class_init_obj(obj);
+ 316              		.loc 1 56 5 is_stmt 1 view .LVU83
+  56:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_obj_class_init_obj(obj);
+ 317              		.loc 1 56 22 is_stmt 0 view .LVU84
+ 318 000a 0146     		mov	r1, r0
+ 319              	.LVL27:
+  56:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_obj_class_init_obj(obj);
+ 320              		.loc 1 56 22 view .LVU85
+ 321 000c 0548     		ldr	r0, .L11+8
+ 322              	.LVL28:
+  56:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_obj_class_init_obj(obj);
+ 323              		.loc 1 56 22 view .LVU86
+ 324 000e FFF7FEFF 		bl	lv_obj_class_create_obj
+ 325              	.LVL29:
+  56:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     lv_obj_class_init_obj(obj);
+ 326              		.loc 1 56 22 view .LVU87
+ 327 0012 0446     		mov	r4, r0
+ 328              	.LVL30:
+  57:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     return obj;
+ 329              		.loc 1 57 5 is_stmt 1 view .LVU88
+ 330 0014 FFF7FEFF 		bl	lv_obj_class_init_obj
+ 331              	.LVL31:
+  58:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** }
+ 332              		.loc 1 58 5 view .LVU89
+  59:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+ 333              		.loc 1 59 1 is_stmt 0 view .LVU90
+ 334 0018 2046     		mov	r0, r4
+ 335 001a 10BD     		pop	{r4, pc}
+ 336              	.LVL32:
+ 337              	.L12:
+  59:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** 
+ 338              		.loc 1 59 1 view .LVU91
+ 339              		.align	2
+ 340              	.L11:
+ 341 001c 00000000 		.word	.LANCHOR0
+ 342 0020 00000000 		.word	.LANCHOR1
+ 343 0024 00000000 		.word	.LANCHOR2
+ 344              		.cfi_endproc
+ 345              	.LFE189:
+ 347              		.global	lv_spinner_class
+ 348              		.section	.bss.arc_length_param,"aw",%nobits
+ 349              		.align	2
+ 350              		.set	.LANCHOR1,. + 0
+ 353              	arc_length_param:
+ 354 0000 00000000 		.space	4
+ 355              		.section	.bss.time_param,"aw",%nobits
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 14
+
+
+ 356              		.align	2
+ 357              		.set	.LANCHOR0,. + 0
+ 360              	time_param:
+ 361 0000 00000000 		.space	4
+ 362              		.section	.rodata.lv_spinner_class,"a"
+ 363              		.align	2
+ 364              		.set	.LANCHOR2,. + 0
+ 367              	lv_spinner_class:
+ 368 0000 00000000 		.word	lv_arc_class
+ 369 0004 00000000 		.word	lv_spinner_constructor
+ 370 0008 00000000 		.space	20
+ 370      00000000 
+ 370      00000000 
+ 370      00000000 
+ 370      00000000 
+ 371              		.text
+ 372              	.Letext0:
+ 373              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 374              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 375              		.file 5 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 376              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 377              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 378              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 379              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 380              		.file 10 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 381              		.file 11 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 382              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 383              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 384              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 385              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 386              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 387              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 388              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 389              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 390              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 391              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 392              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 393              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 394              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 395              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 396              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 397              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 398              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 399              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 400              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 401              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 402              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 403              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 404              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 405              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 406              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 407              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 408              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 409              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 410              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 411              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 412              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 15
+
+
+ 413              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 414              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 415              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 416              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 417              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 418              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 419              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 420              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 421              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 422              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 423              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 424              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 425              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 426              		.file 56 "lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_spinner.c
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:18     .text.lv_spinner_constructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:25     .text.lv_spinner_constructor:00000000 lv_spinner_constructor
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:217    .text.lv_spinner_constructor:00000070 $d
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:263    .text.arc_anim_end_angle:00000000 arc_anim_end_angle
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:232    .text.arc_anim_start_angle:00000000 arc_anim_start_angle
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:226    .text.arc_anim_start_angle:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:257    .text.arc_anim_end_angle:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:288    .text.lv_spinner_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:295    .text.lv_spinner_create:00000000 lv_spinner_create
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:341    .text.lv_spinner_create:0000001c $d
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:367    .rodata.lv_spinner_class:00000000 lv_spinner_class
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:349    .bss.arc_length_param:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:353    .bss.arc_length_param:00000000 arc_length_param
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:356    .bss.time_param:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:360    .bss.time_param:00000000 time_param
+C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:363    .rodata.lv_spinner_class:00000000 $d
+
+UNDEFINED SYMBOLS
+lv_obj_clear_flag
+lv_anim_init
+lv_anim_start
+lv_arc_set_bg_angles
+lv_arc_set_rotation
+lv_anim_path_ease_in_out
+lv_arc_set_start_angle
+lv_arc_set_end_angle
+lv_obj_class_create_obj
+lv_obj_class_init_obj
+lv_arc_class

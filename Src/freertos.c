@@ -67,9 +67,10 @@ osThreadId LEDHandle;
 char pWriteBuffer[2048];
 void LED_Flicker(void const * argument)
 {
+  volatile char* flash = 0x8080000;
   vTaskDelay(500);
   printf("GCC printf test\r\n");
-
+  printf(flash);
   while (1)
   {
     HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9 | GPIO_PIN_10);

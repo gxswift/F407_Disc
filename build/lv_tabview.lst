@@ -1,0 +1,2716 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_tabview.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.lv_tabview_destructor,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	lv_tabview_destructor:
+  26              	.LVL0:
+  27              	.LFB196:
+  28              		.file 1 "lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c"
+   1:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** /**
+   2:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  * @file lv_tabview.c
+   3:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *
+   4:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  */
+   5:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+   6:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** /*********************
+   7:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *      INCLUDES
+   8:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *********************/
+   9:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** #include "lv_tabview.h"
+  10:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** #if LV_USE_TABVIEW
+  11:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  12:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** /*********************
+  13:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *      DEFINES
+  14:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *********************/
+  15:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  16:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** /**********************
+  17:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *      TYPEDEFS
+  18:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  **********************/
+  19:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  20:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** /**********************
+  21:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *  STATIC PROTOTYPES
+  22:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  **********************/
+  23:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void lv_tabview_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj);
+  24:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void lv_tabview_destructor(const lv_obj_class_t * class_p, lv_obj_t * obj);
+  25:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void lv_tabview_event(const lv_obj_class_t * class_p, lv_event_t * e);
+  26:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void btns_value_changed_event_cb(lv_event_t * e);
+  27:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void cont_scroll_end_event_cb(lv_event_t * e);
+  28:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  29:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** /**********************
+  30:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *  STATIC VARIABLES
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 2
+
+
+  31:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  **********************/
+  32:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** const lv_obj_class_t lv_tabview_class = {
+  33:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         .constructor_cb = lv_tabview_constructor,
+  34:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         .destructor_cb = lv_tabview_destructor,
+  35:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         .event_cb = lv_tabview_event,
+  36:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         .width_def = LV_PCT(100),
+  37:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         .height_def = LV_PCT(100),
+  38:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         .base_class = &lv_obj_class,
+  39:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         .instance_size = sizeof(lv_tabview_t)};
+  40:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  41:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static lv_dir_t tabpos_create;
+  42:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static lv_coord_t tabsize_create;
+  43:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  44:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** /**********************
+  45:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *      MACROS
+  46:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  **********************/
+  47:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  48:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** /**********************
+  49:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *   GLOBAL FUNCTIONS
+  50:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  **********************/
+  51:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  52:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** lv_obj_t * lv_tabview_create(lv_obj_t * parent, lv_dir_t tab_pos, lv_coord_t tab_size)
+  53:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+  54:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     LV_LOG_INFO("begin")
+  55:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabpos_create = tab_pos;
+  56:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabsize_create = tab_size;
+  57:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  58:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * obj = lv_obj_class_create_obj(&lv_tabview_class, parent);
+  59:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_class_init_obj(obj);
+  60:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return obj;
+  61:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+  62:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  63:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** lv_obj_t * lv_tabview_add_tab(lv_obj_t * obj, const char * name)
+  64:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+  65:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+  66:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * cont = lv_tabview_get_content(obj);
+  67:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  68:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * page = lv_obj_create(cont);
+  69:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_size(page, LV_PCT(100), LV_PCT(100));
+  70:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_clear_flag(page, LV_OBJ_FLAG_CLICK_FOCUSABLE);
+  71:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     uint32_t tab_id = lv_obj_get_child_cnt(cont);
+  72:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  73:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * btns = lv_tabview_get_tab_btns(obj);
+  74:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  75:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     char ** old_map = tabview->map;
+  76:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     char ** new_map;
+  77:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+  78:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     /*top or bottom dir*/
+  79:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(tabview->tab_pos & LV_DIR_VER) {
+  80:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map = lv_mem_alloc((tab_id + 1) * sizeof(const char *));
+  81:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_memcpy_small(new_map, old_map, sizeof(const char *) * (tab_id - 1));
+  82:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map[tab_id - 1] = lv_mem_alloc(strlen(name) + 1);
+  83:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         strcpy((char *)new_map[tab_id - 1], name);
+  84:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map[tab_id] = "";
+  85:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+  86:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     /*left or right dir*/
+  87:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     else {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 3
+
+
+  88:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map = lv_mem_alloc((tab_id * 2) * sizeof(const char *));
+  89:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_memcpy_small(new_map, old_map, sizeof(const char *) * (tab_id - 1) * 2);
+  90:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(tabview->tab_cnt == 0) {
+  91:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[0] = lv_mem_alloc(strlen(name) + 1);
+  92:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             strcpy((char *)new_map[0], name);
+  93:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[1] = "";
+  94:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         } else {
+  95:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 3] = "\n";
+  96:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 2] = lv_mem_alloc(strlen(name) + 1);
+  97:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 1] = "";
+  98:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             strcpy((char *)new_map[(tab_id * 2) - 2], name);
+  99:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+ 100:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 101:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->map = new_map;
+ 102:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_map(btns, (const char **)new_map);
+ 103:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_mem_free(old_map);
+ 104:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 105:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_btn_ctrl_all(btns, LV_BTNMATRIX_CTRL_CHECKABLE | LV_BTNMATRIX_CTRL_CLICK_TRIG 
+ 106:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 107:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->tab_cnt++;
+ 108:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(tabview->tab_cnt == 1) {
+ 109:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(obj, 0, LV_ANIM_OFF);
+ 110:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 111:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 112:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_btn_ctrl(btns, tabview->tab_cur, LV_BTNMATRIX_CTRL_CHECKED);
+ 113:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 114:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return page;
+ 115:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 116:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 117:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** void lv_tabview_set_act(lv_obj_t * obj, uint32_t id, lv_anim_enable_t anim_en)
+ 118:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+ 119:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+ 120:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 121:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(id >= tabview->tab_cnt) {
+ 122:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         id = tabview->tab_cnt - 1;
+ 123:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 124:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 125:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     /*To be sure lv_obj_get_content_width will return valid value*/
+ 126:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_update_layout(obj);
+ 127:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 128:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * cont = lv_tabview_get_content(obj);
+ 129:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(cont == NULL) return;
+ 130:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_coord_t gap = lv_obj_get_style_pad_column(cont, LV_PART_MAIN);
+ 131:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_coord_t w = lv_obj_get_content_width(cont);
+ 132:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(lv_obj_get_style_base_dir(obj, LV_PART_MAIN) != LV_BASE_DIR_RTL) {
+ 133:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_scroll_to_x(cont, id * (gap + w), anim_en);
+ 134:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     } else {
+ 135:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         int32_t id_rtl = -(int32_t)id;
+ 136:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_scroll_to_x(cont, (gap + w) * id_rtl, anim_en);
+ 137:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 138:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 139:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * btns = lv_tabview_get_tab_btns(obj);
+ 140:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_btn_ctrl(btns, id, LV_BTNMATRIX_CTRL_CHECKED);
+ 141:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->tab_cur = id;
+ 142:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 143:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 144:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** uint16_t lv_tabview_get_tab_act(lv_obj_t * obj)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 4
+
+
+ 145:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+ 146:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+ 147:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return tabview->tab_cur;
+ 148:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 149:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 150:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** lv_obj_t * lv_tabview_get_content(lv_obj_t * tv)
+ 151:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+ 152:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return lv_obj_get_child(tv, 1);
+ 153:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 154:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 155:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** lv_obj_t * lv_tabview_get_tab_btns(lv_obj_t * tv)
+ 156:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+ 157:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return lv_obj_get_child(tv, 0);
+ 158:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 159:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 160:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** /**********************
+ 161:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  *   STATIC FUNCTIONS
+ 162:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****  **********************/
+ 163:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 164:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void lv_tabview_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
+ 165:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+ 166:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     LV_UNUSED(class_p);
+ 167:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+ 168:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 169:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->tab_pos = tabpos_create;
+ 170:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 171:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     switch(tabview->tab_pos) {
+ 172:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     case LV_DIR_TOP:
+ 173:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_COLUMN);
+ 174:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 175:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     case LV_DIR_BOTTOM:
+ 176:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_COLUMN_REVERSE);
+ 177:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 178:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     case LV_DIR_LEFT:
+ 179:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_ROW);
+ 180:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 181:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     case LV_DIR_RIGHT:
+ 182:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_ROW_REVERSE);
+ 183:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 184:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 185:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 186:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_size(obj, LV_PCT(100), LV_PCT(100));
+ 187:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 188:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * btnm;
+ 189:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * cont;
+ 190:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 191:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     btnm = lv_btnmatrix_create(obj);
+ 192:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     cont = lv_obj_create(obj);
+ 193:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 194:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_one_checked(btnm, true);
+ 195:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->map = lv_mem_alloc(sizeof(const char *));
+ 196:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->map[0] = "";
+ 197:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_map(btnm, (const char **)tabview->map);
+ 198:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_add_event_cb(btnm, btns_value_changed_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
+ 199:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_add_flag(btnm, LV_OBJ_FLAG_EVENT_BUBBLE);
+ 200:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 201:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_add_event_cb(cont, cont_scroll_end_event_cb, LV_EVENT_ALL, NULL);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 5
+
+
+ 202:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_scrollbar_mode(cont, LV_SCROLLBAR_MODE_OFF);
+ 203:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 204:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     switch(tabview->tab_pos) {
+ 205:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      case LV_DIR_TOP:
+ 206:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      case LV_DIR_BOTTOM:
+ 207:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_size(btnm, LV_PCT(100), tabsize_create);
+ 208:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_width(cont, LV_PCT(100));
+ 209:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_flex_grow(cont, 1);
+ 210:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          break;
+ 211:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      case LV_DIR_LEFT:
+ 212:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      case LV_DIR_RIGHT:
+ 213:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_size(btnm, tabsize_create, LV_PCT(100));
+ 214:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_height(cont, LV_PCT(100));
+ 215:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_flex_grow(cont, 1);
+ 216:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          break;
+ 217:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      }
+ 218:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 219:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_group_t * g = lv_group_get_default();
+ 220:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(g) lv_group_add_obj(g, btnm);
+ 221:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 222:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_flex_flow(cont, LV_FLEX_FLOW_ROW);
+ 223:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_scroll_snap_x(cont, LV_SCROLL_SNAP_CENTER);
+ 224:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_add_flag(cont, LV_OBJ_FLAG_SCROLL_ONE);
+ 225:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_clear_flag(cont, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+ 226:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 227:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 228:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void lv_tabview_destructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
+ 229:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+  29              		.loc 1 229 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 229 1 is_stmt 0 view .LVU1
+  34 0000 38B5     		push	{r3, r4, r5, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 16
+  37              		.cfi_offset 3, -16
+  38              		.cfi_offset 4, -12
+  39              		.cfi_offset 5, -8
+  40              		.cfi_offset 14, -4
+  41 0002 0C46     		mov	r4, r1
+ 230:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     LV_UNUSED(class_p);
+  42              		.loc 1 230 5 is_stmt 1 view .LVU2
+ 231:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+  43              		.loc 1 231 5 view .LVU3
+  44              	.LVL1:
+ 232:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 233:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     uint32_t i;
+  45              		.loc 1 233 5 view .LVU4
+ 234:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(tabview->tab_pos & LV_DIR_VER) {
+  46              		.loc 1 234 5 view .LVU5
+  47              		.loc 1 234 15 is_stmt 0 view .LVU6
+  48 0004 91F82C30 		ldrb	r3, [r1, #44]	@ zero_extendqisi2
+  49              		.loc 1 234 7 view .LVU7
+  50 0008 13F00C0F 		tst	r3, #12
+  51 000c 0AD1     		bne	.L8
+  52              	.LVL2:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 6
+
+
+  53              	.L3:
+ 235:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         for(i = 0; i < tabview->tab_cnt; i++) {
+ 236:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i]);
+ 237:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             tabview->map[i] = NULL;
+ 238:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+ 239:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 240:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(tabview->tab_pos & LV_DIR_HOR) {
+  54              		.loc 1 240 5 is_stmt 1 view .LVU8
+  55              		.loc 1 240 15 is_stmt 0 view .LVU9
+  56 000e 94F82C30 		ldrb	r3, [r4, #44]	@ zero_extendqisi2
+  57              		.loc 1 240 7 view .LVU10
+  58 0012 13F0030F 		tst	r3, #3
+  59 0016 22D1     		bne	.L9
+  60              	.L6:
+ 241:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         for(i = 0; i < tabview->tab_cnt; i++) {
+ 242:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i * 2]);
+ 243:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             tabview->map[i * 2] = NULL;
+ 244:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+ 245:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 246:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 247:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 248:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_mem_free(tabview->map);
+  61              		.loc 1 248 5 is_stmt 1 view .LVU11
+  62 0018 606A     		ldr	r0, [r4, #36]
+  63 001a FFF7FEFF 		bl	lv_mem_free
+  64              	.LVL3:
+ 249:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->map = NULL;
+  65              		.loc 1 249 5 view .LVU12
+  66              		.loc 1 249 18 is_stmt 0 view .LVU13
+  67 001e 0023     		movs	r3, #0
+  68 0020 6362     		str	r3, [r4, #36]
+ 250:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+  69              		.loc 1 250 1 view .LVU14
+  70 0022 38BD     		pop	{r3, r4, r5, pc}
+  71              	.LVL4:
+  72              	.L8:
+ 235:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i]);
+  73              		.loc 1 235 15 view .LVU15
+  74 0024 0025     		movs	r5, #0
+  75              	.LVL5:
+  76              	.L2:
+ 235:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i]);
+  77              		.loc 1 235 20 is_stmt 1 discriminator 1 view .LVU16
+ 235:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i]);
+  78              		.loc 1 235 31 is_stmt 0 discriminator 1 view .LVU17
+  79 0026 238D     		ldrh	r3, [r4, #40]
+ 235:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i]);
+  80              		.loc 1 235 9 discriminator 1 view .LVU18
+  81 0028 AB42     		cmp	r3, r5
+  82 002a F0D9     		bls	.L3
+ 236:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             tabview->map[i] = NULL;
+  83              		.loc 1 236 13 is_stmt 1 discriminator 3 view .LVU19
+ 236:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             tabview->map[i] = NULL;
+  84              		.loc 1 236 32 is_stmt 0 discriminator 3 view .LVU20
+  85 002c 636A     		ldr	r3, [r4, #36]
+ 236:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             tabview->map[i] = NULL;
+  86              		.loc 1 236 13 discriminator 3 view .LVU21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 7
+
+
+  87 002e 53F82500 		ldr	r0, [r3, r5, lsl #2]
+  88 0032 FFF7FEFF 		bl	lv_mem_free
+  89              	.LVL6:
+ 237:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+  90              		.loc 1 237 13 is_stmt 1 discriminator 3 view .LVU22
+ 237:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+  91              		.loc 1 237 20 is_stmt 0 discriminator 3 view .LVU23
+  92 0036 636A     		ldr	r3, [r4, #36]
+ 237:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+  93              		.loc 1 237 29 discriminator 3 view .LVU24
+  94 0038 0022     		movs	r2, #0
+  95 003a 43F82520 		str	r2, [r3, r5, lsl #2]
+ 235:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i]);
+  96              		.loc 1 235 42 is_stmt 1 discriminator 3 view .LVU25
+ 235:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i]);
+  97              		.loc 1 235 43 is_stmt 0 discriminator 3 view .LVU26
+  98 003e 0135     		adds	r5, r5, #1
+  99              	.LVL7:
+ 235:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i]);
+ 100              		.loc 1 235 43 discriminator 3 view .LVU27
+ 101 0040 F1E7     		b	.L2
+ 102              	.L7:
+ 242:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             tabview->map[i * 2] = NULL;
+ 103              		.loc 1 242 13 is_stmt 1 discriminator 3 view .LVU28
+ 242:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             tabview->map[i * 2] = NULL;
+ 104              		.loc 1 242 32 is_stmt 0 discriminator 3 view .LVU29
+ 105 0042 636A     		ldr	r3, [r4, #36]
+ 242:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             tabview->map[i * 2] = NULL;
+ 106              		.loc 1 242 13 discriminator 3 view .LVU30
+ 107 0044 53F83500 		ldr	r0, [r3, r5, lsl #3]
+ 108 0048 FFF7FEFF 		bl	lv_mem_free
+ 109              	.LVL8:
+ 243:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+ 110              		.loc 1 243 13 is_stmt 1 discriminator 3 view .LVU31
+ 243:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+ 111              		.loc 1 243 20 is_stmt 0 discriminator 3 view .LVU32
+ 112 004c 636A     		ldr	r3, [r4, #36]
+ 243:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+ 113              		.loc 1 243 33 discriminator 3 view .LVU33
+ 114 004e 0022     		movs	r2, #0
+ 115 0050 43F83520 		str	r2, [r3, r5, lsl #3]
+ 241:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i * 2]);
+ 116              		.loc 1 241 42 is_stmt 1 discriminator 3 view .LVU34
+ 241:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i * 2]);
+ 117              		.loc 1 241 43 is_stmt 0 discriminator 3 view .LVU35
+ 118 0054 0135     		adds	r5, r5, #1
+ 119              	.LVL9:
+ 120              	.L5:
+ 241:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i * 2]);
+ 121              		.loc 1 241 20 is_stmt 1 discriminator 1 view .LVU36
+ 241:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i * 2]);
+ 122              		.loc 1 241 31 is_stmt 0 discriminator 1 view .LVU37
+ 123 0056 238D     		ldrh	r3, [r4, #40]
+ 241:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i * 2]);
+ 124              		.loc 1 241 9 discriminator 1 view .LVU38
+ 125 0058 AB42     		cmp	r3, r5
+ 126 005a F2D8     		bhi	.L7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 8
+
+
+ 127 005c DCE7     		b	.L6
+ 128              	.LVL10:
+ 129              	.L9:
+ 241:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             lv_mem_free(tabview->map[i * 2]);
+ 130              		.loc 1 241 15 view .LVU39
+ 131 005e 0025     		movs	r5, #0
+ 132 0060 F9E7     		b	.L5
+ 133              		.cfi_endproc
+ 134              	.LFE196:
+ 136              		.section	.rodata.lv_tabview_constructor.str1.4,"aMS",%progbits,1
+ 137              		.align	2
+ 138              	.LC0:
+ 139 0000 00       		.ascii	"\000"
+ 140              		.section	.text.lv_tabview_constructor,"ax",%progbits
+ 141              		.align	1
+ 142              		.syntax unified
+ 143              		.thumb
+ 144              		.thumb_func
+ 145              		.fpu fpv4-sp-d16
+ 147              	lv_tabview_constructor:
+ 148              	.LVL11:
+ 149              	.LFB195:
+ 165:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     LV_UNUSED(class_p);
+ 150              		.loc 1 165 1 is_stmt 1 view -0
+ 151              		.cfi_startproc
+ 152              		@ args = 0, pretend = 0, frame = 0
+ 153              		@ frame_needed = 0, uses_anonymous_args = 0
+ 165:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     LV_UNUSED(class_p);
+ 154              		.loc 1 165 1 is_stmt 0 view .LVU41
+ 155 0000 70B5     		push	{r4, r5, r6, lr}
+ 156              	.LCFI1:
+ 157              		.cfi_def_cfa_offset 16
+ 158              		.cfi_offset 4, -16
+ 159              		.cfi_offset 5, -12
+ 160              		.cfi_offset 6, -8
+ 161              		.cfi_offset 14, -4
+ 162 0002 0C46     		mov	r4, r1
+ 166:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+ 163              		.loc 1 166 5 is_stmt 1 view .LVU42
+ 167:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 164              		.loc 1 167 5 view .LVU43
+ 165              	.LVL12:
+ 169:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 166              		.loc 1 169 5 view .LVU44
+ 169:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 167              		.loc 1 169 22 is_stmt 0 view .LVU45
+ 168 0004 4B4B     		ldr	r3, .L25
+ 169 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 170 0008 81F82C30 		strb	r3, [r1, #44]
+ 171:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     case LV_DIR_TOP:
+ 171              		.loc 1 171 5 is_stmt 1 view .LVU46
+ 172 000c 013B     		subs	r3, r3, #1
+ 173 000e 072B     		cmp	r3, #7
+ 174 0010 09D8     		bhi	.L12
+ 175 0012 DFE803F0 		tbb	[pc, r3]
+ 176              	.L14:
+ 177 0016 59       		.byte	(.L17-.L14)/2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 9
+
+
+ 178 0017 5E       		.byte	(.L16-.L14)/2
+ 179 0018 08       		.byte	(.L12-.L14)/2
+ 180 0019 04       		.byte	(.L15-.L14)/2
+ 181 001a 08       		.byte	(.L12-.L14)/2
+ 182 001b 08       		.byte	(.L12-.L14)/2
+ 183 001c 08       		.byte	(.L12-.L14)/2
+ 184 001d 54       		.byte	(.L13-.L14)/2
+ 185              		.p2align 1
+ 186              	.L15:
+ 173:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 187              		.loc 1 173 9 view .LVU47
+ 188 001e 0121     		movs	r1, #1
+ 189              	.LVL13:
+ 173:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 190              		.loc 1 173 9 is_stmt 0 view .LVU48
+ 191 0020 2046     		mov	r0, r4
+ 192              	.LVL14:
+ 173:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 193              		.loc 1 173 9 view .LVU49
+ 194 0022 FFF7FEFF 		bl	lv_obj_set_flex_flow
+ 195              	.LVL15:
+ 174:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     case LV_DIR_BOTTOM:
+ 196              		.loc 1 174 9 is_stmt 1 view .LVU50
+ 197              	.L12:
+ 186:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 198              		.loc 1 186 5 view .LVU51
+ 199 0026 42F26402 		movw	r2, #8292
+ 200 002a 1146     		mov	r1, r2
+ 201 002c 2046     		mov	r0, r4
+ 202 002e FFF7FEFF 		bl	lv_obj_set_size
+ 203              	.LVL16:
+ 188:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * cont;
+ 204              		.loc 1 188 5 view .LVU52
+ 189:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 205              		.loc 1 189 5 view .LVU53
+ 191:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     cont = lv_obj_create(obj);
+ 206              		.loc 1 191 5 view .LVU54
+ 191:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     cont = lv_obj_create(obj);
+ 207              		.loc 1 191 12 is_stmt 0 view .LVU55
+ 208 0032 2046     		mov	r0, r4
+ 209 0034 FFF7FEFF 		bl	lv_btnmatrix_create
+ 210              	.LVL17:
+ 211 0038 0646     		mov	r6, r0
+ 212              	.LVL18:
+ 192:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 213              		.loc 1 192 5 is_stmt 1 view .LVU56
+ 192:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 214              		.loc 1 192 12 is_stmt 0 view .LVU57
+ 215 003a 2046     		mov	r0, r4
+ 216              	.LVL19:
+ 192:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 217              		.loc 1 192 12 view .LVU58
+ 218 003c FFF7FEFF 		bl	lv_obj_create
+ 219              	.LVL20:
+ 220 0040 0546     		mov	r5, r0
+ 221              	.LVL21:
+ 194:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->map = lv_mem_alloc(sizeof(const char *));
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 10
+
+
+ 222              		.loc 1 194 5 is_stmt 1 view .LVU59
+ 223 0042 0121     		movs	r1, #1
+ 224 0044 3046     		mov	r0, r6
+ 225              	.LVL22:
+ 194:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->map = lv_mem_alloc(sizeof(const char *));
+ 226              		.loc 1 194 5 is_stmt 0 view .LVU60
+ 227 0046 FFF7FEFF 		bl	lv_btnmatrix_set_one_checked
+ 228              	.LVL23:
+ 195:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->map[0] = "";
+ 229              		.loc 1 195 5 is_stmt 1 view .LVU61
+ 195:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->map[0] = "";
+ 230              		.loc 1 195 20 is_stmt 0 view .LVU62
+ 231 004a 0420     		movs	r0, #4
+ 232 004c FFF7FEFF 		bl	lv_mem_alloc
+ 233              	.LVL24:
+ 195:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->map[0] = "";
+ 234              		.loc 1 195 18 view .LVU63
+ 235 0050 6062     		str	r0, [r4, #36]
+ 196:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_map(btnm, (const char **)tabview->map);
+ 236              		.loc 1 196 5 is_stmt 1 view .LVU64
+ 196:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_map(btnm, (const char **)tabview->map);
+ 237              		.loc 1 196 21 is_stmt 0 view .LVU65
+ 238 0052 394B     		ldr	r3, .L25+4
+ 239 0054 0360     		str	r3, [r0]
+ 197:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_add_event_cb(btnm, btns_value_changed_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
+ 240              		.loc 1 197 5 is_stmt 1 view .LVU66
+ 241 0056 616A     		ldr	r1, [r4, #36]
+ 242 0058 3046     		mov	r0, r6
+ 243 005a FFF7FEFF 		bl	lv_btnmatrix_set_map
+ 244              	.LVL25:
+ 198:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_add_flag(btnm, LV_OBJ_FLAG_EVENT_BUBBLE);
+ 245              		.loc 1 198 5 view .LVU67
+ 246 005e 0023     		movs	r3, #0
+ 247 0060 1C22     		movs	r2, #28
+ 248 0062 3649     		ldr	r1, .L25+8
+ 249 0064 3046     		mov	r0, r6
+ 250 0066 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 251              	.LVL26:
+ 199:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 252              		.loc 1 199 5 view .LVU68
+ 253 006a 4FF48051 		mov	r1, #4096
+ 254 006e 3046     		mov	r0, r6
+ 255 0070 FFF7FEFF 		bl	lv_obj_add_flag
+ 256              	.LVL27:
+ 201:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_scrollbar_mode(cont, LV_SCROLLBAR_MODE_OFF);
+ 257              		.loc 1 201 5 view .LVU69
+ 258 0074 0023     		movs	r3, #0
+ 259 0076 1A46     		mov	r2, r3
+ 260 0078 3149     		ldr	r1, .L25+12
+ 261 007a 2846     		mov	r0, r5
+ 262 007c FFF7FEFF 		bl	lv_obj_add_event_cb
+ 263              	.LVL28:
+ 202:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 264              		.loc 1 202 5 view .LVU70
+ 265 0080 0021     		movs	r1, #0
+ 266 0082 2846     		mov	r0, r5
+ 267 0084 FFF7FEFF 		bl	lv_obj_set_scrollbar_mode
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 11
+
+
+ 268              	.LVL29:
+ 204:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      case LV_DIR_TOP:
+ 269              		.loc 1 204 5 view .LVU71
+ 204:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      case LV_DIR_TOP:
+ 270              		.loc 1 204 19 is_stmt 0 view .LVU72
+ 271 0088 94F82C30 		ldrb	r3, [r4, #44]	@ zero_extendqisi2
+ 204:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      case LV_DIR_TOP:
+ 272              		.loc 1 204 5 view .LVU73
+ 273 008c 042B     		cmp	r3, #4
+ 274 008e 27D0     		beq	.L18
+ 275 0090 24D8     		bhi	.L19
+ 276 0092 013B     		subs	r3, r3, #1
+ 277 0094 DBB2     		uxtb	r3, r3
+ 278 0096 012B     		cmp	r3, #1
+ 279 0098 33D8     		bhi	.L20
+ 213:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_height(cont, LV_PCT(100));
+ 280              		.loc 1 213 10 is_stmt 1 view .LVU74
+ 281 009a 42F26402 		movw	r2, #8292
+ 282 009e 294B     		ldr	r3, .L25+16
+ 283 00a0 B3F90010 		ldrsh	r1, [r3]
+ 284 00a4 3046     		mov	r0, r6
+ 285 00a6 FFF7FEFF 		bl	lv_obj_set_size
+ 286              	.LVL30:
+ 214:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_flex_grow(cont, 1);
+ 287              		.loc 1 214 10 view .LVU75
+ 288 00aa 42F26401 		movw	r1, #8292
+ 289 00ae 2846     		mov	r0, r5
+ 290 00b0 FFF7FEFF 		bl	lv_obj_set_height
+ 291              	.LVL31:
+ 215:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          break;
+ 292              		.loc 1 215 10 view .LVU76
+ 293 00b4 0121     		movs	r1, #1
+ 294 00b6 2846     		mov	r0, r5
+ 295 00b8 FFF7FEFF 		bl	lv_obj_set_flex_grow
+ 296              	.LVL32:
+ 216:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      }
+ 297              		.loc 1 216 10 view .LVU77
+ 298 00bc 21E0     		b	.L20
+ 299              	.LVL33:
+ 300              	.L13:
+ 176:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 301              		.loc 1 176 9 view .LVU78
+ 302 00be 0921     		movs	r1, #9
+ 303              	.LVL34:
+ 176:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 304              		.loc 1 176 9 is_stmt 0 view .LVU79
+ 305 00c0 2046     		mov	r0, r4
+ 306              	.LVL35:
+ 176:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 307              		.loc 1 176 9 view .LVU80
+ 308 00c2 FFF7FEFF 		bl	lv_obj_set_flex_flow
+ 309              	.LVL36:
+ 177:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     case LV_DIR_LEFT:
+ 310              		.loc 1 177 9 is_stmt 1 view .LVU81
+ 311 00c6 AEE7     		b	.L12
+ 312              	.LVL37:
+ 313              	.L17:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 12
+
+
+ 179:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 314              		.loc 1 179 9 view .LVU82
+ 315 00c8 0021     		movs	r1, #0
+ 316              	.LVL38:
+ 179:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 317              		.loc 1 179 9 is_stmt 0 view .LVU83
+ 318 00ca 2046     		mov	r0, r4
+ 319              	.LVL39:
+ 179:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 320              		.loc 1 179 9 view .LVU84
+ 321 00cc FFF7FEFF 		bl	lv_obj_set_flex_flow
+ 322              	.LVL40:
+ 180:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     case LV_DIR_RIGHT:
+ 323              		.loc 1 180 9 is_stmt 1 view .LVU85
+ 324 00d0 A9E7     		b	.L12
+ 325              	.LVL41:
+ 326              	.L16:
+ 182:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 327              		.loc 1 182 9 view .LVU86
+ 328 00d2 0821     		movs	r1, #8
+ 329              	.LVL42:
+ 182:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 330              		.loc 1 182 9 is_stmt 0 view .LVU87
+ 331 00d4 2046     		mov	r0, r4
+ 332              	.LVL43:
+ 182:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         break;
+ 333              		.loc 1 182 9 view .LVU88
+ 334 00d6 FFF7FEFF 		bl	lv_obj_set_flex_flow
+ 335              	.LVL44:
+ 183:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 336              		.loc 1 183 9 is_stmt 1 view .LVU89
+ 337 00da A4E7     		b	.L12
+ 338              	.LVL45:
+ 339              	.L19:
+ 204:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      case LV_DIR_TOP:
+ 340              		.loc 1 204 5 is_stmt 0 view .LVU90
+ 341 00dc 082B     		cmp	r3, #8
+ 342 00de 10D1     		bne	.L20
+ 343              	.L18:
+ 207:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_width(cont, LV_PCT(100));
+ 344              		.loc 1 207 10 is_stmt 1 view .LVU91
+ 345 00e0 184B     		ldr	r3, .L25+16
+ 346 00e2 B3F90020 		ldrsh	r2, [r3]
+ 347 00e6 42F26401 		movw	r1, #8292
+ 348 00ea 3046     		mov	r0, r6
+ 349 00ec FFF7FEFF 		bl	lv_obj_set_size
+ 350              	.LVL46:
+ 208:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          lv_obj_set_flex_grow(cont, 1);
+ 351              		.loc 1 208 10 view .LVU92
+ 352 00f0 42F26401 		movw	r1, #8292
+ 353 00f4 2846     		mov	r0, r5
+ 354 00f6 FFF7FEFF 		bl	lv_obj_set_width
+ 355              	.LVL47:
+ 209:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****          break;
+ 356              		.loc 1 209 10 view .LVU93
+ 357 00fa 0121     		movs	r1, #1
+ 358 00fc 2846     		mov	r0, r5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 13
+
+
+ 359 00fe FFF7FEFF 		bl	lv_obj_set_flex_grow
+ 360              	.LVL48:
+ 210:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****      case LV_DIR_LEFT:
+ 361              		.loc 1 210 10 view .LVU94
+ 362              	.L20:
+ 219:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(g) lv_group_add_obj(g, btnm);
+ 363              		.loc 1 219 5 view .LVU95
+ 219:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(g) lv_group_add_obj(g, btnm);
+ 364              		.loc 1 219 22 is_stmt 0 view .LVU96
+ 365 0102 FFF7FEFF 		bl	lv_group_get_default
+ 366              	.LVL49:
+ 220:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 367              		.loc 1 220 5 is_stmt 1 view .LVU97
+ 220:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 368              		.loc 1 220 7 is_stmt 0 view .LVU98
+ 369 0106 10B1     		cbz	r0, .L22
+ 220:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 370              		.loc 1 220 11 is_stmt 1 discriminator 1 view .LVU99
+ 371 0108 3146     		mov	r1, r6
+ 372 010a FFF7FEFF 		bl	lv_group_add_obj
+ 373              	.LVL50:
+ 374              	.L22:
+ 222:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_scroll_snap_x(cont, LV_SCROLL_SNAP_CENTER);
+ 375              		.loc 1 222 5 view .LVU100
+ 376 010e 0021     		movs	r1, #0
+ 377 0110 2846     		mov	r0, r5
+ 378 0112 FFF7FEFF 		bl	lv_obj_set_flex_flow
+ 379              	.LVL51:
+ 223:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_add_flag(cont, LV_OBJ_FLAG_SCROLL_ONE);
+ 380              		.loc 1 223 5 view .LVU101
+ 381 0116 0321     		movs	r1, #3
+ 382 0118 2846     		mov	r0, r5
+ 383 011a FFF7FEFF 		bl	lv_obj_set_scroll_snap_x
+ 384              	.LVL52:
+ 224:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_clear_flag(cont, LV_OBJ_FLAG_SCROLL_ON_FOCUS);
+ 385              		.loc 1 224 5 view .LVU102
+ 386 011e 8021     		movs	r1, #128
+ 387 0120 2846     		mov	r0, r5
+ 388 0122 FFF7FEFF 		bl	lv_obj_add_flag
+ 389              	.LVL53:
+ 225:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 390              		.loc 1 225 5 view .LVU103
+ 391 0126 4FF40071 		mov	r1, #512
+ 392 012a 2846     		mov	r0, r5
+ 393 012c FFF7FEFF 		bl	lv_obj_clear_flag
+ 394              	.LVL54:
+ 226:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 395              		.loc 1 226 1 is_stmt 0 view .LVU104
+ 396 0130 70BD     		pop	{r4, r5, r6, pc}
+ 397              	.LVL55:
+ 398              	.L26:
+ 226:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 399              		.loc 1 226 1 view .LVU105
+ 400 0132 00BF     		.align	2
+ 401              	.L25:
+ 402 0134 00000000 		.word	.LANCHOR0
+ 403 0138 00000000 		.word	.LC0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 14
+
+
+ 404 013c 00000000 		.word	btns_value_changed_event_cb
+ 405 0140 00000000 		.word	cont_scroll_end_event_cb
+ 406 0144 00000000 		.word	.LANCHOR1
+ 407              		.cfi_endproc
+ 408              	.LFE195:
+ 410              		.section	.text.lv_tabview_create,"ax",%progbits
+ 411              		.align	1
+ 412              		.global	lv_tabview_create
+ 413              		.syntax unified
+ 414              		.thumb
+ 415              		.thumb_func
+ 416              		.fpu fpv4-sp-d16
+ 418              	lv_tabview_create:
+ 419              	.LVL56:
+ 420              	.LFB189:
+  53:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     LV_LOG_INFO("begin")
+ 421              		.loc 1 53 1 is_stmt 1 view -0
+ 422              		.cfi_startproc
+ 423              		@ args = 0, pretend = 0, frame = 0
+ 424              		@ frame_needed = 0, uses_anonymous_args = 0
+  53:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     LV_LOG_INFO("begin")
+ 425              		.loc 1 53 1 is_stmt 0 view .LVU107
+ 426 0000 10B5     		push	{r4, lr}
+ 427              	.LCFI2:
+ 428              		.cfi_def_cfa_offset 8
+ 429              		.cfi_offset 4, -8
+ 430              		.cfi_offset 14, -4
+  54:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabpos_create = tab_pos;
+ 431              		.loc 1 54 5 is_stmt 1 view .LVU108
+  54:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabpos_create = tab_pos;
+ 432              		.loc 1 54 5 view .LVU109
+  54:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabpos_create = tab_pos;
+ 433              		.loc 1 54 5 view .LVU110
+  55:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabsize_create = tab_size;
+ 434              		.loc 1 55 5 view .LVU111
+  55:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabsize_create = tab_size;
+ 435              		.loc 1 55 19 is_stmt 0 view .LVU112
+ 436 0002 064B     		ldr	r3, .L29
+ 437 0004 1970     		strb	r1, [r3]
+  56:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 438              		.loc 1 56 5 is_stmt 1 view .LVU113
+  56:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 439              		.loc 1 56 20 is_stmt 0 view .LVU114
+ 440 0006 064B     		ldr	r3, .L29+4
+ 441 0008 1A80     		strh	r2, [r3]	@ movhi
+  58:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_class_init_obj(obj);
+ 442              		.loc 1 58 5 is_stmt 1 view .LVU115
+  58:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_class_init_obj(obj);
+ 443              		.loc 1 58 22 is_stmt 0 view .LVU116
+ 444 000a 0146     		mov	r1, r0
+ 445              	.LVL57:
+  58:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_class_init_obj(obj);
+ 446              		.loc 1 58 22 view .LVU117
+ 447 000c 0548     		ldr	r0, .L29+8
+ 448              	.LVL58:
+  58:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_class_init_obj(obj);
+ 449              		.loc 1 58 22 view .LVU118
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 15
+
+
+ 450 000e FFF7FEFF 		bl	lv_obj_class_create_obj
+ 451              	.LVL59:
+  58:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_class_init_obj(obj);
+ 452              		.loc 1 58 22 view .LVU119
+ 453 0012 0446     		mov	r4, r0
+ 454              	.LVL60:
+  59:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return obj;
+ 455              		.loc 1 59 5 is_stmt 1 view .LVU120
+ 456 0014 FFF7FEFF 		bl	lv_obj_class_init_obj
+ 457              	.LVL61:
+  60:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 458              		.loc 1 60 5 view .LVU121
+  61:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 459              		.loc 1 61 1 is_stmt 0 view .LVU122
+ 460 0018 2046     		mov	r0, r4
+ 461 001a 10BD     		pop	{r4, pc}
+ 462              	.LVL62:
+ 463              	.L30:
+  61:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 464              		.loc 1 61 1 view .LVU123
+ 465              		.align	2
+ 466              	.L29:
+ 467 001c 00000000 		.word	.LANCHOR0
+ 468 0020 00000000 		.word	.LANCHOR1
+ 469 0024 00000000 		.word	.LANCHOR2
+ 470              		.cfi_endproc
+ 471              	.LFE189:
+ 473              		.section	.text.lv_tabview_get_tab_act,"ax",%progbits
+ 474              		.align	1
+ 475              		.global	lv_tabview_get_tab_act
+ 476              		.syntax unified
+ 477              		.thumb
+ 478              		.thumb_func
+ 479              		.fpu fpv4-sp-d16
+ 481              	lv_tabview_get_tab_act:
+ 482              	.LVL63:
+ 483              	.LFB192:
+ 145:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+ 484              		.loc 1 145 1 is_stmt 1 view -0
+ 485              		.cfi_startproc
+ 486              		@ args = 0, pretend = 0, frame = 0
+ 487              		@ frame_needed = 0, uses_anonymous_args = 0
+ 488              		@ link register save eliminated.
+ 146:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return tabview->tab_cur;
+ 489              		.loc 1 146 5 view .LVU125
+ 147:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 490              		.loc 1 147 5 view .LVU126
+ 148:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 491              		.loc 1 148 1 is_stmt 0 view .LVU127
+ 492 0000 408D     		ldrh	r0, [r0, #42]
+ 493              	.LVL64:
+ 148:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 494              		.loc 1 148 1 view .LVU128
+ 495 0002 7047     		bx	lr
+ 496              		.cfi_endproc
+ 497              	.LFE192:
+ 499              		.section	.text.lv_tabview_get_content,"ax",%progbits
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 16
+
+
+ 500              		.align	1
+ 501              		.global	lv_tabview_get_content
+ 502              		.syntax unified
+ 503              		.thumb
+ 504              		.thumb_func
+ 505              		.fpu fpv4-sp-d16
+ 507              	lv_tabview_get_content:
+ 508              	.LVL65:
+ 509              	.LFB193:
+ 151:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return lv_obj_get_child(tv, 1);
+ 510              		.loc 1 151 1 is_stmt 1 view -0
+ 511              		.cfi_startproc
+ 512              		@ args = 0, pretend = 0, frame = 0
+ 513              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return lv_obj_get_child(tv, 1);
+ 514              		.loc 1 151 1 is_stmt 0 view .LVU130
+ 515 0000 08B5     		push	{r3, lr}
+ 516              	.LCFI3:
+ 517              		.cfi_def_cfa_offset 8
+ 518              		.cfi_offset 3, -8
+ 519              		.cfi_offset 14, -4
+ 152:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 520              		.loc 1 152 5 is_stmt 1 view .LVU131
+ 152:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 521              		.loc 1 152 12 is_stmt 0 view .LVU132
+ 522 0002 0121     		movs	r1, #1
+ 523 0004 FFF7FEFF 		bl	lv_obj_get_child
+ 524              	.LVL66:
+ 153:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 525              		.loc 1 153 1 view .LVU133
+ 526 0008 08BD     		pop	{r3, pc}
+ 527              		.cfi_endproc
+ 528              	.LFE193:
+ 530              		.section	.text.lv_tabview_get_tab_btns,"ax",%progbits
+ 531              		.align	1
+ 532              		.global	lv_tabview_get_tab_btns
+ 533              		.syntax unified
+ 534              		.thumb
+ 535              		.thumb_func
+ 536              		.fpu fpv4-sp-d16
+ 538              	lv_tabview_get_tab_btns:
+ 539              	.LVL67:
+ 540              	.LFB194:
+ 156:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return lv_obj_get_child(tv, 0);
+ 541              		.loc 1 156 1 is_stmt 1 view -0
+ 542              		.cfi_startproc
+ 543              		@ args = 0, pretend = 0, frame = 0
+ 544              		@ frame_needed = 0, uses_anonymous_args = 0
+ 156:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     return lv_obj_get_child(tv, 0);
+ 545              		.loc 1 156 1 is_stmt 0 view .LVU135
+ 546 0000 08B5     		push	{r3, lr}
+ 547              	.LCFI4:
+ 548              		.cfi_def_cfa_offset 8
+ 549              		.cfi_offset 3, -8
+ 550              		.cfi_offset 14, -4
+ 157:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 551              		.loc 1 157 5 is_stmt 1 view .LVU136
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 17
+
+
+ 157:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 552              		.loc 1 157 12 is_stmt 0 view .LVU137
+ 553 0002 0021     		movs	r1, #0
+ 554 0004 FFF7FEFF 		bl	lv_obj_get_child
+ 555              	.LVL68:
+ 158:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 556              		.loc 1 158 1 view .LVU138
+ 557 0008 08BD     		pop	{r3, pc}
+ 558              		.cfi_endproc
+ 559              	.LFE194:
+ 561              		.section	.text.lv_tabview_set_act,"ax",%progbits
+ 562              		.align	1
+ 563              		.global	lv_tabview_set_act
+ 564              		.syntax unified
+ 565              		.thumb
+ 566              		.thumb_func
+ 567              		.fpu fpv4-sp-d16
+ 569              	lv_tabview_set_act:
+ 570              	.LVL69:
+ 571              	.LFB191:
+ 118:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+ 572              		.loc 1 118 1 is_stmt 1 view -0
+ 573              		.cfi_startproc
+ 574              		@ args = 0, pretend = 0, frame = 0
+ 575              		@ frame_needed = 0, uses_anonymous_args = 0
+ 118:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+ 576              		.loc 1 118 1 is_stmt 0 view .LVU140
+ 577 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 578              	.LCFI5:
+ 579              		.cfi_def_cfa_offset 32
+ 580              		.cfi_offset 3, -32
+ 581              		.cfi_offset 4, -28
+ 582              		.cfi_offset 5, -24
+ 583              		.cfi_offset 6, -20
+ 584              		.cfi_offset 7, -16
+ 585              		.cfi_offset 8, -12
+ 586              		.cfi_offset 9, -8
+ 587              		.cfi_offset 14, -4
+ 588 0004 0446     		mov	r4, r0
+ 589 0006 0D46     		mov	r5, r1
+ 590 0008 1646     		mov	r6, r2
+ 119:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 591              		.loc 1 119 5 is_stmt 1 view .LVU141
+ 592              	.LVL70:
+ 121:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         id = tabview->tab_cnt - 1;
+ 593              		.loc 1 121 5 view .LVU142
+ 121:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         id = tabview->tab_cnt - 1;
+ 594              		.loc 1 121 21 is_stmt 0 view .LVU143
+ 595 000a 038D     		ldrh	r3, [r0, #40]
+ 121:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         id = tabview->tab_cnt - 1;
+ 596              		.loc 1 121 7 view .LVU144
+ 597 000c 8B42     		cmp	r3, r1
+ 598 000e 00D8     		bhi	.L37
+ 122:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 599              		.loc 1 122 9 is_stmt 1 view .LVU145
+ 122:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 600              		.loc 1 122 31 is_stmt 0 view .LVU146
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 18
+
+
+ 601 0010 5D1E     		subs	r5, r3, #1
+ 602              	.LVL71:
+ 603              	.L37:
+ 126:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 604              		.loc 1 126 5 is_stmt 1 view .LVU147
+ 605 0012 2046     		mov	r0, r4
+ 606              	.LVL72:
+ 126:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 607              		.loc 1 126 5 is_stmt 0 view .LVU148
+ 608 0014 FFF7FEFF 		bl	lv_obj_update_layout
+ 609              	.LVL73:
+ 128:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(cont == NULL) return;
+ 610              		.loc 1 128 5 is_stmt 1 view .LVU149
+ 128:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(cont == NULL) return;
+ 611              		.loc 1 128 23 is_stmt 0 view .LVU150
+ 612 0018 2046     		mov	r0, r4
+ 613 001a FFF7FEFF 		bl	lv_tabview_get_content
+ 614              	.LVL74:
+ 129:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_coord_t gap = lv_obj_get_style_pad_column(cont, LV_PART_MAIN);
+ 615              		.loc 1 129 5 is_stmt 1 view .LVU151
+ 129:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_coord_t gap = lv_obj_get_style_pad_column(cont, LV_PART_MAIN);
+ 616              		.loc 1 129 7 is_stmt 0 view .LVU152
+ 617 001e 0746     		mov	r7, r0
+ 618 0020 28B3     		cbz	r0, .L36
+ 130:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_coord_t w = lv_obj_get_content_width(cont);
+ 619              		.loc 1 130 5 is_stmt 1 view .LVU153
+ 620              	.LVL75:
+ 621              	.LBB14:
+ 622              	.LBI14:
+ 623              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style_gen.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_width(const struct _lv_obj_t * obj, uint32_t part)
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_WIDTH);
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_min_width(const struct _lv_obj_t * obj, uint32_t part)
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MIN_WIDTH);
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_max_width(const struct _lv_obj_t * obj, uint32_t part)
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MAX_WIDTH);
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_height(const struct _lv_obj_t * obj, uint32_t part)
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_HEIGHT);
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_min_height(const struct _lv_obj_t * obj, uint32_t part)
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MIN_HEIGHT);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 19
+
+
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_max_height(const struct _lv_obj_t * obj, uint32_t part)
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MAX_HEIGHT);
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_x(const struct _lv_obj_t * obj, uint32_t part)
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_X);
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_y(const struct _lv_obj_t * obj, uint32_t part)
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_Y);
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_align_t lv_obj_get_style_align(const struct _lv_obj_t * obj, uint32_t part)
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_ALIGN);
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_align_t)v.num;
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_width(const struct _lv_obj_t * obj, uint32_t pa
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_WIDTH);
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_height(const struct _lv_obj_t * obj, uint32_t p
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_HEIGHT);
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_translate_x(const struct _lv_obj_t * obj, uint32_t part)
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSLATE_X);
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_translate_y(const struct _lv_obj_t * obj, uint32_t part)
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSLATE_Y);
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_zoom(const struct _lv_obj_t * obj, uint32_t par
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_ZOOM);
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 20
+
+
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_angle(const struct _lv_obj_t * obj, uint32_t pa
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_ANGLE);
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_top(const struct _lv_obj_t * obj, uint32_t part)
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_TOP);
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_bottom(const struct _lv_obj_t * obj, uint32_t part)
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_BOTTOM);
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_left(const struct _lv_obj_t * obj, uint32_t part)
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_LEFT);
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_right(const struct _lv_obj_t * obj, uint32_t part)
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_RIGHT);
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_row(const struct _lv_obj_t * obj, uint32_t part)
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_ROW);
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_column(const struct _lv_obj_t * obj, uint32_t part)
+ 624              		.loc 2 121 26 view .LVU154
+ 625              	.LBB15:
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_PAD_COLUMN);
+ 626              		.loc 2 123 5 view .LVU155
+ 627              		.loc 2 123 26 is_stmt 0 view .LVU156
+ 628 0022 41F21502 		movw	r2, #4117
+ 629 0026 0021     		movs	r1, #0
+ 630 0028 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 631              	.LVL76:
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 632              		.loc 2 124 5 is_stmt 1 view .LVU157
+ 633              		.loc 2 124 12 is_stmt 0 view .LVU158
+ 634 002c 0FFA80F8 		sxth	r8, r0
+ 635              	.LVL77:
+ 636              		.loc 2 124 12 view .LVU159
+ 637              	.LBE15:
+ 638              	.LBE14:
+ 131:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(lv_obj_get_style_base_dir(obj, LV_PART_MAIN) != LV_BASE_DIR_RTL) {
+ 639              		.loc 1 131 5 is_stmt 1 view .LVU160
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 21
+
+
+ 131:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(lv_obj_get_style_base_dir(obj, LV_PART_MAIN) != LV_BASE_DIR_RTL) {
+ 640              		.loc 1 131 20 is_stmt 0 view .LVU161
+ 641 0030 3846     		mov	r0, r7
+ 642 0032 FFF7FEFF 		bl	lv_obj_get_content_width
+ 643              	.LVL78:
+ 644 0036 8146     		mov	r9, r0
+ 645              	.LVL79:
+ 132:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_scroll_to_x(cont, id * (gap + w), anim_en);
+ 646              		.loc 1 132 5 is_stmt 1 view .LVU162
+ 647              	.LBB16:
+ 648              	.LBI16:
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_radius(const struct _lv_obj_t * obj, uint32_t part)
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_RADIUS);
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline bool lv_obj_get_style_clip_corner(const struct _lv_obj_t * obj, uint32_t part)
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_CLIP_CORNER);
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (bool)v.num;
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_opa_t lv_obj_get_style_opa(const struct _lv_obj_t * obj, uint32_t part)
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_OPA);
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_opa_t)v.num;
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline const lv_color_filter_dsc_t * lv_obj_get_style_color_filter_dsc(const struct _lv_obj_
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_COLOR_FILTER_DSC);
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (const lv_color_filter_dsc_t *)v.ptr;
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_opa_t lv_obj_get_style_color_filter_opa(const struct _lv_obj_t * obj, uint32_t par
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_COLOR_FILTER_OPA);
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_opa_t)v.num;
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline uint32_t lv_obj_get_style_anim_time(const struct _lv_obj_t * obj, uint32_t part)
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_ANIM_TIME);
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (uint32_t)v.num;
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline uint32_t lv_obj_get_style_anim_speed(const struct _lv_obj_t * obj, uint32_t part)
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_ANIM_SPEED);
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (uint32_t)v.num;
+ 167:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 168:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 169:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline const lv_style_transition_dsc_t * lv_obj_get_style_transition(const struct _lv_obj_t 
+ 170:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 22
+
+
+ 171:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSITION);
+ 172:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (const lv_style_transition_dsc_t *)v.ptr;
+ 173:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 174:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 175:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_blend_mode_t lv_obj_get_style_blend_mode(const struct _lv_obj_t * obj, uint32_t pa
+ 176:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 177:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_BLEND_MODE);
+ 178:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_blend_mode_t)v.num;
+ 179:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 180:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 181:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline uint16_t lv_obj_get_style_layout(const struct _lv_obj_t * obj, uint32_t part)
+ 182:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 183:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_LAYOUT);
+ 184:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (uint16_t)v.num;
+ 185:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+ 186:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+ 187:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_base_dir_t lv_obj_get_style_base_dir(const struct _lv_obj_t * obj, uint32_t part)
+ 649              		.loc 2 187 29 view .LVU163
+ 650              	.LBB17:
+ 188:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 189:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_BASE_DIR);
+ 651              		.loc 2 189 5 view .LVU164
+ 652              		.loc 2 189 26 is_stmt 0 view .LVU165
+ 653 0038 41F26A42 		movw	r2, #5226
+ 654 003c 0021     		movs	r1, #0
+ 655 003e 2046     		mov	r0, r4
+ 656 0040 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 657              	.LVL80:
+ 190:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_base_dir_t)v.num;
+ 658              		.loc 2 190 5 is_stmt 1 view .LVU166
+ 659              		.loc 2 190 12 is_stmt 0 view .LVU167
+ 660 0044 C3B2     		uxtb	r3, r0
+ 661              	.LVL81:
+ 662              		.loc 2 190 12 view .LVU168
+ 663              	.LBE17:
+ 664              	.LBE16:
+ 132:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_scroll_to_x(cont, id * (gap + w), anim_en);
+ 665              		.loc 1 132 7 view .LVU169
+ 666 0046 012B     		cmp	r3, #1
+ 667 0048 13D0     		beq	.L39
+ 133:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     } else {
+ 668              		.loc 1 133 9 is_stmt 1 view .LVU170
+ 133:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     } else {
+ 669              		.loc 1 133 44 is_stmt 0 view .LVU171
+ 670 004a 08EB0901 		add	r1, r8, r9
+ 133:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     } else {
+ 671              		.loc 1 133 9 view .LVU172
+ 672 004e 11FB05F1 		smulbb	r1, r1, r5
+ 673 0052 3246     		mov	r2, r6
+ 674 0054 09B2     		sxth	r1, r1
+ 675 0056 3846     		mov	r0, r7
+ 676 0058 FFF7FEFF 		bl	lv_obj_scroll_to_x
+ 677              	.LVL82:
+ 678              	.L40:
+ 139:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_btn_ctrl(btns, id, LV_BTNMATRIX_CTRL_CHECKED);
+ 679              		.loc 1 139 5 is_stmt 1 view .LVU173
+ 139:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_btn_ctrl(btns, id, LV_BTNMATRIX_CTRL_CHECKED);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 23
+
+
+ 680              		.loc 1 139 23 is_stmt 0 view .LVU174
+ 681 005c 2046     		mov	r0, r4
+ 682 005e FFF7FEFF 		bl	lv_tabview_get_tab_btns
+ 683              	.LVL83:
+ 140:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->tab_cur = id;
+ 684              		.loc 1 140 5 is_stmt 1 view .LVU175
+ 685 0062 ADB2     		uxth	r5, r5
+ 686              	.LVL84:
+ 140:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     tabview->tab_cur = id;
+ 687              		.loc 1 140 5 is_stmt 0 view .LVU176
+ 688 0064 8022     		movs	r2, #128
+ 689 0066 2946     		mov	r1, r5
+ 690 0068 FFF7FEFF 		bl	lv_btnmatrix_set_btn_ctrl
+ 691              	.LVL85:
+ 141:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 692              		.loc 1 141 5 is_stmt 1 view .LVU177
+ 141:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 693              		.loc 1 141 22 is_stmt 0 view .LVU178
+ 694 006c 6585     		strh	r5, [r4, #42]	@ movhi
+ 695              	.LVL86:
+ 696              	.L36:
+ 142:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 697              		.loc 1 142 1 view .LVU179
+ 698 006e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 699              	.LVL87:
+ 700              	.L39:
+ 701              	.LBB18:
+ 135:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_scroll_to_x(cont, (gap + w) * id_rtl, anim_en);
+ 702              		.loc 1 135 9 is_stmt 1 view .LVU180
+ 135:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_scroll_to_x(cont, (gap + w) * id_rtl, anim_en);
+ 703              		.loc 1 135 17 is_stmt 0 view .LVU181
+ 704 0072 6942     		rsbs	r1, r5, #0
+ 136:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 705              		.loc 1 136 9 is_stmt 1 view .LVU182
+ 136:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 706              		.loc 1 136 39 is_stmt 0 view .LVU183
+ 707 0074 08EB0900 		add	r0, r8, r9
+ 136:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 708              		.loc 1 136 9 view .LVU184
+ 709 0078 10FB01F1 		smulbb	r1, r0, r1
+ 710 007c 3246     		mov	r2, r6
+ 711 007e 09B2     		sxth	r1, r1
+ 712 0080 3846     		mov	r0, r7
+ 713 0082 FFF7FEFF 		bl	lv_obj_scroll_to_x
+ 714              	.LVL88:
+ 715 0086 E9E7     		b	.L40
+ 716              	.LBE18:
+ 717              		.cfi_endproc
+ 718              	.LFE191:
+ 720              		.section	.text.lv_tabview_event,"ax",%progbits
+ 721              		.align	1
+ 722              		.syntax unified
+ 723              		.thumb
+ 724              		.thumb_func
+ 725              		.fpu fpv4-sp-d16
+ 727              	lv_tabview_event:
+ 728              	.LVL89:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 24
+
+
+ 729              	.LFB197:
+ 251:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 252:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void lv_tabview_event(const lv_obj_class_t * class_p, lv_event_t * e)
+ 253:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+ 730              		.loc 1 253 1 is_stmt 1 view -0
+ 731              		.cfi_startproc
+ 732              		@ args = 0, pretend = 0, frame = 0
+ 733              		@ frame_needed = 0, uses_anonymous_args = 0
+ 734              		.loc 1 253 1 is_stmt 0 view .LVU186
+ 735 0000 38B5     		push	{r3, r4, r5, lr}
+ 736              	.LCFI6:
+ 737              		.cfi_def_cfa_offset 16
+ 738              		.cfi_offset 3, -16
+ 739              		.cfi_offset 4, -12
+ 740              		.cfi_offset 5, -8
+ 741              		.cfi_offset 14, -4
+ 742 0002 0C46     		mov	r4, r1
+ 254:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     LV_UNUSED(class_p);
+ 743              		.loc 1 254 5 is_stmt 1 view .LVU187
+ 255:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_res_t res = lv_obj_event_base(&lv_tabview_class, e);
+ 744              		.loc 1 255 5 view .LVU188
+ 745              		.loc 1 255 20 is_stmt 0 view .LVU189
+ 746 0004 0B48     		ldr	r0, .L46
+ 747              	.LVL90:
+ 748              		.loc 1 255 20 view .LVU190
+ 749 0006 FFF7FEFF 		bl	lv_obj_event_base
+ 750              	.LVL91:
+ 256:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(res != LV_RES_OK) return;
+ 751              		.loc 1 256 5 is_stmt 1 view .LVU191
+ 752              		.loc 1 256 7 is_stmt 0 view .LVU192
+ 753 000a 0128     		cmp	r0, #1
+ 754 000c 00D0     		beq	.L45
+ 755              	.LVL92:
+ 756              	.L42:
+ 257:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 258:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_event_code_t code = lv_event_get_code(e);
+ 259:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * target = lv_event_get_target(e);
+ 260:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 261:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(code == LV_EVENT_SIZE_CHANGED) {
+ 262:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(target, lv_tabview_get_tab_act(target), LV_ANIM_OFF);
+ 263:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 264:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 757              		.loc 1 264 1 view .LVU193
+ 758 000e 38BD     		pop	{r3, r4, r5, pc}
+ 759              	.LVL93:
+ 760              	.L45:
+ 258:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * target = lv_event_get_target(e);
+ 761              		.loc 1 258 5 is_stmt 1 view .LVU194
+ 258:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * target = lv_event_get_target(e);
+ 762              		.loc 1 258 28 is_stmt 0 view .LVU195
+ 763 0010 2046     		mov	r0, r4
+ 764              	.LVL94:
+ 258:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * target = lv_event_get_target(e);
+ 765              		.loc 1 258 28 view .LVU196
+ 766 0012 FFF7FEFF 		bl	lv_event_get_code
+ 767              	.LVL95:
+ 768 0016 0546     		mov	r5, r0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 25
+
+
+ 769              	.LVL96:
+ 259:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 770              		.loc 1 259 5 is_stmt 1 view .LVU197
+ 259:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 771              		.loc 1 259 25 is_stmt 0 view .LVU198
+ 772 0018 2046     		mov	r0, r4
+ 773 001a FFF7FEFF 		bl	lv_event_get_target
+ 774              	.LVL97:
+ 775 001e 0446     		mov	r4, r0
+ 776              	.LVL98:
+ 261:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(target, lv_tabview_get_tab_act(target), LV_ANIM_OFF);
+ 777              		.loc 1 261 5 is_stmt 1 view .LVU199
+ 261:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(target, lv_tabview_get_tab_act(target), LV_ANIM_OFF);
+ 778              		.loc 1 261 7 is_stmt 0 view .LVU200
+ 779 0020 232D     		cmp	r5, #35
+ 780 0022 F4D1     		bne	.L42
+ 262:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 781              		.loc 1 262 9 is_stmt 1 view .LVU201
+ 262:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 782              		.loc 1 262 36 is_stmt 0 view .LVU202
+ 783 0024 FFF7FEFF 		bl	lv_tabview_get_tab_act
+ 784              	.LVL99:
+ 262:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 785              		.loc 1 262 36 view .LVU203
+ 786 0028 0146     		mov	r1, r0
+ 262:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 787              		.loc 1 262 9 view .LVU204
+ 788 002a 0022     		movs	r2, #0
+ 789 002c 2046     		mov	r0, r4
+ 790 002e FFF7FEFF 		bl	lv_tabview_set_act
+ 791              	.LVL100:
+ 792 0032 ECE7     		b	.L42
+ 793              	.L47:
+ 794              		.align	2
+ 795              	.L46:
+ 796 0034 00000000 		.word	.LANCHOR2
+ 797              		.cfi_endproc
+ 798              	.LFE197:
+ 800              		.section	.text.cont_scroll_end_event_cb,"ax",%progbits
+ 801              		.align	1
+ 802              		.syntax unified
+ 803              		.thumb
+ 804              		.thumb_func
+ 805              		.fpu fpv4-sp-d16
+ 807              	cont_scroll_end_event_cb:
+ 808              	.LVL101:
+ 809              	.LFB199:
+ 265:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 266:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 267:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void btns_value_changed_event_cb(lv_event_t * e)
+ 268:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+ 269:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * btns = lv_event_get_target(e);
+ 270:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 271:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * tv = lv_obj_get_parent(btns);
+ 272:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     uint32_t id = lv_btnmatrix_get_selected_btn(btns);
+ 273:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_set_act(tv, id, LV_ANIM_ON);
+ 274:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 26
+
+
+ 275:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 276:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** static void cont_scroll_end_event_cb(lv_event_t * e)
+ 277:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** {
+ 810              		.loc 1 277 1 is_stmt 1 view -0
+ 811              		.cfi_startproc
+ 812              		@ args = 0, pretend = 0, frame = 8
+ 813              		@ frame_needed = 0, uses_anonymous_args = 0
+ 814              		.loc 1 277 1 is_stmt 0 view .LVU206
+ 815 0000 70B5     		push	{r4, r5, r6, lr}
+ 816              	.LCFI7:
+ 817              		.cfi_def_cfa_offset 16
+ 818              		.cfi_offset 4, -16
+ 819              		.cfi_offset 5, -12
+ 820              		.cfi_offset 6, -8
+ 821              		.cfi_offset 14, -4
+ 822 0002 82B0     		sub	sp, sp, #8
+ 823              	.LCFI8:
+ 824              		.cfi_def_cfa_offset 24
+ 825 0004 0446     		mov	r4, r0
+ 278:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * cont = lv_event_get_target(e);
+ 826              		.loc 1 278 5 is_stmt 1 view .LVU207
+ 827              		.loc 1 278 23 is_stmt 0 view .LVU208
+ 828 0006 FFF7FEFF 		bl	lv_event_get_target
+ 829              	.LVL102:
+ 830              		.loc 1 278 23 view .LVU209
+ 831 000a 0546     		mov	r5, r0
+ 832              	.LVL103:
+ 279:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_event_code_t code = lv_event_get_code(e);
+ 833              		.loc 1 279 5 is_stmt 1 view .LVU210
+ 834              		.loc 1 279 28 is_stmt 0 view .LVU211
+ 835 000c 2046     		mov	r0, r4
+ 836              	.LVL104:
+ 837              		.loc 1 279 28 view .LVU212
+ 838 000e FFF7FEFF 		bl	lv_event_get_code
+ 839              	.LVL105:
+ 840 0012 0446     		mov	r4, r0
+ 841              	.LVL106:
+ 280:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 281:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * tv = lv_obj_get_parent(cont);
+ 842              		.loc 1 281 5 is_stmt 1 view .LVU213
+ 843              		.loc 1 281 21 is_stmt 0 view .LVU214
+ 844 0014 2846     		mov	r0, r5
+ 845 0016 FFF7FEFF 		bl	lv_obj_get_parent
+ 846              	.LVL107:
+ 847 001a 0646     		mov	r6, r0
+ 848              	.LVL108:
+ 282:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(code == LV_EVENT_LAYOUT_CHANGED) {
+ 849              		.loc 1 282 5 is_stmt 1 view .LVU215
+ 850              		.loc 1 282 7 is_stmt 0 view .LVU216
+ 851 001c 252C     		cmp	r4, #37
+ 852 001e 03D0     		beq	.L59
+ 283:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, lv_tabview_get_tab_act(tv), LV_ANIM_OFF);
+ 284:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 285:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     else if(code == LV_EVENT_SCROLL_END) {
+ 853              		.loc 1 285 10 is_stmt 1 view .LVU217
+ 854              		.loc 1 285 12 is_stmt 0 view .LVU218
+ 855 0020 0A2C     		cmp	r4, #10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 27
+
+
+ 856 0022 09D0     		beq	.L60
+ 857              	.LVL109:
+ 858              	.L48:
+ 286:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_point_t p;
+ 287:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_obj_get_scroll_end(cont, &p);
+ 288:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 289:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_coord_t w = lv_obj_get_content_width(cont);
+ 290:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_coord_t t;
+ 291:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(lv_obj_get_style_base_dir(tv, LV_PART_MAIN) == LV_BASE_DIR_RTL)  t = -(p.x - w/ 2) / w;
+ 293:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 294:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 295:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(t < 0) t = 0;
+ 296:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         bool new_tab = false;
+ 297:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(t != lv_tabview_get_tab_act(tv)) new_tab = true;
+ 298:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, t, LV_ANIM_ON);
+ 299:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 300:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(new_tab) lv_event_send(tv, LV_EVENT_VALUE_CHANGED, NULL);
+ 301:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 302:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 859              		.loc 1 302 1 view .LVU219
+ 860 0024 02B0     		add	sp, sp, #8
+ 861              	.LCFI9:
+ 862              		.cfi_remember_state
+ 863              		.cfi_def_cfa_offset 16
+ 864              		@ sp needed
+ 865 0026 70BD     		pop	{r4, r5, r6, pc}
+ 866              	.LVL110:
+ 867              	.L59:
+ 868              	.LCFI10:
+ 869              		.cfi_restore_state
+ 283:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, lv_tabview_get_tab_act(tv), LV_ANIM_OFF);
+ 870              		.loc 1 283 9 is_stmt 1 view .LVU220
+ 283:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, lv_tabview_get_tab_act(tv), LV_ANIM_OFF);
+ 871              		.loc 1 283 32 is_stmt 0 view .LVU221
+ 872 0028 FFF7FEFF 		bl	lv_tabview_get_tab_act
+ 873              	.LVL111:
+ 283:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, lv_tabview_get_tab_act(tv), LV_ANIM_OFF);
+ 874              		.loc 1 283 32 view .LVU222
+ 875 002c 0146     		mov	r1, r0
+ 283:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, lv_tabview_get_tab_act(tv), LV_ANIM_OFF);
+ 876              		.loc 1 283 9 view .LVU223
+ 877 002e 0022     		movs	r2, #0
+ 878 0030 3046     		mov	r0, r6
+ 879 0032 FFF7FEFF 		bl	lv_tabview_set_act
+ 880              	.LVL112:
+ 881 0036 F5E7     		b	.L48
+ 882              	.LVL113:
+ 883              	.L60:
+ 884              	.LBB19:
+ 286:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_point_t p;
+ 885              		.loc 1 286 9 is_stmt 1 view .LVU224
+ 287:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 886              		.loc 1 287 9 view .LVU225
+ 887 0038 01A9     		add	r1, sp, #4
+ 888 003a 2846     		mov	r0, r5
+ 889              	.LVL114:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 28
+
+
+ 287:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 890              		.loc 1 287 9 is_stmt 0 view .LVU226
+ 891 003c FFF7FEFF 		bl	lv_obj_get_scroll_end
+ 892              	.LVL115:
+ 289:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_coord_t t;
+ 893              		.loc 1 289 9 is_stmt 1 view .LVU227
+ 289:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_coord_t t;
+ 894              		.loc 1 289 24 is_stmt 0 view .LVU228
+ 895 0040 2846     		mov	r0, r5
+ 896 0042 FFF7FEFF 		bl	lv_obj_get_content_width
+ 897              	.LVL116:
+ 898 0046 0546     		mov	r5, r0
+ 899              	.LVL117:
+ 290:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 900              		.loc 1 290 9 is_stmt 1 view .LVU229
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 901              		.loc 1 292 9 view .LVU230
+ 902              	.LBB20:
+ 903              	.LBI20:
+ 187:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ 904              		.loc 2 187 29 view .LVU231
+ 905              	.LBB21:
+ 189:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_base_dir_t)v.num;
+ 906              		.loc 2 189 5 view .LVU232
+ 189:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_base_dir_t)v.num;
+ 907              		.loc 2 189 26 is_stmt 0 view .LVU233
+ 908 0048 41F26A42 		movw	r2, #5226
+ 909 004c 0021     		movs	r1, #0
+ 910 004e 3046     		mov	r0, r6
+ 911 0050 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 912              	.LVL118:
+ 913              		.loc 2 190 5 is_stmt 1 view .LVU234
+ 914              		.loc 2 190 12 is_stmt 0 view .LVU235
+ 915 0054 C0B2     		uxtb	r0, r0
+ 916              	.LVL119:
+ 917              		.loc 2 190 12 view .LVU236
+ 918              	.LBE21:
+ 919              	.LBE20:
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 920              		.loc 1 292 11 view .LVU237
+ 921 0056 0128     		cmp	r0, #1
+ 922 0058 1ED0     		beq	.L61
+ 293:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 923              		.loc 1 293 14 is_stmt 1 view .LVU238
+ 293:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 924              		.loc 1 293 20 is_stmt 0 view .LVU239
+ 925 005a BDF90440 		ldrsh	r4, [sp, #4]
+ 926              	.LVL120:
+ 293:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 927              		.loc 1 293 26 view .LVU240
+ 928 005e 05EBD573 		add	r3, r5, r5, lsr #31
+ 929 0062 43F34F03 		sbfx	r3, r3, #1, #16
+ 293:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 930              		.loc 1 293 23 view .LVU241
+ 931 0066 1C44     		add	r4, r4, r3
+ 293:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 932              		.loc 1 293 31 view .LVU242
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 29
+
+
+ 933 0068 94FBF5F4 		sdiv	r4, r4, r5
+ 293:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 934              		.loc 1 293 16 view .LVU243
+ 935 006c 24B2     		sxth	r4, r4
+ 936              	.LVL121:
+ 937              	.L52:
+ 295:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         bool new_tab = false;
+ 938              		.loc 1 295 9 is_stmt 1 view .LVU244
+ 295:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         bool new_tab = false;
+ 939              		.loc 1 295 11 is_stmt 0 view .LVU245
+ 940 006e 002C     		cmp	r4, #0
+ 941 0070 1DDB     		blt	.L62
+ 942              	.LVL122:
+ 943              	.L53:
+ 296:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(t != lv_tabview_get_tab_act(tv)) new_tab = true;
+ 944              		.loc 1 296 9 is_stmt 1 view .LVU246
+ 297:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, t, LV_ANIM_ON);
+ 945              		.loc 1 297 9 view .LVU247
+ 297:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, t, LV_ANIM_ON);
+ 946              		.loc 1 297 17 is_stmt 0 view .LVU248
+ 947 0072 3046     		mov	r0, r6
+ 948 0074 FFF7FEFF 		bl	lv_tabview_get_tab_act
+ 949              	.LVL123:
+ 297:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, t, LV_ANIM_ON);
+ 950              		.loc 1 297 11 view .LVU249
+ 951 0078 8442     		cmp	r4, r0
+ 952 007a 1AD0     		beq	.L63
+ 297:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(tv, t, LV_ANIM_ON);
+ 953              		.loc 1 297 53 view .LVU250
+ 954 007c 0125     		movs	r5, #1
+ 955              	.LVL124:
+ 956              	.L54:
+ 298:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 957              		.loc 1 298 9 is_stmt 1 view .LVU251
+ 958 007e 0122     		movs	r2, #1
+ 959 0080 2146     		mov	r1, r4
+ 960 0082 3046     		mov	r0, r6
+ 961 0084 FFF7FEFF 		bl	lv_tabview_set_act
+ 962              	.LVL125:
+ 300:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 963              		.loc 1 300 9 view .LVU252
+ 300:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 964              		.loc 1 300 11 is_stmt 0 view .LVU253
+ 965 0088 002D     		cmp	r5, #0
+ 966 008a CBD0     		beq	.L48
+ 300:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 967              		.loc 1 300 21 is_stmt 1 discriminator 1 view .LVU254
+ 968 008c 0022     		movs	r2, #0
+ 969 008e 1C21     		movs	r1, #28
+ 970 0090 3046     		mov	r0, r6
+ 971 0092 FFF7FEFF 		bl	lv_event_send
+ 972              	.LVL126:
+ 973              	.LBE19:
+ 974              		.loc 1 302 1 is_stmt 0 discriminator 1 view .LVU255
+ 975 0096 C5E7     		b	.L48
+ 976              	.LVL127:
+ 977              	.L61:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 30
+
+
+ 978              	.LBB22:
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 979              		.loc 1 292 77 is_stmt 1 discriminator 1 view .LVU256
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 980              		.loc 1 292 90 is_stmt 0 discriminator 1 view .LVU257
+ 981 0098 05EBD573 		add	r3, r5, r5, lsr #31
+ 982 009c 43F34F03 		sbfx	r3, r3, #1, #16
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 983              		.loc 1 292 84 discriminator 1 view .LVU258
+ 984 00a0 BDF90440 		ldrsh	r4, [sp, #4]
+ 985              	.LVL128:
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 986              		.loc 1 292 81 discriminator 1 view .LVU259
+ 987 00a4 1B1B     		subs	r3, r3, r4
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 988              		.loc 1 292 95 discriminator 1 view .LVU260
+ 989 00a6 93FBF5F4 		sdiv	r4, r3, r5
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 990              		.loc 1 292 79 discriminator 1 view .LVU261
+ 991 00aa 24B2     		sxth	r4, r4
+ 992              	.LVL129:
+ 292:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         else t = (p.x + w/ 2) / w;
+ 993              		.loc 1 292 79 discriminator 1 view .LVU262
+ 994 00ac DFE7     		b	.L52
+ 995              	.L62:
+ 295:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         bool new_tab = false;
+ 996              		.loc 1 295 21 view .LVU263
+ 997 00ae 0024     		movs	r4, #0
+ 998              	.LVL130:
+ 295:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         bool new_tab = false;
+ 999              		.loc 1 295 21 view .LVU264
+ 1000 00b0 DFE7     		b	.L53
+ 1001              	.LVL131:
+ 1002              	.L63:
+ 296:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(t != lv_tabview_get_tab_act(tv)) new_tab = true;
+ 1003              		.loc 1 296 14 view .LVU265
+ 1004 00b2 0025     		movs	r5, #0
+ 1005              	.LVL132:
+ 296:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(t != lv_tabview_get_tab_act(tv)) new_tab = true;
+ 1006              		.loc 1 296 14 view .LVU266
+ 1007 00b4 E3E7     		b	.L54
+ 1008              	.LBE22:
+ 1009              		.cfi_endproc
+ 1010              	.LFE199:
+ 1012              		.section	.text.btns_value_changed_event_cb,"ax",%progbits
+ 1013              		.align	1
+ 1014              		.syntax unified
+ 1015              		.thumb
+ 1016              		.thumb_func
+ 1017              		.fpu fpv4-sp-d16
+ 1019              	btns_value_changed_event_cb:
+ 1020              	.LVL133:
+ 1021              	.LFB198:
+ 268:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * btns = lv_event_get_target(e);
+ 1022              		.loc 1 268 1 is_stmt 1 view -0
+ 1023              		.cfi_startproc
+ 1024              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 31
+
+
+ 1025              		@ frame_needed = 0, uses_anonymous_args = 0
+ 268:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * btns = lv_event_get_target(e);
+ 1026              		.loc 1 268 1 is_stmt 0 view .LVU268
+ 1027 0000 38B5     		push	{r3, r4, r5, lr}
+ 1028              	.LCFI11:
+ 1029              		.cfi_def_cfa_offset 16
+ 1030              		.cfi_offset 3, -16
+ 1031              		.cfi_offset 4, -12
+ 1032              		.cfi_offset 5, -8
+ 1033              		.cfi_offset 14, -4
+ 269:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1034              		.loc 1 269 5 is_stmt 1 view .LVU269
+ 269:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1035              		.loc 1 269 23 is_stmt 0 view .LVU270
+ 1036 0002 FFF7FEFF 		bl	lv_event_get_target
+ 1037              	.LVL134:
+ 269:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1038              		.loc 1 269 23 view .LVU271
+ 1039 0006 0546     		mov	r5, r0
+ 1040              	.LVL135:
+ 271:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     uint32_t id = lv_btnmatrix_get_selected_btn(btns);
+ 1041              		.loc 1 271 5 is_stmt 1 view .LVU272
+ 271:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     uint32_t id = lv_btnmatrix_get_selected_btn(btns);
+ 1042              		.loc 1 271 21 is_stmt 0 view .LVU273
+ 1043 0008 FFF7FEFF 		bl	lv_obj_get_parent
+ 1044              	.LVL136:
+ 271:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     uint32_t id = lv_btnmatrix_get_selected_btn(btns);
+ 1045              		.loc 1 271 21 view .LVU274
+ 1046 000c 0446     		mov	r4, r0
+ 1047              	.LVL137:
+ 272:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_set_act(tv, id, LV_ANIM_ON);
+ 1048              		.loc 1 272 5 is_stmt 1 view .LVU275
+ 272:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_set_act(tv, id, LV_ANIM_ON);
+ 1049              		.loc 1 272 19 is_stmt 0 view .LVU276
+ 1050 000e 2846     		mov	r0, r5
+ 1051              	.LVL138:
+ 272:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_set_act(tv, id, LV_ANIM_ON);
+ 1052              		.loc 1 272 19 view .LVU277
+ 1053 0010 FFF7FEFF 		bl	lv_btnmatrix_get_selected_btn
+ 1054              	.LVL139:
+ 1055 0014 0146     		mov	r1, r0
+ 1056              	.LVL140:
+ 273:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 1057              		.loc 1 273 5 is_stmt 1 view .LVU278
+ 1058 0016 0122     		movs	r2, #1
+ 1059 0018 2046     		mov	r0, r4
+ 1060              	.LVL141:
+ 273:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 1061              		.loc 1 273 5 is_stmt 0 view .LVU279
+ 1062 001a FFF7FEFF 		bl	lv_tabview_set_act
+ 1063              	.LVL142:
+ 274:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1064              		.loc 1 274 1 view .LVU280
+ 1065 001e 38BD     		pop	{r3, r4, r5, pc}
+ 274:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1066              		.loc 1 274 1 view .LVU281
+ 1067              		.cfi_endproc
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 32
+
+
+ 1068              	.LFE198:
+ 1070              		.section	.rodata.lv_tabview_add_tab.str1.4,"aMS",%progbits,1
+ 1071              		.align	2
+ 1072              	.LC1:
+ 1073 0000 0A00     		.ascii	"\012\000"
+ 1074              		.section	.text.lv_tabview_add_tab,"ax",%progbits
+ 1075              		.align	1
+ 1076              		.global	lv_tabview_add_tab
+ 1077              		.syntax unified
+ 1078              		.thumb
+ 1079              		.thumb_func
+ 1080              		.fpu fpv4-sp-d16
+ 1082              	lv_tabview_add_tab:
+ 1083              	.LVL143:
+ 1084              	.LFB190:
+  64:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+ 1085              		.loc 1 64 1 is_stmt 1 view -0
+ 1086              		.cfi_startproc
+ 1087              		@ args = 0, pretend = 0, frame = 0
+ 1088              		@ frame_needed = 0, uses_anonymous_args = 0
+  64:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_tabview_t * tabview = (lv_tabview_t *)obj;
+ 1089              		.loc 1 64 1 is_stmt 0 view .LVU283
+ 1090 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 1091              	.LCFI12:
+ 1092              		.cfi_def_cfa_offset 40
+ 1093              		.cfi_offset 3, -40
+ 1094              		.cfi_offset 4, -36
+ 1095              		.cfi_offset 5, -32
+ 1096              		.cfi_offset 6, -28
+ 1097              		.cfi_offset 7, -24
+ 1098              		.cfi_offset 8, -20
+ 1099              		.cfi_offset 9, -16
+ 1100              		.cfi_offset 10, -12
+ 1101              		.cfi_offset 11, -8
+ 1102              		.cfi_offset 14, -4
+ 1103 0004 0446     		mov	r4, r0
+ 1104 0006 8946     		mov	r9, r1
+  65:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_t * cont = lv_tabview_get_content(obj);
+ 1105              		.loc 1 65 5 is_stmt 1 view .LVU284
+ 1106              	.LVL144:
+  66:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1107              		.loc 1 66 5 view .LVU285
+  66:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1108              		.loc 1 66 23 is_stmt 0 view .LVU286
+ 1109 0008 FFF7FEFF 		bl	lv_tabview_get_content
+ 1110              	.LVL145:
+  66:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1111              		.loc 1 66 23 view .LVU287
+ 1112 000c 0546     		mov	r5, r0
+ 1113              	.LVL146:
+  68:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_size(page, LV_PCT(100), LV_PCT(100));
+ 1114              		.loc 1 68 5 is_stmt 1 view .LVU288
+  68:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_size(page, LV_PCT(100), LV_PCT(100));
+ 1115              		.loc 1 68 23 is_stmt 0 view .LVU289
+ 1116 000e FFF7FEFF 		bl	lv_obj_create
+ 1117              	.LVL147:
+  68:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_set_size(page, LV_PCT(100), LV_PCT(100));
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 33
+
+
+ 1118              		.loc 1 68 23 view .LVU290
+ 1119 0012 8046     		mov	r8, r0
+ 1120              	.LVL148:
+  69:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_obj_clear_flag(page, LV_OBJ_FLAG_CLICK_FOCUSABLE);
+ 1121              		.loc 1 69 5 is_stmt 1 view .LVU291
+ 1122 0014 42F26402 		movw	r2, #8292
+ 1123 0018 1146     		mov	r1, r2
+ 1124 001a FFF7FEFF 		bl	lv_obj_set_size
+ 1125              	.LVL149:
+  70:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     uint32_t tab_id = lv_obj_get_child_cnt(cont);
+ 1126              		.loc 1 70 5 view .LVU292
+ 1127 001e 0421     		movs	r1, #4
+ 1128 0020 4046     		mov	r0, r8
+ 1129 0022 FFF7FEFF 		bl	lv_obj_clear_flag
+ 1130              	.LVL150:
+  71:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1131              		.loc 1 71 5 view .LVU293
+  71:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1132              		.loc 1 71 23 is_stmt 0 view .LVU294
+ 1133 0026 2846     		mov	r0, r5
+ 1134 0028 FFF7FEFF 		bl	lv_obj_get_child_cnt
+ 1135              	.LVL151:
+ 1136 002c 0646     		mov	r6, r0
+ 1137              	.LVL152:
+  73:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1138              		.loc 1 73 5 is_stmt 1 view .LVU295
+  73:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1139              		.loc 1 73 23 is_stmt 0 view .LVU296
+ 1140 002e 2046     		mov	r0, r4
+ 1141              	.LVL153:
+  73:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1142              		.loc 1 73 23 view .LVU297
+ 1143 0030 FFF7FEFF 		bl	lv_tabview_get_tab_btns
+ 1144              	.LVL154:
+ 1145 0034 0746     		mov	r7, r0
+ 1146              	.LVL155:
+  75:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     char ** new_map;
+ 1147              		.loc 1 75 5 is_stmt 1 view .LVU298
+  75:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     char ** new_map;
+ 1148              		.loc 1 75 13 is_stmt 0 view .LVU299
+ 1149 0036 D4F824A0 		ldr	r10, [r4, #36]
+ 1150              	.LVL156:
+  76:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1151              		.loc 1 76 5 is_stmt 1 view .LVU300
+  79:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map = lv_mem_alloc((tab_id + 1) * sizeof(const char *));
+ 1152              		.loc 1 79 5 view .LVU301
+  79:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map = lv_mem_alloc((tab_id + 1) * sizeof(const char *));
+ 1153              		.loc 1 79 15 is_stmt 0 view .LVU302
+ 1154 003a 94F82C30 		ldrb	r3, [r4, #44]	@ zero_extendqisi2
+  79:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map = lv_mem_alloc((tab_id + 1) * sizeof(const char *));
+ 1155              		.loc 1 79 7 view .LVU303
+ 1156 003e 13F00C0F 		tst	r3, #12
+ 1157 0042 3CD0     		beq	.L67
+  80:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_memcpy_small(new_map, old_map, sizeof(const char *) * (tab_id - 1));
+ 1158              		.loc 1 80 9 is_stmt 1 view .LVU304
+  80:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_memcpy_small(new_map, old_map, sizeof(const char *) * (tab_id - 1));
+ 1159              		.loc 1 80 40 is_stmt 0 view .LVU305
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 34
+
+
+ 1160 0044 701C     		adds	r0, r6, #1
+ 1161              	.LVL157:
+  80:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_memcpy_small(new_map, old_map, sizeof(const char *) * (tab_id - 1));
+ 1162              		.loc 1 80 19 view .LVU306
+ 1163 0046 8000     		lsls	r0, r0, #2
+ 1164 0048 FFF7FEFF 		bl	lv_mem_alloc
+ 1165              	.LVL158:
+ 1166 004c 0546     		mov	r5, r0
+ 1167              	.LVL159:
+  81:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map[tab_id - 1] = lv_mem_alloc(strlen(name) + 1);
+ 1168              		.loc 1 81 9 is_stmt 1 view .LVU307
+  81:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map[tab_id - 1] = lv_mem_alloc(strlen(name) + 1);
+ 1169              		.loc 1 81 74 is_stmt 0 view .LVU308
+ 1170 004e 731E     		subs	r3, r6, #1
+  81:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map[tab_id - 1] = lv_mem_alloc(strlen(name) + 1);
+ 1171              		.loc 1 81 64 view .LVU309
+ 1172 0050 9B00     		lsls	r3, r3, #2
+ 1173              	.LVL160:
+ 1174              	.LBB23:
+ 1175              	.LBI23:
+ 1176              		.file 3 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_mem.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @file lv_mem.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #ifndef LV_MEM_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #define LV_MEM_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #include "../lv_conf_internal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  18:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #include <stdint.h>
+  19:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #include <stddef.h>
+  20:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #include "lv_log.h"
+  21:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #include "lv_types.h"
+  22:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  23:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #if LV_MEMCPY_MEMSET_STD
+  24:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #include <string.h>
+  25:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #endif
+  26:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  27:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /*********************
+  28:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  *      DEFINES
+  29:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  *********************/
+  30:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  31:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #ifndef LV_MEM_BUF_MAX_NUM
+  32:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #define LV_MEM_BUF_MAX_NUM    16
+  33:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #endif
+  34:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  35:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**********************
+  36:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  *      TYPEDEFS
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 35
+
+
+  37:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  **********************/
+  38:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  39:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+  40:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Heap information structure.
+  41:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+  42:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** typedef struct {
+  43:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint32_t total_size; /**< Total heap size*/
+  44:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint32_t free_cnt;
+  45:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint32_t free_size; /**< Size of available memory*/
+  46:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint32_t free_biggest_size;
+  47:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint32_t used_cnt;
+  48:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint32_t max_used; /**< Max size of Heap memory used*/
+  49:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint8_t used_pct; /**< Percentage used*/
+  50:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint8_t frag_pct; /**< Amount of fragmentation*/
+  51:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** } lv_mem_monitor_t;
+  52:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  53:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** typedef struct {
+  54:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     void * p;
+  55:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint16_t size;
+  56:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint8_t used : 1;
+  57:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** } lv_mem_buf_t;
+  58:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  59:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** typedef lv_mem_buf_t lv_mem_buf_arr_t[LV_MEM_BUF_MAX_NUM];
+  60:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**********************
+  62:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * GLOBAL PROTOTYPES
+  63:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  **********************/
+  64:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  65:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+  66:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Initialize the dyn_mem module (work memory and other variables)
+  67:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+  68:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** void lv_mem_init(void);
+  69:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  70:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+  71:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Clean up the memory buffer which frees all the allocated memories.
+  72:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @note It work only if `LV_MEM_CUSTOM == 0`
+  73:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+  74:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** void lv_mem_deinit(void);
+  75:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  76:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+  77:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Allocate a memory dynamically
+  78:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param size size of the memory to allocate in bytes
+  79:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @return pointer to the allocated memory
+  80:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+  81:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** void * lv_mem_alloc(size_t size);
+  82:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  83:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+  84:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Free an allocated data
+  85:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param data pointer to an allocated memory
+  86:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+  87:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** void lv_mem_free(void * data);
+  88:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  89:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+  90:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Reallocate a memory with a new size. The old content will be kept.
+  91:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param data pointer to an allocated memory.
+  92:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Its content will be copied to the new memory block and freed
+  93:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param new_size the desired new size in byte
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 36
+
+
+  94:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @return pointer to the new memory
+  95:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+  96:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** void * lv_mem_realloc(void * data_p, size_t new_size);
+  97:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+  98:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+  99:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  *
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @return
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** lv_res_t lv_mem_test(void);
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Give information about the work memory of dynamic allocation
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param mon_p pointer to a dm_mon_p variable,
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  *              the result of the analysis will be stored here
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** void lv_mem_monitor(lv_mem_monitor_t * mon_p);
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Get a temporal buffer with the given size.
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param size the required size
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** void * lv_mem_buf_get(uint32_t size);
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Release a memory buffer
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param p buffer to release
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** void lv_mem_buf_release(void * p);
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Free all memory buffers
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** void lv_mem_buf_free_all(void);
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** //! @cond Doxygen_Suppress
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #if LV_MEMCPY_MEMSET_STD
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Wrapper for the standard memcpy
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param dst pointer to the destination buffer
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param src pointer to the source buffer
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param len number of byte to copy
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** static inline void * lv_memcpy(void * dst, const void * src, size_t len)
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** {
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     return memcpy(dst, src, len);
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** }
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Wrapper for the standard memcpy
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param dst pointer to the destination buffer
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param src pointer to the source buffer
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param len number of byte to copy
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** static inline void * lv_memcpy_small(void * dst, const void * src, size_t len)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 37
+
+
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** {
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     return memcpy(dst, src, len);
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** }
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Wrapper for the standard memset
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param dst pointer to the destination buffer
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param v value to set [0..255]
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param len number of byte to set
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** static inline void lv_memset(void * dst, uint8_t v, size_t len)
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** {
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     memset(dst, v, len);
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** }
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 167:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Wrapper for the standard memset with fixed 0x00 value
+ 168:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param dst pointer to the destination buffer
+ 169:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param len number of byte to set
+ 170:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 171:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** static inline void lv_memset_00(void * dst, size_t len)
+ 172:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** {
+ 173:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     memset(dst, 0x00, len);
+ 174:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** }
+ 175:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 176:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 177:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Wrapper for the standard memset with fixed 0xFF value
+ 178:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param dst pointer to the destination buffer
+ 179:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param len number of byte to set
+ 180:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 181:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** static inline void lv_memset_ff(void * dst, size_t len)
+ 182:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** {
+ 183:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     memset(dst, 0xFF, len);
+ 184:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** }
+ 185:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 186:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** #else
+ 187:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 188:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Same as `memcpy` but optimized for 4 byte operation.
+ 189:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param dst pointer to the destination buffer
+ 190:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param src pointer to the source buffer
+ 191:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param len number of byte to copy
+ 192:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 193:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** LV_ATTRIBUTE_FAST_MEM void * lv_memcpy(void * dst, const void * src, size_t len);
+ 194:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 195:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** /**
+ 196:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * Same as `memcpy` but optimized to copy only a few bytes.
+ 197:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param dst pointer to the destination buffer
+ 198:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param src pointer to the source buffer
+ 199:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  * @param len number of byte to copy
+ 200:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****  */
+ 201:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** LV_ATTRIBUTE_FAST_MEM static inline void * lv_memcpy_small(void * dst, const void * src, size_t len
+ 1177              		.loc 3 201 44 is_stmt 1 view .LVU310
+ 1178              	.LBB24:
+ 202:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** {
+ 203:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     uint8_t * d8 = (uint8_t *)dst;
+ 1179              		.loc 3 203 5 view .LVU311
+ 204:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     const uint8_t * s8 = (const uint8_t *)src;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 38
+
+
+ 1180              		.loc 3 204 5 view .LVU312
+ 205:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 206:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     while(len) {
+ 1181              		.loc 3 206 5 view .LVU313
+ 204:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     const uint8_t * s8 = (const uint8_t *)src;
+ 1182              		.loc 3 204 21 is_stmt 0 view .LVU314
+ 1183 0052 5146     		mov	r1, r10
+ 203:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     const uint8_t * s8 = (const uint8_t *)src;
+ 1184              		.loc 3 203 15 view .LVU315
+ 1185 0054 0246     		mov	r2, r0
+ 1186              	.LVL161:
+ 1187              	.L68:
+ 1188              		.loc 3 206 10 is_stmt 1 view .LVU316
+ 1189 0056 2BB1     		cbz	r3, .L76
+ 207:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         *d8 = *s8;
+ 1190              		.loc 3 207 9 view .LVU317
+ 1191              		.loc 3 207 15 is_stmt 0 view .LVU318
+ 1192 0058 11F8010B 		ldrb	r0, [r1], #1	@ zero_extendqisi2
+ 1193              	.LVL162:
+ 1194              		.loc 3 207 13 view .LVU319
+ 1195 005c 02F8010B 		strb	r0, [r2], #1
+ 1196              	.LVL163:
+ 208:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         d8++;
+ 1197              		.loc 3 208 9 is_stmt 1 view .LVU320
+ 209:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         s8++;
+ 1198              		.loc 3 209 9 view .LVU321
+ 210:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         len--;
+ 1199              		.loc 3 210 9 view .LVU322
+ 1200              		.loc 3 210 12 is_stmt 0 view .LVU323
+ 1201 0060 013B     		subs	r3, r3, #1
+ 1202              	.LVL164:
+ 1203              		.loc 3 210 12 view .LVU324
+ 1204 0062 F8E7     		b	.L68
+ 1205              	.L76:
+ 211:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     }
+ 212:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 213:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     return dst;
+ 1206              		.loc 3 213 5 is_stmt 1 view .LVU325
+ 1207              	.LVL165:
+ 1208              		.loc 3 213 5 is_stmt 0 view .LVU326
+ 1209              	.LBE24:
+ 1210              	.LBE23:
+  82:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         strcpy((char *)new_map[tab_id - 1], name);
+ 1211              		.loc 1 82 9 is_stmt 1 view .LVU327
+  82:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         strcpy((char *)new_map[tab_id - 1], name);
+ 1212              		.loc 1 82 44 is_stmt 0 view .LVU328
+ 1213 0064 4846     		mov	r0, r9
+ 1214 0066 FFF7FEFF 		bl	strlen
+ 1215              	.LVL166:
+  82:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         strcpy((char *)new_map[tab_id - 1], name);
+ 1216              		.loc 1 82 16 view .LVU329
+ 1217 006a 06F1804B 		add	fp, r6, #1073741824
+ 1218 006e 0BF1FF3B 		add	fp, fp, #-1
+  82:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         strcpy((char *)new_map[tab_id - 1], name);
+ 1219              		.loc 1 82 31 view .LVU330
+ 1220 0072 0130     		adds	r0, r0, #1
+ 1221 0074 FFF7FEFF 		bl	lv_mem_alloc
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 39
+
+
+ 1222              	.LVL167:
+  82:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         strcpy((char *)new_map[tab_id - 1], name);
+ 1223              		.loc 1 82 29 view .LVU331
+ 1224 0078 45F82B00 		str	r0, [r5, fp, lsl #2]
+  83:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         new_map[tab_id] = "";
+ 1225              		.loc 1 83 9 is_stmt 1 view .LVU332
+ 1226 007c 4946     		mov	r1, r9
+ 1227 007e FFF7FEFF 		bl	strcpy
+ 1228              	.LVL168:
+  84:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 1229              		.loc 1 84 9 view .LVU333
+  84:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 1230              		.loc 1 84 25 is_stmt 0 view .LVU334
+ 1231 0082 2F4B     		ldr	r3, .L79
+ 1232 0084 45F82630 		str	r3, [r5, r6, lsl #2]
+ 1233              	.LVL169:
+ 1234              	.L70:
+ 101:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_map(btns, (const char **)new_map);
+ 1235              		.loc 1 101 5 is_stmt 1 view .LVU335
+ 101:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_btnmatrix_set_map(btns, (const char **)new_map);
+ 1236              		.loc 1 101 18 is_stmt 0 view .LVU336
+ 1237 0088 6562     		str	r5, [r4, #36]
+ 102:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     lv_mem_free(old_map);
+ 1238              		.loc 1 102 5 is_stmt 1 view .LVU337
+ 1239 008a 2946     		mov	r1, r5
+ 1240 008c 3846     		mov	r0, r7
+ 1241 008e FFF7FEFF 		bl	lv_btnmatrix_set_map
+ 1242              	.LVL170:
+ 103:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1243              		.loc 1 103 5 view .LVU338
+ 1244 0092 5046     		mov	r0, r10
+ 1245 0094 FFF7FEFF 		bl	lv_mem_free
+ 1246              	.LVL171:
+ 105:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1247              		.loc 1 105 5 view .LVU339
+ 1248 0098 4FF4A871 		mov	r1, #336
+ 1249 009c 3846     		mov	r0, r7
+ 1250 009e FFF7FEFF 		bl	lv_btnmatrix_set_btn_ctrl_all
+ 1251              	.LVL172:
+ 107:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(tabview->tab_cnt == 1) {
+ 1252              		.loc 1 107 5 view .LVU340
+ 107:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(tabview->tab_cnt == 1) {
+ 1253              		.loc 1 107 12 is_stmt 0 view .LVU341
+ 1254 00a2 238D     		ldrh	r3, [r4, #40]
+ 107:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     if(tabview->tab_cnt == 1) {
+ 1255              		.loc 1 107 21 view .LVU342
+ 1256 00a4 0133     		adds	r3, r3, #1
+ 1257 00a6 9BB2     		uxth	r3, r3
+ 1258 00a8 2385     		strh	r3, [r4, #40]	@ movhi
+ 108:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(obj, 0, LV_ANIM_OFF);
+ 1259              		.loc 1 108 5 is_stmt 1 view .LVU343
+ 108:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_tabview_set_act(obj, 0, LV_ANIM_OFF);
+ 1260              		.loc 1 108 7 is_stmt 0 view .LVU344
+ 1261 00aa 012B     		cmp	r3, #1
+ 1262 00ac 41D0     		beq	.L77
+ 1263              	.L74:
+ 112:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 40
+
+
+ 1264              		.loc 1 112 5 is_stmt 1 view .LVU345
+ 1265 00ae 8022     		movs	r2, #128
+ 1266 00b0 618D     		ldrh	r1, [r4, #42]
+ 1267 00b2 3846     		mov	r0, r7
+ 1268 00b4 FFF7FEFF 		bl	lv_btnmatrix_set_btn_ctrl
+ 1269              	.LVL173:
+ 114:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** }
+ 1270              		.loc 1 114 5 view .LVU346
+ 115:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c **** 
+ 1271              		.loc 1 115 1 is_stmt 0 view .LVU347
+ 1272 00b8 4046     		mov	r0, r8
+ 1273 00ba BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1274              	.LVL174:
+ 1275              	.L67:
+  88:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_memcpy_small(new_map, old_map, sizeof(const char *) * (tab_id - 1) * 2);
+ 1276              		.loc 1 88 9 is_stmt 1 view .LVU348
+  88:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_memcpy_small(new_map, old_map, sizeof(const char *) * (tab_id - 1) * 2);
+ 1277              		.loc 1 88 45 is_stmt 0 view .LVU349
+ 1278 00be 4FEAC60B 		lsl	fp, r6, #3
+  88:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_memcpy_small(new_map, old_map, sizeof(const char *) * (tab_id - 1) * 2);
+ 1279              		.loc 1 88 19 view .LVU350
+ 1280 00c2 5846     		mov	r0, fp
+ 1281              	.LVL175:
+  88:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         lv_memcpy_small(new_map, old_map, sizeof(const char *) * (tab_id - 1) * 2);
+ 1282              		.loc 1 88 19 view .LVU351
+ 1283 00c4 FFF7FEFF 		bl	lv_mem_alloc
+ 1284              	.LVL176:
+ 1285 00c8 0546     		mov	r5, r0
+ 1286              	.LVL177:
+  89:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(tabview->tab_cnt == 0) {
+ 1287              		.loc 1 89 9 is_stmt 1 view .LVU352
+  89:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(tabview->tab_cnt == 0) {
+ 1288              		.loc 1 89 74 is_stmt 0 view .LVU353
+ 1289 00ca 731E     		subs	r3, r6, #1
+  89:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         if(tabview->tab_cnt == 0) {
+ 1290              		.loc 1 89 79 view .LVU354
+ 1291 00cc DB00     		lsls	r3, r3, #3
+ 1292              	.LVL178:
+ 1293              	.LBB25:
+ 1294              	.LBI25:
+ 201:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** {
+ 1295              		.loc 3 201 44 is_stmt 1 view .LVU355
+ 1296              	.LBB26:
+ 203:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     const uint8_t * s8 = (const uint8_t *)src;
+ 1297              		.loc 3 203 5 view .LVU356
+ 204:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 1298              		.loc 3 204 5 view .LVU357
+ 206:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         *d8 = *s8;
+ 1299              		.loc 3 206 5 view .LVU358
+ 204:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h **** 
+ 1300              		.loc 3 204 21 is_stmt 0 view .LVU359
+ 1301 00ce 5146     		mov	r1, r10
+ 203:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     const uint8_t * s8 = (const uint8_t *)src;
+ 1302              		.loc 3 203 15 view .LVU360
+ 1303 00d0 0246     		mov	r2, r0
+ 1304              	.LVL179:
+ 1305              	.L71:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 41
+
+
+ 206:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         *d8 = *s8;
+ 1306              		.loc 3 206 10 is_stmt 1 view .LVU361
+ 1307 00d2 2BB1     		cbz	r3, .L78
+ 207:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         d8++;
+ 1308              		.loc 3 207 9 view .LVU362
+ 207:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         d8++;
+ 1309              		.loc 3 207 15 is_stmt 0 view .LVU363
+ 1310 00d4 11F8010B 		ldrb	r0, [r1], #1	@ zero_extendqisi2
+ 1311              	.LVL180:
+ 207:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         d8++;
+ 1312              		.loc 3 207 13 view .LVU364
+ 1313 00d8 02F8010B 		strb	r0, [r2], #1
+ 1314              	.LVL181:
+ 208:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         s8++;
+ 1315              		.loc 3 208 9 is_stmt 1 view .LVU365
+ 209:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****         len--;
+ 1316              		.loc 3 209 9 view .LVU366
+ 210:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     }
+ 1317              		.loc 3 210 9 view .LVU367
+ 210:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     }
+ 1318              		.loc 3 210 12 is_stmt 0 view .LVU368
+ 1319 00dc 013B     		subs	r3, r3, #1
+ 1320              	.LVL182:
+ 210:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_mem.h ****     }
+ 1321              		.loc 3 210 12 view .LVU369
+ 1322 00de F8E7     		b	.L71
+ 1323              	.L78:
+ 1324              		.loc 3 213 5 is_stmt 1 view .LVU370
+ 1325              	.LVL183:
+ 1326              		.loc 3 213 5 is_stmt 0 view .LVU371
+ 1327              	.LBE26:
+ 1328              	.LBE25:
+  90:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[0] = lv_mem_alloc(strlen(name) + 1);
+ 1329              		.loc 1 90 9 is_stmt 1 view .LVU372
+  90:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[0] = lv_mem_alloc(strlen(name) + 1);
+ 1330              		.loc 1 90 19 is_stmt 0 view .LVU373
+ 1331 00e0 238D     		ldrh	r3, [r4, #40]
+  90:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[0] = lv_mem_alloc(strlen(name) + 1);
+ 1332              		.loc 1 90 11 view .LVU374
+ 1333 00e2 63B9     		cbnz	r3, .L73
+  91:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             strcpy((char *)new_map[0], name);
+ 1334              		.loc 1 91 13 is_stmt 1 view .LVU375
+  91:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             strcpy((char *)new_map[0], name);
+ 1335              		.loc 1 91 39 is_stmt 0 view .LVU376
+ 1336 00e4 4846     		mov	r0, r9
+ 1337 00e6 FFF7FEFF 		bl	strlen
+ 1338              	.LVL184:
+  91:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             strcpy((char *)new_map[0], name);
+ 1339              		.loc 1 91 26 view .LVU377
+ 1340 00ea 0130     		adds	r0, r0, #1
+ 1341 00ec FFF7FEFF 		bl	lv_mem_alloc
+ 1342              	.LVL185:
+  91:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             strcpy((char *)new_map[0], name);
+ 1343              		.loc 1 91 24 view .LVU378
+ 1344 00f0 2860     		str	r0, [r5]
+  92:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[1] = "";
+ 1345              		.loc 1 92 13 is_stmt 1 view .LVU379
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 42
+
+
+ 1346 00f2 4946     		mov	r1, r9
+ 1347 00f4 FFF7FEFF 		bl	strcpy
+ 1348              	.LVL186:
+  93:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         } else {
+ 1349              		.loc 1 93 13 view .LVU380
+  93:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         } else {
+ 1350              		.loc 1 93 24 is_stmt 0 view .LVU381
+ 1351 00f8 114B     		ldr	r3, .L79
+ 1352 00fa 6B60     		str	r3, [r5, #4]
+ 1353 00fc C4E7     		b	.L70
+ 1354              	.L73:
+  95:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 2] = lv_mem_alloc(strlen(name) + 1);
+ 1355              		.loc 1 95 13 is_stmt 1 view .LVU382
+  95:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 2] = lv_mem_alloc(strlen(name) + 1);
+ 1356              		.loc 1 95 20 is_stmt 0 view .LVU383
+ 1357 00fe ABF10C03 		sub	r3, fp, #12
+  95:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 2] = lv_mem_alloc(strlen(name) + 1);
+ 1358              		.loc 1 95 37 view .LVU384
+ 1359 0102 104A     		ldr	r2, .L79+4
+ 1360 0104 EA50     		str	r2, [r5, r3]
+  96:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 1] = "";
+ 1361              		.loc 1 96 13 is_stmt 1 view .LVU385
+  96:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 1] = "";
+ 1362              		.loc 1 96 52 is_stmt 0 view .LVU386
+ 1363 0106 4846     		mov	r0, r9
+ 1364 0108 FFF7FEFF 		bl	strlen
+ 1365              	.LVL187:
+  96:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 1] = "";
+ 1366              		.loc 1 96 20 view .LVU387
+ 1367 010c 06F10056 		add	r6, r6, #536870912
+ 1368              	.LVL188:
+  96:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 1] = "";
+ 1369              		.loc 1 96 20 view .LVU388
+ 1370 0110 013E     		subs	r6, r6, #1
+ 1371              	.LVL189:
+  96:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 1] = "";
+ 1372              		.loc 1 96 39 view .LVU389
+ 1373 0112 0130     		adds	r0, r0, #1
+ 1374 0114 FFF7FEFF 		bl	lv_mem_alloc
+ 1375              	.LVL190:
+  96:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             new_map[tab_id * 2 - 1] = "";
+ 1376              		.loc 1 96 37 view .LVU390
+ 1377 0118 45F83600 		str	r0, [r5, r6, lsl #3]
+  97:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             strcpy((char *)new_map[(tab_id * 2) - 2], name);
+ 1378              		.loc 1 97 13 is_stmt 1 view .LVU391
+  97:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             strcpy((char *)new_map[(tab_id * 2) - 2], name);
+ 1379              		.loc 1 97 20 is_stmt 0 view .LVU392
+ 1380 011c ABF1040B 		sub	fp, fp, #4
+  97:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****             strcpy((char *)new_map[(tab_id * 2) - 2], name);
+ 1381              		.loc 1 97 37 view .LVU393
+ 1382 0120 074B     		ldr	r3, .L79
+ 1383 0122 45F80B30 		str	r3, [r5, fp]
+  98:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****         }
+ 1384              		.loc 1 98 13 is_stmt 1 view .LVU394
+ 1385 0126 4946     		mov	r1, r9
+ 1386 0128 55F83600 		ldr	r0, [r5, r6, lsl #3]
+ 1387 012c FFF7FEFF 		bl	strcpy
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 43
+
+
+ 1388              	.LVL191:
+ 1389 0130 AAE7     		b	.L70
+ 1390              	.LVL192:
+ 1391              	.L77:
+ 109:lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.c ****     }
+ 1392              		.loc 1 109 9 view .LVU395
+ 1393 0132 0022     		movs	r2, #0
+ 1394 0134 1146     		mov	r1, r2
+ 1395 0136 2046     		mov	r0, r4
+ 1396 0138 FFF7FEFF 		bl	lv_tabview_set_act
+ 1397              	.LVL193:
+ 1398 013c B7E7     		b	.L74
+ 1399              	.L80:
+ 1400 013e 00BF     		.align	2
+ 1401              	.L79:
+ 1402 0140 00000000 		.word	.LC0
+ 1403 0144 00000000 		.word	.LC1
+ 1404              		.cfi_endproc
+ 1405              	.LFE190:
+ 1407              		.global	lv_tabview_class
+ 1408              		.section	.bss.tabpos_create,"aw",%nobits
+ 1409              		.set	.LANCHOR0,. + 0
+ 1412              	tabpos_create:
+ 1413 0000 00       		.space	1
+ 1414              		.section	.bss.tabsize_create,"aw",%nobits
+ 1415              		.align	1
+ 1416              		.set	.LANCHOR1,. + 0
+ 1419              	tabsize_create:
+ 1420 0000 0000     		.space	2
+ 1421              		.section	.rodata.lv_tabview_class,"a"
+ 1422              		.align	2
+ 1423              		.set	.LANCHOR2,. + 0
+ 1426              	lv_tabview_class:
+ 1427 0000 00000000 		.word	lv_obj_class
+ 1428 0004 00000000 		.word	lv_tabview_constructor
+ 1429 0008 00000000 		.word	lv_tabview_destructor
+ 1430 000c 00000000 		.space	4
+ 1431 0010 00000000 		.word	lv_tabview_event
+ 1432 0014 6420     		.short	8292
+ 1433 0016 6420     		.short	8292
+ 1434 0018 00       		.byte	0
+ 1435 0019 03       		.byte	3
+ 1436 001a 00       		.byte	0
+ 1437 001b 00       		.space	1
+ 1438              		.text
+ 1439              	.Letext0:
+ 1440              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1441              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1442              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 1443              		.file 7 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_types.h"
+ 1444              		.file 8 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 1445              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1446              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 1447              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 1448              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_anim.h"
+ 1449              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 1450              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 44
+
+
+ 1451              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 1452              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 1453              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 1454              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 1455              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_bidi.h"
+ 1456              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 1457              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 1458              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 1459              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 1460              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 1461              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 1462              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 1463              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 1464              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 1465              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 1466              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 1467              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 1468              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 1469              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 1470              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 1471              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 1472              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 1473              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 1474              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 1475              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 1476              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 1477              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 1478              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 1479              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 1480              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 1481              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 1482              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 1483              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 1484              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 1485              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 1486              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 1487              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 1488              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 1489              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 1490              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 1491              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 1492              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 1493              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 1494              		.file 58 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 1495              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 1496              		.file 60 "lvgl/lvgl/src/extra/widgets/tabview/lv_tabview.h"
+ 1497              		.file 61 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+ 1498              		.file 62 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_tree.h"
+ 1499              		.file 63 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 45
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_tabview.c
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:18     .text.lv_tabview_destructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:25     .text.lv_tabview_destructor:00000000 lv_tabview_destructor
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:137    .rodata.lv_tabview_constructor.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:141    .text.lv_tabview_constructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:147    .text.lv_tabview_constructor:00000000 lv_tabview_constructor
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:177    .text.lv_tabview_constructor:00000016 $d
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:185    .text.lv_tabview_constructor:0000001e $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:402    .text.lv_tabview_constructor:00000134 $d
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1019   .text.btns_value_changed_event_cb:00000000 btns_value_changed_event_cb
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:807    .text.cont_scroll_end_event_cb:00000000 cont_scroll_end_event_cb
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:411    .text.lv_tabview_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:418    .text.lv_tabview_create:00000000 lv_tabview_create
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:467    .text.lv_tabview_create:0000001c $d
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:474    .text.lv_tabview_get_tab_act:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:481    .text.lv_tabview_get_tab_act:00000000 lv_tabview_get_tab_act
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:500    .text.lv_tabview_get_content:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:507    .text.lv_tabview_get_content:00000000 lv_tabview_get_content
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:531    .text.lv_tabview_get_tab_btns:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:538    .text.lv_tabview_get_tab_btns:00000000 lv_tabview_get_tab_btns
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:562    .text.lv_tabview_set_act:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:569    .text.lv_tabview_set_act:00000000 lv_tabview_set_act
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:721    .text.lv_tabview_event:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:727    .text.lv_tabview_event:00000000 lv_tabview_event
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:796    .text.lv_tabview_event:00000034 $d
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:801    .text.cont_scroll_end_event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1013   .text.btns_value_changed_event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1071   .rodata.lv_tabview_add_tab.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1075   .text.lv_tabview_add_tab:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1082   .text.lv_tabview_add_tab:00000000 lv_tabview_add_tab
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1402   .text.lv_tabview_add_tab:00000140 $d
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1426   .rodata.lv_tabview_class:00000000 lv_tabview_class
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1412   .bss.tabpos_create:00000000 tabpos_create
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1413   .bss.tabpos_create:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1415   .bss.tabsize_create:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1419   .bss.tabsize_create:00000000 tabsize_create
+C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s:1422   .rodata.lv_tabview_class:00000000 $d
+
+UNDEFINED SYMBOLS
+lv_mem_free
+lv_obj_set_flex_flow
+lv_obj_set_size
+lv_btnmatrix_create
+lv_obj_create
+lv_btnmatrix_set_one_checked
+lv_mem_alloc
+lv_btnmatrix_set_map
+lv_obj_add_event_cb
+lv_obj_add_flag
+lv_obj_set_scrollbar_mode
+lv_obj_set_height
+lv_obj_set_flex_grow
+lv_obj_set_width
+lv_group_get_default
+lv_group_add_obj
+lv_obj_set_scroll_snap_x
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQ8VxyP.s 			page 46
+
+
+lv_obj_clear_flag
+lv_obj_class_create_obj
+lv_obj_class_init_obj
+lv_obj_get_child
+lv_obj_update_layout
+lv_obj_get_style_prop
+lv_obj_get_content_width
+lv_obj_scroll_to_x
+lv_btnmatrix_set_btn_ctrl
+lv_obj_event_base
+lv_event_get_code
+lv_event_get_target
+lv_obj_get_parent
+lv_obj_get_scroll_end
+lv_event_send
+lv_btnmatrix_get_selected_btn
+lv_obj_get_child_cnt
+strlen
+strcpy
+lv_btnmatrix_set_btn_ctrl_all
+lv_obj_class

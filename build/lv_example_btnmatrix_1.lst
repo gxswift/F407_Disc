@@ -1,0 +1,608 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_btnmatrix_1.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.event_handler.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 6C76676C 		.ascii	"lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btn"
+  20      2F6C7667 
+  20      6C2F6578 
+  20      616D706C 
+  20      65732F77 
+  21 0033 6D617472 		.ascii	"matrix_1.c\000"
+  21      69785F31 
+  21      2E6300
+  22 003e 0000     		.align	2
+  23              	.LC1:
+  24 0040 25732077 		.ascii	"%s was pressed\012\000"
+  24      61732070 
+  24      72657373 
+  24      65640A00 
+  25              		.section	.text.event_handler,"ax",%progbits
+  26              		.align	1
+  27              		.arch armv7e-m
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  31              		.fpu fpv4-sp-d16
+  33              	event_handler:
+  34              	.LVL0:
+  35              	.LFB189:
+  36              		.file 1 "lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c"
+   1:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** #include "../../lv_examples.h"
+   2:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** #if LV_USE_BTNMATRIX && LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** 
+   4:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** static void event_handler(lv_event_t * e)
+   5:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** {
+  37              		.loc 1 5 1 view -0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 0, uses_anonymous_args = 0
+  41              		.loc 1 5 1 is_stmt 0 view .LVU1
+  42 0000 30B5     		push	{r4, r5, lr}
+  43              	.LCFI0:
+  44              		.cfi_def_cfa_offset 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 2
+
+
+  45              		.cfi_offset 4, -12
+  46              		.cfi_offset 5, -8
+  47              		.cfi_offset 14, -4
+  48 0002 83B0     		sub	sp, sp, #12
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 24
+  51 0004 0546     		mov	r5, r0
+   6:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     lv_event_code_t code = lv_event_get_code(e);
+  52              		.loc 1 6 5 is_stmt 1 view .LVU2
+  53              		.loc 1 6 28 is_stmt 0 view .LVU3
+  54 0006 FFF7FEFF 		bl	lv_event_get_code
+  55              	.LVL1:
+  56              		.loc 1 6 28 view .LVU4
+  57 000a 0446     		mov	r4, r0
+  58              	.LVL2:
+   7:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     lv_obj_t * obj = lv_event_get_target(e);
+  59              		.loc 1 7 5 is_stmt 1 view .LVU5
+  60              		.loc 1 7 22 is_stmt 0 view .LVU6
+  61 000c 2846     		mov	r0, r5
+  62 000e FFF7FEFF 		bl	lv_event_get_target
+  63              	.LVL3:
+   8:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     if(code == LV_EVENT_VALUE_CHANGED) {
+  64              		.loc 1 8 5 is_stmt 1 view .LVU7
+  65              		.loc 1 8 7 is_stmt 0 view .LVU8
+  66 0012 1C2C     		cmp	r4, #28
+  67 0014 01D0     		beq	.L4
+  68              	.LVL4:
+  69              	.L1:
+   9:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****         uint32_t id = lv_btnmatrix_get_selected_btn(obj);
+  10:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****         const char * txt = lv_btnmatrix_get_btn_text(obj, id);
+  11:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** 
+  12:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****         LV_LOG_USER("%s was pressed\n", txt);
+  13:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     }
+  14:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** }
+  70              		.loc 1 14 1 view .LVU9
+  71 0016 03B0     		add	sp, sp, #12
+  72              	.LCFI2:
+  73              		.cfi_remember_state
+  74              		.cfi_def_cfa_offset 12
+  75              		@ sp needed
+  76 0018 30BD     		pop	{r4, r5, pc}
+  77              	.LVL5:
+  78              	.L4:
+  79              	.LCFI3:
+  80              		.cfi_restore_state
+  81              		.loc 1 14 1 view .LVU10
+  82 001a 0546     		mov	r5, r0
+  83              	.LVL6:
+  84              	.LBB4:
+   9:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****         uint32_t id = lv_btnmatrix_get_selected_btn(obj);
+  85              		.loc 1 9 9 is_stmt 1 view .LVU11
+   9:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****         uint32_t id = lv_btnmatrix_get_selected_btn(obj);
+  86              		.loc 1 9 23 is_stmt 0 view .LVU12
+  87 001c FFF7FEFF 		bl	lv_btnmatrix_get_selected_btn
+  88              	.LVL7:
+   9:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****         uint32_t id = lv_btnmatrix_get_selected_btn(obj);
+  89              		.loc 1 9 23 view .LVU13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 3
+
+
+  90 0020 0146     		mov	r1, r0
+  91              	.LVL8:
+  10:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** 
+  92              		.loc 1 10 9 is_stmt 1 view .LVU14
+  10:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** 
+  93              		.loc 1 10 28 is_stmt 0 view .LVU15
+  94 0022 2846     		mov	r0, r5
+  95 0024 FFF7FEFF 		bl	lv_btnmatrix_get_btn_text
+  96              	.LVL9:
+  12:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     }
+  97              		.loc 1 12 9 is_stmt 1 view .LVU16
+  98 0028 0190     		str	r0, [sp, #4]
+  99 002a 044B     		ldr	r3, .L5
+ 100 002c 0093     		str	r3, [sp]
+ 101 002e 044B     		ldr	r3, .L5+4
+ 102 0030 0C22     		movs	r2, #12
+ 103 0032 0449     		ldr	r1, .L5+8
+ 104 0034 0420     		movs	r0, #4
+ 105              	.LVL10:
+  12:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     }
+ 106              		.loc 1 12 9 is_stmt 0 view .LVU17
+ 107 0036 FFF7FEFF 		bl	_lv_log_add
+ 108              	.LVL11:
+  12:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     }
+ 109              		.loc 1 12 45 is_stmt 1 view .LVU18
+ 110              	.LBE4:
+ 111              		.loc 1 14 1 is_stmt 0 view .LVU19
+ 112 003a ECE7     		b	.L1
+ 113              	.L6:
+ 114              		.align	2
+ 115              	.L5:
+ 116 003c 40000000 		.word	.LC1
+ 117 0040 00000000 		.word	.LANCHOR0
+ 118 0044 00000000 		.word	.LC0
+ 119              		.cfi_endproc
+ 120              	.LFE189:
+ 122              		.section	.text.lv_example_btnmatrix_1,"ax",%progbits
+ 123              		.align	1
+ 124              		.global	lv_example_btnmatrix_1
+ 125              		.syntax unified
+ 126              		.thumb
+ 127              		.thumb_func
+ 128              		.fpu fpv4-sp-d16
+ 130              	lv_example_btnmatrix_1:
+ 131              	.LFB190:
+  15:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** 
+  16:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** 
+  17:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** static const char * btnm_map[] = {"1", "2", "3", "4", "5", "\n",
+  18:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****                                   "6", "7", "8", "9", "0", "\n",
+  19:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****                                   "Action1", "Action2", ""};
+  20:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** 
+  21:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** void lv_example_btnmatrix_1(void)
+  22:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** {
+ 132              		.loc 1 22 1 is_stmt 1 view -0
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 0
+ 135              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 4
+
+
+ 136 0000 10B5     		push	{r4, lr}
+ 137              	.LCFI4:
+ 138              		.cfi_def_cfa_offset 8
+ 139              		.cfi_offset 4, -8
+ 140              		.cfi_offset 14, -4
+  23:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     lv_obj_t * btnm1 = lv_btnmatrix_create(lv_scr_act());
+ 141              		.loc 1 23 5 view .LVU21
+ 142              	.LBB5:
+ 143              	.LBI5:
+ 144              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_disp.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @file lv_disp.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifndef LV_DISP_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #define LV_DISP_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "../hal/lv_hal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_obj.h"
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_theme.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      DEFINES
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      TYPEDEFS
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** typedef enum {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** } lv_scr_load_anim_t;
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the active screen
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 5
+
+
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Make a screen active
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to a screen
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * layer)
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background color of a display
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param color color of the background
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background image of a display
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 6
+
+
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Opacity of the background
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param opa opacity (0..255)
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Switch screen with animation
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param time time of the animation
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param delay delay before the transition
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Manually trigger an activity on a display
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*------------------------------------------------
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * To improve backward compatibility
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Recommended only if you have one display
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *------------------------------------------------*/
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the active screen of the default display
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 7
+
+
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 145              		.loc 2 163 26 view .LVU22
+ 146              	.LBB6:
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 147              		.loc 2 165 5 view .LVU23
+ 148              		.loc 2 165 12 is_stmt 0 view .LVU24
+ 149 0002 FFF7FEFF 		bl	lv_disp_get_default
+ 150              	.LVL12:
+ 151 0006 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 152              	.LVL13:
+ 153              	.LBE6:
+ 154              	.LBE5:
+ 155              		.loc 1 23 24 view .LVU25
+ 156 000a FFF7FEFF 		bl	lv_btnmatrix_create
+ 157              	.LVL14:
+ 158 000e 0446     		mov	r4, r0
+ 159              	.LVL15:
+  24:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     lv_btnmatrix_set_map(btnm1, btnm_map);
+ 160              		.loc 1 24 5 is_stmt 1 view .LVU26
+ 161 0010 0F49     		ldr	r1, .L9
+ 162 0012 FFF7FEFF 		bl	lv_btnmatrix_set_map
+ 163              	.LVL16:
+  25:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     lv_btnmatrix_set_btn_width(btnm1, 10, 2);        /*Make "Action1" twice as wide as "Action2"*/
+ 164              		.loc 1 25 5 view .LVU27
+ 165 0016 0222     		movs	r2, #2
+ 166 0018 0A21     		movs	r1, #10
+ 167 001a 2046     		mov	r0, r4
+ 168 001c FFF7FEFF 		bl	lv_btnmatrix_set_btn_width
+ 169              	.LVL17:
+  26:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     lv_btnmatrix_set_btn_ctrl(btnm1, 10, LV_BTNMATRIX_CTRL_CHECKABLE);
+ 170              		.loc 1 26 5 view .LVU28
+ 171 0020 4022     		movs	r2, #64
+ 172 0022 0A21     		movs	r1, #10
+ 173 0024 2046     		mov	r0, r4
+ 174 0026 FFF7FEFF 		bl	lv_btnmatrix_set_btn_ctrl
+ 175              	.LVL18:
+  27:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     lv_btnmatrix_set_btn_ctrl(btnm1, 11, LV_BTNMATRIX_CTRL_CHECKED);
+ 176              		.loc 1 27 5 view .LVU29
+ 177 002a 8022     		movs	r2, #128
+ 178 002c 0B21     		movs	r1, #11
+ 179 002e 2046     		mov	r0, r4
+ 180 0030 FFF7FEFF 		bl	lv_btnmatrix_set_btn_ctrl
+ 181              	.LVL19:
+  28:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     lv_obj_align(btnm1, LV_ALIGN_CENTER, 0, 0);
+ 182              		.loc 1 28 5 view .LVU30
+ 183 0034 0023     		movs	r3, #0
+ 184 0036 1A46     		mov	r2, r3
+ 185 0038 0921     		movs	r1, #9
+ 186 003a 2046     		mov	r0, r4
+ 187 003c FFF7FEFF 		bl	lv_obj_align
+ 188              	.LVL20:
+  29:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c ****     lv_obj_add_event_cb(btnm1, event_handler, LV_EVENT_ALL, NULL);
+ 189              		.loc 1 29 5 view .LVU31
+ 190 0040 0023     		movs	r3, #0
+ 191 0042 1A46     		mov	r2, r3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 8
+
+
+ 192 0044 0349     		ldr	r1, .L9+4
+ 193 0046 2046     		mov	r0, r4
+ 194 0048 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 195              	.LVL21:
+  30:lvgl/lvgl/examples/widgets/btnmatrix/lv_example_btnmatrix_1.c **** }
+ 196              		.loc 1 30 1 is_stmt 0 view .LVU32
+ 197 004c 10BD     		pop	{r4, pc}
+ 198              	.LVL22:
+ 199              	.L10:
+ 200              		.loc 1 30 1 view .LVU33
+ 201 004e 00BF     		.align	2
+ 202              	.L9:
+ 203 0050 00000000 		.word	.LANCHOR1
+ 204 0054 00000000 		.word	event_handler
+ 205              		.cfi_endproc
+ 206              	.LFE190:
+ 208              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 209              		.align	2
+ 210              	.LC2:
+ 211 0000 3100     		.ascii	"1\000"
+ 212 0002 0000     		.align	2
+ 213              	.LC3:
+ 214 0004 3200     		.ascii	"2\000"
+ 215 0006 0000     		.align	2
+ 216              	.LC4:
+ 217 0008 3300     		.ascii	"3\000"
+ 218 000a 0000     		.align	2
+ 219              	.LC5:
+ 220 000c 3400     		.ascii	"4\000"
+ 221 000e 0000     		.align	2
+ 222              	.LC6:
+ 223 0010 3500     		.ascii	"5\000"
+ 224 0012 0000     		.align	2
+ 225              	.LC7:
+ 226 0014 0A00     		.ascii	"\012\000"
+ 227 0016 0000     		.align	2
+ 228              	.LC8:
+ 229 0018 3600     		.ascii	"6\000"
+ 230 001a 0000     		.align	2
+ 231              	.LC9:
+ 232 001c 3700     		.ascii	"7\000"
+ 233 001e 0000     		.align	2
+ 234              	.LC10:
+ 235 0020 3800     		.ascii	"8\000"
+ 236 0022 0000     		.align	2
+ 237              	.LC11:
+ 238 0024 3900     		.ascii	"9\000"
+ 239 0026 0000     		.align	2
+ 240              	.LC12:
+ 241 0028 3000     		.ascii	"0\000"
+ 242 002a 0000     		.align	2
+ 243              	.LC13:
+ 244 002c 41637469 		.ascii	"Action1\000"
+ 244      6F6E3100 
+ 245              		.align	2
+ 246              	.LC14:
+ 247 0034 41637469 		.ascii	"Action2\000"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 9
+
+
+ 247      6F6E3200 
+ 248              		.align	2
+ 249              	.LC15:
+ 250 003c 00       		.ascii	"\000"
+ 251              		.section	.data.btnm_map,"aw"
+ 252              		.align	2
+ 253              		.set	.LANCHOR1,. + 0
+ 256              	btnm_map:
+ 257 0000 00000000 		.word	.LC2
+ 258 0004 04000000 		.word	.LC3
+ 259 0008 08000000 		.word	.LC4
+ 260 000c 0C000000 		.word	.LC5
+ 261 0010 10000000 		.word	.LC6
+ 262 0014 14000000 		.word	.LC7
+ 263 0018 18000000 		.word	.LC8
+ 264 001c 1C000000 		.word	.LC9
+ 265 0020 20000000 		.word	.LC10
+ 266 0024 24000000 		.word	.LC11
+ 267 0028 28000000 		.word	.LC12
+ 268 002c 14000000 		.word	.LC7
+ 269 0030 2C000000 		.word	.LC13
+ 270 0034 34000000 		.word	.LC14
+ 271 0038 3C000000 		.word	.LC15
+ 272              		.section	.rodata.__func__.12317,"a"
+ 273              		.align	2
+ 274              		.set	.LANCHOR0,. + 0
+ 277              	__func__.12317:
+ 278 0000 6576656E 		.ascii	"event_handler\000"
+ 278      745F6861 
+ 278      6E646C65 
+ 278      7200
+ 279              		.text
+ 280              	.Letext0:
+ 281              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 282              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 283              		.file 5 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 284              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 285              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 286              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 287              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 288              		.file 10 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 289              		.file 11 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 290              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 291              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 292              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 293              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 294              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 295              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 296              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 297              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 298              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 299              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 300              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 301              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 302              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 303              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 304              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 10
+
+
+ 305              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 306              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 307              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 308              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 309              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 310              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 311              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 312              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 313              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 314              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 315              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 316              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 317              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 318              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 319              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 320              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 321              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 322              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 323              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 324              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 325              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 326              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 327              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 328              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 329              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 330              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 331              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 332              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 333              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 334              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 335              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_disp.h"
+ 336              		.file 58 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+ 337              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_log.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_btnmatrix_1.c
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:18     .rodata.event_handler.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:26     .text.event_handler:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:33     .text.event_handler:00000000 event_handler
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:116    .text.event_handler:0000003c $d
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:123    .text.lv_example_btnmatrix_1:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:130    .text.lv_example_btnmatrix_1:00000000 lv_example_btnmatrix_1
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:203    .text.lv_example_btnmatrix_1:00000050 $d
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:209    .rodata.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:252    .data.btnm_map:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:256    .data.btnm_map:00000000 btnm_map
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:273    .rodata.__func__.12317:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccSaoxwB.s:277    .rodata.__func__.12317:00000000 __func__.12317
+
+UNDEFINED SYMBOLS
+lv_event_get_code
+lv_event_get_target
+lv_btnmatrix_get_selected_btn
+lv_btnmatrix_get_btn_text
+_lv_log_add
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_btnmatrix_create
+lv_btnmatrix_set_map
+lv_btnmatrix_set_btn_width
+lv_btnmatrix_set_btn_ctrl
+lv_obj_align
+lv_obj_add_event_cb

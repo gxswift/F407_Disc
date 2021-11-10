@@ -1,0 +1,594 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_list.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.lv_list_create,"ax",%progbits
+  18              		.align	1
+  19              		.global	lv_list_create
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	lv_list_create:
+  27              	.LVL0:
+  28              	.LFB163:
+  29              		.file 1 "lvgl/lvgl/src/extra/widgets/list/lv_list.c"
+   1:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** /**
+   2:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  * @file lv_list.c
+   3:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *
+   4:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  */
+   5:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+   6:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** /*********************
+   7:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *      INCLUDES
+   8:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *********************/
+   9:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** #include "lv_list.h"
+  10:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** #include "../../../core/lv_disp.h"
+  11:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** #include "../../../widgets/lv_label.h"
+  12:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** #include "../../../widgets/lv_img.h"
+  13:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** #include "../../../widgets/lv_btn.h"
+  14:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  15:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** #if LV_USE_LIST
+  16:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  17:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** /*********************
+  18:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *      DEFINES
+  19:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *********************/
+  20:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** #define MV_CLASS &lv_list
+  21:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  22:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** /**********************
+  23:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *      TYPEDEFS
+  24:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  **********************/
+  25:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  26:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** /**********************
+  27:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *  STATIC PROTOTYPES
+  28:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  **********************/
+  29:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 2
+
+
+  30:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** const lv_obj_class_t lv_list_class = {
+  31:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     .base_class = &lv_obj_class,
+  32:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     .width_def = (LV_DPI_DEF * 3) / 2,
+  33:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     .height_def = LV_DPI_DEF * 2
+  34:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** };
+  35:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  36:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** const lv_obj_class_t lv_list_btn_class = {
+  37:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     .base_class = &lv_btn_class,
+  38:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** };
+  39:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  40:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** const lv_obj_class_t lv_list_text_class = {
+  41:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     .base_class = &lv_label_class,
+  42:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** };
+  43:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  44:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** /**********************
+  45:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *  STATIC VARIABLES
+  46:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  **********************/
+  47:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  48:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** /**********************
+  49:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *      MACROS
+  50:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  **********************/
+  51:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  52:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** /**********************
+  53:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  *   GLOBAL FUNCTIONS
+  54:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****  **********************/
+  55:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  56:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** lv_obj_t * lv_list_create(lv_obj_t * parent)
+  57:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** {
+  30              		.loc 1 57 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 57 1 is_stmt 0 view .LVU1
+  35 0000 10B5     		push	{r4, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 4, -8
+  39              		.cfi_offset 14, -4
+  40 0002 0146     		mov	r1, r0
+  58:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     LV_LOG_INFO("begin")
+  41              		.loc 1 58 5 is_stmt 1 view .LVU2
+  42              		.loc 1 58 5 view .LVU3
+  43              		.loc 1 58 5 view .LVU4
+  59:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_t * obj = lv_obj_class_create_obj(&lv_list_class, parent);
+  44              		.loc 1 59 5 view .LVU5
+  45              		.loc 1 59 22 is_stmt 0 view .LVU6
+  46 0004 0548     		ldr	r0, .L3
+  47              	.LVL1:
+  48              		.loc 1 59 22 view .LVU7
+  49 0006 FFF7FEFF 		bl	lv_obj_class_create_obj
+  50              	.LVL2:
+  51              		.loc 1 59 22 view .LVU8
+  52 000a 0446     		mov	r4, r0
+  53              	.LVL3:
+  60:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_class_init_obj(obj);
+  54              		.loc 1 60 5 is_stmt 1 view .LVU9
+  55 000c FFF7FEFF 		bl	lv_obj_class_init_obj
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 3
+
+
+  56              	.LVL4:
+  61:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_COLUMN);
+  57              		.loc 1 61 5 view .LVU10
+  58 0010 0121     		movs	r1, #1
+  59 0012 2046     		mov	r0, r4
+  60 0014 FFF7FEFF 		bl	lv_obj_set_flex_flow
+  61              	.LVL5:
+  62:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     return obj;
+  62              		.loc 1 62 5 view .LVU11
+  63:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** }
+  63              		.loc 1 63 1 is_stmt 0 view .LVU12
+  64 0018 2046     		mov	r0, r4
+  65 001a 10BD     		pop	{r4, pc}
+  66              	.LVL6:
+  67              	.L4:
+  68              		.loc 1 63 1 view .LVU13
+  69              		.align	2
+  70              	.L3:
+  71 001c 00000000 		.word	.LANCHOR0
+  72              		.cfi_endproc
+  73              	.LFE163:
+  75              		.section	.text.lv_list_add_text,"ax",%progbits
+  76              		.align	1
+  77              		.global	lv_list_add_text
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu fpv4-sp-d16
+  83              	lv_list_add_text:
+  84              	.LVL7:
+  85              	.LFB164:
+  64:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  65:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** lv_obj_t * lv_list_add_text(lv_obj_t * list, const char * txt)
+  66:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** {
+  86              		.loc 1 66 1 is_stmt 1 view -0
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 0
+  89              		@ frame_needed = 0, uses_anonymous_args = 0
+  90              		.loc 1 66 1 is_stmt 0 view .LVU15
+  91 0000 38B5     		push	{r3, r4, r5, lr}
+  92              	.LCFI1:
+  93              		.cfi_def_cfa_offset 16
+  94              		.cfi_offset 3, -16
+  95              		.cfi_offset 4, -12
+  96              		.cfi_offset 5, -8
+  97              		.cfi_offset 14, -4
+  98 0002 0D46     		mov	r5, r1
+  67:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     LV_LOG_INFO("begin")
+  99              		.loc 1 67 5 is_stmt 1 view .LVU16
+ 100              		.loc 1 67 5 view .LVU17
+ 101              		.loc 1 67 5 view .LVU18
+  68:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_t * obj = lv_obj_class_create_obj(&lv_list_text_class, list);
+ 102              		.loc 1 68 5 view .LVU19
+ 103              		.loc 1 68 22 is_stmt 0 view .LVU20
+ 104 0004 0146     		mov	r1, r0
+ 105              	.LVL8:
+ 106              		.loc 1 68 22 view .LVU21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 4
+
+
+ 107 0006 0A48     		ldr	r0, .L7
+ 108              	.LVL9:
+ 109              		.loc 1 68 22 view .LVU22
+ 110 0008 FFF7FEFF 		bl	lv_obj_class_create_obj
+ 111              	.LVL10:
+ 112              		.loc 1 68 22 view .LVU23
+ 113 000c 0446     		mov	r4, r0
+ 114              	.LVL11:
+  69:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_class_init_obj(obj);
+ 115              		.loc 1 69 5 is_stmt 1 view .LVU24
+ 116 000e FFF7FEFF 		bl	lv_obj_class_init_obj
+ 117              	.LVL12:
+  70:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_label_set_text(obj, txt);
+ 118              		.loc 1 70 5 view .LVU25
+ 119 0012 2946     		mov	r1, r5
+ 120 0014 2046     		mov	r0, r4
+ 121 0016 FFF7FEFF 		bl	lv_label_set_text
+ 122              	.LVL13:
+  71:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_label_set_long_mode(obj, LV_LABEL_LONG_SCROLL_CIRCULAR);
+ 123              		.loc 1 71 5 view .LVU26
+ 124 001a 0321     		movs	r1, #3
+ 125 001c 2046     		mov	r0, r4
+ 126 001e FFF7FEFF 		bl	lv_label_set_long_mode
+ 127              	.LVL14:
+  72:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_set_width(obj, LV_PCT(100));
+ 128              		.loc 1 72 5 view .LVU27
+ 129 0022 42F26401 		movw	r1, #8292
+ 130 0026 2046     		mov	r0, r4
+ 131 0028 FFF7FEFF 		bl	lv_obj_set_width
+ 132              	.LVL15:
+  73:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     return obj;
+ 133              		.loc 1 73 5 view .LVU28
+  74:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** }
+ 134              		.loc 1 74 1 is_stmt 0 view .LVU29
+ 135 002c 2046     		mov	r0, r4
+ 136 002e 38BD     		pop	{r3, r4, r5, pc}
+ 137              	.LVL16:
+ 138              	.L8:
+ 139              		.loc 1 74 1 view .LVU30
+ 140              		.align	2
+ 141              	.L7:
+ 142 0030 00000000 		.word	.LANCHOR1
+ 143              		.cfi_endproc
+ 144              	.LFE164:
+ 146              		.section	.text.lv_list_add_btn,"ax",%progbits
+ 147              		.align	1
+ 148              		.global	lv_list_add_btn
+ 149              		.syntax unified
+ 150              		.thumb
+ 151              		.thumb_func
+ 152              		.fpu fpv4-sp-d16
+ 154              	lv_list_add_btn:
+ 155              	.LVL17:
+ 156              	.LFB165:
+  75:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  76:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** lv_obj_t * lv_list_add_btn(lv_obj_t * list, const char * icon, const char * txt)
+  77:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 5
+
+
+ 157              		.loc 1 77 1 is_stmt 1 view -0
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161              		.loc 1 77 1 is_stmt 0 view .LVU32
+ 162 0000 70B5     		push	{r4, r5, r6, lr}
+ 163              	.LCFI2:
+ 164              		.cfi_def_cfa_offset 16
+ 165              		.cfi_offset 4, -16
+ 166              		.cfi_offset 5, -12
+ 167              		.cfi_offset 6, -8
+ 168              		.cfi_offset 14, -4
+ 169 0002 0E46     		mov	r6, r1
+ 170 0004 1546     		mov	r5, r2
+  78:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     LV_LOG_INFO("begin")
+ 171              		.loc 1 78 5 is_stmt 1 view .LVU33
+ 172              		.loc 1 78 5 view .LVU34
+ 173              		.loc 1 78 5 view .LVU35
+  79:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_t * obj = lv_obj_class_create_obj(&lv_list_btn_class, list);
+ 174              		.loc 1 79 5 view .LVU36
+ 175              		.loc 1 79 22 is_stmt 0 view .LVU37
+ 176 0006 0146     		mov	r1, r0
+ 177              	.LVL18:
+ 178              		.loc 1 79 22 view .LVU38
+ 179 0008 1448     		ldr	r0, .L13
+ 180              	.LVL19:
+ 181              		.loc 1 79 22 view .LVU39
+ 182 000a FFF7FEFF 		bl	lv_obj_class_create_obj
+ 183              	.LVL20:
+ 184              		.loc 1 79 22 view .LVU40
+ 185 000e 0446     		mov	r4, r0
+ 186              	.LVL21:
+  80:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_class_init_obj(obj);
+ 187              		.loc 1 80 5 is_stmt 1 view .LVU41
+ 188 0010 FFF7FEFF 		bl	lv_obj_class_init_obj
+ 189              	.LVL22:
+  81:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_set_size(obj, LV_PCT(100), LV_SIZE_CONTENT);
+ 190              		.loc 1 81 5 view .LVU42
+ 191 0014 42F2D172 		movw	r2, #10193
+ 192 0018 42F26401 		movw	r1, #8292
+ 193 001c 2046     		mov	r0, r4
+ 194 001e FFF7FEFF 		bl	lv_obj_set_size
+ 195              	.LVL23:
+  82:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_ROW);
+ 196              		.loc 1 82 5 view .LVU43
+ 197 0022 0021     		movs	r1, #0
+ 198 0024 2046     		mov	r0, r4
+ 199 0026 FFF7FEFF 		bl	lv_obj_set_flex_flow
+ 200              	.LVL24:
+  83:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  84:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     if(icon) {
+ 201              		.loc 1 84 5 view .LVU44
+ 202              		.loc 1 84 7 is_stmt 0 view .LVU45
+ 203 002a 2EB1     		cbz	r6, .L10
+ 204              	.LBB2:
+  85:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****         lv_obj_t * img = lv_img_create(obj);
+ 205              		.loc 1 85 9 is_stmt 1 view .LVU46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 6
+
+
+ 206              		.loc 1 85 26 is_stmt 0 view .LVU47
+ 207 002c 2046     		mov	r0, r4
+ 208 002e FFF7FEFF 		bl	lv_img_create
+ 209              	.LVL25:
+  86:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****         lv_img_set_src(img, icon);
+ 210              		.loc 1 86 9 is_stmt 1 view .LVU48
+ 211 0032 3146     		mov	r1, r6
+ 212 0034 FFF7FEFF 		bl	lv_img_set_src
+ 213              	.LVL26:
+ 214              	.L10:
+ 215              		.loc 1 86 9 is_stmt 0 view .LVU49
+ 216              	.LBE2:
+  87:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     }
+  88:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  89:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     if(txt) {
+ 217              		.loc 1 89 5 is_stmt 1 view .LVU50
+ 218              		.loc 1 89 7 is_stmt 0 view .LVU51
+ 219 0038 75B1     		cbz	r5, .L9
+ 220              	.LBB3:
+  90:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****         lv_obj_t * label = lv_label_create(obj);
+ 221              		.loc 1 90 9 is_stmt 1 view .LVU52
+ 222              		.loc 1 90 28 is_stmt 0 view .LVU53
+ 223 003a 2046     		mov	r0, r4
+ 224 003c FFF7FEFF 		bl	lv_label_create
+ 225              	.LVL27:
+ 226 0040 0646     		mov	r6, r0
+ 227              	.LVL28:
+  91:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****         lv_label_set_text(label, txt);
+ 228              		.loc 1 91 9 is_stmt 1 view .LVU54
+ 229 0042 2946     		mov	r1, r5
+ 230 0044 FFF7FEFF 		bl	lv_label_set_text
+ 231              	.LVL29:
+  92:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****         lv_label_set_long_mode(label, LV_LABEL_LONG_SCROLL_CIRCULAR);
+ 232              		.loc 1 92 9 view .LVU55
+ 233 0048 0321     		movs	r1, #3
+ 234 004a 3046     		mov	r0, r6
+ 235 004c FFF7FEFF 		bl	lv_label_set_long_mode
+ 236              	.LVL30:
+  93:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****         lv_obj_set_flex_grow(label, 1);
+ 237              		.loc 1 93 9 view .LVU56
+ 238 0050 0121     		movs	r1, #1
+ 239 0052 3046     		mov	r0, r6
+ 240 0054 FFF7FEFF 		bl	lv_obj_set_flex_grow
+ 241              	.LVL31:
+ 242              	.LBE3:
+  94:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     }
+  95:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  96:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     return obj;
+ 243              		.loc 1 96 5 view .LVU57
+ 244              	.L9:
+  97:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** }
+ 245              		.loc 1 97 1 is_stmt 0 view .LVU58
+ 246 0058 2046     		mov	r0, r4
+ 247 005a 70BD     		pop	{r4, r5, r6, pc}
+ 248              	.LVL32:
+ 249              	.L14:
+ 250              		.loc 1 97 1 view .LVU59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 7
+
+
+ 251              		.align	2
+ 252              	.L13:
+ 253 005c 00000000 		.word	.LANCHOR2
+ 254              		.cfi_endproc
+ 255              	.LFE165:
+ 257              		.section	.rodata.lv_list_get_btn_text.str1.4,"aMS",%progbits,1
+ 258              		.align	2
+ 259              	.LC0:
+ 260 0000 00       		.ascii	"\000"
+ 261              		.section	.text.lv_list_get_btn_text,"ax",%progbits
+ 262              		.align	1
+ 263              		.global	lv_list_get_btn_text
+ 264              		.syntax unified
+ 265              		.thumb
+ 266              		.thumb_func
+ 267              		.fpu fpv4-sp-d16
+ 269              	lv_list_get_btn_text:
+ 270              	.LVL33:
+ 271              	.LFB166:
+  98:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+  99:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** const char * lv_list_get_btn_text(lv_obj_t * list, lv_obj_t * btn)
+ 100:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** {
+ 272              		.loc 1 100 1 is_stmt 1 view -0
+ 273              		.cfi_startproc
+ 274              		@ args = 0, pretend = 0, frame = 0
+ 275              		@ frame_needed = 0, uses_anonymous_args = 0
+ 276              		.loc 1 100 1 is_stmt 0 view .LVU61
+ 277 0000 70B5     		push	{r4, r5, r6, lr}
+ 278              	.LCFI3:
+ 279              		.cfi_def_cfa_offset 16
+ 280              		.cfi_offset 4, -16
+ 281              		.cfi_offset 5, -12
+ 282              		.cfi_offset 6, -8
+ 283              		.cfi_offset 14, -4
+ 284 0002 0E46     		mov	r6, r1
+ 101:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     LV_UNUSED(list);
+ 285              		.loc 1 101 5 is_stmt 1 view .LVU62
+ 102:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     uint32_t i;
+ 286              		.loc 1 102 5 view .LVU63
+ 103:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     for(i = 0; i < lv_obj_get_child_cnt(btn); i++) {
+ 287              		.loc 1 103 5 view .LVU64
+ 288              	.LVL34:
+ 289              		.loc 1 103 11 is_stmt 0 view .LVU65
+ 290 0004 0024     		movs	r4, #0
+ 291              	.LVL35:
+ 292              	.L16:
+ 293              		.loc 1 103 16 is_stmt 1 discriminator 1 view .LVU66
+ 294              		.loc 1 103 20 is_stmt 0 discriminator 1 view .LVU67
+ 295 0006 3046     		mov	r0, r6
+ 296 0008 FFF7FEFF 		bl	lv_obj_get_child_cnt
+ 297              	.LVL36:
+ 298              		.loc 1 103 5 discriminator 1 view .LVU68
+ 299 000c A042     		cmp	r0, r4
+ 300 000e 0ED9     		bls	.L21
+ 301              	.LBB4:
+ 104:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****         lv_obj_t * child = lv_obj_get_child(btn, i);
+ 302              		.loc 1 104 9 is_stmt 1 view .LVU69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 8
+
+
+ 303              		.loc 1 104 28 is_stmt 0 view .LVU70
+ 304 0010 2146     		mov	r1, r4
+ 305 0012 3046     		mov	r0, r6
+ 306 0014 FFF7FEFF 		bl	lv_obj_get_child
+ 307              	.LVL37:
+ 308 0018 0546     		mov	r5, r0
+ 309              	.LVL38:
+ 105:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****         if(lv_obj_check_type(child, &lv_label_class)) {
+ 310              		.loc 1 105 9 is_stmt 1 view .LVU71
+ 311              		.loc 1 105 12 is_stmt 0 view .LVU72
+ 312 001a 0649     		ldr	r1, .L23
+ 313 001c FFF7FEFF 		bl	lv_obj_check_type
+ 314              	.LVL39:
+ 315              		.loc 1 105 11 view .LVU73
+ 316 0020 08B9     		cbnz	r0, .L22
+ 317              	.LBE4:
+ 103:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     for(i = 0; i < lv_obj_get_child_cnt(btn); i++) {
+ 318              		.loc 1 103 47 is_stmt 1 discriminator 2 view .LVU74
+ 103:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     for(i = 0; i < lv_obj_get_child_cnt(btn); i++) {
+ 319              		.loc 1 103 48 is_stmt 0 discriminator 2 view .LVU75
+ 320 0022 0134     		adds	r4, r4, #1
+ 321              	.LVL40:
+ 103:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     for(i = 0; i < lv_obj_get_child_cnt(btn); i++) {
+ 322              		.loc 1 103 48 discriminator 2 view .LVU76
+ 323 0024 EFE7     		b	.L16
+ 324              	.L22:
+ 325              	.LBB5:
+ 106:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****             return lv_label_get_text(child);
+ 326              		.loc 1 106 13 is_stmt 1 view .LVU77
+ 327              		.loc 1 106 20 is_stmt 0 view .LVU78
+ 328 0026 2846     		mov	r0, r5
+ 329 0028 FFF7FEFF 		bl	lv_label_get_text
+ 330              	.LVL41:
+ 331 002c 00E0     		b	.L15
+ 332              	.LVL42:
+ 333              	.L21:
+ 334              		.loc 1 106 20 view .LVU79
+ 335              	.LBE5:
+ 107:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****         }
+ 108:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+ 109:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     }
+ 110:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** 
+ 111:lvgl/lvgl/src/extra/widgets/list/lv_list.c ****     return "";
+ 336              		.loc 1 111 12 view .LVU80
+ 337 002e 0248     		ldr	r0, .L23+4
+ 338              	.L15:
+ 112:lvgl/lvgl/src/extra/widgets/list/lv_list.c **** }
+ 339              		.loc 1 112 1 view .LVU81
+ 340 0030 70BD     		pop	{r4, r5, r6, pc}
+ 341              	.LVL43:
+ 342              	.L24:
+ 343              		.loc 1 112 1 view .LVU82
+ 344 0032 00BF     		.align	2
+ 345              	.L23:
+ 346 0034 00000000 		.word	lv_label_class
+ 347 0038 00000000 		.word	.LC0
+ 348              		.cfi_endproc
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 9
+
+
+ 349              	.LFE166:
+ 351              		.global	lv_list_text_class
+ 352              		.global	lv_list_btn_class
+ 353              		.global	lv_list_class
+ 354              		.section	.rodata.lv_list_btn_class,"a"
+ 355              		.align	2
+ 356              		.set	.LANCHOR2,. + 0
+ 359              	lv_list_btn_class:
+ 360 0000 00000000 		.word	lv_btn_class
+ 361 0004 00000000 		.space	24
+ 361      00000000 
+ 361      00000000 
+ 361      00000000 
+ 361      00000000 
+ 362              		.section	.rodata.lv_list_class,"a"
+ 363              		.align	2
+ 364              		.set	.LANCHOR0,. + 0
+ 367              	lv_list_class:
+ 368 0000 00000000 		.word	lv_obj_class
+ 369 0004 00000000 		.space	16
+ 369      00000000 
+ 369      00000000 
+ 369      00000000 
+ 370 0014 C300     		.short	195
+ 371 0016 0401     		.short	260
+ 372 0018 00000000 		.space	4
+ 373              		.section	.rodata.lv_list_text_class,"a"
+ 374              		.align	2
+ 375              		.set	.LANCHOR1,. + 0
+ 378              	lv_list_text_class:
+ 379 0000 00000000 		.word	lv_label_class
+ 380 0004 00000000 		.space	24
+ 380      00000000 
+ 380      00000000 
+ 380      00000000 
+ 380      00000000 
+ 381              		.text
+ 382              	.Letext0:
+ 383              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 384              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 385              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 386              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 387              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 388              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 389              		.file 8 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 390              		.file 9 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 391              		.file 10 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 392              		.file 11 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 393              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 394              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_ll.h"
+ 395              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\core\\lv_obj.h"
+ 396              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\core\\lv_group.h"
+ 397              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\core\\lv_obj_scroll.h"
+ 398              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\core\\lv_obj_style.h"
+ 399              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 400              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\core\\lv_obj_class.h"
+ 401              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\core\\lv_event.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 10
+
+
+ 402              		.file 21 "lvgl/lvgl/src/extra/widgets/list/../../layouts/flex/lv_flex.h"
+ 403              		.file 22 "lvgl/lvgl/src/extra/widgets/list/lv_list.h"
+ 404              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\widgets\\lv_label.h"
+ 405              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\widgets\\lv_img.h"
+ 406              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\widgets\\lv_btn.h"
+ 407              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\core\\lv_obj_tree.h"
+ 408              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\core\\lv_obj_pos.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccUqcONM.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_list.c
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:18     .text.lv_list_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:26     .text.lv_list_create:00000000 lv_list_create
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:71     .text.lv_list_create:0000001c $d
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:76     .text.lv_list_add_text:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:83     .text.lv_list_add_text:00000000 lv_list_add_text
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:142    .text.lv_list_add_text:00000030 $d
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:147    .text.lv_list_add_btn:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:154    .text.lv_list_add_btn:00000000 lv_list_add_btn
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:253    .text.lv_list_add_btn:0000005c $d
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:258    .rodata.lv_list_get_btn_text.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:262    .text.lv_list_get_btn_text:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:269    .text.lv_list_get_btn_text:00000000 lv_list_get_btn_text
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:346    .text.lv_list_get_btn_text:00000034 $d
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:378    .rodata.lv_list_text_class:00000000 lv_list_text_class
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:359    .rodata.lv_list_btn_class:00000000 lv_list_btn_class
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:367    .rodata.lv_list_class:00000000 lv_list_class
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:355    .rodata.lv_list_btn_class:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:363    .rodata.lv_list_class:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccUqcONM.s:374    .rodata.lv_list_text_class:00000000 $d
+
+UNDEFINED SYMBOLS
+lv_obj_class_create_obj
+lv_obj_class_init_obj
+lv_obj_set_flex_flow
+lv_label_set_text
+lv_label_set_long_mode
+lv_obj_set_width
+lv_obj_set_size
+lv_img_create
+lv_img_set_src
+lv_label_create
+lv_obj_set_flex_grow
+lv_obj_get_child_cnt
+lv_obj_get_child
+lv_obj_check_type
+lv_label_get_text
+lv_label_class
+lv_btn_class
+lv_obj_class

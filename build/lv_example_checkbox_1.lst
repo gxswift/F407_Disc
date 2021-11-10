@@ -1,0 +1,738 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_checkbox_1.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.event_handler.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 556E6368 		.ascii	"Unchecked\000"
+  20      65636B65 
+  20      6400
+  21 000a 0000     		.align	2
+  22              	.LC1:
+  23 000c 43686563 		.ascii	"Checked\000"
+  23      6B656400 
+  24              		.align	2
+  25              	.LC2:
+  26 0014 6C76676C 		.ascii	"lvgl/lvgl/examples/widgets/checkbox/lv_example_chec"
+  26      2F6C7667 
+  26      6C2F6578 
+  26      616D706C 
+  26      65732F77 
+  27 0047 6B626F78 		.ascii	"kbox_1.c\000"
+  27      5F312E63 
+  27      00
+  28              		.align	2
+  29              	.LC3:
+  30 0050 25733A20 		.ascii	"%s: %s\000"
+  30      257300
+  31              		.section	.text.event_handler,"ax",%progbits
+  32              		.align	1
+  33              		.arch armv7e-m
+  34              		.syntax unified
+  35              		.thumb
+  36              		.thumb_func
+  37              		.fpu fpv4-sp-d16
+  39              	event_handler:
+  40              	.LVL0:
+  41              	.LFB189:
+  42              		.file 1 "lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c"
+   1:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** #include "../../lv_examples.h"
+   2:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** #if LV_USE_CHECKBOX && LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** 
+   4:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** static void event_handler(lv_event_t * e)
+   5:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** {
+  43              		.loc 1 5 1 view -0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 2
+
+
+  44              		.cfi_startproc
+  45              		@ args = 0, pretend = 0, frame = 0
+  46              		@ frame_needed = 0, uses_anonymous_args = 0
+  47              		.loc 1 5 1 is_stmt 0 view .LVU1
+  48 0000 30B5     		push	{r4, r5, lr}
+  49              	.LCFI0:
+  50              		.cfi_def_cfa_offset 12
+  51              		.cfi_offset 4, -12
+  52              		.cfi_offset 5, -8
+  53              		.cfi_offset 14, -4
+  54 0002 85B0     		sub	sp, sp, #20
+  55              	.LCFI1:
+  56              		.cfi_def_cfa_offset 32
+  57 0004 0546     		mov	r5, r0
+   6:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_event_code_t code = lv_event_get_code(e);
+  58              		.loc 1 6 5 is_stmt 1 view .LVU2
+  59              		.loc 1 6 28 is_stmt 0 view .LVU3
+  60 0006 FFF7FEFF 		bl	lv_event_get_code
+  61              	.LVL1:
+  62              		.loc 1 6 28 view .LVU4
+  63 000a 0446     		mov	r4, r0
+  64              	.LVL2:
+   7:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_t * obj = lv_event_get_target(e);
+  65              		.loc 1 7 5 is_stmt 1 view .LVU5
+  66              		.loc 1 7 22 is_stmt 0 view .LVU6
+  67 000c 2846     		mov	r0, r5
+  68 000e FFF7FEFF 		bl	lv_event_get_target
+  69              	.LVL3:
+   8:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     if(code == LV_EVENT_VALUE_CHANGED) {
+  70              		.loc 1 8 5 is_stmt 1 view .LVU7
+  71              		.loc 1 8 7 is_stmt 0 view .LVU8
+  72 0012 1C2C     		cmp	r4, #28
+  73 0014 01D0     		beq	.L6
+  74              	.LVL4:
+  75              	.L1:
+   9:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         const char * txt = lv_checkbox_get_text(obj);
+  10:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         const char * state = lv_obj_get_state(obj) & LV_STATE_CHECKED ? "Checked" : "Unchecked";
+  11:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         LV_LOG_USER("%s: %s", txt, state);
+  12:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     }
+  13:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** }
+  76              		.loc 1 13 1 view .LVU9
+  77 0016 05B0     		add	sp, sp, #20
+  78              	.LCFI2:
+  79              		.cfi_remember_state
+  80              		.cfi_def_cfa_offset 12
+  81              		@ sp needed
+  82 0018 30BD     		pop	{r4, r5, pc}
+  83              	.LVL5:
+  84              	.L6:
+  85              	.LCFI3:
+  86              		.cfi_restore_state
+  87              		.loc 1 13 1 view .LVU10
+  88 001a 0546     		mov	r5, r0
+  89              	.LVL6:
+  90              	.LBB14:
+   9:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         const char * txt = lv_checkbox_get_text(obj);
+  91              		.loc 1 9 9 is_stmt 1 view .LVU11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 3
+
+
+   9:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         const char * txt = lv_checkbox_get_text(obj);
+  92              		.loc 1 9 28 is_stmt 0 view .LVU12
+  93 001c FFF7FEFF 		bl	lv_checkbox_get_text
+  94              	.LVL7:
+   9:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         const char * txt = lv_checkbox_get_text(obj);
+  95              		.loc 1 9 28 view .LVU13
+  96 0020 0446     		mov	r4, r0
+  97              	.LVL8:
+  10:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         LV_LOG_USER("%s: %s", txt, state);
+  98              		.loc 1 10 9 is_stmt 1 view .LVU14
+  10:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         LV_LOG_USER("%s: %s", txt, state);
+  99              		.loc 1 10 30 is_stmt 0 view .LVU15
+ 100 0022 2846     		mov	r0, r5
+ 101              	.LVL9:
+  10:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         LV_LOG_USER("%s: %s", txt, state);
+ 102              		.loc 1 10 30 view .LVU16
+ 103 0024 FFF7FEFF 		bl	lv_obj_get_state
+ 104              	.LVL10:
+  10:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         LV_LOG_USER("%s: %s", txt, state);
+ 105              		.loc 1 10 83 view .LVU17
+ 106 0028 10F0010F 		tst	r0, #1
+ 107 002c 0BD0     		beq	.L4
+  10:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         LV_LOG_USER("%s: %s", txt, state);
+ 108              		.loc 1 10 83 view .LVU18
+ 109 002e 074B     		ldr	r3, .L7
+ 110              	.L3:
+ 111              	.LVL11:
+  11:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     }
+ 112              		.loc 1 11 9 is_stmt 1 discriminator 4 view .LVU19
+ 113 0030 0293     		str	r3, [sp, #8]
+ 114 0032 0194     		str	r4, [sp, #4]
+ 115 0034 064B     		ldr	r3, .L7+4
+ 116              	.LVL12:
+  11:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     }
+ 117              		.loc 1 11 9 is_stmt 0 discriminator 4 view .LVU20
+ 118 0036 0093     		str	r3, [sp]
+ 119 0038 064B     		ldr	r3, .L7+8
+ 120 003a 0B22     		movs	r2, #11
+ 121 003c 0649     		ldr	r1, .L7+12
+ 122 003e 0420     		movs	r0, #4
+ 123 0040 FFF7FEFF 		bl	_lv_log_add
+ 124              	.LVL13:
+  11:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     }
+ 125              		.loc 1 11 42 is_stmt 1 discriminator 4 view .LVU21
+ 126              	.LBE14:
+ 127              		.loc 1 13 1 is_stmt 0 discriminator 4 view .LVU22
+ 128 0044 E7E7     		b	.L1
+ 129              	.L4:
+ 130              	.LBB15:
+  10:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****         LV_LOG_USER("%s: %s", txt, state);
+ 131              		.loc 1 10 83 view .LVU23
+ 132 0046 054B     		ldr	r3, .L7+16
+ 133 0048 F2E7     		b	.L3
+ 134              	.L8:
+ 135 004a 00BF     		.align	2
+ 136              	.L7:
+ 137 004c 0C000000 		.word	.LC1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 4
+
+
+ 138 0050 50000000 		.word	.LC3
+ 139 0054 00000000 		.word	.LANCHOR0
+ 140 0058 14000000 		.word	.LC2
+ 141 005c 00000000 		.word	.LC0
+ 142              	.LBE15:
+ 143              		.cfi_endproc
+ 144              	.LFE189:
+ 146              		.section	.rodata.lv_example_checkbox_1.str1.4,"aMS",%progbits,1
+ 147              		.align	2
+ 148              	.LC4:
+ 149 0000 4170706C 		.ascii	"Apple\000"
+ 149      6500
+ 150 0006 0000     		.align	2
+ 151              	.LC5:
+ 152 0008 42616E61 		.ascii	"Banana\000"
+ 152      6E6100
+ 153 000f 00       		.align	2
+ 154              	.LC6:
+ 155 0010 4C656D6F 		.ascii	"Lemon\000"
+ 155      6E00
+ 156 0016 0000     		.align	2
+ 157              	.LC7:
+ 158 0018 4D656C6F 		.ascii	"Melon\012and a new line\000"
+ 158      6E0A616E 
+ 158      64206120 
+ 158      6E657720 
+ 158      6C696E65 
+ 159              		.section	.text.lv_example_checkbox_1,"ax",%progbits
+ 160              		.align	1
+ 161              		.global	lv_example_checkbox_1
+ 162              		.syntax unified
+ 163              		.thumb
+ 164              		.thumb_func
+ 165              		.fpu fpv4-sp-d16
+ 167              	lv_example_checkbox_1:
+ 168              	.LFB190:
+  14:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** 
+  15:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** void lv_example_checkbox_1(void)
+  16:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** {
+ 169              		.loc 1 16 1 is_stmt 1 view -0
+ 170              		.cfi_startproc
+ 171              		@ args = 0, pretend = 0, frame = 0
+ 172              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173 0000 38B5     		push	{r3, r4, r5, lr}
+ 174              	.LCFI4:
+ 175              		.cfi_def_cfa_offset 16
+ 176              		.cfi_offset 3, -16
+ 177              		.cfi_offset 4, -12
+ 178              		.cfi_offset 5, -8
+ 179              		.cfi_offset 14, -4
+  17:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_set_flex_flow(lv_scr_act(), LV_FLEX_FLOW_COLUMN);
+ 180              		.loc 1 17 5 view .LVU25
+ 181              	.LBB16:
+ 182              	.LBI16:
+ 183              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_disp.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @file lv_disp.h
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 5
+
+
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifndef LV_DISP_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #define LV_DISP_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "../hal/lv_hal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_obj.h"
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_theme.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      DEFINES
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      TYPEDEFS
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** typedef enum {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** } lv_scr_load_anim_t;
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the active screen
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 6
+
+
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Make a screen active
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to a screen
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * layer)
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background color of a display
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param color color of the background
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background image of a display
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Opacity of the background
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param opa opacity (0..255)
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 7
+
+
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Switch screen with animation
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param time time of the animation
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param delay delay before the transition
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Manually trigger an activity on a display
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*------------------------------------------------
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * To improve backward compatibility
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Recommended only if you have one display
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *------------------------------------------------*/
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the active screen of the default display
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 184              		.loc 2 163 26 view .LVU26
+ 185              	.LBB17:
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 186              		.loc 2 165 5 view .LVU27
+ 187              		.loc 2 165 12 is_stmt 0 view .LVU28
+ 188 0002 FFF7FEFF 		bl	lv_disp_get_default
+ 189              	.LVL14:
+ 190 0006 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 191              	.LVL15:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 8
+
+
+ 192              	.LBE17:
+ 193              	.LBE16:
+ 194              		.loc 1 17 5 view .LVU29
+ 195 000a 0121     		movs	r1, #1
+ 196 000c FFF7FEFF 		bl	lv_obj_set_flex_flow
+ 197              	.LVL16:
+  18:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_set_flex_align(lv_scr_act(), LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CE
+ 198              		.loc 1 18 5 is_stmt 1 view .LVU30
+ 199              	.LBB18:
+ 200              	.LBI18:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 201              		.loc 2 163 26 view .LVU31
+ 202              	.LBB19:
+ 203              		.loc 2 165 5 view .LVU32
+ 204              		.loc 2 165 12 is_stmt 0 view .LVU33
+ 205 0010 FFF7FEFF 		bl	lv_disp_get_default
+ 206              	.LVL17:
+ 207 0014 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 208              	.LVL18:
+ 209              	.LBE19:
+ 210              	.LBE18:
+ 211              		.loc 1 18 5 view .LVU34
+ 212 0018 0223     		movs	r3, #2
+ 213 001a 0022     		movs	r2, #0
+ 214 001c 1946     		mov	r1, r3
+ 215 001e FFF7FEFF 		bl	lv_obj_set_flex_align
+ 216              	.LVL19:
+  19:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** 
+  20:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_t * cb;
+ 217              		.loc 1 20 5 is_stmt 1 view .LVU35
+  21:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     cb = lv_checkbox_create(lv_scr_act());
+ 218              		.loc 1 21 5 view .LVU36
+ 219              	.LBB20:
+ 220              	.LBI20:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 221              		.loc 2 163 26 view .LVU37
+ 222              	.LBB21:
+ 223              		.loc 2 165 5 view .LVU38
+ 224              		.loc 2 165 12 is_stmt 0 view .LVU39
+ 225 0022 FFF7FEFF 		bl	lv_disp_get_default
+ 226              	.LVL20:
+ 227 0026 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 228              	.LVL21:
+ 229              	.LBE21:
+ 230              	.LBE20:
+ 231              		.loc 1 21 10 view .LVU40
+ 232 002a FFF7FEFF 		bl	lv_checkbox_create
+ 233              	.LVL22:
+ 234 002e 0446     		mov	r4, r0
+ 235              	.LVL23:
+  22:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_checkbox_set_text(cb, "Apple");
+ 236              		.loc 1 22 5 is_stmt 1 view .LVU41
+ 237 0030 2449     		ldr	r1, .L11
+ 238 0032 FFF7FEFF 		bl	lv_checkbox_set_text
+ 239              	.LVL24:
+  23:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_add_event_cb(cb, event_handler, LV_EVENT_ALL, NULL);
+ 240              		.loc 1 23 5 view .LVU42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 9
+
+
+ 241 0036 244D     		ldr	r5, .L11+4
+ 242 0038 0023     		movs	r3, #0
+ 243 003a 1A46     		mov	r2, r3
+ 244 003c 2946     		mov	r1, r5
+ 245 003e 2046     		mov	r0, r4
+ 246 0040 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 247              	.LVL25:
+  24:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** 
+  25:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     cb = lv_checkbox_create(lv_scr_act());
+ 248              		.loc 1 25 5 view .LVU43
+ 249              	.LBB22:
+ 250              	.LBI22:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 251              		.loc 2 163 26 view .LVU44
+ 252              	.LBB23:
+ 253              		.loc 2 165 5 view .LVU45
+ 254              		.loc 2 165 12 is_stmt 0 view .LVU46
+ 255 0044 FFF7FEFF 		bl	lv_disp_get_default
+ 256              	.LVL26:
+ 257 0048 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 258              	.LVL27:
+ 259              	.LBE23:
+ 260              	.LBE22:
+ 261              		.loc 1 25 10 view .LVU47
+ 262 004c FFF7FEFF 		bl	lv_checkbox_create
+ 263              	.LVL28:
+ 264 0050 0446     		mov	r4, r0
+ 265              	.LVL29:
+  26:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_checkbox_set_text(cb, "Banana");
+ 266              		.loc 1 26 5 is_stmt 1 view .LVU48
+ 267 0052 1E49     		ldr	r1, .L11+8
+ 268 0054 FFF7FEFF 		bl	lv_checkbox_set_text
+ 269              	.LVL30:
+  27:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_add_state(cb, LV_STATE_CHECKED);
+ 270              		.loc 1 27 5 view .LVU49
+ 271 0058 0121     		movs	r1, #1
+ 272 005a 2046     		mov	r0, r4
+ 273 005c FFF7FEFF 		bl	lv_obj_add_state
+ 274              	.LVL31:
+  28:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_add_event_cb(cb, event_handler, LV_EVENT_ALL, NULL);
+ 275              		.loc 1 28 5 view .LVU50
+ 276 0060 0023     		movs	r3, #0
+ 277 0062 1A46     		mov	r2, r3
+ 278 0064 2946     		mov	r1, r5
+ 279 0066 2046     		mov	r0, r4
+ 280 0068 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 281              	.LVL32:
+  29:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** 
+  30:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     cb = lv_checkbox_create(lv_scr_act());
+ 282              		.loc 1 30 5 view .LVU51
+ 283              	.LBB24:
+ 284              	.LBI24:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 285              		.loc 2 163 26 view .LVU52
+ 286              	.LBB25:
+ 287              		.loc 2 165 5 view .LVU53
+ 288              		.loc 2 165 12 is_stmt 0 view .LVU54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 10
+
+
+ 289 006c FFF7FEFF 		bl	lv_disp_get_default
+ 290              	.LVL33:
+ 291 0070 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 292              	.LVL34:
+ 293              	.LBE25:
+ 294              	.LBE24:
+ 295              		.loc 1 30 10 view .LVU55
+ 296 0074 FFF7FEFF 		bl	lv_checkbox_create
+ 297              	.LVL35:
+ 298 0078 0446     		mov	r4, r0
+ 299              	.LVL36:
+  31:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_checkbox_set_text(cb, "Lemon");
+ 300              		.loc 1 31 5 is_stmt 1 view .LVU56
+ 301 007a 1549     		ldr	r1, .L11+12
+ 302 007c FFF7FEFF 		bl	lv_checkbox_set_text
+ 303              	.LVL37:
+  32:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_add_state(cb, LV_STATE_DISABLED);
+ 304              		.loc 1 32 5 view .LVU57
+ 305 0080 8021     		movs	r1, #128
+ 306 0082 2046     		mov	r0, r4
+ 307 0084 FFF7FEFF 		bl	lv_obj_add_state
+ 308              	.LVL38:
+  33:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_add_event_cb(cb, event_handler, LV_EVENT_ALL, NULL);
+ 309              		.loc 1 33 5 view .LVU58
+ 310 0088 0023     		movs	r3, #0
+ 311 008a 1A46     		mov	r2, r3
+ 312 008c 2946     		mov	r1, r5
+ 313 008e 2046     		mov	r0, r4
+ 314 0090 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 315              	.LVL39:
+  34:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** 
+  35:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     cb = lv_checkbox_create(lv_scr_act());
+ 316              		.loc 1 35 5 view .LVU59
+ 317              	.LBB26:
+ 318              	.LBI26:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 319              		.loc 2 163 26 view .LVU60
+ 320              	.LBB27:
+ 321              		.loc 2 165 5 view .LVU61
+ 322              		.loc 2 165 12 is_stmt 0 view .LVU62
+ 323 0094 FFF7FEFF 		bl	lv_disp_get_default
+ 324              	.LVL40:
+ 325 0098 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 326              	.LVL41:
+ 327              	.LBE27:
+ 328              	.LBE26:
+ 329              		.loc 1 35 10 view .LVU63
+ 330 009c FFF7FEFF 		bl	lv_checkbox_create
+ 331              	.LVL42:
+ 332 00a0 0446     		mov	r4, r0
+ 333              	.LVL43:
+  36:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_add_state(cb, LV_STATE_CHECKED | LV_STATE_DISABLED);
+ 334              		.loc 1 36 5 is_stmt 1 view .LVU64
+ 335 00a2 8121     		movs	r1, #129
+ 336 00a4 FFF7FEFF 		bl	lv_obj_add_state
+ 337              	.LVL44:
+  37:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_checkbox_set_text(cb, "Melon\nand a new line");
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 11
+
+
+ 338              		.loc 1 37 5 view .LVU65
+ 339 00a8 0A49     		ldr	r1, .L11+16
+ 340 00aa 2046     		mov	r0, r4
+ 341 00ac FFF7FEFF 		bl	lv_checkbox_set_text
+ 342              	.LVL45:
+  38:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_add_event_cb(cb, event_handler, LV_EVENT_ALL, NULL);
+ 343              		.loc 1 38 5 view .LVU66
+ 344 00b0 0023     		movs	r3, #0
+ 345 00b2 1A46     		mov	r2, r3
+ 346 00b4 2946     		mov	r1, r5
+ 347 00b6 2046     		mov	r0, r4
+ 348 00b8 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 349              	.LVL46:
+  39:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** 
+  40:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c ****     lv_obj_update_layout(cb);
+ 350              		.loc 1 40 5 view .LVU67
+ 351 00bc 2046     		mov	r0, r4
+ 352 00be FFF7FEFF 		bl	lv_obj_update_layout
+ 353              	.LVL47:
+  41:lvgl/lvgl/examples/widgets/checkbox/lv_example_checkbox_1.c **** }
+ 354              		.loc 1 41 1 is_stmt 0 view .LVU68
+ 355 00c2 38BD     		pop	{r3, r4, r5, pc}
+ 356              	.LVL48:
+ 357              	.L12:
+ 358              		.loc 1 41 1 view .LVU69
+ 359              		.align	2
+ 360              	.L11:
+ 361 00c4 00000000 		.word	.LC4
+ 362 00c8 00000000 		.word	event_handler
+ 363 00cc 08000000 		.word	.LC5
+ 364 00d0 10000000 		.word	.LC6
+ 365 00d4 18000000 		.word	.LC7
+ 366              		.cfi_endproc
+ 367              	.LFE190:
+ 369              		.section	.rodata.__func__.12317,"a"
+ 370              		.align	2
+ 371              		.set	.LANCHOR0,. + 0
+ 374              	__func__.12317:
+ 375 0000 6576656E 		.ascii	"event_handler\000"
+ 375      745F6861 
+ 375      6E646C65 
+ 375      7200
+ 376              		.text
+ 377              	.Letext0:
+ 378              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 379              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 380              		.file 5 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 381              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 382              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 383              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 384              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 385              		.file 10 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 386              		.file 11 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 387              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 388              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 389              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 390              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 12
+
+
+ 391              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 392              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 393              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 394              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 395              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 396              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 397              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 398              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 399              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 400              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 401              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 402              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 403              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 404              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 405              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 406              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 407              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 408              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 409              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 410              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 411              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 412              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 413              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 414              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 415              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 416              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 417              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 418              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 419              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 420              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 421              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 422              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 423              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 424              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 425              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 426              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 427              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 428              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 429              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 430              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 431              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 432              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_disp.h"
+ 433              		.file 58 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+ 434              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_log.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_checkbox_1.c
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:18     .rodata.event_handler.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:32     .text.event_handler:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:39     .text.event_handler:00000000 event_handler
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:137    .text.event_handler:0000004c $d
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:147    .rodata.lv_example_checkbox_1.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:160    .text.lv_example_checkbox_1:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:167    .text.lv_example_checkbox_1:00000000 lv_example_checkbox_1
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:361    .text.lv_example_checkbox_1:000000c4 $d
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:370    .rodata.__func__.12317:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc3Tp6PL.s:374    .rodata.__func__.12317:00000000 __func__.12317
+
+UNDEFINED SYMBOLS
+lv_event_get_code
+lv_event_get_target
+lv_checkbox_get_text
+lv_obj_get_state
+_lv_log_add
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_obj_set_flex_flow
+lv_obj_set_flex_align
+lv_checkbox_create
+lv_checkbox_set_text
+lv_obj_add_event_cb
+lv_obj_add_state
+lv_obj_update_layout

@@ -118,7 +118,7 @@ void MX_FREERTOS_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+const char __attribute__((section(".lua_script"))) script[]="123456 stm32 flash test\r\n";
 /* USER CODE END 0 */
 
 /**

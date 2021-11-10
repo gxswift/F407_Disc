@@ -1,0 +1,166 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccC3DTL2.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_extra.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.lv_extra_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	lv_extra_init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	lv_extra_init:
+  27              	.LFB189:
+  28              		.file 1 "lvgl/lvgl/src/extra/lv_extra.c"
+   1:lvgl/lvgl/src/extra/lv_extra.c **** /**
+   2:lvgl/lvgl/src/extra/lv_extra.c ****  * @file lv_extra.c
+   3:lvgl/lvgl/src/extra/lv_extra.c ****  *
+   4:lvgl/lvgl/src/extra/lv_extra.c ****  */
+   5:lvgl/lvgl/src/extra/lv_extra.c **** 
+   6:lvgl/lvgl/src/extra/lv_extra.c **** /*********************
+   7:lvgl/lvgl/src/extra/lv_extra.c ****  *      INCLUDES
+   8:lvgl/lvgl/src/extra/lv_extra.c ****  *********************/
+   9:lvgl/lvgl/src/extra/lv_extra.c **** #include "../lvgl.h"
+  10:lvgl/lvgl/src/extra/lv_extra.c **** 
+  11:lvgl/lvgl/src/extra/lv_extra.c **** /*********************
+  12:lvgl/lvgl/src/extra/lv_extra.c ****  *      DEFINES
+  13:lvgl/lvgl/src/extra/lv_extra.c ****  *********************/
+  14:lvgl/lvgl/src/extra/lv_extra.c **** 
+  15:lvgl/lvgl/src/extra/lv_extra.c **** /**********************
+  16:lvgl/lvgl/src/extra/lv_extra.c ****  *      TYPEDEFS
+  17:lvgl/lvgl/src/extra/lv_extra.c ****  **********************/
+  18:lvgl/lvgl/src/extra/lv_extra.c **** 
+  19:lvgl/lvgl/src/extra/lv_extra.c **** /**********************
+  20:lvgl/lvgl/src/extra/lv_extra.c ****  *  STATIC PROTOTYPES
+  21:lvgl/lvgl/src/extra/lv_extra.c ****  **********************/
+  22:lvgl/lvgl/src/extra/lv_extra.c **** 
+  23:lvgl/lvgl/src/extra/lv_extra.c **** /**********************
+  24:lvgl/lvgl/src/extra/lv_extra.c ****  *  STATIC VARIABLES
+  25:lvgl/lvgl/src/extra/lv_extra.c ****  **********************/
+  26:lvgl/lvgl/src/extra/lv_extra.c **** 
+  27:lvgl/lvgl/src/extra/lv_extra.c **** /**********************
+  28:lvgl/lvgl/src/extra/lv_extra.c ****  *      MACROS
+  29:lvgl/lvgl/src/extra/lv_extra.c ****  **********************/
+  30:lvgl/lvgl/src/extra/lv_extra.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccC3DTL2.s 			page 2
+
+
+  31:lvgl/lvgl/src/extra/lv_extra.c **** /**********************
+  32:lvgl/lvgl/src/extra/lv_extra.c ****  *   GLOBAL FUNCTIONS
+  33:lvgl/lvgl/src/extra/lv_extra.c ****  **********************/
+  34:lvgl/lvgl/src/extra/lv_extra.c **** 
+  35:lvgl/lvgl/src/extra/lv_extra.c **** void lv_extra_init(void)
+  36:lvgl/lvgl/src/extra/lv_extra.c **** {
+  29              		.loc 1 36 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  37:lvgl/lvgl/src/extra/lv_extra.c **** #if LV_USE_FLEX
+  38:lvgl/lvgl/src/extra/lv_extra.c ****     lv_flex_init();
+  38              		.loc 1 38 5 view .LVU1
+  39 0002 FFF7FEFF 		bl	lv_flex_init
+  40              	.LVL0:
+  39:lvgl/lvgl/src/extra/lv_extra.c **** #endif
+  40:lvgl/lvgl/src/extra/lv_extra.c **** 
+  41:lvgl/lvgl/src/extra/lv_extra.c **** #if LV_USE_GRID
+  42:lvgl/lvgl/src/extra/lv_extra.c ****     lv_grid_init();
+  41              		.loc 1 42 5 view .LVU2
+  42 0006 FFF7FEFF 		bl	lv_grid_init
+  43              	.LVL1:
+  43:lvgl/lvgl/src/extra/lv_extra.c **** #endif
+  44:lvgl/lvgl/src/extra/lv_extra.c **** }
+  44              		.loc 1 44 1 is_stmt 0 view .LVU3
+  45 000a 08BD     		pop	{r3, pc}
+  46              		.cfi_endproc
+  47              	.LFE189:
+  49              		.text
+  50              	.Letext0:
+  51              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+  52              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+  53              		.file 4 "lvgl/lvgl/src/extra/../../src/misc/lv_ll.h"
+  54              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+  55              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+  56              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+  57              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+  58              		.file 9 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+  59              		.file 10 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+  60              		.file 11 "lvgl/lvgl/src/extra/../../src/core/lv_obj.h"
+  61              		.file 12 "lvgl/lvgl/src/extra/../../src/core/lv_group.h"
+  62              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+  63              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+  64              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+  65              		.file 16 "lvgl/lvgl/src/extra/../../src/core/lv_obj_scroll.h"
+  66              		.file 17 "lvgl/lvgl/src/extra/../../src/core/lv_obj_style.h"
+  67              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+  68              		.file 19 "lvgl/lvgl/src/extra/../../src/core/lv_obj_class.h"
+  69              		.file 20 "lvgl/lvgl/src/extra/../../src/core/lv_event.h"
+  70              		.file 21 "lvgl/lvgl/src/extra/../../src/widgets/lv_arc.h"
+  71              		.file 22 "lvgl/lvgl/src/extra/../../src/widgets/lv_btn.h"
+  72              		.file 23 "lvgl/lvgl/src/extra/../../src/widgets/lv_img.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccC3DTL2.s 			page 3
+
+
+  73              		.file 24 "lvgl/lvgl/src/extra/../../src/widgets/lv_label.h"
+  74              		.file 25 "lvgl/lvgl/src/extra/../../src/widgets/lv_line.h"
+  75              		.file 26 "lvgl/lvgl/src/extra/../../src/widgets/lv_table.h"
+  76              		.file 27 "lvgl/lvgl/src/extra/../../src/widgets/lv_checkbox.h"
+  77              		.file 28 "lvgl/lvgl/src/extra/../../src/widgets/lv_bar.h"
+  78              		.file 29 "lvgl/lvgl/src/extra/../../src/widgets/lv_slider.h"
+  79              		.file 30 "lvgl/lvgl/src/extra/../../src/widgets/lv_btnmatrix.h"
+  80              		.file 31 "lvgl/lvgl/src/extra/../../src/widgets/lv_dropdown.h"
+  81              		.file 32 "lvgl/lvgl/src/extra/../../src/widgets/lv_roller.h"
+  82              		.file 33 "lvgl/lvgl/src/extra/../../src/widgets/lv_textarea.h"
+  83              		.file 34 "lvgl/lvgl/src/extra/../../src/widgets/lv_canvas.h"
+  84              		.file 35 "lvgl/lvgl/src/extra/../../src/widgets/lv_switch.h"
+  85              		.file 36 "lvgl/lvgl/src/extra/../../src/extra/widgets/animimg/lv_animimg.h"
+  86              		.file 37 "lvgl/lvgl/src/extra/../../src/extra/widgets/calendar/lv_calendar.h"
+  87              		.file 38 "lvgl/lvgl/src/extra/../../src/extra/widgets/calendar/lv_calendar_header_arrow.h"
+  88              		.file 39 "lvgl/lvgl/src/extra/../../src/extra/widgets/calendar/lv_calendar_header_dropdown.h"
+  89              		.file 40 "lvgl/lvgl/src/extra/../../src/extra/widgets/chart/lv_chart.h"
+  90              		.file 41 "lvgl/lvgl/src/extra/../../src/extra/widgets/keyboard/lv_keyboard.h"
+  91              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+  92              		.file 43 "lvgl/lvgl/src/extra/../../src/extra/widgets/list/lv_list.h"
+  93              		.file 44 "lvgl/lvgl/src/extra/../../src/extra/widgets/msgbox/lv_msgbox.h"
+  94              		.file 45 "lvgl/lvgl/src/extra/../../src/extra/widgets/meter/lv_meter.h"
+  95              		.file 46 "lvgl/lvgl/src/extra/../../src/extra/widgets/spinbox/lv_spinbox.h"
+  96              		.file 47 "lvgl/lvgl/src/extra/../../src/extra/widgets/spinner/lv_spinner.h"
+  97              		.file 48 "lvgl/lvgl/src/extra/../../src/extra/widgets/tabview/lv_tabview.h"
+  98              		.file 49 "lvgl/lvgl/src/extra/../../src/extra/widgets/tileview/lv_tileview.h"
+  99              		.file 50 "lvgl/lvgl/src/extra/../../src/extra/widgets/win/lv_win.h"
+ 100              		.file 51 "lvgl/lvgl/src/extra/../../src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 101              		.file 52 "lvgl/lvgl/src/extra/../../src/extra/widgets/led/lv_led.h"
+ 102              		.file 53 "lvgl/lvgl/src/extra/../../src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 103              		.file 54 "lvgl/lvgl/src/extra/../../src/extra/widgets/span/lv_span.h"
+ 104              		.file 55 "lvgl/lvgl/src/extra/../../src/extra/layouts/grid/lv_grid.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccC3DTL2.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_extra.c
+C:\Users\gx\AppData\Local\Temp\ccC3DTL2.s:18     .text.lv_extra_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccC3DTL2.s:26     .text.lv_extra_init:00000000 lv_extra_init
+
+UNDEFINED SYMBOLS
+lv_flex_init
+lv_grid_init

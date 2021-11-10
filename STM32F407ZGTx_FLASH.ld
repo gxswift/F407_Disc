@@ -144,6 +144,12 @@ SECTIONS
     . = ALIGN(4);
     _eccmram = .;       /* create a global symbol at ccmram end */
   } >CCMRAM AT> FLASH
+  .lua_script 0x08080000 :
+  {
+    . = ALIGN(4);
+    KEEP(*(.lua_script))
+    . = ALIGN(4);
+  } >FLASH
 
   
   /* Uninitialized data section */

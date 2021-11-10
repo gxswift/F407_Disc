@@ -1,0 +1,1914 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_table_2.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.change_event_cb,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	change_event_cb:
+  26              	.LVL0:
+  27              	.LFB190:
+  28              		.file 1 "lvgl/lvgl/examples/widgets/table/lv_example_table_2.c"
+   1:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** #include "../../lv_examples.h"
+   2:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** #if LV_USE_TABLE && LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+   4:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** #define ITEM_CNT 200
+   5:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+   6:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** static void draw_event_cb(lv_event_t * e)
+   7:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** {
+   8:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_t * obj = lv_event_get_target(e);
+   9:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_draw_part_dsc_t * dsc = lv_event_get_draw_part_dsc(e);
+  10:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     /*If the cells are drawn...*/
+  11:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     if(dsc->part == LV_PART_ITEMS) {
+  12:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         bool chk = lv_table_has_cell_ctrl(obj, dsc->id, 0, LV_TABLE_CELL_CTRL_CUSTOM_1);
+  13:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  14:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect_dsc_t rect_dsc;
+  15:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect_dsc_init(&rect_dsc);
+  16:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         rect_dsc.bg_color = chk ? lv_theme_get_color_primary(obj) : lv_palette_lighten(LV_PALETTE_G
+  17:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         rect_dsc.radius = LV_RADIUS_CIRCLE;
+  18:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  19:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_area_t sw_area;
+  20:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.x1 = dsc->draw_area->x2 - 50;
+  21:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.x2 = sw_area.x1 + 40;
+  22:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y1 =  dsc->draw_area->y1 + lv_area_get_height(dsc->draw_area) / 2 - 10;
+  23:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y2 = sw_area.y1 + 20;
+  24:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect(&sw_area, dsc->clip_area, &rect_dsc);
+  25:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  26:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         rect_dsc.bg_color = lv_color_white();
+  27:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         if(chk) {
+  28:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x2 -= 2;
+  29:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x1 = sw_area.x2 - 16;
+  30:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         } else {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 2
+
+
+  31:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x1 += 2;
+  32:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x2 = sw_area.x1 + 16;
+  33:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         }
+  34:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y1 += 2;
+  35:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y2 -= 2;
+  36:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect(&sw_area, dsc->clip_area, &rect_dsc);
+  37:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     }
+  38:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** }
+  39:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  40:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** static void change_event_cb(lv_event_t * e)
+  41:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** {
+  29              		.loc 1 41 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 41 1 is_stmt 0 view .LVU1
+  34 0000 10B5     		push	{r4, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 4, -8
+  38              		.cfi_offset 14, -4
+  39 0002 82B0     		sub	sp, sp, #8
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 16
+  42:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_t * obj = lv_event_get_target(e);
+  42              		.loc 1 42 5 is_stmt 1 view .LVU2
+  43              		.loc 1 42 22 is_stmt 0 view .LVU3
+  44 0004 FFF7FEFF 		bl	lv_event_get_target
+  45              	.LVL1:
+  46              		.loc 1 42 22 view .LVU4
+  47 0008 0446     		mov	r4, r0
+  48              	.LVL2:
+  43:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     uint16_t col;
+  49              		.loc 1 43 5 is_stmt 1 view .LVU5
+  44:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     uint16_t row;
+  50              		.loc 1 44 5 view .LVU6
+  45:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_table_get_selected_cell(obj, &row, &col);
+  51              		.loc 1 45 5 view .LVU7
+  52 000a 0DF10602 		add	r2, sp, #6
+  53 000e 01A9     		add	r1, sp, #4
+  54 0010 FFF7FEFF 		bl	lv_table_get_selected_cell
+  55              	.LVL3:
+  46:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     bool chk = lv_table_has_cell_ctrl(obj, row, 0, LV_TABLE_CELL_CTRL_CUSTOM_1);
+  56              		.loc 1 46 5 view .LVU8
+  57              		.loc 1 46 16 is_stmt 0 view .LVU9
+  58 0014 1023     		movs	r3, #16
+  59 0016 0022     		movs	r2, #0
+  60 0018 BDF80410 		ldrh	r1, [sp, #4]
+  61 001c 2046     		mov	r0, r4
+  62 001e FFF7FEFF 		bl	lv_table_has_cell_ctrl
+  63              	.LVL4:
+  47:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     if(chk) lv_table_clear_cell_ctrl(obj, row, 0, LV_TABLE_CELL_CTRL_CUSTOM_1);
+  64              		.loc 1 47 5 is_stmt 1 view .LVU10
+  65              		.loc 1 47 7 is_stmt 0 view .LVU11
+  66 0022 40B1     		cbz	r0, .L2
+  67              		.loc 1 47 13 is_stmt 1 discriminator 1 view .LVU12
+  68 0024 1023     		movs	r3, #16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 3
+
+
+  69 0026 0022     		movs	r2, #0
+  70 0028 BDF80410 		ldrh	r1, [sp, #4]
+  71 002c 2046     		mov	r0, r4
+  72              	.LVL5:
+  73              		.loc 1 47 13 is_stmt 0 discriminator 1 view .LVU13
+  74 002e FFF7FEFF 		bl	lv_table_clear_cell_ctrl
+  75              	.LVL6:
+  76              	.L1:
+  48:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     else lv_table_add_cell_ctrl(obj, row, 0, LV_TABLE_CELL_CTRL_CUSTOM_1);
+  49:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** }
+  77              		.loc 1 49 1 view .LVU14
+  78 0032 02B0     		add	sp, sp, #8
+  79              	.LCFI2:
+  80              		.cfi_remember_state
+  81              		.cfi_def_cfa_offset 8
+  82              		@ sp needed
+  83 0034 10BD     		pop	{r4, pc}
+  84              	.LVL7:
+  85              	.L2:
+  86              	.LCFI3:
+  87              		.cfi_restore_state
+  48:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     else lv_table_add_cell_ctrl(obj, row, 0, LV_TABLE_CELL_CTRL_CUSTOM_1);
+  88              		.loc 1 48 10 is_stmt 1 view .LVU15
+  89 0036 1023     		movs	r3, #16
+  90 0038 0022     		movs	r2, #0
+  91 003a BDF80410 		ldrh	r1, [sp, #4]
+  92 003e 2046     		mov	r0, r4
+  93              	.LVL8:
+  48:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     else lv_table_add_cell_ctrl(obj, row, 0, LV_TABLE_CELL_CTRL_CUSTOM_1);
+  94              		.loc 1 48 10 is_stmt 0 view .LVU16
+  95 0040 FFF7FEFF 		bl	lv_table_add_cell_ctrl
+  96              	.LVL9:
+  97              		.loc 1 49 1 view .LVU17
+  98 0044 F5E7     		b	.L1
+  99              		.cfi_endproc
+ 100              	.LFE190:
+ 102              		.section	.text.draw_event_cb,"ax",%progbits
+ 103              		.align	1
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 107              		.fpu fpv4-sp-d16
+ 109              	draw_event_cb:
+ 110              	.LVL10:
+ 111              	.LFB189:
+   7:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 112              		.loc 1 7 1 is_stmt 1 view -0
+ 113              		.cfi_startproc
+ 114              		@ args = 0, pretend = 0, frame = 64
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+   7:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 116              		.loc 1 7 1 is_stmt 0 view .LVU19
+ 117 0000 70B5     		push	{r4, r5, r6, lr}
+ 118              	.LCFI4:
+ 119              		.cfi_def_cfa_offset 16
+ 120              		.cfi_offset 4, -16
+ 121              		.cfi_offset 5, -12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 4
+
+
+ 122              		.cfi_offset 6, -8
+ 123              		.cfi_offset 14, -4
+ 124 0002 90B0     		sub	sp, sp, #64
+ 125              	.LCFI5:
+ 126              		.cfi_def_cfa_offset 80
+ 127 0004 0446     		mov	r4, r0
+   8:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_draw_part_dsc_t * dsc = lv_event_get_draw_part_dsc(e);
+ 128              		.loc 1 8 5 is_stmt 1 view .LVU20
+   8:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_draw_part_dsc_t * dsc = lv_event_get_draw_part_dsc(e);
+ 129              		.loc 1 8 22 is_stmt 0 view .LVU21
+ 130 0006 FFF7FEFF 		bl	lv_event_get_target
+ 131              	.LVL11:
+   8:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_draw_part_dsc_t * dsc = lv_event_get_draw_part_dsc(e);
+ 132              		.loc 1 8 22 view .LVU22
+ 133 000a 0546     		mov	r5, r0
+ 134              	.LVL12:
+   9:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     /*If the cells are drawn...*/
+ 135              		.loc 1 9 5 is_stmt 1 view .LVU23
+   9:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     /*If the cells are drawn...*/
+ 136              		.loc 1 9 36 is_stmt 0 view .LVU24
+ 137 000c 2046     		mov	r0, r4
+ 138              	.LVL13:
+   9:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     /*If the cells are drawn...*/
+ 139              		.loc 1 9 36 view .LVU25
+ 140 000e FFF7FEFF 		bl	lv_event_get_draw_part_dsc
+ 141              	.LVL14:
+  11:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         bool chk = lv_table_has_cell_ctrl(obj, dsc->id, 0, LV_TABLE_CELL_CTRL_CUSTOM_1);
+ 142              		.loc 1 11 5 is_stmt 1 view .LVU26
+  11:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         bool chk = lv_table_has_cell_ctrl(obj, dsc->id, 0, LV_TABLE_CELL_CTRL_CUSTOM_1);
+ 143              		.loc 1 11 11 is_stmt 0 view .LVU27
+ 144 0012 036B     		ldr	r3, [r0, #48]
+  11:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         bool chk = lv_table_has_cell_ctrl(obj, dsc->id, 0, LV_TABLE_CELL_CTRL_CUSTOM_1);
+ 145              		.loc 1 11 7 view .LVU28
+ 146 0014 B3F5A02F 		cmp	r3, #327680
+ 147 0018 01D0     		beq	.L12
+ 148              	.LVL15:
+ 149              	.L5:
+  38:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ 150              		.loc 1 38 1 view .LVU29
+ 151 001a 10B0     		add	sp, sp, #64
+ 152              	.LCFI6:
+ 153              		.cfi_remember_state
+ 154              		.cfi_def_cfa_offset 16
+ 155              		@ sp needed
+ 156 001c 70BD     		pop	{r4, r5, r6, pc}
+ 157              	.LVL16:
+ 158              	.L12:
+ 159              	.LCFI7:
+ 160              		.cfi_restore_state
+  38:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ 161              		.loc 1 38 1 view .LVU30
+ 162 001e 0446     		mov	r4, r0
+ 163              	.LVL17:
+ 164              	.LBB15:
+  12:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ 165              		.loc 1 12 9 is_stmt 1 view .LVU31
+  12:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 5
+
+
+ 166              		.loc 1 12 20 is_stmt 0 view .LVU32
+ 167 0020 1023     		movs	r3, #16
+ 168 0022 0022     		movs	r2, #0
+ 169 0024 818E     		ldrh	r1, [r0, #52]
+ 170 0026 2846     		mov	r0, r5
+ 171              	.LVL18:
+  12:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ 172              		.loc 1 12 20 view .LVU33
+ 173 0028 FFF7FEFF 		bl	lv_table_has_cell_ctrl
+ 174              	.LVL19:
+ 175 002c 0646     		mov	r6, r0
+ 176              	.LVL20:
+  14:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect_dsc_init(&rect_dsc);
+ 177              		.loc 1 14 9 is_stmt 1 view .LVU34
+  15:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         rect_dsc.bg_color = chk ? lv_theme_get_color_primary(obj) : lv_palette_lighten(LV_PALETTE_G
+ 178              		.loc 1 15 9 view .LVU35
+ 179 002e 03A8     		add	r0, sp, #12
+ 180 0030 FFF7FEFF 		bl	lv_draw_rect_dsc_init
+ 181              	.LVL21:
+  16:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         rect_dsc.radius = LV_RADIUS_CIRCLE;
+ 182              		.loc 1 16 9 view .LVU36
+  16:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         rect_dsc.radius = LV_RADIUS_CIRCLE;
+ 183              		.loc 1 16 27 is_stmt 0 view .LVU37
+ 184 0034 002E     		cmp	r6, #0
+ 185 0036 49D0     		beq	.L7
+  16:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         rect_dsc.radius = LV_RADIUS_CIRCLE;
+ 186              		.loc 1 16 35 discriminator 1 view .LVU38
+ 187 0038 2846     		mov	r0, r5
+ 188 003a FFF7FEFF 		bl	lv_theme_get_color_primary
+ 189              	.LVL22:
+ 190 003e ADF81000 		strh	r0, [sp, #16]	@ movhi
+ 191              	.L8:
+  17:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ 192              		.loc 1 17 9 is_stmt 1 view .LVU39
+  17:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ 193              		.loc 1 17 25 is_stmt 0 view .LVU40
+ 194 0042 47F6FF73 		movw	r3, #32767
+ 195 0046 ADF80C30 		strh	r3, [sp, #12]	@ movhi
+  19:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.x1 = dsc->draw_area->x2 - 50;
+ 196              		.loc 1 19 9 is_stmt 1 view .LVU41
+  20:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.x2 = sw_area.x1 + 40;
+ 197              		.loc 1 20 9 view .LVU42
+  20:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.x2 = sw_area.x1 + 40;
+ 198              		.loc 1 20 25 is_stmt 0 view .LVU43
+ 199 004a E168     		ldr	r1, [r4, #12]
+  20:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.x2 = sw_area.x1 + 40;
+ 200              		.loc 1 20 36 view .LVU44
+ 201 004c 8B88     		ldrh	r3, [r1, #4]
+  20:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.x2 = sw_area.x1 + 40;
+ 202              		.loc 1 20 41 view .LVU45
+ 203 004e 323B     		subs	r3, r3, #50
+ 204 0050 9AB2     		uxth	r2, r3
+  20:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.x2 = sw_area.x1 + 40;
+ 205              		.loc 1 20 20 view .LVU46
+ 206 0052 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  21:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y1 =  dsc->draw_area->y1 + lv_area_get_height(dsc->draw_area) / 2 - 10;
+ 207              		.loc 1 21 9 is_stmt 1 view .LVU47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 6
+
+
+  21:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y1 =  dsc->draw_area->y1 + lv_area_get_height(dsc->draw_area) / 2 - 10;
+ 208              		.loc 1 21 33 is_stmt 0 view .LVU48
+ 209 0056 02F12803 		add	r3, r2, #40
+  21:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y1 =  dsc->draw_area->y1 + lv_area_get_height(dsc->draw_area) / 2 - 10;
+ 210              		.loc 1 21 20 view .LVU49
+ 211 005a ADF80830 		strh	r3, [sp, #8]	@ movhi
+  22:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y2 = sw_area.y1 + 20;
+ 212              		.loc 1 22 9 is_stmt 1 view .LVU50
+  22:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y2 = sw_area.y1 + 20;
+ 213              		.loc 1 22 37 is_stmt 0 view .LVU51
+ 214 005e 4A88     		ldrh	r2, [r1, #2]
+ 215              	.LVL23:
+ 216              	.LBB16:
+ 217              	.LBI16:
+ 218              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @file lv_area.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifndef LV_AREA_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_AREA_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include "../lv_conf_internal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <string.h>
+  18:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdbool.h>
+  19:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdint.h>
+  20:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  21:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  22:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      DEFINES
+  23:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  24:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  25:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_MAX_REDUCE    8192
+  26:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  27:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #if LV_USE_LARGE_COORD
+  28:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int32_t lv_coord_t;
+  29:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #else
+  30:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int16_t lv_coord_t;
+  31:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  32:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  33:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*To allow some special values in the end reduce the max value*/
+  34:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MAX ((lv_coord_t)((uint32_t)((uint32_t)1 << (8 * sizeof(lv_coord_t) - 1)) - _LV_CO
+  35:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MIN (-LV_COORD_MAX)
+  36:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MAX);
+  38:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MIN);
+  39:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  40:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+  41:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      TYPEDEFS
+  42:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 7
+
+
+  43:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  44:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+  45:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Represents a point on the screen.
+  46:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+  47:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  48:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x;
+  49:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y;
+  50:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_point_t;
+  51:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  52:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Represents an area of the screen.*/
+  53:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  54:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x1;
+  55:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y1;
+  56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x2;
+  57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y2;
+  58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_area_t;
+  59:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  60:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Alignments*/
+  61:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  62:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_DEFAULT = 0,
+  63:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_LEFT,
+  64:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_MID,
+  65:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_RIGHT,
+  66:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_LEFT,
+  67:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_MID,
+  68:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_RIGHT,
+  69:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_LEFT_MID,
+  70:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_RIGHT_MID,
+  71:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_CENTER,
+  72:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  73:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_LEFT,
+  74:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_MID,
+  75:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_RIGHT,
+  76:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_LEFT,
+  77:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_MID,
+  78:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_RIGHT,
+  79:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_TOP,
+  80:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_MID,
+  81:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_BOTTOM,
+  82:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_TOP,
+  83:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_MID,
+  84:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_BOTTOM,
+  85:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  86:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_align_t;
+  87:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  88:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  89:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_NONE     = 0x00,
+  90:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_LEFT     = (1 << 0),
+  91:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_RIGHT    = (1 << 1),
+  92:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_TOP      = (1 << 2),
+  93:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_BOTTOM   = (1 << 3),
+  94:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_HOR      = LV_DIR_LEFT | LV_DIR_RIGHT,
+  95:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_VER      = LV_DIR_TOP | LV_DIR_BOTTOM,
+  96:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_ALL      = LV_DIR_HOR | LV_DIR_VER,
+  97:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  98:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  99:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_dir_t;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 8
+
+
+ 100:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 101:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+ 102:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * GLOBAL PROTOTYPES
+ 103:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+ 104:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 105:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 106:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Initialize an area
+ 107:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 108:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x1 left coordinate of the area
+ 109:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y1 top coordinate of the area
+ 110:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x2 right coordinate of the area
+ 111:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y2 bottom coordinate of the area
+ 112:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set(lv_area_t * area_p, lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2);
+ 114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 116:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Copy an area
+ 117:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param dest pointer to the destination area
+ 118:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param src pointer to the source area
+ 119:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 120:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** inline static void lv_area_copy(lv_area_t * dest, const lv_area_t * src)
+ 121:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 122:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x1 = src->x1;
+ 123:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y1 = src->y1;
+ 124:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x2 = src->x2;
+ 125:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y2 = src->y2;
+ 126:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
+ 127:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 128:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 129:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the width of an area
+ 130:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 131:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return the width of the area (if x1 == x2 -> width = 1)
+ 132:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 133:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** static inline lv_coord_t lv_area_get_width(const lv_area_t * area_p)
+ 134:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 135:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     return (lv_coord_t)(area_p->x2 - area_p->x1 + 1);
+ 136:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
+ 137:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 138:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 139:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the height of an area
+ 140:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 141:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return the height of the area (if y1 == y2 -> height = 1)
+ 142:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 143:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** static inline lv_coord_t lv_area_get_height(const lv_area_t * area_p)
+ 219              		.loc 2 143 26 is_stmt 1 view .LVU52
+ 220              	.LBB17:
+ 144:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 145:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     return (lv_coord_t)(area_p->y2 - area_p->y1 + 1);
+ 221              		.loc 2 145 5 view .LVU53
+ 222              		.loc 2 145 31 is_stmt 0 view .LVU54
+ 223 0060 CB88     		ldrh	r3, [r1, #6]
+ 224              		.loc 2 145 36 view .LVU55
+ 225 0062 9B1A     		subs	r3, r3, r2
+ 226 0064 9BB2     		uxth	r3, r3
+ 227              		.loc 2 145 49 view .LVU56
+ 228 0066 0133     		adds	r3, r3, #1
+ 229              	.LVL24:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 9
+
+
+ 230              		.loc 2 145 49 view .LVU57
+ 231              	.LBE17:
+ 232              	.LBE16:
+  22:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y2 = sw_area.y1 + 20;
+ 233              		.loc 1 22 42 view .LVU58
+ 234 0068 C3F3C031 		ubfx	r1, r3, #15, #1
+ 235 006c 01FA83F3 		sxtah	r3, r1, r3
+ 236 0070 02EB6303 		add	r3, r2, r3, asr #1
+ 237 0074 9BB2     		uxth	r3, r3
+  22:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y2 = sw_area.y1 + 20;
+ 238              		.loc 1 22 83 view .LVU59
+ 239 0076 0A3B     		subs	r3, r3, #10
+ 240 0078 9AB2     		uxth	r2, r3
+  22:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y2 = sw_area.y1 + 20;
+ 241              		.loc 1 22 20 view .LVU60
+ 242 007a ADF80630 		strh	r3, [sp, #6]	@ movhi
+  23:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect(&sw_area, dsc->clip_area, &rect_dsc);
+ 243              		.loc 1 23 9 is_stmt 1 view .LVU61
+  23:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect(&sw_area, dsc->clip_area, &rect_dsc);
+ 244              		.loc 1 23 33 is_stmt 0 view .LVU62
+ 245 007e 02F11403 		add	r3, r2, #20
+  23:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect(&sw_area, dsc->clip_area, &rect_dsc);
+ 246              		.loc 1 23 20 view .LVU63
+ 247 0082 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+  24:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ 248              		.loc 1 24 9 is_stmt 1 view .LVU64
+ 249 0086 03AA     		add	r2, sp, #12
+ 250 0088 2168     		ldr	r1, [r4]
+ 251 008a 01A8     		add	r0, sp, #4
+ 252 008c FFF7FEFF 		bl	lv_draw_rect
+ 253              	.LVL25:
+  26:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         if(chk) {
+ 254              		.loc 1 26 9 view .LVU65
+ 255              	.LBB18:
+ 256              	.LBI18:
+ 257              		.file 3 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @file lv_color.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #ifndef LV_COLOR_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #include "../lv_conf_internal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #include "lv_math.h"
+  18:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #include "lv_types.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  20:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*Error checking*/
+  21:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 10
+
+
+  22:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #error "LV_COLOR_DEPTH 24 is deprecated. Use LV_COLOR_DEPTH 32 instead (lv_conf.h)"
+  23:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+  24:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  25:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH != 32 && LV_COLOR_SCREEN_TRANSP != 0
+  26:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #error "LV_COLOR_SCREEN_TRANSP requires LV_COLOR_DEPTH == 32. Set it in lv_conf.h"
+  27:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+  28:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  29:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH != 16 && LV_COLOR_16_SWAP != 0
+  30:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #error "LV_COLOR_16_SWAP requires LV_COLOR_DEPTH == 16. Set it in lv_conf.h"
+  31:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+  32:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  33:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #include <stdint.h>
+  34:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  35:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*********************
+  36:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *      DEFINES
+  37:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *********************/
+  38:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  39:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+  40:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Opacity percentages.
+  41:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+  42:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** enum {
+  43:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_TRANSP = 0,
+  44:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_0      = 0,
+  45:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_10     = 25,
+  46:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_20     = 51,
+  47:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_30     = 76,
+  48:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_40     = 102,
+  49:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_50     = 127,
+  50:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_60     = 153,
+  51:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_70     = 178,
+  52:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_80     = 204,
+  53:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_90     = 229,
+  54:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_100    = 255,
+  55:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_COVER  = 255,
+  56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** };
+  57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_OPA_MIN 2    /*Opacities below this will be transparent*/
+  59:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_OPA_MAX 253  /*Opacities above this will fully cover*/
+  60:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 1
+  62:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SIZE 8
+  63:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 8
+  64:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SIZE 8
+  65:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 16
+  66:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SIZE 16
+  67:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 32
+  68:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SIZE 32
+  69:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+  70:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #error "Invalid LV_COLOR_DEPTH in lv_conf.h! Set it to 1, 8, 16 or 32!"
+  71:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+  72:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  73:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+  74:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Adjust color mix functions rounding.
+  75:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * GPUs might calculate color mix (blending) differently.
+  76:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Should be in range of 0..254
+  77:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * 0: no adjustment, get the integer part of the result (round down)
+  78:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * 64: round up from x.75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 11
+
+
+  79:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * 128: round up from half
+  80:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * 192: round up from x.25
+  81:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * 254: round up*/
+  82:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #ifndef LV_COLOR_MIX_ROUND_OFS
+  83:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 32
+  84:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_MIX_ROUND_OFS 0
+  85:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+  86:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_MIX_ROUND_OFS 128
+  87:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+  88:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+  89:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+  90:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if defined(__cplusplus) && !defined(_LV_COLOR_HAS_MODERN_CPP)
+  91:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+  92:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** * MSVC compiler's definition of the __cplusplus indicating 199711L regardless to C++ standard versi
+  93:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** * see https://devblogs.microsoft.com/cppblog/msvc-now-correctly-reports-cplusplus
+  94:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** * so we use _MSC_VER macro instead of __cplusplus
+  95:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** */
+  96:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #ifdef _MSC_VER
+  97:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if _MSC_VER >= 1900 /*Visual Studio 2015*/
+  98:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define _LV_COLOR_HAS_MODERN_CPP 1
+  99:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 100:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+ 101:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if __cplusplus >= 201103L
+ 102:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define _LV_COLOR_HAS_MODERN_CPP 1
+ 103:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 104:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 105:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif /*__cplusplus*/
+ 106:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 107:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #ifndef _LV_COLOR_HAS_MODERN_CPP
+ 108:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define _LV_COLOR_HAS_MODERN_CPP 0
+ 109:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 110:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 111:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if _LV_COLOR_HAS_MODERN_CPP
+ 112:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*Fix msvc compiler error C4576 inside C++ code*/
+ 113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define _LV_COLOR_MAKE_TYPE_HELPER lv_color_t
+ 114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+ 115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define _LV_COLOR_MAKE_TYPE_HELPER (lv_color_t)
+ 116:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 117:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 118:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*---------------------------------------
+ 119:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Macros for all existing color depths
+ 120:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * to set/get values of the color channels
+ 121:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *------------------------------------------*/
+ 122:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_R1(c, v) (c).ch.red = (uint8_t)((v) & 0x1)
+ 123:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_G1(c, v) (c).ch.green = (uint8_t)((v) & 0x1)
+ 124:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_B1(c, v) (c).ch.blue = (uint8_t)((v) & 0x1)
+ 125:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_A1(c, v) do {} while(0)
+ 126:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 127:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_R1(c) (c).ch.red
+ 128:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_G1(c) (c).ch.green
+ 129:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_B1(c) (c).ch.blue
+ 130:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_A1(c) 0xFF
+ 131:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 132:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define _LV_COLOR_ZERO_INITIALIZER1 {0x00}
+ 133:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_MAKE1(r8, g8, b8)  {(uint8_t)((b8 >> 7) | (g8 >> 7) | (r8 >> 7))}
+ 134:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 135:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_R8(c, v) (c).ch.red = (uint8_t)((v) & 0x7U)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 12
+
+
+ 136:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_G8(c, v) (c).ch.green = (uint8_t)((v) & 0x7U)
+ 137:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_B8(c, v) (c).ch.blue = (uint8_t)((v) & 0x3U)
+ 138:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_A8(c, v) do {} while(0)
+ 139:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 140:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_R8(c) (c).ch.red
+ 141:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_G8(c) (c).ch.green
+ 142:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_B8(c) (c).ch.blue
+ 143:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_A8(c) 0xFF
+ 144:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 145:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define _LV_COLOR_ZERO_INITIALIZER8 {{0x00, 0x00, 0x00}}
+ 146:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_MAKE8(r8, g8, b8) {{(uint8_t)((b8 >> 6) & 0x3U), (uint8_t)((g8 >> 5) & 0x7U), (ui
+ 147:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 148:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_R16(c, v) (c).ch.red = (uint8_t)((v) & 0x1FU)
+ 149:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_16_SWAP == 0
+ 150:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_G16(c, v) (c).ch.green = (uint8_t)((v) & 0x3FU)
+ 151:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+ 152:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_G16(c, v) {(c).ch.green_h = (uint8_t)(((v) >> 3) & 0x7); (c).ch.green_l = (ui
+ 153:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 154:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_B16(c, v) (c).ch.blue = (uint8_t)((v) & 0x1FU)
+ 155:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_A16(c, v) do {} while(0)
+ 156:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 157:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_R16(c) (c).ch.red
+ 158:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_16_SWAP == 0
+ 159:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_G16(c) (c).ch.green
+ 160:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+ 161:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_G16(c) (((c).ch.green_h << 3) + (c).ch.green_l)
+ 162:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 163:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_B16(c) (c).ch.blue
+ 164:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_A16(c) 0xFF
+ 165:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 166:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_16_SWAP == 0
+ 167:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define _LV_COLOR_ZERO_INITIALIZER16  {{0x00, 0x00, 0x00}}
+ 168:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_MAKE16(r8, g8, b8) {{(uint8_t)((b8 >> 3) & 0x1FU), (uint8_t)((g8 >> 2) & 0x3FU), 
+ 169:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+ 170:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define _LV_COLOR_ZERO_INITIALIZER16 {{0x00, 0x00, 0x00, 0x00}}
+ 171:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_MAKE16(r8, g8, b8) {{(uint8_t)((g8 >> 5) & 0x7U), (uint8_t)((r8 >> 3) & 0x1FU), (
+ 172:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 173:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 174:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_R32(c, v) (c).ch.red = (uint8_t)((v) & 0xFF)
+ 175:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_G32(c, v) (c).ch.green = (uint8_t)((v) & 0xFF)
+ 176:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_B32(c, v) (c).ch.blue = (uint8_t)((v) & 0xFF)
+ 177:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_A32(c, v) (c).ch.alpha = (uint8_t)((v) & 0xFF)
+ 178:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 179:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_R32(c) (c).ch.red
+ 180:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_G32(c) (c).ch.green
+ 181:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_B32(c) (c).ch.blue
+ 182:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_A32(c) (c).ch.alpha
+ 183:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 184:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define _LV_COLOR_ZERO_INITIALIZER32  {{0x00, 0x00, 0x00, 0x00}}
+ 185:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_MAKE32(r8, g8, b8) {{b8, g8, r8, 0xff}} /*Fix 0xff alpha*/
+ 186:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 187:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*---------------------------------------
+ 188:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Macros for the current color depth
+ 189:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * to set/get values of the color channels
+ 190:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *------------------------------------------*/
+ 191:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SET_R(c, v) LV_CONCAT(LV_COLOR_SET_R, LV_COLOR_DEPTH)(c, v)
+ 192:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SET_G(c, v) LV_CONCAT(LV_COLOR_SET_G, LV_COLOR_DEPTH)(c, v)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 13
+
+
+ 193:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SET_B(c, v) LV_CONCAT(LV_COLOR_SET_B, LV_COLOR_DEPTH)(c, v)
+ 194:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SET_A(c, v) LV_CONCAT(LV_COLOR_SET_A, LV_COLOR_DEPTH)(c, v)
+ 195:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 196:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_GET_R(c) LV_CONCAT(LV_COLOR_GET_R, LV_COLOR_DEPTH)(c)
+ 197:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_GET_G(c) LV_CONCAT(LV_COLOR_GET_G, LV_COLOR_DEPTH)(c)
+ 198:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_GET_B(c) LV_CONCAT(LV_COLOR_GET_B, LV_COLOR_DEPTH)(c)
+ 199:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_GET_A(c) LV_CONCAT(LV_COLOR_GET_A, LV_COLOR_DEPTH)(c)
+ 200:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 201:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define _LV_COLOR_ZERO_INITIALIZER LV_CONCAT(_LV_COLOR_ZERO_INITIALIZER, LV_COLOR_DEPTH)
+ 202:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_MAKE(r8, g8, b8) LV_CONCAT(LV_COLOR_MAKE, LV_COLOR_DEPTH)(r8, g8, b8)
+ 203:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 204:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_UDIV255(x) ((uint32_t)((uint32_t) (x) * 0x8081) >> 0x17)
+ 205:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 206:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**********************
+ 207:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *      TYPEDEFS
+ 208:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  **********************/
+ 209:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 210:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef union {
+ 211:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint8_t full; /*must be declared first to set all bits of byte via initializer list*/
+ 212:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     union {
+ 213:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t blue : 1;
+ 214:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t green : 1;
+ 215:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t red : 1;
+ 216:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     } ch;
+ 217:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** } lv_color1_t;
+ 218:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 219:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef union {
+ 220:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     struct {
+ 221:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t blue : 2;
+ 222:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t green : 3;
+ 223:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t red : 3;
+ 224:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     } ch;
+ 225:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint8_t full;
+ 226:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** } lv_color8_t;
+ 227:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 228:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef union {
+ 229:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     struct {
+ 230:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_16_SWAP == 0
+ 231:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint16_t blue : 5;
+ 232:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint16_t green : 6;
+ 233:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint16_t red : 5;
+ 234:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+ 235:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint16_t green_h : 3;
+ 236:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint16_t red : 5;
+ 237:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint16_t blue : 5;
+ 238:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint16_t green_l : 3;
+ 239:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 240:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     } ch;
+ 241:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint16_t full;
+ 242:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** } lv_color16_t;
+ 243:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 244:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef union {
+ 245:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     struct {
+ 246:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t blue;
+ 247:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t green;
+ 248:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t red;
+ 249:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t alpha;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 14
+
+
+ 250:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     } ch;
+ 251:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint32_t full;
+ 252:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** } lv_color32_t;
+ 253:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 254:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef LV_CONCAT3(uint, LV_COLOR_SIZE, _t) lv_color_int_t;
+ 255:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef LV_CONCAT3(lv_color, LV_COLOR_DEPTH, _t) lv_color_t;
+ 256:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 257:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef struct {
+ 258:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint16_t h;
+ 259:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint8_t s;
+ 260:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint8_t v;
+ 261:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** } lv_color_hsv_t;
+ 262:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 263:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** //! @cond Doxygen_Suppress
+ 264:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*No idea where the guard is required but else throws warnings in the docs*/
+ 265:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef uint8_t lv_opa_t;
+ 266:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** //! @endcond
+ 267:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 268:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** struct _lv_color_filter_dsc_t;
+ 269:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 270:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef lv_color_t (*lv_color_filter_cb_t)(const struct _lv_color_filter_dsc_t *, lv_color_t, lv_op
+ 271:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 272:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef struct _lv_color_filter_dsc_t {
+ 273:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color_filter_cb_t filter_cb;
+ 274:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     void * user_data;
+ 275:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }lv_color_filter_dsc_t;
+ 276:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 277:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 278:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef enum {
+ 279:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_RED,
+ 280:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_PINK,
+ 281:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_PURPLE,
+ 282:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_DEEP_PURPLE,
+ 283:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_INDIGO,
+ 284:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_BLUE,
+ 285:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_LIGHT_BLUE,
+ 286:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_CYAN,
+ 287:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_TEAL,
+ 288:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_GREEN,
+ 289:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_LIGHT_GREEN,
+ 290:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_LIME,
+ 291:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_YELLOW,
+ 292:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_AMBER,
+ 293:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_ORANGE,
+ 294:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_DEEP_ORANGE,
+ 295:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_BROWN,
+ 296:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_BLUE_GREY,
+ 297:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_GREY,
+ 298:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     _LV_PALETTE_LAST,
+ 299:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_NONE = 0xff,
+ 300:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }lv_palette_t;
+ 301:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 302:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**********************
+ 303:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * GLOBAL PROTOTYPES
+ 304:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  **********************/
+ 305:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 306:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*In color conversations:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 15
+
+
+ 307:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * - When converting to bigger color type the LSB weight of 1 LSB is calculated
+ 308:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *   E.g. 16 bit Red has 5 bits
+ 309:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *         8 bit Red has 3 bits
+ 310:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *        ----------------------
+ 311:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *        8 bit red LSB = (2^5 - 1) / (2^3 - 1) = 31 / 7 = 4
+ 312:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *
+ 313:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * - When calculating to smaller color type simply shift out the LSBs
+ 314:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *   E.g.  8 bit Red has 3 bits
+ 315:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *        16 bit Red has 5 bits
+ 316:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *        ----------------------
+ 317:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *         Shift right with 5 - 3 = 2
+ 318:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+ 319:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline uint8_t lv_color_to1(lv_color_t color)
+ 320:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 321:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 1
+ 322:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return color.full;
+ 323:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 8
+ 324:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     if((LV_COLOR_GET_R(color) & 0x4) || (LV_COLOR_GET_G(color) & 0x4) || (LV_COLOR_GET_B(color) & 0
+ 325:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 1;
+ 326:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 327:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else {
+ 328:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0;
+ 329:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 330:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 16
+ 331:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     if((LV_COLOR_GET_R(color) & 0x10) || (LV_COLOR_GET_G(color) & 0x20) || (LV_COLOR_GET_B(color) &
+ 332:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 1;
+ 333:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 334:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else {
+ 335:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0;
+ 336:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 337:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 32
+ 338:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     if((LV_COLOR_GET_R(color) & 0x80) || (LV_COLOR_GET_G(color) & 0x80) || (LV_COLOR_GET_B(color) &
+ 339:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 1;
+ 340:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 341:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else {
+ 342:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0;
+ 343:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 344:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 345:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 346:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 347:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline uint8_t lv_color_to8(lv_color_t color)
+ 348:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 349:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 1
+ 350:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     if(color.full == 0)
+ 351:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0;
+ 352:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else
+ 353:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0xFF;
+ 354:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 8
+ 355:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return color.full;
+ 356:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 16
+ 357:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color8_t ret;
+ 358:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R8(ret, LV_COLOR_GET_R(color) >> 2); /*5 - 3  = 2*/
+ 359:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G8(ret, LV_COLOR_GET_G(color) >> 3); /*6 - 3  = 3*/
+ 360:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B8(ret, LV_COLOR_GET_B(color) >> 3); /*5 - 2  = 3*/
+ 361:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return ret.full;
+ 362:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 32
+ 363:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color8_t ret;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 16
+
+
+ 364:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R8(ret, LV_COLOR_GET_R(color) >> 5); /*8 - 3  = 5*/
+ 365:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G8(ret, LV_COLOR_GET_G(color) >> 5); /*8 - 3  = 5*/
+ 366:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B8(ret, LV_COLOR_GET_B(color) >> 6); /*8 - 2  = 6*/
+ 367:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return ret.full;
+ 368:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 369:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 370:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 371:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline uint16_t lv_color_to16(lv_color_t color)
+ 372:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 373:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 1
+ 374:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     if(color.full == 0)
+ 375:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0;
+ 376:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else
+ 377:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0xFFFF;
+ 378:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 8
+ 379:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color16_t ret;
+ 380:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R16(ret, LV_COLOR_GET_R(color) * 4);  /*(2^5 - 1)/(2^3 - 1) = 31/7 = 4*/
+ 381:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G16(ret, LV_COLOR_GET_G(color) * 9);  /*(2^6 - 1)/(2^3 - 1) = 63/7 = 9*/
+ 382:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B16(ret, LV_COLOR_GET_B(color) * 10); /*(2^5 - 1)/(2^2 - 1) = 31/3 = 10*/
+ 383:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return ret.full;
+ 384:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 16
+ 385:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return color.full;
+ 386:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 32
+ 387:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color16_t ret;
+ 388:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R16(ret, LV_COLOR_GET_R(color) >> 3); /*8 - 5  = 3*/
+ 389:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G16(ret, LV_COLOR_GET_G(color) >> 2); /*8 - 6  = 2*/
+ 390:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B16(ret, LV_COLOR_GET_B(color) >> 3); /*8 - 5  = 3*/
+ 391:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return ret.full;
+ 392:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 393:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 394:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 395:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline uint32_t lv_color_to32(lv_color_t color)
+ 396:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 397:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 1
+ 398:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     if(color.full == 0)
+ 399:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0xFF000000;
+ 400:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else
+ 401:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0xFFFFFFFF;
+ 402:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 8
+ 403:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color32_t ret;
+ 404:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R32(ret, LV_COLOR_GET_R(color) * 36); /*(2^8 - 1)/(2^3 - 1) = 255/7 = 36*/
+ 405:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G32(ret, LV_COLOR_GET_G(color) * 36); /*(2^8 - 1)/(2^3 - 1) = 255/7 = 36*/
+ 406:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B32(ret, LV_COLOR_GET_B(color) * 85); /*(2^8 - 1)/(2^2 - 1) = 255/3 = 85*/
+ 407:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_A32(ret, 0xFF);
+ 408:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return ret.full;
+ 409:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 16
+ 410:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /**
+ 411:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * The floating point math for conversion is:
+ 412:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *  valueto = valuefrom * ( (2^bitsto - 1) / (float)(2^bitsfrom - 1) )
+ 413:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * The faster integer math for conversion is:
+ 414:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *  valueto = ( valuefrom * multiplier + adder ) >> divisor
+ 415:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *   multiplier = FLOOR( ( (2^bitsto - 1) << divisor ) / (float)(2^bitsfrom - 1) )
+ 416:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *
+ 417:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * Find the first divisor where ( adder >> divisor ) <= 0
+ 418:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *
+ 419:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * 5-bit to 8-bit: ( 31 * multiplier + adder ) >> divisor = 255
+ 420:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * divisor  multiplier  adder  min (0)  max (31)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 17
+
+
+ 421:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       0           8      7        7       255
+ 422:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       1          16     14        7       255
+ 423:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       2          32     28        7       255
+ 424:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       3          65     25        3       255
+ 425:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       4         131     19        1       255
+ 426:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       5         263      7        0       255
+ 427:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *
+ 428:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * 6-bit to 8-bit: 255 = ( 63 * multiplier + adder ) >> divisor
+ 429:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * divisor  multiplier  adder  min (0)  max (63)
+ 430:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       0           4      3        3       255
+ 431:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       1           8      6        3       255
+ 432:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       2          16     12        3       255
+ 433:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       3          32     24        3       255
+ 434:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       4          64     48        3       255
+ 435:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       5         129     33        1       255
+ 436:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       6         259      3        0       255
+ 437:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      */
+ 438:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 439:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color32_t ret;
+ 440:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R32(ret, (LV_COLOR_GET_R(color) * 263 + 7) >> 5);
+ 441:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G32(ret, (LV_COLOR_GET_G(color) * 259 + 3) >> 6);
+ 442:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B32(ret, (LV_COLOR_GET_B(color) * 263 + 7) >> 5);
+ 443:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_A32(ret, 0xFF);
+ 444:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return ret.full;
+ 445:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 32
+ 446:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return color.full;
+ 447:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 448:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 449:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 450:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** //! @cond Doxygen_Suppress
+ 451:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 452:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+ 453:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Mix two colors with a given ratio.
+ 454:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param c1 the first color to mix (usually the foreground)
+ 455:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param c2 the second color to mix (usually the background)
+ 456:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param mix The ratio of the colors. 0: full `c2`, 255: full `c1`, 127: half `c1` and half`c2`
+ 457:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @return the mixed color
+ 458:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+ 459:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** LV_ATTRIBUTE_FAST_MEM static inline lv_color_t lv_color_mix(lv_color_t c1, lv_color_t c2, uint8_t m
+ 460:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 461:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color_t ret;
+ 462:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 463:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 16 && LV_COLOR_16_SWAP == 0
+ 464:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*Source: https://stackoverflow.com/a/50012418/1999969*/
+ 465:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     mix = ( mix + 4 ) >> 3;
+ 466:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint32_t bg = (uint32_t)((uint32_t)c2.full | ((uint32_t)c2.full << 16)) & 0x7E0F81F; /*0b000001
+ 467:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint32_t fg = (uint32_t)((uint32_t)c1.full | (uint32_t)(c1.full << 16)) & 0x7E0F81F;
+ 468:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint32_t result = ((((fg - bg) * mix) >> 5) + bg) & 0x7E0F81F;
+ 469:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     ret.full = (uint16_t)((result >> 16) | result);
+ 470:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH != 1
+ 471:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*LV_COLOR_DEPTH == 8, 16 or 32*/
+ 472:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R(ret, LV_UDIV255((uint16_t) LV_COLOR_GET_R(c1) * mix + LV_COLOR_GET_R(c2) *
+ 473:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                                         (255 - mix) + LV_COLOR_MIX_ROUND_OFS));
+ 474:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G(ret, LV_UDIV255((uint16_t) LV_COLOR_GET_G(c1) * mix + LV_COLOR_GET_G(c2) *
+ 475:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                                         (255 - mix) + LV_COLOR_MIX_ROUND_OFS));
+ 476:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B(ret, LV_UDIV255((uint16_t) LV_COLOR_GET_B(c1) * mix + LV_COLOR_GET_B(c2) *
+ 477:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                                         (255 - mix) + LV_COLOR_MIX_ROUND_OFS));
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 18
+
+
+ 478:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_A(ret, 0xFF);
+ 479:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+ 480:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*LV_COLOR_DEPTH == 1*/
+ 481:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     ret.full = mix > LV_OPA_50 ? c1.full : c2.full;
+ 482:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 483:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 484:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return ret;
+ 485:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 486:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 487:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** LV_ATTRIBUTE_FAST_MEM static inline void lv_color_premult(lv_color_t c, uint8_t mix, uint16_t * out
+ 488:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 489:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH != 1
+ 490:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     out[0] = (uint16_t) LV_COLOR_GET_R(c) * mix;
+ 491:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     out[1] = (uint16_t) LV_COLOR_GET_G(c) * mix;
+ 492:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     out[2] = (uint16_t) LV_COLOR_GET_B(c) * mix;
+ 493:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+ 494:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     (void) mix;
+ 495:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*Pre-multiplication can't be used with 1 bpp*/
+ 496:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     out[0] = LV_COLOR_GET_R(c);
+ 497:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     out[1] = LV_COLOR_GET_G(c);
+ 498:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     out[2] = LV_COLOR_GET_B(c);
+ 499:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ 500:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 501:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 502:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 503:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+ 504:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Mix two colors with a given ratio. It runs faster then `lv_color_mix` but requires some pre comp
+ 505:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param premult_c1 The first color. Should be preprocessed with `lv_color_premult(c1)`
+ 506:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param c2 The second color. As it is no pre computation required on it
+ 507:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param mix The ratio of the colors. 0: full `c1`, 255: full `c2`, 127: half `c1` and half `c2`.
+ 508:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *            Should be modified like mix = `255 - mix`
+ 509:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @return the mixed color
+ 510:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @note 255 won't give clearly `c1`.
+ 511:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+ 512:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** LV_ATTRIBUTE_FAST_MEM static inline lv_color_t lv_color_mix_premult(uint16_t * premult_c1, lv_color
+ 513:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 514:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color_t ret;
+ 515:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 16 && LV_COLOR_16_SWAP == 0
+ 516:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*For compatibility with lv_color_mix on 16 bit color depth*/
+ 517:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R(ret, (premult_c1[0] + LV_COLOR_GET_R(c2) * mix) >> 8);
+ 518:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G(ret, (premult_c1[1] + LV_COLOR_GET_G(c2) * mix) >> 8);
+ 519:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B(ret, (premult_c1[2] + LV_COLOR_GET_B(c2) * mix) >> 8);
+ 520:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH != 1
+ 521:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*LV_COLOR_DEPTH == 8 or 32*/
+ 522:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R(ret, LV_UDIV255(premult_c1[0] + LV_COLOR_GET_R(c2) * mix + LV_COLOR_MIX_ROUND_OF
+ 523:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G(ret, LV_UDIV255(premult_c1[1] + LV_COLOR_GET_G(c2) * mix + LV_COLOR_MIX_ROUND_OF
+ 524:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B(ret, LV_UDIV255(premult_c1[2] + LV_COLOR_GET_B(c2) * mix + LV_COLOR_MIX_ROUND_OF
+ 525:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_A(ret, 0xFF);
+ 526:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
+ 527:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*LV_COLOR_DEPTH == 1*/
+ 528:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*Restore color1*/
+ 529:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color_t c1;
+ 530:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R(c1, premult_c1[0]);
+ 531:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_G(c1, premult_c1[1]);
+ 532:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B(c1, premult_c1[2]);
+ 533:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     ret.full = mix > LV_OPA_50 ? c2.full : c1.full;
+ 534:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 19
+
+
+ 535:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 536:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return ret;
+ 537:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 538:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 539:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+ 540:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Mix two colors. Both color can have alpha value.
+ 541:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param bg_color background color
+ 542:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param bg_opa alpha of the background color
+ 543:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param fg_color foreground color
+ 544:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param fg_opa alpha of the foreground color
+ 545:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param res_color the result color
+ 546:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param res_opa the result opacity
+ 547:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+ 548:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** LV_ATTRIBUTE_FAST_MEM static inline void lv_color_mix_with_alpha(lv_color_t bg_color, lv_opa_t bg_o
+ 549:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                                                                  lv_color_t fg_color, lv_opa_t fg_o
+ 550:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                                                                  lv_color_t * res_color, lv_opa_t *
+ 551:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 552:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*Pick the foreground if it's fully opaque or the Background is fully transparent*/
+ 553:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     if(fg_opa >= LV_OPA_MAX || bg_opa <= LV_OPA_MIN) {
+ 554:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         res_color->full = fg_color.full;
+ 555:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         *res_opa = fg_opa;
+ 556:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 557:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*Transparent foreground: use the Background*/
+ 558:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else if(fg_opa <= LV_OPA_MIN) {
+ 559:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         res_color->full = bg_color.full;
+ 560:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         *res_opa = bg_opa;
+ 561:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 562:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*Opaque background: use simple mix*/
+ 563:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else if(bg_opa >= LV_OPA_MAX) {
+ 564:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         *res_color = lv_color_mix(fg_color, bg_color, fg_opa);
+ 565:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         *res_opa = LV_OPA_COVER;
+ 566:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 567:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*Both colors have alpha. Expensive calculation need to be applied*/
+ 568:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else {
+ 569:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         /*Save the parameters and the result. If they will be asked again don't compute again*/
+ 570:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         static lv_opa_t fg_opa_save     = 0;
+ 571:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         static lv_opa_t bg_opa_save     = 0;
+ 572:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         static lv_color_t fg_color_save = _LV_COLOR_ZERO_INITIALIZER;
+ 573:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         static lv_color_t bg_color_save = _LV_COLOR_ZERO_INITIALIZER;
+ 574:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         static lv_color_t res_color_saved = _LV_COLOR_ZERO_INITIALIZER;
+ 575:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         static lv_opa_t res_opa_saved = 0;
+ 576:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 577:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         if(fg_opa != fg_opa_save || bg_opa != bg_opa_save || fg_color.full != fg_color_save.full ||
+ 578:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****            bg_color.full != bg_color_save.full) {
+ 579:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             fg_opa_save        = fg_opa;
+ 580:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             bg_opa_save        = bg_opa;
+ 581:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             fg_color_save.full = fg_color.full;
+ 582:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             bg_color_save.full = bg_color.full;
+ 583:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             /*Info:
+ 584:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****              * https://en.wikipedia.org/wiki/Alpha_compositing#Analytical_derivation_of_the_over_op
+ 585:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             res_opa_saved = 255 - ((uint16_t)((uint16_t)(255 - fg_opa) * (255 - bg_opa)) >> 8);
+ 586:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             if(res_opa_saved == 0) {
+ 587:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                 while(1)
+ 588:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                     ;
+ 589:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             }
+ 590:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             lv_opa_t ratio = (uint16_t)((uint16_t)fg_opa * 255) / res_opa_saved;
+ 591:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             res_color_saved = lv_color_mix(fg_color, bg_color, ratio);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 20
+
+
+ 592:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 593:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         }
+ 594:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 595:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         res_color->full = res_color_saved.full;
+ 596:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         *res_opa = res_opa_saved;
+ 597:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
+ 598:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 599:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 600:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** //! @endcond
+ 601:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 602:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+ 603:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Get the brightness of a color
+ 604:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param color a color
+ 605:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @return the brightness [0..255]
+ 606:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+ 607:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline uint8_t lv_color_brightness(lv_color_t color)
+ 608:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 609:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color32_t c32;
+ 610:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     c32.full        = lv_color_to32(color);
+ 611:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint16_t bright = (uint16_t)(3u * LV_COLOR_GET_R32(c32) + LV_COLOR_GET_B32(c32) + 4u * LV_COLOR
+ 612:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return (uint8_t)(bright >> 3);
+ 613:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 614:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 615:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline lv_color_t lv_color_make(uint8_t r, uint8_t g, uint8_t b)
+ 616:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 617:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return _LV_COLOR_MAKE_TYPE_HELPER LV_COLOR_MAKE(r, g, b);
+ 618:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 619:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 620:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline lv_color_t lv_color_hex(uint32_t c)
+ 621:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 622:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return lv_color_make((uint8_t)((c >> 16) & 0xFF), (uint8_t)((c >> 8) & 0xFF), (uint8_t)(c & 0xF
+ 623:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 624:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 625:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline lv_color_t lv_color_hex3(uint32_t c)
+ 626:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 627:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return lv_color_make((uint8_t)(((c >> 4) & 0xF0) | ((c >> 8) & 0xF)), (uint8_t)((c & 0xF0) | ((
+ 628:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                          (uint8_t)((c & 0xF) | ((c & 0xF) << 4)));
+ 629:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 630:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 631:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline void lv_color_filter_dsc_init(lv_color_filter_dsc_t * dsc, lv_color_filter_cb_t cb)
+ 632:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 633:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     dsc->filter_cb = cb;
+ 634:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 635:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 636:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** //! @cond Doxygen_Suppress
+ 637:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** //!
+ 638:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** LV_ATTRIBUTE_FAST_MEM void lv_color_fill(lv_color_t * buf, lv_color_t color, uint32_t px_num);
+ 639:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 640:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** //! @endcond
+ 641:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** lv_color_t lv_color_lighten(lv_color_t c, lv_opa_t lvl);
+ 642:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 643:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** lv_color_t lv_color_darken(lv_color_t c, lv_opa_t lvl);
+ 644:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 645:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** lv_color_t lv_color_change_lightness(lv_color_t c, lv_opa_t lvl);
+ 646:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 647:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+ 648:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Convert a HSV color to RGB
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 21
+
+
+ 649:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param h hue [0..359]
+ 650:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param s saturation [0..100]
+ 651:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param v value [0..100]
+ 652:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @return the given RGB color in RGB (with LV_COLOR_DEPTH depth)
+ 653:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+ 654:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** lv_color_t lv_color_hsv_to_rgb(uint16_t h, uint8_t s, uint8_t v);
+ 655:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 656:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+ 657:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Convert a 32-bit RGB color to HSV
+ 658:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param r8 8-bit red
+ 659:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param g8 8-bit green
+ 660:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param b8 8-bit blue
+ 661:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @return the given RGB color in HSV
+ 662:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+ 663:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** lv_color_hsv_t lv_color_rgb_to_hsv(uint8_t r8, uint8_t g8, uint8_t b8);
+ 664:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 665:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+ 666:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Convert a color to HSV
+ 667:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param color color
+ 668:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @return the given color in HSV
+ 669:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+ 670:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** lv_color_hsv_t lv_color_to_hsv(lv_color_t color);
+ 671:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 672:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
+ 673:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Just a wrapper around LV_COLOR_CHROMA_KEY because it might be more convenient to use a function 
+ 674:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @return LV_COLOR_CHROMA_KEY
+ 675:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
+ 676:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline lv_color_t lv_color_chroma_key(void)
+ 677:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 678:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return LV_COLOR_CHROMA_KEY;
+ 679:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 680:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 681:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**********************
+ 682:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *  PREDEFINED COLORS
+ 683:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  **********************/
+ 684:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*Source: https://vuetifyjs.com/en/styles/colors/#material-colors*/
+ 685:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
+ 686:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** lv_color_t lv_palette_main(lv_palette_t p);
+ 687:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline lv_color_t lv_color_white(void) { return lv_color_make(0xff, 0xff, 0xff);}
+ 258              		.loc 3 687 26 view .LVU66
+ 259              	.LBE18:
+ 260              	.LBE15:
+ 261              		.loc 3 687 49 view .LVU67
+ 262              	.LBB22:
+ 263              	.LBB21:
+ 264              	.LBB19:
+ 265              	.LBI19:
+ 615:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
+ 266              		.loc 3 615 26 view .LVU68
+ 267              	.LBB20:
+ 617:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 268              		.loc 3 617 5 view .LVU69
+ 617:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ 269              		.loc 3 617 12 is_stmt 0 view .LVU70
+ 270 0090 4FF6FF73 		movw	r3, #65535
+ 271              	.LVL26:
+ 617:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 22
+
+
+ 272              		.loc 3 617 12 view .LVU71
+ 273              	.LBE20:
+ 274              	.LBE19:
+ 275              	.LBE21:
+  26:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         if(chk) {
+ 276              		.loc 1 26 29 view .LVU72
+ 277 0094 ADF81030 		strh	r3, [sp, #16]	@ movhi
+  27:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x2 -= 2;
+ 278              		.loc 1 27 9 is_stmt 1 view .LVU73
+  27:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x2 -= 2;
+ 279              		.loc 1 27 11 is_stmt 0 view .LVU74
+ 280 0098 FEB1     		cbz	r6, .L9
+  28:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x1 = sw_area.x2 - 16;
+ 281              		.loc 1 28 13 is_stmt 1 view .LVU75
+  28:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x1 = sw_area.x2 - 16;
+ 282              		.loc 1 28 24 is_stmt 0 view .LVU76
+ 283 009a BDF80830 		ldrh	r3, [sp, #8]
+ 284 009e 023B     		subs	r3, r3, #2
+ 285 00a0 9BB2     		uxth	r3, r3
+ 286 00a2 ADF80830 		strh	r3, [sp, #8]	@ movhi
+  29:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         } else {
+ 287              		.loc 1 29 13 is_stmt 1 view .LVU77
+  29:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         } else {
+ 288              		.loc 1 29 37 is_stmt 0 view .LVU78
+ 289 00a6 103B     		subs	r3, r3, #16
+  29:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         } else {
+ 290              		.loc 1 29 24 view .LVU79
+ 291 00a8 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 292              	.L10:
+  34:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y2 -= 2;
+ 293              		.loc 1 34 9 is_stmt 1 view .LVU80
+  34:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         sw_area.y2 -= 2;
+ 294              		.loc 1 34 20 is_stmt 0 view .LVU81
+ 295 00ac BDF80630 		ldrh	r3, [sp, #6]
+ 296 00b0 0233     		adds	r3, r3, #2
+ 297 00b2 ADF80630 		strh	r3, [sp, #6]	@ movhi
+  35:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect(&sw_area, dsc->clip_area, &rect_dsc);
+ 298              		.loc 1 35 9 is_stmt 1 view .LVU82
+  35:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_draw_rect(&sw_area, dsc->clip_area, &rect_dsc);
+ 299              		.loc 1 35 20 is_stmt 0 view .LVU83
+ 300 00b6 BDF80A30 		ldrh	r3, [sp, #10]
+ 301 00ba 023B     		subs	r3, r3, #2
+ 302 00bc ADF80A30 		strh	r3, [sp, #10]	@ movhi
+  36:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     }
+ 303              		.loc 1 36 9 is_stmt 1 view .LVU84
+ 304 00c0 03AA     		add	r2, sp, #12
+ 305 00c2 2168     		ldr	r1, [r4]
+ 306 00c4 01A8     		add	r0, sp, #4
+ 307 00c6 FFF7FEFF 		bl	lv_draw_rect
+ 308              	.LVL27:
+ 309              	.LBE22:
+  38:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ 310              		.loc 1 38 1 is_stmt 0 view .LVU85
+ 311 00ca A6E7     		b	.L5
+ 312              	.L7:
+ 313              	.LBB23:
+  16:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         rect_dsc.radius = LV_RADIUS_CIRCLE;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 23
+
+
+ 314              		.loc 1 16 69 discriminator 2 view .LVU86
+ 315 00cc 0221     		movs	r1, #2
+ 316 00ce 1220     		movs	r0, #18
+ 317 00d0 FFF7FEFF 		bl	lv_palette_lighten
+ 318              	.LVL28:
+ 319 00d4 ADF81000 		strh	r0, [sp, #16]	@ movhi
+ 320 00d8 B3E7     		b	.L8
+ 321              	.L9:
+  31:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x2 = sw_area.x1 + 16;
+ 322              		.loc 1 31 13 is_stmt 1 view .LVU87
+  31:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****             sw_area.x2 = sw_area.x1 + 16;
+ 323              		.loc 1 31 24 is_stmt 0 view .LVU88
+ 324 00da BDF80430 		ldrh	r3, [sp, #4]
+ 325 00de 0233     		adds	r3, r3, #2
+ 326 00e0 9BB2     		uxth	r3, r3
+ 327 00e2 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  32:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         }
+ 328              		.loc 1 32 13 is_stmt 1 view .LVU89
+  32:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         }
+ 329              		.loc 1 32 37 is_stmt 0 view .LVU90
+ 330 00e6 1033     		adds	r3, r3, #16
+  32:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         }
+ 331              		.loc 1 32 24 view .LVU91
+ 332 00e8 ADF80830 		strh	r3, [sp, #8]	@ movhi
+ 333 00ec DEE7     		b	.L10
+ 334              	.LBE23:
+ 335              		.cfi_endproc
+ 336              	.LFE189:
+ 338              		.section	.rodata.lv_example_table_2.str1.4,"aMS",%progbits,1
+ 339              		.align	2
+ 340              	.LC0:
+ 341 0000 4974656D 		.ascii	"Item %d\000"
+ 341      20256400 
+ 342              		.align	2
+ 343              	.LC1:
+ 344 0008 25642069 		.ascii	"%d items were created in %d ms\012using %d bytes of"
+ 344      74656D73 
+ 344      20776572 
+ 344      65206372 
+ 344      65617465 
+ 345 0038 206D656D 		.ascii	" memory\000"
+ 345      6F727900 
+ 346              		.section	.text.lv_example_table_2,"ax",%progbits
+ 347              		.align	1
+ 348              		.global	lv_example_table_2
+ 349              		.syntax unified
+ 350              		.thumb
+ 351              		.thumb_func
+ 352              		.fpu fpv4-sp-d16
+ 354              	lv_example_table_2:
+ 355              	.LFB191:
+  50:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  51:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  52:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** /**
+  53:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****  * A very light-weighted list created from table
+  54:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****  */
+  55:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** void lv_example_table_2(void)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 24
+
+
+  56:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** {
+ 356              		.loc 1 56 1 is_stmt 1 view -0
+ 357              		.cfi_startproc
+ 358              		@ args = 0, pretend = 0, frame = 56
+ 359              		@ frame_needed = 0, uses_anonymous_args = 0
+ 360 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 361              	.LCFI8:
+ 362              		.cfi_def_cfa_offset 20
+ 363              		.cfi_offset 4, -20
+ 364              		.cfi_offset 5, -16
+ 365              		.cfi_offset 6, -12
+ 366              		.cfi_offset 7, -8
+ 367              		.cfi_offset 14, -4
+ 368 0002 91B0     		sub	sp, sp, #68
+ 369              	.LCFI9:
+ 370              		.cfi_def_cfa_offset 88
+  57:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     /*Measure memory usage*/
+  58:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_mem_monitor_t mon1;
+ 371              		.loc 1 58 5 view .LVU93
+  59:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_mem_monitor(&mon1);
+ 372              		.loc 1 59 5 view .LVU94
+ 373 0004 09A8     		add	r0, sp, #36
+ 374 0006 FFF7FEFF 		bl	lv_mem_monitor
+ 375              	.LVL29:
+  60:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  61:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     uint32_t t = lv_tick_get();
+ 376              		.loc 1 61 5 view .LVU95
+ 377              		.loc 1 61 18 is_stmt 0 view .LVU96
+ 378 000a FFF7FEFF 		bl	lv_tick_get
+ 379              	.LVL30:
+ 380 000e 0746     		mov	r7, r0
+ 381              	.LVL31:
+  62:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  63:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_t * table = lv_table_create(lv_scr_act());
+ 382              		.loc 1 63 5 is_stmt 1 view .LVU97
+ 383              	.LBB24:
+ 384              	.LBI24:
+ 385              		.file 4 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_disp.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @file lv_disp.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifndef LV_DISP_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #define LV_DISP_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "../hal/lv_hal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_obj.h"
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_theme.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 25
+
+
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      DEFINES
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      TYPEDEFS
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** typedef enum {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** } lv_scr_load_anim_t;
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the active screen
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Make a screen active
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to a screen
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * layer)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 26
+
+
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background color of a display
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param color color of the background
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background image of a display
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Opacity of the background
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param opa opacity (0..255)
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Switch screen with animation
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param time time of the animation
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param delay delay before the transition
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 27
+
+
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Manually trigger an activity on a display
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*------------------------------------------------
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * To improve backward compatibility
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Recommended only if you have one display
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *------------------------------------------------*/
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the active screen of the default display
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 386              		.loc 4 163 26 view .LVU98
+ 387              	.LBB25:
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 388              		.loc 4 165 5 view .LVU99
+ 389              		.loc 4 165 12 is_stmt 0 view .LVU100
+ 390 0010 FFF7FEFF 		bl	lv_disp_get_default
+ 391              	.LVL32:
+ 392              		.loc 4 165 12 view .LVU101
+ 393 0014 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 394              	.LVL33:
+ 395              	.LBE25:
+ 396              	.LBE24:
+ 397              		.loc 1 63 24 view .LVU102
+ 398 0018 FFF7FEFF 		bl	lv_table_create
+ 399              	.LVL34:
+ 400 001c 0546     		mov	r5, r0
+ 401              	.LVL35:
+  64:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  65:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     /*Set a smaller height to the table. It'll make it scrollable*/
+  66:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_set_size(table, LV_SIZE_CONTENT, 200);
+ 402              		.loc 1 66 5 is_stmt 1 view .LVU103
+ 403 001e C822     		movs	r2, #200
+ 404 0020 42F2D171 		movw	r1, #10193
+ 405 0024 FFF7FEFF 		bl	lv_obj_set_size
+ 406              	.LVL36:
+  67:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 28
+
+
+  68:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_table_set_col_width(table, 0, 150);
+ 407              		.loc 1 68 5 view .LVU104
+ 408 0028 9622     		movs	r2, #150
+ 409 002a 0021     		movs	r1, #0
+ 410 002c 2846     		mov	r0, r5
+ 411 002e FFF7FEFF 		bl	lv_table_set_col_width
+ 412              	.LVL37:
+  69:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_table_set_row_cnt(table, ITEM_CNT); /*Not required but avoids a lot of memory reallocation l
+ 413              		.loc 1 69 5 view .LVU105
+ 414 0032 C821     		movs	r1, #200
+ 415 0034 2846     		mov	r0, r5
+ 416 0036 FFF7FEFF 		bl	lv_table_set_row_cnt
+ 417              	.LVL38:
+  70:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_table_set_col_cnt(table, 1);
+ 418              		.loc 1 70 5 view .LVU106
+ 419 003a 0121     		movs	r1, #1
+ 420 003c 2846     		mov	r0, r5
+ 421 003e FFF7FEFF 		bl	lv_table_set_col_cnt
+ 422              	.LVL39:
+  71:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  72:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     /*Don't make the cell pressed, we will draw something different in the event*/
+  73:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_remove_style(table, NULL, LV_PART_ITEMS | LV_STATE_PRESSED);
+ 423              		.loc 1 73 5 view .LVU107
+ 424 0042 224A     		ldr	r2, .L18
+ 425 0044 0021     		movs	r1, #0
+ 426 0046 2846     		mov	r0, r5
+ 427 0048 FFF7FEFF 		bl	lv_obj_remove_style
+ 428              	.LVL40:
+  74:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  75:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     uint32_t i;
+ 429              		.loc 1 75 5 view .LVU108
+  76:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     for(i = 0; i < ITEM_CNT; i++) {
+ 430              		.loc 1 76 5 view .LVU109
+ 431              		.loc 1 76 11 is_stmt 0 view .LVU110
+ 432 004c 0024     		movs	r4, #0
+ 433              	.LVL41:
+ 434              	.L14:
+ 435              		.loc 1 76 16 is_stmt 1 discriminator 1 view .LVU111
+ 436              		.loc 1 76 5 is_stmt 0 discriminator 1 view .LVU112
+ 437 004e C72C     		cmp	r4, #199
+ 438 0050 08D8     		bhi	.L17
+  77:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****         lv_table_set_cell_value_fmt(table, i, 0, "Item %d", i + 1);
+ 439              		.loc 1 77 9 is_stmt 1 discriminator 3 view .LVU113
+ 440 0052 A1B2     		uxth	r1, r4
+ 441 0054 0134     		adds	r4, r4, #1
+ 442              	.LVL42:
+ 443              		.loc 1 77 9 is_stmt 0 discriminator 3 view .LVU114
+ 444 0056 0094     		str	r4, [sp]
+ 445 0058 1D4B     		ldr	r3, .L18+4
+ 446 005a 0022     		movs	r2, #0
+ 447 005c 2846     		mov	r0, r5
+ 448 005e FFF7FEFF 		bl	lv_table_set_cell_value_fmt
+ 449              	.LVL43:
+  76:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     for(i = 0; i < ITEM_CNT; i++) {
+ 450              		.loc 1 76 30 is_stmt 1 discriminator 3 view .LVU115
+  76:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     for(i = 0; i < ITEM_CNT; i++) {
+ 451              		.loc 1 76 30 is_stmt 0 discriminator 3 view .LVU116
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 29
+
+
+ 452 0062 F4E7     		b	.L14
+ 453              	.L17:
+  78:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     }
+  79:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  80:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_align(table, LV_ALIGN_CENTER, 0, -20);
+ 454              		.loc 1 80 5 is_stmt 1 view .LVU117
+ 455 0064 6FF01303 		mvn	r3, #19
+ 456 0068 0022     		movs	r2, #0
+ 457 006a 0921     		movs	r1, #9
+ 458 006c 2846     		mov	r0, r5
+ 459 006e FFF7FEFF 		bl	lv_obj_align
+ 460              	.LVL44:
+  81:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  82:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     /*Add an event callback to to apply some custom drawing*/
+  83:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_add_event_cb(table, draw_event_cb, LV_EVENT_DRAW_PART_END, NULL);
+ 461              		.loc 1 83 5 view .LVU118
+ 462 0072 0023     		movs	r3, #0
+ 463 0074 1B22     		movs	r2, #27
+ 464 0076 1749     		ldr	r1, .L18+8
+ 465 0078 2846     		mov	r0, r5
+ 466 007a FFF7FEFF 		bl	lv_obj_add_event_cb
+ 467              	.LVL45:
+  84:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_add_event_cb(table, change_event_cb, LV_EVENT_VALUE_CHANGED, NULL);
+ 468              		.loc 1 84 5 view .LVU119
+ 469 007e 0023     		movs	r3, #0
+ 470 0080 1C22     		movs	r2, #28
+ 471 0082 1549     		ldr	r1, .L18+12
+ 472 0084 2846     		mov	r0, r5
+ 473 0086 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 474              	.LVL46:
+  85:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  86:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_mem_monitor_t mon2;
+ 475              		.loc 1 86 5 view .LVU120
+  87:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_mem_monitor(&mon2);
+ 476              		.loc 1 87 5 view .LVU121
+ 477 008a 02A8     		add	r0, sp, #8
+ 478 008c FFF7FEFF 		bl	lv_mem_monitor
+ 479              	.LVL47:
+  88:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  89:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     uint32_t mem_used = mon1.free_size - mon2.free_size;
+ 480              		.loc 1 89 5 view .LVU122
+ 481              		.loc 1 89 14 is_stmt 0 view .LVU123
+ 482 0090 0B9E     		ldr	r6, [sp, #44]
+ 483 0092 049B     		ldr	r3, [sp, #16]
+ 484 0094 F61A     		subs	r6, r6, r3
+ 485              	.LVL48:
+  90:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  91:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     uint32_t elaps = lv_tick_elaps(t);
+ 486              		.loc 1 91 5 is_stmt 1 view .LVU124
+ 487              		.loc 1 91 22 is_stmt 0 view .LVU125
+ 488 0096 3846     		mov	r0, r7
+ 489 0098 FFF7FEFF 		bl	lv_tick_elaps
+ 490              	.LVL49:
+ 491 009c 0546     		mov	r5, r0
+ 492              	.LVL50:
+  92:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  93:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_t * label = lv_label_create(lv_scr_act());
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 30
+
+
+ 493              		.loc 1 93 5 is_stmt 1 view .LVU126
+ 494              	.LBB26:
+ 495              	.LBI26:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 496              		.loc 4 163 26 view .LVU127
+ 497              	.LBB27:
+ 498              		.loc 4 165 5 view .LVU128
+ 499              		.loc 4 165 12 is_stmt 0 view .LVU129
+ 500 009e FFF7FEFF 		bl	lv_disp_get_default
+ 501              	.LVL51:
+ 502              		.loc 4 165 12 view .LVU130
+ 503 00a2 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 504              	.LVL52:
+ 505              	.LBE27:
+ 506              	.LBE26:
+ 507              		.loc 1 93 24 view .LVU131
+ 508 00a6 FFF7FEFF 		bl	lv_label_create
+ 509              	.LVL53:
+ 510 00aa 0446     		mov	r4, r0
+ 511              	.LVL54:
+  94:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_label_set_text_fmt(label, "%d items were created in %d ms\n"
+ 512              		.loc 1 94 5 is_stmt 1 view .LVU132
+ 513 00ac 0096     		str	r6, [sp]
+ 514 00ae 2B46     		mov	r3, r5
+ 515 00b0 C822     		movs	r2, #200
+ 516 00b2 0A49     		ldr	r1, .L18+16
+ 517 00b4 FFF7FEFF 		bl	lv_label_set_text_fmt
+ 518              	.LVL55:
+  95:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****                                   "using %d bytes of memory",
+  96:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****                                   ITEM_CNT, elaps, mem_used);
+  97:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+  98:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c ****     lv_obj_align(label, LV_ALIGN_BOTTOM_MID, 0, -10);
+ 519              		.loc 1 98 5 view .LVU133
+ 520 00b8 6FF00903 		mvn	r3, #9
+ 521 00bc 0022     		movs	r2, #0
+ 522 00be 0521     		movs	r1, #5
+ 523 00c0 2046     		mov	r0, r4
+ 524 00c2 FFF7FEFF 		bl	lv_obj_align
+ 525              	.LVL56:
+  99:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** 
+ 100:lvgl/lvgl/examples/widgets/table/lv_example_table_2.c **** }
+ 526              		.loc 1 100 1 is_stmt 0 view .LVU134
+ 527 00c6 11B0     		add	sp, sp, #68
+ 528              	.LCFI10:
+ 529              		.cfi_def_cfa_offset 20
+ 530              		@ sp needed
+ 531 00c8 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 532              	.LVL57:
+ 533              	.L19:
+ 534              		.loc 1 100 1 view .LVU135
+ 535 00ca 00BF     		.align	2
+ 536              	.L18:
+ 537 00cc 20000500 		.word	327712
+ 538 00d0 00000000 		.word	.LC0
+ 539 00d4 00000000 		.word	draw_event_cb
+ 540 00d8 00000000 		.word	change_event_cb
+ 541 00dc 08000000 		.word	.LC1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 31
+
+
+ 542              		.cfi_endproc
+ 543              	.LFE191:
+ 545              		.text
+ 546              	.Letext0:
+ 547              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 548              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 549              		.file 7 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_mem.h"
+ 550              		.file 8 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 551              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 552              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 553              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 554              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 555              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 556              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 557              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 558              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 559              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_bidi.h"
+ 560              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 561              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 562              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 563              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_rect.h"
+ 564              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 565              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_img.h"
+ 566              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_line.h"
+ 567              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_arc.h"
+ 568              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_draw.h"
+ 569              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 570              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 571              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 572              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 573              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 574              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 575              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 576              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 577              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 578              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 579              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 580              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 581              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 582              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 583              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 584              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 585              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 586              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 587              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 588              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 589              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 590              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 591              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 592              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 593              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 594              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 595              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 596              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 597              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 598              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 599              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 32
+
+
+ 600              		.file 58 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 601              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 602              		.file 60 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 603              		.file 61 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 604              		.file 62 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 605              		.file 63 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 606              		.file 64 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_disp.h"
+ 607              		.file 65 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_tick.h"
+ 608              		.file 66 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+ 609              		.file 67 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_theme.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s 			page 33
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_table_2.c
+C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s:18     .text.change_event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s:25     .text.change_event_cb:00000000 change_event_cb
+C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s:103    .text.draw_event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s:109    .text.draw_event_cb:00000000 draw_event_cb
+C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s:339    .rodata.lv_example_table_2.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s:347    .text.lv_example_table_2:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s:354    .text.lv_example_table_2:00000000 lv_example_table_2
+C:\Users\gx\AppData\Local\Temp\ccwG2Czp.s:537    .text.lv_example_table_2:000000cc $d
+
+UNDEFINED SYMBOLS
+lv_event_get_target
+lv_table_get_selected_cell
+lv_table_has_cell_ctrl
+lv_table_clear_cell_ctrl
+lv_table_add_cell_ctrl
+lv_event_get_draw_part_dsc
+lv_draw_rect_dsc_init
+lv_theme_get_color_primary
+lv_draw_rect
+lv_palette_lighten
+lv_mem_monitor
+lv_tick_get
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_table_create
+lv_obj_set_size
+lv_table_set_col_width
+lv_table_set_row_cnt
+lv_table_set_col_cnt
+lv_obj_remove_style
+lv_table_set_cell_value_fmt
+lv_obj_align
+lv_obj_add_event_cb
+lv_tick_elaps
+lv_label_create
+lv_label_set_text_fmt

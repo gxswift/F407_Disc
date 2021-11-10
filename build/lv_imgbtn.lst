@@ -1,0 +1,2383 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_imgbtn.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.suggest_state,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	suggest_state:
+  26              	.LVL0:
+  27              	.LFB198:
+  28              		.file 1 "lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c"
+   1:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**
+   2:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @file lv_imgbtn.c
+   3:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *
+   4:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  */
+   5:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+   6:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /*********************
+   7:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *      INCLUDES
+   8:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *********************/
+   9:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  10:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** #include "lv_imgbtn.h"
+  11:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  12:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** #if LV_USE_IMGBTN != 0
+  13:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  14:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /*********************
+  15:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *      DEFINES
+  16:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *********************/
+  17:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** #define MY_CLASS &lv_imgbtn_class
+  18:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  19:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**********************
+  20:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *      TYPEDEFS
+  21:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  **********************/
+  22:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  23:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**********************
+  24:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *  STATIC PROTOTYPES
+  25:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  **********************/
+  26:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static void lv_imgbtn_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj);
+  27:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static void draw_main(lv_event_t * e);
+  28:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static void lv_imgbtn_event(const lv_obj_class_t * class_p, lv_event_t * e);
+  29:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static void refr_img(lv_obj_t * imgbtn);
+  30:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static lv_imgbtn_state_t suggest_state(lv_obj_t * imgbtn, lv_imgbtn_state_t state);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 2
+
+
+  31:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** lv_imgbtn_state_t get_state(const lv_obj_t * imgbtn);
+  32:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  33:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**********************
+  34:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *  STATIC VARIABLES
+  35:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  **********************/
+  36:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** const lv_obj_class_t lv_imgbtn_class = {
+  37:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         .base_class = &lv_obj_class,
+  38:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         .instance_size = sizeof(lv_imgbtn_t),
+  39:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         .constructor_cb = lv_imgbtn_constructor,
+  40:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         .event_cb = lv_imgbtn_event,
+  41:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** };
+  42:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  43:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**********************
+  44:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *      MACROS
+  45:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  **********************/
+  46:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  47:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**********************
+  48:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *   GLOBAL FUNCTIONS
+  49:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  **********************/
+  50:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  51:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**
+  52:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * Create a image button object
+  53:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param par pointer to an object, it will be the parent of the new image button
+  54:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @return pointer to the created image button
+  55:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  */
+  56:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** lv_obj_t * lv_imgbtn_create(lv_obj_t * parent)
+  57:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+  58:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_LOG_INFO("begin")
+  59:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_obj_class_create_obj(MY_CLASS, parent);
+  60:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_class_init_obj(obj);
+  61:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     return obj;
+  62:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+  63:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  64:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /*=====================
+  65:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * Setter functions
+  66:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *====================*/
+  67:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  68:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**
+  69:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * Set images for a state of the image button
+  70:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param imgbtn pointer to an image button object
+  71:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param state for which state set the new image
+  72:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param src_left pointer to an image source for the left side of the button (a C array or path to
+  73:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * a file)
+  74:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param src_mid pointer to an image source for the middle of the button (ideally 1px wide) (a C
+  75:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * array or path to a file)
+  76:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param src_right pointer to an image source for the right side of the button (a C array or path
+  77:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * to a file)
+  78:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  */
+  79:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** void lv_imgbtn_set_src(lv_obj_t * obj, lv_imgbtn_state_t state, const void * src_left, const void *
+  80:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                              const void * src_right)
+  81:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+  82:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
+  83:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  84:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+  85:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  86:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     imgbtn->img_src_left[state] = src_left;
+  87:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     imgbtn->img_src_mid[state] = src_mid;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 3
+
+
+  88:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     imgbtn->img_src_right[state] = src_right;
+  89:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  90:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     refr_img(obj);
+  91:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+  92:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  93:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /*=====================
+  94:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * Getter functions
+  95:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *====================*/
+  96:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  97:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+  98:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**
+  99:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * Get the left image in a given state
+ 100:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param imgbtn pointer to an image button object
+ 101:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param state the state where to get the image (from `lv_btn_state_t`) `
+ 102:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @return pointer to the left image source (a C array or path to a file)
+ 103:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  */
+ 104:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** const void * lv_imgbtn_get_src_left(lv_obj_t * obj, lv_imgbtn_state_t state)
+ 105:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+ 106:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
+ 107:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 108:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 109:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 110:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     return imgbtn->img_src_left[state];
+ 111:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 112:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 113:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**
+ 114:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * Get the middle image in a given state
+ 115:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param imgbtn pointer to an image button object
+ 116:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param state the state where to get the image (from `lv_btn_state_t`) `
+ 117:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @return pointer to the middle image source (a C array or path to a file)
+ 118:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  */
+ 119:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** const void * lv_imgbtn_get_src_middle(lv_obj_t * obj, lv_imgbtn_state_t state)
+ 120:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+ 121:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
+ 122:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 123:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 124:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     return imgbtn->img_src_mid[state];
+ 125:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 126:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 127:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**
+ 128:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * Get the right image in a given state
+ 129:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param imgbtn pointer to an image button object
+ 130:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param state the state where to get the image (from `lv_btn_state_t`) `
+ 131:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @return pointer to the left image source (a C array or path to a file)
+ 132:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  */
+ 133:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** const void * lv_imgbtn_get_src_right(lv_obj_t * obj, lv_imgbtn_state_t state)
+ 134:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+ 135:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
+ 136:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 137:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 138:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     return imgbtn->img_src_right[state];
+ 139:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 140:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 141:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 142:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**********************
+ 143:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  *   STATIC FUNCTIONS
+ 144:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  **********************/
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 4
+
+
+ 145:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 146:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static void lv_imgbtn_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
+ 147:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+ 148:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_UNUSED(class_p);
+ 149:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 150:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    /*Initialize the allocated 'ext'*/
+ 151:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    lv_memset_00((void *)imgbtn->img_src_mid, sizeof(imgbtn->img_src_mid));
+ 152:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    lv_memset_00(imgbtn->img_src_left, sizeof(imgbtn->img_src_left));
+ 153:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    lv_memset_00(imgbtn->img_src_right, sizeof(imgbtn->img_src_right));
+ 154:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 155:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    imgbtn->act_cf = LV_IMG_CF_UNKNOWN;
+ 156:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 157:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 158:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 159:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static void lv_imgbtn_event(const lv_obj_class_t * class_p, lv_event_t * e)
+ 160:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+ 161:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_UNUSED(class_p);
+ 162:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 163:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_res_t res = lv_obj_event_base(&lv_imgbtn_class, e);
+ 164:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(res != LV_RES_OK) return;
+ 165:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 166:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_event_code_t code = lv_event_get_code(e);
+ 167:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 168:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(code == LV_EVENT_PRESSED || code == LV_EVENT_RELEASED || code == LV_EVENT_PRESS_LOST) {
+ 169:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         refr_img(obj);
+ 170:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 171:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     else if(code == LV_EVENT_DRAW_MAIN) {
+ 172:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         draw_main(e);
+ 173:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 174:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     else if(code == LV_EVENT_COVER_CHECK) {
+ 175:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_cover_check_info_t * info = lv_event_get_param(e);
+ 176:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(info->res != LV_COVER_RES_MASKED) info->res = LV_COVER_RES_NOT_COVER;
+ 177:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 178:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     else if(code == LV_EVENT_GET_SELF_SIZE) {
+ 179:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_point_t * p = lv_event_get_self_size_info(e);
+ 180:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 181:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_imgbtn_state_t state  = suggest_state(obj, get_state(obj));
+ 182:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(imgbtn->img_src_left[state] == NULL &&
+ 183:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****            imgbtn->img_src_mid[state] != NULL &&
+ 184:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****            imgbtn->img_src_right[state] == NULL)
+ 185:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         {
+ 186:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             lv_img_header_t header;
+ 187:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             lv_img_decoder_get_info(imgbtn->img_src_mid[state], &header);
+ 188:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             p->x = LV_MAX(p->x, header.w);
+ 189:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         }
+ 190:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 191:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 192:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 193:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static void draw_main(lv_event_t * e)
+ 194:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+ 195:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 196:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 197:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     const lv_area_t * clip_area = lv_event_get_param(e);
+ 198:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 199:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     /*Just draw_main an image*/
+ 200:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_state_t state  = suggest_state(obj, get_state(obj));
+ 201:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 5
+
+
+ 202:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     /*Simply draw the middle src if no tiled*/
+ 203:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     const void * src = imgbtn->img_src_left[state];
+ 204:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 205:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_coord_t tw = lv_obj_get_style_transform_width(obj, LV_PART_MAIN);
+ 206:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_coord_t th = lv_obj_get_style_transform_height(obj, LV_PART_MAIN);
+ 207:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_area_t coords;
+ 208:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_area_copy(&coords, &obj->coords);
+ 209:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.x1 -= tw;
+ 210:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.x2 += tw;
+ 211:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.y1 -= th;
+ 212:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.y2 += th;
+ 213:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 214:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_draw_img_dsc_t img_dsc;
+ 215:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_draw_img_dsc_init(&img_dsc);
+ 216:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_init_draw_img_dsc(obj, LV_PART_MAIN, &img_dsc);
+ 217:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 218:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_img_header_t header;
+ 219:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_area_t coords_part;
+ 220:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_coord_t left_w = 0;
+ 221:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_coord_t right_w = 0;
+ 222:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 223:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src) {
+ 224:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_img_decoder_get_info(src, &header);
+ 225:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         left_w = header.w;
+ 226:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x1 = coords.x1;
+ 227:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y1 = coords.y1;
+ 228:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x2 = coords.x1 + header.w - 1;
+ 229:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y2 = coords.y1 + header.h - 1;
+ 230:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 231:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 232:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 233:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     src = imgbtn->img_src_right[state];
+ 234:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src) {
+ 235:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_img_decoder_get_info(src, &header);
+ 236:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         right_w = header.w;
+ 237:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x1 = coords.x2 - header.w + 1;
+ 238:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y1 = coords.y1;
+ 239:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x2 = coords.x2;
+ 240:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y2 = coords.y1 + header.h - 1;
+ 241:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 242:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 243:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 244:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     src = imgbtn->img_src_mid[state];
+ 245:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src) {
+ 246:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_area_t clip_center_area;
+ 247:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.x1 = coords.x1 + left_w;
+ 248:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.x2 = coords.x2 - right_w;
+ 249:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.y1 = coords.y1;
+ 250:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.y2 = coords.y2;
+ 251:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 252:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         bool comm_res;
+ 253:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         comm_res = _lv_area_intersect(&clip_center_area, &clip_center_area, clip_area);
+ 254:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(comm_res) {
+ 255:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             lv_coord_t i;
+ 256:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             lv_img_decoder_get_info(src, &header);
+ 257:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 258:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.x1 = coords.x1 + left_w;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 6
+
+
+ 259:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.y1 = coords.y1;
+ 260:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.x2 = coords_part.x1 + header.w - 1;
+ 261:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.y2 = coords_part.y1 + header.h - 1;
+ 262:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             for(i = 0; i < clip_center_area.x2 + header.w - 1; i += header.w) {
+ 264:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 265:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 lv_draw_img(&coords_part, &clip_center_area, src, &img_dsc);
+ 266:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 coords_part.x1 = coords_part.x2 + 1;
+ 267:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 coords_part.x2 += header.w;
+ 268:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             }
+ 269:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         }
+ 270:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 271:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 272:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 273:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static void refr_img(lv_obj_t * obj)
+ 274:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+ 275:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 276:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_state_t state  = suggest_state(obj, get_state(obj));
+ 277:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_img_header_t header;
+ 278:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 279:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     const void * src = imgbtn->img_src_mid[state];
+ 280:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src == NULL) return;
+ 281:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 282:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_res_t info_res = LV_RES_OK;
+ 283:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     info_res = lv_img_decoder_get_info(src, &header);
+ 284:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 285:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(info_res == LV_RES_OK) {
+ 286:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         imgbtn->act_cf = header.cf;
+ 287:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_obj_refresh_self_size(obj);
+ 288:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_obj_set_height(obj, header.h); /*Keep the user defined width*/
+ 289:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 290:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     else {
+ 291:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         imgbtn->act_cf = LV_IMG_CF_UNKNOWN;
+ 292:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 293:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 294:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_invalidate(obj);
+ 295:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 296:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 297:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** /**
+ 298:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * If `src` is not defined for the current state try to get a state which is related to the current
+ 299:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * E.g. if the PRESSED src is not set but the RELEASED does, use the RELEASED.
+ 300:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param imgbtn pointer to an image button
+ 301:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @param state the state to convert
+ 302:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  * @return the suggested state
+ 303:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****  */
+ 304:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** static lv_imgbtn_state_t suggest_state(lv_obj_t * obj, lv_imgbtn_state_t state)
+ 305:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+  29              		.loc 1 305 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34              		.loc 1 305 1 is_stmt 0 view .LVU1
+  35 0000 0346     		mov	r3, r0
+  36 0002 0846     		mov	r0, r1
+  37              	.LVL1:
+ 306:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 7
+
+
+  38              		.loc 1 306 5 is_stmt 1 view .LVU2
+ 307:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(imgbtn->img_src_mid[state] == NULL) {
+  39              		.loc 1 307 5 view .LVU3
+  40              		.loc 1 307 27 is_stmt 0 view .LVU4
+  41 0004 01F10802 		add	r2, r1, #8
+  42 0008 03EB8202 		add	r2, r3, r2, lsl #2
+  43 000c 5268     		ldr	r2, [r2, #4]
+  44              		.loc 1 307 7 view .LVU5
+  45 000e 02B1     		cbz	r2, .L17
+  46              	.LVL2:
+  47              	.L2:
+ 308:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         switch(state) {
+ 309:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             case LV_IMGBTN_STATE_PRESSED:
+ 310:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 311:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 312:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             case LV_IMGBTN_STATE_CHECKED_RELEASED:
+ 313:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 314:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 315:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             case LV_IMGBTN_STATE_CHECKED_PRESSED:
+ 316:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_CHECKED_RELEASED]) return LV_IMGBTN_STATE_CH
+ 317:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_PRESSED]) return LV_IMGBTN_STATE_PRESSED;
+ 318:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 319:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 320:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             case LV_IMGBTN_STATE_DISABLED:
+ 321:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 322:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 323:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             case LV_IMGBTN_STATE_CHECKED_DISABLED:
+ 324:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_CHECKED_RELEASED]) return LV_IMGBTN_STATE_CH
+ 325:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 326:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 327:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             default:
+ 328:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 329:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         }
+ 330:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 331:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 332:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     return state;
+ 333:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+  48              		.loc 1 333 1 view .LVU6
+  49 0010 7047     		bx	lr
+  50              	.LVL3:
+  51              	.L17:
+ 308:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         switch(state) {
+  52              		.loc 1 308 9 is_stmt 1 view .LVU7
+  53 0012 4A1E     		subs	r2, r1, #1
+  54 0014 042A     		cmp	r2, #4
+  55 0016 FBD8     		bhi	.L2
+  56 0018 DFE802F0 		tbb	[pc, r2]
+  57              	.LVL4:
+  58              	.L4:
+  59 001c 03       		.byte	(.L8-.L4)/2
+  60 001d 18       		.byte	(.L7-.L4)/2
+  61 001e 08       		.byte	(.L6-.L4)/2
+  62 001f 0D       		.byte	(.L5-.L4)/2
+  63 0020 1D       		.byte	(.L3-.L4)/2
+  64 0021 00       		.p2align 1
+  65              	.L8:
+ 310:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 8
+
+
+  66              		.loc 1 310 17 view .LVU8
+ 310:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+  67              		.loc 1 310 39 is_stmt 0 view .LVU9
+  68 0022 5B6A     		ldr	r3, [r3, #36]
+  69              	.LVL5:
+ 310:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+  70              		.loc 1 310 19 view .LVU10
+  71 0024 0BB1     		cbz	r3, .L18
+ 310:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+  72              		.loc 1 310 74 view .LVU11
+  73 0026 0020     		movs	r0, #0
+  74 0028 7047     		bx	lr
+  75              	.L18:
+  76 002a 7047     		bx	lr
+  77              	.LVL6:
+  78              	.L6:
+ 313:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+  79              		.loc 1 313 17 is_stmt 1 view .LVU12
+ 313:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+  80              		.loc 1 313 39 is_stmt 0 view .LVU13
+  81 002c 5B6A     		ldr	r3, [r3, #36]
+  82              	.LVL7:
+ 313:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+  83              		.loc 1 313 19 view .LVU14
+  84 002e 0BB1     		cbz	r3, .L19
+ 313:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+  85              		.loc 1 313 74 view .LVU15
+  86 0030 0020     		movs	r0, #0
+  87 0032 7047     		bx	lr
+  88              	.L19:
+  89 0034 7047     		bx	lr
+  90              	.LVL8:
+  91              	.L5:
+ 316:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_PRESSED]) return LV_IMGBTN_STATE_PRESSED;
+  92              		.loc 1 316 17 is_stmt 1 view .LVU16
+ 316:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_PRESSED]) return LV_IMGBTN_STATE_PRESSED;
+  93              		.loc 1 316 39 is_stmt 0 view .LVU17
+  94 0036 1A6B     		ldr	r2, [r3, #48]
+ 316:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_PRESSED]) return LV_IMGBTN_STATE_PRESSED;
+  95              		.loc 1 316 19 view .LVU18
+  96 0038 A2B9     		cbnz	r2, .L11
+ 317:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+  97              		.loc 1 317 17 is_stmt 1 view .LVU19
+ 317:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+  98              		.loc 1 317 39 is_stmt 0 view .LVU20
+  99 003a 9A6A     		ldr	r2, [r3, #40]
+ 317:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 100              		.loc 1 317 19 view .LVU21
+ 101 003c 0AB1     		cbz	r2, .L20
+ 317:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 102              		.loc 1 317 73 view .LVU22
+ 103 003e 0120     		movs	r0, #1
+ 104 0040 7047     		bx	lr
+ 105              	.L20:
+ 318:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 106              		.loc 1 318 17 is_stmt 1 view .LVU23
+ 318:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 9
+
+
+ 107              		.loc 1 318 39 is_stmt 0 view .LVU24
+ 108 0042 5B6A     		ldr	r3, [r3, #36]
+ 109              	.LVL9:
+ 318:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 110              		.loc 1 318 19 view .LVU25
+ 111 0044 0BB1     		cbz	r3, .L21
+ 318:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 112              		.loc 1 318 74 view .LVU26
+ 113 0046 0020     		movs	r0, #0
+ 114 0048 7047     		bx	lr
+ 115              	.L21:
+ 116 004a 7047     		bx	lr
+ 117              	.LVL10:
+ 118              	.L7:
+ 321:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 119              		.loc 1 321 17 is_stmt 1 view .LVU27
+ 321:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 120              		.loc 1 321 39 is_stmt 0 view .LVU28
+ 121 004c 5B6A     		ldr	r3, [r3, #36]
+ 122              	.LVL11:
+ 321:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 123              		.loc 1 321 19 view .LVU29
+ 124 004e 0BB1     		cbz	r3, .L22
+ 321:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 125              		.loc 1 321 74 view .LVU30
+ 126 0050 0020     		movs	r0, #0
+ 127 0052 7047     		bx	lr
+ 128              	.L22:
+ 129 0054 7047     		bx	lr
+ 130              	.LVL12:
+ 131              	.L3:
+ 324:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 132              		.loc 1 324 17 is_stmt 1 view .LVU31
+ 324:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 133              		.loc 1 324 39 is_stmt 0 view .LVU32
+ 134 0056 1A6B     		ldr	r2, [r3, #48]
+ 324:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 135              		.loc 1 324 19 view .LVU33
+ 136 0058 32B9     		cbnz	r2, .L15
+ 325:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 137              		.loc 1 325 17 is_stmt 1 view .LVU34
+ 325:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 138              		.loc 1 325 39 is_stmt 0 view .LVU35
+ 139 005a 5B6A     		ldr	r3, [r3, #36]
+ 140              	.LVL13:
+ 325:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 141              		.loc 1 325 19 view .LVU36
+ 142 005c 0BB1     		cbz	r3, .L23
+ 325:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 break;
+ 143              		.loc 1 325 74 view .LVU37
+ 144 005e 0020     		movs	r0, #0
+ 145 0060 D6E7     		b	.L2
+ 146              	.L23:
+ 147 0062 7047     		bx	lr
+ 148              	.LVL14:
+ 149              	.L11:
+ 316:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_PRESSED]) return LV_IMGBTN_STATE_PRESSED;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 10
+
+
+ 150              		.loc 1 316 82 view .LVU38
+ 151 0064 0320     		movs	r0, #3
+ 152 0066 7047     		bx	lr
+ 153              	.L15:
+ 324:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 if(imgbtn->img_src_mid[LV_IMGBTN_STATE_RELEASED]) return LV_IMGBTN_STATE_RELEASED;
+ 154              		.loc 1 324 82 view .LVU39
+ 155 0068 0320     		movs	r0, #3
+ 156 006a 7047     		bx	lr
+ 157              		.cfi_endproc
+ 158              	.LFE198:
+ 160              		.section	.text.lv_imgbtn_constructor,"ax",%progbits
+ 161              		.align	1
+ 162              		.syntax unified
+ 163              		.thumb
+ 164              		.thumb_func
+ 165              		.fpu fpv4-sp-d16
+ 167              	lv_imgbtn_constructor:
+ 168              	.LVL15:
+ 169              	.LFB194:
+ 147:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_UNUSED(class_p);
+ 170              		.loc 1 147 1 is_stmt 1 view -0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_UNUSED(class_p);
+ 174              		.loc 1 147 1 is_stmt 0 view .LVU41
+ 175 0000 10B5     		push	{r4, lr}
+ 176              	.LCFI0:
+ 177              		.cfi_def_cfa_offset 8
+ 178              		.cfi_offset 4, -8
+ 179              		.cfi_offset 14, -4
+ 180 0002 0C46     		mov	r4, r1
+ 148:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 181              		.loc 1 148 5 is_stmt 1 view .LVU42
+ 149:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    /*Initialize the allocated 'ext'*/
+ 182              		.loc 1 149 4 view .LVU43
+ 183              	.LVL16:
+ 151:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    lv_memset_00(imgbtn->img_src_left, sizeof(imgbtn->img_src_left));
+ 184              		.loc 1 151 4 view .LVU44
+ 185 0004 1821     		movs	r1, #24
+ 186              	.LVL17:
+ 151:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    lv_memset_00(imgbtn->img_src_left, sizeof(imgbtn->img_src_left));
+ 187              		.loc 1 151 4 is_stmt 0 view .LVU45
+ 188 0006 04F12400 		add	r0, r4, #36
+ 189              	.LVL18:
+ 151:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    lv_memset_00(imgbtn->img_src_left, sizeof(imgbtn->img_src_left));
+ 190              		.loc 1 151 4 view .LVU46
+ 191 000a FFF7FEFF 		bl	lv_memset_00
+ 192              	.LVL19:
+ 152:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****    lv_memset_00(imgbtn->img_src_right, sizeof(imgbtn->img_src_right));
+ 193              		.loc 1 152 4 is_stmt 1 view .LVU47
+ 194 000e 1821     		movs	r1, #24
+ 195 0010 04F13C00 		add	r0, r4, #60
+ 196 0014 FFF7FEFF 		bl	lv_memset_00
+ 197              	.LVL20:
+ 153:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 198              		.loc 1 153 4 view .LVU48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 11
+
+
+ 199 0018 1821     		movs	r1, #24
+ 200 001a 04F15400 		add	r0, r4, #84
+ 201 001e FFF7FEFF 		bl	lv_memset_00
+ 202              	.LVL21:
+ 155:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 203              		.loc 1 155 4 view .LVU49
+ 155:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 204              		.loc 1 155 19 is_stmt 0 view .LVU50
+ 205 0022 0023     		movs	r3, #0
+ 206 0024 84F86C30 		strb	r3, [r4, #108]
+ 156:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 207              		.loc 1 156 1 view .LVU51
+ 208 0028 10BD     		pop	{r4, pc}
+ 156:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 209              		.loc 1 156 1 view .LVU52
+ 210              		.cfi_endproc
+ 211              	.LFE194:
+ 213              		.section	.text.lv_imgbtn_create,"ax",%progbits
+ 214              		.align	1
+ 215              		.global	lv_imgbtn_create
+ 216              		.syntax unified
+ 217              		.thumb
+ 218              		.thumb_func
+ 219              		.fpu fpv4-sp-d16
+ 221              	lv_imgbtn_create:
+ 222              	.LVL22:
+ 223              	.LFB189:
+  57:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_LOG_INFO("begin")
+ 224              		.loc 1 57 1 is_stmt 1 view -0
+ 225              		.cfi_startproc
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+  57:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_LOG_INFO("begin")
+ 228              		.loc 1 57 1 is_stmt 0 view .LVU54
+ 229 0000 10B5     		push	{r4, lr}
+ 230              	.LCFI1:
+ 231              		.cfi_def_cfa_offset 8
+ 232              		.cfi_offset 4, -8
+ 233              		.cfi_offset 14, -4
+ 234 0002 0146     		mov	r1, r0
+  58:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_obj_class_create_obj(MY_CLASS, parent);
+ 235              		.loc 1 58 5 is_stmt 1 view .LVU55
+  58:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_obj_class_create_obj(MY_CLASS, parent);
+ 236              		.loc 1 58 5 view .LVU56
+  58:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_obj_class_create_obj(MY_CLASS, parent);
+ 237              		.loc 1 58 5 view .LVU57
+  59:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_class_init_obj(obj);
+ 238              		.loc 1 59 5 view .LVU58
+  59:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_class_init_obj(obj);
+ 239              		.loc 1 59 22 is_stmt 0 view .LVU59
+ 240 0004 0348     		ldr	r0, .L28
+ 241              	.LVL23:
+  59:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_class_init_obj(obj);
+ 242              		.loc 1 59 22 view .LVU60
+ 243 0006 FFF7FEFF 		bl	lv_obj_class_create_obj
+ 244              	.LVL24:
+  59:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_class_init_obj(obj);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 12
+
+
+ 245              		.loc 1 59 22 view .LVU61
+ 246 000a 0446     		mov	r4, r0
+ 247              	.LVL25:
+  60:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     return obj;
+ 248              		.loc 1 60 5 is_stmt 1 view .LVU62
+ 249 000c FFF7FEFF 		bl	lv_obj_class_init_obj
+ 250              	.LVL26:
+  61:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 251              		.loc 1 61 5 view .LVU63
+  62:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 252              		.loc 1 62 1 is_stmt 0 view .LVU64
+ 253 0010 2046     		mov	r0, r4
+ 254 0012 10BD     		pop	{r4, pc}
+ 255              	.LVL27:
+ 256              	.L29:
+  62:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 257              		.loc 1 62 1 view .LVU65
+ 258              		.align	2
+ 259              	.L28:
+ 260 0014 00000000 		.word	.LANCHOR0
+ 261              		.cfi_endproc
+ 262              	.LFE189:
+ 264              		.section	.text.lv_imgbtn_get_src_left,"ax",%progbits
+ 265              		.align	1
+ 266              		.global	lv_imgbtn_get_src_left
+ 267              		.syntax unified
+ 268              		.thumb
+ 269              		.thumb_func
+ 270              		.fpu fpv4-sp-d16
+ 272              	lv_imgbtn_get_src_left:
+ 273              	.LVL28:
+ 274              	.LFB191:
+ 105:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
+ 275              		.loc 1 105 1 is_stmt 1 view -0
+ 276              		.cfi_startproc
+ 277              		@ args = 0, pretend = 0, frame = 0
+ 278              		@ frame_needed = 0, uses_anonymous_args = 0
+ 279              		@ link register save eliminated.
+ 106:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 280              		.loc 1 106 5 view .LVU67
+ 106:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 281              		.loc 1 106 5 view .LVU68
+ 106:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 282              		.loc 1 106 5 view .LVU69
+ 108:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 283              		.loc 1 108 5 view .LVU70
+ 110:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 284              		.loc 1 110 5 view .LVU71
+ 110:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 285              		.loc 1 110 32 is_stmt 0 view .LVU72
+ 286 0000 0E31     		adds	r1, r1, #14
+ 287              	.LVL29:
+ 110:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 288              		.loc 1 110 32 view .LVU73
+ 289 0002 00EB8100 		add	r0, r0, r1, lsl #2
+ 290              	.LVL30:
+ 111:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 13
+
+
+ 291              		.loc 1 111 1 view .LVU74
+ 292 0006 4068     		ldr	r0, [r0, #4]
+ 293 0008 7047     		bx	lr
+ 294              		.cfi_endproc
+ 295              	.LFE191:
+ 297              		.section	.text.lv_imgbtn_get_src_middle,"ax",%progbits
+ 298              		.align	1
+ 299              		.global	lv_imgbtn_get_src_middle
+ 300              		.syntax unified
+ 301              		.thumb
+ 302              		.thumb_func
+ 303              		.fpu fpv4-sp-d16
+ 305              	lv_imgbtn_get_src_middle:
+ 306              	.LVL31:
+ 307              	.LFB192:
+ 120:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
+ 308              		.loc 1 120 1 is_stmt 1 view -0
+ 309              		.cfi_startproc
+ 310              		@ args = 0, pretend = 0, frame = 0
+ 311              		@ frame_needed = 0, uses_anonymous_args = 0
+ 312              		@ link register save eliminated.
+ 121:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 313              		.loc 1 121 5 view .LVU76
+ 121:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 314              		.loc 1 121 5 view .LVU77
+ 121:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 315              		.loc 1 121 5 view .LVU78
+ 122:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 316              		.loc 1 122 5 view .LVU79
+ 124:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 317              		.loc 1 124 5 view .LVU80
+ 124:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 318              		.loc 1 124 31 is_stmt 0 view .LVU81
+ 319 0000 0831     		adds	r1, r1, #8
+ 320              	.LVL32:
+ 124:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 321              		.loc 1 124 31 view .LVU82
+ 322 0002 00EB8100 		add	r0, r0, r1, lsl #2
+ 323              	.LVL33:
+ 125:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 324              		.loc 1 125 1 view .LVU83
+ 325 0006 4068     		ldr	r0, [r0, #4]
+ 326 0008 7047     		bx	lr
+ 327              		.cfi_endproc
+ 328              	.LFE192:
+ 330              		.section	.text.lv_imgbtn_get_src_right,"ax",%progbits
+ 331              		.align	1
+ 332              		.global	lv_imgbtn_get_src_right
+ 333              		.syntax unified
+ 334              		.thumb
+ 335              		.thumb_func
+ 336              		.fpu fpv4-sp-d16
+ 338              	lv_imgbtn_get_src_right:
+ 339              	.LVL34:
+ 340              	.LFB193:
+ 134:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
+ 341              		.loc 1 134 1 is_stmt 1 view -0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 14
+
+
+ 342              		.cfi_startproc
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345              		@ link register save eliminated.
+ 135:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 346              		.loc 1 135 5 view .LVU85
+ 135:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 347              		.loc 1 135 5 view .LVU86
+ 135:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 348              		.loc 1 135 5 view .LVU87
+ 136:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 349              		.loc 1 136 5 view .LVU88
+ 138:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 350              		.loc 1 138 5 view .LVU89
+ 138:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 351              		.loc 1 138 33 is_stmt 0 view .LVU90
+ 352 0000 1431     		adds	r1, r1, #20
+ 353              	.LVL35:
+ 138:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 354              		.loc 1 138 33 view .LVU91
+ 355 0002 00EB8100 		add	r0, r0, r1, lsl #2
+ 356              	.LVL36:
+ 139:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 357              		.loc 1 139 1 view .LVU92
+ 358 0006 4068     		ldr	r0, [r0, #4]
+ 359 0008 7047     		bx	lr
+ 360              		.cfi_endproc
+ 361              	.LFE193:
+ 363              		.section	.text.get_state,"ax",%progbits
+ 364              		.align	1
+ 365              		.global	get_state
+ 366              		.syntax unified
+ 367              		.thumb
+ 368              		.thumb_func
+ 369              		.fpu fpv4-sp-d16
+ 371              	get_state:
+ 372              	.LVL37:
+ 373              	.LFB199:
+ 334:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 335:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** lv_imgbtn_state_t get_state(const lv_obj_t * imgbtn)
+ 336:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** {
+ 374              		.loc 1 336 1 is_stmt 1 view -0
+ 375              		.cfi_startproc
+ 376              		@ args = 0, pretend = 0, frame = 0
+ 377              		@ frame_needed = 0, uses_anonymous_args = 0
+ 378              		.loc 1 336 1 is_stmt 0 view .LVU94
+ 379 0000 08B5     		push	{r3, lr}
+ 380              	.LCFI2:
+ 381              		.cfi_def_cfa_offset 8
+ 382              		.cfi_offset 3, -8
+ 383              		.cfi_offset 14, -4
+ 337:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(imgbtn, MY_CLASS);
+ 384              		.loc 1 337 5 is_stmt 1 view .LVU95
+ 385              		.loc 1 337 5 view .LVU96
+ 386              		.loc 1 337 5 view .LVU97
+ 338:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 339:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_state_t obj_state = lv_obj_get_state(imgbtn);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 15
+
+
+ 387              		.loc 1 339 5 view .LVU98
+ 388              		.loc 1 339 28 is_stmt 0 view .LVU99
+ 389 0002 FFF7FEFF 		bl	lv_obj_get_state
+ 390              	.LVL38:
+ 340:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 341:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(obj_state & LV_STATE_DISABLED) {
+ 391              		.loc 1 341 5 is_stmt 1 view .LVU100
+ 392              		.loc 1 341 7 is_stmt 0 view .LVU101
+ 393 0006 10F0800F 		tst	r0, #128
+ 394 000a 04D0     		beq	.L34
+ 342:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(obj_state & LV_STATE_CHECKED) return LV_IMGBTN_STATE_CHECKED_DISABLED;
+ 395              		.loc 1 342 9 is_stmt 1 view .LVU102
+ 396              		.loc 1 342 11 is_stmt 0 view .LVU103
+ 397 000c 10F0010F 		tst	r0, #1
+ 398 0010 0ED0     		beq	.L37
+ 399              		.loc 1 342 49 view .LVU104
+ 400 0012 0520     		movs	r0, #5
+ 401              	.LVL39:
+ 402              	.L35:
+ 343:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_DISABLED;
+ 344:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 345:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 346:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(obj_state & LV_STATE_CHECKED) {
+ 347:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(obj_state & LV_STATE_PRESSED) return LV_IMGBTN_STATE_CHECKED_PRESSED;
+ 348:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_CHECKED_RELEASED;
+ 349:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 350:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     else {
+ 351:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(obj_state & LV_STATE_PRESSED) return LV_IMGBTN_STATE_PRESSED;
+ 352:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_RELEASED;
+ 353:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 354:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 403              		.loc 1 354 1 view .LVU105
+ 404 0014 08BD     		pop	{r3, pc}
+ 405              	.LVL40:
+ 406              	.L34:
+ 346:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(obj_state & LV_STATE_PRESSED) return LV_IMGBTN_STATE_CHECKED_PRESSED;
+ 407              		.loc 1 346 5 is_stmt 1 view .LVU106
+ 346:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(obj_state & LV_STATE_PRESSED) return LV_IMGBTN_STATE_CHECKED_PRESSED;
+ 408              		.loc 1 346 7 is_stmt 0 view .LVU107
+ 409 0016 10F0010F 		tst	r0, #1
+ 410 001a 04D0     		beq	.L36
+ 347:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_CHECKED_RELEASED;
+ 411              		.loc 1 347 9 is_stmt 1 view .LVU108
+ 347:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_CHECKED_RELEASED;
+ 412              		.loc 1 347 11 is_stmt 0 view .LVU109
+ 413 001c 10F0200F 		tst	r0, #32
+ 414 0020 08D0     		beq	.L38
+ 347:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_CHECKED_RELEASED;
+ 415              		.loc 1 347 49 view .LVU110
+ 416 0022 0420     		movs	r0, #4
+ 417              	.LVL41:
+ 347:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_CHECKED_RELEASED;
+ 418              		.loc 1 347 49 view .LVU111
+ 419 0024 F6E7     		b	.L35
+ 420              	.LVL42:
+ 421              	.L36:
+ 351:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_RELEASED;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 16
+
+
+ 422              		.loc 1 351 9 is_stmt 1 view .LVU112
+ 351:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_RELEASED;
+ 423              		.loc 1 351 11 is_stmt 0 view .LVU113
+ 424 0026 10F0200F 		tst	r0, #32
+ 425 002a 05D0     		beq	.L39
+ 351:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_RELEASED;
+ 426              		.loc 1 351 49 view .LVU114
+ 427 002c 0120     		movs	r0, #1
+ 428              	.LVL43:
+ 351:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         else return LV_IMGBTN_STATE_RELEASED;
+ 429              		.loc 1 351 49 view .LVU115
+ 430 002e F1E7     		b	.L35
+ 431              	.LVL44:
+ 432              	.L37:
+ 343:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 433              		.loc 1 343 21 view .LVU116
+ 434 0030 0220     		movs	r0, #2
+ 435              	.LVL45:
+ 343:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 436              		.loc 1 343 21 view .LVU117
+ 437 0032 EFE7     		b	.L35
+ 438              	.LVL46:
+ 439              	.L38:
+ 348:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 440              		.loc 1 348 21 view .LVU118
+ 441 0034 0320     		movs	r0, #3
+ 442              	.LVL47:
+ 348:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 443              		.loc 1 348 21 view .LVU119
+ 444 0036 EDE7     		b	.L35
+ 445              	.LVL48:
+ 446              	.L39:
+ 352:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 447              		.loc 1 352 21 view .LVU120
+ 448 0038 0020     		movs	r0, #0
+ 449              	.LVL49:
+ 352:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 450              		.loc 1 352 21 view .LVU121
+ 451 003a EBE7     		b	.L35
+ 452              		.cfi_endproc
+ 453              	.LFE199:
+ 455              		.section	.text.refr_img,"ax",%progbits
+ 456              		.align	1
+ 457              		.syntax unified
+ 458              		.thumb
+ 459              		.thumb_func
+ 460              		.fpu fpv4-sp-d16
+ 462              	refr_img:
+ 463              	.LVL50:
+ 464              	.LFB197:
+ 274:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 465              		.loc 1 274 1 is_stmt 1 view -0
+ 466              		.cfi_startproc
+ 467              		@ args = 0, pretend = 0, frame = 8
+ 468              		@ frame_needed = 0, uses_anonymous_args = 0
+ 274:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 469              		.loc 1 274 1 is_stmt 0 view .LVU123
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 17
+
+
+ 470 0000 10B5     		push	{r4, lr}
+ 471              	.LCFI3:
+ 472              		.cfi_def_cfa_offset 8
+ 473              		.cfi_offset 4, -8
+ 474              		.cfi_offset 14, -4
+ 475 0002 82B0     		sub	sp, sp, #8
+ 476              	.LCFI4:
+ 477              		.cfi_def_cfa_offset 16
+ 478 0004 0446     		mov	r4, r0
+ 275:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_state_t state  = suggest_state(obj, get_state(obj));
+ 479              		.loc 1 275 5 is_stmt 1 view .LVU124
+ 480              	.LVL51:
+ 276:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_img_header_t header;
+ 481              		.loc 1 276 5 view .LVU125
+ 276:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_img_header_t header;
+ 482              		.loc 1 276 32 is_stmt 0 view .LVU126
+ 483 0006 FFF7FEFF 		bl	get_state
+ 484              	.LVL52:
+ 276:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_img_header_t header;
+ 485              		.loc 1 276 32 view .LVU127
+ 486 000a 0146     		mov	r1, r0
+ 487 000c 2046     		mov	r0, r4
+ 488 000e FFF7FEFF 		bl	suggest_state
+ 489              	.LVL53:
+ 277:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 490              		.loc 1 277 5 is_stmt 1 view .LVU128
+ 279:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src == NULL) return;
+ 491              		.loc 1 279 5 view .LVU129
+ 279:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src == NULL) return;
+ 492              		.loc 1 279 18 is_stmt 0 view .LVU130
+ 493 0012 0830     		adds	r0, r0, #8
+ 494              	.LVL54:
+ 279:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src == NULL) return;
+ 495              		.loc 1 279 18 view .LVU131
+ 496 0014 04EB8000 		add	r0, r4, r0, lsl #2
+ 497 0018 4068     		ldr	r0, [r0, #4]
+ 498              	.LVL55:
+ 280:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 499              		.loc 1 280 5 is_stmt 1 view .LVU132
+ 280:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 500              		.loc 1 280 7 is_stmt 0 view .LVU133
+ 501 001a 50B1     		cbz	r0, .L41
+ 282:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     info_res = lv_img_decoder_get_info(src, &header);
+ 502              		.loc 1 282 5 is_stmt 1 view .LVU134
+ 503              	.LVL56:
+ 283:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 504              		.loc 1 283 5 view .LVU135
+ 283:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 505              		.loc 1 283 16 is_stmt 0 view .LVU136
+ 506 001c 01A9     		add	r1, sp, #4
+ 507 001e FFF7FEFF 		bl	lv_img_decoder_get_info
+ 508              	.LVL57:
+ 285:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         imgbtn->act_cf = header.cf;
+ 509              		.loc 1 285 5 is_stmt 1 view .LVU137
+ 285:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         imgbtn->act_cf = header.cf;
+ 510              		.loc 1 285 7 is_stmt 0 view .LVU138
+ 511 0022 0128     		cmp	r0, #1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 18
+
+
+ 512 0024 07D0     		beq	.L47
+ 291:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 513              		.loc 1 291 9 is_stmt 1 view .LVU139
+ 291:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 514              		.loc 1 291 24 is_stmt 0 view .LVU140
+ 515 0026 0023     		movs	r3, #0
+ 516 0028 84F86C30 		strb	r3, [r4, #108]
+ 517              	.LVL58:
+ 518              	.L45:
+ 294:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 519              		.loc 1 294 5 is_stmt 1 view .LVU141
+ 520 002c 2046     		mov	r0, r4
+ 521 002e FFF7FEFF 		bl	lv_obj_invalidate
+ 522              	.LVL59:
+ 523              	.L41:
+ 295:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 524              		.loc 1 295 1 is_stmt 0 view .LVU142
+ 525 0032 02B0     		add	sp, sp, #8
+ 526              	.LCFI5:
+ 527              		.cfi_remember_state
+ 528              		.cfi_def_cfa_offset 8
+ 529              		@ sp needed
+ 530 0034 10BD     		pop	{r4, pc}
+ 531              	.LVL60:
+ 532              	.L47:
+ 533              	.LCFI6:
+ 534              		.cfi_restore_state
+ 286:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_obj_refresh_self_size(obj);
+ 535              		.loc 1 286 9 is_stmt 1 view .LVU143
+ 286:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_obj_refresh_self_size(obj);
+ 536              		.loc 1 286 32 is_stmt 0 view .LVU144
+ 537 0036 9DF80430 		ldrb	r3, [sp, #4]	@ zero_extendqisi2
+ 538 003a C3F30403 		ubfx	r3, r3, #0, #5
+ 286:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_obj_refresh_self_size(obj);
+ 539              		.loc 1 286 24 view .LVU145
+ 540 003e 84F86C30 		strb	r3, [r4, #108]
+ 287:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_obj_set_height(obj, header.h); /*Keep the user defined width*/
+ 541              		.loc 1 287 9 is_stmt 1 view .LVU146
+ 542 0042 2046     		mov	r0, r4
+ 543              	.LVL61:
+ 287:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_obj_set_height(obj, header.h); /*Keep the user defined width*/
+ 544              		.loc 1 287 9 is_stmt 0 view .LVU147
+ 545 0044 FFF7FEFF 		bl	lv_obj_refresh_self_size
+ 546              	.LVL62:
+ 288:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 547              		.loc 1 288 9 is_stmt 1 view .LVU148
+ 288:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 548              		.loc 1 288 38 is_stmt 0 view .LVU149
+ 549 0048 BDF80610 		ldrh	r1, [sp, #6]
+ 288:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 550              		.loc 1 288 9 view .LVU150
+ 551 004c C1F34A11 		ubfx	r1, r1, #5, #11
+ 552 0050 2046     		mov	r0, r4
+ 553 0052 FFF7FEFF 		bl	lv_obj_set_height
+ 554              	.LVL63:
+ 555 0056 E9E7     		b	.L45
+ 556              		.cfi_endproc
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 19
+
+
+ 557              	.LFE197:
+ 559              		.section	.text.lv_imgbtn_set_src,"ax",%progbits
+ 560              		.align	1
+ 561              		.global	lv_imgbtn_set_src
+ 562              		.syntax unified
+ 563              		.thumb
+ 564              		.thumb_func
+ 565              		.fpu fpv4-sp-d16
+ 567              	lv_imgbtn_set_src:
+ 568              	.LVL64:
+ 569              	.LFB190:
+  81:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
+ 570              		.loc 1 81 1 is_stmt 1 view -0
+ 571              		.cfi_startproc
+ 572              		@ args = 4, pretend = 0, frame = 0
+ 573              		@ frame_needed = 0, uses_anonymous_args = 0
+  81:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
+ 574              		.loc 1 81 1 is_stmt 0 view .LVU152
+ 575 0000 38B5     		push	{r3, r4, r5, lr}
+ 576              	.LCFI7:
+ 577              		.cfi_def_cfa_offset 16
+ 578              		.cfi_offset 3, -16
+ 579              		.cfi_offset 4, -12
+ 580              		.cfi_offset 5, -8
+ 581              		.cfi_offset 14, -4
+  82:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 582              		.loc 1 82 5 is_stmt 1 view .LVU153
+  82:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 583              		.loc 1 82 5 view .LVU154
+  82:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 584              		.loc 1 82 5 view .LVU155
+  84:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 585              		.loc 1 84 5 view .LVU156
+ 586              	.LVL65:
+  86:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     imgbtn->img_src_mid[state] = src_mid;
+ 587              		.loc 1 86 5 view .LVU157
+  86:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     imgbtn->img_src_mid[state] = src_mid;
+ 588              		.loc 1 86 33 is_stmt 0 view .LVU158
+ 589 0002 01F10E05 		add	r5, r1, #14
+ 590 0006 00EB8505 		add	r5, r0, r5, lsl #2
+ 591 000a 6A60     		str	r2, [r5, #4]
+  87:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     imgbtn->img_src_right[state] = src_right;
+ 592              		.loc 1 87 5 is_stmt 1 view .LVU159
+  87:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     imgbtn->img_src_right[state] = src_right;
+ 593              		.loc 1 87 32 is_stmt 0 view .LVU160
+ 594 000c 01F10802 		add	r2, r1, #8
+ 595              	.LVL66:
+  87:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     imgbtn->img_src_right[state] = src_right;
+ 596              		.loc 1 87 32 view .LVU161
+ 597 0010 00EB8202 		add	r2, r0, r2, lsl #2
+ 598 0014 5360     		str	r3, [r2, #4]
+ 599              	.LVL67:
+  88:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 600              		.loc 1 88 5 is_stmt 1 view .LVU162
+  88:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 601              		.loc 1 88 34 is_stmt 0 view .LVU163
+ 602 0016 1431     		adds	r1, r1, #20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 20
+
+
+ 603              	.LVL68:
+  88:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 604              		.loc 1 88 34 view .LVU164
+ 605 0018 00EB8104 		add	r4, r0, r1, lsl #2
+ 606 001c 049B     		ldr	r3, [sp, #16]
+ 607              	.LVL69:
+  88:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 608              		.loc 1 88 34 view .LVU165
+ 609 001e 6360     		str	r3, [r4, #4]
+ 610              	.LVL70:
+  90:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** }
+ 611              		.loc 1 90 5 is_stmt 1 view .LVU166
+ 612 0020 FFF7FEFF 		bl	refr_img
+ 613              	.LVL71:
+  91:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 614              		.loc 1 91 1 is_stmt 0 view .LVU167
+ 615 0024 38BD     		pop	{r3, r4, r5, pc}
+  91:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 616              		.loc 1 91 1 view .LVU168
+ 617              		.cfi_endproc
+ 618              	.LFE190:
+ 620              		.section	.text.draw_main,"ax",%progbits
+ 621              		.align	1
+ 622              		.syntax unified
+ 623              		.thumb
+ 624              		.thumb_func
+ 625              		.fpu fpv4-sp-d16
+ 627              	draw_main:
+ 628              	.LVL72:
+ 629              	.LFB196:
+ 194:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 630              		.loc 1 194 1 is_stmt 1 view -0
+ 631              		.cfi_startproc
+ 632              		@ args = 0, pretend = 0, frame = 64
+ 633              		@ frame_needed = 0, uses_anonymous_args = 0
+ 194:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 634              		.loc 1 194 1 is_stmt 0 view .LVU170
+ 635 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 636              	.LCFI8:
+ 637              		.cfi_def_cfa_offset 36
+ 638              		.cfi_offset 4, -36
+ 639              		.cfi_offset 5, -32
+ 640              		.cfi_offset 6, -28
+ 641              		.cfi_offset 7, -24
+ 642              		.cfi_offset 8, -20
+ 643              		.cfi_offset 9, -16
+ 644              		.cfi_offset 10, -12
+ 645              		.cfi_offset 11, -8
+ 646              		.cfi_offset 14, -4
+ 647 0004 91B0     		sub	sp, sp, #68
+ 648              	.LCFI9:
+ 649              		.cfi_def_cfa_offset 104
+ 650 0006 0546     		mov	r5, r0
+ 195:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 651              		.loc 1 195 5 is_stmt 1 view .LVU171
+ 195:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 652              		.loc 1 195 22 is_stmt 0 view .LVU172
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 21
+
+
+ 653 0008 FFF7FEFF 		bl	lv_event_get_target
+ 654              	.LVL73:
+ 195:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 655              		.loc 1 195 22 view .LVU173
+ 656 000c 0446     		mov	r4, r0
+ 657              	.LVL74:
+ 196:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     const lv_area_t * clip_area = lv_event_get_param(e);
+ 658              		.loc 1 196 5 is_stmt 1 view .LVU174
+ 197:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 659              		.loc 1 197 5 view .LVU175
+ 197:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 660              		.loc 1 197 35 is_stmt 0 view .LVU176
+ 661 000e 2846     		mov	r0, r5
+ 662              	.LVL75:
+ 197:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 663              		.loc 1 197 35 view .LVU177
+ 664 0010 FFF7FEFF 		bl	lv_event_get_param
+ 665              	.LVL76:
+ 666 0014 0090     		str	r0, [sp]
+ 667              	.LVL77:
+ 200:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 668              		.loc 1 200 5 is_stmt 1 view .LVU178
+ 200:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 669              		.loc 1 200 32 is_stmt 0 view .LVU179
+ 670 0016 2046     		mov	r0, r4
+ 671              	.LVL78:
+ 200:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 672              		.loc 1 200 32 view .LVU180
+ 673 0018 FFF7FEFF 		bl	get_state
+ 674              	.LVL79:
+ 675 001c 0146     		mov	r1, r0
+ 676 001e 2046     		mov	r0, r4
+ 677 0020 FFF7FEFF 		bl	suggest_state
+ 678              	.LVL80:
+ 679 0024 0546     		mov	r5, r0
+ 680              	.LVL81:
+ 203:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 681              		.loc 1 203 5 is_stmt 1 view .LVU181
+ 203:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 682              		.loc 1 203 18 is_stmt 0 view .LVU182
+ 683 0026 00F10E03 		add	r3, r0, #14
+ 684 002a 04EB8303 		add	r3, r4, r3, lsl #2
+ 685 002e D3F804B0 		ldr	fp, [r3, #4]
+ 686              	.LVL82:
+ 205:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_coord_t th = lv_obj_get_style_transform_height(obj, LV_PART_MAIN);
+ 687              		.loc 1 205 5 is_stmt 1 view .LVU183
+ 688              	.LBB10:
+ 689              	.LBI10:
+ 690              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style_gen.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_width(const struct _lv_obj_t * obj, uint32_t part)
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_WIDTH);
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_min_width(const struct _lv_obj_t * obj, uint32_t part)
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 22
+
+
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MIN_WIDTH);
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_max_width(const struct _lv_obj_t * obj, uint32_t part)
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MAX_WIDTH);
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_height(const struct _lv_obj_t * obj, uint32_t part)
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_HEIGHT);
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_min_height(const struct _lv_obj_t * obj, uint32_t part)
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MIN_HEIGHT);
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_max_height(const struct _lv_obj_t * obj, uint32_t part)
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_MAX_HEIGHT);
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_x(const struct _lv_obj_t * obj, uint32_t part)
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_X);
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_y(const struct _lv_obj_t * obj, uint32_t part)
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_Y);
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_align_t lv_obj_get_style_align(const struct _lv_obj_t * obj, uint32_t part)
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_ALIGN);
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_align_t)v.num;
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_width(const struct _lv_obj_t * obj, uint32_t pa
+ 691              		.loc 2 55 26 view .LVU184
+ 692              	.LBB11:
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_WIDTH);
+ 693              		.loc 2 57 5 view .LVU185
+ 694              		.loc 2 57 26 is_stmt 0 view .LVU186
+ 695 0032 40F60A02 		movw	r2, #2058
+ 696 0036 0021     		movs	r1, #0
+ 697 0038 2046     		mov	r0, r4
+ 698              	.LVL83:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 23
+
+
+ 699              		.loc 2 57 26 view .LVU187
+ 700 003a FFF7FEFF 		bl	lv_obj_get_style_prop
+ 701              	.LVL84:
+ 702 003e 8046     		mov	r8, r0
+ 703              	.LVL85:
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 704              		.loc 2 58 5 is_stmt 1 view .LVU188
+ 705              		.loc 2 58 5 is_stmt 0 view .LVU189
+ 706              	.LBE11:
+ 707              	.LBE10:
+ 206:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_area_t coords;
+ 708              		.loc 1 206 5 is_stmt 1 view .LVU190
+ 709              	.LBB12:
+ 710              	.LBI12:
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_transform_height(const struct _lv_obj_t * obj, uint32_t p
+ 711              		.loc 2 61 26 view .LVU191
+ 712              	.LBB13:
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSFORM_HEIGHT);
+ 713              		.loc 2 63 5 view .LVU192
+ 714              		.loc 2 63 26 is_stmt 0 view .LVU193
+ 715 0040 40F60B02 		movw	r2, #2059
+ 716 0044 0021     		movs	r1, #0
+ 717 0046 2046     		mov	r0, r4
+ 718 0048 FFF7FEFF 		bl	lv_obj_get_style_prop
+ 719              	.LVL86:
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
+ 720              		.loc 2 64 5 is_stmt 1 view .LVU194
+ 721              		.loc 2 64 5 is_stmt 0 view .LVU195
+ 722              	.LBE13:
+ 723              	.LBE12:
+ 207:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_area_copy(&coords, &obj->coords);
+ 724              		.loc 1 207 5 is_stmt 1 view .LVU196
+ 208:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.x1 -= tw;
+ 725              		.loc 1 208 5 view .LVU197
+ 726              	.LBB14:
+ 727              	.LBI14:
+ 728              		.file 3 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @file lv_area.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifndef LV_AREA_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_AREA_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include "../lv_conf_internal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <string.h>
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 24
+
+
+  18:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdbool.h>
+  19:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdint.h>
+  20:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  21:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  22:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      DEFINES
+  23:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  24:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  25:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_MAX_REDUCE    8192
+  26:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  27:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #if LV_USE_LARGE_COORD
+  28:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int32_t lv_coord_t;
+  29:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #else
+  30:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int16_t lv_coord_t;
+  31:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  32:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  33:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*To allow some special values in the end reduce the max value*/
+  34:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MAX ((lv_coord_t)((uint32_t)((uint32_t)1 << (8 * sizeof(lv_coord_t) - 1)) - _LV_CO
+  35:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MIN (-LV_COORD_MAX)
+  36:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MAX);
+  38:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MIN);
+  39:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  40:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+  41:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      TYPEDEFS
+  42:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+  43:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  44:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+  45:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Represents a point on the screen.
+  46:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+  47:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  48:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x;
+  49:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y;
+  50:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_point_t;
+  51:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  52:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Represents an area of the screen.*/
+  53:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  54:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x1;
+  55:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y1;
+  56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x2;
+  57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y2;
+  58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_area_t;
+  59:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  60:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Alignments*/
+  61:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  62:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_DEFAULT = 0,
+  63:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_LEFT,
+  64:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_MID,
+  65:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_RIGHT,
+  66:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_LEFT,
+  67:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_MID,
+  68:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_RIGHT,
+  69:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_LEFT_MID,
+  70:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_RIGHT_MID,
+  71:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_CENTER,
+  72:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  73:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_LEFT,
+  74:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_MID,
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 25
+
+
+  75:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_RIGHT,
+  76:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_LEFT,
+  77:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_MID,
+  78:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_RIGHT,
+  79:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_TOP,
+  80:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_MID,
+  81:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_BOTTOM,
+  82:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_TOP,
+  83:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_MID,
+  84:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_BOTTOM,
+  85:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  86:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_align_t;
+  87:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  88:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  89:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_NONE     = 0x00,
+  90:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_LEFT     = (1 << 0),
+  91:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_RIGHT    = (1 << 1),
+  92:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_TOP      = (1 << 2),
+  93:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_BOTTOM   = (1 << 3),
+  94:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_HOR      = LV_DIR_LEFT | LV_DIR_RIGHT,
+  95:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_VER      = LV_DIR_TOP | LV_DIR_BOTTOM,
+  96:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_ALL      = LV_DIR_HOR | LV_DIR_VER,
+  97:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  98:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  99:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_dir_t;
+ 100:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 101:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+ 102:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * GLOBAL PROTOTYPES
+ 103:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+ 104:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 105:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 106:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Initialize an area
+ 107:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 108:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x1 left coordinate of the area
+ 109:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y1 top coordinate of the area
+ 110:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x2 right coordinate of the area
+ 111:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y2 bottom coordinate of the area
+ 112:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set(lv_area_t * area_p, lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2);
+ 114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 116:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Copy an area
+ 117:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param dest pointer to the destination area
+ 118:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param src pointer to the source area
+ 119:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 120:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** inline static void lv_area_copy(lv_area_t * dest, const lv_area_t * src)
+ 729              		.loc 3 120 20 view .LVU198
+ 730              	.LBB15:
+ 121:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 122:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x1 = src->x1;
+ 731              		.loc 3 122 5 view .LVU199
+ 732              		.loc 3 122 19 is_stmt 0 view .LVU200
+ 733 004c B4F91470 		ldrsh	r7, [r4, #20]
+ 123:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y1 = src->y1;
+ 734              		.loc 3 123 5 is_stmt 1 view .LVU201
+ 735              		.loc 3 123 19 is_stmt 0 view .LVU202
+ 736 0050 B4F91660 		ldrsh	r6, [r4, #22]
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 26
+
+
+ 124:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x2 = src->x2;
+ 737              		.loc 3 124 5 is_stmt 1 view .LVU203
+ 738              		.loc 3 124 19 is_stmt 0 view .LVU204
+ 739 0054 B4F91810 		ldrsh	r1, [r4, #24]
+ 125:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y2 = src->y2;
+ 740              		.loc 3 125 5 is_stmt 1 view .LVU205
+ 741              		.loc 3 125 19 is_stmt 0 view .LVU206
+ 742 0058 B4F91A20 		ldrsh	r2, [r4, #26]
+ 743              	.LVL87:
+ 744              		.loc 3 125 19 view .LVU207
+ 745              	.LBE15:
+ 746              	.LBE14:
+ 209:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.x2 += tw;
+ 747              		.loc 1 209 5 is_stmt 1 view .LVU208
+ 209:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.x2 += tw;
+ 748              		.loc 1 209 15 is_stmt 0 view .LVU209
+ 749 005c 1FFA88F3 		uxth	r3, r8
+ 750 0060 FF1A     		subs	r7, r7, r3
+ 751 0062 1FFA87F8 		uxth	r8, r7
+ 752              	.LVL88:
+ 210:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.y1 -= th;
+ 753              		.loc 1 210 5 is_stmt 1 view .LVU210
+ 210:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.y1 -= th;
+ 754              		.loc 1 210 15 is_stmt 0 view .LVU211
+ 755 0066 0B44     		add	r3, r3, r1
+ 756              	.LVL89:
+ 210:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.y1 -= th;
+ 757              		.loc 1 210 15 view .LVU212
+ 758 0068 1FFA83FA 		uxth	r10, r3
+ 759 006c 1BB2     		sxth	r3, r3
+ 760 006e 0193     		str	r3, [sp, #4]
+ 211:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.y2 += th;
+ 761              		.loc 1 211 5 is_stmt 1 view .LVU213
+ 211:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.y2 += th;
+ 762              		.loc 1 211 15 is_stmt 0 view .LVU214
+ 763 0070 80B2     		uxth	r0, r0
+ 211:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     coords.y2 += th;
+ 764              		.loc 1 211 15 view .LVU215
+ 765 0072 361A     		subs	r6, r6, r0
+ 766 0074 1FFA86F9 		uxth	r9, r6
+ 767 0078 36B2     		sxth	r6, r6
+ 212:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 768              		.loc 1 212 5 is_stmt 1 view .LVU216
+ 212:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 769              		.loc 1 212 15 is_stmt 0 view .LVU217
+ 770 007a 1044     		add	r0, r0, r2
+ 771              	.LVL90:
+ 212:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 772              		.loc 1 212 15 view .LVU218
+ 773 007c 03B2     		sxth	r3, r0
+ 774 007e 0293     		str	r3, [sp, #8]
+ 214:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_draw_img_dsc_init(&img_dsc);
+ 775              		.loc 1 214 5 is_stmt 1 view .LVU219
+ 215:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_init_draw_img_dsc(obj, LV_PART_MAIN, &img_dsc);
+ 776              		.loc 1 215 5 view .LVU220
+ 777 0080 0AAB     		add	r3, sp, #40
+ 778 0082 1846     		mov	r0, r3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 27
+
+
+ 779 0084 FFF7FEFF 		bl	lv_draw_img_dsc_init
+ 780              	.LVL91:
+ 216:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 781              		.loc 1 216 5 view .LVU221
+ 782 0088 0AAA     		add	r2, sp, #40
+ 783 008a 0021     		movs	r1, #0
+ 784 008c 2046     		mov	r0, r4
+ 785 008e FFF7FEFF 		bl	lv_obj_init_draw_img_dsc
+ 786              	.LVL92:
+ 218:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_area_t coords_part;
+ 787              		.loc 1 218 5 view .LVU222
+ 219:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_coord_t left_w = 0;
+ 788              		.loc 1 219 5 view .LVU223
+ 220:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_coord_t right_w = 0;
+ 789              		.loc 1 220 5 view .LVU224
+ 221:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 790              		.loc 1 221 5 view .LVU225
+ 223:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_img_decoder_get_info(src, &header);
+ 791              		.loc 1 223 5 view .LVU226
+ 223:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_img_decoder_get_info(src, &header);
+ 792              		.loc 1 223 7 is_stmt 0 view .LVU227
+ 793 0092 BBF1000F 		cmp	fp, #0
+ 794 0096 6AD0     		beq	.L57
+ 795 0098 3FB2     		sxth	r7, r7
+ 224:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         left_w = header.w;
+ 796              		.loc 1 224 9 is_stmt 1 view .LVU228
+ 797 009a 09A9     		add	r1, sp, #36
+ 798 009c 5846     		mov	r0, fp
+ 799 009e FFF7FEFF 		bl	lv_img_decoder_get_info
+ 800              	.LVL93:
+ 225:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x1 = coords.x1;
+ 801              		.loc 1 225 9 view .LVU229
+ 225:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x1 = coords.x1;
+ 802              		.loc 1 225 24 is_stmt 0 view .LVU230
+ 803 00a2 099A     		ldr	r2, [sp, #36]
+ 804 00a4 C2F38A23 		ubfx	r3, r2, #10, #11
+ 225:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x1 = coords.x1;
+ 805              		.loc 1 225 16 view .LVU231
+ 806 00a8 0393     		str	r3, [sp, #12]
+ 807              	.LVL94:
+ 226:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y1 = coords.y1;
+ 808              		.loc 1 226 9 is_stmt 1 view .LVU232
+ 226:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y1 = coords.y1;
+ 809              		.loc 1 226 24 is_stmt 0 view .LVU233
+ 810 00aa ADF81C70 		strh	r7, [sp, #28]	@ movhi
+ 227:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x2 = coords.x1 + header.w - 1;
+ 811              		.loc 1 227 9 is_stmt 1 view .LVU234
+ 227:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x2 = coords.x1 + header.w - 1;
+ 812              		.loc 1 227 24 is_stmt 0 view .LVU235
+ 813 00ae ADF81E60 		strh	r6, [sp, #30]	@ movhi
+ 228:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y2 = coords.y1 + header.h - 1;
+ 814              		.loc 1 228 9 is_stmt 1 view .LVU236
+ 228:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y2 = coords.y1 + header.h - 1;
+ 815              		.loc 1 228 36 is_stmt 0 view .LVU237
+ 816 00b2 4344     		add	r3, r3, r8
+ 817 00b4 9BB2     		uxth	r3, r3
+ 228:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y2 = coords.y1 + header.h - 1;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 28
+
+
+ 818              		.loc 1 228 47 view .LVU238
+ 819 00b6 013B     		subs	r3, r3, #1
+ 228:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y2 = coords.y1 + header.h - 1;
+ 820              		.loc 1 228 24 view .LVU239
+ 821 00b8 ADF82030 		strh	r3, [sp, #32]	@ movhi
+ 229:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 822              		.loc 1 229 9 is_stmt 1 view .LVU240
+ 229:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 823              		.loc 1 229 44 is_stmt 0 view .LVU241
+ 824 00bc BDF82630 		ldrh	r3, [sp, #38]
+ 825 00c0 C3F34A13 		ubfx	r3, r3, #5, #11
+ 229:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 826              		.loc 1 229 36 view .LVU242
+ 827 00c4 4B44     		add	r3, r3, r9
+ 828 00c6 9BB2     		uxth	r3, r3
+ 229:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 829              		.loc 1 229 47 view .LVU243
+ 830 00c8 013B     		subs	r3, r3, #1
+ 229:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 831              		.loc 1 229 24 view .LVU244
+ 832 00ca ADF82230 		strh	r3, [sp, #34]	@ movhi
+ 230:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 833              		.loc 1 230 9 is_stmt 1 view .LVU245
+ 834 00ce 0AAB     		add	r3, sp, #40
+ 835 00d0 5A46     		mov	r2, fp
+ 836              	.LVL95:
+ 230:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 837              		.loc 1 230 9 is_stmt 0 view .LVU246
+ 838 00d2 0099     		ldr	r1, [sp]
+ 839 00d4 07A8     		add	r0, sp, #28
+ 840 00d6 FFF7FEFF 		bl	lv_draw_img
+ 841              	.LVL96:
+ 842              	.L51:
+ 233:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src) {
+ 843              		.loc 1 233 5 is_stmt 1 view .LVU247
+ 233:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src) {
+ 844              		.loc 1 233 9 is_stmt 0 view .LVU248
+ 845 00da 05F11403 		add	r3, r5, #20
+ 846 00de 04EB8303 		add	r3, r4, r3, lsl #2
+ 847 00e2 D3F804B0 		ldr	fp, [r3, #4]
+ 848              	.LVL97:
+ 234:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_img_decoder_get_info(src, &header);
+ 849              		.loc 1 234 5 is_stmt 1 view .LVU249
+ 234:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_img_decoder_get_info(src, &header);
+ 850              		.loc 1 234 7 is_stmt 0 view .LVU250
+ 851 00e6 BBF1000F 		cmp	fp, #0
+ 852 00ea 43D0     		beq	.L58
+ 235:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         right_w = header.w;
+ 853              		.loc 1 235 9 is_stmt 1 view .LVU251
+ 854 00ec 09A9     		add	r1, sp, #36
+ 855 00ee 5846     		mov	r0, fp
+ 856 00f0 FFF7FEFF 		bl	lv_img_decoder_get_info
+ 857              	.LVL98:
+ 236:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x1 = coords.x2 - header.w + 1;
+ 858              		.loc 1 236 9 view .LVU252
+ 236:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x1 = coords.x2 - header.w + 1;
+ 859              		.loc 1 236 25 is_stmt 0 view .LVU253
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 29
+
+
+ 860 00f4 099F     		ldr	r7, [sp, #36]
+ 861 00f6 C7F38A23 		ubfx	r3, r7, #10, #11
+ 236:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x1 = coords.x2 - header.w + 1;
+ 862              		.loc 1 236 17 view .LVU254
+ 863 00fa 1F46     		mov	r7, r3
+ 864              	.LVL99:
+ 237:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y1 = coords.y1;
+ 865              		.loc 1 237 9 is_stmt 1 view .LVU255
+ 237:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y1 = coords.y1;
+ 866              		.loc 1 237 36 is_stmt 0 view .LVU256
+ 867 00fc AAEB0303 		sub	r3, r10, r3
+ 868 0100 9BB2     		uxth	r3, r3
+ 237:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y1 = coords.y1;
+ 869              		.loc 1 237 47 view .LVU257
+ 870 0102 0133     		adds	r3, r3, #1
+ 237:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y1 = coords.y1;
+ 871              		.loc 1 237 24 view .LVU258
+ 872 0104 ADF81C30 		strh	r3, [sp, #28]	@ movhi
+ 238:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x2 = coords.x2;
+ 873              		.loc 1 238 9 is_stmt 1 view .LVU259
+ 238:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.x2 = coords.x2;
+ 874              		.loc 1 238 24 is_stmt 0 view .LVU260
+ 875 0108 ADF81E60 		strh	r6, [sp, #30]	@ movhi
+ 239:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y2 = coords.y1 + header.h - 1;
+ 876              		.loc 1 239 9 is_stmt 1 view .LVU261
+ 239:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         coords_part.y2 = coords.y1 + header.h - 1;
+ 877              		.loc 1 239 24 is_stmt 0 view .LVU262
+ 878 010c 019B     		ldr	r3, [sp, #4]
+ 879 010e ADF82030 		strh	r3, [sp, #32]	@ movhi
+ 240:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 880              		.loc 1 240 9 is_stmt 1 view .LVU263
+ 240:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 881              		.loc 1 240 44 is_stmt 0 view .LVU264
+ 882 0112 BDF82630 		ldrh	r3, [sp, #38]
+ 883 0116 C3F34A13 		ubfx	r3, r3, #5, #11
+ 240:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 884              		.loc 1 240 36 view .LVU265
+ 885 011a 4B44     		add	r3, r3, r9
+ 886 011c 9BB2     		uxth	r3, r3
+ 240:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 887              		.loc 1 240 47 view .LVU266
+ 888 011e 013B     		subs	r3, r3, #1
+ 240:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_draw_img(&coords_part, clip_area, src, &img_dsc);
+ 889              		.loc 1 240 24 view .LVU267
+ 890 0120 ADF82230 		strh	r3, [sp, #34]	@ movhi
+ 241:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 891              		.loc 1 241 9 is_stmt 1 view .LVU268
+ 892 0124 0AAB     		add	r3, sp, #40
+ 893 0126 5A46     		mov	r2, fp
+ 894 0128 0099     		ldr	r1, [sp]
+ 895 012a 07A8     		add	r0, sp, #28
+ 896 012c FFF7FEFF 		bl	lv_draw_img
+ 897              	.LVL100:
+ 898              	.L52:
+ 244:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src) {
+ 899              		.loc 1 244 5 view .LVU269
+ 244:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src) {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 30
+
+
+ 900              		.loc 1 244 9 is_stmt 0 view .LVU270
+ 901 0130 0835     		adds	r5, r5, #8
+ 902 0132 04EB8504 		add	r4, r4, r5, lsl #2
+ 903              	.LVL101:
+ 244:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(src) {
+ 904              		.loc 1 244 9 view .LVU271
+ 905 0136 6468     		ldr	r4, [r4, #4]
+ 906              	.LVL102:
+ 245:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_area_t clip_center_area;
+ 907              		.loc 1 245 5 is_stmt 1 view .LVU272
+ 245:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_area_t clip_center_area;
+ 908              		.loc 1 245 7 is_stmt 0 view .LVU273
+ 909 0138 B4B1     		cbz	r4, .L50
+ 910              	.LBB16:
+ 246:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.x1 = coords.x1 + left_w;
+ 911              		.loc 1 246 9 is_stmt 1 view .LVU274
+ 247:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.x2 = coords.x2 - right_w;
+ 912              		.loc 1 247 9 view .LVU275
+ 247:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.x2 = coords.x2 - right_w;
+ 913              		.loc 1 247 41 is_stmt 0 view .LVU276
+ 914 013a 039B     		ldr	r3, [sp, #12]
+ 915 013c 9844     		add	r8, r8, r3
+ 916 013e 1FFA88F5 		uxth	r5, r8
+ 917 0142 0FFA88F8 		sxth	r8, r8
+ 247:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.x2 = coords.x2 - right_w;
+ 918              		.loc 1 247 29 view .LVU277
+ 919 0146 ADF81480 		strh	r8, [sp, #20]	@ movhi
+ 248:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.y1 = coords.y1;
+ 920              		.loc 1 248 9 is_stmt 1 view .LVU278
+ 248:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.y1 = coords.y1;
+ 921              		.loc 1 248 41 is_stmt 0 view .LVU279
+ 922 014a AAEB070A 		sub	r10, r10, r7
+ 248:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.y1 = coords.y1;
+ 923              		.loc 1 248 29 view .LVU280
+ 924 014e ADF818A0 		strh	r10, [sp, #24]	@ movhi
+ 249:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.y2 = coords.y2;
+ 925              		.loc 1 249 9 is_stmt 1 view .LVU281
+ 249:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         clip_center_area.y2 = coords.y2;
+ 926              		.loc 1 249 29 is_stmt 0 view .LVU282
+ 927 0152 ADF81660 		strh	r6, [sp, #22]	@ movhi
+ 250:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 928              		.loc 1 250 9 is_stmt 1 view .LVU283
+ 250:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 929              		.loc 1 250 29 is_stmt 0 view .LVU284
+ 930 0156 029B     		ldr	r3, [sp, #8]
+ 931 0158 ADF81A30 		strh	r3, [sp, #26]	@ movhi
+ 252:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         comm_res = _lv_area_intersect(&clip_center_area, &clip_center_area, clip_area);
+ 932              		.loc 1 252 9 is_stmt 1 view .LVU285
+ 253:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(comm_res) {
+ 933              		.loc 1 253 9 view .LVU286
+ 253:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(comm_res) {
+ 934              		.loc 1 253 20 is_stmt 0 view .LVU287
+ 935 015c 009A     		ldr	r2, [sp]
+ 936 015e 05A9     		add	r1, sp, #20
+ 937 0160 0846     		mov	r0, r1
+ 938 0162 FFF7FEFF 		bl	_lv_area_intersect
+ 939              	.LVL103:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 31
+
+
+ 254:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             lv_coord_t i;
+ 940              		.loc 1 254 9 is_stmt 1 view .LVU288
+ 254:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             lv_coord_t i;
+ 941              		.loc 1 254 11 is_stmt 0 view .LVU289
+ 942 0166 38B9     		cbnz	r0, .L60
+ 943              	.LVL104:
+ 944              	.L50:
+ 254:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             lv_coord_t i;
+ 945              		.loc 1 254 11 view .LVU290
+ 946              	.LBE16:
+ 271:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 947              		.loc 1 271 1 view .LVU291
+ 948 0168 11B0     		add	sp, sp, #68
+ 949              	.LCFI10:
+ 950              		.cfi_remember_state
+ 951              		.cfi_def_cfa_offset 36
+ 952              	.LVL105:
+ 271:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 953              		.loc 1 271 1 view .LVU292
+ 954              		@ sp needed
+ 955 016a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 956              	.LVL106:
+ 957              	.L57:
+ 958              	.LCFI11:
+ 959              		.cfi_restore_state
+ 220:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_coord_t right_w = 0;
+ 960              		.loc 1 220 16 view .LVU293
+ 961 016e 0023     		movs	r3, #0
+ 962 0170 0393     		str	r3, [sp, #12]
+ 963 0172 B2E7     		b	.L51
+ 964              	.LVL107:
+ 965              	.L58:
+ 221:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 966              		.loc 1 221 16 view .LVU294
+ 967 0174 0027     		movs	r7, #0
+ 968 0176 DBE7     		b	.L52
+ 969              	.LVL108:
+ 970              	.L60:
+ 971              	.LBB18:
+ 972              	.LBB17:
+ 255:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             lv_img_decoder_get_info(src, &header);
+ 973              		.loc 1 255 13 is_stmt 1 view .LVU295
+ 256:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 974              		.loc 1 256 13 view .LVU296
+ 975 0178 09A9     		add	r1, sp, #36
+ 976 017a 2046     		mov	r0, r4
+ 977              	.LVL109:
+ 256:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 978              		.loc 1 256 13 is_stmt 0 view .LVU297
+ 979 017c FFF7FEFF 		bl	lv_img_decoder_get_info
+ 980              	.LVL110:
+ 258:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.y1 = coords.y1;
+ 981              		.loc 1 258 13 is_stmt 1 view .LVU298
+ 258:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.y1 = coords.y1;
+ 982              		.loc 1 258 28 is_stmt 0 view .LVU299
+ 983 0180 ADF81C80 		strh	r8, [sp, #28]	@ movhi
+ 259:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.x2 = coords_part.x1 + header.w - 1;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 32
+
+
+ 984              		.loc 1 259 13 is_stmt 1 view .LVU300
+ 259:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.x2 = coords_part.x1 + header.w - 1;
+ 985              		.loc 1 259 28 is_stmt 0 view .LVU301
+ 986 0184 ADF81E60 		strh	r6, [sp, #30]	@ movhi
+ 260:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.y2 = coords_part.y1 + header.h - 1;
+ 987              		.loc 1 260 13 is_stmt 1 view .LVU302
+ 260:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.y2 = coords_part.y1 + header.h - 1;
+ 988              		.loc 1 260 53 is_stmt 0 view .LVU303
+ 989 0188 099B     		ldr	r3, [sp, #36]
+ 990 018a C3F38A23 		ubfx	r3, r3, #10, #11
+ 260:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.y2 = coords_part.y1 + header.h - 1;
+ 991              		.loc 1 260 45 view .LVU304
+ 992 018e 1D44     		add	r5, r5, r3
+ 993 0190 ADB2     		uxth	r5, r5
+ 260:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.y2 = coords_part.y1 + header.h - 1;
+ 994              		.loc 1 260 56 view .LVU305
+ 995 0192 013D     		subs	r5, r5, #1
+ 260:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             coords_part.y2 = coords_part.y1 + header.h - 1;
+ 996              		.loc 1 260 28 view .LVU306
+ 997 0194 ADF82050 		strh	r5, [sp, #32]	@ movhi
+ 261:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 998              		.loc 1 261 13 is_stmt 1 view .LVU307
+ 261:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 999              		.loc 1 261 53 is_stmt 0 view .LVU308
+ 1000 0198 BDF82630 		ldrh	r3, [sp, #38]
+ 1001 019c C3F34A13 		ubfx	r3, r3, #5, #11
+ 261:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1002              		.loc 1 261 45 view .LVU309
+ 1003 01a0 9944     		add	r9, r9, r3
+ 1004 01a2 1FFA89F9 		uxth	r9, r9
+ 261:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1005              		.loc 1 261 56 view .LVU310
+ 1006 01a6 09F1FF39 		add	r9, r9, #-1
+ 261:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1007              		.loc 1 261 28 view .LVU311
+ 1008 01aa ADF82290 		strh	r9, [sp, #34]	@ movhi
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1009              		.loc 1 263 13 is_stmt 1 view .LVU312
+ 1010              	.LVL111:
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1011              		.loc 1 263 19 is_stmt 0 view .LVU313
+ 1012 01ae 0025     		movs	r5, #0
+ 1013              	.LVL112:
+ 1014              	.L55:
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1015              		.loc 1 263 24 is_stmt 1 discriminator 1 view .LVU314
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1016              		.loc 1 263 44 is_stmt 0 discriminator 1 view .LVU315
+ 1017 01b0 BDF91830 		ldrsh	r3, [sp, #24]
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1018              		.loc 1 263 56 discriminator 1 view .LVU316
+ 1019 01b4 099A     		ldr	r2, [sp, #36]
+ 1020 01b6 C2F38A22 		ubfx	r2, r2, #10, #11
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1021              		.loc 1 263 48 discriminator 1 view .LVU317
+ 1022 01ba 1344     		add	r3, r3, r2
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 33
+
+
+ 1023              		.loc 1 263 59 discriminator 1 view .LVU318
+ 1024 01bc 013B     		subs	r3, r3, #1
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1025              		.loc 1 263 13 discriminator 1 view .LVU319
+ 1026 01be 9D42     		cmp	r5, r3
+ 1027 01c0 D2DA     		bge	.L50
+ 265:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 coords_part.x1 = coords_part.x2 + 1;
+ 1028              		.loc 1 265 17 is_stmt 1 discriminator 3 view .LVU320
+ 1029 01c2 0AAB     		add	r3, sp, #40
+ 1030 01c4 2246     		mov	r2, r4
+ 1031 01c6 05A9     		add	r1, sp, #20
+ 1032 01c8 07A8     		add	r0, sp, #28
+ 1033 01ca FFF7FEFF 		bl	lv_draw_img
+ 1034              	.LVL113:
+ 266:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 coords_part.x2 += header.w;
+ 1035              		.loc 1 266 17 discriminator 3 view .LVU321
+ 266:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 coords_part.x2 += header.w;
+ 1036              		.loc 1 266 45 is_stmt 0 discriminator 3 view .LVU322
+ 1037 01ce BDF82020 		ldrh	r2, [sp, #32]
+ 266:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 coords_part.x2 += header.w;
+ 1038              		.loc 1 266 49 discriminator 3 view .LVU323
+ 1039 01d2 531C     		adds	r3, r2, #1
+ 266:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****                 coords_part.x2 += header.w;
+ 1040              		.loc 1 266 32 discriminator 3 view .LVU324
+ 1041 01d4 ADF81C30 		strh	r3, [sp, #28]	@ movhi
+ 267:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             }
+ 1042              		.loc 1 267 17 is_stmt 1 discriminator 3 view .LVU325
+ 267:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             }
+ 1043              		.loc 1 267 41 is_stmt 0 discriminator 3 view .LVU326
+ 1044 01d8 099B     		ldr	r3, [sp, #36]
+ 1045 01da C3F38A23 		ubfx	r3, r3, #10, #11
+ 267:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             }
+ 1046              		.loc 1 267 32 discriminator 3 view .LVU327
+ 1047 01de 1A44     		add	r2, r2, r3
+ 1048 01e0 ADF82020 		strh	r2, [sp, #32]	@ movhi
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1049              		.loc 1 263 64 is_stmt 1 discriminator 3 view .LVU328
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1050              		.loc 1 263 66 is_stmt 0 discriminator 3 view .LVU329
+ 1051 01e4 2B44     		add	r3, r3, r5
+ 1052 01e6 1DB2     		sxth	r5, r3
+ 1053              	.LVL114:
+ 263:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1054              		.loc 1 263 66 discriminator 3 view .LVU330
+ 1055 01e8 E2E7     		b	.L55
+ 1056              	.LBE17:
+ 1057              	.LBE18:
+ 1058              		.cfi_endproc
+ 1059              	.LFE196:
+ 1061              		.section	.text.lv_imgbtn_event,"ax",%progbits
+ 1062              		.align	1
+ 1063              		.syntax unified
+ 1064              		.thumb
+ 1065              		.thumb_func
+ 1066              		.fpu fpv4-sp-d16
+ 1068              	lv_imgbtn_event:
+ 1069              	.LVL115:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 34
+
+
+ 1070              	.LFB195:
+ 160:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_UNUSED(class_p);
+ 1071              		.loc 1 160 1 is_stmt 1 view -0
+ 1072              		.cfi_startproc
+ 1073              		@ args = 0, pretend = 0, frame = 8
+ 1074              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     LV_UNUSED(class_p);
+ 1075              		.loc 1 160 1 is_stmt 0 view .LVU332
+ 1076 0000 70B5     		push	{r4, r5, r6, lr}
+ 1077              	.LCFI12:
+ 1078              		.cfi_def_cfa_offset 16
+ 1079              		.cfi_offset 4, -16
+ 1080              		.cfi_offset 5, -12
+ 1081              		.cfi_offset 6, -8
+ 1082              		.cfi_offset 14, -4
+ 1083 0002 82B0     		sub	sp, sp, #8
+ 1084              	.LCFI13:
+ 1085              		.cfi_def_cfa_offset 24
+ 1086 0004 0C46     		mov	r4, r1
+ 161:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1087              		.loc 1 161 5 is_stmt 1 view .LVU333
+ 163:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(res != LV_RES_OK) return;
+ 1088              		.loc 1 163 5 view .LVU334
+ 163:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(res != LV_RES_OK) return;
+ 1089              		.loc 1 163 20 is_stmt 0 view .LVU335
+ 1090 0006 2D48     		ldr	r0, .L71
+ 1091              	.LVL116:
+ 163:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(res != LV_RES_OK) return;
+ 1092              		.loc 1 163 20 view .LVU336
+ 1093 0008 FFF7FEFF 		bl	lv_obj_event_base
+ 1094              	.LVL117:
+ 164:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1095              		.loc 1 164 5 is_stmt 1 view .LVU337
+ 164:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1096              		.loc 1 164 7 is_stmt 0 view .LVU338
+ 1097 000c 0128     		cmp	r0, #1
+ 1098 000e 01D0     		beq	.L68
+ 1099              	.LVL118:
+ 1100              	.L61:
+ 191:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c **** 
+ 1101              		.loc 1 191 1 view .LVU339
+ 1102 0010 02B0     		add	sp, sp, #8
+ 1103              	.LCFI14:
+ 1104              		.cfi_remember_state
+ 1105              		.cfi_def_cfa_offset 16
+ 1106              		@ sp needed
+ 1107 0012 70BD     		pop	{r4, r5, r6, pc}
+ 1108              	.LVL119:
+ 1109              	.L68:
+ 1110              	.LCFI15:
+ 1111              		.cfi_restore_state
+ 166:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 1112              		.loc 1 166 5 is_stmt 1 view .LVU340
+ 166:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 1113              		.loc 1 166 28 is_stmt 0 view .LVU341
+ 1114 0014 2046     		mov	r0, r4
+ 1115              	.LVL120:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 35
+
+
+ 166:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 1116              		.loc 1 166 28 view .LVU342
+ 1117 0016 FFF7FEFF 		bl	lv_event_get_code
+ 1118              	.LVL121:
+ 1119 001a 0546     		mov	r5, r0
+ 1120              	.LVL122:
+ 167:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(code == LV_EVENT_PRESSED || code == LV_EVENT_RELEASED || code == LV_EVENT_PRESS_LOST) {
+ 1121              		.loc 1 167 5 is_stmt 1 view .LVU343
+ 167:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     if(code == LV_EVENT_PRESSED || code == LV_EVENT_RELEASED || code == LV_EVENT_PRESS_LOST) {
+ 1122              		.loc 1 167 22 is_stmt 0 view .LVU344
+ 1123 001c 2046     		mov	r0, r4
+ 1124 001e FFF7FEFF 		bl	lv_event_get_target
+ 1125              	.LVL123:
+ 1126 0022 0646     		mov	r6, r0
+ 1127              	.LVL124:
+ 168:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         refr_img(obj);
+ 1128              		.loc 1 168 5 is_stmt 1 view .LVU345
+ 168:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         refr_img(obj);
+ 1129              		.loc 1 168 7 is_stmt 0 view .LVU346
+ 1130 0024 012D     		cmp	r5, #1
+ 1131 0026 37D0     		beq	.L63
+ 168:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         refr_img(obj);
+ 1132              		.loc 1 168 33 discriminator 1 view .LVU347
+ 1133 0028 082D     		cmp	r5, #8
+ 1134 002a 35D0     		beq	.L63
+ 168:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         refr_img(obj);
+ 1135              		.loc 1 168 62 discriminator 2 view .LVU348
+ 1136 002c 032D     		cmp	r5, #3
+ 1137 002e 33D0     		beq	.L63
+ 171:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         draw_main(e);
+ 1138              		.loc 1 171 10 is_stmt 1 view .LVU349
+ 171:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         draw_main(e);
+ 1139              		.loc 1 171 12 is_stmt 0 view .LVU350
+ 1140 0030 152D     		cmp	r5, #21
+ 1141 0032 35D0     		beq	.L69
+ 174:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_cover_check_info_t * info = lv_event_get_param(e);
+ 1142              		.loc 1 174 10 is_stmt 1 view .LVU351
+ 174:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_cover_check_info_t * info = lv_event_get_param(e);
+ 1143              		.loc 1 174 12 is_stmt 0 view .LVU352
+ 1144 0034 122D     		cmp	r5, #18
+ 1145 0036 37D0     		beq	.L70
+ 178:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_point_t * p = lv_event_get_self_size_info(e);
+ 1146              		.loc 1 178 10 is_stmt 1 view .LVU353
+ 178:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_point_t * p = lv_event_get_self_size_info(e);
+ 1147              		.loc 1 178 12 is_stmt 0 view .LVU354
+ 1148 0038 262D     		cmp	r5, #38
+ 1149 003a E9D1     		bne	.L61
+ 1150              	.LBB19:
+ 179:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 1151              		.loc 1 179 9 is_stmt 1 view .LVU355
+ 179:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 1152              		.loc 1 179 26 is_stmt 0 view .LVU356
+ 1153 003c 2046     		mov	r0, r4
+ 1154              	.LVL125:
+ 179:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_imgbtn_t * imgbtn = (lv_imgbtn_t *)obj;
+ 1155              		.loc 1 179 26 view .LVU357
+ 1156 003e FFF7FEFF 		bl	lv_event_get_self_size_info
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 36
+
+
+ 1157              	.LVL126:
+ 1158 0042 0446     		mov	r4, r0
+ 1159              	.LVL127:
+ 180:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         lv_imgbtn_state_t state  = suggest_state(obj, get_state(obj));
+ 1160              		.loc 1 180 9 is_stmt 1 view .LVU358
+ 181:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(imgbtn->img_src_left[state] == NULL &&
+ 1161              		.loc 1 181 9 view .LVU359
+ 181:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(imgbtn->img_src_left[state] == NULL &&
+ 1162              		.loc 1 181 36 is_stmt 0 view .LVU360
+ 1163 0044 3046     		mov	r0, r6
+ 1164              	.LVL128:
+ 181:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(imgbtn->img_src_left[state] == NULL &&
+ 1165              		.loc 1 181 36 view .LVU361
+ 1166 0046 FFF7FEFF 		bl	get_state
+ 1167              	.LVL129:
+ 1168 004a 0146     		mov	r1, r0
+ 1169 004c 3046     		mov	r0, r6
+ 1170 004e FFF7FEFF 		bl	suggest_state
+ 1171              	.LVL130:
+ 182:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****            imgbtn->img_src_mid[state] != NULL &&
+ 1172              		.loc 1 182 9 is_stmt 1 view .LVU362
+ 182:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****            imgbtn->img_src_mid[state] != NULL &&
+ 1173              		.loc 1 182 32 is_stmt 0 view .LVU363
+ 1174 0052 00F10E03 		add	r3, r0, #14
+ 1175 0056 06EB8303 		add	r3, r6, r3, lsl #2
+ 1176 005a 5B68     		ldr	r3, [r3, #4]
+ 182:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****            imgbtn->img_src_mid[state] != NULL &&
+ 1177              		.loc 1 182 11 view .LVU364
+ 1178 005c 002B     		cmp	r3, #0
+ 1179 005e D7D1     		bne	.L61
+ 183:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****            imgbtn->img_src_right[state] == NULL)
+ 1180              		.loc 1 183 31 discriminator 1 view .LVU365
+ 1181 0060 00F10803 		add	r3, r0, #8
+ 1182 0064 06EB8303 		add	r3, r6, r3, lsl #2
+ 1183 0068 5A68     		ldr	r2, [r3, #4]
+ 182:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****            imgbtn->img_src_mid[state] != NULL &&
+ 1184              		.loc 1 182 48 discriminator 1 view .LVU366
+ 1185 006a 002A     		cmp	r2, #0
+ 1186 006c D0D0     		beq	.L61
+ 184:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         {
+ 1187              		.loc 1 184 33 view .LVU367
+ 1188 006e 00F11403 		add	r3, r0, #20
+ 1189 0072 06EB8306 		add	r6, r6, r3, lsl #2
+ 1190              	.LVL131:
+ 184:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         {
+ 1191              		.loc 1 184 33 view .LVU368
+ 1192 0076 7368     		ldr	r3, [r6, #4]
+ 183:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****            imgbtn->img_src_right[state] == NULL)
+ 1193              		.loc 1 183 47 view .LVU369
+ 1194 0078 002B     		cmp	r3, #0
+ 1195 007a C9D1     		bne	.L61
+ 1196              	.LBB20:
+ 186:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             lv_img_decoder_get_info(imgbtn->img_src_mid[state], &header);
+ 1197              		.loc 1 186 13 is_stmt 1 discriminator 2 view .LVU370
+ 187:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             p->x = LV_MAX(p->x, header.w);
+ 1198              		.loc 1 187 13 discriminator 2 view .LVU371
+ 1199 007c 01A9     		add	r1, sp, #4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 37
+
+
+ 1200 007e 1046     		mov	r0, r2
+ 1201              	.LVL132:
+ 187:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****             p->x = LV_MAX(p->x, header.w);
+ 1202              		.loc 1 187 13 is_stmt 0 discriminator 2 view .LVU372
+ 1203 0080 FFF7FEFF 		bl	lv_img_decoder_get_info
+ 1204              	.LVL133:
+ 188:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         }
+ 1205              		.loc 1 188 13 is_stmt 1 discriminator 2 view .LVU373
+ 188:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         }
+ 1206              		.loc 1 188 20 is_stmt 0 discriminator 2 view .LVU374
+ 1207 0084 019B     		ldr	r3, [sp, #4]
+ 1208 0086 C3F38A23 		ubfx	r3, r3, #10, #11
+ 1209 008a B4F90020 		ldrsh	r2, [r4]
+ 1210 008e 9342     		cmp	r3, r2
+ 1211 0090 B8BF     		it	lt
+ 1212 0092 1346     		movlt	r3, r2
+ 188:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         }
+ 1213              		.loc 1 188 18 discriminator 2 view .LVU375
+ 1214 0094 2380     		strh	r3, [r4]	@ movhi
+ 1215 0096 BBE7     		b	.L61
+ 1216              	.LVL134:
+ 1217              	.L63:
+ 188:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         }
+ 1218              		.loc 1 188 18 discriminator 2 view .LVU376
+ 1219              	.LBE20:
+ 1220              	.LBE19:
+ 169:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 1221              		.loc 1 169 9 is_stmt 1 view .LVU377
+ 1222 0098 3046     		mov	r0, r6
+ 1223              	.LVL135:
+ 169:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 1224              		.loc 1 169 9 is_stmt 0 view .LVU378
+ 1225 009a FFF7FEFF 		bl	refr_img
+ 1226              	.LVL136:
+ 1227 009e B7E7     		b	.L61
+ 1228              	.LVL137:
+ 1229              	.L69:
+ 172:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 1230              		.loc 1 172 9 is_stmt 1 view .LVU379
+ 1231 00a0 2046     		mov	r0, r4
+ 1232              	.LVL138:
+ 172:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 1233              		.loc 1 172 9 is_stmt 0 view .LVU380
+ 1234 00a2 FFF7FEFF 		bl	draw_main
+ 1235              	.LVL139:
+ 1236 00a6 B3E7     		b	.L61
+ 1237              	.LVL140:
+ 1238              	.L70:
+ 1239              	.LBB21:
+ 175:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(info->res != LV_COVER_RES_MASKED) info->res = LV_COVER_RES_NOT_COVER;
+ 1240              		.loc 1 175 9 is_stmt 1 view .LVU381
+ 175:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(info->res != LV_COVER_RES_MASKED) info->res = LV_COVER_RES_NOT_COVER;
+ 1241              		.loc 1 175 40 is_stmt 0 view .LVU382
+ 1242 00a8 2046     		mov	r0, r4
+ 1243              	.LVL141:
+ 175:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****         if(info->res != LV_COVER_RES_MASKED) info->res = LV_COVER_RES_NOT_COVER;
+ 1244              		.loc 1 175 40 view .LVU383
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 38
+
+
+ 1245 00aa FFF7FEFF 		bl	lv_event_get_param
+ 1246              	.LVL142:
+ 176:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 1247              		.loc 1 176 9 is_stmt 1 view .LVU384
+ 176:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 1248              		.loc 1 176 16 is_stmt 0 view .LVU385
+ 1249 00ae 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 176:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 1250              		.loc 1 176 11 view .LVU386
+ 1251 00b0 022B     		cmp	r3, #2
+ 1252 00b2 ADD0     		beq	.L61
+ 176:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 1253              		.loc 1 176 46 is_stmt 1 discriminator 1 view .LVU387
+ 176:lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.c ****     }
+ 1254              		.loc 1 176 56 is_stmt 0 discriminator 1 view .LVU388
+ 1255 00b4 0123     		movs	r3, #1
+ 1256 00b6 0370     		strb	r3, [r0]
+ 1257 00b8 AAE7     		b	.L61
+ 1258              	.L72:
+ 1259 00ba 00BF     		.align	2
+ 1260              	.L71:
+ 1261 00bc 00000000 		.word	.LANCHOR0
+ 1262              	.LBE21:
+ 1263              		.cfi_endproc
+ 1264              	.LFE195:
+ 1266              		.global	lv_imgbtn_class
+ 1267              		.section	.rodata.lv_imgbtn_class,"a"
+ 1268              		.align	2
+ 1269              		.set	.LANCHOR0,. + 0
+ 1272              	lv_imgbtn_class:
+ 1273 0000 00000000 		.word	lv_obj_class
+ 1274 0004 00000000 		.word	lv_imgbtn_constructor
+ 1275 0008 00000000 		.space	8
+ 1275      00000000 
+ 1276 0010 00000000 		.word	lv_imgbtn_event
+ 1277 0014 00000000 		.space	4
+ 1278 0018 00       		.byte	0
+ 1279 0019 07       		.byte	7
+ 1280 001a 00       		.byte	0
+ 1281 001b 00       		.space	1
+ 1282              		.text
+ 1283              	.Letext0:
+ 1284              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1285              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1286              		.file 6 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_types.h"
+ 1287              		.file 7 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 1288              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 1289              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1290              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 1291              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 1292              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 1293              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_img_buf.h"
+ 1294              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 1295              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 1296              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 1297              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 1298              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 39
+
+
+ 1299              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 1300              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 1301              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 1302              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_img.h"
+ 1303              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_draw.h"
+ 1304              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 1305              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 1306              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 1307              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 1308              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 1309              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 1310              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 1311              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 1312              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 1313              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 1314              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 1315              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 1316              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 1317              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 1318              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 1319              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 1320              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 1321              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 1322              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 1323              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 1324              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 1325              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 1326              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 1327              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 1328              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 1329              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 1330              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 1331              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 1332              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 1333              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 1334              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 1335              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 1336              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 1337              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 1338              		.file 58 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 1339              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 1340              		.file 60 "lvgl/lvgl/src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 1341              		.file 61 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_img_decoder.h"
+ 1342              		.file 62 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+ 1343              		.file 63 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_mem.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s 			page 40
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_imgbtn.c
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:18     .text.suggest_state:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:25     .text.suggest_state:00000000 suggest_state
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:59     .text.suggest_state:0000001c $d
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:161    .text.lv_imgbtn_constructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:167    .text.lv_imgbtn_constructor:00000000 lv_imgbtn_constructor
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:214    .text.lv_imgbtn_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:221    .text.lv_imgbtn_create:00000000 lv_imgbtn_create
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:260    .text.lv_imgbtn_create:00000014 $d
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:265    .text.lv_imgbtn_get_src_left:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:272    .text.lv_imgbtn_get_src_left:00000000 lv_imgbtn_get_src_left
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:298    .text.lv_imgbtn_get_src_middle:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:305    .text.lv_imgbtn_get_src_middle:00000000 lv_imgbtn_get_src_middle
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:331    .text.lv_imgbtn_get_src_right:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:338    .text.lv_imgbtn_get_src_right:00000000 lv_imgbtn_get_src_right
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:364    .text.get_state:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:371    .text.get_state:00000000 get_state
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:456    .text.refr_img:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:462    .text.refr_img:00000000 refr_img
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:560    .text.lv_imgbtn_set_src:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:567    .text.lv_imgbtn_set_src:00000000 lv_imgbtn_set_src
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:621    .text.draw_main:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:627    .text.draw_main:00000000 draw_main
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:1062   .text.lv_imgbtn_event:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:1068   .text.lv_imgbtn_event:00000000 lv_imgbtn_event
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:1261   .text.lv_imgbtn_event:000000bc $d
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:1272   .rodata.lv_imgbtn_class:00000000 lv_imgbtn_class
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:1268   .rodata.lv_imgbtn_class:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:64     .text.suggest_state:00000021 $d
+C:\Users\gx\AppData\Local\Temp\ccRsMR7j.s:64     .text.suggest_state:00000022 $t
+
+UNDEFINED SYMBOLS
+lv_memset_00
+lv_obj_class_create_obj
+lv_obj_class_init_obj
+lv_obj_get_state
+lv_img_decoder_get_info
+lv_obj_invalidate
+lv_obj_refresh_self_size
+lv_obj_set_height
+lv_event_get_target
+lv_event_get_param
+lv_obj_get_style_prop
+lv_draw_img_dsc_init
+lv_obj_init_draw_img_dsc
+lv_draw_img
+_lv_area_intersect
+lv_obj_event_base
+lv_event_get_code
+lv_event_get_self_size_info
+lv_obj_class

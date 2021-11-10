@@ -1,0 +1,1279 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_bar_2.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.lv_example_bar_2,"ax",%progbits
+  18              		.align	1
+  19              		.global	lv_example_bar_2
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	lv_example_bar_2:
+  27              	.LFB189:
+  28              		.file 1 "lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c"
+   1:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** #include "../../lv_examples.h"
+   2:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** #if LV_USE_BAR && LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** 
+   4:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** /**
+   5:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****  * Example of styling the bar
+   6:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****  */
+   7:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** void lv_example_bar_2(void)
+   8:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** {
+  29              		.loc 1 8 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 4, -16
+  37              		.cfi_offset 5, -12
+  38              		.cfi_offset 6, -8
+  39              		.cfi_offset 14, -4
+   9:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     static lv_style_t style_bg;
+  40              		.loc 1 9 5 view .LVU1
+  10:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     static lv_style_t style_indic;
+  41              		.loc 1 10 5 view .LVU2
+  11:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** 
+  12:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_init(&style_bg);
+  42              		.loc 1 12 5 view .LVU3
+  43 0002 314C     		ldr	r4, .L3
+  44 0004 2046     		mov	r0, r4
+  45 0006 FFF7FEFF 		bl	lv_style_init
+  46              	.LVL0:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 2
+
+
+  13:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_set_border_color(&style_bg, lv_palette_main(LV_PALETTE_BLUE));
+  47              		.loc 1 13 5 view .LVU4
+  48 000a 0520     		movs	r0, #5
+  49 000c FFF7FEFF 		bl	lv_palette_main
+  50              	.LVL1:
+  51 0010 0146     		mov	r1, r0	@ movhi
+  52 0012 2046     		mov	r0, r4
+  53 0014 FFF7FEFF 		bl	lv_style_set_border_color
+  54              	.LVL2:
+  14:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_set_border_width(&style_bg, 2);
+  55              		.loc 1 14 5 view .LVU5
+  56 0018 0221     		movs	r1, #2
+  57 001a 2046     		mov	r0, r4
+  58 001c FFF7FEFF 		bl	lv_style_set_border_width
+  59              	.LVL3:
+  15:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_set_pad_all(&style_bg, 6); /*To make the indicator smaller*/
+  60              		.loc 1 15 5 view .LVU6
+  61              	.LBB16:
+  62              	.LBI16:
+  63              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @file lv_style.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #ifndef LV_STYLE_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_STYLE_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include <stdbool.h>
+  17:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include "../font/lv_font.h"
+  18:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include "lv_color.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include "lv_area.h"
+  20:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include "lv_anim.h"
+  21:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include "lv_txt.h"
+  22:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include "lv_types.h"
+  23:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include "lv_assert.h"
+  24:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include "lv_bidi.h"
+  25:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  26:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /*********************
+  27:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *      DEFINES
+  28:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *********************/
+  29:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  30:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_STYLE_SENTINEL_VALUE     0xAABBCCDD
+  31:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  32:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+  33:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Flags for style properties
+  34:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+  35:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_STYLE_PROP_INHERIT               (1 << 10)  /*Inherited*/
+  36:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_STYLE_PROP_EXT_DRAW              (1 << 11)  /*Requires ext. draw size update when change
+  37:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_STYLE_PROP_LAYOUT_REFR           (1 << 12)  /*Requires layout update when changed*/
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 3
+
+
+  38:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_STYLE_PROP_PARENT_LAYOUT_REFR    (1 << 13)  /*Requires layout update on parent when chan
+  39:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_STYLE_PROP_FILTER                (1 << 14)  /*Apply color filter*/
+  40:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  41:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+  42:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Other constants
+  43:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+  44:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_IMG_ZOOM_NONE            256        /*Value for not zooming the image*/
+  45:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** LV_EXPORT_CONST_INT(LV_IMG_ZOOM_NONE);
+  46:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  47:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #if LV_USE_ASSERT_STYLE
+  48:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_STYLE_CONST_INIT(var_name, prop_array) const lv_style_t var_name = { .sentinel = LV_STYL
+  49:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #else
+  50:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #define LV_STYLE_CONST_INIT(var_name, prop_array) const lv_style_t var_name = { .v_p = { .const_pro
+  51:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #endif
+  52:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  53:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**********************
+  54:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *      TYPEDEFS
+  55:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  **********************/
+  56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+  58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Possible options how to blend opaque drawings
+  59:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+  60:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** enum {
+  61:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BLEND_MODE_NORMAL,     /**< Simply mix according to the opacity value*/
+  62:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BLEND_MODE_ADDITIVE,   /**< Add the respective color channels*/
+  63:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BLEND_MODE_SUBTRACTIVE,/**< Subtract the foreground from the background*/
+  64:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** };
+  65:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  66:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** typedef uint8_t lv_blend_mode_t;
+  67:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  68:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+  69:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Some options to apply decorations on texts.
+  70:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * 'OR'ed values can be used.
+  71:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+  72:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** enum {
+  73:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_TEXT_DECOR_NONE          = 0x00,
+  74:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_TEXT_DECOR_UNDERLINE     = 0x01,
+  75:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_TEXT_DECOR_STRIKETHROUGH = 0x02,
+  76:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** };
+  77:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  78:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** typedef uint8_t lv_text_decor_t;
+  79:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+  80:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+  81:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Selects on which sides border should be drawn
+  82:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * 'OR'ed values can be used.
+  83:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+  84:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** enum {
+  85:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BORDER_SIDE_NONE     = 0x00,
+  86:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BORDER_SIDE_BOTTOM   = 0x01,
+  87:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BORDER_SIDE_TOP      = 0x02,
+  88:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BORDER_SIDE_LEFT     = 0x04,
+  89:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BORDER_SIDE_RIGHT    = 0x08,
+  90:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BORDER_SIDE_FULL     = 0x0F,
+  91:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_BORDER_SIDE_INTERNAL = 0x10, /**< FOR matrix-like objects (e.g. Button matrix)*/
+  92:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** };
+  93:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** typedef uint8_t lv_border_side_t;
+  94:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 4
+
+
+  95:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+  96:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * The direction of the gradient.
+  97:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+  98:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** enum {
+  99:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_GRAD_DIR_NONE, /**< No gradient (the `grad_color` property is ignored)*/
+ 100:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_GRAD_DIR_VER,  /**< Vertical (top to bottom) gradient*/
+ 101:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_GRAD_DIR_HOR,  /**< Horizontal (left to right) gradient*/
+ 102:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** };
+ 103:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 104:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** typedef uint8_t lv_grad_dir_t;
+ 105:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 106:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 107:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * A common type to handle all the property types in the same way.
+ 108:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 109:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** typedef union {
+ 110:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     int32_t num;         /**< Number integer number (opacity, enums, booleans or "normal" numbers)*
+ 111:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     const void * ptr;    /**< Constant pointers  (font, cone text, etc)*/
+ 112:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     lv_color_t color;    /**< Colors*/
+ 113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** }lv_style_value_t;
+ 114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 116:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Enumeration of all built in style properties
+ 117:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 118:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** typedef enum {
+ 119:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_PROP_INV                = 0,
+ 120:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 121:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     /*Group 0*/
+ 122:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_WIDTH                   = 1 | LV_STYLE_PROP_LAYOUT_REFR,
+ 123:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_MIN_WIDTH               = 2 | LV_STYLE_PROP_LAYOUT_REFR,
+ 124:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_MAX_WIDTH               = 3 | LV_STYLE_PROP_LAYOUT_REFR,
+ 125:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_HEIGHT                  = 4 | LV_STYLE_PROP_LAYOUT_REFR,
+ 126:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_MIN_HEIGHT              = 5 | LV_STYLE_PROP_LAYOUT_REFR,
+ 127:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_MAX_HEIGHT              = 6 | LV_STYLE_PROP_LAYOUT_REFR,
+ 128:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_X                       = 7 | LV_STYLE_PROP_LAYOUT_REFR,
+ 129:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_Y                       = 8 | LV_STYLE_PROP_LAYOUT_REFR,
+ 130:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_ALIGN                   = 9 | LV_STYLE_PROP_LAYOUT_REFR,
+ 131:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TRANSFORM_WIDTH         = 10 | LV_STYLE_PROP_EXT_DRAW,
+ 132:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TRANSFORM_HEIGHT        = 11 | LV_STYLE_PROP_EXT_DRAW,
+ 133:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TRANSLATE_X             = 12 | LV_STYLE_PROP_LAYOUT_REFR | LV_STYLE_PROP_PARENT_LAYOUT
+ 134:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TRANSLATE_Y             = 13 | LV_STYLE_PROP_LAYOUT_REFR | LV_STYLE_PROP_PARENT_LAYOUT
+ 135:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TRANSFORM_ZOOM          = 14 | LV_STYLE_PROP_EXT_DRAW | LV_STYLE_PROP_LAYOUT_REFR | LV
+ 136:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TRANSFORM_ANGLE         = 15 | LV_STYLE_PROP_EXT_DRAW | LV_STYLE_PROP_LAYOUT_REFR | LV
+ 137:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 138:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     /*Group 1*/
+ 139:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_PAD_TOP                 = 16 | LV_STYLE_PROP_LAYOUT_REFR,
+ 140:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_PAD_BOTTOM              = 17 | LV_STYLE_PROP_LAYOUT_REFR,
+ 141:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_PAD_LEFT                = 18 | LV_STYLE_PROP_LAYOUT_REFR,
+ 142:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_PAD_RIGHT               = 19 | LV_STYLE_PROP_LAYOUT_REFR,
+ 143:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_PAD_ROW                 = 20 | LV_STYLE_PROP_LAYOUT_REFR,
+ 144:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_PAD_COLUMN              = 21 | LV_STYLE_PROP_LAYOUT_REFR,
+ 145:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 146:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     /*Group 2*/
+ 147:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_COLOR                = 32,
+ 148:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_COLOR_FILTERED       = 32 | LV_STYLE_PROP_FILTER,
+ 149:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_OPA                  = 33,
+ 150:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_GRAD_COLOR           = 34,
+ 151:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_GRAD_COLOR_FILTERED  = 34 | LV_STYLE_PROP_FILTER,
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 5
+
+
+ 152:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_GRAD_DIR             = 35,
+ 153:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_MAIN_STOP            = 36,
+ 154:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_GRAD_STOP            = 37,
+ 155:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 156:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_IMG_SRC              = 38,
+ 157:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_IMG_OPA              = 39,
+ 158:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_IMG_RECOLOR          = 40,
+ 159:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_IMG_RECOLOR_FILTERED = 40 | LV_STYLE_PROP_FILTER,
+ 160:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_IMG_RECOLOR_OPA      = 41,
+ 161:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BG_IMG_TILED            = 42,
+ 162:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 163:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     /*Group 3*/
+ 164:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BORDER_COLOR            = 48,
+ 165:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BORDER_COLOR_FILTERED   = 48 | LV_STYLE_PROP_FILTER,
+ 166:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BORDER_OPA              = 49,
+ 167:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BORDER_WIDTH            = 50 | LV_STYLE_PROP_LAYOUT_REFR,
+ 168:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BORDER_SIDE             = 51,
+ 169:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BORDER_POST             = 52,
+ 170:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 171:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_OUTLINE_WIDTH           = 58 | LV_STYLE_PROP_EXT_DRAW,
+ 172:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_OUTLINE_COLOR           = 59,
+ 173:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_OUTLINE_COLOR_FILTERED  = 59 | LV_STYLE_PROP_FILTER,
+ 174:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_OUTLINE_OPA             = 60 | LV_STYLE_PROP_EXT_DRAW,
+ 175:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_OUTLINE_PAD             = 61 | LV_STYLE_PROP_EXT_DRAW,
+ 176:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 177:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     /*Group 4*/
+ 178:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_SHADOW_WIDTH            = 64 | LV_STYLE_PROP_EXT_DRAW,
+ 179:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_SHADOW_OFS_X            = 65 | LV_STYLE_PROP_EXT_DRAW,
+ 180:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_SHADOW_OFS_Y            = 66 | LV_STYLE_PROP_EXT_DRAW,
+ 181:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_SHADOW_SPREAD           = 67 | LV_STYLE_PROP_EXT_DRAW,
+ 182:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_SHADOW_COLOR            = 68,
+ 183:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_SHADOW_COLOR_FILTERED   = 68 | LV_STYLE_PROP_FILTER,
+ 184:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_SHADOW_OPA              = 69 | LV_STYLE_PROP_EXT_DRAW,
+ 185:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 186:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_IMG_OPA                 = 70,
+ 187:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_IMG_RECOLOR             = 71,
+ 188:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_IMG_RECOLOR_FILTERED    = 71 | LV_STYLE_PROP_FILTER,
+ 189:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_IMG_RECOLOR_OPA         = 72,
+ 190:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 191:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_LINE_WIDTH              = 73 | LV_STYLE_PROP_EXT_DRAW,
+ 192:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_LINE_DASH_WIDTH         = 74,
+ 193:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_LINE_DASH_GAP           = 75,
+ 194:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_LINE_ROUNDED            = 76,
+ 195:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_LINE_COLOR              = 77,
+ 196:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_LINE_COLOR_FILTERED     = 77 | LV_STYLE_PROP_FILTER,
+ 197:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_LINE_OPA                = 78,
+ 198:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 199:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     /*Group 5*/
+ 200:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_ARC_WIDTH               = 80 | LV_STYLE_PROP_EXT_DRAW,
+ 201:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_ARC_ROUNDED             = 81,
+ 202:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_ARC_COLOR               = 82,
+ 203:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_ARC_COLOR_FILTERED      = 82 | LV_STYLE_PROP_FILTER,
+ 204:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_ARC_OPA                 = 83,
+ 205:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_ARC_IMG_SRC             = 84,
+ 206:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 207:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TEXT_COLOR              = 87 | LV_STYLE_PROP_INHERIT,
+ 208:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TEXT_COLOR_FILTERED     = 87 | LV_STYLE_PROP_INHERIT | LV_STYLE_PROP_FILTER,
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 6
+
+
+ 209:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TEXT_OPA                = 88 | LV_STYLE_PROP_INHERIT,
+ 210:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TEXT_FONT               = 89 | LV_STYLE_PROP_INHERIT | LV_STYLE_PROP_LAYOUT_REFR,
+ 211:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TEXT_LETTER_SPACE       = 90 | LV_STYLE_PROP_INHERIT | LV_STYLE_PROP_LAYOUT_REFR,
+ 212:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TEXT_LINE_SPACE         = 91 | LV_STYLE_PROP_INHERIT | LV_STYLE_PROP_LAYOUT_REFR,
+ 213:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TEXT_DECOR              = 92 | LV_STYLE_PROP_INHERIT,
+ 214:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TEXT_ALIGN              = 93 | LV_STYLE_PROP_INHERIT | LV_STYLE_PROP_LAYOUT_REFR,
+ 215:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 216:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     /*Group 6*/
+ 217:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_RADIUS                  = 96,
+ 218:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_CLIP_CORNER             = 97,
+ 219:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_OPA                     = 98 | LV_STYLE_PROP_INHERIT,
+ 220:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_COLOR_FILTER_DSC        = 99,
+ 221:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_COLOR_FILTER_OPA        = 100,
+ 222:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_ANIM_TIME               = 101,
+ 223:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_ANIM_SPEED              = 102,
+ 224:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_TRANSITION              = 103,
+ 225:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BLEND_MODE              = 104,
+ 226:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_LAYOUT                  = 105 | LV_STYLE_PROP_LAYOUT_REFR,
+ 227:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_BASE_DIR                = 106 | LV_STYLE_PROP_INHERIT | LV_STYLE_PROP_LAYOUT_REFR,
+ 228:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 229:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     _LV_STYLE_LAST_BUILT_IN_PROP     = 111,
+ 230:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 231:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     LV_STYLE_PROP_ANY                = 0xFFFF
+ 232:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** }lv_style_prop_t;
+ 233:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 234:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 235:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Descriptor for style transitions
+ 236:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 237:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** typedef struct {
+ 238:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     const lv_style_prop_t * props; /**< An array with the properties to animate.*/
+ 239:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #if LV_USE_USER_DATA
+ 240:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     void * user_data;              /**< A custom user data that will be passed to the animation's u
+ 241:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #endif
+ 242:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     lv_anim_path_cb_t path_xcb;     /**< A path for the animation.*/
+ 243:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     uint32_t time;                 /**< Duration of the transition in [ms]*/
+ 244:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     uint32_t delay;                /**< Delay before the transition in [ms]*/
+ 245:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** }lv_style_transition_dsc_t;
+ 246:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 247:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 248:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Descriptor of a constant style property.
+ 249:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 250:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** typedef struct {
+ 251:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     lv_style_prop_t prop;
+ 252:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     lv_style_value_t value;
+ 253:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** } lv_style_const_prop_t;
+ 254:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 255:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 256:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Descriptor of a style (a collection of properties and values).
+ 257:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 258:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** typedef struct {
+ 259:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 260:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #if LV_USE_ASSERT_STYLE
+ 261:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     uint32_t sentinel;
+ 262:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #endif
+ 263:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 264:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     /*If there is only one property store it directly.
+ 265:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****      *For more properties allocate an array*/
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 7
+
+
+ 266:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     union {
+ 267:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         lv_style_value_t value1;
+ 268:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         uint8_t * values_and_props;
+ 269:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         const lv_style_const_prop_t * const_props;
+ 270:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     } v_p;
+ 271:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 272:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     uint16_t prop1 :15;
+ 273:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     uint16_t is_const :1;
+ 274:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     uint8_t has_group;
+ 275:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     uint8_t prop_cnt;
+ 276:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** } lv_style_t;
+ 277:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 278:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**********************
+ 279:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * GLOBAL PROTOTYPES
+ 280:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  **********************/
+ 281:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 282:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 283:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 284:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Initialize a style
+ 285:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param style pointer to a style to initialize
+ 286:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @note Do not call `lv_style_init` on styles that are already have some properties
+ 287:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *       because this function won't free the used memory just set a default state for the style.
+ 288:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *       In other words be sure to initialize styles only once!
+ 289:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 290:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** void lv_style_init(lv_style_t * style);
+ 291:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 292:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 293:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Clear all properties from a style and free all allocated memories.
+ 294:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param style pointer to a style
+ 295:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 296:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** void lv_style_reset(lv_style_t * style);
+ 297:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 298:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 299:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Register a new style property for custom usage
+ 300:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @return a new property ID.
+ 301:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @example
+ 302:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * lv_style_prop_t MY_PROP;
+ 303:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * static inline void lv_style_set_my_prop(lv_style_t * style, lv_color_t value) {
+ 304:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * lv_style_value_t v = {.color = value}; lv_style_set_prop(style, MY_PROP, v); }
+ 305:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *
+ 306:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * ...
+ 307:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * MY_PROP = lv_style_register_prop();
+ 308:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * ...
+ 309:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * lv_style_set_my_prop(&style1, lv_palette_main(LV_PALETTE_RED));
+ 310:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 311:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** lv_style_prop_t lv_style_register_prop(void);
+ 312:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 313:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 314:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Remove a property from a style
+ 315:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param style pointer to a style
+ 316:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param prop  a style property ORed with a state.
+ 317:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @return true: the property was found and removed; false: the property wasn't found
+ 318:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 319:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** bool lv_style_remove_prop(lv_style_t * style, lv_style_prop_t prop);
+ 320:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 321:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 322:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Set the value of property in a style.
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 8
+
+
+ 323:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * This function shouldn't be used directly by the user.
+ 324:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Instead use `lv_style_set_<prop_name>()`. E.g. `lv_style_set_bg_color()`
+ 325:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param style pointer to style
+ 326:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param prop the ID of a property (e.g. `LV_STLYE_BG_COLOR`)
+ 327:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param value `lv_style_value_t` variable in which a filed is set according to the type of `prop`
+ 328:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 329:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** void lv_style_set_prop(lv_style_t * style, lv_style_prop_t prop, lv_style_value_t value);
+ 330:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 331:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 332:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Get the value of a property
+ 333:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param style pointer to a style
+ 334:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param prop  the ID of a property
+ 335:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param value pointer to a `lv_style_value_t` variable to store the value
+ 336:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @return LV_RES_INV: the property wsn't found in the style (`value` is unchanged)
+ 337:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *         LV_RES_OK: the property was fond, and `value` is set accordingly
+ 338:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @note For performance reasons there are no sanity check on `style`
+ 339:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 340:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** lv_res_t lv_style_get_prop(lv_style_t * style, lv_style_prop_t prop, lv_style_value_t * value);
+ 341:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 342:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 343:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 344:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Get the value of a property
+ 345:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param style pointer to a style
+ 346:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param prop  the ID of a property
+ 347:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param value pointer to a `lv_style_value_t` variable to store the value
+ 348:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @return LV_RES_INV: the property wsn't found in the style (`value` is unchanged)
+ 349:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *         LV_RES_OK: the property was fond, and `value` is set accordingly
+ 350:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @note For performance reasons there are no sanity check on `style`
+ 351:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @note This function is the same as ::lv_style_get_prop but inlined. Use it only on performance c
+ 352:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 353:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** static inline lv_res_t lv_style_get_prop_inlined(lv_style_t * style, lv_style_prop_t prop, lv_style
+ 354:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** {
+ 355:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     if(style->is_const) {
+ 356:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         const lv_style_const_prop_t *const_prop;
+ 357:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         for(const_prop = style->v_p.const_props; const_prop->prop != LV_STYLE_PROP_INV; const_prop+
+ 358:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****             if(const_prop->prop == prop) {
+ 359:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****                 *value = const_prop->value;
+ 360:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****                 return LV_RES_OK;
+ 361:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****             }
+ 362:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         }
+ 363:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         return LV_RES_INV;
+ 364:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     }
+ 365:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 366:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     if(style->prop_cnt == 0) return LV_RES_INV;
+ 367:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 368:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     if(style->prop_cnt > 1) {
+ 369:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         uint8_t * tmp = style->v_p.values_and_props + style->prop_cnt * sizeof(lv_style_value_t);
+ 370:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         uint16_t * props = (uint16_t *)tmp;
+ 371:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         uint32_t i;
+ 372:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         for(i = 0; i < style->prop_cnt; i++) {
+ 373:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****             if(props[i] == prop) {
+ 374:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****                 lv_style_value_t * values = (lv_style_value_t *)style->v_p.values_and_props;
+ 375:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****                 *value = values[i];
+ 376:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****                 return LV_RES_OK;
+ 377:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****             }
+ 378:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         }
+ 379:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     } else if(style->prop1 == prop) {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 9
+
+
+ 380:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         *value = style->v_p.value1;
+ 381:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****         return LV_RES_OK;
+ 382:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     }
+ 383:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     return LV_RES_INV;
+ 384:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** }
+ 385:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 386:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 387:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Initialize a transition descriptor.
+ 388:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param tr        pointer to a transition descriptor to initialize
+ 389:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param props     an array with the properties to transition. The last element must be zero.
+ 390:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param path_cb   an animation path (ease) callback. If `NULL` liner path will be used.
+ 391:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param time      duration of the transition in [ms]
+ 392:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param delay     delay before the transition in [ms]
+ 393:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param user_data any custom data that will be saved in the transition animation and will be avai
+ 394:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @example
+ 395:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * const static lv_style_prop_t trans_props[] = { LV_STYLE_BG_OPA, LV_STYLE_BG_COLOR, 0 };
+ 396:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *  static lv_style_transition_dsc_t trans1;
+ 397:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  *  lv_style_transition_dsc_init(&trans1, trans_props, NULL, 300, 0, NULL);
+ 398:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 399:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** void lv_style_transition_dsc_init(lv_style_transition_dsc_t * tr, const lv_style_prop_t props[], lv
+ 400:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 401:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 402:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Get the default value of a property
+ 403:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param prop the ID of a property
+ 404:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @return the default value
+ 405:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 406:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** lv_style_value_t lv_style_prop_get_default(lv_style_prop_t prop);
+ 407:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 408:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 409:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Checks if a style is empty (has no properties)
+ 410:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param style pointer to a style
+ 411:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @return
+ 412:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 413:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** bool lv_style_is_empty(const lv_style_t * style);
+ 414:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 415:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** /**
+ 416:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * Tell the group of a property. If the a property from a group is set in a style the (1 << group) 
+ 417:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * It allows early skipping the style if the property is not exists in the style at all.
+ 418:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @param prop a style property
+ 419:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  * @return the group [0..7] 7 means all the custom properties with index > 112
+ 420:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****  */
+ 421:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** uint8_t _lv_style_get_prop_group(lv_style_prop_t prop);
+ 422:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 423:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** #include "lv_style_gen.h"
+ 424:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** 
+ 425:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h **** static inline void lv_style_set_pad_all(lv_style_t * style, lv_coord_t value) {
+  64              		.loc 2 425 20 view .LVU7
+  65              	.LBB17:
+ 426:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     lv_style_set_pad_left(style, value);
+  66              		.loc 2 426 5 view .LVU8
+  67 0020 0621     		movs	r1, #6
+  68 0022 2046     		mov	r0, r4
+  69 0024 FFF7FEFF 		bl	lv_style_set_pad_left
+  70              	.LVL4:
+ 427:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     lv_style_set_pad_right(style, value);
+  71              		.loc 2 427 5 view .LVU9
+  72 0028 0621     		movs	r1, #6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 10
+
+
+  73 002a 2046     		mov	r0, r4
+  74 002c FFF7FEFF 		bl	lv_style_set_pad_right
+  75              	.LVL5:
+ 428:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     lv_style_set_pad_top(style, value);
+  76              		.loc 2 428 5 view .LVU10
+  77 0030 0621     		movs	r1, #6
+  78 0032 2046     		mov	r0, r4
+  79 0034 FFF7FEFF 		bl	lv_style_set_pad_top
+  80              	.LVL6:
+ 429:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_style.h ****     lv_style_set_pad_bottom(style, value);
+  81              		.loc 2 429 5 view .LVU11
+  82 0038 0621     		movs	r1, #6
+  83 003a 2046     		mov	r0, r4
+  84 003c FFF7FEFF 		bl	lv_style_set_pad_bottom
+  85              	.LVL7:
+  86              		.loc 2 429 5 is_stmt 0 view .LVU12
+  87              	.LBE17:
+  88              	.LBE16:
+  16:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_set_radius(&style_bg, 6);
+  89              		.loc 1 16 5 is_stmt 1 view .LVU13
+  90 0040 0621     		movs	r1, #6
+  91 0042 2046     		mov	r0, r4
+  92 0044 FFF7FEFF 		bl	lv_style_set_radius
+  93              	.LVL8:
+  17:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_set_anim_time(&style_bg, 1000);
+  94              		.loc 1 17 5 view .LVU14
+  95 0048 4FF47A71 		mov	r1, #1000
+  96 004c 2046     		mov	r0, r4
+  97 004e FFF7FEFF 		bl	lv_style_set_anim_time
+  98              	.LVL9:
+  18:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** 
+  19:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_init(&style_indic);
+  99              		.loc 1 19 5 view .LVU15
+ 100 0052 1E4E     		ldr	r6, .L3+4
+ 101 0054 3046     		mov	r0, r6
+ 102 0056 FFF7FEFF 		bl	lv_style_init
+ 103              	.LVL10:
+  20:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_set_bg_opa(&style_indic, LV_OPA_COVER);
+ 104              		.loc 1 20 5 view .LVU16
+ 105 005a FF21     		movs	r1, #255
+ 106 005c 3046     		mov	r0, r6
+ 107 005e FFF7FEFF 		bl	lv_style_set_bg_opa
+ 108              	.LVL11:
+  21:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_set_bg_color(&style_indic, lv_palette_main(LV_PALETTE_BLUE));
+ 109              		.loc 1 21 5 view .LVU17
+ 110 0062 0520     		movs	r0, #5
+ 111 0064 FFF7FEFF 		bl	lv_palette_main
+ 112              	.LVL12:
+ 113 0068 0146     		mov	r1, r0	@ movhi
+ 114 006a 3046     		mov	r0, r6
+ 115 006c FFF7FEFF 		bl	lv_style_set_bg_color
+ 116              	.LVL13:
+  22:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_style_set_radius(&style_indic, 3);
+ 117              		.loc 1 22 5 view .LVU18
+ 118 0070 0321     		movs	r1, #3
+ 119 0072 3046     		mov	r0, r6
+ 120 0074 FFF7FEFF 		bl	lv_style_set_radius
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 11
+
+
+ 121              	.LVL14:
+  23:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** 
+  24:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_obj_t * bar = lv_bar_create(lv_scr_act());
+ 122              		.loc 1 24 5 view .LVU19
+ 123              	.LBB18:
+ 124              	.LBI18:
+ 125              		.file 3 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_disp.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @file lv_disp.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifndef LV_DISP_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #define LV_DISP_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "../hal/lv_hal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_obj.h"
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_theme.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      DEFINES
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      TYPEDEFS
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** typedef enum {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** } lv_scr_load_anim_t;
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the active screen
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 12
+
+
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Make a screen active
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to a screen
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * layer)
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background color of a display
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param color color of the background
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background image of a display
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 13
+
+
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Opacity of the background
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param opa opacity (0..255)
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Switch screen with animation
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param time time of the animation
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param delay delay before the transition
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Manually trigger an activity on a display
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*------------------------------------------------
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * To improve backward compatibility
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Recommended only if you have one display
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *------------------------------------------------*/
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the active screen of the default display
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 126              		.loc 3 163 26 view .LVU20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 14
+
+
+ 127              	.LBB19:
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 128              		.loc 3 165 5 view .LVU21
+ 129              		.loc 3 165 12 is_stmt 0 view .LVU22
+ 130 0078 FFF7FEFF 		bl	lv_disp_get_default
+ 131              	.LVL15:
+ 132 007c FFF7FEFF 		bl	lv_disp_get_scr_act
+ 133              	.LVL16:
+ 134              	.LBE19:
+ 135              	.LBE18:
+ 136              		.loc 1 24 22 view .LVU23
+ 137 0080 FFF7FEFF 		bl	lv_bar_create
+ 138              	.LVL17:
+ 139 0084 0546     		mov	r5, r0
+ 140              	.LVL18:
+  25:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_obj_remove_style_all(bar);  /*To have a clean start*/
+ 141              		.loc 1 25 5 is_stmt 1 view .LVU24
+ 142              	.LBB20:
+ 143              	.LBI20:
+ 144              		.file 4 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @file lv_obj_style.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** #ifndef LV_OBJ_STYLE_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** #define LV_OBJ_STYLE_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** #include <stdint.h>
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** #include <stdbool.h>
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** #include "../misc/lv_bidi.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /*********************
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  *      DEFINES
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  *********************/
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /**********************
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  *      TYPEDEFS
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  **********************/
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /*Can't include lv_obj.h because it includes this header file*/
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** struct _lv_obj_t;
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** typedef enum {
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     _LV_STYLE_STATE_CMP_SAME,           /*The style properties in the 2 states are identical*/
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     _LV_STYLE_STATE_CMP_DIFF_REDRAW,    /*The differences can be shown with a simple redraw*/
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     _LV_STYLE_STATE_CMP_DIFF_DRAW_PAD,  /*The differences can be shown with a simple redraw*/
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     _LV_STYLE_STATE_CMP_DIFF_LAYOUT,    /*The differences can be shown with a simple redraw*/
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** } _lv_style_state_cmp_t;
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 15
+
+
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** typedef uint32_t lv_style_selector_t;
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** typedef struct {
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     lv_style_t * style;
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     uint32_t selector :24;
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     uint32_t is_local :1;
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     uint32_t is_trans :1;
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** }_lv_obj_style_t;
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** typedef struct {
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     uint16_t time;
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     uint16_t delay;
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     lv_style_selector_t selector;
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     lv_style_prop_t prop;
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     lv_anim_path_cb_t path_cb;
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** #if LV_USE_USER_DATA
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     void * user_data;
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** #endif
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** }_lv_obj_style_transition_dsc_t;
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /**********************
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * GLOBAL PROTOTYPES
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  **********************/
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /**
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * Initialize the object related style manager module.
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * Called by LVGL in `lv_init()`
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  */
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** void _lv_obj_style_init(void);
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /**
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * Add a style to an object.
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @param obj       pointer to an object
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @param style     pointer to a style to add
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @param selector  OR-ed value of parts and state to which the style should be added
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @example         lv_obj_add_style(btn, &style_btn, 0); //Default button style
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @example         lv_obj_add_style(btn, &btn_red, LV_STATE_PRESSED); //Overwrite only some colors
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  */
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** void lv_obj_add_style(struct _lv_obj_t * obj, lv_style_t * style, lv_style_selector_t selector);
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /**
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * Add a style to an object.
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @param obj       pointer to an object
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @param style     pointer to a style to remove. Can be NULL to check only the selector
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @param selector  OR-ed values of states and a part to remove only styles with matching selectors
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @example lv_obj_remove_style(obj, &style, LV_PART_ANY | LV_STATE_ANY); //Remove a specific style
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @example lv_obj_remove_style(obj, NULL, LV_PART_MAIN | LV_STATE_ANY); //Remove all styles from t
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @example lv_obj_remove_style(obj, NULL, LV_PART_ANY | LV_STATE_ANY); //Remove all styles
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  */
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** void lv_obj_remove_style(struct _lv_obj_t * obj, lv_style_t * style, lv_style_selector_t selector);
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** 
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** /**
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * Remove all styles from an object
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  * @param obj       pointer to an object
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****  */
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** static inline void lv_obj_remove_style_all(struct _lv_obj_t * obj)
+ 145              		.loc 4 92 20 view .LVU25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 16
+
+
+ 146              	.LBB21:
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h **** {
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style.h ****     lv_obj_remove_style(obj, NULL, LV_PART_ANY | LV_STATE_ANY);
+ 147              		.loc 4 94 5 view .LVU26
+ 148 0086 124A     		ldr	r2, .L3+8
+ 149 0088 0021     		movs	r1, #0
+ 150 008a FFF7FEFF 		bl	lv_obj_remove_style
+ 151              	.LVL19:
+ 152              		.loc 4 94 5 is_stmt 0 view .LVU27
+ 153              	.LBE21:
+ 154              	.LBE20:
+  26:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_obj_add_style(bar, &style_bg, 0);
+ 155              		.loc 1 26 5 is_stmt 1 view .LVU28
+ 156 008e 0022     		movs	r2, #0
+ 157 0090 2146     		mov	r1, r4
+ 158 0092 2846     		mov	r0, r5
+ 159 0094 FFF7FEFF 		bl	lv_obj_add_style
+ 160              	.LVL20:
+  27:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_obj_add_style(bar, &style_indic, LV_PART_INDICATOR);
+ 161              		.loc 1 27 5 view .LVU29
+ 162 0098 4FF40032 		mov	r2, #131072
+ 163 009c 3146     		mov	r1, r6
+ 164 009e 2846     		mov	r0, r5
+ 165 00a0 FFF7FEFF 		bl	lv_obj_add_style
+ 166              	.LVL21:
+  28:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** 
+  29:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_obj_set_size(bar, 200, 20);
+ 167              		.loc 1 29 5 view .LVU30
+ 168 00a4 1422     		movs	r2, #20
+ 169 00a6 C821     		movs	r1, #200
+ 170 00a8 2846     		mov	r0, r5
+ 171 00aa FFF7FEFF 		bl	lv_obj_set_size
+ 172              	.LVL22:
+  30:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_obj_center(bar);
+ 173              		.loc 1 30 5 view .LVU31
+ 174              	.LBB22:
+ 175              	.LBI22:
+ 176              		.file 5 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @file lv_obj_pos.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #ifndef LV_OBJ_POS_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #define LV_OBJ_POS_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #include "../misc/lv_area.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /*********************
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *      DEFINES
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 17
+
+
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *********************/
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**********************
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *      TYPEDEFS
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  **********************/
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** struct _lv_obj_t;
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** typedef void (*lv_layout_update_cb_t)(struct _lv_obj_t *, void * user_data);
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** typedef struct {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****     lv_layout_update_cb_t cb;
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****     void * user_data;
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** }lv_layout_dsc_t;
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**********************
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * GLOBAL PROTOTYPES
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  **********************/
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the relative the position of an object (relative to the parent's top left corner)
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x         new distance from the left side of the parent plus the parent's left padding
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y         new distance from the top side of the parent  plus the parent's right padding
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_pos(struct _lv_obj_t * obj, lv_coord_t x, lv_coord_t y);
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the x coordinate of a object
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x         new distance from the left side from the parent plus the parent's left padding
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_x(struct _lv_obj_t * obj, lv_coord_t x);
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the y coordinate of a object
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y         new distance from the top of the parent  plus the parent's top padding
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_y(struct _lv_obj_t * obj, lv_coord_t y);
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the size of an object.
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param w         the new width
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param h         the new height
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            possible values are:
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_PCT(x)     to set size in percentage of the parent's content area size 
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_size(struct _lv_obj_t * obj, lv_coord_t w, lv_coord_t h);
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Recalculate the size of the object
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @return          true: the size has been changed
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 18
+
+
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** bool lv_obj_refr_size(struct _lv_obj_t * obj);
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the width of an object
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param w         the new width
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            possible values are:
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_width(struct _lv_obj_t * obj, lv_coord_t w);
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the height of an object
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param h         the new height
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            possible values are:
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the width reduced by the left and right padding and the border width.
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param w         the width without paddings in pixels
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_content_width(struct _lv_obj_t * obj, lv_coord_t w);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the height reduced by the top and bottom padding and the border width.
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param h         the height without paddings in pixels
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_content_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set a layout for an object
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param layout    pointer to a layout descriptor to set
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_layout(struct _lv_obj_t * obj, uint32_t layout);
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Test whether the and object is positioned by a layout or not
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to test
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @return true:    positioned by a layout; false: not positioned by a layout
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** bool lv_obj_is_layout_positioned(const struct _lv_obj_t * obj);
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Mark the object for layout update.
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 19
+
+
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_mark_layout_as_dirty(struct _lv_obj_t * obj);
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Update the layout of an object.
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_update_layout(const struct _lv_obj_t * obj);
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Regsiter a new layout
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param cb        the layout update callback
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param user_data custom data that will be passed to `cb`
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @return          the ID of the new layout
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** uint32_t lv_layout_register(lv_layout_update_cb_t cb, void * user_data);
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Change the alignment of an object.
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_align(struct _lv_obj_t * obj, lv_align_t align);
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Change the alignment of an object and set new coordinates.
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Equivalent to:
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * lv_obj_set_align(obj, align);
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * lv_obj_set_pos(obj, x_ofs, y_ofs);
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 167:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 168:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_align(struct _lv_obj_t * obj, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs);
+ 169:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 170:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 171:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Align an object to an other object.
+ 172:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 173:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param base      pointer to an other object (if NULL `obj`s parent is used). 'obj' will be align
+ 174:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum)
+ 175:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 176:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 177:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            if the position or size of `base` changes `obj` needs to be aligned manually ag
+ 178:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 179:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_align_to(struct _lv_obj_t * obj, const struct _lv_obj_t * base, lv_align_t align, lv_co
+ 180:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 181:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 182:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Align an object to the center on its parent.
+ 183:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 184:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            if the parent size changes `obj` needs to be aligned manually again
+ 185:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 186:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** static inline void lv_obj_center(struct _lv_obj_t * obj)
+ 177              		.loc 5 186 20 view .LVU32
+ 178              	.LBB23:
+ 187:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** {
+ 188:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****     lv_obj_align(obj, LV_ALIGN_CENTER, 0, 0);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 20
+
+
+ 179              		.loc 5 188 5 view .LVU33
+ 180 00ae 0023     		movs	r3, #0
+ 181 00b0 1A46     		mov	r2, r3
+ 182 00b2 0921     		movs	r1, #9
+ 183 00b4 2846     		mov	r0, r5
+ 184 00b6 FFF7FEFF 		bl	lv_obj_align
+ 185              	.LVL23:
+ 186              		.loc 5 188 5 is_stmt 0 view .LVU34
+ 187              	.LBE23:
+ 188              	.LBE22:
+  31:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c ****     lv_bar_set_value(bar, 100, LV_ANIM_ON);
+ 189              		.loc 1 31 5 is_stmt 1 view .LVU35
+ 190 00ba 0122     		movs	r2, #1
+ 191 00bc 6421     		movs	r1, #100
+ 192 00be 2846     		mov	r0, r5
+ 193 00c0 FFF7FEFF 		bl	lv_bar_set_value
+ 194              	.LVL24:
+  32:lvgl/lvgl/examples/widgets/bar/lv_example_bar_2.c **** }
+ 195              		.loc 1 32 1 is_stmt 0 view .LVU36
+ 196 00c4 70BD     		pop	{r4, r5, r6, pc}
+ 197              	.LVL25:
+ 198              	.L4:
+ 199              		.loc 1 32 1 view .LVU37
+ 200 00c6 00BF     		.align	2
+ 201              	.L3:
+ 202 00c8 00000000 		.word	.LANCHOR0
+ 203 00cc 00000000 		.word	.LANCHOR1
+ 204 00d0 FFFF0F00 		.word	1048575
+ 205              		.cfi_endproc
+ 206              	.LFE189:
+ 208              		.section	.bss.style_bg.12313,"aw",%nobits
+ 209              		.align	2
+ 210              		.set	.LANCHOR0,. + 0
+ 213              	style_bg.12313:
+ 214 0000 00000000 		.space	8
+ 214      00000000 
+ 215              		.section	.bss.style_indic.12314,"aw",%nobits
+ 216              		.align	2
+ 217              		.set	.LANCHOR1,. + 0
+ 220              	style_indic.12314:
+ 221 0000 00000000 		.space	8
+ 221      00000000 
+ 222              		.text
+ 223              	.Letext0:
+ 224              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 225              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 226              		.file 8 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 227              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 228              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 229              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 230              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 231              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_anim.h"
+ 232              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 233              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 234              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 235              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 236              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 21
+
+
+ 237              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 238              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 239              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 240              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 241              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 242              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 243              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 244              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 245              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 246              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 247              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 248              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 249              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 250              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 251              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 252              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 253              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 254              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 255              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 256              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 257              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 258              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 259              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 260              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 261              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 262              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 263              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 264              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 265              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 266              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 267              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 268              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 269              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 270              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 271              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 272              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 273              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 274              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 275              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 276              		.file 58 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 277              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style_gen.h"
+ 278              		.file 60 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_disp.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s 			page 22
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_bar_2.c
+C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s:18     .text.lv_example_bar_2:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s:26     .text.lv_example_bar_2:00000000 lv_example_bar_2
+C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s:202    .text.lv_example_bar_2:000000c8 $d
+C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s:209    .bss.style_bg.12313:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s:213    .bss.style_bg.12313:00000000 style_bg.12313
+C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s:216    .bss.style_indic.12314:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccR5tpyM.s:220    .bss.style_indic.12314:00000000 style_indic.12314
+
+UNDEFINED SYMBOLS
+lv_style_init
+lv_palette_main
+lv_style_set_border_color
+lv_style_set_border_width
+lv_style_set_pad_left
+lv_style_set_pad_right
+lv_style_set_pad_top
+lv_style_set_pad_bottom
+lv_style_set_radius
+lv_style_set_anim_time
+lv_style_set_bg_opa
+lv_style_set_bg_color
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_bar_create
+lv_obj_remove_style
+lv_obj_add_style
+lv_obj_set_size
+lv_obj_align
+lv_bar_set_value

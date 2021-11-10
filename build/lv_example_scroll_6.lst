@@ -1,0 +1,1358 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_scroll_6.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.scroll_event_cb,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	scroll_event_cb:
+  26              	.LVL0:
+  27              	.LFB189:
+  28              		.file 1 "lvgl/lvgl/examples/scroll/lv_example_scroll_6.c"
+   1:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** #include "../lv_examples.h"
+   2:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** #if LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+   4:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** static void scroll_event_cb(lv_event_t * e)
+   5:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** {
+  29              		.loc 1 5 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 24
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 5 1 is_stmt 0 view .LVU1
+  34 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 36
+  37              		.cfi_offset 4, -36
+  38              		.cfi_offset 5, -32
+  39              		.cfi_offset 6, -28
+  40              		.cfi_offset 7, -24
+  41              		.cfi_offset 8, -20
+  42              		.cfi_offset 9, -16
+  43              		.cfi_offset 10, -12
+  44              		.cfi_offset 11, -8
+  45              		.cfi_offset 14, -4
+  46 0004 89B0     		sub	sp, sp, #36
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_offset 72
+   6:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_t * cont = lv_event_get_target(e);
+  49              		.loc 1 6 5 is_stmt 1 view .LVU2
+  50              		.loc 1 6 23 is_stmt 0 view .LVU3
+  51 0006 FFF7FEFF 		bl	lv_event_get_target
+  52              	.LVL1:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 2
+
+
+  53              		.loc 1 6 23 view .LVU4
+  54 000a 8146     		mov	r9, r0
+  55              	.LVL2:
+   7:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+   8:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_area_t cont_a;
+  56              		.loc 1 8 5 is_stmt 1 view .LVU5
+   9:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_get_coords(cont, &cont_a);
+  57              		.loc 1 9 5 view .LVU6
+  58 000c 06A9     		add	r1, sp, #24
+  59 000e FFF7FEFF 		bl	lv_obj_get_coords
+  60              	.LVL3:
+  10:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_coord_t cont_y_center = cont_a.y1 + lv_area_get_height(&cont_a) / 2;
+  61              		.loc 1 10 5 view .LVU7
+  62              		.loc 1 10 38 is_stmt 0 view .LVU8
+  63 0012 BDF81A80 		ldrh	r8, [sp, #26]
+  64              	.LVL4:
+  65              	.LBB15:
+  66              	.LBI15:
+  67              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @file lv_area.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifndef LV_AREA_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_AREA_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include "../lv_conf_internal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <string.h>
+  18:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdbool.h>
+  19:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdint.h>
+  20:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  21:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*********************
+  22:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      DEFINES
+  23:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *********************/
+  24:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  25:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_MAX_REDUCE    8192
+  26:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  27:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #if LV_USE_LARGE_COORD
+  28:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int32_t lv_coord_t;
+  29:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #else
+  30:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef int16_t lv_coord_t;
+  31:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+  32:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  33:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*To allow some special values in the end reduce the max value*/
+  34:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MAX ((lv_coord_t)((uint32_t)((uint32_t)1 << (8 * sizeof(lv_coord_t) - 1)) - _LV_CO
+  35:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_MIN (-LV_COORD_MAX)
+  36:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MAX);
+  38:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_COORD_MIN);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 3
+
+
+  39:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  40:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+  41:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      TYPEDEFS
+  42:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+  43:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  44:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+  45:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Represents a point on the screen.
+  46:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+  47:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  48:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x;
+  49:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y;
+  50:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_point_t;
+  51:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  52:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Represents an area of the screen.*/
+  53:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef struct {
+  54:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x1;
+  55:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y1;
+  56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x2;
+  57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y2;
+  58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_area_t;
+  59:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  60:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /** Alignments*/
+  61:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  62:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_DEFAULT = 0,
+  63:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_LEFT,
+  64:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_MID,
+  65:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_TOP_RIGHT,
+  66:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_LEFT,
+  67:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_MID,
+  68:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_BOTTOM_RIGHT,
+  69:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_LEFT_MID,
+  70:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_RIGHT_MID,
+  71:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_CENTER,
+  72:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  73:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_LEFT,
+  74:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_MID,
+  75:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_RIGHT,
+  76:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_LEFT,
+  77:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_MID,
+  78:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_RIGHT,
+  79:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_TOP,
+  80:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_MID,
+  81:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_LEFT_BOTTOM,
+  82:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_TOP,
+  83:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_MID,
+  84:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_RIGHT_BOTTOM,
+  85:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  86:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_align_t;
+  87:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  88:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** enum {
+  89:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_NONE     = 0x00,
+  90:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_LEFT     = (1 << 0),
+  91:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_RIGHT    = (1 << 1),
+  92:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_TOP      = (1 << 2),
+  93:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_BOTTOM   = (1 << 3),
+  94:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_HOR      = LV_DIR_LEFT | LV_DIR_RIGHT,
+  95:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_VER      = LV_DIR_TOP | LV_DIR_BOTTOM,
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 4
+
+
+  96:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_DIR_ALL      = LV_DIR_HOR | LV_DIR_VER,
+  97:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** };
+  98:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+  99:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** typedef uint8_t lv_dir_t;
+ 100:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 101:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+ 102:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * GLOBAL PROTOTYPES
+ 103:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+ 104:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 105:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 106:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Initialize an area
+ 107:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 108:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x1 left coordinate of the area
+ 109:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y1 top coordinate of the area
+ 110:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x2 right coordinate of the area
+ 111:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y2 bottom coordinate of the area
+ 112:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set(lv_area_t * area_p, lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2);
+ 114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 116:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Copy an area
+ 117:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param dest pointer to the destination area
+ 118:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param src pointer to the source area
+ 119:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 120:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** inline static void lv_area_copy(lv_area_t * dest, const lv_area_t * src)
+ 121:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 122:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x1 = src->x1;
+ 123:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y1 = src->y1;
+ 124:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->x2 = src->x2;
+ 125:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     dest->y2 = src->y2;
+ 126:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
+ 127:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 128:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 129:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the width of an area
+ 130:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 131:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return the width of the area (if x1 == x2 -> width = 1)
+ 132:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 133:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** static inline lv_coord_t lv_area_get_width(const lv_area_t * area_p)
+ 134:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 135:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     return (lv_coord_t)(area_p->x2 - area_p->x1 + 1);
+ 136:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
+ 137:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 138:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 139:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the height of an area
+ 140:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 141:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return the height of the area (if y1 == y2 -> height = 1)
+ 142:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 143:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** static inline lv_coord_t lv_area_get_height(const lv_area_t * area_p)
+  68              		.loc 2 143 26 is_stmt 1 view .LVU9
+  69              	.LBB16:
+ 144:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 145:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     return (lv_coord_t)(area_p->y2 - area_p->y1 + 1);
+  70              		.loc 2 145 5 view .LVU10
+  71              		.loc 2 145 31 is_stmt 0 view .LVU11
+  72 0016 BDF81E30 		ldrh	r3, [sp, #30]
+  73              		.loc 2 145 36 view .LVU12
+  74 001a A3EB0803 		sub	r3, r3, r8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 5
+
+
+  75 001e 9BB2     		uxth	r3, r3
+  76              		.loc 2 145 49 view .LVU13
+  77 0020 0133     		adds	r3, r3, #1
+  78              	.LVL5:
+  79              		.loc 2 145 49 view .LVU14
+  80              	.LBE16:
+  81              	.LBE15:
+  82              		.loc 1 10 42 view .LVU15
+  83 0022 C3F3C032 		ubfx	r2, r3, #15, #1
+  84 0026 02FA83F3 		sxtah	r3, r2, r3
+  85 002a 08EB6303 		add	r3, r8, r3, asr #1
+  86 002e 1FFA83F8 		uxth	r8, r3
+  87              	.LVL6:
+  11:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  12:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_coord_t r = lv_obj_get_height(cont) * 7 / 10;
+  88              		.loc 1 12 5 is_stmt 1 view .LVU16
+  89              		.loc 1 12 20 is_stmt 0 view .LVU17
+  90 0032 4846     		mov	r0, r9
+  91 0034 FFF7FEFF 		bl	lv_obj_get_height
+  92              	.LVL7:
+  93              		.loc 1 12 44 view .LVU18
+  94 0038 C0EBC000 		rsb	r0, r0, r0, lsl #3
+  95              		.loc 1 12 48 view .LVU19
+  96 003c 2E4F     		ldr	r7, .L9
+  97 003e 87FB0037 		smull	r3, r7, r7, r0
+  98 0042 C017     		asrs	r0, r0, #31
+  99 0044 C0EBA707 		rsb	r7, r0, r7, asr #2
+ 100              		.loc 1 12 16 view .LVU20
+ 101 0048 3EB2     		sxth	r6, r7
+ 102              	.LVL8:
+  13:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     uint32_t i;
+ 103              		.loc 1 13 5 is_stmt 1 view .LVU21
+  14:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     uint32_t child_cnt = lv_obj_get_child_cnt(cont);
+ 104              		.loc 1 14 5 view .LVU22
+ 105              		.loc 1 14 26 is_stmt 0 view .LVU23
+ 106 004a 4846     		mov	r0, r9
+ 107 004c FFF7FEFF 		bl	lv_obj_get_child_cnt
+ 108              	.LVL9:
+ 109 0050 8246     		mov	r10, r0
+ 110              	.LVL10:
+  15:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     for(i = 0; i < child_cnt; i++) {
+ 111              		.loc 1 15 5 is_stmt 1 view .LVU24
+ 112              		.loc 1 15 11 is_stmt 0 view .LVU25
+ 113 0052 0025     		movs	r5, #0
+ 114              		.loc 1 15 5 view .LVU26
+ 115 0054 29E0     		b	.L2
+ 116              	.LVL11:
+ 117              	.L8:
+ 118              	.LBB17:
+ 119              	.LBB18:
+  16:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * child = lv_obj_get_child(cont, i);
+  17:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_area_t child_a;
+  18:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_get_coords(child, &child_a);
+  19:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  20:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_coord_t child_y_center = child_a.y1 + lv_area_get_height(&child_a) / 2;
+  21:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  22:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_coord_t diff_y = child_y_center - cont_y_center;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 6
+
+
+  23:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         diff_y = LV_ABS(diff_y);
+  24:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  25:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         /*Get the x of diff_y on a circle.*/
+  26:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_coord_t x;
+  27:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         /*If diff_y is out of the circle use the last point of the circle (the radius)*/
+  28:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         if(diff_y >= r) {
+  29:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****             x = r;
+  30:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         } else {
+  31:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****             /*Use Pythagoras theorem to get x from radius and y*/
+  32:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****             lv_coord_t x_sqr = r * r - diff_y * diff_y;
+ 120              		.loc 1 32 13 is_stmt 1 view .LVU27
+ 121              		.loc 1 32 34 is_stmt 0 view .LVU28
+ 122 0056 1FFA87FB 		uxth	fp, r7
+ 123 005a 17FB07F0 		smulbb	r0, r7, r7
+ 124 005e 80B2     		uxth	r0, r0
+ 125              		.loc 1 32 47 view .LVU29
+ 126 0060 12FB02F2 		smulbb	r2, r2, r2
+ 127 0064 92B2     		uxth	r2, r2
+ 128              		.loc 1 32 38 view .LVU30
+ 129 0066 801A     		subs	r0, r0, r2
+ 130              	.LVL12:
+  33:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****             lv_sqrt_res_t res;
+ 131              		.loc 1 33 13 is_stmt 1 view .LVU31
+  34:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****             lv_sqrt(x_sqr, &res, 0x8000);   /*Use lvgl's built in sqrt root function*/
+ 132              		.loc 1 34 13 view .LVU32
+ 133 0068 4FF40042 		mov	r2, #32768
+ 134 006c 03A9     		add	r1, sp, #12
+ 135              	.LVL13:
+ 136              		.loc 1 34 13 is_stmt 0 view .LVU33
+ 137 006e 00B2     		sxth	r0, r0
+ 138              		.loc 1 34 13 view .LVU34
+ 139 0070 FFF7FEFF 		bl	lv_sqrt
+ 140              	.LVL14:
+  35:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****             x = r - res.i;
+ 141              		.loc 1 35 13 is_stmt 1 view .LVU35
+ 142              		.loc 1 35 24 is_stmt 0 view .LVU36
+ 143 0074 BDF80C30 		ldrh	r3, [sp, #12]
+ 144              		.loc 1 35 19 view .LVU37
+ 145 0078 ABEB030B 		sub	fp, fp, r3
+ 146              		.loc 1 35 15 view .LVU38
+ 147 007c 0FFA8BFB 		sxth	fp, fp
+ 148              	.LVL15:
+ 149              	.L3:
+ 150              		.loc 1 35 15 view .LVU39
+ 151              	.LBE18:
+  36:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         }
+  37:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  38:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         /*Translate the item by the calculated X coordinate*/
+  39:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_set_style_translate_x(child, x, 0);
+ 152              		.loc 1 39 9 is_stmt 1 discriminator 2 view .LVU40
+ 153 0080 0022     		movs	r2, #0
+ 154 0082 5946     		mov	r1, fp
+ 155 0084 2046     		mov	r0, r4
+ 156 0086 FFF7FEFF 		bl	lv_obj_set_style_translate_x
+ 157              	.LVL16:
+  40:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  41:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         /*Use some opacity with larger translations*/
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 7
+
+
+  42:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_opa_t opa = lv_map(x, 0, r, LV_OPA_TRANSP, LV_OPA_COVER);
+ 158              		.loc 1 42 9 discriminator 2 view .LVU41
+ 159              		.loc 1 42 24 is_stmt 0 discriminator 2 view .LVU42
+ 160 008a FF23     		movs	r3, #255
+ 161 008c 0093     		str	r3, [sp]
+ 162 008e 0023     		movs	r3, #0
+ 163 0090 3246     		mov	r2, r6
+ 164 0092 1946     		mov	r1, r3
+ 165 0094 5846     		mov	r0, fp
+ 166 0096 FFF7FEFF 		bl	lv_map
+ 167              	.LVL17:
+ 168              		.loc 1 42 18 discriminator 2 view .LVU43
+ 169 009a C1B2     		uxtb	r1, r0
+ 170              	.LVL18:
+  43:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_set_style_opa(child, LV_OPA_COVER - opa, 0);
+ 171              		.loc 1 43 9 is_stmt 1 discriminator 2 view .LVU44
+ 172 009c C943     		mvns	r1, r1
+ 173              	.LVL19:
+ 174              		.loc 1 43 9 is_stmt 0 discriminator 2 view .LVU45
+ 175 009e 0022     		movs	r2, #0
+ 176 00a0 C9B2     		uxtb	r1, r1
+ 177              	.LVL20:
+ 178              		.loc 1 43 9 discriminator 2 view .LVU46
+ 179 00a2 2046     		mov	r0, r4
+ 180              	.LVL21:
+ 181              		.loc 1 43 9 discriminator 2 view .LVU47
+ 182 00a4 FFF7FEFF 		bl	lv_obj_set_style_opa
+ 183              	.LVL22:
+ 184              	.LBE17:
+  15:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * child = lv_obj_get_child(cont, i);
+ 185              		.loc 1 15 31 is_stmt 1 discriminator 2 view .LVU48
+  15:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * child = lv_obj_get_child(cont, i);
+ 186              		.loc 1 15 32 is_stmt 0 discriminator 2 view .LVU49
+ 187 00a8 0135     		adds	r5, r5, #1
+ 188              	.LVL23:
+ 189              	.L2:
+  15:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * child = lv_obj_get_child(cont, i);
+ 190              		.loc 1 15 16 is_stmt 1 discriminator 1 view .LVU50
+  15:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * child = lv_obj_get_child(cont, i);
+ 191              		.loc 1 15 5 is_stmt 0 discriminator 1 view .LVU51
+ 192 00aa 5545     		cmp	r5, r10
+ 193 00ac 21D2     		bcs	.L7
+ 194              	.LBB21:
+  16:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_area_t child_a;
+ 195              		.loc 1 16 9 is_stmt 1 view .LVU52
+  16:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_area_t child_a;
+ 196              		.loc 1 16 28 is_stmt 0 view .LVU53
+ 197 00ae 2946     		mov	r1, r5
+ 198 00b0 4846     		mov	r0, r9
+ 199 00b2 FFF7FEFF 		bl	lv_obj_get_child
+ 200              	.LVL24:
+ 201 00b6 0446     		mov	r4, r0
+ 202              	.LVL25:
+  17:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_get_coords(child, &child_a);
+ 203              		.loc 1 17 9 is_stmt 1 view .LVU54
+  18:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+ 204              		.loc 1 18 9 view .LVU55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 8
+
+
+ 205 00b8 04A9     		add	r1, sp, #16
+ 206 00ba FFF7FEFF 		bl	lv_obj_get_coords
+ 207              	.LVL26:
+  20:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+ 208              		.loc 1 20 9 view .LVU56
+  20:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+ 209              		.loc 1 20 44 is_stmt 0 view .LVU57
+ 210 00be BDF81230 		ldrh	r3, [sp, #18]
+ 211              	.LVL27:
+ 212              	.LBB19:
+ 213              	.LBI19:
+ 143:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 214              		.loc 2 143 26 is_stmt 1 view .LVU58
+ 215              	.LBB20:
+ 216              		.loc 2 145 5 view .LVU59
+ 217              		.loc 2 145 31 is_stmt 0 view .LVU60
+ 218 00c2 BDF81620 		ldrh	r2, [sp, #22]
+ 219              		.loc 2 145 36 view .LVU61
+ 220 00c6 D21A     		subs	r2, r2, r3
+ 221 00c8 92B2     		uxth	r2, r2
+ 222              		.loc 2 145 49 view .LVU62
+ 223 00ca 0132     		adds	r2, r2, #1
+ 224              	.LVL28:
+ 225              		.loc 2 145 49 view .LVU63
+ 226              	.LBE20:
+ 227              	.LBE19:
+  20:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+ 228              		.loc 1 20 48 view .LVU64
+ 229 00cc C2F3C031 		ubfx	r1, r2, #15, #1
+ 230 00d0 01FA82F2 		sxtah	r2, r1, r2
+ 231 00d4 03EB6203 		add	r3, r3, r2, asr #1
+ 232 00d8 9BB2     		uxth	r3, r3
+ 233              	.LVL29:
+  22:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         diff_y = LV_ABS(diff_y);
+ 234              		.loc 1 22 9 is_stmt 1 view .LVU65
+  22:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         diff_y = LV_ABS(diff_y);
+ 235              		.loc 1 22 44 is_stmt 0 view .LVU66
+ 236 00da A3EB0803 		sub	r3, r3, r8
+ 237              	.LVL30:
+  22:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         diff_y = LV_ABS(diff_y);
+ 238              		.loc 1 22 44 view .LVU67
+ 239 00de 9AB2     		uxth	r2, r3
+ 240              	.LVL31:
+  22:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         diff_y = LV_ABS(diff_y);
+ 241              		.loc 1 22 20 view .LVU68
+ 242 00e0 1BB2     		sxth	r3, r3
+ 243              	.LVL32:
+  23:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+ 244              		.loc 1 23 9 is_stmt 1 view .LVU69
+  23:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+ 245              		.loc 1 23 18 is_stmt 0 view .LVU70
+ 246 00e2 002B     		cmp	r3, #0
+ 247 00e4 B8BF     		it	lt
+ 248 00e6 5B42     		rsblt	r3, r3, #0
+ 249              	.LVL33:
+  23:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+ 250              		.loc 1 23 16 view .LVU71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 9
+
+
+ 251 00e8 1BB2     		sxth	r3, r3
+ 252              	.LVL34:
+  26:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         /*If diff_y is out of the circle use the last point of the circle (the radius)*/
+ 253              		.loc 1 26 9 is_stmt 1 view .LVU72
+  28:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****             x = r;
+ 254              		.loc 1 28 9 view .LVU73
+  28:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****             x = r;
+ 255              		.loc 1 28 11 is_stmt 0 view .LVU74
+ 256 00ea 9E42     		cmp	r6, r3
+ 257 00ec B3DC     		bgt	.L8
+  29:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         } else {
+ 258              		.loc 1 29 15 view .LVU75
+ 259 00ee B346     		mov	fp, r6
+ 260 00f0 C6E7     		b	.L3
+ 261              	.LVL35:
+ 262              	.L7:
+  29:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         } else {
+ 263              		.loc 1 29 15 view .LVU76
+ 264              	.LBE21:
+  44:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     }
+  45:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** }
+ 265              		.loc 1 45 1 view .LVU77
+ 266 00f2 09B0     		add	sp, sp, #36
+ 267              	.LCFI2:
+ 268              		.cfi_def_cfa_offset 36
+ 269              		@ sp needed
+ 270 00f4 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 271              	.LVL36:
+ 272              	.L10:
+ 273              		.loc 1 45 1 view .LVU78
+ 274              		.align	2
+ 275              	.L9:
+ 276 00f8 67666666 		.word	1717986919
+ 277              		.cfi_endproc
+ 278              	.LFE189:
+ 280              		.section	.rodata.lv_example_scroll_6.str1.4,"aMS",%progbits,1
+ 281              		.align	2
+ 282              	.LC0:
+ 283 0000 42757474 		.ascii	"Button %d\000"
+ 283      6F6E2025 
+ 283      6400
+ 284              		.section	.text.lv_example_scroll_6,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	lv_example_scroll_6
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 290              		.fpu fpv4-sp-d16
+ 292              	lv_example_scroll_6:
+ 293              	.LFB190:
+  46:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  47:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** /**
+  48:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****  * Translate the object as they scroll
+  49:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****  */
+  50:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** void lv_example_scroll_6(void)
+  51:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** {
+ 294              		.loc 1 51 1 is_stmt 1 view -0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 10
+
+
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 0
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298 0000 70B5     		push	{r4, r5, r6, lr}
+ 299              	.LCFI3:
+ 300              		.cfi_def_cfa_offset 16
+ 301              		.cfi_offset 4, -16
+ 302              		.cfi_offset 5, -12
+ 303              		.cfi_offset 6, -8
+ 304              		.cfi_offset 14, -4
+  52:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_t * cont = lv_obj_create(lv_scr_act());
+ 305              		.loc 1 52 5 view .LVU80
+ 306              	.LBB22:
+ 307              	.LBI22:
+ 308              		.file 3 "lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h"
+   1:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+   2:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @file lv_disp.h
+   3:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  *
+   4:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+   5:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+   6:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** #ifndef LV_DISP_H
+   7:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** #define LV_DISP_H
+   8:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+   9:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** extern "C" {
+  11:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** #endif
+  12:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  13:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /*********************
+  14:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  *      INCLUDES
+  15:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  *********************/
+  16:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** #include "../hal/lv_hal.h"
+  17:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** #include "lv_obj.h"
+  18:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** #include "lv_theme.h"
+  19:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  20:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /*********************
+  21:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  *      DEFINES
+  22:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  *********************/
+  23:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  24:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**********************
+  25:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  *      TYPEDEFS
+  26:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  **********************/
+  27:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  28:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** typedef enum {
+  29:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** } lv_scr_load_anim_t;
+  40:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  41:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**********************
+  42:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * GLOBAL PROTOTYPES
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 11
+
+
+  43:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  **********************/
+  44:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  45:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+  46:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Return with a pointer to the active screen
+  47:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * screen)
+  49:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+  51:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  53:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+  54:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * screen)
+  57:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+  59:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  61:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+  62:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Make a screen active
+  63:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param scr pointer to a screen
+  64:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+  65:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  67:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+  68:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+  72:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  74:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+  75:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * layer)
+  77:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+  80:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  82:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+  83:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Get the theme of a display
+  84:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  85:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+  87:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  89:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+  90:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Get the theme of a display
+  91:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  92:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+  94:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+  96:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+  97:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Set the background color of a display
+  98:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  99:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param color color of the background
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 12
+
+
+ 100:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+ 101:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+ 103:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+ 104:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Set the background image of a display
+ 105:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 106:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+ 108:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+ 110:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+ 111:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Opacity of the background
+ 112:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 113:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param opa opacity (0..255)
+ 114:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+ 115:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+ 117:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+ 118:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Switch screen with animation
+ 119:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param time time of the animation
+ 122:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param delay delay before the transition
+ 123:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+ 125:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+ 127:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+ 128:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+ 132:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+ 134:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+ 135:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Manually trigger an activity on a display
+ 136:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+ 138:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+ 140:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+ 141:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+ 144:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+ 146:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+ 147:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 150:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+ 152:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+ 154:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /*------------------------------------------------
+ 155:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * To improve backward compatibility
+ 156:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Recommended only if you have one display
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 13
+
+
+ 157:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  *------------------------------------------------*/
+ 158:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** 
+ 159:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** /**
+ 160:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * Get the active screen of the default display
+ 161:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  * @return pointer to the active screen
+ 162:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****  */
+ 163:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 309              		.loc 3 163 26 view .LVU81
+ 310              	.LBB23:
+ 164:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h **** {
+ 165:lvgl/lvgl/examples/scroll/../../src/core/lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 311              		.loc 3 165 5 view .LVU82
+ 312              		.loc 3 165 12 is_stmt 0 view .LVU83
+ 313 0002 FFF7FEFF 		bl	lv_disp_get_default
+ 314              	.LVL37:
+ 315 0006 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 316              	.LVL38:
+ 317              	.LBE23:
+ 318              	.LBE22:
+ 319              		.loc 1 52 23 view .LVU84
+ 320 000a FFF7FEFF 		bl	lv_obj_create
+ 321              	.LVL39:
+ 322 000e 0646     		mov	r6, r0
+ 323              	.LVL40:
+  53:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_set_size(cont, 200, 200);
+ 324              		.loc 1 53 5 is_stmt 1 view .LVU85
+ 325 0010 C822     		movs	r2, #200
+ 326 0012 1146     		mov	r1, r2
+ 327 0014 FFF7FEFF 		bl	lv_obj_set_size
+ 328              	.LVL41:
+  54:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_center(cont);
+ 329              		.loc 1 54 5 view .LVU86
+ 330              	.LBB24:
+ 331              	.LBI24:
+ 332              		.file 4 "lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h"
+   1:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+   2:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @file lv_obj_pos.h
+   3:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *
+   4:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+   5:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+   6:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** #ifndef LV_OBJ_POS_H
+   7:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** #define LV_OBJ_POS_H
+   8:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+   9:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** extern "C" {
+  11:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** #endif
+  12:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  13:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /*********************
+  14:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *      INCLUDES
+  15:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *********************/
+  16:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** #include "../misc/lv_area.h"
+  17:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  18:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /*********************
+  19:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *      DEFINES
+  20:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *********************/
+  21:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  22:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**********************
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 14
+
+
+  23:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *      TYPEDEFS
+  24:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  **********************/
+  25:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** struct _lv_obj_t;
+  26:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  27:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** typedef void (*lv_layout_update_cb_t)(struct _lv_obj_t *, void * user_data);
+  28:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** typedef struct {
+  29:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****     lv_layout_update_cb_t cb;
+  30:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****     void * user_data;
+  31:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** }lv_layout_dsc_t;
+  32:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  33:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**********************
+  34:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * GLOBAL PROTOTYPES
+  35:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  **********************/
+  36:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  37:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+  38:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Set the relative the position of an object (relative to the parent's top left corner)
+  39:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  40:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param x         new distance from the left side of the parent plus the parent's left padding
+  41:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param y         new distance from the top side of the parent  plus the parent's right padding
+  42:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+  43:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_pos(struct _lv_obj_t * obj, lv_coord_t x, lv_coord_t y);
+  44:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  45:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+  46:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Set the x coordinate of a object
+  47:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  48:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param x         new distance from the left side from the parent plus the parent's left padding
+  49:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+  50:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_x(struct _lv_obj_t * obj, lv_coord_t x);
+  51:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  52:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+  53:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Set the y coordinate of a object
+  54:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  55:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param y         new distance from the top of the parent  plus the parent's top padding
+  56:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+  57:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_y(struct _lv_obj_t * obj, lv_coord_t y);
+  58:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  59:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+  60:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Set the size of an object.
+  61:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  62:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param w         the new width
+  63:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param h         the new height
+  64:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @note            possible values are:
+  65:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  66:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  67:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_PCT(x)     to set size in percentage of the parent's content area size 
+  68:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  69:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+  70:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_size(struct _lv_obj_t * obj, lv_coord_t w, lv_coord_t h);
+  71:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  72:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+  73:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Recalculate the size of the object
+  74:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  75:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @return          true: the size has been changed
+  76:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+  77:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** bool lv_obj_refr_size(struct _lv_obj_t * obj);
+  78:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  79:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 15
+
+
+  80:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Set the width of an object
+  81:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  82:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param w         the new width
+  83:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @note            possible values are:
+  84:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  85:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  86:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  87:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  88:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+  89:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_width(struct _lv_obj_t * obj, lv_coord_t w);
+  90:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+  91:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+  92:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Set the height of an object
+  93:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+  94:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param h         the new height
+  95:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @note            possible values are:
+  96:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  97:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  98:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  99:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+ 100:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 101:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 102:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 103:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 104:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Set the width reduced by the left and right padding and the border width.
+ 105:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+ 106:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param w         the width without paddings in pixels
+ 107:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 108:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_content_width(struct _lv_obj_t * obj, lv_coord_t w);
+ 109:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 110:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 111:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Set the height reduced by the top and bottom padding and the border width.
+ 112:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+ 113:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param h         the height without paddings in pixels
+ 114:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 115:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_content_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 116:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 117:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 118:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Set a layout for an object
+ 119:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
+ 120:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param layout    pointer to a layout descriptor to set
+ 121:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 122:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_layout(struct _lv_obj_t * obj, uint32_t layout);
+ 123:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 124:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 125:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Test whether the and object is positioned by a layout or not
+ 126:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to test
+ 127:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @return true:    positioned by a layout; false: not positioned by a layout
+ 128:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 129:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** bool lv_obj_is_layout_positioned(const struct _lv_obj_t * obj);
+ 130:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 131:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 132:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Mark the object for layout update.
+ 133:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 134:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 135:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_mark_layout_as_dirty(struct _lv_obj_t * obj);
+ 136:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 16
+
+
+ 137:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 138:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Update the layout of an object.
+ 139:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 140:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 141:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_update_layout(const struct _lv_obj_t * obj);
+ 142:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 143:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 144:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Regsiter a new layout
+ 145:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param cb        the layout update callback
+ 146:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param user_data custom data that will be passed to `cb`
+ 147:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @return          the ID of the new layout
+ 148:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 149:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** uint32_t lv_layout_register(lv_layout_update_cb_t cb, void * user_data);
+ 150:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 151:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 152:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Change the alignment of an object.
+ 153:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 154:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 155:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 156:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_set_align(struct _lv_obj_t * obj, lv_align_t align);
+ 157:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 158:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 159:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Change the alignment of an object and set new coordinates.
+ 160:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Equivalent to:
+ 161:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * lv_obj_set_align(obj, align);
+ 162:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * lv_obj_set_pos(obj, x_ofs, y_ofs);
+ 163:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 164:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 165:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 166:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 167:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 168:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_align(struct _lv_obj_t * obj, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs);
+ 169:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 170:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 171:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Align an object to an other object.
+ 172:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 173:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param base      pointer to an other object (if NULL `obj`s parent is used). 'obj' will be align
+ 174:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum)
+ 175:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 176:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 177:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @note            if the position or size of `base` changes `obj` needs to be aligned manually ag
+ 178:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 179:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** void lv_obj_align_to(struct _lv_obj_t * obj, const struct _lv_obj_t * base, lv_align_t align, lv_co
+ 180:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** 
+ 181:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** /**
+ 182:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * Align an object to the center on its parent.
+ 183:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 184:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  * @note            if the parent size changes `obj` needs to be aligned manually again
+ 185:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****  */
+ 186:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** static inline void lv_obj_center(struct _lv_obj_t * obj)
+ 333              		.loc 4 186 20 view .LVU87
+ 334              	.LBB25:
+ 187:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h **** {
+ 188:lvgl/lvgl/examples/scroll/../../src/core/lv_obj_pos.h ****     lv_obj_align(obj, LV_ALIGN_CENTER, 0, 0);
+ 335              		.loc 4 188 5 view .LVU88
+ 336 0018 0023     		movs	r3, #0
+ 337 001a 1A46     		mov	r2, r3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 17
+
+
+ 338 001c 0921     		movs	r1, #9
+ 339 001e 3046     		mov	r0, r6
+ 340 0020 FFF7FEFF 		bl	lv_obj_align
+ 341              	.LVL42:
+ 342              		.loc 4 188 5 is_stmt 0 view .LVU89
+ 343              	.LBE25:
+ 344              	.LBE24:
+  55:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_set_flex_flow(cont, LV_FLEX_FLOW_COLUMN);
+ 345              		.loc 1 55 5 is_stmt 1 view .LVU90
+ 346 0024 0121     		movs	r1, #1
+ 347 0026 3046     		mov	r0, r6
+ 348 0028 FFF7FEFF 		bl	lv_obj_set_flex_flow
+ 349              	.LVL43:
+  56:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_add_event_cb(cont, scroll_event_cb, LV_EVENT_SCROLL, NULL);
+ 350              		.loc 1 56 5 view .LVU91
+ 351 002c 0023     		movs	r3, #0
+ 352 002e 0B22     		movs	r2, #11
+ 353 0030 1D49     		ldr	r1, .L15
+ 354 0032 3046     		mov	r0, r6
+ 355 0034 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 356              	.LVL44:
+  57:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_set_style_radius(cont, LV_RADIUS_CIRCLE, 0);
+ 357              		.loc 1 57 5 view .LVU92
+ 358 0038 0022     		movs	r2, #0
+ 359 003a 47F6FF71 		movw	r1, #32767
+ 360 003e 3046     		mov	r0, r6
+ 361 0040 FFF7FEFF 		bl	lv_obj_set_style_radius
+ 362              	.LVL45:
+  58:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_set_style_clip_corner(cont, true, 0);
+ 363              		.loc 1 58 5 view .LVU93
+ 364 0044 0022     		movs	r2, #0
+ 365 0046 0121     		movs	r1, #1
+ 366 0048 3046     		mov	r0, r6
+ 367 004a FFF7FEFF 		bl	lv_obj_set_style_clip_corner
+ 368              	.LVL46:
+  59:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_set_scroll_dir(cont, LV_DIR_VER);
+ 369              		.loc 1 59 5 view .LVU94
+ 370 004e 0C21     		movs	r1, #12
+ 371 0050 3046     		mov	r0, r6
+ 372 0052 FFF7FEFF 		bl	lv_obj_set_scroll_dir
+ 373              	.LVL47:
+  60:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_set_scroll_snap_y(cont, LV_SCROLL_SNAP_CENTER);
+ 374              		.loc 1 60 5 view .LVU95
+ 375 0056 0321     		movs	r1, #3
+ 376 0058 3046     		mov	r0, r6
+ 377 005a FFF7FEFF 		bl	lv_obj_set_scroll_snap_y
+ 378              	.LVL48:
+  61:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_set_scrollbar_mode(cont, LV_SCROLLBAR_MODE_OFF);
+ 379              		.loc 1 61 5 view .LVU96
+ 380 005e 0021     		movs	r1, #0
+ 381 0060 3046     		mov	r0, r6
+ 382 0062 FFF7FEFF 		bl	lv_obj_set_scrollbar_mode
+ 383              	.LVL49:
+  62:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  63:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     uint32_t i;
+ 384              		.loc 1 63 5 view .LVU97
+  64:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     for(i = 0; i < 20; i++) {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 18
+
+
+ 385              		.loc 1 64 5 view .LVU98
+ 386              		.loc 1 64 11 is_stmt 0 view .LVU99
+ 387 0066 0024     		movs	r4, #0
+ 388              		.loc 1 64 5 view .LVU100
+ 389 0068 0FE0     		b	.L12
+ 390              	.LVL50:
+ 391              	.L13:
+ 392              	.LBB26:
+  65:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * btn = lv_btn_create(cont);
+ 393              		.loc 1 65 9 is_stmt 1 discriminator 3 view .LVU101
+ 394              		.loc 1 65 26 is_stmt 0 discriminator 3 view .LVU102
+ 395 006a 3046     		mov	r0, r6
+ 396 006c FFF7FEFF 		bl	lv_btn_create
+ 397              	.LVL51:
+ 398 0070 0546     		mov	r5, r0
+ 399              	.LVL52:
+  66:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_set_width(btn, lv_pct(100));
+ 400              		.loc 1 66 9 is_stmt 1 discriminator 3 view .LVU103
+ 401              		.loc 1 66 9 is_stmt 0 discriminator 3 view .LVU104
+ 402              	.LBE26:
+ 146:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
+ 147:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 148:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 149:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Set the width of an area
+ 150:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 151:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param w the new width of the area (w == 1 makes x1 == x2)
+ 152:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 153:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set_width(lv_area_t * area_p, lv_coord_t w);
+ 154:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 155:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 156:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Set the height of an area
+ 157:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 158:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param h the new height of the area (h == 1 makes y1 == y2)
+ 159:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 160:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set_height(lv_area_t * area_p, lv_coord_t h);
+ 161:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 162:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 163:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Set the position of an area (width and height will be kept)
+ 164:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 165:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x the new x coordinate of the area
+ 166:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param y the new y coordinate of the area
+ 167:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 168:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void _lv_area_set_pos(lv_area_t * area_p, lv_coord_t x, lv_coord_t y);
+ 169:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 170:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 171:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Return with area of an area (x * y)
+ 172:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
+ 173:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return size of area
+ 174:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 175:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** uint32_t lv_area_get_size(const lv_area_t * area_p);
+ 176:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 177:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_increase(lv_area_t * area, lv_coord_t w_extra, lv_coord_t h_extra);
+ 178:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 179:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_move(lv_area_t * area, lv_coord_t x_ofs, lv_coord_t y_ofs);
+ 180:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 181:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 182:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the common parts of two areas
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 19
+
+
+ 183:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param res_p pointer to an area, the result will be stored her
+ 184:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a1_p pointer to the first area
+ 185:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a2_p pointer to the second area
+ 186:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return false: the two area has NO common parts, res_p is invalid
+ 187:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 188:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_intersect(lv_area_t * res_p, const lv_area_t * a1_p, const lv_area_t * a2_p);
+ 189:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 190:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 191:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Join two areas into a third which involves the other two
+ 192:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param res_p pointer to an area, the result will be stored here
+ 193:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a1_p pointer to the first area
+ 194:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a2_p pointer to the second area
+ 195:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 196:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void _lv_area_join(lv_area_t * a_res_p, const lv_area_t * a1_p, const lv_area_t * a2_p);
+ 197:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 198:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 199:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Check if a point is on an area
+ 200:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a_p pointer to an area
+ 201:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param p_p pointer to a point
+ 202:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param radius radius of area (e.g. for rounded rectangle)
+ 203:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return false:the point is out of the area
+ 204:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 205:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_is_point_on(const lv_area_t * a_p, const lv_point_t * p_p, lv_coord_t radius);
+ 206:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 207:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 208:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Check if two area has common parts
+ 209:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a1_p pointer to an area.
+ 210:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param a2_p pointer to an other area
+ 211:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return false: a1_p and a2_p has no common parts
+ 212:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 213:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_is_on(const lv_area_t * a1_p, const lv_area_t * a2_p);
+ 214:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 215:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 216:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Check if an area is fully on an other
+ 217:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param ain_p pointer to an area which could be in 'aholder_p'
+ 218:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param aholder_p pointer to an area which could involve 'ain_p'
+ 219:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param radius radius of `aholder_p` (e.g. for rounded rectangle)
+ 220:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return true: `ain_p` is fully inside `aholder_p`
+ 221:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 222:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_is_in(const lv_area_t * ain_p, const lv_area_t * aholder_p, lv_coord_t radius);
+ 223:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 224:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 225:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 226:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Check if an area is fully out of an other
+ 227:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param aout_p pointer to an area which could be in 'aholder_p'
+ 228:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param aholder_p pointer to an area which could involve 'ain_p'
+ 229:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param radius radius of `aholder_p` (e.g. for rounded rectangle)
+ 230:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return true: `aout_p` is fully outside `aholder_p`
+ 231:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 232:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** bool _lv_area_is_out(const lv_area_t * aout_p, const lv_area_t * aholder_p, lv_coord_t radius);
+ 233:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 234:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 235:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Align an area to an other
+ 236:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param base an are where the other will be aligned
+ 237:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param to_align the area to align
+ 238:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param align `LV_ALIGN_...`
+ 239:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 20
+
+
+ 240:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_align(const lv_area_t * base, lv_area_t * to_align, lv_align_t align, lv_coord_t ofs_x
+ 241:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 242:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**********************
+ 243:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  *      MACROS
+ 244:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  **********************/
+ 245:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 246:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #if LV_USE_LARGE_COORD
+ 247:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_SHIFT    (29)
+ 248:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #else
+ 249:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_SHIFT    (13)
+ 250:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #endif
+ 251:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 252:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_MASK     (3 << _LV_COORD_TYPE_SHIFT)
+ 253:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_PLAIN(x)      ((x) & (~_LV_COORD_TYPE_MASK))  /*Remove type specifiers*/
+ 254:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 255:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_PX       (0 << _LV_COORD_TYPE_SHIFT)
+ 256:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_SPEC     (1 << _LV_COORD_TYPE_SHIFT)
+ 257:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define _LV_COORD_TYPE_RESERVED (3 << _LV_COORD_TYPE_SHIFT)
+ 258:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 259:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_IS_PX(x)     ((((x) & _LV_COORD_TYPE_MASK) == _LV_COORD_TYPE_PX) ? true : false)
+ 260:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_IS_SPEC(x)   ((((x) & _LV_COORD_TYPE_MASK) == _LV_COORD_TYPE_SPEC) ? true : false)
+ 261:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 262:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_SET_SPEC(x)   ((x) | _LV_COORD_TYPE_SPEC)
+ 263:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 264:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /*Special coordinates*/
+ 265:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_PCT(x)               (x < 0 ? LV_COORD_SET_SPEC(1000 - (x)) : LV_COORD_SET_SPEC(x))
+ 266:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_IS_PCT(x)      ((LV_COORD_IS_SPEC(x) && _LV_COORD_PLAIN(x) <= 2000) ? true : false
+ 267:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_COORD_GET_PCT(x)     (_LV_COORD_PLAIN(x) > 1000 ? 1000 - _LV_COORD_PLAIN(x) : _LV_COORD_
+ 268:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #define LV_SIZE_CONTENT         LV_COORD_SET_SPEC(2001)
+ 269:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 270:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** LV_EXPORT_CONST_INT(LV_SIZE_CONTENT);
+ 271:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
+ 272:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
+ 273:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Convert a percentage value to `lv_coord_t`.
+ 274:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Percentage values are stored in special range
+ 275:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param x the percentage (0..1000)
+ 276:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return a coordinate that stores the percentage
+ 277:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
+ 278:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** static inline lv_coord_t lv_pct(lv_coord_t x)
+ 279:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** {
+ 280:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     return LV_PCT(x);
+ 403              		.loc 2 280 5 is_stmt 1 discriminator 3 view .LVU105
+ 404              	.LBB27:
+ 405              		.loc 1 66 9 is_stmt 0 discriminator 3 view .LVU106
+ 406 0072 42F26401 		movw	r1, #8292
+ 407 0076 FFF7FEFF 		bl	lv_obj_set_width
+ 408              	.LVL53:
+  67:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  68:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * label = lv_label_create(btn);
+ 409              		.loc 1 68 9 is_stmt 1 discriminator 3 view .LVU107
+ 410              		.loc 1 68 28 is_stmt 0 discriminator 3 view .LVU108
+ 411 007a 2846     		mov	r0, r5
+ 412 007c FFF7FEFF 		bl	lv_label_create
+ 413              	.LVL54:
+  69:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_label_set_text_fmt(label, "Button %d", i);
+ 414              		.loc 1 69 9 is_stmt 1 discriminator 3 view .LVU109
+ 415 0080 2246     		mov	r2, r4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 21
+
+
+ 416 0082 0A49     		ldr	r1, .L15+4
+ 417 0084 FFF7FEFF 		bl	lv_label_set_text_fmt
+ 418              	.LVL55:
+ 419              		.loc 1 69 9 is_stmt 0 discriminator 3 view .LVU110
+ 420              	.LBE27:
+  64:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * btn = lv_btn_create(cont);
+ 421              		.loc 1 64 24 is_stmt 1 discriminator 3 view .LVU111
+  64:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * btn = lv_btn_create(cont);
+ 422              		.loc 1 64 25 is_stmt 0 discriminator 3 view .LVU112
+ 423 0088 0134     		adds	r4, r4, #1
+ 424              	.LVL56:
+ 425              	.L12:
+  64:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * btn = lv_btn_create(cont);
+ 426              		.loc 1 64 16 is_stmt 1 discriminator 1 view .LVU113
+  64:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****         lv_obj_t * btn = lv_btn_create(cont);
+ 427              		.loc 1 64 5 is_stmt 0 discriminator 1 view .LVU114
+ 428 008a 132C     		cmp	r4, #19
+ 429 008c EDD9     		bls	.L13
+  70:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     }
+  71:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  72:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     /*Update the buttons position manually for first*/
+  73:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_event_send(cont, LV_EVENT_SCROLL, NULL);
+ 430              		.loc 1 73 5 is_stmt 1 view .LVU115
+ 431 008e 0022     		movs	r2, #0
+ 432 0090 0B21     		movs	r1, #11
+ 433 0092 3046     		mov	r0, r6
+ 434 0094 FFF7FEFF 		bl	lv_event_send
+ 435              	.LVL57:
+  74:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** 
+  75:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     /*Be sure the fist button is in the middle*/
+  76:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c ****     lv_obj_scroll_to_view(lv_obj_get_child(cont, 0), LV_ANIM_OFF);
+ 436              		.loc 1 76 5 view .LVU116
+ 437 0098 0021     		movs	r1, #0
+ 438 009a 3046     		mov	r0, r6
+ 439 009c FFF7FEFF 		bl	lv_obj_get_child
+ 440              	.LVL58:
+ 441 00a0 0021     		movs	r1, #0
+ 442 00a2 FFF7FEFF 		bl	lv_obj_scroll_to_view
+ 443              	.LVL59:
+  77:lvgl/lvgl/examples/scroll/lv_example_scroll_6.c **** }
+ 444              		.loc 1 77 1 is_stmt 0 view .LVU117
+ 445 00a6 70BD     		pop	{r4, r5, r6, pc}
+ 446              	.LVL60:
+ 447              	.L16:
+ 448              		.loc 1 77 1 view .LVU118
+ 449              		.align	2
+ 450              	.L15:
+ 451 00a8 00000000 		.word	scroll_event_cb
+ 452 00ac 00000000 		.word	.LC0
+ 453              		.cfi_endproc
+ 454              	.LFE190:
+ 456              		.text
+ 457              	.Letext0:
+ 458              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 459              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 460              		.file 7 "lvgl/lvgl/examples/scroll/../../src/misc/lv_ll.h"
+ 461              		.file 8 "lvgl/lvgl/examples/scroll/../../src/misc/lv_math.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 22
+
+
+ 462              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 463              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 464              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 465              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 466              		.file 13 "lvgl/lvgl/examples/scroll/../../src/misc/lv_anim.h"
+ 467              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 468              		.file 15 "lvgl/lvgl/examples/scroll/../../src/core/lv_obj.h"
+ 469              		.file 16 "lvgl/lvgl/examples/scroll/../../src/core/lv_group.h"
+ 470              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 471              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 472              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 473              		.file 20 "lvgl/lvgl/examples/scroll/../../src/core/lv_obj_scroll.h"
+ 474              		.file 21 "lvgl/lvgl/examples/scroll/../../src/core/lv_obj_style.h"
+ 475              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 476              		.file 23 "lvgl/lvgl/examples/scroll/../../src/core/lv_obj_class.h"
+ 477              		.file 24 "lvgl/lvgl/examples/scroll/../../src/core/lv_event.h"
+ 478              		.file 25 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_arc.h"
+ 479              		.file 26 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_btn.h"
+ 480              		.file 27 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_img.h"
+ 481              		.file 28 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_label.h"
+ 482              		.file 29 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_line.h"
+ 483              		.file 30 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_table.h"
+ 484              		.file 31 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_checkbox.h"
+ 485              		.file 32 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_bar.h"
+ 486              		.file 33 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_slider.h"
+ 487              		.file 34 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_btnmatrix.h"
+ 488              		.file 35 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_dropdown.h"
+ 489              		.file 36 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_roller.h"
+ 490              		.file 37 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_textarea.h"
+ 491              		.file 38 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_canvas.h"
+ 492              		.file 39 "lvgl/lvgl/examples/scroll/../../src/widgets/lv_switch.h"
+ 493              		.file 40 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/animimg/lv_animimg.h"
+ 494              		.file 41 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/calendar/lv_calendar.h"
+ 495              		.file 42 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/calendar/lv_calendar_header_arrow.h"
+ 496              		.file 43 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/calendar/lv_calendar_header_dropdown.h
+ 497              		.file 44 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/chart/lv_chart.h"
+ 498              		.file 45 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/keyboard/lv_keyboard.h"
+ 499              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 500              		.file 47 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/list/lv_list.h"
+ 501              		.file 48 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/msgbox/lv_msgbox.h"
+ 502              		.file 49 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/meter/lv_meter.h"
+ 503              		.file 50 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/spinbox/lv_spinbox.h"
+ 504              		.file 51 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/spinner/lv_spinner.h"
+ 505              		.file 52 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/tabview/lv_tabview.h"
+ 506              		.file 53 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/tileview/lv_tileview.h"
+ 507              		.file 54 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/win/lv_win.h"
+ 508              		.file 55 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 509              		.file 56 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/led/lv_led.h"
+ 510              		.file 57 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 511              		.file 58 "lvgl/lvgl/examples/scroll/../../src/extra/widgets/span/lv_span.h"
+ 512              		.file 59 "lvgl/lvgl/examples/scroll/../../src/extra/layouts/grid/lv_grid.h"
+ 513              		.file 60 "lvgl/lvgl/examples/scroll/../../src/hal/lv_hal_disp.h"
+ 514              		.file 61 "lvgl/lvgl/examples/scroll/../../src/core/lv_obj_style_gen.h"
+ 515              		.file 62 "lvgl/lvgl/examples/scroll/../../src/core/lv_obj_tree.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8jufkX.s 			page 23
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_scroll_6.c
+C:\Users\gx\AppData\Local\Temp\cc8jufkX.s:18     .text.scroll_event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8jufkX.s:25     .text.scroll_event_cb:00000000 scroll_event_cb
+C:\Users\gx\AppData\Local\Temp\cc8jufkX.s:276    .text.scroll_event_cb:000000f8 $d
+C:\Users\gx\AppData\Local\Temp\cc8jufkX.s:281    .rodata.lv_example_scroll_6.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc8jufkX.s:285    .text.lv_example_scroll_6:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8jufkX.s:292    .text.lv_example_scroll_6:00000000 lv_example_scroll_6
+C:\Users\gx\AppData\Local\Temp\cc8jufkX.s:451    .text.lv_example_scroll_6:000000a8 $d
+
+UNDEFINED SYMBOLS
+lv_event_get_target
+lv_obj_get_coords
+lv_obj_get_height
+lv_obj_get_child_cnt
+lv_sqrt
+lv_obj_set_style_translate_x
+lv_map
+lv_obj_set_style_opa
+lv_obj_get_child
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_obj_create
+lv_obj_set_size
+lv_obj_align
+lv_obj_set_flex_flow
+lv_obj_add_event_cb
+lv_obj_set_style_radius
+lv_obj_set_style_clip_corner
+lv_obj_set_scroll_dir
+lv_obj_set_scroll_snap_y
+lv_obj_set_scrollbar_mode
+lv_btn_create
+lv_obj_set_width
+lv_label_create
+lv_label_set_text_fmt
+lv_event_send
+lv_obj_scroll_to_view

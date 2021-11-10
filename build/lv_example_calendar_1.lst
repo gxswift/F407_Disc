@@ -1,0 +1,619 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_calendar_1.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.event_handler.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 6C76676C 		.ascii	"lvgl/lvgl/examples/widgets/calendar/lv_example_cale"
+  20      2F6C7667 
+  20      6C2F6578 
+  20      616D706C 
+  20      65732F77 
+  21 0033 6E646172 		.ascii	"ndar_1.c\000"
+  21      5F312E63 
+  21      00
+  22              		.align	2
+  23              	.LC1:
+  24 003c 436C6963 		.ascii	"Clicked date: %02d.%02d.%d\000"
+  24      6B656420 
+  24      64617465 
+  24      3A202530 
+  24      32642E25 
+  25              		.section	.text.event_handler,"ax",%progbits
+  26              		.align	1
+  27              		.arch armv7e-m
+  28              		.syntax unified
+  29              		.thumb
+  30              		.thumb_func
+  31              		.fpu fpv4-sp-d16
+  33              	event_handler:
+  34              	.LVL0:
+  35              	.LFB189:
+  36              		.file 1 "lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c"
+   1:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** #include "../../lv_examples.h"
+   2:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** #if LV_USE_CALENDAR && LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** 
+   4:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** static void event_handler(lv_event_t * e)
+   5:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** {
+  37              		.loc 1 5 1 view -0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 8
+  40              		@ frame_needed = 0, uses_anonymous_args = 0
+  41              		.loc 1 5 1 is_stmt 0 view .LVU1
+  42 0000 30B5     		push	{r4, r5, lr}
+  43              	.LCFI0:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 2
+
+
+  44              		.cfi_def_cfa_offset 12
+  45              		.cfi_offset 4, -12
+  46              		.cfi_offset 5, -8
+  47              		.cfi_offset 14, -4
+  48 0002 87B0     		sub	sp, sp, #28
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 40
+  51 0004 0546     		mov	r5, r0
+   6:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_event_code_t code = lv_event_get_code(e);
+  52              		.loc 1 6 5 is_stmt 1 view .LVU2
+  53              		.loc 1 6 28 is_stmt 0 view .LVU3
+  54 0006 FFF7FEFF 		bl	lv_event_get_code
+  55              	.LVL1:
+  56              		.loc 1 6 28 view .LVU4
+  57 000a 0446     		mov	r4, r0
+  58              	.LVL2:
+   7:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_obj_t * obj = lv_event_get_target(e);
+  59              		.loc 1 7 5 is_stmt 1 view .LVU5
+  60              		.loc 1 7 22 is_stmt 0 view .LVU6
+  61 000c 2846     		mov	r0, r5
+  62 000e FFF7FEFF 		bl	lv_event_get_target
+  63              	.LVL3:
+   8:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** 
+   9:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     if(code == LV_EVENT_VALUE_CHANGED) {
+  64              		.loc 1 9 5 is_stmt 1 view .LVU7
+  65              		.loc 1 9 7 is_stmt 0 view .LVU8
+  66 0012 1C2C     		cmp	r4, #28
+  67 0014 01D0     		beq	.L5
+  68              	.LVL4:
+  69              	.L1:
+  10:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****         lv_calendar_date_t date;
+  11:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****         if(lv_calendar_get_pressed_date(obj, &date)) {
+  12:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****             LV_LOG_USER("Clicked date: %02d.%02d.%d", date.day, date.month, date.year);
+  13:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****         }
+  14:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     }
+  15:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** }
+  70              		.loc 1 15 1 view .LVU9
+  71 0016 07B0     		add	sp, sp, #28
+  72              	.LCFI2:
+  73              		.cfi_remember_state
+  74              		.cfi_def_cfa_offset 12
+  75              		@ sp needed
+  76 0018 30BD     		pop	{r4, r5, pc}
+  77              	.LVL5:
+  78              	.L5:
+  79              	.LCFI3:
+  80              		.cfi_restore_state
+  81              	.LBB6:
+  10:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****         lv_calendar_date_t date;
+  82              		.loc 1 10 9 is_stmt 1 view .LVU10
+  11:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****             LV_LOG_USER("Clicked date: %02d.%02d.%d", date.day, date.month, date.year);
+  83              		.loc 1 11 9 view .LVU11
+  11:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****             LV_LOG_USER("Clicked date: %02d.%02d.%d", date.day, date.month, date.year);
+  84              		.loc 1 11 12 is_stmt 0 view .LVU12
+  85 001a 05A9     		add	r1, sp, #20
+  86 001c FFF7FEFF 		bl	lv_calendar_get_pressed_date
+  87              	.LVL6:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 3
+
+
+  11:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****             LV_LOG_USER("Clicked date: %02d.%02d.%d", date.day, date.month, date.year);
+  88              		.loc 1 11 11 view .LVU13
+  89 0020 0028     		cmp	r0, #0
+  90 0022 F8D0     		beq	.L1
+  12:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****         }
+  91              		.loc 1 12 13 is_stmt 1 view .LVU14
+  92 0024 9DF91730 		ldrsb	r3, [sp, #23]
+  93 0028 9DF91620 		ldrsb	r2, [sp, #22]
+  94 002c BDF81410 		ldrh	r1, [sp, #20]
+  95 0030 0391     		str	r1, [sp, #12]
+  96 0032 0292     		str	r2, [sp, #8]
+  97 0034 0193     		str	r3, [sp, #4]
+  98 0036 044B     		ldr	r3, .L6
+  99 0038 0093     		str	r3, [sp]
+ 100 003a 044B     		ldr	r3, .L6+4
+ 101 003c 0C22     		movs	r2, #12
+ 102 003e 0449     		ldr	r1, .L6+8
+ 103 0040 0420     		movs	r0, #4
+ 104 0042 FFF7FEFF 		bl	_lv_log_add
+ 105              	.LVL7:
+  12:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****         }
+ 106              		.loc 1 12 87 view .LVU15
+ 107              	.LBE6:
+ 108              		.loc 1 15 1 is_stmt 0 view .LVU16
+ 109 0046 E6E7     		b	.L1
+ 110              	.L7:
+ 111              		.align	2
+ 112              	.L6:
+ 113 0048 3C000000 		.word	.LC1
+ 114 004c 00000000 		.word	.LANCHOR0
+ 115 0050 00000000 		.word	.LC0
+ 116              		.cfi_endproc
+ 117              	.LFE189:
+ 119              		.section	.text.lv_example_calendar_1,"ax",%progbits
+ 120              		.align	1
+ 121              		.global	lv_example_calendar_1
+ 122              		.syntax unified
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.fpu fpv4-sp-d16
+ 127              	lv_example_calendar_1:
+ 128              	.LFB190:
+  16:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** 
+  17:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** void lv_example_calendar_1(void)
+  18:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** {
+ 129              		.loc 1 18 1 is_stmt 1 view -0
+ 130              		.cfi_startproc
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133 0000 10B5     		push	{r4, lr}
+ 134              	.LCFI4:
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 4, -8
+ 137              		.cfi_offset 14, -4
+  19:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_obj_t  * calendar = lv_calendar_create(lv_scr_act());
+ 138              		.loc 1 19 5 view .LVU18
+ 139              	.LBB7:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 4
+
+
+ 140              	.LBI7:
+ 141              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_disp.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @file lv_disp.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifndef LV_DISP_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #define LV_DISP_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "../hal/lv_hal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_obj.h"
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_theme.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      DEFINES
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      TYPEDEFS
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** typedef enum {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** } lv_scr_load_anim_t;
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the active screen
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 5
+
+
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Make a screen active
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to a screen
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * layer)
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background color of a display
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param color color of the background
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background image of a display
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Opacity of the background
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 6
+
+
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param opa opacity (0..255)
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Switch screen with animation
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param time time of the animation
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param delay delay before the transition
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Manually trigger an activity on a display
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*------------------------------------------------
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * To improve backward compatibility
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Recommended only if you have one display
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *------------------------------------------------*/
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the active screen of the default display
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 142              		.loc 2 163 26 view .LVU19
+ 143              	.LBB8:
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 144              		.loc 2 165 5 view .LVU20
+ 145              		.loc 2 165 12 is_stmt 0 view .LVU21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 7
+
+
+ 146 0002 FFF7FEFF 		bl	lv_disp_get_default
+ 147              	.LVL8:
+ 148 0006 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 149              	.LVL9:
+ 150              	.LBE8:
+ 151              	.LBE7:
+ 152              		.loc 1 19 28 view .LVU22
+ 153 000a FFF7FEFF 		bl	lv_calendar_create
+ 154              	.LVL10:
+ 155 000e 0446     		mov	r4, r0
+ 156              	.LVL11:
+  20:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_obj_set_size(calendar, 185, 185);
+ 157              		.loc 1 20 5 is_stmt 1 view .LVU23
+ 158 0010 B922     		movs	r2, #185
+ 159 0012 1146     		mov	r1, r2
+ 160 0014 FFF7FEFF 		bl	lv_obj_set_size
+ 161              	.LVL12:
+  21:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_obj_align(calendar, LV_ALIGN_CENTER, 0, 27);
+ 162              		.loc 1 21 5 view .LVU24
+ 163 0018 1B23     		movs	r3, #27
+ 164 001a 0022     		movs	r2, #0
+ 165 001c 0921     		movs	r1, #9
+ 166 001e 2046     		mov	r0, r4
+ 167 0020 FFF7FEFF 		bl	lv_obj_align
+ 168              	.LVL13:
+  22:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_obj_add_event_cb(calendar, event_handler, LV_EVENT_ALL, NULL);
+ 169              		.loc 1 22 5 view .LVU25
+ 170 0024 0023     		movs	r3, #0
+ 171 0026 1A46     		mov	r2, r3
+ 172 0028 1749     		ldr	r1, .L10
+ 173 002a 2046     		mov	r0, r4
+ 174 002c FFF7FEFF 		bl	lv_obj_add_event_cb
+ 175              	.LVL14:
+  23:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** 
+  24:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_calendar_set_today_date(calendar, 2021, 02, 23);
+ 176              		.loc 1 24 5 view .LVU26
+ 177 0030 1723     		movs	r3, #23
+ 178 0032 0222     		movs	r2, #2
+ 179 0034 40F2E571 		movw	r1, #2021
+ 180 0038 2046     		mov	r0, r4
+ 181 003a FFF7FEFF 		bl	lv_calendar_set_today_date
+ 182              	.LVL15:
+  25:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_calendar_set_showed_date(calendar, 2021, 02);
+ 183              		.loc 1 25 5 view .LVU27
+ 184 003e 0222     		movs	r2, #2
+ 185 0040 40F2E571 		movw	r1, #2021
+ 186 0044 2046     		mov	r0, r4
+ 187 0046 FFF7FEFF 		bl	lv_calendar_set_showed_date
+ 188              	.LVL16:
+  26:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** 
+  27:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     /*Highlight a few days*/
+  28:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     static lv_calendar_date_t highlighted_days[3];       /*Only its pointer will be saved so should
+ 189              		.loc 1 28 5 view .LVU28
+  29:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     highlighted_days[0].year = 2021;
+ 190              		.loc 1 29 5 view .LVU29
+ 191              		.loc 1 29 30 is_stmt 0 view .LVU30
+ 192 004a 1049     		ldr	r1, .L10+4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 8
+
+
+ 193 004c 40F2E572 		movw	r2, #2021
+ 194 0050 0A80     		strh	r2, [r1]	@ movhi
+  30:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     highlighted_days[0].month = 02;
+ 195              		.loc 1 30 5 is_stmt 1 view .LVU31
+ 196              		.loc 1 30 31 is_stmt 0 view .LVU32
+ 197 0052 0223     		movs	r3, #2
+ 198 0054 8B70     		strb	r3, [r1, #2]
+  31:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     highlighted_days[0].day = 6;
+ 199              		.loc 1 31 5 is_stmt 1 view .LVU33
+ 200              		.loc 1 31 29 is_stmt 0 view .LVU34
+ 201 0056 0620     		movs	r0, #6
+ 202 0058 C870     		strb	r0, [r1, #3]
+  32:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** 
+  33:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     highlighted_days[1].year = 2021;
+ 203              		.loc 1 33 5 is_stmt 1 view .LVU35
+ 204              		.loc 1 33 30 is_stmt 0 view .LVU36
+ 205 005a 8A80     		strh	r2, [r1, #4]	@ movhi
+  34:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     highlighted_days[1].month = 02;
+ 206              		.loc 1 34 5 is_stmt 1 view .LVU37
+ 207              		.loc 1 34 31 is_stmt 0 view .LVU38
+ 208 005c 8B71     		strb	r3, [r1, #6]
+  35:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     highlighted_days[1].day = 11;
+ 209              		.loc 1 35 5 is_stmt 1 view .LVU39
+ 210              		.loc 1 35 29 is_stmt 0 view .LVU40
+ 211 005e 0B22     		movs	r2, #11
+ 212 0060 CA71     		strb	r2, [r1, #7]
+  36:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** 
+  37:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     highlighted_days[2].year = 2022;
+ 213              		.loc 1 37 5 is_stmt 1 view .LVU41
+ 214              		.loc 1 37 30 is_stmt 0 view .LVU42
+ 215 0062 40F2E672 		movw	r2, #2022
+ 216 0066 0A81     		strh	r2, [r1, #8]	@ movhi
+  38:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     highlighted_days[2].month = 02;
+ 217              		.loc 1 38 5 is_stmt 1 view .LVU43
+ 218              		.loc 1 38 31 is_stmt 0 view .LVU44
+ 219 0068 8B72     		strb	r3, [r1, #10]
+  39:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     highlighted_days[2].day = 22;
+ 220              		.loc 1 39 5 is_stmt 1 view .LVU45
+ 221              		.loc 1 39 29 is_stmt 0 view .LVU46
+ 222 006a 1623     		movs	r3, #22
+ 223 006c CB72     		strb	r3, [r1, #11]
+  40:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** 
+  41:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_calendar_set_highlighted_dates(calendar, highlighted_days, 3);
+ 224              		.loc 1 41 5 is_stmt 1 view .LVU47
+ 225 006e 0322     		movs	r2, #3
+ 226 0070 2046     		mov	r0, r4
+ 227 0072 FFF7FEFF 		bl	lv_calendar_set_highlighted_dates
+ 228              	.LVL17:
+  42:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** 
+  43:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** #if LV_USE_CALENDAR_HEADER_DROPDOWN
+  44:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_calendar_header_dropdown_create(lv_scr_act(), calendar);
+ 229              		.loc 1 44 5 view .LVU48
+ 230              	.LBB9:
+ 231              	.LBI9:
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 232              		.loc 2 163 26 view .LVU49
+ 233              	.LBB10:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 9
+
+
+ 234              		.loc 2 165 5 view .LVU50
+ 235              		.loc 2 165 12 is_stmt 0 view .LVU51
+ 236 0076 FFF7FEFF 		bl	lv_disp_get_default
+ 237              	.LVL18:
+ 238 007a FFF7FEFF 		bl	lv_disp_get_scr_act
+ 239              	.LVL19:
+ 240              	.LBE10:
+ 241              	.LBE9:
+ 242              		.loc 1 44 5 view .LVU52
+ 243 007e 2146     		mov	r1, r4
+ 244 0080 FFF7FEFF 		bl	lv_calendar_header_dropdown_create
+ 245              	.LVL20:
+  45:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** #elif LV_USE_CALENDAR_HEADER_ARROW
+  46:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c ****     lv_calendar_header_arrow_create(lv_scr_act(), calendar, 25);
+  47:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** #endif
+  48:lvgl/lvgl/examples/widgets/calendar/lv_example_calendar_1.c **** }
+ 246              		.loc 1 48 1 view .LVU53
+ 247 0084 10BD     		pop	{r4, pc}
+ 248              	.LVL21:
+ 249              	.L11:
+ 250              		.loc 1 48 1 view .LVU54
+ 251 0086 00BF     		.align	2
+ 252              	.L10:
+ 253 0088 00000000 		.word	event_handler
+ 254 008c 00000000 		.word	.LANCHOR1
+ 255              		.cfi_endproc
+ 256              	.LFE190:
+ 258              		.section	.bss.highlighted_days.12321,"aw",%nobits
+ 259              		.align	2
+ 260              		.set	.LANCHOR1,. + 0
+ 263              	highlighted_days.12321:
+ 264 0000 00000000 		.space	12
+ 264      00000000 
+ 264      00000000 
+ 265              		.section	.rodata.__func__.12316,"a"
+ 266              		.align	2
+ 267              		.set	.LANCHOR0,. + 0
+ 270              	__func__.12316:
+ 271 0000 6576656E 		.ascii	"event_handler\000"
+ 271      745F6861 
+ 271      6E646C65 
+ 271      7200
+ 272              		.text
+ 273              	.Letext0:
+ 274              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 275              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 276              		.file 5 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 277              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 278              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 279              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 280              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 281              		.file 10 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 282              		.file 11 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 283              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 284              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 285              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 286              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 10
+
+
+ 287              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 288              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 289              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 290              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 291              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 292              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 293              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 294              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 295              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 296              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 297              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 298              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 299              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 300              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 301              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 302              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 303              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 304              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 305              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 306              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 307              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 308              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 309              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 310              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 311              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 312              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 313              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 314              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 315              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 316              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 317              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 318              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 319              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 320              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 321              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 322              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 323              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 324              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 325              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 326              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 327              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 328              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_disp.h"
+ 329              		.file 58 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+ 330              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_log.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_calendar_1.c
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:18     .rodata.event_handler.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:26     .text.event_handler:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:33     .text.event_handler:00000000 event_handler
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:113    .text.event_handler:00000048 $d
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:120    .text.lv_example_calendar_1:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:127    .text.lv_example_calendar_1:00000000 lv_example_calendar_1
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:253    .text.lv_example_calendar_1:00000088 $d
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:259    .bss.highlighted_days.12321:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:263    .bss.highlighted_days.12321:00000000 highlighted_days.12321
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:266    .rodata.__func__.12316:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfSvdXx.s:270    .rodata.__func__.12316:00000000 __func__.12316
+
+UNDEFINED SYMBOLS
+lv_event_get_code
+lv_event_get_target
+lv_calendar_get_pressed_date
+_lv_log_add
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_calendar_create
+lv_obj_set_size
+lv_obj_align
+lv_obj_add_event_cb
+lv_calendar_set_today_date
+lv_calendar_set_showed_date
+lv_calendar_set_highlighted_dates
+lv_calendar_header_dropdown_create

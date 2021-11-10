@@ -1,0 +1,2648 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_fs.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.lv_fs_get_real_path,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	lv_fs_get_real_path:
+  26              	.LVL0:
+  27              	.LFB41:
+  28              		.file 1 "lvgl/lvgl/src/misc/lv_fs.c"
+   1:lvgl/lvgl/src/misc/lv_fs.c **** /**
+   2:lvgl/lvgl/src/misc/lv_fs.c ****  * @file lv_fs.c
+   3:lvgl/lvgl/src/misc/lv_fs.c ****  *
+   4:lvgl/lvgl/src/misc/lv_fs.c ****  */
+   5:lvgl/lvgl/src/misc/lv_fs.c **** 
+   6:lvgl/lvgl/src/misc/lv_fs.c **** /*********************
+   7:lvgl/lvgl/src/misc/lv_fs.c ****  *      INCLUDES
+   8:lvgl/lvgl/src/misc/lv_fs.c ****  *********************/
+   9:lvgl/lvgl/src/misc/lv_fs.c **** #include "lv_fs.h"
+  10:lvgl/lvgl/src/misc/lv_fs.c **** 
+  11:lvgl/lvgl/src/misc/lv_fs.c **** #include "../misc/lv_assert.h"
+  12:lvgl/lvgl/src/misc/lv_fs.c **** #include "lv_ll.h"
+  13:lvgl/lvgl/src/misc/lv_fs.c **** #include <string.h>
+  14:lvgl/lvgl/src/misc/lv_fs.c **** #include "lv_gc.h"
+  15:lvgl/lvgl/src/misc/lv_fs.c **** 
+  16:lvgl/lvgl/src/misc/lv_fs.c **** /*********************
+  17:lvgl/lvgl/src/misc/lv_fs.c ****  *      DEFINES
+  18:lvgl/lvgl/src/misc/lv_fs.c ****  *********************/
+  19:lvgl/lvgl/src/misc/lv_fs.c **** 
+  20:lvgl/lvgl/src/misc/lv_fs.c **** /**
+  21:lvgl/lvgl/src/misc/lv_fs.c ****  * "free" is used as a function pointer (in lv_fs_drv_t).
+  22:lvgl/lvgl/src/misc/lv_fs.c ****  * We must make sure "free" was not defined to a platform specific
+  23:lvgl/lvgl/src/misc/lv_fs.c ****  * free function, otherwise compilation would fail.
+  24:lvgl/lvgl/src/misc/lv_fs.c ****  */
+  25:lvgl/lvgl/src/misc/lv_fs.c **** #ifdef free
+  26:lvgl/lvgl/src/misc/lv_fs.c ****     #undef free
+  27:lvgl/lvgl/src/misc/lv_fs.c **** #endif
+  28:lvgl/lvgl/src/misc/lv_fs.c **** 
+  29:lvgl/lvgl/src/misc/lv_fs.c **** /**********************
+  30:lvgl/lvgl/src/misc/lv_fs.c ****  *      TYPEDEFS
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 2
+
+
+  31:lvgl/lvgl/src/misc/lv_fs.c ****  **********************/
+  32:lvgl/lvgl/src/misc/lv_fs.c **** 
+  33:lvgl/lvgl/src/misc/lv_fs.c **** /**********************
+  34:lvgl/lvgl/src/misc/lv_fs.c ****  *  STATIC PROTOTYPES
+  35:lvgl/lvgl/src/misc/lv_fs.c ****  **********************/
+  36:lvgl/lvgl/src/misc/lv_fs.c **** static const char * lv_fs_get_real_path(const char * path);
+  37:lvgl/lvgl/src/misc/lv_fs.c **** 
+  38:lvgl/lvgl/src/misc/lv_fs.c **** /**********************
+  39:lvgl/lvgl/src/misc/lv_fs.c ****  *  STATIC VARIABLES
+  40:lvgl/lvgl/src/misc/lv_fs.c ****  **********************/
+  41:lvgl/lvgl/src/misc/lv_fs.c **** 
+  42:lvgl/lvgl/src/misc/lv_fs.c **** /**********************
+  43:lvgl/lvgl/src/misc/lv_fs.c ****  *      MACROS
+  44:lvgl/lvgl/src/misc/lv_fs.c ****  **********************/
+  45:lvgl/lvgl/src/misc/lv_fs.c **** 
+  46:lvgl/lvgl/src/misc/lv_fs.c **** /**********************
+  47:lvgl/lvgl/src/misc/lv_fs.c ****  *   GLOBAL FUNCTIONS
+  48:lvgl/lvgl/src/misc/lv_fs.c ****  **********************/
+  49:lvgl/lvgl/src/misc/lv_fs.c **** 
+  50:lvgl/lvgl/src/misc/lv_fs.c **** void _lv_fs_init(void)
+  51:lvgl/lvgl/src/misc/lv_fs.c **** {
+  52:lvgl/lvgl/src/misc/lv_fs.c ****     _lv_ll_init(&LV_GC_ROOT(_lv_fsdrv_ll), sizeof(lv_fs_drv_t *));
+  53:lvgl/lvgl/src/misc/lv_fs.c **** }
+  54:lvgl/lvgl/src/misc/lv_fs.c **** 
+  55:lvgl/lvgl/src/misc/lv_fs.c **** bool lv_fs_is_ready(char letter)
+  56:lvgl/lvgl/src/misc/lv_fs.c **** {
+  57:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t * drv = lv_fs_get_drv(letter);
+  58:lvgl/lvgl/src/misc/lv_fs.c **** 
+  59:lvgl/lvgl/src/misc/lv_fs.c ****     if(drv == NULL) return false; /*An unknown driver in not ready*/
+  60:lvgl/lvgl/src/misc/lv_fs.c **** 
+  61:lvgl/lvgl/src/misc/lv_fs.c ****     if(drv->ready_cb == NULL) return true; /*Assume the driver is always ready if no handler provid
+  62:lvgl/lvgl/src/misc/lv_fs.c **** 
+  63:lvgl/lvgl/src/misc/lv_fs.c ****     return drv->ready_cb(drv);
+  64:lvgl/lvgl/src/misc/lv_fs.c **** }
+  65:lvgl/lvgl/src/misc/lv_fs.c **** 
+  66:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_res_t lv_fs_open(lv_fs_file_t * file_p, const char * path, lv_fs_mode_t mode)
+  67:lvgl/lvgl/src/misc/lv_fs.c **** {
+  68:lvgl/lvgl/src/misc/lv_fs.c ****     if(path == NULL) {
+  69:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file: path is NULL");
+  70:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+  71:lvgl/lvgl/src/misc/lv_fs.c ****     }
+  72:lvgl/lvgl/src/misc/lv_fs.c **** 
+  73:lvgl/lvgl/src/misc/lv_fs.c ****     char letter = path[0];
+  74:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t * drv = lv_fs_get_drv(letter);
+  75:lvgl/lvgl/src/misc/lv_fs.c **** 
+  76:lvgl/lvgl/src/misc/lv_fs.c ****     if(drv == NULL) {
+  77:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file (%s): unknown driver letter", path);
+  78:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_EX;
+  79:lvgl/lvgl/src/misc/lv_fs.c ****     }
+  80:lvgl/lvgl/src/misc/lv_fs.c **** 
+  81:lvgl/lvgl/src/misc/lv_fs.c ****     if(drv->ready_cb) {
+  82:lvgl/lvgl/src/misc/lv_fs.c ****         if(drv->ready_cb(drv) == false) {
+  83:lvgl/lvgl/src/misc/lv_fs.c ****             LV_LOG_WARN("Can't open file (%s): driver not ready", path);
+  84:lvgl/lvgl/src/misc/lv_fs.c ****             return LV_FS_RES_HW_ERR;
+  85:lvgl/lvgl/src/misc/lv_fs.c ****         }
+  86:lvgl/lvgl/src/misc/lv_fs.c ****     }
+  87:lvgl/lvgl/src/misc/lv_fs.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 3
+
+
+  88:lvgl/lvgl/src/misc/lv_fs.c ****     if(drv->open_cb == NULL) {
+  89:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file (%s): open function not exists", path);
+  90:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+  91:lvgl/lvgl/src/misc/lv_fs.c ****     }
+  92:lvgl/lvgl/src/misc/lv_fs.c **** 
+  93:lvgl/lvgl/src/misc/lv_fs.c ****     const char * real_path = lv_fs_get_real_path(path);
+  94:lvgl/lvgl/src/misc/lv_fs.c ****     void *file_d = drv->open_cb(drv, real_path, mode);
+  95:lvgl/lvgl/src/misc/lv_fs.c **** 
+  96:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_d == NULL || file_d == (void*)(-1)) {
+  97:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_UNKNOWN;
+  98:lvgl/lvgl/src/misc/lv_fs.c ****     }
+  99:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 100:lvgl/lvgl/src/misc/lv_fs.c ****     file_p->drv = drv;
+ 101:lvgl/lvgl/src/misc/lv_fs.c ****     file_p->file_d = file_d;
+ 102:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 103:lvgl/lvgl/src/misc/lv_fs.c ****     return LV_FS_RES_OK;
+ 104:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 105:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 106:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_res_t lv_fs_close(lv_fs_file_t * file_p)
+ 107:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 108:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 109:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 110:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 111:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 112:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv->close_cb == NULL) {
+ 113:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 114:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 115:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 116:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = file_p->drv->close_cb(file_p->drv, file_p->file_d);
+ 117:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 118:lvgl/lvgl/src/misc/lv_fs.c ****     file_p->file_d = NULL;
+ 119:lvgl/lvgl/src/misc/lv_fs.c ****     file_p->drv    = NULL;
+ 120:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 121:lvgl/lvgl/src/misc/lv_fs.c ****     return res;
+ 122:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 123:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 124:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_res_t lv_fs_read(lv_fs_file_t * file_p, void * buf, uint32_t btr, uint32_t * br)
+ 125:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 126:lvgl/lvgl/src/misc/lv_fs.c ****     if(br != NULL) *br = 0;
+ 127:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) return LV_FS_RES_INV_PARAM;
+ 128:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv->read_cb == NULL) return LV_FS_RES_NOT_IMP;
+ 129:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 130:lvgl/lvgl/src/misc/lv_fs.c ****     uint32_t br_tmp = 0;
+ 131:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = file_p->drv->read_cb(file_p->drv, file_p->file_d, buf, btr, &br_tmp);
+ 132:lvgl/lvgl/src/misc/lv_fs.c ****     if(br != NULL) *br = br_tmp;
+ 133:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 134:lvgl/lvgl/src/misc/lv_fs.c ****     return res;
+ 135:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 136:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 137:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_res_t lv_fs_write(lv_fs_file_t * file_p, const void * buf, uint32_t btw, uint32_t * bw)
+ 138:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 139:lvgl/lvgl/src/misc/lv_fs.c ****     if(bw != NULL) *bw = 0;
+ 140:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 141:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 142:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 143:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 144:lvgl/lvgl/src/misc/lv_fs.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 4
+
+
+ 145:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv->write_cb == NULL) {
+ 146:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 147:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 148:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 149:lvgl/lvgl/src/misc/lv_fs.c ****     uint32_t bw_tmp = 0;
+ 150:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = file_p->drv->write_cb(file_p->drv, file_p->file_d, buf, btw, &bw_tmp);
+ 151:lvgl/lvgl/src/misc/lv_fs.c ****     if(bw != NULL) *bw = bw_tmp;
+ 152:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 153:lvgl/lvgl/src/misc/lv_fs.c ****     return res;
+ 154:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 155:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 156:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_res_t lv_fs_seek(lv_fs_file_t * file_p, uint32_t pos, lv_fs_whence_t whence)
+ 157:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 158:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 159:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 160:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 161:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 162:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv->seek_cb == NULL) {
+ 163:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 164:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 165:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 166:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = file_p->drv->seek_cb(file_p->drv, file_p->file_d, pos, whence);
+ 167:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 168:lvgl/lvgl/src/misc/lv_fs.c ****     return res;
+ 169:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 170:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 171:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_res_t lv_fs_tell(lv_fs_file_t * file_p, uint32_t * pos)
+ 172:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 173:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 174:lvgl/lvgl/src/misc/lv_fs.c ****         *pos = 0;
+ 175:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 176:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 177:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 178:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv->tell_cb == NULL) {
+ 179:lvgl/lvgl/src/misc/lv_fs.c ****         *pos = 0;
+ 180:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 181:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 182:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 183:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = file_p->drv->tell_cb(file_p->drv, file_p->file_d, pos);
+ 184:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 185:lvgl/lvgl/src/misc/lv_fs.c ****     return res;
+ 186:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 187:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 188:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_res_t lv_fs_dir_open(lv_fs_dir_t * rddir_p, const char * path)
+ 189:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 190:lvgl/lvgl/src/misc/lv_fs.c ****     if(path == NULL) return LV_FS_RES_INV_PARAM;
+ 191:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 192:lvgl/lvgl/src/misc/lv_fs.c ****     char letter = path[0];
+ 193:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t * drv = lv_fs_get_drv(letter);
+ 194:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 195:lvgl/lvgl/src/misc/lv_fs.c ****     if(drv == NULL) {
+ 196:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_EX;
+ 197:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 198:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 199:lvgl/lvgl/src/misc/lv_fs.c ****     if(drv->ready_cb) {
+ 200:lvgl/lvgl/src/misc/lv_fs.c ****         if(drv->ready_cb(drv) == false) {
+ 201:lvgl/lvgl/src/misc/lv_fs.c ****             return LV_FS_RES_HW_ERR;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 5
+
+
+ 202:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 203:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 204:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 205:lvgl/lvgl/src/misc/lv_fs.c ****     if(drv->dir_open_cb == NULL) {
+ 206:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 207:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 208:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 209:lvgl/lvgl/src/misc/lv_fs.c ****     const char * real_path = lv_fs_get_real_path(path);
+ 210:lvgl/lvgl/src/misc/lv_fs.c ****     void *dir_d = drv->dir_open_cb(drv, real_path);
+ 211:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 212:lvgl/lvgl/src/misc/lv_fs.c ****     if(dir_d == NULL || dir_d == (void*)(-1)) {
+ 213:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_UNKNOWN;
+ 214:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 215:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 216:lvgl/lvgl/src/misc/lv_fs.c ****     rddir_p->drv = drv;
+ 217:lvgl/lvgl/src/misc/lv_fs.c ****     rddir_p->dir_d = dir_d;
+ 218:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 219:lvgl/lvgl/src/misc/lv_fs.c ****     return LV_FS_RES_OK;
+ 220:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 221:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 222:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_res_t lv_fs_dir_read(lv_fs_dir_t * rddir_p, char * fn)
+ 223:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 224:lvgl/lvgl/src/misc/lv_fs.c ****     if(rddir_p->drv == NULL || rddir_p->dir_d == NULL) {
+ 225:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 226:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 227:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 228:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 229:lvgl/lvgl/src/misc/lv_fs.c ****     if(rddir_p->drv->dir_read_cb == NULL) {
+ 230:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 231:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 232:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 233:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 234:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = rddir_p->drv->dir_read_cb(rddir_p->drv, rddir_p->dir_d, fn);
+ 235:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 236:lvgl/lvgl/src/misc/lv_fs.c ****     return res;
+ 237:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 238:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 239:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_res_t lv_fs_dir_close(lv_fs_dir_t * rddir_p)
+ 240:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 241:lvgl/lvgl/src/misc/lv_fs.c ****     if(rddir_p->drv == NULL || rddir_p->dir_d == NULL) {
+ 242:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 243:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 244:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 245:lvgl/lvgl/src/misc/lv_fs.c ****     if(rddir_p->drv->dir_close_cb == NULL) {
+ 246:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 247:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 248:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 249:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = rddir_p->drv->dir_close_cb(rddir_p->drv, rddir_p->dir_d);
+ 250:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 251:lvgl/lvgl/src/misc/lv_fs.c ****     rddir_p->dir_d = NULL;
+ 252:lvgl/lvgl/src/misc/lv_fs.c ****     rddir_p->drv   = NULL;
+ 253:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 254:lvgl/lvgl/src/misc/lv_fs.c ****     return res;
+ 255:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 256:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 257:lvgl/lvgl/src/misc/lv_fs.c **** void lv_fs_drv_init(lv_fs_drv_t * drv)
+ 258:lvgl/lvgl/src/misc/lv_fs.c **** {
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 6
+
+
+ 259:lvgl/lvgl/src/misc/lv_fs.c ****     lv_memset_00(drv, sizeof(lv_fs_drv_t));
+ 260:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 261:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 262:lvgl/lvgl/src/misc/lv_fs.c **** void lv_fs_drv_register(lv_fs_drv_t * drv_p)
+ 263:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 264:lvgl/lvgl/src/misc/lv_fs.c ****     /*Save the new driver*/
+ 265:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t ** new_drv;
+ 266:lvgl/lvgl/src/misc/lv_fs.c ****     new_drv = _lv_ll_ins_head(&LV_GC_ROOT(_lv_fsdrv_ll));
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     LV_ASSERT_MALLOC(new_drv);
+ 268:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 269:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 270:lvgl/lvgl/src/misc/lv_fs.c ****     *new_drv = drv_p;
+ 271:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 272:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 273:lvgl/lvgl/src/misc/lv_fs.c **** lv_fs_drv_t * lv_fs_get_drv(char letter)
+ 274:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 275:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t ** drv;
+ 276:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 277:lvgl/lvgl/src/misc/lv_fs.c ****     _LV_LL_READ(&LV_GC_ROOT(_lv_fsdrv_ll), drv) {
+ 278:lvgl/lvgl/src/misc/lv_fs.c ****         if((*drv)->letter == letter) {
+ 279:lvgl/lvgl/src/misc/lv_fs.c ****             return *drv;
+ 280:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 281:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 282:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 283:lvgl/lvgl/src/misc/lv_fs.c ****     return NULL;
+ 284:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 285:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 286:lvgl/lvgl/src/misc/lv_fs.c **** char * lv_fs_get_letters(char * buf)
+ 287:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 288:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t ** drv;
+ 289:lvgl/lvgl/src/misc/lv_fs.c ****     uint8_t i = 0;
+ 290:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 291:lvgl/lvgl/src/misc/lv_fs.c ****     _LV_LL_READ(&LV_GC_ROOT(_lv_fsdrv_ll), drv) {
+ 292:lvgl/lvgl/src/misc/lv_fs.c ****         buf[i] = (*drv)->letter;
+ 293:lvgl/lvgl/src/misc/lv_fs.c ****         i++;
+ 294:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 295:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 296:lvgl/lvgl/src/misc/lv_fs.c ****     buf[i] = '\0';
+ 297:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 298:lvgl/lvgl/src/misc/lv_fs.c ****     return buf;
+ 299:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 300:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 301:lvgl/lvgl/src/misc/lv_fs.c **** const char * lv_fs_get_ext(const char * fn)
+ 302:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 303:lvgl/lvgl/src/misc/lv_fs.c ****     size_t i;
+ 304:lvgl/lvgl/src/misc/lv_fs.c ****     for(i = strlen(fn); i > 0; i--) {
+ 305:lvgl/lvgl/src/misc/lv_fs.c ****         if(fn[i] == '.') {
+ 306:lvgl/lvgl/src/misc/lv_fs.c ****             return &fn[i + 1];
+ 307:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 308:lvgl/lvgl/src/misc/lv_fs.c ****         else if(fn[i] == '/' || fn[i] == '\\') {
+ 309:lvgl/lvgl/src/misc/lv_fs.c ****             return ""; /*No extension if a '\' or '/' found*/
+ 310:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 311:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 312:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 313:lvgl/lvgl/src/misc/lv_fs.c ****     return ""; /*Empty string if no '.' in the file name.*/
+ 314:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 315:lvgl/lvgl/src/misc/lv_fs.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 7
+
+
+ 316:lvgl/lvgl/src/misc/lv_fs.c **** char * lv_fs_up(char * path)
+ 317:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 318:lvgl/lvgl/src/misc/lv_fs.c ****     size_t len = strlen(path);
+ 319:lvgl/lvgl/src/misc/lv_fs.c ****     if(len == 0) return path;
+ 320:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 321:lvgl/lvgl/src/misc/lv_fs.c ****     len--; /*Go before the trailing '\0'*/
+ 322:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 323:lvgl/lvgl/src/misc/lv_fs.c ****     /*Ignore trailing '/' or '\'*/
+ 324:lvgl/lvgl/src/misc/lv_fs.c ****     while(path[len] == '/' || path[len] == '\\') {
+ 325:lvgl/lvgl/src/misc/lv_fs.c ****         path[len] = '\0';
+ 326:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 327:lvgl/lvgl/src/misc/lv_fs.c ****             len--;
+ 328:lvgl/lvgl/src/misc/lv_fs.c ****         else
+ 329:lvgl/lvgl/src/misc/lv_fs.c ****             return path;
+ 330:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 331:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 332:lvgl/lvgl/src/misc/lv_fs.c ****     size_t i;
+ 333:lvgl/lvgl/src/misc/lv_fs.c ****     for(i = len; i > 0; i--) {
+ 334:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 335:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 336:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 337:lvgl/lvgl/src/misc/lv_fs.c ****     if(i > 0) path[i] = '\0';
+ 338:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 339:lvgl/lvgl/src/misc/lv_fs.c ****     return path;
+ 340:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 341:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 342:lvgl/lvgl/src/misc/lv_fs.c **** const char * lv_fs_get_last(const char * path)
+ 343:lvgl/lvgl/src/misc/lv_fs.c **** {
+ 344:lvgl/lvgl/src/misc/lv_fs.c ****     size_t len = strlen(path);
+ 345:lvgl/lvgl/src/misc/lv_fs.c ****     if(len == 0) return path;
+ 346:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 347:lvgl/lvgl/src/misc/lv_fs.c ****     len--; /*Go before the trailing '\0'*/
+ 348:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 349:lvgl/lvgl/src/misc/lv_fs.c ****     /*Ignore trailing '/' or '\'*/
+ 350:lvgl/lvgl/src/misc/lv_fs.c ****     while(path[len] == '/' || path[len] == '\\') {
+ 351:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 352:lvgl/lvgl/src/misc/lv_fs.c ****             len--;
+ 353:lvgl/lvgl/src/misc/lv_fs.c ****         else
+ 354:lvgl/lvgl/src/misc/lv_fs.c ****             return path;
+ 355:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 356:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 357:lvgl/lvgl/src/misc/lv_fs.c ****     size_t i;
+ 358:lvgl/lvgl/src/misc/lv_fs.c ****     for(i = len; i > 0; i--) {
+ 359:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 360:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 361:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 362:lvgl/lvgl/src/misc/lv_fs.c ****     /*No '/' or '\' in the path so return with path itself*/
+ 363:lvgl/lvgl/src/misc/lv_fs.c ****     if(i == 0) return path;
+ 364:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 365:lvgl/lvgl/src/misc/lv_fs.c ****     return &path[i + 1];
+ 366:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 367:lvgl/lvgl/src/misc/lv_fs.c **** /**********************
+ 368:lvgl/lvgl/src/misc/lv_fs.c ****  *   STATIC FUNCTIONS
+ 369:lvgl/lvgl/src/misc/lv_fs.c ****  **********************/
+ 370:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 371:lvgl/lvgl/src/misc/lv_fs.c **** /**
+ 372:lvgl/lvgl/src/misc/lv_fs.c ****  * Skip the driver letter and the possible : after the letter
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 8
+
+
+ 373:lvgl/lvgl/src/misc/lv_fs.c ****  * @param path path string (E.g. S:/folder/file.txt)
+ 374:lvgl/lvgl/src/misc/lv_fs.c ****  * @return pointer to the beginning of the real path (E.g. /folder/file.txt)
+ 375:lvgl/lvgl/src/misc/lv_fs.c ****  */
+ 376:lvgl/lvgl/src/misc/lv_fs.c **** static const char * lv_fs_get_real_path(const char * path)
+ 377:lvgl/lvgl/src/misc/lv_fs.c **** {
+  29              		.loc 1 377 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34              		.loc 1 377 1 is_stmt 0 view .LVU1
+  35 0000 0346     		mov	r3, r0
+ 378:lvgl/lvgl/src/misc/lv_fs.c ****     path++; /*Ignore the driver letter*/
+  36              		.loc 1 378 5 is_stmt 1 view .LVU2
+  37              		.loc 1 378 9 is_stmt 0 view .LVU3
+  38 0002 0130     		adds	r0, r0, #1
+  39              	.LVL1:
+ 379:lvgl/lvgl/src/misc/lv_fs.c ****     if(*path == ':') path++;
+  40              		.loc 1 379 5 is_stmt 1 view .LVU4
+  41              		.loc 1 379 8 is_stmt 0 view .LVU5
+  42 0004 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+  43              		.loc 1 379 7 view .LVU6
+  44 0006 3A2A     		cmp	r2, #58
+  45 0008 00D0     		beq	.L3
+  46              	.L1:
+ 380:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 381:lvgl/lvgl/src/misc/lv_fs.c ****     return path;
+ 382:lvgl/lvgl/src/misc/lv_fs.c **** }
+  47              		.loc 1 382 1 view .LVU7
+  48 000a 7047     		bx	lr
+  49              	.L3:
+ 379:lvgl/lvgl/src/misc/lv_fs.c ****     if(*path == ':') path++;
+  50              		.loc 1 379 22 is_stmt 1 discriminator 1 view .LVU8
+ 379:lvgl/lvgl/src/misc/lv_fs.c ****     if(*path == ':') path++;
+  51              		.loc 1 379 26 is_stmt 0 discriminator 1 view .LVU9
+  52 000c 981C     		adds	r0, r3, #2
+  53              	.LVL2:
+ 381:lvgl/lvgl/src/misc/lv_fs.c **** }
+  54              		.loc 1 381 5 is_stmt 1 discriminator 1 view .LVU10
+ 381:lvgl/lvgl/src/misc/lv_fs.c **** }
+  55              		.loc 1 381 12 is_stmt 0 discriminator 1 view .LVU11
+  56 000e FCE7     		b	.L1
+  57              		.cfi_endproc
+  58              	.LFE41:
+  60              		.section	.text._lv_fs_init,"ax",%progbits
+  61              		.align	1
+  62              		.global	_lv_fs_init
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  66              		.fpu fpv4-sp-d16
+  68              	_lv_fs_init:
+  69              	.LFB23:
+  51:lvgl/lvgl/src/misc/lv_fs.c ****     _lv_ll_init(&LV_GC_ROOT(_lv_fsdrv_ll), sizeof(lv_fs_drv_t *));
+  70              		.loc 1 51 1 is_stmt 1 view -0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 9
+
+
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74 0000 08B5     		push	{r3, lr}
+  75              	.LCFI0:
+  76              		.cfi_def_cfa_offset 8
+  77              		.cfi_offset 3, -8
+  78              		.cfi_offset 14, -4
+  52:lvgl/lvgl/src/misc/lv_fs.c **** }
+  79              		.loc 1 52 5 view .LVU13
+  80 0002 0421     		movs	r1, #4
+  81 0004 0148     		ldr	r0, .L6
+  82 0006 FFF7FEFF 		bl	_lv_ll_init
+  83              	.LVL3:
+  53:lvgl/lvgl/src/misc/lv_fs.c **** 
+  84              		.loc 1 53 1 is_stmt 0 view .LVU14
+  85 000a 08BD     		pop	{r3, pc}
+  86              	.L7:
+  87              		.align	2
+  88              	.L6:
+  89 000c 00000000 		.word	_lv_fsdrv_ll
+  90              		.cfi_endproc
+  91              	.LFE23:
+  93              		.section	.text.lv_fs_close,"ax",%progbits
+  94              		.align	1
+  95              		.global	lv_fs_close
+  96              		.syntax unified
+  97              		.thumb
+  98              		.thumb_func
+  99              		.fpu fpv4-sp-d16
+ 101              	lv_fs_close:
+ 102              	.LVL4:
+ 103              	.LFB26:
+ 107:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 104              		.loc 1 107 1 is_stmt 1 view -0
+ 105              		.cfi_startproc
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 108              		.loc 1 107 1 is_stmt 0 view .LVU16
+ 109 0000 10B5     		push	{r4, lr}
+ 110              	.LCFI1:
+ 111              		.cfi_def_cfa_offset 8
+ 112              		.cfi_offset 4, -8
+ 113              		.cfi_offset 14, -4
+ 114 0002 0446     		mov	r4, r0
+ 108:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 115              		.loc 1 108 5 is_stmt 1 view .LVU17
+ 108:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 116              		.loc 1 108 14 is_stmt 0 view .LVU18
+ 117 0004 4068     		ldr	r0, [r0, #4]
+ 118              	.LVL5:
+ 108:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 119              		.loc 1 108 7 view .LVU19
+ 120 0006 38B1     		cbz	r0, .L10
+ 112:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 121              		.loc 1 112 5 is_stmt 1 view .LVU20
+ 112:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 122              		.loc 1 112 19 is_stmt 0 view .LVU21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 10
+
+
+ 123 0008 C368     		ldr	r3, [r0, #12]
+ 112:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 124              		.loc 1 112 7 view .LVU22
+ 125 000a 3BB1     		cbz	r3, .L11
+ 116:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 126              		.loc 1 116 5 is_stmt 1 view .LVU23
+ 116:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 127              		.loc 1 116 23 is_stmt 0 view .LVU24
+ 128 000c 2168     		ldr	r1, [r4]
+ 129 000e 9847     		blx	r3
+ 130              	.LVL6:
+ 118:lvgl/lvgl/src/misc/lv_fs.c ****     file_p->drv    = NULL;
+ 131              		.loc 1 118 5 is_stmt 1 view .LVU25
+ 118:lvgl/lvgl/src/misc/lv_fs.c ****     file_p->drv    = NULL;
+ 132              		.loc 1 118 20 is_stmt 0 view .LVU26
+ 133 0010 0023     		movs	r3, #0
+ 134 0012 2360     		str	r3, [r4]
+ 119:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 135              		.loc 1 119 5 is_stmt 1 view .LVU27
+ 119:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 136              		.loc 1 119 20 is_stmt 0 view .LVU28
+ 137 0014 6360     		str	r3, [r4, #4]
+ 121:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 138              		.loc 1 121 5 is_stmt 1 view .LVU29
+ 139              	.LVL7:
+ 140              	.L9:
+ 122:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 141              		.loc 1 122 1 is_stmt 0 view .LVU30
+ 142 0016 10BD     		pop	{r4, pc}
+ 143              	.LVL8:
+ 144              	.L10:
+ 109:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 145              		.loc 1 109 16 view .LVU31
+ 146 0018 0B20     		movs	r0, #11
+ 147 001a FCE7     		b	.L9
+ 148              	.L11:
+ 113:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 149              		.loc 1 113 16 view .LVU32
+ 150 001c 0920     		movs	r0, #9
+ 151 001e FAE7     		b	.L9
+ 152              		.cfi_endproc
+ 153              	.LFE26:
+ 155              		.section	.text.lv_fs_read,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	lv_fs_read
+ 158              		.syntax unified
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.fpu fpv4-sp-d16
+ 163              	lv_fs_read:
+ 164              	.LVL9:
+ 165              	.LFB27:
+ 125:lvgl/lvgl/src/misc/lv_fs.c ****     if(br != NULL) *br = 0;
+ 166              		.loc 1 125 1 is_stmt 1 view -0
+ 167              		.cfi_startproc
+ 168              		@ args = 0, pretend = 0, frame = 8
+ 169              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 11
+
+
+ 125:lvgl/lvgl/src/misc/lv_fs.c ****     if(br != NULL) *br = 0;
+ 170              		.loc 1 125 1 is_stmt 0 view .LVU34
+ 171 0000 70B5     		push	{r4, r5, r6, lr}
+ 172              	.LCFI2:
+ 173              		.cfi_def_cfa_offset 16
+ 174              		.cfi_offset 4, -16
+ 175              		.cfi_offset 5, -12
+ 176              		.cfi_offset 6, -8
+ 177              		.cfi_offset 14, -4
+ 178 0002 84B0     		sub	sp, sp, #16
+ 179              	.LCFI3:
+ 180              		.cfi_def_cfa_offset 32
+ 181 0004 0446     		mov	r4, r0
+ 126:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) return LV_FS_RES_INV_PARAM;
+ 182              		.loc 1 126 5 is_stmt 1 view .LVU35
+ 126:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) return LV_FS_RES_INV_PARAM;
+ 183              		.loc 1 126 7 is_stmt 0 view .LVU36
+ 184 0006 1D46     		mov	r5, r3
+ 185 0008 0BB1     		cbz	r3, .L14
+ 126:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) return LV_FS_RES_INV_PARAM;
+ 186              		.loc 1 126 20 is_stmt 1 discriminator 1 view .LVU37
+ 126:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) return LV_FS_RES_INV_PARAM;
+ 187              		.loc 1 126 24 is_stmt 0 discriminator 1 view .LVU38
+ 188 000a 0023     		movs	r3, #0
+ 189              	.LVL10:
+ 126:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) return LV_FS_RES_INV_PARAM;
+ 190              		.loc 1 126 24 discriminator 1 view .LVU39
+ 191 000c 2B60     		str	r3, [r5]
+ 192              	.L14:
+ 127:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv->read_cb == NULL) return LV_FS_RES_NOT_IMP;
+ 193              		.loc 1 127 5 is_stmt 1 view .LVU40
+ 127:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv->read_cb == NULL) return LV_FS_RES_NOT_IMP;
+ 194              		.loc 1 127 14 is_stmt 0 view .LVU41
+ 195 000e 6068     		ldr	r0, [r4, #4]
+ 196              	.LVL11:
+ 127:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv->read_cb == NULL) return LV_FS_RES_NOT_IMP;
+ 197              		.loc 1 127 7 view .LVU42
+ 198 0010 70B1     		cbz	r0, .L16
+ 128:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 199              		.loc 1 128 5 is_stmt 1 view .LVU43
+ 128:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 200              		.loc 1 128 19 is_stmt 0 view .LVU44
+ 201 0012 0669     		ldr	r6, [r0, #16]
+ 128:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 202              		.loc 1 128 7 view .LVU45
+ 203 0014 76B1     		cbz	r6, .L17
+ 130:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = file_p->drv->read_cb(file_p->drv, file_p->file_d, buf, btr, &br_tmp);
+ 204              		.loc 1 130 5 is_stmt 1 view .LVU46
+ 130:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = file_p->drv->read_cb(file_p->drv, file_p->file_d, buf, btr, &br_tmp);
+ 205              		.loc 1 130 14 is_stmt 0 view .LVU47
+ 206 0016 0023     		movs	r3, #0
+ 207 0018 0393     		str	r3, [sp, #12]
+ 131:lvgl/lvgl/src/misc/lv_fs.c ****     if(br != NULL) *br = br_tmp;
+ 208              		.loc 1 131 5 is_stmt 1 view .LVU48
+ 131:lvgl/lvgl/src/misc/lv_fs.c ****     if(br != NULL) *br = br_tmp;
+ 209              		.loc 1 131 23 is_stmt 0 view .LVU49
+ 210 001a 03AB     		add	r3, sp, #12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 12
+
+
+ 211 001c 0093     		str	r3, [sp]
+ 212 001e 1346     		mov	r3, r2
+ 213 0020 0A46     		mov	r2, r1
+ 214              	.LVL12:
+ 131:lvgl/lvgl/src/misc/lv_fs.c ****     if(br != NULL) *br = br_tmp;
+ 215              		.loc 1 131 23 view .LVU50
+ 216 0022 2168     		ldr	r1, [r4]
+ 217              	.LVL13:
+ 131:lvgl/lvgl/src/misc/lv_fs.c ****     if(br != NULL) *br = br_tmp;
+ 218              		.loc 1 131 23 view .LVU51
+ 219 0024 B047     		blx	r6
+ 220              	.LVL14:
+ 132:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 221              		.loc 1 132 5 is_stmt 1 view .LVU52
+ 132:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 222              		.loc 1 132 7 is_stmt 0 view .LVU53
+ 223 0026 0DB1     		cbz	r5, .L15
+ 132:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 224              		.loc 1 132 20 is_stmt 1 discriminator 1 view .LVU54
+ 132:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 225              		.loc 1 132 24 is_stmt 0 discriminator 1 view .LVU55
+ 226 0028 039B     		ldr	r3, [sp, #12]
+ 227 002a 2B60     		str	r3, [r5]
+ 228              	.LVL15:
+ 229              	.L15:
+ 135:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 230              		.loc 1 135 1 view .LVU56
+ 231 002c 04B0     		add	sp, sp, #16
+ 232              	.LCFI4:
+ 233              		.cfi_remember_state
+ 234              		.cfi_def_cfa_offset 16
+ 235              		@ sp needed
+ 236 002e 70BD     		pop	{r4, r5, r6, pc}
+ 237              	.LVL16:
+ 238              	.L16:
+ 239              	.LCFI5:
+ 240              		.cfi_restore_state
+ 127:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv->read_cb == NULL) return LV_FS_RES_NOT_IMP;
+ 241              		.loc 1 127 36 view .LVU57
+ 242 0030 0B20     		movs	r0, #11
+ 243 0032 FBE7     		b	.L15
+ 244              	.L17:
+ 128:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 245              		.loc 1 128 45 view .LVU58
+ 246 0034 0920     		movs	r0, #9
+ 247 0036 F9E7     		b	.L15
+ 248              		.cfi_endproc
+ 249              	.LFE27:
+ 251              		.section	.text.lv_fs_write,"ax",%progbits
+ 252              		.align	1
+ 253              		.global	lv_fs_write
+ 254              		.syntax unified
+ 255              		.thumb
+ 256              		.thumb_func
+ 257              		.fpu fpv4-sp-d16
+ 259              	lv_fs_write:
+ 260              	.LVL17:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 13
+
+
+ 261              	.LFB28:
+ 138:lvgl/lvgl/src/misc/lv_fs.c ****     if(bw != NULL) *bw = 0;
+ 262              		.loc 1 138 1 is_stmt 1 view -0
+ 263              		.cfi_startproc
+ 264              		@ args = 0, pretend = 0, frame = 8
+ 265              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138:lvgl/lvgl/src/misc/lv_fs.c ****     if(bw != NULL) *bw = 0;
+ 266              		.loc 1 138 1 is_stmt 0 view .LVU60
+ 267 0000 70B5     		push	{r4, r5, r6, lr}
+ 268              	.LCFI6:
+ 269              		.cfi_def_cfa_offset 16
+ 270              		.cfi_offset 4, -16
+ 271              		.cfi_offset 5, -12
+ 272              		.cfi_offset 6, -8
+ 273              		.cfi_offset 14, -4
+ 274 0002 84B0     		sub	sp, sp, #16
+ 275              	.LCFI7:
+ 276              		.cfi_def_cfa_offset 32
+ 277 0004 0446     		mov	r4, r0
+ 139:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 278              		.loc 1 139 5 is_stmt 1 view .LVU61
+ 139:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 279              		.loc 1 139 7 is_stmt 0 view .LVU62
+ 280 0006 1D46     		mov	r5, r3
+ 281 0008 0BB1     		cbz	r3, .L20
+ 139:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 282              		.loc 1 139 20 is_stmt 1 discriminator 1 view .LVU63
+ 139:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 283              		.loc 1 139 24 is_stmt 0 discriminator 1 view .LVU64
+ 284 000a 0023     		movs	r3, #0
+ 285              	.LVL18:
+ 139:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 286              		.loc 1 139 24 discriminator 1 view .LVU65
+ 287 000c 2B60     		str	r3, [r5]
+ 288              	.L20:
+ 141:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 289              		.loc 1 141 5 is_stmt 1 view .LVU66
+ 141:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 290              		.loc 1 141 14 is_stmt 0 view .LVU67
+ 291 000e 6068     		ldr	r0, [r4, #4]
+ 292              	.LVL19:
+ 141:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 293              		.loc 1 141 7 view .LVU68
+ 294 0010 70B1     		cbz	r0, .L22
+ 145:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 295              		.loc 1 145 5 is_stmt 1 view .LVU69
+ 145:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 296              		.loc 1 145 19 is_stmt 0 view .LVU70
+ 297 0012 4669     		ldr	r6, [r0, #20]
+ 145:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 298              		.loc 1 145 7 view .LVU71
+ 299 0014 76B1     		cbz	r6, .L23
+ 149:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = file_p->drv->write_cb(file_p->drv, file_p->file_d, buf, btw, &bw_tmp);
+ 300              		.loc 1 149 5 is_stmt 1 view .LVU72
+ 149:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_res_t res = file_p->drv->write_cb(file_p->drv, file_p->file_d, buf, btw, &bw_tmp);
+ 301              		.loc 1 149 14 is_stmt 0 view .LVU73
+ 302 0016 0023     		movs	r3, #0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 14
+
+
+ 303 0018 0393     		str	r3, [sp, #12]
+ 150:lvgl/lvgl/src/misc/lv_fs.c ****     if(bw != NULL) *bw = bw_tmp;
+ 304              		.loc 1 150 5 is_stmt 1 view .LVU74
+ 150:lvgl/lvgl/src/misc/lv_fs.c ****     if(bw != NULL) *bw = bw_tmp;
+ 305              		.loc 1 150 23 is_stmt 0 view .LVU75
+ 306 001a 03AB     		add	r3, sp, #12
+ 307 001c 0093     		str	r3, [sp]
+ 308 001e 1346     		mov	r3, r2
+ 309 0020 0A46     		mov	r2, r1
+ 310              	.LVL20:
+ 150:lvgl/lvgl/src/misc/lv_fs.c ****     if(bw != NULL) *bw = bw_tmp;
+ 311              		.loc 1 150 23 view .LVU76
+ 312 0022 2168     		ldr	r1, [r4]
+ 313              	.LVL21:
+ 150:lvgl/lvgl/src/misc/lv_fs.c ****     if(bw != NULL) *bw = bw_tmp;
+ 314              		.loc 1 150 23 view .LVU77
+ 315 0024 B047     		blx	r6
+ 316              	.LVL22:
+ 151:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 317              		.loc 1 151 5 is_stmt 1 view .LVU78
+ 151:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 318              		.loc 1 151 7 is_stmt 0 view .LVU79
+ 319 0026 0DB1     		cbz	r5, .L21
+ 151:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 320              		.loc 1 151 20 is_stmt 1 discriminator 1 view .LVU80
+ 151:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 321              		.loc 1 151 24 is_stmt 0 discriminator 1 view .LVU81
+ 322 0028 039B     		ldr	r3, [sp, #12]
+ 323 002a 2B60     		str	r3, [r5]
+ 324              	.LVL23:
+ 325              	.L21:
+ 154:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 326              		.loc 1 154 1 view .LVU82
+ 327 002c 04B0     		add	sp, sp, #16
+ 328              	.LCFI8:
+ 329              		.cfi_remember_state
+ 330              		.cfi_def_cfa_offset 16
+ 331              		@ sp needed
+ 332 002e 70BD     		pop	{r4, r5, r6, pc}
+ 333              	.LVL24:
+ 334              	.L22:
+ 335              	.LCFI9:
+ 336              		.cfi_restore_state
+ 142:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 337              		.loc 1 142 16 view .LVU83
+ 338 0030 0B20     		movs	r0, #11
+ 339 0032 FBE7     		b	.L21
+ 340              	.L23:
+ 146:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 341              		.loc 1 146 16 view .LVU84
+ 342 0034 0920     		movs	r0, #9
+ 343 0036 F9E7     		b	.L21
+ 344              		.cfi_endproc
+ 345              	.LFE28:
+ 347              		.section	.text.lv_fs_seek,"ax",%progbits
+ 348              		.align	1
+ 349              		.global	lv_fs_seek
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 15
+
+
+ 350              		.syntax unified
+ 351              		.thumb
+ 352              		.thumb_func
+ 353              		.fpu fpv4-sp-d16
+ 355              	lv_fs_seek:
+ 356              	.LVL25:
+ 357              	.LFB29:
+ 157:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 358              		.loc 1 157 1 is_stmt 1 view -0
+ 359              		.cfi_startproc
+ 360              		@ args = 0, pretend = 0, frame = 0
+ 361              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 362              		.loc 1 157 1 is_stmt 0 view .LVU86
+ 363 0000 38B5     		push	{r3, r4, r5, lr}
+ 364              	.LCFI10:
+ 365              		.cfi_def_cfa_offset 16
+ 366              		.cfi_offset 3, -16
+ 367              		.cfi_offset 4, -12
+ 368              		.cfi_offset 5, -8
+ 369              		.cfi_offset 14, -4
+ 370 0002 0446     		mov	r4, r0
+ 158:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 371              		.loc 1 158 5 is_stmt 1 view .LVU87
+ 158:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 372              		.loc 1 158 14 is_stmt 0 view .LVU88
+ 373 0004 4068     		ldr	r0, [r0, #4]
+ 374              	.LVL26:
+ 158:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 375              		.loc 1 158 7 view .LVU89
+ 376 0006 30B1     		cbz	r0, .L27
+ 377 0008 1346     		mov	r3, r2
+ 162:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 378              		.loc 1 162 5 is_stmt 1 view .LVU90
+ 162:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 379              		.loc 1 162 19 is_stmt 0 view .LVU91
+ 380 000a 8569     		ldr	r5, [r0, #24]
+ 162:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 381              		.loc 1 162 7 view .LVU92
+ 382 000c 2DB1     		cbz	r5, .L28
+ 166:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 383              		.loc 1 166 5 is_stmt 1 view .LVU93
+ 166:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 384              		.loc 1 166 23 is_stmt 0 view .LVU94
+ 385 000e 0A46     		mov	r2, r1
+ 386              	.LVL27:
+ 166:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 387              		.loc 1 166 23 view .LVU95
+ 388 0010 2168     		ldr	r1, [r4]
+ 389              	.LVL28:
+ 166:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 390              		.loc 1 166 23 view .LVU96
+ 391 0012 A847     		blx	r5
+ 392              	.LVL29:
+ 168:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 393              		.loc 1 168 5 is_stmt 1 view .LVU97
+ 394              	.L26:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 16
+
+
+ 169:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 395              		.loc 1 169 1 is_stmt 0 view .LVU98
+ 396 0014 38BD     		pop	{r3, r4, r5, pc}
+ 397              	.LVL30:
+ 398              	.L27:
+ 159:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 399              		.loc 1 159 16 view .LVU99
+ 400 0016 0B20     		movs	r0, #11
+ 401 0018 FCE7     		b	.L26
+ 402              	.L28:
+ 163:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 403              		.loc 1 163 16 view .LVU100
+ 404 001a 0920     		movs	r0, #9
+ 405 001c FAE7     		b	.L26
+ 406              		.cfi_endproc
+ 407              	.LFE29:
+ 409              		.section	.text.lv_fs_tell,"ax",%progbits
+ 410              		.align	1
+ 411              		.global	lv_fs_tell
+ 412              		.syntax unified
+ 413              		.thumb
+ 414              		.thumb_func
+ 415              		.fpu fpv4-sp-d16
+ 417              	lv_fs_tell:
+ 418              	.LVL31:
+ 419              	.LFB30:
+ 172:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 420              		.loc 1 172 1 is_stmt 1 view -0
+ 421              		.cfi_startproc
+ 422              		@ args = 0, pretend = 0, frame = 0
+ 423              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 424              		.loc 1 172 1 is_stmt 0 view .LVU102
+ 425 0000 0346     		mov	r3, r0
+ 426 0002 0A46     		mov	r2, r1
+ 173:lvgl/lvgl/src/misc/lv_fs.c ****         *pos = 0;
+ 427              		.loc 1 173 5 is_stmt 1 view .LVU103
+ 173:lvgl/lvgl/src/misc/lv_fs.c ****         *pos = 0;
+ 428              		.loc 1 173 14 is_stmt 0 view .LVU104
+ 429 0004 4068     		ldr	r0, [r0, #4]
+ 430              	.LVL32:
+ 173:lvgl/lvgl/src/misc/lv_fs.c ****         *pos = 0;
+ 431              		.loc 1 173 7 view .LVU105
+ 432 0006 28B1     		cbz	r0, .L37
+ 172:lvgl/lvgl/src/misc/lv_fs.c ****     if(file_p->drv == NULL) {
+ 433              		.loc 1 172 1 view .LVU106
+ 434 0008 10B5     		push	{r4, lr}
+ 435              	.LCFI11:
+ 436              		.cfi_def_cfa_offset 8
+ 437              		.cfi_offset 4, -8
+ 438              		.cfi_offset 14, -4
+ 178:lvgl/lvgl/src/misc/lv_fs.c ****         *pos = 0;
+ 439              		.loc 1 178 5 is_stmt 1 view .LVU107
+ 178:lvgl/lvgl/src/misc/lv_fs.c ****         *pos = 0;
+ 440              		.loc 1 178 19 is_stmt 0 view .LVU108
+ 441 000a C469     		ldr	r4, [r0, #28]
+ 178:lvgl/lvgl/src/misc/lv_fs.c ****         *pos = 0;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 17
+
+
+ 442              		.loc 1 178 7 view .LVU109
+ 443 000c 34B1     		cbz	r4, .L38
+ 183:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 444              		.loc 1 183 5 is_stmt 1 view .LVU110
+ 183:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 445              		.loc 1 183 23 is_stmt 0 view .LVU111
+ 446 000e 1968     		ldr	r1, [r3]
+ 447              	.LVL33:
+ 183:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 448              		.loc 1 183 23 view .LVU112
+ 449 0010 A047     		blx	r4
+ 450              	.LVL34:
+ 185:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 451              		.loc 1 185 5 is_stmt 1 view .LVU113
+ 452              	.L32:
+ 186:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 453              		.loc 1 186 1 is_stmt 0 view .LVU114
+ 454 0012 10BD     		pop	{r4, pc}
+ 455              	.LVL35:
+ 456              	.L37:
+ 457              	.LCFI12:
+ 458              		.cfi_def_cfa_offset 0
+ 459              		.cfi_restore 4
+ 460              		.cfi_restore 14
+ 174:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 461              		.loc 1 174 9 is_stmt 1 view .LVU115
+ 174:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 462              		.loc 1 174 14 is_stmt 0 view .LVU116
+ 463 0014 0023     		movs	r3, #0
+ 464              	.LVL36:
+ 174:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 465              		.loc 1 174 14 view .LVU117
+ 466 0016 0B60     		str	r3, [r1]
+ 175:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 467              		.loc 1 175 9 is_stmt 1 view .LVU118
+ 175:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 468              		.loc 1 175 16 is_stmt 0 view .LVU119
+ 469 0018 0B20     		movs	r0, #11
+ 186:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 470              		.loc 1 186 1 view .LVU120
+ 471 001a 7047     		bx	lr
+ 472              	.LVL37:
+ 473              	.L38:
+ 474              	.LCFI13:
+ 475              		.cfi_def_cfa_offset 8
+ 476              		.cfi_offset 4, -8
+ 477              		.cfi_offset 14, -4
+ 179:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 478              		.loc 1 179 9 is_stmt 1 view .LVU121
+ 179:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 479              		.loc 1 179 14 is_stmt 0 view .LVU122
+ 480 001c 0023     		movs	r3, #0
+ 481              	.LVL38:
+ 179:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 482              		.loc 1 179 14 view .LVU123
+ 483 001e 0B60     		str	r3, [r1]
+ 180:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 18
+
+
+ 484              		.loc 1 180 9 is_stmt 1 view .LVU124
+ 180:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 485              		.loc 1 180 16 is_stmt 0 view .LVU125
+ 486 0020 0920     		movs	r0, #9
+ 487 0022 F6E7     		b	.L32
+ 488              		.cfi_endproc
+ 489              	.LFE30:
+ 491              		.section	.text.lv_fs_dir_read,"ax",%progbits
+ 492              		.align	1
+ 493              		.global	lv_fs_dir_read
+ 494              		.syntax unified
+ 495              		.thumb
+ 496              		.thumb_func
+ 497              		.fpu fpv4-sp-d16
+ 499              	lv_fs_dir_read:
+ 500              	.LVL39:
+ 501              	.LFB32:
+ 223:lvgl/lvgl/src/misc/lv_fs.c ****     if(rddir_p->drv == NULL || rddir_p->dir_d == NULL) {
+ 502              		.loc 1 223 1 is_stmt 1 view -0
+ 503              		.cfi_startproc
+ 504              		@ args = 0, pretend = 0, frame = 0
+ 505              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223:lvgl/lvgl/src/misc/lv_fs.c ****     if(rddir_p->drv == NULL || rddir_p->dir_d == NULL) {
+ 506              		.loc 1 223 1 is_stmt 0 view .LVU127
+ 507 0000 08B5     		push	{r3, lr}
+ 508              	.LCFI14:
+ 509              		.cfi_def_cfa_offset 8
+ 510              		.cfi_offset 3, -8
+ 511              		.cfi_offset 14, -4
+ 512 0002 0346     		mov	r3, r0
+ 513 0004 0A46     		mov	r2, r1
+ 224:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 514              		.loc 1 224 5 is_stmt 1 view .LVU128
+ 224:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 515              		.loc 1 224 15 is_stmt 0 view .LVU129
+ 516 0006 4068     		ldr	r0, [r0, #4]
+ 517              	.LVL40:
+ 224:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 518              		.loc 1 224 7 view .LVU130
+ 519 0008 28B1     		cbz	r0, .L40
+ 224:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 520              		.loc 1 224 39 discriminator 1 view .LVU131
+ 521 000a 1968     		ldr	r1, [r3]
+ 522              	.LVL41:
+ 224:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 523              		.loc 1 224 29 discriminator 1 view .LVU132
+ 524 000c 19B1     		cbz	r1, .L40
+ 229:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 525              		.loc 1 229 5 is_stmt 1 view .LVU133
+ 229:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 526              		.loc 1 229 20 is_stmt 0 view .LVU134
+ 527 000e 436A     		ldr	r3, [r0, #36]
+ 528              	.LVL42:
+ 229:lvgl/lvgl/src/misc/lv_fs.c ****         fn[0] = '\0';
+ 529              		.loc 1 229 7 view .LVU135
+ 530 0010 2BB1     		cbz	r3, .L45
+ 234:lvgl/lvgl/src/misc/lv_fs.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 19
+
+
+ 531              		.loc 1 234 5 is_stmt 1 view .LVU136
+ 234:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 532              		.loc 1 234 23 is_stmt 0 view .LVU137
+ 533 0012 9847     		blx	r3
+ 534              	.LVL43:
+ 236:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 535              		.loc 1 236 5 is_stmt 1 view .LVU138
+ 536              	.L42:
+ 237:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 537              		.loc 1 237 1 is_stmt 0 view .LVU139
+ 538 0014 08BD     		pop	{r3, pc}
+ 539              	.LVL44:
+ 540              	.L40:
+ 225:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 541              		.loc 1 225 9 is_stmt 1 view .LVU140
+ 225:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 542              		.loc 1 225 15 is_stmt 0 view .LVU141
+ 543 0016 0023     		movs	r3, #0
+ 544              	.LVL45:
+ 225:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 545              		.loc 1 225 15 view .LVU142
+ 546 0018 1370     		strb	r3, [r2]
+ 226:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 547              		.loc 1 226 9 is_stmt 1 view .LVU143
+ 226:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 548              		.loc 1 226 16 is_stmt 0 view .LVU144
+ 549 001a 0B20     		movs	r0, #11
+ 550 001c FAE7     		b	.L42
+ 551              	.L45:
+ 230:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 552              		.loc 1 230 9 is_stmt 1 view .LVU145
+ 230:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 553              		.loc 1 230 15 is_stmt 0 view .LVU146
+ 554 001e 1370     		strb	r3, [r2]
+ 231:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 555              		.loc 1 231 9 is_stmt 1 view .LVU147
+ 231:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 556              		.loc 1 231 16 is_stmt 0 view .LVU148
+ 557 0020 0920     		movs	r0, #9
+ 558 0022 F7E7     		b	.L42
+ 559              		.cfi_endproc
+ 560              	.LFE32:
+ 562              		.section	.text.lv_fs_dir_close,"ax",%progbits
+ 563              		.align	1
+ 564              		.global	lv_fs_dir_close
+ 565              		.syntax unified
+ 566              		.thumb
+ 567              		.thumb_func
+ 568              		.fpu fpv4-sp-d16
+ 570              	lv_fs_dir_close:
+ 571              	.LVL46:
+ 572              	.LFB33:
+ 240:lvgl/lvgl/src/misc/lv_fs.c ****     if(rddir_p->drv == NULL || rddir_p->dir_d == NULL) {
+ 573              		.loc 1 240 1 is_stmt 1 view -0
+ 574              		.cfi_startproc
+ 575              		@ args = 0, pretend = 0, frame = 0
+ 576              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 20
+
+
+ 240:lvgl/lvgl/src/misc/lv_fs.c ****     if(rddir_p->drv == NULL || rddir_p->dir_d == NULL) {
+ 577              		.loc 1 240 1 is_stmt 0 view .LVU150
+ 578 0000 10B5     		push	{r4, lr}
+ 579              	.LCFI15:
+ 580              		.cfi_def_cfa_offset 8
+ 581              		.cfi_offset 4, -8
+ 582              		.cfi_offset 14, -4
+ 583 0002 0446     		mov	r4, r0
+ 241:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 584              		.loc 1 241 5 is_stmt 1 view .LVU151
+ 241:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 585              		.loc 1 241 15 is_stmt 0 view .LVU152
+ 586 0004 4068     		ldr	r0, [r0, #4]
+ 587              	.LVL47:
+ 241:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 588              		.loc 1 241 7 view .LVU153
+ 589 0006 40B1     		cbz	r0, .L48
+ 241:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 590              		.loc 1 241 39 discriminator 1 view .LVU154
+ 591 0008 2168     		ldr	r1, [r4]
+ 241:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 592              		.loc 1 241 29 discriminator 1 view .LVU155
+ 593 000a 41B1     		cbz	r1, .L49
+ 245:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 594              		.loc 1 245 5 is_stmt 1 view .LVU156
+ 245:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 595              		.loc 1 245 20 is_stmt 0 view .LVU157
+ 596 000c 836A     		ldr	r3, [r0, #40]
+ 245:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 597              		.loc 1 245 7 view .LVU158
+ 598 000e 43B1     		cbz	r3, .L50
+ 249:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 599              		.loc 1 249 5 is_stmt 1 view .LVU159
+ 249:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 600              		.loc 1 249 23 is_stmt 0 view .LVU160
+ 601 0010 9847     		blx	r3
+ 602              	.LVL48:
+ 251:lvgl/lvgl/src/misc/lv_fs.c ****     rddir_p->drv   = NULL;
+ 603              		.loc 1 251 5 is_stmt 1 view .LVU161
+ 251:lvgl/lvgl/src/misc/lv_fs.c ****     rddir_p->drv   = NULL;
+ 604              		.loc 1 251 20 is_stmt 0 view .LVU162
+ 605 0012 0023     		movs	r3, #0
+ 606 0014 2360     		str	r3, [r4]
+ 252:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 607              		.loc 1 252 5 is_stmt 1 view .LVU163
+ 252:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 608              		.loc 1 252 20 is_stmt 0 view .LVU164
+ 609 0016 6360     		str	r3, [r4, #4]
+ 254:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 610              		.loc 1 254 5 is_stmt 1 view .LVU165
+ 611              	.LVL49:
+ 612              	.L47:
+ 255:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 613              		.loc 1 255 1 is_stmt 0 view .LVU166
+ 614 0018 10BD     		pop	{r4, pc}
+ 615              	.LVL50:
+ 616              	.L48:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 21
+
+
+ 242:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 617              		.loc 1 242 16 view .LVU167
+ 618 001a 0B20     		movs	r0, #11
+ 619 001c FCE7     		b	.L47
+ 620              	.L49:
+ 621 001e 0B20     		movs	r0, #11
+ 622 0020 FAE7     		b	.L47
+ 623              	.L50:
+ 246:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 624              		.loc 1 246 16 view .LVU168
+ 625 0022 0920     		movs	r0, #9
+ 626 0024 F8E7     		b	.L47
+ 627              		.cfi_endproc
+ 628              	.LFE33:
+ 630              		.section	.text.lv_fs_drv_init,"ax",%progbits
+ 631              		.align	1
+ 632              		.global	lv_fs_drv_init
+ 633              		.syntax unified
+ 634              		.thumb
+ 635              		.thumb_func
+ 636              		.fpu fpv4-sp-d16
+ 638              	lv_fs_drv_init:
+ 639              	.LVL51:
+ 640              	.LFB34:
+ 258:lvgl/lvgl/src/misc/lv_fs.c ****     lv_memset_00(drv, sizeof(lv_fs_drv_t));
+ 641              		.loc 1 258 1 is_stmt 1 view -0
+ 642              		.cfi_startproc
+ 643              		@ args = 0, pretend = 0, frame = 0
+ 644              		@ frame_needed = 0, uses_anonymous_args = 0
+ 258:lvgl/lvgl/src/misc/lv_fs.c ****     lv_memset_00(drv, sizeof(lv_fs_drv_t));
+ 645              		.loc 1 258 1 is_stmt 0 view .LVU170
+ 646 0000 08B5     		push	{r3, lr}
+ 647              	.LCFI16:
+ 648              		.cfi_def_cfa_offset 8
+ 649              		.cfi_offset 3, -8
+ 650              		.cfi_offset 14, -4
+ 259:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 651              		.loc 1 259 5 is_stmt 1 view .LVU171
+ 652 0002 3021     		movs	r1, #48
+ 653 0004 FFF7FEFF 		bl	lv_memset_00
+ 654              	.LVL52:
+ 260:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 655              		.loc 1 260 1 is_stmt 0 view .LVU172
+ 656 0008 08BD     		pop	{r3, pc}
+ 657              		.cfi_endproc
+ 658              	.LFE34:
+ 660              		.section	.rodata.lv_fs_drv_register.str1.4,"aMS",%progbits,1
+ 661              		.align	2
+ 662              	.LC0:
+ 663 0000 6C76676C 		.ascii	"lvgl/lvgl/src/misc/lv_fs.c\000"
+ 663      2F6C7667 
+ 663      6C2F7372 
+ 663      632F6D69 
+ 663      73632F6C 
+ 664 001b 00       		.align	2
+ 665              	.LC1:
+ 666 001c 4F757420 		.ascii	"Out of memory\000"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 22
+
+
+ 666      6F66206D 
+ 666      656D6F72 
+ 666      7900
+ 667 002a 0000     		.align	2
+ 668              	.LC2:
+ 669 002c 6E65775F 		.ascii	"new_drv != NULL\000"
+ 669      64727620 
+ 669      213D204E 
+ 669      554C4C00 
+ 670              		.align	2
+ 671              	.LC3:
+ 672 003c 41737365 		.ascii	"Asserted at expression: %s (%s)\000"
+ 672      72746564 
+ 672      20617420 
+ 672      65787072 
+ 672      65737369 
+ 673              		.section	.text.lv_fs_drv_register,"ax",%progbits
+ 674              		.align	1
+ 675              		.global	lv_fs_drv_register
+ 676              		.syntax unified
+ 677              		.thumb
+ 678              		.thumb_func
+ 679              		.fpu fpv4-sp-d16
+ 681              	lv_fs_drv_register:
+ 682              	.LVL53:
+ 683              	.LFB35:
+ 263:lvgl/lvgl/src/misc/lv_fs.c ****     /*Save the new driver*/
+ 684              		.loc 1 263 1 is_stmt 1 view -0
+ 685              		.cfi_startproc
+ 686              		@ args = 0, pretend = 0, frame = 0
+ 687              		@ frame_needed = 0, uses_anonymous_args = 0
+ 263:lvgl/lvgl/src/misc/lv_fs.c ****     /*Save the new driver*/
+ 688              		.loc 1 263 1 is_stmt 0 view .LVU174
+ 689 0000 10B5     		push	{r4, lr}
+ 690              	.LCFI17:
+ 691              		.cfi_def_cfa_offset 8
+ 692              		.cfi_offset 4, -8
+ 693              		.cfi_offset 14, -4
+ 694 0002 84B0     		sub	sp, sp, #16
+ 695              	.LCFI18:
+ 696              		.cfi_def_cfa_offset 24
+ 697 0004 0446     		mov	r4, r0
+ 265:lvgl/lvgl/src/misc/lv_fs.c ****     new_drv = _lv_ll_ins_head(&LV_GC_ROOT(_lv_fsdrv_ll));
+ 698              		.loc 1 265 5 is_stmt 1 view .LVU175
+ 266:lvgl/lvgl/src/misc/lv_fs.c ****     LV_ASSERT_MALLOC(new_drv);
+ 699              		.loc 1 266 5 view .LVU176
+ 266:lvgl/lvgl/src/misc/lv_fs.c ****     LV_ASSERT_MALLOC(new_drv);
+ 700              		.loc 1 266 15 is_stmt 0 view .LVU177
+ 701 0006 0A48     		ldr	r0, .L59
+ 702              	.LVL54:
+ 266:lvgl/lvgl/src/misc/lv_fs.c ****     LV_ASSERT_MALLOC(new_drv);
+ 703              		.loc 1 266 15 view .LVU178
+ 704 0008 FFF7FEFF 		bl	_lv_ll_ins_head
+ 705              	.LVL55:
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 706              		.loc 1 267 5 is_stmt 1 view .LVU179
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 23
+
+
+ 707              		.loc 1 267 5 view .LVU180
+ 708 000c 10B1     		cbz	r0, .L58
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 709              		.loc 1 267 5 view .LVU181
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 710              		.loc 1 267 30 view .LVU182
+ 268:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 711              		.loc 1 268 5 view .LVU183
+ 270:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 712              		.loc 1 270 5 view .LVU184
+ 270:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 713              		.loc 1 270 14 is_stmt 0 view .LVU185
+ 714 000e 0460     		str	r4, [r0]
+ 271:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 715              		.loc 1 271 1 view .LVU186
+ 716 0010 04B0     		add	sp, sp, #16
+ 717              	.LCFI19:
+ 718              		.cfi_remember_state
+ 719              		.cfi_def_cfa_offset 8
+ 720              		@ sp needed
+ 721 0012 10BD     		pop	{r4, pc}
+ 722              	.LVL56:
+ 723              	.L58:
+ 724              	.LCFI20:
+ 725              		.cfi_restore_state
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 726              		.loc 1 267 5 is_stmt 1 discriminator 1 view .LVU187
+ 727 0014 074B     		ldr	r3, .L59+4
+ 728 0016 0293     		str	r3, [sp, #8]
+ 729 0018 074B     		ldr	r3, .L59+8
+ 730 001a 0193     		str	r3, [sp, #4]
+ 731 001c 074B     		ldr	r3, .L59+12
+ 732 001e 0093     		str	r3, [sp]
+ 733 0020 074B     		ldr	r3, .L59+16
+ 734 0022 40F20B12 		movw	r2, #267
+ 735 0026 0749     		ldr	r1, .L59+20
+ 736 0028 0320     		movs	r0, #3
+ 737              	.LVL57:
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 738              		.loc 1 267 5 is_stmt 0 discriminator 1 view .LVU188
+ 739 002a FFF7FEFF 		bl	_lv_log_add
+ 740              	.LVL58:
+ 741              	.L56:
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 742              		.loc 1 267 5 is_stmt 1 discriminator 1 view .LVU189
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 743              		.loc 1 267 5 discriminator 1 view .LVU190
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 744              		.loc 1 267 5 discriminator 1 view .LVU191
+ 267:lvgl/lvgl/src/misc/lv_fs.c ****     if(new_drv == NULL) return;
+ 745              		.loc 1 267 5 discriminator 1 view .LVU192
+ 746 002e FEE7     		b	.L56
+ 747              	.L60:
+ 748              		.align	2
+ 749              	.L59:
+ 750 0030 00000000 		.word	_lv_fsdrv_ll
+ 751 0034 1C000000 		.word	.LC1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 24
+
+
+ 752 0038 2C000000 		.word	.LC2
+ 753 003c 3C000000 		.word	.LC3
+ 754 0040 00000000 		.word	.LANCHOR0
+ 755 0044 00000000 		.word	.LC0
+ 756              		.cfi_endproc
+ 757              	.LFE35:
+ 759              		.section	.text.lv_fs_get_drv,"ax",%progbits
+ 760              		.align	1
+ 761              		.global	lv_fs_get_drv
+ 762              		.syntax unified
+ 763              		.thumb
+ 764              		.thumb_func
+ 765              		.fpu fpv4-sp-d16
+ 767              	lv_fs_get_drv:
+ 768              	.LVL59:
+ 769              	.LFB36:
+ 274:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t ** drv;
+ 770              		.loc 1 274 1 view -0
+ 771              		.cfi_startproc
+ 772              		@ args = 0, pretend = 0, frame = 0
+ 773              		@ frame_needed = 0, uses_anonymous_args = 0
+ 274:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t ** drv;
+ 774              		.loc 1 274 1 is_stmt 0 view .LVU194
+ 775 0000 10B5     		push	{r4, lr}
+ 776              	.LCFI21:
+ 777              		.cfi_def_cfa_offset 8
+ 778              		.cfi_offset 4, -8
+ 779              		.cfi_offset 14, -4
+ 780 0002 0446     		mov	r4, r0
+ 275:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 781              		.loc 1 275 5 is_stmt 1 view .LVU195
+ 277:lvgl/lvgl/src/misc/lv_fs.c ****         if((*drv)->letter == letter) {
+ 782              		.loc 1 277 5 view .LVU196
+ 783 0004 0848     		ldr	r0, .L67
+ 784              	.LVL60:
+ 277:lvgl/lvgl/src/misc/lv_fs.c ****         if((*drv)->letter == letter) {
+ 785              		.loc 1 277 5 is_stmt 0 view .LVU197
+ 786 0006 FFF7FEFF 		bl	_lv_ll_get_head
+ 787              	.LVL61:
+ 788 000a 0146     		mov	r1, r0
+ 789              	.LVL62:
+ 790              	.L62:
+ 277:lvgl/lvgl/src/misc/lv_fs.c ****         if((*drv)->letter == letter) {
+ 791              		.loc 1 277 5 is_stmt 1 discriminator 1 view .LVU198
+ 792 000c 49B1     		cbz	r1, .L61
+ 278:lvgl/lvgl/src/misc/lv_fs.c ****             return *drv;
+ 793              		.loc 1 278 9 view .LVU199
+ 278:lvgl/lvgl/src/misc/lv_fs.c ****             return *drv;
+ 794              		.loc 1 278 13 is_stmt 0 view .LVU200
+ 795 000e 0B68     		ldr	r3, [r1]
+ 278:lvgl/lvgl/src/misc/lv_fs.c ****             return *drv;
+ 796              		.loc 1 278 18 view .LVU201
+ 797 0010 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 278:lvgl/lvgl/src/misc/lv_fs.c ****             return *drv;
+ 798              		.loc 1 278 11 view .LVU202
+ 799 0012 A242     		cmp	r2, r4
+ 800 0014 04D0     		beq	.L65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 25
+
+
+ 277:lvgl/lvgl/src/misc/lv_fs.c ****         if((*drv)->letter == letter) {
+ 801              		.loc 1 277 5 is_stmt 1 discriminator 2 view .LVU203
+ 802 0016 0448     		ldr	r0, .L67
+ 803              	.LVL63:
+ 277:lvgl/lvgl/src/misc/lv_fs.c ****         if((*drv)->letter == letter) {
+ 804              		.loc 1 277 5 is_stmt 0 discriminator 2 view .LVU204
+ 805 0018 FFF7FEFF 		bl	_lv_ll_get_next
+ 806              	.LVL64:
+ 277:lvgl/lvgl/src/misc/lv_fs.c ****         if((*drv)->letter == letter) {
+ 807              		.loc 1 277 5 discriminator 2 view .LVU205
+ 808 001c 0146     		mov	r1, r0
+ 809              	.LVL65:
+ 277:lvgl/lvgl/src/misc/lv_fs.c ****         if((*drv)->letter == letter) {
+ 810              		.loc 1 277 5 discriminator 2 view .LVU206
+ 811 001e F5E7     		b	.L62
+ 812              	.L65:
+ 279:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 813              		.loc 1 279 20 view .LVU207
+ 814 0020 1946     		mov	r1, r3
+ 815              	.L61:
+ 284:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 816              		.loc 1 284 1 view .LVU208
+ 817 0022 0846     		mov	r0, r1
+ 818              	.LVL66:
+ 284:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 819              		.loc 1 284 1 view .LVU209
+ 820 0024 10BD     		pop	{r4, pc}
+ 821              	.L68:
+ 822 0026 00BF     		.align	2
+ 823              	.L67:
+ 824 0028 00000000 		.word	_lv_fsdrv_ll
+ 825              		.cfi_endproc
+ 826              	.LFE36:
+ 828              		.section	.text.lv_fs_is_ready,"ax",%progbits
+ 829              		.align	1
+ 830              		.global	lv_fs_is_ready
+ 831              		.syntax unified
+ 832              		.thumb
+ 833              		.thumb_func
+ 834              		.fpu fpv4-sp-d16
+ 836              	lv_fs_is_ready:
+ 837              	.LVL67:
+ 838              	.LFB24:
+  56:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t * drv = lv_fs_get_drv(letter);
+ 839              		.loc 1 56 1 is_stmt 1 view -0
+ 840              		.cfi_startproc
+ 841              		@ args = 0, pretend = 0, frame = 0
+ 842              		@ frame_needed = 0, uses_anonymous_args = 0
+  56:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t * drv = lv_fs_get_drv(letter);
+ 843              		.loc 1 56 1 is_stmt 0 view .LVU211
+ 844 0000 08B5     		push	{r3, lr}
+ 845              	.LCFI22:
+ 846              		.cfi_def_cfa_offset 8
+ 847              		.cfi_offset 3, -8
+ 848              		.cfi_offset 14, -4
+  57:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 849              		.loc 1 57 5 is_stmt 1 view .LVU212
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 26
+
+
+  57:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 850              		.loc 1 57 25 is_stmt 0 view .LVU213
+ 851 0002 FFF7FEFF 		bl	lv_fs_get_drv
+ 852              	.LVL68:
+  59:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 853              		.loc 1 59 5 is_stmt 1 view .LVU214
+  59:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 854              		.loc 1 59 7 is_stmt 0 view .LVU215
+ 855 0006 18B1     		cbz	r0, .L71
+  61:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 856              		.loc 1 61 5 is_stmt 1 view .LVU216
+  61:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 857              		.loc 1 61 11 is_stmt 0 view .LVU217
+ 858 0008 4268     		ldr	r2, [r0, #4]
+  61:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 859              		.loc 1 61 7 view .LVU218
+ 860 000a 1AB1     		cbz	r2, .L72
+  63:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 861              		.loc 1 63 5 is_stmt 1 view .LVU219
+  63:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 862              		.loc 1 63 12 is_stmt 0 view .LVU220
+ 863 000c 9047     		blx	r2
+ 864              	.LVL69:
+ 865              	.L70:
+  64:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 866              		.loc 1 64 1 view .LVU221
+ 867 000e 08BD     		pop	{r3, pc}
+ 868              	.LVL70:
+ 869              	.L71:
+  59:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 870              		.loc 1 59 28 view .LVU222
+ 871 0010 0020     		movs	r0, #0
+ 872              	.LVL71:
+  59:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 873              		.loc 1 59 28 view .LVU223
+ 874 0012 FCE7     		b	.L70
+ 875              	.LVL72:
+ 876              	.L72:
+  61:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 877              		.loc 1 61 38 view .LVU224
+ 878 0014 0120     		movs	r0, #1
+ 879              	.LVL73:
+  61:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 880              		.loc 1 61 38 view .LVU225
+ 881 0016 FAE7     		b	.L70
+ 882              		.cfi_endproc
+ 883              	.LFE24:
+ 885              		.section	.rodata.lv_fs_open.str1.4,"aMS",%progbits,1
+ 886              		.align	2
+ 887              	.LC4:
+ 888 0000 43616E27 		.ascii	"Can't open file: path is NULL\000"
+ 888      74206F70 
+ 888      656E2066 
+ 888      696C653A 
+ 888      20706174 
+ 889 001e 0000     		.align	2
+ 890              	.LC5:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 27
+
+
+ 891 0020 43616E27 		.ascii	"Can't open file (%s): unknown driver letter\000"
+ 891      74206F70 
+ 891      656E2066 
+ 891      696C6520 
+ 891      28257329 
+ 892              		.align	2
+ 893              	.LC6:
+ 894 004c 43616E27 		.ascii	"Can't open file (%s): driver not ready\000"
+ 894      74206F70 
+ 894      656E2066 
+ 894      696C6520 
+ 894      28257329 
+ 895 0073 00       		.align	2
+ 896              	.LC7:
+ 897 0074 43616E27 		.ascii	"Can't open file (%s): open function not exists\000"
+ 897      74206F70 
+ 897      656E2066 
+ 897      696C6520 
+ 897      28257329 
+ 898              		.section	.text.lv_fs_open,"ax",%progbits
+ 899              		.align	1
+ 900              		.global	lv_fs_open
+ 901              		.syntax unified
+ 902              		.thumb
+ 903              		.thumb_func
+ 904              		.fpu fpv4-sp-d16
+ 906              	lv_fs_open:
+ 907              	.LVL74:
+ 908              	.LFB25:
+  67:lvgl/lvgl/src/misc/lv_fs.c ****     if(path == NULL) {
+ 909              		.loc 1 67 1 is_stmt 1 view -0
+ 910              		.cfi_startproc
+ 911              		@ args = 0, pretend = 0, frame = 0
+ 912              		@ frame_needed = 0, uses_anonymous_args = 0
+  67:lvgl/lvgl/src/misc/lv_fs.c ****     if(path == NULL) {
+ 913              		.loc 1 67 1 is_stmt 0 view .LVU227
+ 914 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 915              	.LCFI23:
+ 916              		.cfi_def_cfa_offset 24
+ 917              		.cfi_offset 4, -24
+ 918              		.cfi_offset 5, -20
+ 919              		.cfi_offset 6, -16
+ 920              		.cfi_offset 7, -12
+ 921              		.cfi_offset 8, -8
+ 922              		.cfi_offset 14, -4
+ 923 0004 82B0     		sub	sp, sp, #8
+ 924              	.LCFI24:
+ 925              		.cfi_def_cfa_offset 32
+  68:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file: path is NULL");
+ 926              		.loc 1 68 5 is_stmt 1 view .LVU228
+  68:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file: path is NULL");
+ 927              		.loc 1 68 7 is_stmt 0 view .LVU229
+ 928 0006 F9B1     		cbz	r1, .L82
+ 929 0008 0546     		mov	r5, r0
+ 930 000a 9046     		mov	r8, r2
+ 931 000c 0E46     		mov	r6, r1
+  73:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t * drv = lv_fs_get_drv(letter);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 28
+
+
+ 932              		.loc 1 73 5 is_stmt 1 view .LVU230
+ 933              	.LVL75:
+  74:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 934              		.loc 1 74 5 view .LVU231
+  74:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 935              		.loc 1 74 25 is_stmt 0 view .LVU232
+ 936 000e 0878     		ldrb	r0, [r1]	@ zero_extendqisi2
+ 937              	.LVL76:
+  74:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 938              		.loc 1 74 25 view .LVU233
+ 939 0010 FFF7FEFF 		bl	lv_fs_get_drv
+ 940              	.LVL77:
+  76:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file (%s): unknown driver letter", path);
+ 941              		.loc 1 76 5 is_stmt 1 view .LVU234
+  76:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file (%s): unknown driver letter", path);
+ 942              		.loc 1 76 7 is_stmt 0 view .LVU235
+ 943 0014 0446     		mov	r4, r0
+ 944 0016 08B3     		cbz	r0, .L83
+  81:lvgl/lvgl/src/misc/lv_fs.c ****         if(drv->ready_cb(drv) == false) {
+ 945              		.loc 1 81 5 is_stmt 1 view .LVU236
+  81:lvgl/lvgl/src/misc/lv_fs.c ****         if(drv->ready_cb(drv) == false) {
+ 946              		.loc 1 81 11 is_stmt 0 view .LVU237
+ 947 0018 4368     		ldr	r3, [r0, #4]
+  81:lvgl/lvgl/src/misc/lv_fs.c ****         if(drv->ready_cb(drv) == false) {
+ 948              		.loc 1 81 7 view .LVU238
+ 949 001a 0BB1     		cbz	r3, .L78
+  82:lvgl/lvgl/src/misc/lv_fs.c ****             LV_LOG_WARN("Can't open file (%s): driver not ready", path);
+ 950              		.loc 1 82 9 is_stmt 1 view .LVU239
+  82:lvgl/lvgl/src/misc/lv_fs.c ****             LV_LOG_WARN("Can't open file (%s): driver not ready", path);
+ 951              		.loc 1 82 12 is_stmt 0 view .LVU240
+ 952 001c 9847     		blx	r3
+ 953              	.LVL78:
+  82:lvgl/lvgl/src/misc/lv_fs.c ****             LV_LOG_WARN("Can't open file (%s): driver not ready", path);
+ 954              		.loc 1 82 11 view .LVU241
+ 955 001e 40B3     		cbz	r0, .L84
+ 956              	.L78:
+  88:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file (%s): open function not exists", path);
+ 957              		.loc 1 88 5 is_stmt 1 view .LVU242
+  88:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file (%s): open function not exists", path);
+ 958              		.loc 1 88 11 is_stmt 0 view .LVU243
+ 959 0020 A768     		ldr	r7, [r4, #8]
+  88:lvgl/lvgl/src/misc/lv_fs.c ****         LV_LOG_WARN("Can't open file (%s): open function not exists", path);
+ 960              		.loc 1 88 7 view .LVU244
+ 961 0022 002F     		cmp	r7, #0
+ 962 0024 30D0     		beq	.L85
+  93:lvgl/lvgl/src/misc/lv_fs.c ****     void *file_d = drv->open_cb(drv, real_path, mode);
+ 963              		.loc 1 93 5 is_stmt 1 view .LVU245
+  93:lvgl/lvgl/src/misc/lv_fs.c ****     void *file_d = drv->open_cb(drv, real_path, mode);
+ 964              		.loc 1 93 30 is_stmt 0 view .LVU246
+ 965 0026 3046     		mov	r0, r6
+ 966 0028 FFF7FEFF 		bl	lv_fs_get_real_path
+ 967              	.LVL79:
+ 968 002c 0146     		mov	r1, r0
+ 969              	.LVL80:
+  94:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 970              		.loc 1 94 5 is_stmt 1 view .LVU247
+  94:lvgl/lvgl/src/misc/lv_fs.c **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 29
+
+
+ 971              		.loc 1 94 20 is_stmt 0 view .LVU248
+ 972 002e 4246     		mov	r2, r8
+ 973 0030 2046     		mov	r0, r4
+ 974              	.LVL81:
+  94:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 975              		.loc 1 94 20 view .LVU249
+ 976 0032 B847     		blx	r7
+ 977              	.LVL82:
+  96:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_UNKNOWN;
+ 978              		.loc 1 96 5 is_stmt 1 view .LVU250
+  96:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_UNKNOWN;
+ 979              		.loc 1 96 23 is_stmt 0 view .LVU251
+ 980 0034 431E     		subs	r3, r0, #1
+  96:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_UNKNOWN;
+ 981              		.loc 1 96 7 view .LVU252
+ 982 0036 13F1030F 		cmn	r3, #3
+ 983 003a 30D8     		bhi	.L80
+ 100:lvgl/lvgl/src/misc/lv_fs.c ****     file_p->file_d = file_d;
+ 984              		.loc 1 100 5 is_stmt 1 view .LVU253
+ 100:lvgl/lvgl/src/misc/lv_fs.c ****     file_p->file_d = file_d;
+ 985              		.loc 1 100 17 is_stmt 0 view .LVU254
+ 986 003c 6C60     		str	r4, [r5, #4]
+ 101:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 987              		.loc 1 101 5 is_stmt 1 view .LVU255
+ 101:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 988              		.loc 1 101 20 is_stmt 0 view .LVU256
+ 989 003e 2860     		str	r0, [r5]
+ 103:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 990              		.loc 1 103 5 is_stmt 1 view .LVU257
+ 103:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 991              		.loc 1 103 12 is_stmt 0 view .LVU258
+ 992 0040 0020     		movs	r0, #0
+ 993              	.LVL83:
+ 994              	.L76:
+ 104:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 995              		.loc 1 104 1 view .LVU259
+ 996 0042 02B0     		add	sp, sp, #8
+ 997              	.LCFI25:
+ 998              		.cfi_remember_state
+ 999              		.cfi_def_cfa_offset 24
+ 1000              		@ sp needed
+ 1001 0044 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1002              	.LVL84:
+ 1003              	.L82:
+ 1004              	.LCFI26:
+ 1005              		.cfi_restore_state
+  69:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 1006              		.loc 1 69 9 is_stmt 1 view .LVU260
+ 1007 0048 164B     		ldr	r3, .L86
+ 1008 004a 0093     		str	r3, [sp]
+ 1009 004c 164B     		ldr	r3, .L86+4
+ 1010 004e 4522     		movs	r2, #69
+ 1011              	.LVL85:
+  69:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 1012              		.loc 1 69 9 is_stmt 0 view .LVU261
+ 1013 0050 1649     		ldr	r1, .L86+8
+ 1014              	.LVL86:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 30
+
+
+  69:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 1015              		.loc 1 69 9 view .LVU262
+ 1016 0052 0220     		movs	r0, #2
+ 1017              	.LVL87:
+  69:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 1018              		.loc 1 69 9 view .LVU263
+ 1019 0054 FFF7FEFF 		bl	_lv_log_add
+ 1020              	.LVL88:
+  69:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_INV_PARAM;
+ 1021              		.loc 1 69 53 is_stmt 1 view .LVU264
+  70:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1022              		.loc 1 70 9 view .LVU265
+  70:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1023              		.loc 1 70 16 is_stmt 0 view .LVU266
+ 1024 0058 0B20     		movs	r0, #11
+ 1025 005a F2E7     		b	.L76
+ 1026              	.LVL89:
+ 1027              	.L83:
+  77:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_EX;
+ 1028              		.loc 1 77 9 is_stmt 1 view .LVU267
+ 1029 005c 0196     		str	r6, [sp, #4]
+ 1030 005e 144B     		ldr	r3, .L86+12
+ 1031 0060 0093     		str	r3, [sp]
+ 1032 0062 114B     		ldr	r3, .L86+4
+ 1033 0064 4D22     		movs	r2, #77
+ 1034 0066 1149     		ldr	r1, .L86+8
+ 1035 0068 0220     		movs	r0, #2
+ 1036              	.LVL90:
+  77:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_EX;
+ 1037              		.loc 1 77 9 is_stmt 0 view .LVU268
+ 1038 006a FFF7FEFF 		bl	_lv_log_add
+ 1039              	.LVL91:
+  77:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_EX;
+ 1040              		.loc 1 77 73 is_stmt 1 view .LVU269
+  78:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1041              		.loc 1 78 9 view .LVU270
+  78:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1042              		.loc 1 78 16 is_stmt 0 view .LVU271
+ 1043 006e 0320     		movs	r0, #3
+ 1044 0070 E7E7     		b	.L76
+ 1045              	.L84:
+  83:lvgl/lvgl/src/misc/lv_fs.c ****             return LV_FS_RES_HW_ERR;
+ 1046              		.loc 1 83 13 is_stmt 1 view .LVU272
+ 1047 0072 0196     		str	r6, [sp, #4]
+ 1048 0074 0F4B     		ldr	r3, .L86+16
+ 1049 0076 0093     		str	r3, [sp]
+ 1050 0078 0B4B     		ldr	r3, .L86+4
+ 1051 007a 5322     		movs	r2, #83
+ 1052 007c 0B49     		ldr	r1, .L86+8
+ 1053 007e 0220     		movs	r0, #2
+ 1054 0080 FFF7FEFF 		bl	_lv_log_add
+ 1055              	.LVL92:
+  83:lvgl/lvgl/src/misc/lv_fs.c ****             return LV_FS_RES_HW_ERR;
+ 1056              		.loc 1 83 72 view .LVU273
+  84:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1057              		.loc 1 84 13 view .LVU274
+  84:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 31
+
+
+ 1058              		.loc 1 84 20 is_stmt 0 view .LVU275
+ 1059 0084 0120     		movs	r0, #1
+ 1060 0086 DCE7     		b	.L76
+ 1061              	.L85:
+  89:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 1062              		.loc 1 89 9 is_stmt 1 view .LVU276
+ 1063 0088 0196     		str	r6, [sp, #4]
+ 1064 008a 0B4B     		ldr	r3, .L86+20
+ 1065 008c 0093     		str	r3, [sp]
+ 1066 008e 064B     		ldr	r3, .L86+4
+ 1067 0090 5922     		movs	r2, #89
+ 1068 0092 0649     		ldr	r1, .L86+8
+ 1069 0094 0220     		movs	r0, #2
+ 1070 0096 FFF7FEFF 		bl	_lv_log_add
+ 1071              	.LVL93:
+  89:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 1072              		.loc 1 89 76 view .LVU277
+  90:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1073              		.loc 1 90 9 view .LVU278
+  90:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1074              		.loc 1 90 16 is_stmt 0 view .LVU279
+ 1075 009a 0920     		movs	r0, #9
+ 1076 009c D1E7     		b	.L76
+ 1077              	.LVL94:
+ 1078              	.L80:
+  97:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1079              		.loc 1 97 16 view .LVU280
+ 1080 009e 0C20     		movs	r0, #12
+ 1081              	.LVL95:
+  97:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1082              		.loc 1 97 16 view .LVU281
+ 1083 00a0 CFE7     		b	.L76
+ 1084              	.L87:
+ 1085 00a2 00BF     		.align	2
+ 1086              	.L86:
+ 1087 00a4 00000000 		.word	.LC4
+ 1088 00a8 00000000 		.word	.LANCHOR1
+ 1089 00ac 00000000 		.word	.LC0
+ 1090 00b0 20000000 		.word	.LC5
+ 1091 00b4 4C000000 		.word	.LC6
+ 1092 00b8 74000000 		.word	.LC7
+ 1093              		.cfi_endproc
+ 1094              	.LFE25:
+ 1096              		.section	.text.lv_fs_dir_open,"ax",%progbits
+ 1097              		.align	1
+ 1098              		.global	lv_fs_dir_open
+ 1099              		.syntax unified
+ 1100              		.thumb
+ 1101              		.thumb_func
+ 1102              		.fpu fpv4-sp-d16
+ 1104              	lv_fs_dir_open:
+ 1105              	.LVL96:
+ 1106              	.LFB31:
+ 189:lvgl/lvgl/src/misc/lv_fs.c ****     if(path == NULL) return LV_FS_RES_INV_PARAM;
+ 1107              		.loc 1 189 1 is_stmt 1 view -0
+ 1108              		.cfi_startproc
+ 1109              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 32
+
+
+ 1110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1111              		.loc 1 190 5 view .LVU283
+ 190:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1112              		.loc 1 190 7 is_stmt 0 view .LVU284
+ 1113 0000 D9B1     		cbz	r1, .L91
+ 189:lvgl/lvgl/src/misc/lv_fs.c ****     if(path == NULL) return LV_FS_RES_INV_PARAM;
+ 1114              		.loc 1 189 1 view .LVU285
+ 1115 0002 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1116              	.LCFI27:
+ 1117              		.cfi_def_cfa_offset 24
+ 1118              		.cfi_offset 3, -24
+ 1119              		.cfi_offset 4, -20
+ 1120              		.cfi_offset 5, -16
+ 1121              		.cfi_offset 6, -12
+ 1122              		.cfi_offset 7, -8
+ 1123              		.cfi_offset 14, -4
+ 1124 0004 0646     		mov	r6, r0
+ 1125 0006 0D46     		mov	r5, r1
+ 192:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t * drv = lv_fs_get_drv(letter);
+ 1126              		.loc 1 192 5 is_stmt 1 view .LVU286
+ 1127              	.LVL97:
+ 193:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1128              		.loc 1 193 5 view .LVU287
+ 193:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1129              		.loc 1 193 25 is_stmt 0 view .LVU288
+ 1130 0008 0878     		ldrb	r0, [r1]	@ zero_extendqisi2
+ 1131              	.LVL98:
+ 193:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1132              		.loc 1 193 25 view .LVU289
+ 1133 000a FFF7FEFF 		bl	lv_fs_get_drv
+ 1134              	.LVL99:
+ 195:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_EX;
+ 1135              		.loc 1 195 5 is_stmt 1 view .LVU290
+ 195:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_EX;
+ 1136              		.loc 1 195 7 is_stmt 0 view .LVU291
+ 1137 000e 0446     		mov	r4, r0
+ 1138 0010 A8B1     		cbz	r0, .L92
+ 199:lvgl/lvgl/src/misc/lv_fs.c ****         if(drv->ready_cb(drv) == false) {
+ 1139              		.loc 1 199 5 is_stmt 1 view .LVU292
+ 199:lvgl/lvgl/src/misc/lv_fs.c ****         if(drv->ready_cb(drv) == false) {
+ 1140              		.loc 1 199 11 is_stmt 0 view .LVU293
+ 1141 0012 4368     		ldr	r3, [r0, #4]
+ 199:lvgl/lvgl/src/misc/lv_fs.c ****         if(drv->ready_cb(drv) == false) {
+ 1142              		.loc 1 199 7 view .LVU294
+ 1143 0014 0BB1     		cbz	r3, .L90
+ 200:lvgl/lvgl/src/misc/lv_fs.c ****             return LV_FS_RES_HW_ERR;
+ 1144              		.loc 1 200 9 is_stmt 1 view .LVU295
+ 200:lvgl/lvgl/src/misc/lv_fs.c ****             return LV_FS_RES_HW_ERR;
+ 1145              		.loc 1 200 12 is_stmt 0 view .LVU296
+ 1146 0016 9847     		blx	r3
+ 1147              	.LVL100:
+ 200:lvgl/lvgl/src/misc/lv_fs.c ****             return LV_FS_RES_HW_ERR;
+ 1148              		.loc 1 200 11 view .LVU297
+ 1149 0018 98B1     		cbz	r0, .L93
+ 1150              	.L90:
+ 205:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 33
+
+
+ 1151              		.loc 1 205 5 is_stmt 1 view .LVU298
+ 205:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 1152              		.loc 1 205 11 is_stmt 0 view .LVU299
+ 1153 001a 276A     		ldr	r7, [r4, #32]
+ 205:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_NOT_IMP;
+ 1154              		.loc 1 205 7 view .LVU300
+ 1155 001c 9FB1     		cbz	r7, .L94
+ 209:lvgl/lvgl/src/misc/lv_fs.c ****     void *dir_d = drv->dir_open_cb(drv, real_path);
+ 1156              		.loc 1 209 5 is_stmt 1 view .LVU301
+ 209:lvgl/lvgl/src/misc/lv_fs.c ****     void *dir_d = drv->dir_open_cb(drv, real_path);
+ 1157              		.loc 1 209 30 is_stmt 0 view .LVU302
+ 1158 001e 2846     		mov	r0, r5
+ 1159 0020 FFF7FEFF 		bl	lv_fs_get_real_path
+ 1160              	.LVL101:
+ 1161 0024 0146     		mov	r1, r0
+ 1162              	.LVL102:
+ 210:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1163              		.loc 1 210 5 is_stmt 1 view .LVU303
+ 210:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1164              		.loc 1 210 19 is_stmt 0 view .LVU304
+ 1165 0026 2046     		mov	r0, r4
+ 1166              	.LVL103:
+ 210:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1167              		.loc 1 210 19 view .LVU305
+ 1168 0028 B847     		blx	r7
+ 1169              	.LVL104:
+ 212:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_UNKNOWN;
+ 1170              		.loc 1 212 5 is_stmt 1 view .LVU306
+ 212:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_UNKNOWN;
+ 1171              		.loc 1 212 22 is_stmt 0 view .LVU307
+ 1172 002a 421E     		subs	r2, r0, #1
+ 212:lvgl/lvgl/src/misc/lv_fs.c ****         return LV_FS_RES_UNKNOWN;
+ 1173              		.loc 1 212 7 view .LVU308
+ 1174 002c 12F1030F 		cmn	r2, #3
+ 1175 0030 0BD8     		bhi	.L95
+ 216:lvgl/lvgl/src/misc/lv_fs.c ****     rddir_p->dir_d = dir_d;
+ 1176              		.loc 1 216 5 is_stmt 1 view .LVU309
+ 216:lvgl/lvgl/src/misc/lv_fs.c ****     rddir_p->dir_d = dir_d;
+ 1177              		.loc 1 216 18 is_stmt 0 view .LVU310
+ 1178 0032 7460     		str	r4, [r6, #4]
+ 217:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1179              		.loc 1 217 5 is_stmt 1 view .LVU311
+ 217:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1180              		.loc 1 217 20 is_stmt 0 view .LVU312
+ 1181 0034 3060     		str	r0, [r6]
+ 219:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 1182              		.loc 1 219 5 is_stmt 1 view .LVU313
+ 219:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 1183              		.loc 1 219 12 is_stmt 0 view .LVU314
+ 1184 0036 0020     		movs	r0, #0
+ 1185              	.LVL105:
+ 1186              	.L89:
+ 220:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1187              		.loc 1 220 1 view .LVU315
+ 1188 0038 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1189              	.LVL106:
+ 1190              	.L91:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 34
+
+
+ 1191              	.LCFI28:
+ 1192              		.cfi_def_cfa_offset 0
+ 1193              		.cfi_restore 3
+ 1194              		.cfi_restore 4
+ 1195              		.cfi_restore 5
+ 1196              		.cfi_restore 6
+ 1197              		.cfi_restore 7
+ 1198              		.cfi_restore 14
+ 190:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1199              		.loc 1 190 29 view .LVU316
+ 1200 003a 0B20     		movs	r0, #11
+ 1201              	.LVL107:
+ 220:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1202              		.loc 1 220 1 view .LVU317
+ 1203 003c 7047     		bx	lr
+ 1204              	.LVL108:
+ 1205              	.L92:
+ 1206              	.LCFI29:
+ 1207              		.cfi_def_cfa_offset 24
+ 1208              		.cfi_offset 3, -24
+ 1209              		.cfi_offset 4, -20
+ 1210              		.cfi_offset 5, -16
+ 1211              		.cfi_offset 6, -12
+ 1212              		.cfi_offset 7, -8
+ 1213              		.cfi_offset 14, -4
+ 196:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1214              		.loc 1 196 16 view .LVU318
+ 1215 003e 0320     		movs	r0, #3
+ 1216              	.LVL109:
+ 196:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1217              		.loc 1 196 16 view .LVU319
+ 1218 0040 FAE7     		b	.L89
+ 1219              	.L93:
+ 201:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1220              		.loc 1 201 20 view .LVU320
+ 1221 0042 0120     		movs	r0, #1
+ 1222 0044 F8E7     		b	.L89
+ 1223              	.L94:
+ 206:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1224              		.loc 1 206 16 view .LVU321
+ 1225 0046 0920     		movs	r0, #9
+ 1226 0048 F6E7     		b	.L89
+ 1227              	.LVL110:
+ 1228              	.L95:
+ 213:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1229              		.loc 1 213 16 view .LVU322
+ 1230 004a 0C20     		movs	r0, #12
+ 1231              	.LVL111:
+ 213:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1232              		.loc 1 213 16 view .LVU323
+ 1233 004c F4E7     		b	.L89
+ 1234              		.cfi_endproc
+ 1235              	.LFE31:
+ 1237              		.section	.text.lv_fs_get_letters,"ax",%progbits
+ 1238              		.align	1
+ 1239              		.global	lv_fs_get_letters
+ 1240              		.syntax unified
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 35
+
+
+ 1241              		.thumb
+ 1242              		.thumb_func
+ 1243              		.fpu fpv4-sp-d16
+ 1245              	lv_fs_get_letters:
+ 1246              	.LVL112:
+ 1247              	.LFB37:
+ 287:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t ** drv;
+ 1248              		.loc 1 287 1 is_stmt 1 view -0
+ 1249              		.cfi_startproc
+ 1250              		@ args = 0, pretend = 0, frame = 0
+ 1251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 287:lvgl/lvgl/src/misc/lv_fs.c ****     lv_fs_drv_t ** drv;
+ 1252              		.loc 1 287 1 is_stmt 0 view .LVU325
+ 1253 0000 38B5     		push	{r3, r4, r5, lr}
+ 1254              	.LCFI30:
+ 1255              		.cfi_def_cfa_offset 16
+ 1256              		.cfi_offset 3, -16
+ 1257              		.cfi_offset 4, -12
+ 1258              		.cfi_offset 5, -8
+ 1259              		.cfi_offset 14, -4
+ 1260 0002 0546     		mov	r5, r0
+ 288:lvgl/lvgl/src/misc/lv_fs.c ****     uint8_t i = 0;
+ 1261              		.loc 1 288 5 is_stmt 1 view .LVU326
+ 289:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1262              		.loc 1 289 5 view .LVU327
+ 1263              	.LVL113:
+ 291:lvgl/lvgl/src/misc/lv_fs.c ****         buf[i] = (*drv)->letter;
+ 1264              		.loc 1 291 5 view .LVU328
+ 1265 0004 0948     		ldr	r0, .L105
+ 1266              	.LVL114:
+ 291:lvgl/lvgl/src/misc/lv_fs.c ****         buf[i] = (*drv)->letter;
+ 1267              		.loc 1 291 5 is_stmt 0 view .LVU329
+ 1268 0006 FFF7FEFF 		bl	_lv_ll_get_head
+ 1269              	.LVL115:
+ 1270 000a 0146     		mov	r1, r0
+ 1271              	.LVL116:
+ 289:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1272              		.loc 1 289 13 view .LVU330
+ 1273 000c 0024     		movs	r4, #0
+ 1274              	.LVL117:
+ 1275              	.L101:
+ 291:lvgl/lvgl/src/misc/lv_fs.c ****         buf[i] = (*drv)->letter;
+ 1276              		.loc 1 291 5 is_stmt 1 discriminator 1 view .LVU331
+ 1277 000e 49B1     		cbz	r1, .L104
+ 292:lvgl/lvgl/src/misc/lv_fs.c ****         i++;
+ 1278              		.loc 1 292 9 discriminator 3 view .LVU332
+ 292:lvgl/lvgl/src/misc/lv_fs.c ****         i++;
+ 1279              		.loc 1 292 19 is_stmt 0 discriminator 3 view .LVU333
+ 1280 0010 0B68     		ldr	r3, [r1]
+ 292:lvgl/lvgl/src/misc/lv_fs.c ****         i++;
+ 1281              		.loc 1 292 24 discriminator 3 view .LVU334
+ 1282 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 292:lvgl/lvgl/src/misc/lv_fs.c ****         i++;
+ 1283              		.loc 1 292 16 discriminator 3 view .LVU335
+ 1284 0014 2B55     		strb	r3, [r5, r4]
+ 293:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1285              		.loc 1 293 9 is_stmt 1 discriminator 3 view .LVU336
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 36
+
+
+ 293:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1286              		.loc 1 293 10 is_stmt 0 discriminator 3 view .LVU337
+ 1287 0016 0134     		adds	r4, r4, #1
+ 1288              	.LVL118:
+ 293:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1289              		.loc 1 293 10 discriminator 3 view .LVU338
+ 1290 0018 E4B2     		uxtb	r4, r4
+ 1291              	.LVL119:
+ 291:lvgl/lvgl/src/misc/lv_fs.c ****         buf[i] = (*drv)->letter;
+ 1292              		.loc 1 291 5 is_stmt 1 discriminator 3 view .LVU339
+ 1293 001a 0448     		ldr	r0, .L105
+ 1294              	.LVL120:
+ 291:lvgl/lvgl/src/misc/lv_fs.c ****         buf[i] = (*drv)->letter;
+ 1295              		.loc 1 291 5 is_stmt 0 discriminator 3 view .LVU340
+ 1296 001c FFF7FEFF 		bl	_lv_ll_get_next
+ 1297              	.LVL121:
+ 291:lvgl/lvgl/src/misc/lv_fs.c ****         buf[i] = (*drv)->letter;
+ 1298              		.loc 1 291 5 discriminator 3 view .LVU341
+ 1299 0020 0146     		mov	r1, r0
+ 1300              	.LVL122:
+ 291:lvgl/lvgl/src/misc/lv_fs.c ****         buf[i] = (*drv)->letter;
+ 1301              		.loc 1 291 5 discriminator 3 view .LVU342
+ 1302 0022 F4E7     		b	.L101
+ 1303              	.L104:
+ 296:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1304              		.loc 1 296 5 is_stmt 1 view .LVU343
+ 296:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1305              		.loc 1 296 12 is_stmt 0 view .LVU344
+ 1306 0024 0023     		movs	r3, #0
+ 1307 0026 2B55     		strb	r3, [r5, r4]
+ 298:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 1308              		.loc 1 298 5 is_stmt 1 view .LVU345
+ 299:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1309              		.loc 1 299 1 is_stmt 0 view .LVU346
+ 1310 0028 2846     		mov	r0, r5
+ 1311              	.LVL123:
+ 299:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1312              		.loc 1 299 1 view .LVU347
+ 1313 002a 38BD     		pop	{r3, r4, r5, pc}
+ 1314              	.LVL124:
+ 1315              	.L106:
+ 299:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1316              		.loc 1 299 1 view .LVU348
+ 1317              		.align	2
+ 1318              	.L105:
+ 1319 002c 00000000 		.word	_lv_fsdrv_ll
+ 1320              		.cfi_endproc
+ 1321              	.LFE37:
+ 1323              		.section	.rodata.lv_fs_get_ext.str1.4,"aMS",%progbits,1
+ 1324              		.align	2
+ 1325              	.LC8:
+ 1326 0000 00       		.ascii	"\000"
+ 1327              		.section	.text.lv_fs_get_ext,"ax",%progbits
+ 1328              		.align	1
+ 1329              		.global	lv_fs_get_ext
+ 1330              		.syntax unified
+ 1331              		.thumb
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 37
+
+
+ 1332              		.thumb_func
+ 1333              		.fpu fpv4-sp-d16
+ 1335              	lv_fs_get_ext:
+ 1336              	.LVL125:
+ 1337              	.LFB38:
+ 302:lvgl/lvgl/src/misc/lv_fs.c ****     size_t i;
+ 1338              		.loc 1 302 1 is_stmt 1 view -0
+ 1339              		.cfi_startproc
+ 1340              		@ args = 0, pretend = 0, frame = 0
+ 1341              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302:lvgl/lvgl/src/misc/lv_fs.c ****     size_t i;
+ 1342              		.loc 1 302 1 is_stmt 0 view .LVU350
+ 1343 0000 10B5     		push	{r4, lr}
+ 1344              	.LCFI31:
+ 1345              		.cfi_def_cfa_offset 8
+ 1346              		.cfi_offset 4, -8
+ 1347              		.cfi_offset 14, -4
+ 1348 0002 0446     		mov	r4, r0
+ 303:lvgl/lvgl/src/misc/lv_fs.c ****     for(i = strlen(fn); i > 0; i--) {
+ 1349              		.loc 1 303 5 is_stmt 1 view .LVU351
+ 304:lvgl/lvgl/src/misc/lv_fs.c ****         if(fn[i] == '.') {
+ 1350              		.loc 1 304 5 view .LVU352
+ 304:lvgl/lvgl/src/misc/lv_fs.c ****         if(fn[i] == '.') {
+ 1351              		.loc 1 304 13 is_stmt 0 view .LVU353
+ 1352 0004 FFF7FEFF 		bl	strlen
+ 1353              	.LVL126:
+ 304:lvgl/lvgl/src/misc/lv_fs.c ****         if(fn[i] == '.') {
+ 1354              		.loc 1 304 5 view .LVU354
+ 1355 0008 03E0     		b	.L108
+ 1356              	.L116:
+ 306:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1357              		.loc 1 306 13 is_stmt 1 view .LVU355
+ 306:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1358              		.loc 1 306 23 is_stmt 0 view .LVU356
+ 1359 000a 431C     		adds	r3, r0, #1
+ 306:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1360              		.loc 1 306 20 view .LVU357
+ 1361 000c E018     		adds	r0, r4, r3
+ 1362              	.LVL127:
+ 306:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1363              		.loc 1 306 20 view .LVU358
+ 1364 000e 0BE0     		b	.L107
+ 1365              	.LVL128:
+ 1366              	.L117:
+ 304:lvgl/lvgl/src/misc/lv_fs.c ****         if(fn[i] == '.') {
+ 1367              		.loc 1 304 32 is_stmt 1 discriminator 2 view .LVU359
+ 304:lvgl/lvgl/src/misc/lv_fs.c ****         if(fn[i] == '.') {
+ 1368              		.loc 1 304 33 is_stmt 0 discriminator 2 view .LVU360
+ 1369 0010 0138     		subs	r0, r0, #1
+ 1370              	.LVL129:
+ 1371              	.L108:
+ 304:lvgl/lvgl/src/misc/lv_fs.c ****         if(fn[i] == '.') {
+ 1372              		.loc 1 304 25 is_stmt 1 discriminator 1 view .LVU361
+ 304:lvgl/lvgl/src/misc/lv_fs.c ****         if(fn[i] == '.') {
+ 1373              		.loc 1 304 5 is_stmt 0 discriminator 1 view .LVU362
+ 1374 0012 40B1     		cbz	r0, .L115
+ 305:lvgl/lvgl/src/misc/lv_fs.c ****             return &fn[i + 1];
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 38
+
+
+ 1375              		.loc 1 305 9 is_stmt 1 view .LVU363
+ 305:lvgl/lvgl/src/misc/lv_fs.c ****             return &fn[i + 1];
+ 1376              		.loc 1 305 14 is_stmt 0 view .LVU364
+ 1377 0014 225C     		ldrb	r2, [r4, r0]	@ zero_extendqisi2
+ 305:lvgl/lvgl/src/misc/lv_fs.c ****             return &fn[i + 1];
+ 1378              		.loc 1 305 11 view .LVU365
+ 1379 0016 2E2A     		cmp	r2, #46
+ 1380 0018 F7D0     		beq	.L116
+ 308:lvgl/lvgl/src/misc/lv_fs.c ****             return ""; /*No extension if a '\' or '/' found*/
+ 1381              		.loc 1 308 14 is_stmt 1 view .LVU366
+ 308:lvgl/lvgl/src/misc/lv_fs.c ****             return ""; /*No extension if a '\' or '/' found*/
+ 1382              		.loc 1 308 16 is_stmt 0 view .LVU367
+ 1383 001a 2F2A     		cmp	r2, #47
+ 1384 001c 05D0     		beq	.L112
+ 308:lvgl/lvgl/src/misc/lv_fs.c ****             return ""; /*No extension if a '\' or '/' found*/
+ 1385              		.loc 1 308 30 discriminator 1 view .LVU368
+ 1386 001e 5C2A     		cmp	r2, #92
+ 1387 0020 F6D1     		bne	.L117
+ 309:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1388              		.loc 1 309 20 view .LVU369
+ 1389 0022 0348     		ldr	r0, .L118
+ 1390              	.LVL130:
+ 309:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1391              		.loc 1 309 20 view .LVU370
+ 1392 0024 00E0     		b	.L107
+ 1393              	.LVL131:
+ 1394              	.L115:
+ 313:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 1395              		.loc 1 313 12 view .LVU371
+ 1396 0026 0248     		ldr	r0, .L118
+ 1397              	.LVL132:
+ 1398              	.L107:
+ 314:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1399              		.loc 1 314 1 view .LVU372
+ 1400 0028 10BD     		pop	{r4, pc}
+ 1401              	.LVL133:
+ 1402              	.L112:
+ 309:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1403              		.loc 1 309 20 view .LVU373
+ 1404 002a 0148     		ldr	r0, .L118
+ 1405              	.LVL134:
+ 309:lvgl/lvgl/src/misc/lv_fs.c ****         }
+ 1406              		.loc 1 309 20 view .LVU374
+ 1407 002c FCE7     		b	.L107
+ 1408              	.L119:
+ 1409 002e 00BF     		.align	2
+ 1410              	.L118:
+ 1411 0030 00000000 		.word	.LC8
+ 1412              		.cfi_endproc
+ 1413              	.LFE38:
+ 1415              		.section	.text.lv_fs_up,"ax",%progbits
+ 1416              		.align	1
+ 1417              		.global	lv_fs_up
+ 1418              		.syntax unified
+ 1419              		.thumb
+ 1420              		.thumb_func
+ 1421              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 39
+
+
+ 1423              	lv_fs_up:
+ 1424              	.LVL135:
+ 1425              	.LFB39:
+ 317:lvgl/lvgl/src/misc/lv_fs.c ****     size_t len = strlen(path);
+ 1426              		.loc 1 317 1 is_stmt 1 view -0
+ 1427              		.cfi_startproc
+ 1428              		@ args = 0, pretend = 0, frame = 0
+ 1429              		@ frame_needed = 0, uses_anonymous_args = 0
+ 317:lvgl/lvgl/src/misc/lv_fs.c ****     size_t len = strlen(path);
+ 1430              		.loc 1 317 1 is_stmt 0 view .LVU376
+ 1431 0000 10B5     		push	{r4, lr}
+ 1432              	.LCFI32:
+ 1433              		.cfi_def_cfa_offset 8
+ 1434              		.cfi_offset 4, -8
+ 1435              		.cfi_offset 14, -4
+ 1436 0002 0446     		mov	r4, r0
+ 318:lvgl/lvgl/src/misc/lv_fs.c ****     if(len == 0) return path;
+ 1437              		.loc 1 318 5 is_stmt 1 view .LVU377
+ 318:lvgl/lvgl/src/misc/lv_fs.c ****     if(len == 0) return path;
+ 1438              		.loc 1 318 18 is_stmt 0 view .LVU378
+ 1439 0004 FFF7FEFF 		bl	strlen
+ 1440              	.LVL136:
+ 319:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1441              		.loc 1 319 5 is_stmt 1 view .LVU379
+ 319:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1442              		.loc 1 319 7 is_stmt 0 view .LVU380
+ 1443 0008 B0B1     		cbz	r0, .L121
+ 321:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1444              		.loc 1 321 5 is_stmt 1 view .LVU381
+ 321:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1445              		.loc 1 321 8 is_stmt 0 view .LVU382
+ 1446 000a 431E     		subs	r3, r0, #1
+ 1447              	.LVL137:
+ 324:lvgl/lvgl/src/misc/lv_fs.c ****         path[len] = '\0';
+ 1448              		.loc 1 324 5 is_stmt 1 view .LVU383
+ 324:lvgl/lvgl/src/misc/lv_fs.c ****         path[len] = '\0';
+ 1449              		.loc 1 324 10 is_stmt 0 view .LVU384
+ 1450 000c 03E0     		b	.L122
+ 1451              	.L123:
+ 325:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 1452              		.loc 1 325 9 is_stmt 1 view .LVU385
+ 325:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 1453              		.loc 1 325 19 is_stmt 0 view .LVU386
+ 1454 000e 0022     		movs	r2, #0
+ 1455 0010 0A70     		strb	r2, [r1]
+ 326:lvgl/lvgl/src/misc/lv_fs.c ****             len--;
+ 1456              		.loc 1 326 9 is_stmt 1 view .LVU387
+ 326:lvgl/lvgl/src/misc/lv_fs.c ****             len--;
+ 1457              		.loc 1 326 11 is_stmt 0 view .LVU388
+ 1458 0012 8BB1     		cbz	r3, .L121
+ 327:lvgl/lvgl/src/misc/lv_fs.c ****         else
+ 1459              		.loc 1 327 13 is_stmt 1 view .LVU389
+ 327:lvgl/lvgl/src/misc/lv_fs.c ****         else
+ 1460              		.loc 1 327 16 is_stmt 0 view .LVU390
+ 1461 0014 013B     		subs	r3, r3, #1
+ 1462              	.LVL138:
+ 1463              	.L122:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 40
+
+
+ 324:lvgl/lvgl/src/misc/lv_fs.c ****         path[len] = '\0';
+ 1464              		.loc 1 324 10 is_stmt 1 view .LVU391
+ 324:lvgl/lvgl/src/misc/lv_fs.c ****         path[len] = '\0';
+ 1465              		.loc 1 324 15 is_stmt 0 view .LVU392
+ 1466 0016 E118     		adds	r1, r4, r3
+ 1467 0018 E25C     		ldrb	r2, [r4, r3]	@ zero_extendqisi2
+ 324:lvgl/lvgl/src/misc/lv_fs.c ****         path[len] = '\0';
+ 1468              		.loc 1 324 10 view .LVU393
+ 1469 001a 2F2A     		cmp	r2, #47
+ 1470 001c F7D0     		beq	.L123
+ 324:lvgl/lvgl/src/misc/lv_fs.c ****         path[len] = '\0';
+ 1471              		.loc 1 324 28 discriminator 1 view .LVU394
+ 1472 001e 5C2A     		cmp	r2, #92
+ 1473 0020 F5D0     		beq	.L123
+ 1474              	.LVL139:
+ 1475              	.L124:
+ 333:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1476              		.loc 1 333 18 is_stmt 1 discriminator 1 view .LVU395
+ 333:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1477              		.loc 1 333 5 is_stmt 0 discriminator 1 view .LVU396
+ 1478 0022 33B1     		cbz	r3, .L125
+ 334:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1479              		.loc 1 334 9 is_stmt 1 view .LVU397
+ 334:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1480              		.loc 1 334 16 is_stmt 0 view .LVU398
+ 1481 0024 E25C     		ldrb	r2, [r4, r3]	@ zero_extendqisi2
+ 334:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1482              		.loc 1 334 11 view .LVU399
+ 1483 0026 2F2A     		cmp	r2, #47
+ 1484 0028 03D0     		beq	.L125
+ 334:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1485              		.loc 1 334 27 discriminator 1 view .LVU400
+ 1486 002a 5C2A     		cmp	r2, #92
+ 1487 002c 01D0     		beq	.L125
+ 333:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1488              		.loc 1 333 25 is_stmt 1 discriminator 2 view .LVU401
+ 333:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1489              		.loc 1 333 26 is_stmt 0 discriminator 2 view .LVU402
+ 1490 002e 013B     		subs	r3, r3, #1
+ 1491              	.LVL140:
+ 333:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1492              		.loc 1 333 26 discriminator 2 view .LVU403
+ 1493 0030 F7E7     		b	.L124
+ 1494              	.L125:
+ 337:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1495              		.loc 1 337 5 is_stmt 1 view .LVU404
+ 337:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1496              		.loc 1 337 7 is_stmt 0 view .LVU405
+ 1497 0032 0BB1     		cbz	r3, .L121
+ 337:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1498              		.loc 1 337 15 is_stmt 1 discriminator 1 view .LVU406
+ 337:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1499              		.loc 1 337 23 is_stmt 0 discriminator 1 view .LVU407
+ 1500 0034 0022     		movs	r2, #0
+ 1501 0036 E254     		strb	r2, [r4, r3]
+ 1502              	.LVL141:
+ 1503              	.L121:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 41
+
+
+ 340:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1504              		.loc 1 340 1 view .LVU408
+ 1505 0038 2046     		mov	r0, r4
+ 1506 003a 10BD     		pop	{r4, pc}
+ 340:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1507              		.loc 1 340 1 view .LVU409
+ 1508              		.cfi_endproc
+ 1509              	.LFE39:
+ 1511              		.section	.text.lv_fs_get_last,"ax",%progbits
+ 1512              		.align	1
+ 1513              		.global	lv_fs_get_last
+ 1514              		.syntax unified
+ 1515              		.thumb
+ 1516              		.thumb_func
+ 1517              		.fpu fpv4-sp-d16
+ 1519              	lv_fs_get_last:
+ 1520              	.LVL142:
+ 1521              	.LFB40:
+ 343:lvgl/lvgl/src/misc/lv_fs.c ****     size_t len = strlen(path);
+ 1522              		.loc 1 343 1 is_stmt 1 view -0
+ 1523              		.cfi_startproc
+ 1524              		@ args = 0, pretend = 0, frame = 0
+ 1525              		@ frame_needed = 0, uses_anonymous_args = 0
+ 343:lvgl/lvgl/src/misc/lv_fs.c ****     size_t len = strlen(path);
+ 1526              		.loc 1 343 1 is_stmt 0 view .LVU411
+ 1527 0000 10B5     		push	{r4, lr}
+ 1528              	.LCFI33:
+ 1529              		.cfi_def_cfa_offset 8
+ 1530              		.cfi_offset 4, -8
+ 1531              		.cfi_offset 14, -4
+ 1532 0002 0446     		mov	r4, r0
+ 344:lvgl/lvgl/src/misc/lv_fs.c ****     if(len == 0) return path;
+ 1533              		.loc 1 344 5 is_stmt 1 view .LVU412
+ 344:lvgl/lvgl/src/misc/lv_fs.c ****     if(len == 0) return path;
+ 1534              		.loc 1 344 18 is_stmt 0 view .LVU413
+ 1535 0004 FFF7FEFF 		bl	strlen
+ 1536              	.LVL143:
+ 345:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1537              		.loc 1 345 5 is_stmt 1 view .LVU414
+ 345:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1538              		.loc 1 345 7 is_stmt 0 view .LVU415
+ 1539 0008 98B1     		cbz	r0, .L129
+ 347:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1540              		.loc 1 347 5 is_stmt 1 view .LVU416
+ 347:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1541              		.loc 1 347 8 is_stmt 0 view .LVU417
+ 1542 000a 431E     		subs	r3, r0, #1
+ 1543              	.LVL144:
+ 350:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 1544              		.loc 1 350 5 is_stmt 1 view .LVU418
+ 350:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 1545              		.loc 1 350 10 is_stmt 0 view .LVU419
+ 1546 000c 01E0     		b	.L130
+ 1547              	.L131:
+ 351:lvgl/lvgl/src/misc/lv_fs.c ****             len--;
+ 1548              		.loc 1 351 9 is_stmt 1 view .LVU420
+ 351:lvgl/lvgl/src/misc/lv_fs.c ****             len--;
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 42
+
+
+ 1549              		.loc 1 351 11 is_stmt 0 view .LVU421
+ 1550 000e 83B1     		cbz	r3, .L129
+ 352:lvgl/lvgl/src/misc/lv_fs.c ****         else
+ 1551              		.loc 1 352 13 is_stmt 1 view .LVU422
+ 352:lvgl/lvgl/src/misc/lv_fs.c ****         else
+ 1552              		.loc 1 352 16 is_stmt 0 view .LVU423
+ 1553 0010 013B     		subs	r3, r3, #1
+ 1554              	.LVL145:
+ 1555              	.L130:
+ 350:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 1556              		.loc 1 350 10 is_stmt 1 view .LVU424
+ 350:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 1557              		.loc 1 350 15 is_stmt 0 view .LVU425
+ 1558 0012 E25C     		ldrb	r2, [r4, r3]	@ zero_extendqisi2
+ 350:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 1559              		.loc 1 350 10 view .LVU426
+ 1560 0014 2F2A     		cmp	r2, #47
+ 1561 0016 FAD0     		beq	.L131
+ 350:lvgl/lvgl/src/misc/lv_fs.c ****         if(len > 0)
+ 1562              		.loc 1 350 28 discriminator 1 view .LVU427
+ 1563 0018 5C2A     		cmp	r2, #92
+ 1564 001a F8D0     		beq	.L131
+ 1565              	.LVL146:
+ 1566              	.L132:
+ 358:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1567              		.loc 1 358 18 is_stmt 1 discriminator 1 view .LVU428
+ 358:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1568              		.loc 1 358 5 is_stmt 0 discriminator 1 view .LVU429
+ 1569 001c 33B1     		cbz	r3, .L133
+ 359:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1570              		.loc 1 359 9 is_stmt 1 view .LVU430
+ 359:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1571              		.loc 1 359 16 is_stmt 0 view .LVU431
+ 1572 001e E25C     		ldrb	r2, [r4, r3]	@ zero_extendqisi2
+ 359:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1573              		.loc 1 359 11 view .LVU432
+ 1574 0020 2F2A     		cmp	r2, #47
+ 1575 0022 03D0     		beq	.L133
+ 359:lvgl/lvgl/src/misc/lv_fs.c ****     }
+ 1576              		.loc 1 359 27 discriminator 1 view .LVU433
+ 1577 0024 5C2A     		cmp	r2, #92
+ 1578 0026 01D0     		beq	.L133
+ 358:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1579              		.loc 1 358 25 is_stmt 1 discriminator 2 view .LVU434
+ 358:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1580              		.loc 1 358 26 is_stmt 0 discriminator 2 view .LVU435
+ 1581 0028 013B     		subs	r3, r3, #1
+ 1582              	.LVL147:
+ 358:lvgl/lvgl/src/misc/lv_fs.c ****         if(path[i] == '/' || path[i] == '\\') break;
+ 1583              		.loc 1 358 26 discriminator 2 view .LVU436
+ 1584 002a F7E7     		b	.L132
+ 1585              	.L133:
+ 363:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1586              		.loc 1 363 5 is_stmt 1 view .LVU437
+ 363:lvgl/lvgl/src/misc/lv_fs.c **** 
+ 1587              		.loc 1 363 7 is_stmt 0 view .LVU438
+ 1588 002c 0BB1     		cbz	r3, .L129
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 43
+
+
+ 365:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 1589              		.loc 1 365 5 is_stmt 1 view .LVU439
+ 365:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 1590              		.loc 1 365 17 is_stmt 0 view .LVU440
+ 1591 002e 0133     		adds	r3, r3, #1
+ 1592              	.LVL148:
+ 365:lvgl/lvgl/src/misc/lv_fs.c **** }
+ 1593              		.loc 1 365 12 view .LVU441
+ 1594 0030 1C44     		add	r4, r4, r3
+ 1595              	.LVL149:
+ 1596              	.L129:
+ 366:lvgl/lvgl/src/misc/lv_fs.c **** /**********************
+ 1597              		.loc 1 366 1 view .LVU442
+ 1598 0032 2046     		mov	r0, r4
+ 1599 0034 10BD     		pop	{r4, pc}
+ 1600              		.cfi_endproc
+ 1601              	.LFE40:
+ 1603              		.section	.rodata.__func__.7156,"a"
+ 1604              		.align	2
+ 1605              		.set	.LANCHOR1,. + 0
+ 1608              	__func__.7156:
+ 1609 0000 6C765F66 		.ascii	"lv_fs_open\000"
+ 1609      735F6F70 
+ 1609      656E00
+ 1610              		.section	.rodata.__func__.7216,"a"
+ 1611              		.align	2
+ 1612              		.set	.LANCHOR0,. + 0
+ 1615              	__func__.7216:
+ 1616 0000 6C765F66 		.ascii	"lv_fs_drv_register\000"
+ 1616      735F6472 
+ 1616      765F7265 
+ 1616      67697374 
+ 1616      657200
+ 1617              		.text
+ 1618              	.Letext0:
+ 1619              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1620              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1621              		.file 4 "lvgl/lvgl/src/misc/lv_fs.h"
+ 1622              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 1623              		.file 6 "lvgl/lvgl/src/misc/lv_ll.h"
+ 1624              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1625              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1626              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 1627              		.file 10 "lvgl/lvgl/src/misc/lv_types.h"
+ 1628              		.file 11 "lvgl/lvgl/src/misc/lv_mem.h"
+ 1629              		.file 12 "lvgl/lvgl/src/misc/lv_timer.h"
+ 1630              		.file 13 "lvgl/lvgl/src/misc/../draw/../misc/lv_color.h"
+ 1631              		.file 14 "lvgl/lvgl/src/misc/../draw/../misc/lv_area.h"
+ 1632              		.file 15 "lvgl/lvgl/src/misc/../draw/lv_img_buf.h"
+ 1633              		.file 16 "lvgl/lvgl/src/misc/../draw/lv_img_decoder.h"
+ 1634              		.file 17 "lvgl/lvgl/src/misc/../draw/lv_img_cache.h"
+ 1635              		.file 18 "lvgl/lvgl/src/misc/../draw/lv_draw_mask.h"
+ 1636              		.file 19 "lvgl/lvgl/src/misc/../core/lv_obj_pos.h"
+ 1637              		.file 20 "lvgl/lvgl/src/misc/lv_gc.h"
+ 1638              		.file 21 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 1639              		.file 22 "lvgl/lvgl/src/misc/lv_log.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 44
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_fs.c
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:18     .text.lv_fs_get_real_path:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:25     .text.lv_fs_get_real_path:00000000 lv_fs_get_real_path
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:61     .text._lv_fs_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:68     .text._lv_fs_init:00000000 _lv_fs_init
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:89     .text._lv_fs_init:0000000c $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:94     .text.lv_fs_close:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:101    .text.lv_fs_close:00000000 lv_fs_close
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:156    .text.lv_fs_read:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:163    .text.lv_fs_read:00000000 lv_fs_read
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:252    .text.lv_fs_write:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:259    .text.lv_fs_write:00000000 lv_fs_write
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:348    .text.lv_fs_seek:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:355    .text.lv_fs_seek:00000000 lv_fs_seek
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:410    .text.lv_fs_tell:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:417    .text.lv_fs_tell:00000000 lv_fs_tell
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:492    .text.lv_fs_dir_read:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:499    .text.lv_fs_dir_read:00000000 lv_fs_dir_read
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:563    .text.lv_fs_dir_close:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:570    .text.lv_fs_dir_close:00000000 lv_fs_dir_close
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:631    .text.lv_fs_drv_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:638    .text.lv_fs_drv_init:00000000 lv_fs_drv_init
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:661    .rodata.lv_fs_drv_register.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:674    .text.lv_fs_drv_register:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:681    .text.lv_fs_drv_register:00000000 lv_fs_drv_register
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:750    .text.lv_fs_drv_register:00000030 $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:760    .text.lv_fs_get_drv:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:767    .text.lv_fs_get_drv:00000000 lv_fs_get_drv
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:824    .text.lv_fs_get_drv:00000028 $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:829    .text.lv_fs_is_ready:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:836    .text.lv_fs_is_ready:00000000 lv_fs_is_ready
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:886    .rodata.lv_fs_open.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:899    .text.lv_fs_open:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:906    .text.lv_fs_open:00000000 lv_fs_open
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1087   .text.lv_fs_open:000000a4 $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1097   .text.lv_fs_dir_open:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1104   .text.lv_fs_dir_open:00000000 lv_fs_dir_open
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1238   .text.lv_fs_get_letters:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1245   .text.lv_fs_get_letters:00000000 lv_fs_get_letters
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1319   .text.lv_fs_get_letters:0000002c $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1324   .rodata.lv_fs_get_ext.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1328   .text.lv_fs_get_ext:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1335   .text.lv_fs_get_ext:00000000 lv_fs_get_ext
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1411   .text.lv_fs_get_ext:00000030 $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1416   .text.lv_fs_up:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1423   .text.lv_fs_up:00000000 lv_fs_up
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1512   .text.lv_fs_get_last:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1519   .text.lv_fs_get_last:00000000 lv_fs_get_last
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1604   .rodata.__func__.7156:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1608   .rodata.__func__.7156:00000000 __func__.7156
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1611   .rodata.__func__.7216:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccZomyAV.s:1615   .rodata.__func__.7216:00000000 __func__.7216
+
+UNDEFINED SYMBOLS
+_lv_ll_init
+_lv_fsdrv_ll
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccZomyAV.s 			page 45
+
+
+lv_memset_00
+_lv_ll_ins_head
+_lv_log_add
+_lv_ll_get_head
+_lv_ll_get_next
+strlen

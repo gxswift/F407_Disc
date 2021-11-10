@@ -1,0 +1,1474 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_chart_2.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.add_data,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	add_data:
+  26              	.LVL0:
+  27              	.LFB190:
+  28              		.file 1 "lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c"
+   1:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** #include "../../lv_examples.h"
+   2:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** #if LV_USE_CHART && LV_DRAW_COMPLEX && LV_BUILD_EXAMPLES
+   3:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+   4:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** static lv_obj_t * chart1;
+   5:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** static lv_chart_series_t * ser1;
+   6:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** static lv_chart_series_t * ser2;
+   7:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+   8:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** static void draw_event_cb(lv_event_t * e)
+   9:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** {
+  10:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_obj_t * obj = lv_event_get_target(e);
+  11:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  12:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     /*Add the faded area before the lines are drawn*/
+  13:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_obj_draw_part_dsc_t * dsc = lv_event_get_draw_part_dsc(e);
+  14:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     if(dsc->part == LV_PART_ITEMS) {
+  15:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         if(!dsc->p1 || !dsc->p2) return;
+  16:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  17:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         /*Add  a line mask that keeps the area below the line*/
+  18:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_line_param_t line_mask_param;
+  19:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_line_points_init(&line_mask_param, dsc->p1->x, dsc->p1->y, dsc->p2->x, dsc->p2
+  20:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t line_mask_id = lv_draw_mask_add(&line_mask_param, NULL);
+  21:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  22:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         /*Add a fade effect: transparent bottom covering top*/
+  23:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_coord_t h = lv_obj_get_height(obj);
+  24:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_fade_param_t fade_mask_param;
+  25:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_fade_init(&fade_mask_param, &obj->coords, LV_OPA_COVER, obj->coords.y1 + h / 8
+  26:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t fade_mask_id = lv_draw_mask_add(&fade_mask_param, NULL);
+  27:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  28:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         /*Draw a rectangle that will be affected by the mask*/
+  29:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_rect_dsc_t draw_rect_dsc;
+  30:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_rect_dsc_init(&draw_rect_dsc);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 2
+
+
+  31:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         draw_rect_dsc.bg_opa = LV_OPA_20;
+  32:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         draw_rect_dsc.bg_color = dsc->line_dsc->color;
+  33:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  34:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_area_t a;
+  35:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.x1 = dsc->p1->x;
+  36:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.x2 = dsc->p2->x - 1;
+  37:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y1 = LV_MIN(dsc->p1->y, dsc->p2->y);
+  38:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y2 = obj->coords.y2;
+  39:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_rect(&a, dsc->clip_area, &draw_rect_dsc);
+  40:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  41:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         /*Remove the masks*/
+  42:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_free_param(&line_mask_param);
+  43:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_free_param(&fade_mask_param);
+  44:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_remove_id(line_mask_id);
+  45:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_remove_id(fade_mask_id);
+  46:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     }
+  47:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     /*Hook the division lines too*/
+  48:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     else if(dsc->part == LV_PART_MAIN) {
+  49:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         if(dsc->line_dsc == NULL || dsc->p1 == NULL || dsc->p2 == NULL) return;
+  50:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  51:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         /*Vertical line*/
+  52:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         if(dsc->p1->x == dsc->p2->x) {
+  53:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             dsc->line_dsc->color  = lv_palette_lighten(LV_PALETTE_GREY, 1);
+  54:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             if(dsc->id == 3) {
+  55:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width  = 2;
+  56:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 0;
+  57:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 0;
+  58:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+  59:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             else {
+  60:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width = 1;
+  61:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 6;
+  62:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 6;
+  63:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+  64:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         }
+  65:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         /*Horizontal line*/
+  66:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         else {
+  67:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             if(dsc->id == 2) {
+  68:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width  = 2;
+  69:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 0;
+  70:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 0;
+  71:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+  72:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             else {
+  73:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width = 2;
+  74:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 6;
+  75:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 6;
+  76:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+  77:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  78:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             if(dsc->id == 1  || dsc->id == 3) {
+  79:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->color  = lv_palette_main(LV_PALETTE_GREEN);
+  80:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             } else {
+  81:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->color  = lv_palette_lighten(LV_PALETTE_GREY, 1);
+  82:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+  83:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         }
+  84:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     }
+  85:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** }
+  86:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  87:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** static void add_data(lv_timer_t * timer)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 3
+
+
+  88:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** {
+  29              		.loc 1 88 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 88 1 is_stmt 0 view .LVU1
+  34 0000 38B5     		push	{r3, r4, r5, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 16
+  37              		.cfi_offset 3, -16
+  38              		.cfi_offset 4, -12
+  39              		.cfi_offset 5, -8
+  40              		.cfi_offset 14, -4
+  89:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     LV_UNUSED(timer);
+  41              		.loc 1 89 5 is_stmt 1 view .LVU2
+  90:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     static uint32_t cnt = 0;
+  42              		.loc 1 90 5 view .LVU3
+  91:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_chart_set_next_value(chart1, ser1, lv_rand(20, 90));
+  43              		.loc 1 91 5 view .LVU4
+  44 0002 124B     		ldr	r3, .L5
+  45 0004 1C68     		ldr	r4, [r3]
+  46 0006 124B     		ldr	r3, .L5+4
+  47 0008 1D68     		ldr	r5, [r3]
+  48              		.loc 1 91 43 is_stmt 0 view .LVU5
+  49 000a 5A21     		movs	r1, #90
+  50 000c 1420     		movs	r0, #20
+  51              	.LVL1:
+  52              		.loc 1 91 43 view .LVU6
+  53 000e FFF7FEFF 		bl	lv_rand
+  54              	.LVL2:
+  55              		.loc 1 91 5 view .LVU7
+  56 0012 02B2     		sxth	r2, r0
+  57 0014 2946     		mov	r1, r5
+  58 0016 2046     		mov	r0, r4
+  59 0018 FFF7FEFF 		bl	lv_chart_set_next_value
+  60              	.LVL3:
+  92:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  93:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     if(cnt % 4 == 0) lv_chart_set_next_value(chart1, ser2, lv_rand(40, 60));
+  61              		.loc 1 93 5 is_stmt 1 view .LVU8
+  62              		.loc 1 93 12 is_stmt 0 view .LVU9
+  63 001c 0D4B     		ldr	r3, .L5+8
+  64 001e 1B68     		ldr	r3, [r3]
+  65              		.loc 1 93 7 view .LVU10
+  66 0020 13F0030F 		tst	r3, #3
+  67 0024 04D0     		beq	.L4
+  68              	.L2:
+  94:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  95:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     cnt++;
+  69              		.loc 1 95 5 is_stmt 1 view .LVU11
+  70              		.loc 1 95 8 is_stmt 0 view .LVU12
+  71 0026 0B4A     		ldr	r2, .L5+8
+  72 0028 1368     		ldr	r3, [r2]
+  73 002a 0133     		adds	r3, r3, #1
+  74 002c 1360     		str	r3, [r2]
+  96:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** }
+  75              		.loc 1 96 1 view .LVU13
+  76 002e 38BD     		pop	{r3, r4, r5, pc}
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 4
+
+
+  77              	.L4:
+  93:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  78              		.loc 1 93 22 is_stmt 1 discriminator 1 view .LVU14
+  79 0030 064B     		ldr	r3, .L5
+  80 0032 1C68     		ldr	r4, [r3]
+  81 0034 084B     		ldr	r3, .L5+12
+  82 0036 1D68     		ldr	r5, [r3]
+  93:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  83              		.loc 1 93 60 is_stmt 0 discriminator 1 view .LVU15
+  84 0038 3C21     		movs	r1, #60
+  85 003a 2820     		movs	r0, #40
+  86 003c FFF7FEFF 		bl	lv_rand
+  87              	.LVL4:
+  93:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  88              		.loc 1 93 22 discriminator 1 view .LVU16
+  89 0040 02B2     		sxth	r2, r0
+  90 0042 2946     		mov	r1, r5
+  91 0044 2046     		mov	r0, r4
+  92 0046 FFF7FEFF 		bl	lv_chart_set_next_value
+  93              	.LVL5:
+  94 004a ECE7     		b	.L2
+  95              	.L6:
+  96              		.align	2
+  97              	.L5:
+  98 004c 00000000 		.word	.LANCHOR0
+  99 0050 00000000 		.word	.LANCHOR1
+ 100 0054 00000000 		.word	.LANCHOR2
+ 101 0058 00000000 		.word	.LANCHOR3
+ 102              		.cfi_endproc
+ 103              	.LFE190:
+ 105              		.section	.text.draw_event_cb,"ax",%progbits
+ 106              		.align	1
+ 107              		.syntax unified
+ 108              		.thumb
+ 109              		.thumb_func
+ 110              		.fpu fpv4-sp-d16
+ 112              	draw_event_cb:
+ 113              	.LVL6:
+ 114              	.LFB189:
+   9:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 115              		.loc 1 9 1 is_stmt 1 view -0
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 128
+ 118              		@ frame_needed = 0, uses_anonymous_args = 0
+   9:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_obj_t * obj = lv_event_get_target(e);
+ 119              		.loc 1 9 1 is_stmt 0 view .LVU18
+ 120 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 121              	.LCFI1:
+ 122              		.cfi_def_cfa_offset 20
+ 123              		.cfi_offset 4, -20
+ 124              		.cfi_offset 5, -16
+ 125              		.cfi_offset 6, -12
+ 126              		.cfi_offset 7, -8
+ 127              		.cfi_offset 14, -4
+ 128 0002 A3B0     		sub	sp, sp, #140
+ 129              	.LCFI2:
+ 130              		.cfi_def_cfa_offset 160
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 5
+
+
+ 131 0004 0446     		mov	r4, r0
+  10:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 132              		.loc 1 10 5 is_stmt 1 view .LVU19
+  10:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 133              		.loc 1 10 22 is_stmt 0 view .LVU20
+ 134 0006 FFF7FEFF 		bl	lv_event_get_target
+ 135              	.LVL7:
+  10:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 136              		.loc 1 10 22 view .LVU21
+ 137 000a 0546     		mov	r5, r0
+ 138              	.LVL8:
+  13:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     if(dsc->part == LV_PART_ITEMS) {
+ 139              		.loc 1 13 5 is_stmt 1 view .LVU22
+  13:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     if(dsc->part == LV_PART_ITEMS) {
+ 140              		.loc 1 13 36 is_stmt 0 view .LVU23
+ 141 000c 2046     		mov	r0, r4
+ 142              	.LVL9:
+  13:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     if(dsc->part == LV_PART_ITEMS) {
+ 143              		.loc 1 13 36 view .LVU24
+ 144 000e FFF7FEFF 		bl	lv_event_get_draw_part_dsc
+ 145              	.LVL10:
+ 146 0012 0446     		mov	r4, r0
+ 147              	.LVL11:
+  14:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         if(!dsc->p1 || !dsc->p2) return;
+ 148              		.loc 1 14 5 is_stmt 1 view .LVU25
+  14:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         if(!dsc->p1 || !dsc->p2) return;
+ 149              		.loc 1 14 11 is_stmt 0 view .LVU26
+ 150 0014 036B     		ldr	r3, [r0, #48]
+  14:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         if(!dsc->p1 || !dsc->p2) return;
+ 151              		.loc 1 14 7 view .LVU27
+ 152 0016 B3F5A02F 		cmp	r3, #327680
+ 153 001a 2BD0     		beq	.L20
+  48:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         if(dsc->line_dsc == NULL || dsc->p1 == NULL || dsc->p2 == NULL) return;
+ 154              		.loc 1 48 10 is_stmt 1 view .LVU28
+  48:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         if(dsc->line_dsc == NULL || dsc->p1 == NULL || dsc->p2 == NULL) return;
+ 155              		.loc 1 48 12 is_stmt 0 view .LVU29
+ 156 001c 002B     		cmp	r3, #0
+ 157 001e 40F08E80 		bne	.L7
+  49:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 158              		.loc 1 49 9 is_stmt 1 view .LVU30
+  49:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 159              		.loc 1 49 15 is_stmt 0 view .LVU31
+ 160 0022 8569     		ldr	r5, [r0, #24]
+ 161              	.LVL12:
+  49:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 162              		.loc 1 49 11 view .LVU32
+ 163 0024 002D     		cmp	r5, #0
+ 164 0026 00F08A80 		beq	.L7
+  49:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 165              		.loc 1 49 40 discriminator 2 view .LVU33
+ 166 002a 436A     		ldr	r3, [r0, #36]
+  49:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 167              		.loc 1 49 34 discriminator 2 view .LVU34
+ 168 002c 002B     		cmp	r3, #0
+ 169 002e 00F08680 		beq	.L7
+  49:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 170              		.loc 1 49 59 discriminator 4 view .LVU35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 6
+
+
+ 171 0032 826A     		ldr	r2, [r0, #40]
+  49:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 172              		.loc 1 49 53 discriminator 4 view .LVU36
+ 173 0034 002A     		cmp	r2, #0
+ 174 0036 00F08280 		beq	.L7
+  52:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             dsc->line_dsc->color  = lv_palette_lighten(LV_PALETTE_GREY, 1);
+ 175              		.loc 1 52 9 is_stmt 1 view .LVU37
+  52:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             dsc->line_dsc->color  = lv_palette_lighten(LV_PALETTE_GREY, 1);
+ 176              		.loc 1 52 19 is_stmt 0 view .LVU38
+ 177 003a B3F90010 		ldrsh	r1, [r3]
+  52:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             dsc->line_dsc->color  = lv_palette_lighten(LV_PALETTE_GREY, 1);
+ 178              		.loc 1 52 33 view .LVU39
+ 179 003e B2F90030 		ldrsh	r3, [r2]
+  52:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             dsc->line_dsc->color  = lv_palette_lighten(LV_PALETTE_GREY, 1);
+ 180              		.loc 1 52 11 view .LVU40
+ 181 0042 9942     		cmp	r1, r3
+ 182 0044 7FD0     		beq	.L21
+  67:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width  = 2;
+ 183              		.loc 1 67 13 is_stmt 1 view .LVU41
+  67:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width  = 2;
+ 184              		.loc 1 67 19 is_stmt 0 view .LVU42
+ 185 0046 436B     		ldr	r3, [r0, #52]
+  67:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width  = 2;
+ 186              		.loc 1 67 15 view .LVU43
+ 187 0048 022B     		cmp	r3, #2
+ 188 004a 00F09680 		beq	.L22
+  73:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 6;
+ 189              		.loc 1 73 17 is_stmt 1 view .LVU44
+  73:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 6;
+ 190              		.loc 1 73 38 is_stmt 0 view .LVU45
+ 191 004e 0223     		movs	r3, #2
+ 192 0050 6B80     		strh	r3, [r5, #2]	@ movhi
+  74:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 6;
+ 193              		.loc 1 74 17 is_stmt 1 view .LVU46
+  74:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 6;
+ 194              		.loc 1 74 20 is_stmt 0 view .LVU47
+ 195 0052 8269     		ldr	r2, [r0, #24]
+  74:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 6;
+ 196              		.loc 1 74 42 view .LVU48
+ 197 0054 0623     		movs	r3, #6
+ 198 0056 D380     		strh	r3, [r2, #6]	@ movhi
+  75:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 199              		.loc 1 75 17 is_stmt 1 view .LVU49
+  75:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 200              		.loc 1 75 20 is_stmt 0 view .LVU50
+ 201 0058 8269     		ldr	r2, [r0, #24]
+  75:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 202              		.loc 1 75 44 view .LVU51
+ 203 005a 9380     		strh	r3, [r2, #4]	@ movhi
+ 204              	.L16:
+  78:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->color  = lv_palette_main(LV_PALETTE_GREEN);
+ 205              		.loc 1 78 13 is_stmt 1 view .LVU52
+  78:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->color  = lv_palette_main(LV_PALETTE_GREEN);
+ 206              		.loc 1 78 19 is_stmt 0 view .LVU53
+ 207 005c 636B     		ldr	r3, [r4, #52]
+  78:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->color  = lv_palette_main(LV_PALETTE_GREEN);
+ 208              		.loc 1 78 15 view .LVU54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 7
+
+
+ 209 005e 012B     		cmp	r3, #1
+ 210 0060 02D0     		beq	.L17
+  78:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->color  = lv_palette_main(LV_PALETTE_GREEN);
+ 211              		.loc 1 78 30 discriminator 1 view .LVU55
+ 212 0062 032B     		cmp	r3, #3
+ 213 0064 40F09080 		bne	.L18
+ 214              	.L17:
+  79:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             } else {
+ 215              		.loc 1 79 17 is_stmt 1 view .LVU56
+  79:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             } else {
+ 216              		.loc 1 79 20 is_stmt 0 view .LVU57
+ 217 0068 A469     		ldr	r4, [r4, #24]
+  79:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             } else {
+ 218              		.loc 1 79 41 view .LVU58
+ 219 006a 0920     		movs	r0, #9
+ 220              	.LVL13:
+  79:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             } else {
+ 221              		.loc 1 79 41 view .LVU59
+ 222 006c FFF7FEFF 		bl	lv_palette_main
+ 223              	.LVL14:
+ 224 0070 2080     		strh	r0, [r4]	@ movhi
+  79:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             } else {
+ 225              		.loc 1 79 39 view .LVU60
+ 226 0072 64E0     		b	.L7
+ 227              	.LVL15:
+ 228              	.L20:
+ 229              	.LBB6:
+  15:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 230              		.loc 1 15 9 is_stmt 1 view .LVU61
+  15:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 231              		.loc 1 15 16 is_stmt 0 view .LVU62
+ 232 0074 416A     		ldr	r1, [r0, #36]
+  15:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 233              		.loc 1 15 11 view .LVU63
+ 234 0076 0029     		cmp	r1, #0
+ 235 0078 61D0     		beq	.L7
+  15:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 236              		.loc 1 15 28 discriminator 2 view .LVU64
+ 237 007a 806A     		ldr	r0, [r0, #40]
+ 238              	.LVL16:
+  15:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 239              		.loc 1 15 21 discriminator 2 view .LVU65
+ 240 007c 0028     		cmp	r0, #0
+ 241 007e 5ED0     		beq	.L7
+  18:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_line_points_init(&line_mask_param, dsc->p1->x, dsc->p1->y, dsc->p2->x, dsc->p2
+ 242              		.loc 1 18 9 is_stmt 1 view .LVU66
+  19:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t line_mask_id = lv_draw_mask_add(&line_mask_param, NULL);
+ 243              		.loc 1 19 9 view .LVU67
+ 244 0080 B0F90030 		ldrsh	r3, [r0]
+ 245 0084 B1F90220 		ldrsh	r2, [r1, #2]
+ 246 0088 B1F90010 		ldrsh	r1, [r1]
+ 247 008c 0326     		movs	r6, #3
+ 248 008e 0196     		str	r6, [sp, #4]
+ 249 0090 B0F90200 		ldrsh	r0, [r0, #2]
+ 250 0094 0090     		str	r0, [sp]
+ 251 0096 0AA8     		add	r0, sp, #40
+ 252 0098 FFF7FEFF 		bl	lv_draw_mask_line_points_init
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 8
+
+
+ 253              	.LVL17:
+  20:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 254              		.loc 1 20 9 view .LVU68
+  20:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 255              		.loc 1 20 32 is_stmt 0 view .LVU69
+ 256 009c 0021     		movs	r1, #0
+ 257 009e 0AA8     		add	r0, sp, #40
+ 258 00a0 FFF7FEFF 		bl	lv_draw_mask_add
+ 259              	.LVL18:
+ 260 00a4 0746     		mov	r7, r0
+ 261              	.LVL19:
+  23:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_fade_param_t fade_mask_param;
+ 262              		.loc 1 23 9 is_stmt 1 view .LVU70
+  23:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_fade_param_t fade_mask_param;
+ 263              		.loc 1 23 24 is_stmt 0 view .LVU71
+ 264 00a6 2846     		mov	r0, r5
+ 265 00a8 FFF7FEFF 		bl	lv_obj_get_height
+ 266              	.LVL20:
+  24:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_fade_init(&fade_mask_param, &obj->coords, LV_OPA_COVER, obj->coords.y1 + h / 8
+ 267              		.loc 1 24 9 is_stmt 1 view .LVU72
+  25:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t fade_mask_id = lv_draw_mask_add(&fade_mask_param, NULL);
+ 268              		.loc 1 25 9 view .LVU73
+  25:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t fade_mask_id = lv_draw_mask_add(&fade_mask_param, NULL);
+ 269              		.loc 1 25 50 is_stmt 0 view .LVU74
+ 270 00ac 05F11401 		add	r1, r5, #20
+  25:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t fade_mask_id = lv_draw_mask_add(&fade_mask_param, NULL);
+ 271              		.loc 1 25 89 view .LVU75
+ 272 00b0 EB8A     		ldrh	r3, [r5, #22]
+  25:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t fade_mask_id = lv_draw_mask_add(&fade_mask_param, NULL);
+ 273              		.loc 1 25 93 view .LVU76
+ 274 00b2 0246     		mov	r2, r0
+ 275 00b4 0028     		cmp	r0, #0
+ 276 00b6 44DB     		blt	.L23
+ 277              	.L12:
+ 278 00b8 03EBE203 		add	r3, r3, r2, asr #3
+  25:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t fade_mask_id = lv_draw_mask_add(&fade_mask_param, NULL);
+ 279              		.loc 1 25 9 view .LVU77
+ 280 00bc B5F91A20 		ldrsh	r2, [r5, #26]
+ 281 00c0 0192     		str	r2, [sp, #4]
+ 282 00c2 0026     		movs	r6, #0
+ 283 00c4 0096     		str	r6, [sp]
+ 284 00c6 1BB2     		sxth	r3, r3
+ 285 00c8 FF22     		movs	r2, #255
+ 286 00ca 04A8     		add	r0, sp, #16
+ 287              	.LVL21:
+  25:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t fade_mask_id = lv_draw_mask_add(&fade_mask_param, NULL);
+ 288              		.loc 1 25 9 view .LVU78
+ 289 00cc FFF7FEFF 		bl	lv_draw_mask_fade_init
+ 290              	.LVL22:
+  26:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 291              		.loc 1 26 9 is_stmt 1 view .LVU79
+  26:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 292              		.loc 1 26 32 is_stmt 0 view .LVU80
+ 293 00d0 3146     		mov	r1, r6
+ 294 00d2 04A8     		add	r0, sp, #16
+ 295 00d4 FFF7FEFF 		bl	lv_draw_mask_add
+ 296              	.LVL23:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 9
+
+
+ 297 00d8 0646     		mov	r6, r0
+ 298              	.LVL24:
+  29:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_rect_dsc_init(&draw_rect_dsc);
+ 299              		.loc 1 29 9 is_stmt 1 view .LVU81
+  30:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         draw_rect_dsc.bg_opa = LV_OPA_20;
+ 300              		.loc 1 30 9 view .LVU82
+ 301 00da 15A8     		add	r0, sp, #84
+ 302 00dc FFF7FEFF 		bl	lv_draw_rect_dsc_init
+ 303              	.LVL25:
+  31:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         draw_rect_dsc.bg_color = dsc->line_dsc->color;
+ 304              		.loc 1 31 9 view .LVU83
+  31:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         draw_rect_dsc.bg_color = dsc->line_dsc->color;
+ 305              		.loc 1 31 30 is_stmt 0 view .LVU84
+ 306 00e0 3323     		movs	r3, #51
+ 307 00e2 8DF85E30 		strb	r3, [sp, #94]
+  32:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 308              		.loc 1 32 9 is_stmt 1 view .LVU85
+  32:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 309              		.loc 1 32 37 is_stmt 0 view .LVU86
+ 310 00e6 A369     		ldr	r3, [r4, #24]
+  32:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 311              		.loc 1 32 32 view .LVU87
+ 312 00e8 1B88     		ldrh	r3, [r3]
+ 313 00ea ADF85830 		strh	r3, [sp, #88]	@ movhi
+  34:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.x1 = dsc->p1->x;
+ 314              		.loc 1 34 9 is_stmt 1 view .LVU88
+  35:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.x2 = dsc->p2->x - 1;
+ 315              		.loc 1 35 9 view .LVU89
+  35:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.x2 = dsc->p2->x - 1;
+ 316              		.loc 1 35 19 is_stmt 0 view .LVU90
+ 317 00ee 626A     		ldr	r2, [r4, #36]
+  35:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.x2 = dsc->p2->x - 1;
+ 318              		.loc 1 35 23 view .LVU91
+ 319 00f0 B2F90030 		ldrsh	r3, [r2]
+  35:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.x2 = dsc->p2->x - 1;
+ 320              		.loc 1 35 14 view .LVU92
+ 321 00f4 ADF80830 		strh	r3, [sp, #8]	@ movhi
+  36:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y1 = LV_MIN(dsc->p1->y, dsc->p2->y);
+ 322              		.loc 1 36 9 is_stmt 1 view .LVU93
+  36:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y1 = LV_MIN(dsc->p1->y, dsc->p2->y);
+ 323              		.loc 1 36 19 is_stmt 0 view .LVU94
+ 324 00f8 A16A     		ldr	r1, [r4, #40]
+  36:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y1 = LV_MIN(dsc->p1->y, dsc->p2->y);
+ 325              		.loc 1 36 23 view .LVU95
+ 326 00fa 0B88     		ldrh	r3, [r1]
+  36:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y1 = LV_MIN(dsc->p1->y, dsc->p2->y);
+ 327              		.loc 1 36 27 view .LVU96
+ 328 00fc 013B     		subs	r3, r3, #1
+  36:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y1 = LV_MIN(dsc->p1->y, dsc->p2->y);
+ 329              		.loc 1 36 14 view .LVU97
+ 330 00fe ADF80C30 		strh	r3, [sp, #12]	@ movhi
+  37:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y2 = obj->coords.y2;
+ 331              		.loc 1 37 9 is_stmt 1 view .LVU98
+  37:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y2 = obj->coords.y2;
+ 332              		.loc 1 37 16 is_stmt 0 view .LVU99
+ 333 0102 B1F90230 		ldrsh	r3, [r1, #2]
+ 334 0106 B2F90220 		ldrsh	r2, [r2, #2]
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 10
+
+
+ 335 010a 9342     		cmp	r3, r2
+ 336 010c A8BF     		it	ge
+ 337 010e 1346     		movge	r3, r2
+  37:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         a.y2 = obj->coords.y2;
+ 338              		.loc 1 37 14 view .LVU100
+ 339 0110 ADF80A30 		strh	r3, [sp, #10]	@ movhi
+  38:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_rect(&a, dsc->clip_area, &draw_rect_dsc);
+ 340              		.loc 1 38 9 is_stmt 1 view .LVU101
+  38:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_rect(&a, dsc->clip_area, &draw_rect_dsc);
+ 341              		.loc 1 38 27 is_stmt 0 view .LVU102
+ 342 0114 B5F91A30 		ldrsh	r3, [r5, #26]
+  38:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_rect(&a, dsc->clip_area, &draw_rect_dsc);
+ 343              		.loc 1 38 14 view .LVU103
+ 344 0118 ADF80E30 		strh	r3, [sp, #14]	@ movhi
+  39:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 345              		.loc 1 39 9 is_stmt 1 view .LVU104
+ 346 011c 15AA     		add	r2, sp, #84
+ 347 011e 2168     		ldr	r1, [r4]
+ 348 0120 02A8     		add	r0, sp, #8
+ 349 0122 FFF7FEFF 		bl	lv_draw_rect
+ 350              	.LVL26:
+  42:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_free_param(&fade_mask_param);
+ 351              		.loc 1 42 9 view .LVU105
+ 352 0126 0AA8     		add	r0, sp, #40
+ 353 0128 FFF7FEFF 		bl	lv_draw_mask_free_param
+ 354              	.LVL27:
+  43:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_remove_id(line_mask_id);
+ 355              		.loc 1 43 9 view .LVU106
+ 356 012c 04A8     		add	r0, sp, #16
+ 357 012e FFF7FEFF 		bl	lv_draw_mask_free_param
+ 358              	.LVL28:
+  44:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_draw_mask_remove_id(fade_mask_id);
+ 359              		.loc 1 44 9 view .LVU107
+ 360 0132 3846     		mov	r0, r7
+ 361 0134 FFF7FEFF 		bl	lv_draw_mask_remove_id
+ 362              	.LVL29:
+  45:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     }
+ 363              		.loc 1 45 9 view .LVU108
+ 364 0138 3046     		mov	r0, r6
+ 365 013a FFF7FEFF 		bl	lv_draw_mask_remove_id
+ 366              	.LVL30:
+ 367              	.L7:
+  45:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     }
+ 368              		.loc 1 45 9 is_stmt 0 view .LVU109
+ 369              	.LBE6:
+  85:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 370              		.loc 1 85 1 view .LVU110
+ 371 013e 23B0     		add	sp, sp, #140
+ 372              	.LCFI3:
+ 373              		.cfi_remember_state
+ 374              		.cfi_def_cfa_offset 20
+ 375              		@ sp needed
+ 376 0140 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 377              	.LVL31:
+ 378              	.L23:
+ 379              	.LCFI4:
+ 380              		.cfi_restore_state
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 11
+
+
+ 381              	.LBB7:
+  25:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t fade_mask_id = lv_draw_mask_add(&fade_mask_param, NULL);
+ 382              		.loc 1 25 93 view .LVU111
+ 383 0142 C21D     		adds	r2, r0, #7
+ 384 0144 B8E7     		b	.L12
+ 385              	.LVL32:
+ 386              	.L21:
+  25:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         int16_t fade_mask_id = lv_draw_mask_add(&fade_mask_param, NULL);
+ 387              		.loc 1 25 93 view .LVU112
+ 388              	.LBE7:
+  53:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             if(dsc->id == 3) {
+ 389              		.loc 1 53 13 is_stmt 1 view .LVU113
+  53:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             if(dsc->id == 3) {
+ 390              		.loc 1 53 37 is_stmt 0 view .LVU114
+ 391 0146 0121     		movs	r1, #1
+ 392 0148 1220     		movs	r0, #18
+ 393              	.LVL33:
+  53:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             if(dsc->id == 3) {
+ 394              		.loc 1 53 37 view .LVU115
+ 395 014a FFF7FEFF 		bl	lv_palette_lighten
+ 396              	.LVL34:
+ 397 014e 2880     		strh	r0, [r5]	@ movhi
+  54:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width  = 2;
+ 398              		.loc 1 54 13 is_stmt 1 view .LVU116
+  54:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width  = 2;
+ 399              		.loc 1 54 19 is_stmt 0 view .LVU117
+ 400 0150 636B     		ldr	r3, [r4, #52]
+  54:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->width  = 2;
+ 401              		.loc 1 54 15 view .LVU118
+ 402 0152 032B     		cmp	r3, #3
+ 403 0154 08D0     		beq	.L24
+  60:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 6;
+ 404              		.loc 1 60 17 is_stmt 1 view .LVU119
+  60:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 6;
+ 405              		.loc 1 60 20 is_stmt 0 view .LVU120
+ 406 0156 A369     		ldr	r3, [r4, #24]
+  60:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 6;
+ 407              		.loc 1 60 38 view .LVU121
+ 408 0158 0122     		movs	r2, #1
+ 409 015a 5A80     		strh	r2, [r3, #2]	@ movhi
+  61:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 6;
+ 410              		.loc 1 61 17 is_stmt 1 view .LVU122
+  61:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 6;
+ 411              		.loc 1 61 20 is_stmt 0 view .LVU123
+ 412 015c A269     		ldr	r2, [r4, #24]
+  61:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 6;
+ 413              		.loc 1 61 42 view .LVU124
+ 414 015e 0623     		movs	r3, #6
+ 415 0160 D380     		strh	r3, [r2, #6]	@ movhi
+  62:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 416              		.loc 1 62 17 is_stmt 1 view .LVU125
+  62:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 417              		.loc 1 62 20 is_stmt 0 view .LVU126
+ 418 0162 A269     		ldr	r2, [r4, #24]
+  62:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 419              		.loc 1 62 44 view .LVU127
+ 420 0164 9380     		strh	r3, [r2, #4]	@ movhi
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 12
+
+
+ 421 0166 EAE7     		b	.L7
+ 422              	.L24:
+  55:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 0;
+ 423              		.loc 1 55 17 is_stmt 1 view .LVU128
+  55:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 0;
+ 424              		.loc 1 55 20 is_stmt 0 view .LVU129
+ 425 0168 A369     		ldr	r3, [r4, #24]
+  55:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 0;
+ 426              		.loc 1 55 39 view .LVU130
+ 427 016a 0222     		movs	r2, #2
+ 428 016c 5A80     		strh	r2, [r3, #2]	@ movhi
+  56:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 0;
+ 429              		.loc 1 56 17 is_stmt 1 view .LVU131
+  56:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 0;
+ 430              		.loc 1 56 20 is_stmt 0 view .LVU132
+ 431 016e A269     		ldr	r2, [r4, #24]
+  56:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 0;
+ 432              		.loc 1 56 42 view .LVU133
+ 433 0170 0023     		movs	r3, #0
+ 434 0172 D380     		strh	r3, [r2, #6]	@ movhi
+  57:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 435              		.loc 1 57 17 is_stmt 1 view .LVU134
+  57:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 436              		.loc 1 57 20 is_stmt 0 view .LVU135
+ 437 0174 A269     		ldr	r2, [r4, #24]
+  57:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 438              		.loc 1 57 44 view .LVU136
+ 439 0176 9380     		strh	r3, [r2, #4]	@ movhi
+ 440 0178 E1E7     		b	.L7
+ 441              	.LVL35:
+ 442              	.L22:
+  68:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 0;
+ 443              		.loc 1 68 17 is_stmt 1 view .LVU137
+  68:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_gap  = 0;
+ 444              		.loc 1 68 39 is_stmt 0 view .LVU138
+ 445 017a 6B80     		strh	r3, [r5, #2]	@ movhi
+  69:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 0;
+ 446              		.loc 1 69 17 is_stmt 1 view .LVU139
+  69:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 0;
+ 447              		.loc 1 69 20 is_stmt 0 view .LVU140
+ 448 017c 8269     		ldr	r2, [r0, #24]
+  69:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****                 dsc->line_dsc->dash_width  = 0;
+ 449              		.loc 1 69 42 view .LVU141
+ 450 017e 0023     		movs	r3, #0
+ 451 0180 D380     		strh	r3, [r2, #6]	@ movhi
+  70:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 452              		.loc 1 70 17 is_stmt 1 view .LVU142
+  70:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 453              		.loc 1 70 20 is_stmt 0 view .LVU143
+ 454 0182 8269     		ldr	r2, [r0, #24]
+  70:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 455              		.loc 1 70 44 view .LVU144
+ 456 0184 9380     		strh	r3, [r2, #4]	@ movhi
+ 457 0186 69E7     		b	.L16
+ 458              	.L18:
+  81:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 459              		.loc 1 81 17 is_stmt 1 view .LVU145
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 13
+
+
+  81:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 460              		.loc 1 81 20 is_stmt 0 view .LVU146
+ 461 0188 A469     		ldr	r4, [r4, #24]
+  81:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 462              		.loc 1 81 41 view .LVU147
+ 463 018a 0121     		movs	r1, #1
+ 464 018c 1220     		movs	r0, #18
+ 465              	.LVL36:
+  81:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****             }
+ 466              		.loc 1 81 41 view .LVU148
+ 467 018e FFF7FEFF 		bl	lv_palette_lighten
+ 468              	.LVL37:
+ 469 0192 2080     		strh	r0, [r4]	@ movhi
+ 470 0194 D3E7     		b	.L7
+ 471              		.cfi_endproc
+ 472              	.LFE189:
+ 474              		.section	.text.lv_example_chart_2,"ax",%progbits
+ 475              		.align	1
+ 476              		.global	lv_example_chart_2
+ 477              		.syntax unified
+ 478              		.thumb
+ 479              		.thumb_func
+ 480              		.fpu fpv4-sp-d16
+ 482              	lv_example_chart_2:
+ 483              	.LFB191:
+  97:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+  98:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** /**
+  99:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****  * Add a faded area effect to the line chart and make some division lines ticker
+ 100:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****  */
+ 101:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** void lv_example_chart_2(void)
+ 102:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** {
+ 484              		.loc 1 102 1 is_stmt 1 view -0
+ 485              		.cfi_startproc
+ 486              		@ args = 0, pretend = 0, frame = 0
+ 487              		@ frame_needed = 0, uses_anonymous_args = 0
+ 488 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 489              	.LCFI5:
+ 490              		.cfi_def_cfa_offset 24
+ 491              		.cfi_offset 3, -24
+ 492              		.cfi_offset 4, -20
+ 493              		.cfi_offset 5, -16
+ 494              		.cfi_offset 6, -12
+ 495              		.cfi_offset 7, -8
+ 496              		.cfi_offset 14, -4
+ 103:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     /*Create a chart1*/
+ 104:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     chart1 = lv_chart_create(lv_scr_act());
+ 497              		.loc 1 104 5 view .LVU150
+ 498              	.LBB8:
+ 499              	.LBI8:
+ 500              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_disp.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @file lv_disp.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifndef LV_DISP_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #define LV_DISP_H
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 14
+
+
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "../hal/lv_hal.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_obj.h"
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** #include "lv_theme.h"
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*********************
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      DEFINES
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      TYPEDEFS
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** typedef enum {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** } lv_scr_load_anim_t;
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the active screen
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * screen)
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Make a screen active
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to a screen
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 15
+
+
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * layer)
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the theme of a display
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background color of a display
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param color color of the background
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Set the background image of a display
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Opacity of the background
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param opa opacity (0..255)
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Switch screen with animation
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param time time of the animation
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 16
+
+
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param delay delay before the transition
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Manually trigger an activity on a display
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to a display
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /*------------------------------------------------
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * To improve backward compatibility
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Recommended only if you have one display
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *------------------------------------------------*/
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Get the active screen of the default display
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @return pointer to the active screen
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 501              		.loc 2 163 26 view .LVU151
+ 502              	.LBB9:
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** {
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 503              		.loc 2 165 5 view .LVU152
+ 504              		.loc 2 165 12 is_stmt 0 view .LVU153
+ 505 0002 FFF7FEFF 		bl	lv_disp_get_default
+ 506              	.LVL38:
+ 507 0006 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 508              	.LVL39:
+ 509              	.LBE9:
+ 510              	.LBE8:
+ 511              		.loc 1 104 14 view .LVU154
+ 512 000a FFF7FEFF 		bl	lv_chart_create
+ 513              	.LVL40:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 17
+
+
+ 514              		.loc 1 104 12 view .LVU155
+ 515 000e 2C4C     		ldr	r4, .L30
+ 516 0010 2060     		str	r0, [r4]
+ 105:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_obj_set_size(chart1, 200, 150);
+ 517              		.loc 1 105 5 is_stmt 1 view .LVU156
+ 518 0012 9622     		movs	r2, #150
+ 519 0014 C821     		movs	r1, #200
+ 520 0016 FFF7FEFF 		bl	lv_obj_set_size
+ 521              	.LVL41:
+ 106:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_obj_center(chart1);
+ 522              		.loc 1 106 5 view .LVU157
+ 523              	.LBB10:
+ 524              	.LBI10:
+ 525              		.file 3 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
+   1:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+   2:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @file lv_obj_pos.h
+   3:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *
+   4:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+   5:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+   6:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #ifndef LV_OBJ_POS_H
+   7:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #define LV_OBJ_POS_H
+   8:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+   9:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #ifdef __cplusplus
+  10:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** extern "C" {
+  11:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #endif
+  12:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  13:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /*********************
+  14:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *      INCLUDES
+  15:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *********************/
+  16:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** #include "../misc/lv_area.h"
+  17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /*********************
+  19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *      DEFINES
+  20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *********************/
+  21:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**********************
+  23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *      TYPEDEFS
+  24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  **********************/
+  25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** struct _lv_obj_t;
+  26:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  27:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** typedef void (*lv_layout_update_cb_t)(struct _lv_obj_t *, void * user_data);
+  28:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** typedef struct {
+  29:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****     lv_layout_update_cb_t cb;
+  30:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****     void * user_data;
+  31:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** }lv_layout_dsc_t;
+  32:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  33:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**********************
+  34:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * GLOBAL PROTOTYPES
+  35:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  **********************/
+  36:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  37:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  38:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the relative the position of an object (relative to the parent's top left corner)
+  39:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  40:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x         new distance from the left side of the parent plus the parent's left padding
+  41:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y         new distance from the top side of the parent  plus the parent's right padding
+  42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_pos(struct _lv_obj_t * obj, lv_coord_t x, lv_coord_t y);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 18
+
+
+  44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the x coordinate of a object
+  47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  48:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x         new distance from the left side from the parent plus the parent's left padding
+  49:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  50:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_x(struct _lv_obj_t * obj, lv_coord_t x);
+  51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the y coordinate of a object
+  54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  55:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y         new distance from the top of the parent  plus the parent's top padding
+  56:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  57:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_y(struct _lv_obj_t * obj, lv_coord_t y);
+  58:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  59:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  60:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the size of an object.
+  61:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  62:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param w         the new width
+  63:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param h         the new height
+  64:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            possible values are:
+  65:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  66:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  67:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_PCT(x)     to set size in percentage of the parent's content area size 
+  68:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  69:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  70:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_size(struct _lv_obj_t * obj, lv_coord_t w, lv_coord_t h);
+  71:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  72:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  73:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Recalculate the size of the object
+  74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @return          true: the size has been changed
+  76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** bool lv_obj_refr_size(struct _lv_obj_t * obj);
+  78:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the width of an object
+  81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param w         the new width
+  83:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            possible values are:
+  84:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  85:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  86:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  87:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+  88:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+  89:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_width(struct _lv_obj_t * obj, lv_coord_t w);
+  90:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+  91:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+  92:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the height of an object
+  93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+  94:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param h         the new height
+  95:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            possible values are:
+  96:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  pixel               simple set the size accordingly
+  97:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  LV_SIZE_CONTENT     set the size to involve all children in the given direction
+  98:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                  lv_pct(x)           to set size in percentage of the parent's content area size
+  99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  *                                      x should be in [0..1000]% range
+ 100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 19
+
+
+ 101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the width reduced by the left and right padding and the border width.
+ 105:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+ 106:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param w         the width without paddings in pixels
+ 107:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_content_width(struct _lv_obj_t * obj, lv_coord_t w);
+ 109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the height reduced by the top and bottom padding and the border width.
+ 112:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+ 113:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param h         the height without paddings in pixels
+ 114:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 115:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_content_height(struct _lv_obj_t * obj, lv_coord_t h);
+ 116:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 117:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 118:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set a layout for an object
+ 119:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
+ 120:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param layout    pointer to a layout descriptor to set
+ 121:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 122:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_layout(struct _lv_obj_t * obj, uint32_t layout);
+ 123:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 124:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 125:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Test whether the and object is positioned by a layout or not
+ 126:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to test
+ 127:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @return true:    positioned by a layout; false: not positioned by a layout
+ 128:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 129:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** bool lv_obj_is_layout_positioned(const struct _lv_obj_t * obj);
+ 130:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Mark the object for layout update.
+ 133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 135:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_mark_layout_as_dirty(struct _lv_obj_t * obj);
+ 136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Update the layout of an object.
+ 139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj      pointer to an object whose children needs to be updated
+ 140:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 141:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_update_layout(const struct _lv_obj_t * obj);
+ 142:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 143:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 144:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Regsiter a new layout
+ 145:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param cb        the layout update callback
+ 146:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param user_data custom data that will be passed to `cb`
+ 147:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @return          the ID of the new layout
+ 148:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 149:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** uint32_t lv_layout_register(lv_layout_update_cb_t cb, void * user_data);
+ 150:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 151:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 152:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Change the alignment of an object.
+ 153:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 154:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 155:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_align(struct _lv_obj_t * obj, lv_align_t align);
+ 157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 20
+
+
+ 158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Change the alignment of an object and set new coordinates.
+ 160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Equivalent to:
+ 161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * lv_obj_set_align(obj, align);
+ 162:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * lv_obj_set_pos(obj, x_ofs, y_ofs);
+ 163:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 164:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
+ 165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 166:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 167:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 168:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_align(struct _lv_obj_t * obj, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs);
+ 169:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 170:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 171:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Align an object to an other object.
+ 172:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 173:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param base      pointer to an other object (if NULL `obj`s parent is used). 'obj' will be align
+ 174:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum)
+ 175:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
+ 176:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
+ 177:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            if the position or size of `base` changes `obj` needs to be aligned manually ag
+ 178:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 179:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_align_to(struct _lv_obj_t * obj, const struct _lv_obj_t * base, lv_align_t align, lv_co
+ 180:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
+ 181:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
+ 182:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Align an object to the center on its parent.
+ 183:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object to align
+ 184:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @note            if the parent size changes `obj` needs to be aligned manually again
+ 185:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
+ 186:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** static inline void lv_obj_center(struct _lv_obj_t * obj)
+ 526              		.loc 3 186 20 view .LVU158
+ 527              	.LBB11:
+ 187:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** {
+ 188:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****     lv_obj_align(obj, LV_ALIGN_CENTER, 0, 0);
+ 528              		.loc 3 188 5 view .LVU159
+ 529 001a 0023     		movs	r3, #0
+ 530 001c 1A46     		mov	r2, r3
+ 531 001e 0921     		movs	r1, #9
+ 532 0020 2068     		ldr	r0, [r4]
+ 533 0022 FFF7FEFF 		bl	lv_obj_align
+ 534              	.LVL42:
+ 535              		.loc 3 188 5 is_stmt 0 view .LVU160
+ 536              	.LBE11:
+ 537              	.LBE10:
+ 107:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_chart_set_type(chart1, LV_CHART_TYPE_LINE);   /*Show lines and points too*/
+ 538              		.loc 1 107 5 is_stmt 1 view .LVU161
+ 539 0026 0121     		movs	r1, #1
+ 540 0028 2068     		ldr	r0, [r4]
+ 541 002a FFF7FEFF 		bl	lv_chart_set_type
+ 542              	.LVL43:
+ 108:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 109:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_chart_set_div_line_count(chart1, 5, 7);
+ 543              		.loc 1 109 5 view .LVU162
+ 544 002e 0722     		movs	r2, #7
+ 545 0030 0521     		movs	r1, #5
+ 546 0032 2068     		ldr	r0, [r4]
+ 547 0034 FFF7FEFF 		bl	lv_chart_set_div_line_count
+ 548              	.LVL44:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 21
+
+
+ 110:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 111:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_obj_add_event_cb(chart1, draw_event_cb, LV_EVENT_DRAW_PART_BEGIN, NULL);
+ 549              		.loc 1 111 5 view .LVU163
+ 550 0038 0023     		movs	r3, #0
+ 551 003a 1A22     		movs	r2, #26
+ 552 003c 2149     		ldr	r1, .L30+4
+ 553 003e 2068     		ldr	r0, [r4]
+ 554 0040 FFF7FEFF 		bl	lv_obj_add_event_cb
+ 555              	.LVL45:
+ 112:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_chart_set_update_mode(chart1, LV_CHART_UPDATE_MODE_CIRCULAR);
+ 556              		.loc 1 112 5 view .LVU164
+ 557 0044 0121     		movs	r1, #1
+ 558 0046 2068     		ldr	r0, [r4]
+ 559 0048 FFF7FEFF 		bl	lv_chart_set_update_mode
+ 560              	.LVL46:
+ 113:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 114:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     /*Add two data series*/
+ 115:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     ser1 = lv_chart_add_series(chart1, lv_palette_main(LV_PALETTE_RED), LV_CHART_AXIS_PRIMARY_Y);
+ 561              		.loc 1 115 5 view .LVU165
+ 562              		.loc 1 115 12 is_stmt 0 view .LVU166
+ 563 004c 2568     		ldr	r5, [r4]
+ 564 004e 0020     		movs	r0, #0
+ 565 0050 FFF7FEFF 		bl	lv_palette_main
+ 566              	.LVL47:
+ 567 0054 0146     		mov	r1, r0	@ movhi
+ 568 0056 0022     		movs	r2, #0
+ 569 0058 2846     		mov	r0, r5
+ 570 005a FFF7FEFF 		bl	lv_chart_add_series
+ 571              	.LVL48:
+ 572              		.loc 1 115 10 view .LVU167
+ 573 005e 1A4B     		ldr	r3, .L30+8
+ 574 0060 1860     		str	r0, [r3]
+ 116:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     ser2 = lv_chart_add_series(chart1, lv_palette_main(LV_PALETTE_BLUE), LV_CHART_AXIS_SECONDARY_Y)
+ 575              		.loc 1 116 5 is_stmt 1 view .LVU168
+ 576              		.loc 1 116 12 is_stmt 0 view .LVU169
+ 577 0062 2468     		ldr	r4, [r4]
+ 578 0064 0520     		movs	r0, #5
+ 579 0066 FFF7FEFF 		bl	lv_palette_main
+ 580              	.LVL49:
+ 581 006a 0146     		mov	r1, r0	@ movhi
+ 582 006c 0122     		movs	r2, #1
+ 583 006e 2046     		mov	r0, r4
+ 584 0070 FFF7FEFF 		bl	lv_chart_add_series
+ 585              	.LVL50:
+ 586              		.loc 1 116 10 view .LVU170
+ 587 0074 154B     		ldr	r3, .L30+12
+ 588 0076 1860     		str	r0, [r3]
+ 117:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 118:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     uint32_t i;
+ 589              		.loc 1 118 5 is_stmt 1 view .LVU171
+ 119:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     for(i = 0; i < 10; i++) {
+ 590              		.loc 1 119 5 view .LVU172
+ 591              	.LVL51:
+ 592              		.loc 1 119 11 is_stmt 0 view .LVU173
+ 593 0078 0024     		movs	r4, #0
+ 594              	.LVL52:
+ 595              	.L26:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 22
+
+
+ 596              		.loc 1 119 16 is_stmt 1 discriminator 1 view .LVU174
+ 597              		.loc 1 119 5 is_stmt 0 discriminator 1 view .LVU175
+ 598 007a 092C     		cmp	r4, #9
+ 599 007c 1AD8     		bhi	.L29
+ 120:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_chart_set_next_value(chart1, ser1, lv_rand(20, 90));
+ 600              		.loc 1 120 9 is_stmt 1 discriminator 3 view .LVU176
+ 601 007e 104D     		ldr	r5, .L30
+ 602 0080 2E68     		ldr	r6, [r5]
+ 603 0082 114B     		ldr	r3, .L30+8
+ 604 0084 1F68     		ldr	r7, [r3]
+ 605              		.loc 1 120 47 is_stmt 0 discriminator 3 view .LVU177
+ 606 0086 5A21     		movs	r1, #90
+ 607 0088 1420     		movs	r0, #20
+ 608 008a FFF7FEFF 		bl	lv_rand
+ 609              	.LVL53:
+ 610              		.loc 1 120 9 discriminator 3 view .LVU178
+ 611 008e 02B2     		sxth	r2, r0
+ 612 0090 3946     		mov	r1, r7
+ 613 0092 3046     		mov	r0, r6
+ 614 0094 FFF7FEFF 		bl	lv_chart_set_next_value
+ 615              	.LVL54:
+ 121:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****         lv_chart_set_next_value(chart1, ser2, lv_rand(30, 70));
+ 616              		.loc 1 121 9 is_stmt 1 discriminator 3 view .LVU179
+ 617 0098 2D68     		ldr	r5, [r5]
+ 618 009a 0C4B     		ldr	r3, .L30+12
+ 619 009c 1E68     		ldr	r6, [r3]
+ 620              		.loc 1 121 47 is_stmt 0 discriminator 3 view .LVU180
+ 621 009e 4621     		movs	r1, #70
+ 622 00a0 1E20     		movs	r0, #30
+ 623 00a2 FFF7FEFF 		bl	lv_rand
+ 624              	.LVL55:
+ 625              		.loc 1 121 9 discriminator 3 view .LVU181
+ 626 00a6 02B2     		sxth	r2, r0
+ 627 00a8 3146     		mov	r1, r6
+ 628 00aa 2846     		mov	r0, r5
+ 629 00ac FFF7FEFF 		bl	lv_chart_set_next_value
+ 630              	.LVL56:
+ 119:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     for(i = 0; i < 10; i++) {
+ 631              		.loc 1 119 24 is_stmt 1 discriminator 3 view .LVU182
+ 119:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     for(i = 0; i < 10; i++) {
+ 632              		.loc 1 119 25 is_stmt 0 discriminator 3 view .LVU183
+ 633 00b0 0134     		adds	r4, r4, #1
+ 634              	.LVL57:
+ 119:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     for(i = 0; i < 10; i++) {
+ 635              		.loc 1 119 25 discriminator 3 view .LVU184
+ 636 00b2 E2E7     		b	.L26
+ 637              	.L29:
+ 122:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     }
+ 123:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** 
+ 124:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c ****     lv_timer_create(add_data, 200, NULL);
+ 638              		.loc 1 124 5 is_stmt 1 view .LVU185
+ 639 00b4 0022     		movs	r2, #0
+ 640 00b6 C821     		movs	r1, #200
+ 641 00b8 0548     		ldr	r0, .L30+16
+ 642 00ba FFF7FEFF 		bl	lv_timer_create
+ 643              	.LVL58:
+ 125:lvgl/lvgl/examples/widgets/chart/lv_example_chart_2.c **** }
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 23
+
+
+ 644              		.loc 1 125 1 is_stmt 0 view .LVU186
+ 645 00be F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 646              	.LVL59:
+ 647              	.L31:
+ 648              		.loc 1 125 1 view .LVU187
+ 649              		.align	2
+ 650              	.L30:
+ 651 00c0 00000000 		.word	.LANCHOR0
+ 652 00c4 00000000 		.word	draw_event_cb
+ 653 00c8 00000000 		.word	.LANCHOR1
+ 654 00cc 00000000 		.word	.LANCHOR3
+ 655 00d0 00000000 		.word	add_data
+ 656              		.cfi_endproc
+ 657              	.LFE191:
+ 659              		.section	.bss.chart1,"aw",%nobits
+ 660              		.align	2
+ 661              		.set	.LANCHOR0,. + 0
+ 664              	chart1:
+ 665 0000 00000000 		.space	4
+ 666              		.section	.bss.cnt.12328,"aw",%nobits
+ 667              		.align	2
+ 668              		.set	.LANCHOR2,. + 0
+ 671              	cnt.12328:
+ 672 0000 00000000 		.space	4
+ 673              		.section	.bss.ser1,"aw",%nobits
+ 674              		.align	2
+ 675              		.set	.LANCHOR1,. + 0
+ 678              	ser1:
+ 679 0000 00000000 		.space	4
+ 680              		.section	.bss.ser2,"aw",%nobits
+ 681              		.align	2
+ 682              		.set	.LANCHOR3,. + 0
+ 685              	ser2:
+ 686 0000 00000000 		.space	4
+ 687              		.text
+ 688              	.Letext0:
+ 689              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 690              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 691              		.file 6 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
+ 692              		.file 7 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_timer.h"
+ 693              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 694              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 695              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 696              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 697              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 698              		.file 13 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 699              		.file 14 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj.h"
+ 700              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_group.h"
+ 701              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 702              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 703              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_bidi.h"
+ 704              		.file 19 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 705              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_scroll.h"
+ 706              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_style.h"
+ 707              		.file 22 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_mask.h"
+ 708              		.file 23 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_rect.h"
+ 709              		.file 24 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 24
+
+
+ 710              		.file 25 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_img.h"
+ 711              		.file 26 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_line.h"
+ 712              		.file 27 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_arc.h"
+ 713              		.file 28 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_draw.h"
+ 714              		.file 29 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_class.h"
+ 715              		.file 30 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_event.h"
+ 716              		.file 31 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_arc.h"
+ 717              		.file 32 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btn.h"
+ 718              		.file 33 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_img.h"
+ 719              		.file 34 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_label.h"
+ 720              		.file 35 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_line.h"
+ 721              		.file 36 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_table.h"
+ 722              		.file 37 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_checkbox.h"
+ 723              		.file 38 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_bar.h"
+ 724              		.file 39 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_slider.h"
+ 725              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_btnmatrix.h"
+ 726              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_dropdown.h"
+ 727              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_roller.h"
+ 728              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_textarea.h"
+ 729              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_canvas.h"
+ 730              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
+ 731              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
+ 732              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
+ 733              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
+ 734              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
+ 735              		.file 50 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
+ 736              		.file 51 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
+ 737              		.file 52 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 738              		.file 53 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/list/lv_list.h"
+ 739              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/msgbox/lv_msgbox.h"
+ 740              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/meter/lv_meter.h"
+ 741              		.file 56 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinbox/lv_spinbox.h"
+ 742              		.file 57 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/spinner/lv_spinner.h"
+ 743              		.file 58 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tabview/lv_tabview.h"
+ 744              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/tileview/lv_tileview.h"
+ 745              		.file 60 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/win/lv_win.h"
+ 746              		.file 61 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 747              		.file 62 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/led/lv_led.h"
+ 748              		.file 63 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 749              		.file 64 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
+ 750              		.file 65 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
+ 751              		.file 66 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_disp.h"
+ 752              		.file 67 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_math.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc7shLRI.s 			page 25
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_chart_2.c
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:18     .text.add_data:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:25     .text.add_data:00000000 add_data
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:98     .text.add_data:0000004c $d
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:106    .text.draw_event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:112    .text.draw_event_cb:00000000 draw_event_cb
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:475    .text.lv_example_chart_2:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:482    .text.lv_example_chart_2:00000000 lv_example_chart_2
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:651    .text.lv_example_chart_2:000000c0 $d
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:660    .bss.chart1:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:664    .bss.chart1:00000000 chart1
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:667    .bss.cnt.12328:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:671    .bss.cnt.12328:00000000 cnt.12328
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:674    .bss.ser1:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:678    .bss.ser1:00000000 ser1
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:681    .bss.ser2:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc7shLRI.s:685    .bss.ser2:00000000 ser2
+
+UNDEFINED SYMBOLS
+lv_rand
+lv_chart_set_next_value
+lv_event_get_target
+lv_event_get_draw_part_dsc
+lv_palette_main
+lv_draw_mask_line_points_init
+lv_draw_mask_add
+lv_obj_get_height
+lv_draw_mask_fade_init
+lv_draw_rect_dsc_init
+lv_draw_rect
+lv_draw_mask_free_param
+lv_draw_mask_remove_id
+lv_palette_lighten
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_chart_create
+lv_obj_set_size
+lv_obj_align
+lv_chart_set_type
+lv_chart_set_div_line_count
+lv_obj_add_event_cb
+lv_chart_set_update_mode
+lv_chart_add_series
+lv_timer_create

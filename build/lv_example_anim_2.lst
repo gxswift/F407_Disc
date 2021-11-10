@@ -1,0 +1,962 @@
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lv_example_anim_2.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.anim_x_cb,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	anim_x_cb:
+  26              	.LVL0:
+  27              	.LFB189:
+  28              		.file 1 "lvgl/lvgl/examples/anim/lv_example_anim_2.c"
+   1:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** #include "../lv_examples.h"
+   2:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** #if LV_BUILD_EXAMPLES && LV_USE_SWITCH
+   3:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** 
+   4:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** 
+   5:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** static void anim_x_cb(void * var, int32_t v)
+   6:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** {
+  29              		.loc 1 6 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 6 1 is_stmt 0 view .LVU1
+  34 0000 08B5     		push	{r3, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 3, -8
+  38              		.cfi_offset 14, -4
+   7:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_obj_set_x(var, v);
+  39              		.loc 1 7 5 is_stmt 1 view .LVU2
+  40 0002 09B2     		sxth	r1, r1
+  41              	.LVL1:
+  42              		.loc 1 7 5 is_stmt 0 view .LVU3
+  43 0004 FFF7FEFF 		bl	lv_obj_set_x
+  44              	.LVL2:
+   8:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** }
+  45              		.loc 1 8 1 view .LVU4
+  46 0008 08BD     		pop	{r3, pc}
+  47              		.cfi_endproc
+  48              	.LFE189:
+  50              		.section	.text.anim_size_cb,"ax",%progbits
+  51              		.align	1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 2
+
+
+  52              		.syntax unified
+  53              		.thumb
+  54              		.thumb_func
+  55              		.fpu fpv4-sp-d16
+  57              	anim_size_cb:
+  58              	.LVL3:
+  59              	.LFB190:
+   9:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** 
+  10:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** static void anim_size_cb(void * var, int32_t v)
+  11:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** {
+  60              		.loc 1 11 1 is_stmt 1 view -0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		.loc 1 11 1 is_stmt 0 view .LVU6
+  65 0000 08B5     		push	{r3, lr}
+  66              	.LCFI1:
+  67              		.cfi_def_cfa_offset 8
+  68              		.cfi_offset 3, -8
+  69              		.cfi_offset 14, -4
+  12:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_obj_set_size(var, v, v);
+  70              		.loc 1 12 5 is_stmt 1 view .LVU7
+  71 0002 09B2     		sxth	r1, r1
+  72              	.LVL4:
+  73              		.loc 1 12 5 is_stmt 0 view .LVU8
+  74 0004 0A46     		mov	r2, r1
+  75 0006 FFF7FEFF 		bl	lv_obj_set_size
+  76              	.LVL5:
+  13:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** }
+  77              		.loc 1 13 1 view .LVU9
+  78 000a 08BD     		pop	{r3, pc}
+  79              		.cfi_endproc
+  80              	.LFE190:
+  82              		.section	.text.lv_example_anim_2,"ax",%progbits
+  83              		.align	1
+  84              		.global	lv_example_anim_2
+  85              		.syntax unified
+  86              		.thumb
+  87              		.thumb_func
+  88              		.fpu fpv4-sp-d16
+  90              	lv_example_anim_2:
+  91              	.LFB191:
+  14:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** 
+  15:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** /**
+  16:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****  * Create a playback animation
+  17:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****  */
+  18:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** void lv_example_anim_2(void)
+  19:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** {
+  92              		.loc 1 19 1 is_stmt 1 view -0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 72
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96 0000 10B5     		push	{r4, lr}
+  97              	.LCFI2:
+  98              		.cfi_def_cfa_offset 8
+  99              		.cfi_offset 4, -8
+ 100              		.cfi_offset 14, -4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 3
+
+
+ 101 0002 92B0     		sub	sp, sp, #72
+ 102              	.LCFI3:
+ 103              		.cfi_def_cfa_offset 80
+  20:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** 
+  21:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_obj_t * obj = lv_obj_create(lv_scr_act());
+ 104              		.loc 1 21 5 view .LVU11
+ 105              	.LBB26:
+ 106              	.LBI26:
+ 107              		.file 2 "lvgl/lvgl/examples/anim/../../src/core/lv_disp.h"
+   1:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+   2:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @file lv_disp.h
+   3:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *
+   4:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+   5:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+   6:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #ifndef LV_DISP_H
+   7:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #define LV_DISP_H
+   8:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+   9:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** extern "C" {
+  11:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #endif
+  12:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  13:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /*********************
+  14:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *      INCLUDES
+  15:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *********************/
+  16:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #include "../hal/lv_hal.h"
+  17:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #include "lv_obj.h"
+  18:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** #include "lv_theme.h"
+  19:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  20:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /*********************
+  21:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *      DEFINES
+  22:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *********************/
+  23:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  24:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**********************
+  25:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *      TYPEDEFS
+  26:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  **********************/
+  27:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  28:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** typedef enum {
+  29:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_NONE,
+  30:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
+  31:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
+  32:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
+  33:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
+  34:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_LEFT,
+  35:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_RIGHT,
+  36:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_TOP,
+  37:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_MOVE_BOTTOM,
+  38:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_FADE_ON,
+  39:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** } lv_scr_load_anim_t;
+  40:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  41:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**********************
+  42:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * GLOBAL PROTOTYPES
+  43:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  **********************/
+  44:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  45:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  46:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Return with a pointer to the active screen
+  47:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to display which active screen should be get. (NULL to use the default
+  48:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * screen)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 4
+
+
+  49:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the active screen object (loaded by 'lv_scr_load()')
+  50:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  51:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_scr_act(lv_disp_t * disp);
+  52:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  53:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  54:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Return with a pointer to the previous screen. Only used during screen transitions.
+  55:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to display which previous screen should be get. (NULL to use the default
+  56:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * screen)
+  57:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the previous screen object or NULL if not used now
+  58:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  59:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_scr_prev(lv_disp_t * disp);
+  60:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  61:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  62:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Make a screen active
+  63:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param scr pointer to a screen
+  64:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  65:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_load_scr(lv_obj_t * scr);
+  66:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  67:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  68:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Return with the top layer. (Same on every screen and it is above the normal screen layer)
+  69:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to display which top layer should be get. (NULL to use the default screen)
+  70:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the top layer object  (transparent screen sized lv_obj)
+  71:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  72:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_layer_top(lv_disp_t * disp);
+  73:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  74:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  75:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
+  76:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * layer)
+  77:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
+  78:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
+  79:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  80:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
+  81:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  82:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  83:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get the theme of a display
+  84:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  85:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return the display's theme (can be NULL)
+  86:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  87:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
+  88:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  89:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  90:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get the theme of a display
+  91:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  92:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return the display's theme (can be NULL)
+  93:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+  94:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_theme_t * lv_disp_get_theme(lv_disp_t * disp);
+  95:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+  96:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+  97:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Set the background color of a display
+  98:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+  99:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param color color of the background
+ 100:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 101:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
+ 102:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 103:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 104:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Set the background image of a display
+ 105:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 5
+
+
+ 106:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param img_src path to file or pointer to an `lv_img_dsc_t` variable
+ 107:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 108:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_set_bg_image(lv_disp_t * disp, const void  * img_src);
+ 109:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 110:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 111:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Opacity of the background
+ 112:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 113:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param opa opacity (0..255)
+ 114:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 115:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_set_bg_opa(lv_disp_t * disp, lv_opa_t opa);
+ 116:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 117:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 118:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Switch screen with animation
+ 119:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param scr pointer to the new screen to load
+ 120:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param anim_type type of the animation from `lv_scr_load_anim_t`. E.g.  `LV_SCR_LOAD_ANIM_MOVE_L
+ 121:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param time time of the animation
+ 122:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param delay delay before the transition
+ 123:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param auto_del true: automatically delete the old screen
+ 124:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 125:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_scr_load_anim(lv_obj_t * scr, lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, 
+ 126:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 127:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 128:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get elapsed time since last user activity on a display (e.g. click)
+ 129:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to get the overall smallest inactivity)
+ 130:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return elapsed ticks (milliseconds) since the last activity
+ 131:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 132:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
+ 133:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 134:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 135:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Manually trigger an activity on a display
+ 136:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 137:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 138:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
+ 139:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 140:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 141:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Clean any CPU cache that is related to the display.
+ 142:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
+ 143:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 144:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
+ 145:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 146:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 147:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get a pointer to the screen refresher timer to
+ 148:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * modify its parameters with `lv_timer_...` functions.
+ 149:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @param disp pointer to a display
+ 150:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the display refresher timer. (NULL on error)
+ 151:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ 152:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** lv_timer_t * _lv_disp_get_refr_timer(lv_disp_t * disp);
+ 153:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 154:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /*------------------------------------------------
+ 155:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * To improve backward compatibility
+ 156:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Recommended only if you have one display
+ 157:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  *------------------------------------------------*/
+ 158:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** 
+ 159:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** /**
+ 160:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * Get the active screen of the default display
+ 161:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  * @return pointer to the active screen
+ 162:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****  */
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 6
+
+
+ 163:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** static inline lv_obj_t * lv_scr_act(void)
+ 108              		.loc 2 163 26 view .LVU12
+ 109              	.LBB27:
+ 164:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h **** {
+ 165:lvgl/lvgl/examples/anim/../../src/core/lv_disp.h ****     return lv_disp_get_scr_act(lv_disp_get_default());
+ 110              		.loc 2 165 5 view .LVU13
+ 111              		.loc 2 165 12 is_stmt 0 view .LVU14
+ 112 0004 FFF7FEFF 		bl	lv_disp_get_default
+ 113              	.LVL6:
+ 114 0008 FFF7FEFF 		bl	lv_disp_get_scr_act
+ 115              	.LVL7:
+ 116              	.LBE27:
+ 117              	.LBE26:
+ 118              		.loc 1 21 22 view .LVU15
+ 119 000c FFF7FEFF 		bl	lv_obj_create
+ 120              	.LVL8:
+ 121 0010 0446     		mov	r4, r0
+ 122              	.LVL9:
+  22:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_obj_set_style_bg_color(obj, lv_palette_main(LV_PALETTE_RED), 0);
+ 123              		.loc 1 22 5 is_stmt 1 view .LVU16
+ 124 0012 0020     		movs	r0, #0
+ 125              	.LVL10:
+ 126              		.loc 1 22 5 is_stmt 0 view .LVU17
+ 127 0014 FFF7FEFF 		bl	lv_palette_main
+ 128              	.LVL11:
+ 129 0018 0146     		mov	r1, r0	@ movhi
+ 130 001a 0022     		movs	r2, #0
+ 131 001c 2046     		mov	r0, r4
+ 132 001e FFF7FEFF 		bl	lv_obj_set_style_bg_color
+ 133              	.LVL12:
+  23:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_obj_set_style_radius(obj, LV_RADIUS_CIRCLE, 0);
+ 134              		.loc 1 23 5 is_stmt 1 view .LVU18
+ 135 0022 0022     		movs	r2, #0
+ 136 0024 47F6FF71 		movw	r1, #32767
+ 137 0028 2046     		mov	r0, r4
+ 138 002a FFF7FEFF 		bl	lv_obj_set_style_radius
+ 139              	.LVL13:
+  24:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** 
+  25:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_obj_align(obj, LV_ALIGN_LEFT_MID, 10, 0);
+ 140              		.loc 1 25 5 view .LVU19
+ 141 002e 0023     		movs	r3, #0
+ 142 0030 0A22     		movs	r2, #10
+ 143 0032 0721     		movs	r1, #7
+ 144 0034 2046     		mov	r0, r4
+ 145 0036 FFF7FEFF 		bl	lv_obj_align
+ 146              	.LVL14:
+  26:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** 
+  27:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_t a;
+ 147              		.loc 1 27 5 view .LVU20
+  28:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_init(&a);
+ 148              		.loc 1 28 5 view .LVU21
+ 149 003a 01A8     		add	r0, sp, #4
+ 150 003c FFF7FEFF 		bl	lv_anim_init
+ 151              	.LVL15:
+  29:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_var(&a, obj);
+ 152              		.loc 1 29 5 view .LVU22
+ 153              	.LBB28:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 7
+
+
+ 154              	.LBI28:
+ 155              		.file 3 "lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h"
+   1:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+   2:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @file lv_anim.h
+   3:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *
+   4:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+   5:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+   6:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #ifndef LV_ANIM_H
+   7:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #define LV_ANIM_H
+   8:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+   9:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #ifdef __cplusplus
+  10:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** extern "C" {
+  11:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #endif
+  12:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  13:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /*********************
+  14:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *      INCLUDES
+  15:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *********************/
+  16:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #include "../lv_conf_internal.h"
+  17:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  18:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #include <stdint.h>
+  19:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #include <stdbool.h>
+  20:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #include <string.h>
+  21:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  22:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /*********************
+  23:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *      DEFINES
+  24:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *********************/
+  25:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  26:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**********************
+  27:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *      TYPEDEFS
+  28:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  **********************/
+  29:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  30:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Can be used to indicate if animations are enabled or disabled in a case*/
+  31:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef enum {
+  32:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     LV_ANIM_OFF,
+  33:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     LV_ANIM_ON,
+  34:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }lv_anim_enable_t;
+  35:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  36:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #define LV_ANIM_REPEAT_INFINITE      0xFFFF
+  37:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** LV_EXPORT_CONST_INT(LV_ANIM_REPEAT_INFINITE);
+  38:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  39:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** struct _lv_anim_t;
+  40:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  41:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Get the current value during an animation*/
+  42:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef int32_t (*lv_anim_path_cb_t)(const struct _lv_anim_t *);
+  43:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  44:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Generic prototype of "animator" functions.
+  45:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * First parameter is the variable to animate.
+  46:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Second parameter is the value to set.
+  47:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Compatible with `lv_xxx_set_yyy(obj, value)` functions
+  48:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * The `x` in `_xcb_t` means its not a fully generic prototype because
+  49:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * it doesn't receive `lv_anim_t *` as its first argument*/
+  50:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef void (*lv_anim_exec_xcb_t)(void *, int32_t);
+  51:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  52:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Same as `lv_anim_exec_xcb_t` but receives `lv_anim_t *` as the first parameter.
+  53:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * It's more consistent but less convenient. Might be used by binding generator functions.*/
+  54:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef void (*lv_anim_custom_exec_cb_t)(struct _lv_anim_t *, int32_t);
+  55:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 8
+
+
+  56:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Callback to call when the animation is ready*/
+  57:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef void (*lv_anim_ready_cb_t)(struct _lv_anim_t *);
+  58:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  59:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Callback to call when the animation really stars (considering `delay`)*/
+  60:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef void (*lv_anim_start_cb_t)(struct _lv_anim_t *);
+  61:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  62:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Callback used when the animation values are relative to get the current value*/
+  63:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef int32_t (*lv_anim_get_value_cb_t)(struct _lv_anim_t *);
+  64:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  65:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /** Describes an animation*/
+  66:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** typedef struct _lv_anim_t {
+  67:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     void * var;                          /**<Variable to animate*/
+  68:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_exec_xcb_t exec_cb;          /**< Function to execute to animate*/
+  69:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_start_cb_t start_cb;         /**< Call it when the animation is starts (considering `de
+  70:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_ready_cb_t ready_cb;         /**< Call it when the animation is ready*/
+  71:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_get_value_cb_t get_value_cb; /**< Get the current value in relative mode*/
+  72:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #if LV_USE_USER_DATA
+  73:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     void * user_data; /**< Custom user data*/
+  74:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** #endif
+  75:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     lv_anim_path_cb_t path_cb;         /**< Describe the path (curve) of animations*/
+  76:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t start_value;               /**< Start value*/
+  77:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t current_value;             /**< Current value*/
+  78:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t end_value;                 /**< End value*/
+  79:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t time;                /**< Animation time in ms*/
+  80:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     int32_t act_time;            /**< Current time in animation. Set to negative to make delay.*/
+  81:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint32_t playback_delay;     /**< Wait before play back*/
+  82:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint32_t playback_time;      /**< Duration of playback animation*/
+  83:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint32_t repeat_delay;       /**< Wait before repeat*/
+  84:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint16_t repeat_cnt;         /**< Repeat count for the animation*/
+  85:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint8_t early_apply  : 1;    /**< 1: Apply start value immediately even is there is `delay`*/
+  86:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  87:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     /*Animation system use these - user shouldn't set*/
+  88:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint8_t playback_now : 1; /**< Play back is in progress*/
+  89:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint8_t run_round : 1;    /**< Indicates the animation has run in this round*/
+  90:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint8_t start_cb_called : 1;    /**< Indicates that the `start_cb` was already called*/
+  91:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     uint32_t time_orig;
+  92:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** } lv_anim_t;
+  93:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  94:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**********************
+  95:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * GLOBAL PROTOTYPES
+  96:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  **********************/
+  97:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+  98:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+  99:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Init. the animation module
+ 100:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 101:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** void _lv_anim_core_init(void);
+ 102:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 103:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 104:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Initialize an animation variable.
+ 105:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * E.g.:
+ 106:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * lv_anim_t a;
+ 107:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * lv_anim_init(&a);
+ 108:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * lv_anim_set_...(&a);
+ 109:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * lv_anim_start(&a);
+ 110:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a     pointer to an `lv_anim_t` variable to initialize
+ 111:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 112:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** void lv_anim_init(lv_anim_t * a);
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 9
+
+
+ 113:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 114:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 115:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a variable to animate
+ 116:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a     pointer to an initialized `lv_anim_t` variable
+ 117:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param var   pointer to a variable to animate
+ 118:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 119:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_var(lv_anim_t * a, void * var)
+ 156              		.loc 3 119 20 view .LVU23
+ 157              	.LBB29:
+ 120:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 121:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->var = var;
+ 158              		.loc 3 121 5 view .LVU24
+ 159              		.loc 3 121 12 is_stmt 0 view .LVU25
+ 160 0040 0194     		str	r4, [sp, #4]
+ 161              	.LVL16:
+ 162              		.loc 3 121 12 view .LVU26
+ 163              	.LBE29:
+ 164              	.LBE28:
+  30:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_values(&a, 10, 50);
+ 165              		.loc 1 30 5 is_stmt 1 view .LVU27
+ 166              	.LBB30:
+ 167              	.LBI30:
+ 122:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 123:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 124:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 125:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a function to animate `var`
+ 126:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 127:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param exec_cb   a function to execute during animation
+ 128:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *                  LVGL's built-in functions can be used.
+ 129:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  *                  E.g. lv_obj_set_x
+ 130:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_exec_cb(lv_anim_t * a, lv_anim_exec_xcb_t exec_cb)
+ 132:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->exec_cb = exec_cb;
+ 134:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 135:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 136:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 137:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set the duration of an animation
+ 138:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 139:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param duration  duration of the animation in milliseconds
+ 140:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 141:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_time(lv_anim_t * a, uint32_t duration)
+ 142:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->time = duration;
+ 144:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 145:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 146:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 147:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a delay before starting the animation
+ 148:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 149:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param delay     delay before the animation in milliseconds
+ 150:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 151:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_delay(lv_anim_t * a, uint32_t delay)
+ 152:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 153:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->act_time = -(int32_t)(delay);
+ 154:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 155:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 156:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 10
+
+
+ 157:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set the start and end values of an animation
+ 158:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 159:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param start     the start value
+ 160:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param end       the end value
+ 161:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 162:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_values(lv_anim_t * a, int32_t start, int32_t end)
+ 168              		.loc 3 162 20 view .LVU28
+ 169              	.LBB31:
+ 163:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->start_value = start;
+ 170              		.loc 3 164 5 view .LVU29
+ 171              		.loc 3 164 20 is_stmt 0 view .LVU30
+ 172 0042 0A24     		movs	r4, #10
+ 173              	.LVL17:
+ 174              		.loc 3 164 20 view .LVU31
+ 175 0044 0894     		str	r4, [sp, #32]
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 176              		.loc 3 165 5 is_stmt 1 view .LVU32
+ 177              		.loc 3 165 22 is_stmt 0 view .LVU33
+ 178 0046 0994     		str	r4, [sp, #36]
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 179              		.loc 3 166 5 is_stmt 1 view .LVU34
+ 180              		.loc 3 166 18 is_stmt 0 view .LVU35
+ 181 0048 3223     		movs	r3, #50
+ 182 004a 0A93     		str	r3, [sp, #40]
+ 183              	.LVL18:
+ 184              		.loc 3 166 18 view .LVU36
+ 185              	.LBE31:
+ 186              	.LBE30:
+  31:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_time(&a, 1000);
+ 187              		.loc 1 31 5 is_stmt 1 view .LVU37
+ 188              	.LBB32:
+ 189              	.LBI32:
+ 141:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 190              		.loc 3 141 20 view .LVU38
+ 191              	.LBB33:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 192              		.loc 3 143 5 view .LVU39
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 193              		.loc 3 143 13 is_stmt 0 view .LVU40
+ 194 004c 4FF47A73 		mov	r3, #1000
+ 195 0050 0B93     		str	r3, [sp, #44]
+ 196              	.LVL19:
+ 143:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 197              		.loc 3 143 13 view .LVU41
+ 198              	.LBE33:
+ 199              	.LBE32:
+  32:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_playback_delay(&a, 100);
+ 200              		.loc 1 32 5 is_stmt 1 view .LVU42
+ 201              	.LBB34:
+ 202              	.LBI34:
+ 167:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 168:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 169:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 170:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Similar to `lv_anim_set_exec_cb` but `lv_anim_custom_exec_cb_t` receives
+ 171:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * `lv_anim_t * ` as its first parameter instead of `void *`.
+ 172:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * This function might be used when LVGL is binded to other languages because
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 11
+
+
+ 173:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * it's more consistent to have `lv_anim_t *` as first parameter.
+ 174:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * The variable to animate can be stored in the animation's `user_sata`
+ 175:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 176:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param exec_cb   a function to execute.
+ 177:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 178:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_custom_exec_cb(lv_anim_t * a, lv_anim_custom_exec_cb_t exec_cb)
+ 179:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 180:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->var     = a;
+ 181:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->exec_cb = (lv_anim_exec_xcb_t)exec_cb;
+ 182:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 183:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 184:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 185:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set the path (curve) of the animation.
+ 186:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 187:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param path_cb a function the get the current value of the animation.
+ 188:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 189:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_path_cb(lv_anim_t * a, lv_anim_path_cb_t path_cb)
+ 190:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->path_cb = path_cb;
+ 192:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 193:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 194:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 195:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a function call when the animation really starts (considering `delay`)
+ 196:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 197:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param start_cb  a function call when the animation starts
+ 198:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 199:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_start_cb(lv_anim_t * a, lv_anim_ready_cb_t start_cb)
+ 200:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 201:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->start_cb = start_cb;
+ 202:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 203:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 204:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 205:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a function to use the current value of the variable and make start and end value
+ 206:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * relative the the returned current value.
+ 207:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a             pointer to an initialized `lv_anim_t` variable
+ 208:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param get_value_cb  a function call when the animation starts
+ 209:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 210:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_get_value_cb(lv_anim_t * a, lv_anim_get_value_cb_t get_value_cb)
+ 211:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 212:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->get_value_cb = get_value_cb;
+ 213:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 214:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 215:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 216:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a function call when the animation is ready
+ 217:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 218:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param ready_cb  a function call when the animation is ready
+ 219:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 220:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_ready_cb(lv_anim_t * a, lv_anim_ready_cb_t ready_cb)
+ 221:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 222:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->ready_cb = ready_cb;
+ 223:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 224:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 225:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Make the animation to play back to when the forward direction is ready
+ 226:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 227:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param time      the duration of the playback animation in in milliseconds. 0: disable playback
+ 228:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 229:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_playback_time(lv_anim_t * a, uint32_t time)
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 12
+
+
+ 230:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 231:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->playback_time = time;
+ 232:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 233:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 234:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 235:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Make the animation to play back to when the forward direction is ready
+ 236:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 237:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param delay     delay in milliseconds before starting the playback animation.
+ 238:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 239:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_playback_delay(lv_anim_t * a, uint32_t delay)
+ 203              		.loc 3 239 20 view .LVU43
+ 204              	.LBB35:
+ 240:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 241:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->playback_delay = delay;
+ 205              		.loc 3 241 5 view .LVU44
+ 206              		.loc 3 241 23 is_stmt 0 view .LVU45
+ 207 0052 6423     		movs	r3, #100
+ 208 0054 0D93     		str	r3, [sp, #52]
+ 209              	.LVL20:
+ 210              		.loc 3 241 23 view .LVU46
+ 211              	.LBE35:
+ 212              	.LBE34:
+  33:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_playback_time(&a, 300);
+ 213              		.loc 1 33 5 is_stmt 1 view .LVU47
+ 214              	.LBB36:
+ 215              	.LBI36:
+ 229:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 216              		.loc 3 229 20 view .LVU48
+ 217              	.LBB37:
+ 231:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 218              		.loc 3 231 5 view .LVU49
+ 231:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 219              		.loc 3 231 22 is_stmt 0 view .LVU50
+ 220 0056 4FF49673 		mov	r3, #300
+ 221 005a 0E93     		str	r3, [sp, #56]
+ 222              	.LVL21:
+ 231:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 223              		.loc 3 231 22 view .LVU51
+ 224              	.LBE37:
+ 225              	.LBE36:
+  34:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_repeat_delay(&a, 500);
+ 226              		.loc 1 34 5 is_stmt 1 view .LVU52
+ 227              	.LBB38:
+ 228              	.LBI38:
+ 242:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 243:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 244:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ 245:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Make the animation repeat itself.
+ 246:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 247:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param cnt       repeat count or `LV_ANIM_REPEAT_INFINITE` for infinite repetition. 0: to disabl
+ 248:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 249:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_repeat_count(lv_anim_t * a, uint16_t cnt)
+ 250:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 251:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->repeat_cnt = cnt;
+ 252:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 253:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** 
+ 254:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** /**
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 13
+
+
+ 255:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * Set a delay before repeating the animation.
+ 256:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
+ 257:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  * @param delay     delay in milliseconds before repeating the animation.
+ 258:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****  */
+ 259:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** static inline void lv_anim_set_repeat_delay(lv_anim_t * a, uint32_t delay)
+ 229              		.loc 3 259 20 view .LVU53
+ 230              	.LBB39:
+ 260:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 261:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->repeat_delay = delay;
+ 231              		.loc 3 261 5 view .LVU54
+ 232              		.loc 3 261 21 is_stmt 0 view .LVU55
+ 233 005c 4FF4FA73 		mov	r3, #500
+ 234 0060 0F93     		str	r3, [sp, #60]
+ 235              	.LVL22:
+ 236              		.loc 3 261 21 view .LVU56
+ 237              	.LBE39:
+ 238              	.LBE38:
+  35:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_repeat_count(&a, LV_ANIM_REPEAT_INFINITE);
+ 239              		.loc 1 35 5 is_stmt 1 view .LVU57
+ 240              	.LBB40:
+ 241              	.LBI40:
+ 249:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 242              		.loc 3 249 20 view .LVU58
+ 243              	.LBB41:
+ 251:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 244              		.loc 3 251 5 view .LVU59
+ 251:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 245              		.loc 3 251 19 is_stmt 0 view .LVU60
+ 246 0062 4FF6FF73 		movw	r3, #65535
+ 247 0066 ADF84030 		strh	r3, [sp, #64]	@ movhi
+ 248              	.LVL23:
+ 251:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 249              		.loc 3 251 19 view .LVU61
+ 250              	.LBE41:
+ 251              	.LBE40:
+  36:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_path_cb(&a, lv_anim_path_ease_in_out);
+ 252              		.loc 1 36 5 is_stmt 1 view .LVU62
+ 253              	.LBB42:
+ 254              	.LBI42:
+ 189:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 255              		.loc 3 189 20 view .LVU63
+ 256              	.LBB43:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 257              		.loc 3 191 5 view .LVU64
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 258              		.loc 3 191 16 is_stmt 0 view .LVU65
+ 259 006a 094B     		ldr	r3, .L7
+ 260 006c 0793     		str	r3, [sp, #28]
+ 261              	.LVL24:
+ 191:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 262              		.loc 3 191 16 view .LVU66
+ 263              	.LBE43:
+ 264              	.LBE42:
+  37:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** 
+  38:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_exec_cb(&a, anim_size_cb);
+ 265              		.loc 1 38 5 is_stmt 1 view .LVU67
+ 266              	.LBB44:
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 14
+
+
+ 267              	.LBI44:
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 268              		.loc 3 131 20 view .LVU68
+ 269              	.LBB45:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 270              		.loc 3 133 5 view .LVU69
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 271              		.loc 3 133 16 is_stmt 0 view .LVU70
+ 272 006e 094B     		ldr	r3, .L7+4
+ 273 0070 0293     		str	r3, [sp, #8]
+ 274              	.LVL25:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 275              		.loc 3 133 16 view .LVU71
+ 276              	.LBE45:
+ 277              	.LBE44:
+  39:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_start(&a);
+ 278              		.loc 1 39 5 is_stmt 1 view .LVU72
+ 279 0072 01A8     		add	r0, sp, #4
+ 280              	.LVL26:
+ 281              		.loc 1 39 5 is_stmt 0 view .LVU73
+ 282 0074 FFF7FEFF 		bl	lv_anim_start
+ 283              	.LVL27:
+  40:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_exec_cb(&a, anim_x_cb);
+ 284              		.loc 1 40 5 is_stmt 1 view .LVU74
+ 285              	.LBB46:
+ 286              	.LBI46:
+ 131:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 287              		.loc 3 131 20 view .LVU75
+ 288              	.LBB47:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 289              		.loc 3 133 5 view .LVU76
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 290              		.loc 3 133 16 is_stmt 0 view .LVU77
+ 291 0078 074B     		ldr	r3, .L7+8
+ 292 007a 0293     		str	r3, [sp, #8]
+ 293              	.LVL28:
+ 133:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 294              		.loc 3 133 16 view .LVU78
+ 295              	.LBE47:
+ 296              	.LBE46:
+  41:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_set_values(&a, 10, 240);
+ 297              		.loc 1 41 5 is_stmt 1 view .LVU79
+ 298              	.LBB48:
+ 299              	.LBI48:
+ 162:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** {
+ 300              		.loc 3 162 20 view .LVU80
+ 301              	.LBB49:
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 302              		.loc 3 164 5 view .LVU81
+ 164:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->current_value = start;
+ 303              		.loc 3 164 20 is_stmt 0 view .LVU82
+ 304 007c 0894     		str	r4, [sp, #32]
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 305              		.loc 3 165 5 is_stmt 1 view .LVU83
+ 165:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h ****     a->end_value = end;
+ 306              		.loc 3 165 22 is_stmt 0 view .LVU84
+ 307 007e 0994     		str	r4, [sp, #36]
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 15
+
+
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 308              		.loc 3 166 5 is_stmt 1 view .LVU85
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 309              		.loc 3 166 18 is_stmt 0 view .LVU86
+ 310 0080 F023     		movs	r3, #240
+ 311 0082 0A93     		str	r3, [sp, #40]
+ 312              	.LVL29:
+ 166:lvgl/lvgl/examples/anim/../../src/misc/lv_anim.h **** }
+ 313              		.loc 3 166 18 view .LVU87
+ 314              	.LBE49:
+ 315              	.LBE48:
+  42:lvgl/lvgl/examples/anim/lv_example_anim_2.c ****     lv_anim_start(&a);
+ 316              		.loc 1 42 5 is_stmt 1 view .LVU88
+ 317 0084 01A8     		add	r0, sp, #4
+ 318 0086 FFF7FEFF 		bl	lv_anim_start
+ 319              	.LVL30:
+  43:lvgl/lvgl/examples/anim/lv_example_anim_2.c **** }
+ 320              		.loc 1 43 1 is_stmt 0 view .LVU89
+ 321 008a 12B0     		add	sp, sp, #72
+ 322              	.LCFI4:
+ 323              		.cfi_def_cfa_offset 8
+ 324              		@ sp needed
+ 325 008c 10BD     		pop	{r4, pc}
+ 326              	.L8:
+ 327 008e 00BF     		.align	2
+ 328              	.L7:
+ 329 0090 00000000 		.word	lv_anim_path_ease_in_out
+ 330 0094 00000000 		.word	anim_size_cb
+ 331 0098 00000000 		.word	anim_x_cb
+ 332              		.cfi_endproc
+ 333              	.LFE191:
+ 335              		.text
+ 336              	.Letext0:
+ 337              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 338              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 339              		.file 6 "lvgl/lvgl/examples/anim/../../src/misc/lv_ll.h"
+ 340              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
+ 341              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 342              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
+ 343              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
+ 344              		.file 11 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_color.h"
+ 345              		.file 12 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
+ 346              		.file 13 "lvgl/lvgl/examples/anim/../../src/core/lv_obj.h"
+ 347              		.file 14 "lvgl/lvgl/examples/anim/../../src/core/lv_group.h"
+ 348              		.file 15 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\font\\lv_font.h"
+ 349              		.file 16 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_txt.h"
+ 350              		.file 17 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
+ 351              		.file 18 "lvgl/lvgl/examples/anim/../../src/core/lv_obj_scroll.h"
+ 352              		.file 19 "lvgl/lvgl/examples/anim/../../src/core/lv_obj_style.h"
+ 353              		.file 20 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
+ 354              		.file 21 "lvgl/lvgl/examples/anim/../../src/core/lv_obj_class.h"
+ 355              		.file 22 "lvgl/lvgl/examples/anim/../../src/core/lv_event.h"
+ 356              		.file 23 "lvgl/lvgl/examples/anim/../../src/widgets/lv_arc.h"
+ 357              		.file 24 "lvgl/lvgl/examples/anim/../../src/widgets/lv_btn.h"
+ 358              		.file 25 "lvgl/lvgl/examples/anim/../../src/widgets/lv_img.h"
+ 359              		.file 26 "lvgl/lvgl/examples/anim/../../src/widgets/lv_label.h"
+ 360              		.file 27 "lvgl/lvgl/examples/anim/../../src/widgets/lv_line.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 16
+
+
+ 361              		.file 28 "lvgl/lvgl/examples/anim/../../src/widgets/lv_table.h"
+ 362              		.file 29 "lvgl/lvgl/examples/anim/../../src/widgets/lv_checkbox.h"
+ 363              		.file 30 "lvgl/lvgl/examples/anim/../../src/widgets/lv_bar.h"
+ 364              		.file 31 "lvgl/lvgl/examples/anim/../../src/widgets/lv_slider.h"
+ 365              		.file 32 "lvgl/lvgl/examples/anim/../../src/widgets/lv_btnmatrix.h"
+ 366              		.file 33 "lvgl/lvgl/examples/anim/../../src/widgets/lv_dropdown.h"
+ 367              		.file 34 "lvgl/lvgl/examples/anim/../../src/widgets/lv_roller.h"
+ 368              		.file 35 "lvgl/lvgl/examples/anim/../../src/widgets/lv_textarea.h"
+ 369              		.file 36 "lvgl/lvgl/examples/anim/../../src/widgets/lv_canvas.h"
+ 370              		.file 37 "lvgl/lvgl/examples/anim/../../src/widgets/lv_switch.h"
+ 371              		.file 38 "lvgl/lvgl/examples/anim/../../src/extra/widgets/animimg/lv_animimg.h"
+ 372              		.file 39 "lvgl/lvgl/examples/anim/../../src/extra/widgets/calendar/lv_calendar.h"
+ 373              		.file 40 "lvgl/lvgl/examples/anim/../../src/extra/widgets/calendar/lv_calendar_header_arrow.h"
+ 374              		.file 41 "lvgl/lvgl/examples/anim/../../src/extra/widgets/calendar/lv_calendar_header_dropdown.h"
+ 375              		.file 42 "lvgl/lvgl/examples/anim/../../src/extra/widgets/chart/lv_chart.h"
+ 376              		.file 43 "lvgl/lvgl/examples/anim/../../src/extra/widgets/keyboard/lv_keyboard.h"
+ 377              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
+ 378              		.file 45 "lvgl/lvgl/examples/anim/../../src/extra/widgets/list/lv_list.h"
+ 379              		.file 46 "lvgl/lvgl/examples/anim/../../src/extra/widgets/msgbox/lv_msgbox.h"
+ 380              		.file 47 "lvgl/lvgl/examples/anim/../../src/extra/widgets/meter/lv_meter.h"
+ 381              		.file 48 "lvgl/lvgl/examples/anim/../../src/extra/widgets/spinbox/lv_spinbox.h"
+ 382              		.file 49 "lvgl/lvgl/examples/anim/../../src/extra/widgets/spinner/lv_spinner.h"
+ 383              		.file 50 "lvgl/lvgl/examples/anim/../../src/extra/widgets/tabview/lv_tabview.h"
+ 384              		.file 51 "lvgl/lvgl/examples/anim/../../src/extra/widgets/tileview/lv_tileview.h"
+ 385              		.file 52 "lvgl/lvgl/examples/anim/../../src/extra/widgets/win/lv_win.h"
+ 386              		.file 53 "lvgl/lvgl/examples/anim/../../src/extra/widgets/colorwheel/lv_colorwheel.h"
+ 387              		.file 54 "lvgl/lvgl/examples/anim/../../src/extra/widgets/led/lv_led.h"
+ 388              		.file 55 "lvgl/lvgl/examples/anim/../../src/extra/widgets/imgbtn/lv_imgbtn.h"
+ 389              		.file 56 "lvgl/lvgl/examples/anim/../../src/extra/widgets/span/lv_span.h"
+ 390              		.file 57 "lvgl/lvgl/examples/anim/../../src/extra/layouts/grid/lv_grid.h"
+ 391              		.file 58 "lvgl/lvgl/examples/anim/../../src/hal/lv_hal_disp.h"
+ 392              		.file 59 "lvgl/lvgl/examples/anim/../../src/core/lv_obj_style_gen.h"
+ 393              		.file 60 "lvgl/lvgl/examples/anim/../../src/core/lv_obj_pos.h"
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lv_example_anim_2.c
+C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s:18     .text.anim_x_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s:25     .text.anim_x_cb:00000000 anim_x_cb
+C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s:51     .text.anim_size_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s:57     .text.anim_size_cb:00000000 anim_size_cb
+C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s:83     .text.lv_example_anim_2:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s:90     .text.lv_example_anim_2:00000000 lv_example_anim_2
+C:\Users\gx\AppData\Local\Temp\ccjmOCoP.s:329    .text.lv_example_anim_2:00000090 $d
+
+UNDEFINED SYMBOLS
+lv_obj_set_x
+lv_obj_set_size
+lv_disp_get_default
+lv_disp_get_scr_act
+lv_obj_create
+lv_palette_main
+lv_obj_set_style_bg_color
+lv_obj_set_style_radius
+lv_obj_align
+lv_anim_init
+lv_anim_start
+lv_anim_path_ease_in_out
