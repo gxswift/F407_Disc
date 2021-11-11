@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
   28:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  *  STATIC VARIABLES
   29:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****  **********************/
   30:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c **** const lv_obj_class_t lv_spinner_class = {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 2
 
 
   31:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****         .base_class = &lv_arc_class,
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
   45              		.loc 1 68 5 is_stmt 1 view .LVU2
   46              		.loc 1 68 5 view .LVU3
   47              		.loc 1 68 5 view .LVU4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 3
 
 
   48              		.loc 1 68 33 view .LVU5
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
   27:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *      TYPEDEFS
   28:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  **********************/
   29:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 4
 
 
   30:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** /** Can be used to indicate if animations are enabled or disabled in a case*/
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
   84:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint16_t repeat_cnt;         /**< Repeat count for the animation*/
   85:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     uint8_t early_apply  : 1;    /**< 1: Apply start value immediately even is there is `delay`*/
   86:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 5
 
 
   87:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     /*Animation system use these - user shouldn't set*/
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  128:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *                  LVGL's built-in functions can be used.
  129:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  *                  E.g. lv_obj_set_x
  130:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 6
 
 
  131:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_exec_cb(lv_anim_t * a, lv_anim_exec_xcb_t exec_cb)
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  171:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * `lv_anim_t * ` as its first parameter instead of `void *`.
  172:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * This function might be used when LVGL is binded to other languages because
  173:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * it's more consistent to have `lv_anim_t *` as first parameter.
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 7
 
 
  174:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  * The variable to animate can be stored in the animation's `user_sata`
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  228:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****  */
  229:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** static inline void lv_anim_set_playback_time(lv_anim_t * a, uint32_t time)
  230:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 8
 
 
  231:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->playback_time = time;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  120 002a 1B68     		ldr	r3, [r3]
  121              		.loc 1 80 50 is_stmt 0 view .LVU33
  122 002c 03F5B472 		add	r2, r3, #360
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 9
 
 
  123              	.LVL10:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  162:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h **** {
  161              		.loc 2 162 20 view .LVU49
  162              	.LBB31:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 10
 
 
  164:d:\practise\f407_disc\lvgl\lvgl\src/misc\lv_anim.h ****     a->current_value = start;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  201              		.loc 1 89 5 view .LVU64
  202 0060 4FF48771 		mov	r1, #270
  203 0064 2046     		mov	r0, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 11
 
 
  204 0066 FFF7FEFF 		bl	lv_arc_set_rotation
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  253              		.cfi_endproc
  254              	.LFE191:
  256              		.section	.text.arc_anim_end_angle,"ax",%progbits
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 12
 
 
  257              		.align	1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  306              		.cfi_offset 4, -8
  307              		.cfi_offset 14, -4
   53:lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.c ****     arc_length_param = arc_length;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 13
 
 
  308              		.loc 1 53 5 is_stmt 1 view .LVU79
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  353              	arc_length_param:
  354 0000 00000000 		.space	4
  355              		.section	.bss.time_param,"aw",%nobits
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 14
 
 
  356              		.align	2
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  410              		.file 40 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
  411              		.file 41 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
  412              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 15
 
 
  413              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
@@ -855,27 +855,27 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 1
  424              		.file 54 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
  425              		.file 55 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
  426              		.file 56 "lvgl/lvgl/src/extra/widgets/spinner/lv_spinner.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccD6S58a.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccF24M9b.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_spinner.c
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:18     .text.lv_spinner_constructor:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:25     .text.lv_spinner_constructor:00000000 lv_spinner_constructor
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:217    .text.lv_spinner_constructor:00000070 $d
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:263    .text.arc_anim_end_angle:00000000 arc_anim_end_angle
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:232    .text.arc_anim_start_angle:00000000 arc_anim_start_angle
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:226    .text.arc_anim_start_angle:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:257    .text.arc_anim_end_angle:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:288    .text.lv_spinner_create:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:295    .text.lv_spinner_create:00000000 lv_spinner_create
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:341    .text.lv_spinner_create:0000001c $d
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:367    .rodata.lv_spinner_class:00000000 lv_spinner_class
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:349    .bss.arc_length_param:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:353    .bss.arc_length_param:00000000 arc_length_param
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:356    .bss.time_param:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:360    .bss.time_param:00000000 time_param
-C:\Users\gx\AppData\Local\Temp\ccD6S58a.s:363    .rodata.lv_spinner_class:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:18     .text.lv_spinner_constructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:25     .text.lv_spinner_constructor:00000000 lv_spinner_constructor
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:217    .text.lv_spinner_constructor:00000070 $d
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:263    .text.arc_anim_end_angle:00000000 arc_anim_end_angle
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:232    .text.arc_anim_start_angle:00000000 arc_anim_start_angle
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:226    .text.arc_anim_start_angle:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:257    .text.arc_anim_end_angle:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:288    .text.lv_spinner_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:295    .text.lv_spinner_create:00000000 lv_spinner_create
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:341    .text.lv_spinner_create:0000001c $d
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:367    .rodata.lv_spinner_class:00000000 lv_spinner_class
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:349    .bss.arc_length_param:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:353    .bss.arc_length_param:00000000 arc_length_param
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:356    .bss.time_param:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:360    .bss.time_param:00000000 time_param
+C:\Users\gx\AppData\Local\Temp\ccF24M9b.s:363    .rodata.lv_spinner_class:00000000 $d
 
 UNDEFINED SYMBOLS
 lv_obj_clear_flag

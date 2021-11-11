@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   50              	.LC0:
   51 0000 256400   		.ascii	"%d\000"
   52              		.section	.text.event_cb,"ax",%progbits
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 2
 
 
   53              		.align	1
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   27:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c ****     /*If the indicator is long enough put the text inside on the right*/
   28:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c ****     if(lv_area_get_width(dsc->draw_area) > txt_size.x + 20) {
   29:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c ****         txt_area.x2 = dsc->draw_area->x2 - 5;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 3
 
 
   30:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c ****         txt_area.x1 = txt_area.x2 - txt_size.x + 1;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  120 0026 324B     		ldr	r3, .L10
  121 0028 0A93     		str	r3, [sp, #40]
   20:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c ****     lv_snprintf(buf, sizeof(buf), "%d", lv_bar_get_value(obj));
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 4
 
 
  122              		.loc 1 20 5 is_stmt 1 view .LVU21
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   16:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include "../lv_conf_internal.h"
   17:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <string.h>
   18:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdbool.h>
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 5
 
 
   19:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** #include <stdint.h>
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   73:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_LEFT,
   74:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_MID,
   75:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_TOP_RIGHT,
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 6
 
 
   76:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     LV_ALIGN_OUT_BOTTOM_LEFT,
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  130:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
  131:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return the width of the area (if x1 == x2 -> width = 1)
  132:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 7
 
 
  133:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** static inline lv_coord_t lv_area_get_width(const lv_area_t * area_p)
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  195              		.loc 1 30 21 view .LVU46
  196 0086 ADF81410 		strh	r1, [sp, #20]	@ movhi
   31:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 8
 
 
  197              		.loc 1 31 9 is_stmt 1 view .LVU47
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   51:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_70     = 178,
   52:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_80     = 204,
   53:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_90     = 229,
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 9
 
 
   54:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_OPA_100    = 255,
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  108:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define _LV_COLOR_HAS_MODERN_CPP 0
  109:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
  110:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 10
 
 
  111:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if _LV_COLOR_HAS_MODERN_CPP
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  165:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
  166:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_16_SWAP == 0
  167:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define _LV_COLOR_ZERO_INITIALIZER16  {{0x00, 0x00, 0x00}}
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 11
 
 
  168:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_MAKE16(r8, g8, b8) {{(uint8_t)((b8 >> 3) & 0x1FU), (uint8_t)((g8 >> 2) & 0x3FU), 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  222:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t green : 3;
  223:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t red : 3;
  224:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     } ch;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 12
 
 
  225:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint8_t full;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  279:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_RED,
  280:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_PINK,
  281:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_PURPLE,
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 13
 
 
  282:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_PALETTE_DEEP_PURPLE,
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  336:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
  337:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 32
  338:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     if((LV_COLOR_GET_R(color) & 0x80) || (LV_COLOR_GET_G(color) & 0x80) || (LV_COLOR_GET_B(color) &
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 14
 
 
  339:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 1;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  393:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
  394:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
  395:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline uint32_t lv_color_to32(lv_color_t color)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 15
 
 
  396:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  450:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** //! @cond Doxygen_Suppress
  451:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
  452:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 16
 
 
  453:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Mix two colors with a given ratio.
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  507:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param mix The ratio of the colors. 0: full `c1`, 255: full `c2`, 127: half `c1` and half `c2`.
  508:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *            Should be modified like mix = `255 - mix`
  509:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @return the mixed color
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 17
 
 
  510:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @note 255 won't give clearly `c1`.
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  564:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         *res_color = lv_color_mix(fg_color, bg_color, fg_opa);
  565:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         *res_opa = LV_OPA_COVER;
  566:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 18
 
 
  567:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     /*Both colors have alpha. Expensive calculation need to be applied*/
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  621:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
  622:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return lv_color_make((uint8_t)((c >> 16) & 0xFF), (uint8_t)((c >> 8) & 0xFF), (uint8_t)(c & 0xF
  623:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 19
 
 
  624:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  678:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return LV_COLOR_CHROMA_KEY;
  679:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
  680:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 20
 
 
  681:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**********************
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  145:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     return (lv_coord_t)(area_p->y2 - area_p->y1 + 1);
  231              		.loc 2 145 5 view .LVU59
  232              		.loc 2 145 31 is_stmt 0 view .LVU60
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 21
 
 
  233 0096 DB88     		ldrh	r3, [r3, #6]
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  276              	.L6:
   35:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c ****         txt_area.x2 = txt_area.x1 + txt_size.x - 1;
  277              		.loc 1 35 9 view .LVU76
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 22
 
 
   35:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c ****         txt_area.x2 = txt_area.x1 + txt_size.x - 1;
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  318 00f0 00000000 		.word	lv_font_montserrat_14
  319 00f4 00000000 		.word	.LC0
  320              		.cfi_endproc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 23
 
 
  321              	.LFE190:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   22:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *********************/
   23:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
   24:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**********************
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 24
 
 
   25:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *      TYPEDEFS
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   79:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
   80:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** lv_obj_t * lv_disp_get_layer_sys(lv_disp_t * disp);
   81:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 25
 
 
   82:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  136:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param disp pointer to an display (NULL to use the default display)
  137:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
  138:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_trig_activity(lv_disp_t * disp);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 26
 
 
  139:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  374 0022 FFF7FEFF 		bl	lv_obj_set_size
  375              	.LVL30:
   54:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c ****     lv_obj_center(bar);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 27
 
 
  376              		.loc 1 54 5 view .LVU100
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   51:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
   52:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
   53:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the y coordinate of a object
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 28
 
 
   54:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param obj       pointer to an object
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  108:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_set_content_width(struct _lv_obj_t * obj, lv_coord_t w);
  109:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** 
  110:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 29
 
 
  111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * Set the height reduced by the top and bottom padding and the border width.
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  165:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param x_ofs     x coordinate offset after alignment
  166:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  * @param y_ofs     y coordinate offset after alignment
  167:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 30
 
 
  168:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_pos.h **** void lv_obj_align(struct _lv_obj_t * obj, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs);
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
    9:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h **** #ifdef __cplusplus
   10:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h **** extern "C" {
   11:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h **** #endif
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 31
 
 
   12:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   66:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h **** typedef struct _lv_anim_t {
   67:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h ****     void * var;                          /**<Variable to animate*/
   68:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h ****     lv_anim_exec_xcb_t exec_cb;          /**< Function to execute to animate*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 32
 
 
   69:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h ****     lv_anim_start_cb_t start_cb;         /**< Call it when the animation is starts (considering `de
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  121:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h ****     a->var = var;
  403              		.loc 6 121 5 view .LVU108
  404              		.loc 6 121 12 is_stmt 0 view .LVU109
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 33
 
 
  405 0038 0194     		str	r4, [sp, #4]
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  415              		.loc 6 164 5 view .LVU113
  416              		.loc 6 164 20 is_stmt 0 view .LVU114
  417 003a 0023     		movs	r3, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 34
 
 
  418 003c 0893     		str	r3, [sp, #32]
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  167:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h **** }
  168:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h **** 
  169:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 35
 
 
  170:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h ****  * Similar to `lv_anim_set_exec_cb` but `lv_anim_custom_exec_cb_t` receives
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  224:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h **** /**
  225:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h ****  * Make the animation to play back to when the forward direction is ready
  226:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h ****  * @param a         pointer to an initialized `lv_anim_t` variable
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 36
 
 
  227:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_anim.h ****  * @param time      the duration of the playback animation in in milliseconds. 0: disable playback
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
   66:lvgl/lvgl/examples/widgets/bar/lv_example_bar_6.c **** }
  485              		.loc 1 66 1 is_stmt 0 view .LVU141
  486 005e 12B0     		add	sp, sp, #72
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 37
 
 
  487              	.LCFI7:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  542              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
  543              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
  544              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 38
 
 
  545              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
@@ -2239,20 +2239,20 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 1
  560              		.file 64 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
  561              		.file 65 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_disp.h"
  562              		.file 66 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_printf.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccrds3de.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s 			page 39
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_example_bar_6.c
-C:\Users\gx\AppData\Local\Temp\ccrds3de.s:18     .text.set_value:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccrds3de.s:25     .text.set_value:00000000 set_value
-C:\Users\gx\AppData\Local\Temp\ccrds3de.s:49     .rodata.event_cb.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccrds3de.s:53     .text.event_cb:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccrds3de.s:59     .text.event_cb:00000000 event_cb
-C:\Users\gx\AppData\Local\Temp\ccrds3de.s:318    .text.event_cb:000000f0 $d
-C:\Users\gx\AppData\Local\Temp\ccrds3de.s:324    .text.lv_example_bar_6:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccrds3de.s:331    .text.lv_example_bar_6:00000000 lv_example_bar_6
-C:\Users\gx\AppData\Local\Temp\ccrds3de.s:496    .text.lv_example_bar_6:00000064 $d
+C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s:18     .text.set_value:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s:25     .text.set_value:00000000 set_value
+C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s:49     .rodata.event_cb.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s:53     .text.event_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s:59     .text.event_cb:00000000 event_cb
+C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s:318    .text.event_cb:000000f0 $d
+C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s:324    .text.lv_example_bar_6:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s:331    .text.lv_example_bar_6:00000000 lv_example_bar_6
+C:\Users\gx\AppData\Local\Temp\ccu5CI3b.s:496    .text.lv_example_bar_6:00000064 $d
 
 UNDEFINED SYMBOLS
 lv_bar_set_value

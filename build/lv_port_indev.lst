@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
   28:lvgl/lv_port_indev.c **** static void touchpad_read(lv_indev_drv_t * indev_drv, lv_indev_data_t * data);
   29:lvgl/lv_port_indev.c **** static bool touchpad_is_pressed(void);
   30:lvgl/lv_port_indev.c **** static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 2
 
 
   31:lvgl/lv_port_indev.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
   85:lvgl/lv_port_indev.c **** 
   86:lvgl/lv_port_indev.c ****     /*------------------
   87:lvgl/lv_port_indev.c ****      * Touchpad
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 3
 
 
   88:lvgl/lv_port_indev.c ****      * -----------------*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
  142:lvgl/lv_port_indev.c ****     /*Register a encoder input device*/
  143:lvgl/lv_port_indev.c ****     lv_indev_drv_init(&indev_drv);
  144:lvgl/lv_port_indev.c ****     indev_drv.type = LV_INDEV_TYPE_ENCODER;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 4
 
 
  145:lvgl/lv_port_indev.c ****     indev_drv.read_cb = encoder_read;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
  199:lvgl/lv_port_indev.c ****         touchpad_get_xy(&last_x, &last_y);
  200:lvgl/lv_port_indev.c ****         data->state = LV_INDEV_STATE_PR;
  201:lvgl/lv_port_indev.c ****         printf("x=%d,y=%d\r\n",last_x,last_y);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 5
 
 
  202:lvgl/lv_port_indev.c ****     } else 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
   60 0020 03F23F13 		addw	r3, r3, #319
   61              		.loc 1 224 10 view .LVU8
   62 0024 3380     		strh	r3, [r6]	@ movhi
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 6
 
 
  225:lvgl/lv_port_indev.c ****     (*y) = 479-XPT2046_ReadAdc_Fliter(XPT2046_CHANNEL_X)*480/4095;//4095-
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
  113              		.cfi_offset 4, -16
  114              		.cfi_offset 5, -12
  115              		.cfi_offset 6, -8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 7
 
 
  116              		.cfi_offset 14, -4
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
  155 0028 2846     		mov	r0, r5
  156 002a FFF7FEFF 		bl	touchpad_get_xy
  157              	.LVL10:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 8
 
 
  200:lvgl/lv_port_indev.c ****         printf("x=%d,y=%d\r\n",last_x,last_y);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
   95:lvgl/lv_port_indev.c ****     indev_drv.read_cb = touchpad_read;
  206              		.loc 1 95 20 is_stmt 0 view .LVU42
  207 000a 0123     		movs	r3, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 9
 
 
  208 000c 2370     		strb	r3, [r4]
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
  259              	.Letext0:
  260              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
  261              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 10
 
 
  262              		.file 4 "lvgl/lvgl/src/misc/lv_ll.h"
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
  316              		.file 58 "lvgl/lvgl/src/extra/widgets/span/lv_span.h"
  317              		.file 59 "lvgl/lvgl/src/extra/layouts/grid/lv_grid.h"
  318              		.file 60 "Drivers/CMSIS/Include/core_cm4.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 11
 
 
  319              		.file 61 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
@@ -606,32 +606,32 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 1
  321              		.file 63 "user/touch.h"
  322              		.file 64 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
  323              		.file 65 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_port_indev.c
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:18     .text.touchpad_get_xy:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:25     .text.touchpad_get_xy:00000000 touchpad_get_xy
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:87     .text.touchpad_get_xy:00000048 $d
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:92     .rodata.touchpad_read.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:96     .text.touchpad_read:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:102    .text.touchpad_read:00000000 touchpad_read
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:172    .text.touchpad_read:00000044 $d
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:180    .text.lv_port_indev_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:187    .text.lv_port_indev_init:00000000 lv_port_indev_init
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:226    .text.lv_port_indev_init:00000020 $d
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:18     .text.touchpad_get_xy:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:25     .text.touchpad_get_xy:00000000 touchpad_get_xy
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:87     .text.touchpad_get_xy:00000048 $d
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:92     .rodata.touchpad_read.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:96     .text.touchpad_read:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:102    .text.touchpad_read:00000000 touchpad_read
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:172    .text.touchpad_read:00000044 $d
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:180    .text.lv_port_indev_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:187    .text.lv_port_indev_init:00000000 lv_port_indev_init
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:226    .text.lv_port_indev_init:00000020 $d
                             *COM*:00000004 indev_touchpad
                             *COM*:00000004 indev_button
                             *COM*:00000004 indev_encoder
                             *COM*:00000004 indev_keypad
                             *COM*:00000004 indev_mouse
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:238    .bss.indev_drv.16347:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:242    .bss.indev_drv.16347:00000000 indev_drv.16347
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:245    .bss.last_x.16355:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:249    .bss.last_x.16355:00000000 last_x.16355
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:252    .bss.last_y.16356:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccI9Jlnk.s:256    .bss.last_y.16356:00000000 last_y.16356
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:238    .bss.indev_drv.16347:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:242    .bss.indev_drv.16347:00000000 indev_drv.16347
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:245    .bss.last_x.16355:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:249    .bss.last_x.16355:00000000 last_x.16355
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:252    .bss.last_y.16356:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccdsuhHM.s:256    .bss.last_y.16356:00000000 last_y.16356
 
 UNDEFINED SYMBOLS
 XPT2046_ReadAdc_Fliter

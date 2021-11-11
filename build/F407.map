@@ -7411,7 +7411,8 @@ Memory Configuration
 Name             Origin             Length             Attributes
 RAM              0x20000000         0x00020000         xrw
 CCMRAM           0x10000000         0x00010000         rw
-FLASH            0x08000000         0x00100000         xr
+FLASH            0x08000000         0x000f0000         xr
+FLASH_USR        0x080f0000         0x00010000         xr
 *default*        0x00000000         0xffffffff
 
 Linker script and memory map
@@ -12416,17 +12417,17 @@ LOAD c:/program files (x86)/gnu arm embedded toolchain/9 2020-q2-update/bin/../l
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _eccmram = .
 
-.lua_script     0x08080000       0x1c
-                0x08080000                . = ALIGN (0x4)
+.lua_script     0x080f0000       0x1c
+                0x080f0000                . = ALIGN (0x4)
  *(.lua_script)
- .lua_script    0x08080000       0x1a build/main.o
-                0x08080000                script
-                0x0808001c                . = ALIGN (0x4)
- *fill*         0x0808001a        0x2 
+ .lua_script    0x080f0000       0x1a build/main.o
+                0x080f0000                script
+                0x080f001c                . = ALIGN (0x4)
+ *fill*         0x080f001a        0x2 
 
-.rel.dyn        0x0808001c        0x0
- .rel.iplt      0x0808001c        0x0 c:/program files (x86)/gnu arm embedded toolchain/9 2020-q2-update/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x0808001c                . = ALIGN (0x4)
+.rel.dyn        0x080f001c        0x0
+ .rel.iplt      0x080f001c        0x0 c:/program files (x86)/gnu arm embedded toolchain/9 2020-q2-update/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080f001c                . = ALIGN (0x4)
 
 .bss            0x200001f4    0x11984
                 0x200001f4                _sbss = .

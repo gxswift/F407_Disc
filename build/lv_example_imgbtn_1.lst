@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
   49              		.loc 1 6 32 view .LVU2
    7:lvgl/lvgl/examples/widgets/imgbtn/lv_example_imgbtn_1.c ****     LV_IMG_DECLARE(imgbtn_right);
   50              		.loc 1 7 5 view .LVU3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 2
 
 
   51              		.loc 1 7 33 view .LVU4
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
   19:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
   20:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*Error checking*/
   21:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 24
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 3
 
 
   22:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #error "LV_COLOR_DEPTH 24 is deprecated. Use LV_COLOR_DEPTH 32 instead (lv_conf.h)"
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
   76:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Should be in range of 0..254
   77:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * 0: no adjustment, get the integer part of the result (round down)
   78:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * 64: round up from x.75
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 4
 
 
   79:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * 128: round up from half
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  133:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_MAKE1(r8, g8, b8)  {(uint8_t)((b8 >> 7) | (g8 >> 7) | (r8 >> 7))}
  134:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
  135:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_R8(c, v) (c).ch.red = (uint8_t)((v) & 0x7U)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 5
 
 
  136:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_G8(c, v) (c).ch.green = (uint8_t)((v) & 0x7U)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  190:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *------------------------------------------*/
  191:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SET_R(c, v) LV_CONCAT(LV_COLOR_SET_R, LV_COLOR_DEPTH)(c, v)
  192:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SET_G(c, v) LV_CONCAT(LV_COLOR_SET_G, LV_COLOR_DEPTH)(c, v)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 6
 
 
  193:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_SET_B(c, v) LV_CONCAT(LV_COLOR_SET_B, LV_COLOR_DEPTH)(c, v)
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  247:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t green;
  248:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t red;
  249:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         uint8_t alpha;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 7
 
 
  250:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     } ch;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  304:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  **********************/
  305:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
  306:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /*In color conversations:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 8
 
 
  307:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * - When converting to bigger color type the LSB weight of 1 LSB is calculated
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  361:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     return ret.full;
  362:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #elif LV_COLOR_DEPTH == 32
  363:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     lv_color8_t ret;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 9
 
 
  364:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_R8(ret, LV_COLOR_GET_R(color) >> 5); /*8 - 3  = 5*/
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  418:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *
  419:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * 5-bit to 8-bit: ( 31 * multiplier + adder ) >> divisor = 255
  420:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * divisor  multiplier  adder  min (0)  max (31)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 10
 
 
  421:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       0           8      7        7       255
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  475:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                                         (255 - mix) + LV_COLOR_MIX_ROUND_OFS));
  476:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B(ret, LV_UDIV255((uint16_t) LV_COLOR_GET_B(c1) * mix + LV_COLOR_GET_B(c2) *
  477:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****                                         (255 - mix) + LV_COLOR_MIX_ROUND_OFS));
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 11
 
 
  478:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_A(ret, 0xFF);
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  532:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     LV_COLOR_SET_B(c1, premult_c1[2]);
  533:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     ret.full = mix > LV_OPA_50 ? c2.full : c1.full;
  534:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 12
 
 
  535:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  589:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             }
  590:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             lv_opa_t ratio = (uint16_t)((uint16_t)fg_opa * 255) / res_opa_saved;
  591:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****             res_color_saved = lv_color_mix(fg_color, bg_color, ratio);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 13
 
 
  592:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  646:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
  647:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
  648:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Convert a HSV color to RGB
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 14
 
 
  649:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param h hue [0..359]
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
   89              	.LBE19:
   90              		.loc 1 17 5 view .LVU18
   91 0020 4FF0FF31 		mov	r1, #-1	@ movhi
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 15
 
 
   92 0024 3846     		mov	r0, r7
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  134 0052 3046     		mov	r0, r6
  135 0054 FFF7FEFF 		bl	lv_style_set_img_recolor
  136              	.LVL7:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 16
 
 
   25:lvgl/lvgl/examples/widgets/imgbtn/lv_example_imgbtn_1.c ****     lv_style_set_transform_width(&style_pr, 20);
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
   42:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * GLOBAL PROTOTYPES
   43:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  **********************/
   44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 17
 
 
   45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
   99:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * @param color color of the background
  100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  */
  101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** void lv_disp_set_bg_color(lv_disp_t * disp, lv_color_t color);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 18
 
 
  102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  156:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  * Recommended only if you have one display
  157:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h ****  *------------------------------------------------*/
  158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 19
 
 
  159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_disp.h **** /**
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
   34:lvgl/lvgl/examples/widgets/imgbtn/lv_example_imgbtn_1.c **** 
   35:lvgl/lvgl/examples/widgets/imgbtn/lv_example_imgbtn_1.c ****     /*Create a label on the image button*/
   36:lvgl/lvgl/examples/widgets/imgbtn/lv_example_imgbtn_1.c ****     lv_obj_t * label = lv_label_create(imgbtn1);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 20
 
 
  188              		.loc 1 36 5 view .LVU41
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  242      00000000 
  243              		.section	.bss.tr.12317,"aw",%nobits
  244              		.align	2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 21
 
 
  245              		.set	.LANCHOR1,. + 0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  299              		.file 42 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_dropd
  300              		.file 43 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/chart/lv_chart.h"
  301              		.file 44 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/keyboard/lv_keyboard.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 22
 
 
  302              		.file 45 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\extra\\layouts\\flex\\lv_flex.h"
@@ -1278,23 +1278,23 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 1
  316              		.file 59 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_disp.h"
  317              		.file 60 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style_gen.h"
  318              		.file 61 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc65q3tM.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cccdbyl7.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_example_imgbtn_1.c
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:18     .rodata.lv_example_imgbtn_1.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:22     .text.lv_example_imgbtn_1:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:30     .text.lv_example_imgbtn_1:00000000 lv_example_imgbtn_1
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:217    .text.lv_example_imgbtn_1:000000bc $d
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:230    .bss.style_def.12318:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:234    .bss.style_def.12318:00000000 style_def.12318
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:237    .bss.style_pr.12319:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:241    .bss.style_pr.12319:00000000 style_pr.12319
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:244    .bss.tr.12317:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:248    .bss.tr.12317:00000000 tr.12317
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:251    .data.tr_prop.12316:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc65q3tM.s:255    .data.tr_prop.12316:00000000 tr_prop.12316
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:18     .rodata.lv_example_imgbtn_1.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:22     .text.lv_example_imgbtn_1:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:30     .text.lv_example_imgbtn_1:00000000 lv_example_imgbtn_1
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:217    .text.lv_example_imgbtn_1:000000bc $d
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:230    .bss.style_def.12318:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:234    .bss.style_def.12318:00000000 style_def.12318
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:237    .bss.style_pr.12319:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:241    .bss.style_pr.12319:00000000 style_pr.12319
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:244    .bss.tr.12317:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:248    .bss.tr.12317:00000000 tr.12317
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:251    .data.tr_prop.12316:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cccdbyl7.s:255    .data.tr_prop.12316:00000000 tr_prop.12316
 
 UNDEFINED SYMBOLS
 lv_style_transition_dsc_init

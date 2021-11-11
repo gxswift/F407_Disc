@@ -43,7 +43,8 @@ MEMORY
 {
 RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 128K
 CCMRAM (rw)      : ORIGIN = 0x10000000, LENGTH = 64K
-FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 1024K
+FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 1024K-0x10000
+FLASH_USR (rx)      : ORIGIN = 0x80F0000, LENGTH = 64K
 }
 
 /* Define output sections */
@@ -144,12 +145,12 @@ SECTIONS
     . = ALIGN(4);
     _eccmram = .;       /* create a global symbol at ccmram end */
   } >CCMRAM AT> FLASH
-  .lua_script 0x08080000 :
+  .lua_script :
   {
     . = ALIGN(4);
     KEEP(*(.lua_script))
     . = ALIGN(4);
-  } >FLASH
+  } >FLASH_USR
 
   
   /* Uninitialized data section */

@@ -67,7 +67,7 @@ osThreadId LEDHandle;
 char pWriteBuffer[2048];
 void LED_Flicker(void const * argument)
 {
-  volatile char* flash = 0x8080000;
+  volatile char* flash = 0x80F0000;
   vTaskDelay(500);
   printf("GCC printf test\r\n");
   printf(flash);
