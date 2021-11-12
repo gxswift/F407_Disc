@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
    9:Src/freertos.c ****   * USER CODE END. Other portions of this file, whether 
   10:Src/freertos.c ****   * inserted by the user or by software development tools
   11:Src/freertos.c ****   * are owned by their respective copyright owners.
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 2
 
 
   12:Src/freertos.c ****   *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
   66:Src/freertos.c **** osThreadId LEDHandle;
   67:Src/freertos.c **** char pWriteBuffer[2048];
   68:Src/freertos.c **** void LED_Flicker(void const * argument)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 3
 
 
   69:Src/freertos.c **** {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  123:Src/freertos.c **** 
  124:Src/freertos.c ****   LCD_Init();
  125:Src/freertos.c ****   WM_SetCreateFlags(WM_CF_MEMDEV);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 4
 
 
  126:Src/freertos.c ****   GUI_Init();
@@ -206,9 +206,9 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  148:Src/freertos.c ****   // lv_example_bar_2();
  149:Src/freertos.c ****   // lv_example_btnmatrix_3();
  150:Src/freertos.c ****   // lv_example_keyboard_1();
- 151:Src/freertos.c ****   // lv_example_animimg_1();//杯子动画
+ 151:Src/freertos.c ****   lv_example_animimg_1();//杯子动画
  152:Src/freertos.c ****   // lv_example_canvas_2();
- 153:Src/freertos.c ****   lv_example_scroll_6();
+ 153:Src/freertos.c ****   // lv_example_scroll_6();
  154:Src/freertos.c ****   while(1)
  155:Src/freertos.c ****   {
  156:Src/freertos.c ****     HAL_Delay(5);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
   47              		.loc 1 173 1 is_stmt 0 view .LVU1
   48 0000 08B5     		push	{r3, lr}
   49              	.LCFI0:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 5
 
 
   50              		.cfi_def_cfa_offset 8
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
   81      00
   82              		.section	.text.LED_Flicker,"ax",%progbits
   83              		.align	1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 6
 
 
   84              		.global	LED_Flicker
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  129              	.LVL10:
   79:Src/freertos.c ****     printf("[task information]\r\n");
  130              		.loc 1 79 5 discriminator 1 view .LVU15
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 7
 
 
  131 0028 0B4C     		ldr	r4, .L7+12
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  181              		@ Volatile: function does not return.
  182              		@ args = 0, pretend = 0, frame = 0
  183              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 8
 
 
  143:Src/freertos.c ****   lv_init();
@@ -440,9 +440,9 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  196              		.loc 1 146 3 view .LVU25
  197 000a FFF7FEFF 		bl	lv_port_indev_init
  198              	.LVL19:
- 153:Src/freertos.c ****   while(1)
- 199              		.loc 1 153 3 view .LVU26
- 200 000e FFF7FEFF 		bl	lv_example_scroll_6
+ 151:Src/freertos.c ****   // lv_example_canvas_2();
+ 199              		.loc 1 151 3 view .LVU26
+ 200 000e FFF7FEFF 		bl	lv_example_animimg_1
  201              	.LVL20:
  202              	.L10:
  154:Src/freertos.c ****   {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
   19:lvgl/lvgl/src/lv_api_map.h ****  *      DEFINES
   20:lvgl/lvgl/src/lv_api_map.h ****  *********************/
   21:lvgl/lvgl/src/lv_api_map.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 9
 
 
   22:lvgl/lvgl/src/lv_api_map.h **** #define LV_NO_TASK_READY        LV_NO_TIMER_READY
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  197:Src/freertos.c **** 
  198:Src/freertos.c **** /* USER CODE END PM */
  199:Src/freertos.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 10
 
 
  200:Src/freertos.c **** /* Private variables ---------------------------------------------------------*/
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  254:Src/freertos.c **** 
  255:Src/freertos.c ****   /* Create the thread(s) */
  256:Src/freertos.c ****   /* definition and creation of defaultTask */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 11
 
 
  257:Src/freertos.c ****   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  293:Src/freertos.c ****   /* Infinite loop */
  294:Src/freertos.c ****   for (;;)
  253              		.loc 1 294 3 discriminator 1 view .LVU37
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 12
 
 
  295:Src/freertos.c ****   {
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  305              	.LVL27:
  168:Src/freertos.c **** #endif
  306              		.loc 1 168 1 is_stmt 0 view .LVU44
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 13
 
 
  307 0008 08BD     		pop	{r3, pc}
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  238:Src/freertos.c ****   /* USER CODE BEGIN Init */
  363              		.loc 1 238 29 view -0
  364              		.cfi_startproc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 14
 
 
  365              		@ args = 0, pretend = 0, frame = 80
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  410              		.loc 1 265 3 is_stmt 1 view .LVU58
  411 0038 05AD     		add	r5, sp, #20
  412 003a 04F12806 		add	r6, r4, #40
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 15
 
 
  413 003e 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  460              		.comm	TouchHandle,4,4
  461              		.comm	UIHandle,4,4
  462              		.comm	pWriteBuffer,2048,4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 16
 
 
  463              		.comm	LEDHandle,4,4
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  517              		.file 23 "lvgl/lvgl/src/core/lv_obj_scroll.h"
  518              		.file 24 "lvgl/lvgl/src/core/lv_obj_style.h"
  519              		.file 25 "lvgl/lvgl/src/core/../draw/lv_draw_label.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 17
 
 
  520              		.file 26 "lvgl/lvgl/src/core/lv_obj_class.h"
@@ -1004,39 +1004,39 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 1
  560              		.file 66 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
  561              		.file 67 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
  562              		.file 68 "<built-in>"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 freertos.c
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:15     .rodata.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:31     .text.Touch_task:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:38     .text.Touch_task:00000000 Touch_task
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:66     .rodata.LED_Flicker.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:83     .text.LED_Flicker:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:90     .text.LED_Flicker:00000000 LED_Flicker
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:157    .text.LED_Flicker:0000004c $d
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:15     .rodata.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:31     .text.Touch_task:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:38     .text.Touch_task:00000000 Touch_task
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:66     .rodata.LED_Flicker.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:83     .text.LED_Flicker:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:90     .text.LED_Flicker:00000000 LED_Flicker
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:157    .text.LED_Flicker:0000004c $d
                             *COM*:00000800 pWriteBuffer
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:169    .text.UI_task:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:176    .text.UI_task:00000000 UI_task
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:225    .text.StartDefaultTask:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:232    .text.StartDefaultTask:00000000 StartDefaultTask
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:264    .text.vApplicationIdleHook:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:271    .text.vApplicationIdleHook:00000000 vApplicationIdleHook
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:284    .text.vApplicationTickHook:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:291    .text.vApplicationTickHook:00000000 vApplicationTickHook
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:312    .text.PreSleepProcessing:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:319    .text.PreSleepProcessing:00000000 PreSleepProcessing
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:333    .text.PostSleepProcessing:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:340    .text.PostSleepProcessing:00000000 PostSleepProcessing
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:354    .text.MX_FREERTOS_Init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:361    .text.MX_FREERTOS_Init:00000000 MX_FREERTOS_Init
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:451    .text.MX_FREERTOS_Init:00000070 $d
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:169    .text.UI_task:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:176    .text.UI_task:00000000 UI_task
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:225    .text.StartDefaultTask:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:232    .text.StartDefaultTask:00000000 StartDefaultTask
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:264    .text.vApplicationIdleHook:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:271    .text.vApplicationIdleHook:00000000 vApplicationIdleHook
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:284    .text.vApplicationTickHook:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:291    .text.vApplicationTickHook:00000000 vApplicationTickHook
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:312    .text.PreSleepProcessing:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:319    .text.PreSleepProcessing:00000000 PreSleepProcessing
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:333    .text.PostSleepProcessing:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:340    .text.PostSleepProcessing:00000000 PostSleepProcessing
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:354    .text.MX_FREERTOS_Init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:361    .text.MX_FREERTOS_Init:00000000 MX_FREERTOS_Init
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:451    .text.MX_FREERTOS_Init:00000070 $d
                             *COM*:00000004 defaultTaskHandle
                             *COM*:00000004 LEDHandle
                             *COM*:00000004 UIHandle
                             *COM*:00000004 TouchHandle
-C:\Users\gx\AppData\Local\Temp\ccSt3yDB.s:465    .rodata:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccBQSs1J.s:465    .rodata:00000000 $d
 
 UNDEFINED SYMBOLS
 vTaskDelay
@@ -1047,7 +1047,7 @@ vTaskList
 lv_init
 lv_port_disp_init
 lv_port_indev_init
-lv_example_scroll_6
+lv_example_animimg_1
 HAL_Delay
 lv_timer_handler
 MX_FATFS_Init

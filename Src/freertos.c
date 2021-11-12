@@ -148,9 +148,9 @@ void UI_task(void const * argument)
   // lv_example_bar_2();
   // lv_example_btnmatrix_3();
   // lv_example_keyboard_1();
-  // lv_example_animimg_1();//杯子动画
+  lv_example_animimg_1();//杯子动画
   // lv_example_canvas_2();
-  lv_example_scroll_6();
+  // lv_example_scroll_6();
   while(1)
   {
     HAL_Delay(5);

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
   28:lvgl/lvgl/src/core/lv_indev.c ****  *      TYPEDEFS
   29:lvgl/lvgl/src/core/lv_indev.c ****  **********************/
   30:lvgl/lvgl/src/core/lv_indev.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 2
 
 
   31:lvgl/lvgl/src/core/lv_indev.c **** /**********************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
   85:lvgl/lvgl/src/core/lv_indev.c ****         /*The active object might deleted even in the read function*/
   86:lvgl/lvgl/src/core/lv_indev.c ****         indev_proc_reset_query_handler(indev_act);
   87:lvgl/lvgl/src/core/lv_indev.c ****         indev_obj_act = NULL;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 3
 
 
   88:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  142:lvgl/lvgl/src/core/lv_indev.c **** {
  143:lvgl/lvgl/src/core/lv_indev.c ****     if(indev) {
  144:lvgl/lvgl/src/core/lv_indev.c ****         indev->proc.reset_query = 1;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 4
 
 
  145:lvgl/lvgl/src/core/lv_indev.c ****         if(indev_act == indev) indev_obj_act = NULL;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  199:lvgl/lvgl/src/core/lv_indev.c **** }
  200:lvgl/lvgl/src/core/lv_indev.c **** 
  201:lvgl/lvgl/src/core/lv_indev.c **** void lv_indev_set_button_points(lv_indev_t * indev, const lv_point_t points[])
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 5
 
 
  202:lvgl/lvgl/src/core/lv_indev.c **** {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  256:lvgl/lvgl/src/core/lv_indev.c **** 
  257:lvgl/lvgl/src/core/lv_indev.c ****     if(indev == NULL) return;
  258:lvgl/lvgl/src/core/lv_indev.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 6
 
 
  259:lvgl/lvgl/src/core/lv_indev.c ****     if(indev->driver->type == LV_INDEV_TYPE_POINTER || indev->driver->type == LV_INDEV_TYPE_BUTTON)
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  313:lvgl/lvgl/src/core/lv_indev.c ****     }
  314:lvgl/lvgl/src/core/lv_indev.c **** 
  315:lvgl/lvgl/src/core/lv_indev.c ****     return found_p;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 7
 
 
  316:lvgl/lvgl/src/core/lv_indev.c **** }
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  370:lvgl/lvgl/src/core/lv_indev.c **** /**
  371:lvgl/lvgl/src/core/lv_indev.c ****  * Process a new point from LV_INDEV_TYPE_KEYPAD input device
  372:lvgl/lvgl/src/core/lv_indev.c ****  * @param i pointer to an input device
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 8
 
 
  373:lvgl/lvgl/src/core/lv_indev.c ****  * @param data pointer to the data read from the input device
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  427:lvgl/lvgl/src/core/lv_indev.c ****             lv_group_set_editing(g, false); /*Editing is not used by KEYPAD is be sure it is disabl
  428:lvgl/lvgl/src/core/lv_indev.c ****             lv_group_focus_next(g);
  429:lvgl/lvgl/src/core/lv_indev.c ****             if(indev_reset_check(&i->proc)) return;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 9
 
 
  430:lvgl/lvgl/src/core/lv_indev.c ****         }
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  484:lvgl/lvgl/src/core/lv_indev.c ****                 lv_group_send_data(g, data->key);
  485:lvgl/lvgl/src/core/lv_indev.c ****                 if(indev_reset_check(&i->proc)) return;
  486:lvgl/lvgl/src/core/lv_indev.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 10
 
 
  487:lvgl/lvgl/src/core/lv_indev.c ****         }
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  541:lvgl/lvgl/src/core/lv_indev.c **** 
  542:lvgl/lvgl/src/core/lv_indev.c ****     /*Process the steps they are valid only with released button*/
  543:lvgl/lvgl/src/core/lv_indev.c ****     if(data->state != LV_INDEV_STATE_RELEASED) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 11
 
 
  544:lvgl/lvgl/src/core/lv_indev.c ****         data->enc_diff = 0;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  598:lvgl/lvgl/src/core/lv_indev.c ****                 if(editable_or_scrollable) {
  599:lvgl/lvgl/src/core/lv_indev.c ****                     /*Don't leave edit mode if there is only one object (nowhere to navigate)*/
  600:lvgl/lvgl/src/core/lv_indev.c ****                     if(lv_group_get_obj_count(g) > 1) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 12
 
 
  601:lvgl/lvgl/src/core/lv_indev.c ****                         LV_LOG_INFO("toggling edit mode");
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  655:lvgl/lvgl/src/core/lv_indev.c **** 
  656:lvgl/lvgl/src/core/lv_indev.c ****                 lv_event_send(indev_obj_act, LV_EVENT_CLICKED, indev_act);
  657:lvgl/lvgl/src/core/lv_indev.c ****                 if(indev_reset_check(&i->proc)) return;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 13
 
 
  658:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  712:lvgl/lvgl/src/core/lv_indev.c ****             else if(data->enc_diff > 0) {
  713:lvgl/lvgl/src/core/lv_indev.c ****                 for(s = 0; s < data->enc_diff; s++) lv_group_focus_next(g);
  714:lvgl/lvgl/src/core/lv_indev.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 14
 
 
  715:lvgl/lvgl/src/core/lv_indev.c ****         }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  769:lvgl/lvgl/src/core/lv_indev.c **** /**
  770:lvgl/lvgl/src/core/lv_indev.c ****  * Process the pressed state of LV_INDEV_TYPE_POINTER input devices
  771:lvgl/lvgl/src/core/lv_indev.c ****  * @param indev pointer to an input device 'proc'
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 15
 
 
  772:lvgl/lvgl/src/core/lv_indev.c ****  * @return LV_RES_OK: no indev reset required; LV_RES_INV: indev reset is required
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  826:lvgl/lvgl/src/core/lv_indev.c ****         proc->types.pointer.act_obj  = indev_obj_act; /*Save the pressed object*/
  827:lvgl/lvgl/src/core/lv_indev.c ****         proc->types.pointer.last_obj = indev_obj_act;
  828:lvgl/lvgl/src/core/lv_indev.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 16
 
 
  829:lvgl/lvgl/src/core/lv_indev.c ****         if(indev_obj_act != NULL) {
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  883:lvgl/lvgl/src/core/lv_indev.c ****                 lv_event_send(indev_obj_act, LV_EVENT_LONG_PRESSED, indev_act);
  884:lvgl/lvgl/src/core/lv_indev.c ****                 if(indev_reset_check(proc)) return;
  885:lvgl/lvgl/src/core/lv_indev.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 17
 
 
  886:lvgl/lvgl/src/core/lv_indev.c ****                 /*Mark the Call the ancestor's event handler sending to do not send it again*/
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  940:lvgl/lvgl/src/core/lv_indev.c **** 
  941:lvgl/lvgl/src/core/lv_indev.c ****         proc->types.pointer.act_obj = NULL;
  942:lvgl/lvgl/src/core/lv_indev.c ****         proc->pr_timestamp          = 0;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 18
 
 
  943:lvgl/lvgl/src/core/lv_indev.c ****         proc->longpr_rep_timestamp  = 0;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  970:lvgl/lvgl/src/core/lv_indev.c ****         indev->proc.longpr_rep_timestamp            = 0;
   56              		.loc 1 970 9 is_stmt 1 view .LVU14
   57              		.loc 1 970 53 is_stmt 0 view .LVU15
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 19
 
 
   58 0014 8364     		str	r3, [r0, #72]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  102              		.align	1
  103              		.syntax unified
  104              		.thumb
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 20
 
 
  105              		.thumb_func
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
 1031:lvgl/lvgl/src/core/lv_indev.c ****                         lv_event_send(proc->types.pointer.last_pressed, LV_EVENT_LEAVE, indev_act);
 1032:lvgl/lvgl/src/core/lv_indev.c ****                         if(indev_reset_check(proc)) return;
 1033:lvgl/lvgl/src/core/lv_indev.c ****                     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 21
 
 
 1034:lvgl/lvgl/src/core/lv_indev.c ****                 }
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
 1088:lvgl/lvgl/src/core/lv_indev.c ****                 proc->types.pointer.gesture_dir = LV_DIR_RIGHT;
 1089:lvgl/lvgl/src/core/lv_indev.c ****             else
 1090:lvgl/lvgl/src/core/lv_indev.c ****                 proc->types.pointer.gesture_dir = LV_DIR_LEFT;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 22
 
 
 1091:lvgl/lvgl/src/core/lv_indev.c ****         }
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  140              		.section	.text.indev_proc_release,"ax",%progbits
  141              		.align	1
  142              		.syntax unified
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 23
 
 
  143              		.thumb
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  183              		.loc 1 917 38 is_stmt 0 view .LVU57
  184 0016 4278     		ldrb	r2, [r0, #1]	@ zero_extendqisi2
  185 0018 63F3C302 		bfi	r2, r3, #3, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 24
 
 
  186 001c 4270     		strb	r2, [r0, #1]
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  941:lvgl/lvgl/src/core/lv_indev.c ****         proc->pr_timestamp          = 0;
  223              		.loc 1 941 9 is_stmt 1 view .LVU75
  941:lvgl/lvgl/src/core/lv_indev.c ****         proc->pr_timestamp          = 0;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 25
 
 
  224              		.loc 1 941 37 is_stmt 0 view .LVU76
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  264              	.LVL11:
  934:lvgl/lvgl/src/core/lv_indev.c ****             }
  265              		.loc 1 934 17 view .LVU91
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 26
 
 
  934:lvgl/lvgl/src/core/lv_indev.c ****             }
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  314 0000 70B5     		push	{r4, r5, r6, lr}
  315              	.LCFI1:
  316              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 27
 
 
  317              		.cfi_offset 4, -16
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  357 0024 FFF7FEFF 		bl	lv_obj_get_group
  358              	.LVL22:
  359              	.L21:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 28
 
 
  997:lvgl/lvgl/src/core/lv_indev.c ****             /*The objects are in a group*/
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  398 004e 45D0     		beq	.L29
 1039:lvgl/lvgl/src/core/lv_indev.c ****                 if(indev_reset_check(proc)) return;
  399              		.loc 1 1039 17 is_stmt 1 view .LVU130
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 29
 
 
  400 0050 2846     		mov	r0, r5
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  440 0074 F4E7     		b	.L19
  441              	.LVL33:
  442              	.L23:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 30
 
 
 1005:lvgl/lvgl/src/core/lv_indev.c ****                     lv_event_send(proc->types.pointer.last_pressed, LV_EVENT_DEFOCUSED, indev_act);
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  484              		.loc 1 1017 31 discriminator 1 view .LVU157
  485 00a8 002B     		cmp	r3, #0
  486 00aa C1D0     		beq	.L26
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 31
 
 
 1018:lvgl/lvgl/src/core/lv_indev.c ****                 if(indev_reset_check(proc)) return;
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  530 00e2 2846     		mov	r0, r5
  531 00e4 FFF7FEFF 		bl	lv_event_send
  532              	.LVL47:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 32
 
 
 1044:lvgl/lvgl/src/core/lv_indev.c ****             }
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  581              	.L36:
 1102:lvgl/lvgl/src/core/lv_indev.c **** 
  582              		.loc 1 1102 1 view .LVU177
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 33
 
 
  583 0006 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
 1069:lvgl/lvgl/src/core/lv_indev.c **** 
  623              		.loc 1 1069 7 is_stmt 0 view .LVU192
  624 0030 002C     		cmp	r4, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 34
 
 
  625 0032 E8D0     		beq	.L36
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
 1079:lvgl/lvgl/src/core/lv_indev.c **** 
  665              		.loc 1 1079 66 is_stmt 0 view .LVU207
  666 006e 698A     		ldrh	r1, [r5, #18]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 35
 
 
 1079:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  706              		.loc 1 1087 15 is_stmt 0 view .LVU222
  707 00b2 002B     		cmp	r3, #0
  708 00b4 0EDD     		ble	.L44
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 36
 
 
 1088:lvgl/lvgl/src/core/lv_indev.c ****             else
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  750 00f8 95F83C30 		ldrb	r3, [r5, #60]	@ zero_extendqisi2
  751 00fc 0421     		movs	r1, #4
  752 00fe 61F30713 		bfi	r3, r1, #4, #4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 37
 
 
  753 0102 85F83C30 		strb	r3, [r5, #60]
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  380:lvgl/lvgl/src/core/lv_indev.c ****         i->proc.pr_timestamp            = 0;
  800              		.loc 1 380 41 is_stmt 0 view .LVU245
  801 0014 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 38
 
 
  381:lvgl/lvgl/src/core/lv_indev.c ****         i->proc.long_pr_sent            = 0;
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  838              	.LVL63:
  397:lvgl/lvgl/src/core/lv_indev.c **** 
  839              		.loc 1 397 5 is_stmt 1 view .LVU264
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 39
 
 
  397:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  512:lvgl/lvgl/src/core/lv_indev.c **** 
  878              		.loc 1 512 1 view .LVU281
  879 0058 70BD     		pop	{r4, r5, r6, pc}
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 40
 
 
  880              	.LVL67:
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  432:lvgl/lvgl/src/core/lv_indev.c ****             lv_group_set_editing(g, false); /*Editing is not used by KEYPAD is be sure it is disabl
  917              		.loc 1 432 16 is_stmt 0 view .LVU299
  918 007c 0B29     		cmp	r1, #11
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 41
 
 
  919 007e 30D0     		beq	.L77
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  963 00be FFF7FEFF 		bl	indev_reset_check
  964              	.LVL76:
  423:lvgl/lvgl/src/core/lv_indev.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 42
 
 
  965              		.loc 1 423 15 view .LVU310
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  443:lvgl/lvgl/src/core/lv_indev.c **** 
  1009              		.loc 1 443 51 discriminator 1 view .LVU321
  1010 00fc 012A     		cmp	r2, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 43
 
 
  1011 00fe A4D1     		bne	.L61
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1049 0128 A064     		str	r0, [r4, #72]
  466:lvgl/lvgl/src/core/lv_indev.c ****                 lv_event_send(indev_obj_act, LV_EVENT_LONG_PRESSED_REPEAT, indev_act);
  1050              		.loc 1 466 13 is_stmt 1 view .LVU338
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 44
 
 
  466:lvgl/lvgl/src/core/lv_indev.c ****                 lv_event_send(indev_obj_act, LV_EVENT_LONG_PRESSED_REPEAT, indev_act);
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1090              		.loc 1 447 16 is_stmt 0 view .LVU353
  1091 0154 201D     		adds	r0, r4, #4
  1092 0156 FFF7FEFF 		bl	indev_reset_check
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 45
 
 
  1093              	.LVL93:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1133 018e FFF7FEFF 		bl	lv_event_send
  1134              	.LVL96:
  456:lvgl/lvgl/src/core/lv_indev.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 46
 
 
  1135              		.loc 1 456 17 view .LVU368
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1178 01d0 0028     		cmp	r0, #0
  1179 01d2 3FF43EAF 		beq	.L57
  1180 01d6 3FE7     		b	.L51
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 47
 
 
  1181              	.L82:
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1219              		.loc 1 509 9 is_stmt 1 view .LVU395
  509:lvgl/lvgl/src/core/lv_indev.c ****     }
  1220              		.loc 1 509 30 is_stmt 0 view .LVU396
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 48
 
 
  1221 01fe 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  501:lvgl/lvgl/src/core/lv_indev.c ****             }
  1263              		.loc 1 501 20 is_stmt 0 view .LVU409
  1264 0236 2846     		mov	r0, r5
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 49
 
 
  1265 0238 FFF7FEFF 		bl	indev_reset_check
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1314              		.cfi_offset 3, -24
  1315              		.cfi_offset 4, -20
  1316              		.cfi_offset 5, -16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 50
 
 
  1317              		.cfi_offset 6, -12
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  533:lvgl/lvgl/src/core/lv_indev.c ****     i->proc.types.keypad.last_key   = data->key;
  1355              		.loc 1 533 5 is_stmt 1 view .LVU433
  533:lvgl/lvgl/src/core/lv_indev.c ****     i->proc.types.keypad.last_key   = data->key;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 51
 
 
  1356              		.loc 1 533 43 is_stmt 0 view .LVU434
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1391              		.loc 1 544 24 is_stmt 0 view .LVU453
  1392 0044 0023     		movs	r3, #0
  1393 0046 AB81     		strh	r3, [r5, #12]	@ movhi
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 52
 
 
  1394              	.L90:
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  693:lvgl/lvgl/src/core/lv_indev.c ****         /*In edit mode send LEFT/RIGHT keys*/
  1432              		.loc 1 693 12 is_stmt 0 view .LVU470
  1433 006c B5F90C30 		ldrsh	r3, [r5, #12]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 53
 
 
  693:lvgl/lvgl/src/core/lv_indev.c ****         /*In edit mode send LEFT/RIGHT keys*/
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1472 0094 2BD0     		beq	.L144
  569:lvgl/lvgl/src/core/lv_indev.c ****             /*emulate encoder right*/
  1473              		.loc 1 569 14 is_stmt 1 view .LVU487
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 54
 
 
  569:lvgl/lvgl/src/core/lv_indev.c ****             /*emulate encoder right*/
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1515 00c4 0121     		movs	r1, #1
  1516 00c6 7D4B     		ldr	r3, .L158
  1517 00c8 1868     		ldr	r0, [r3]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 55
 
 
  1518 00ca FFF7FEFF 		bl	lv_event_send
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1560 00fe AB81     		strh	r3, [r5, #12]	@ movhi
  1561 0100 B1E7     		b	.L95
  1562              	.L146:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 56
 
 
  575:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1604              	.LVL140:
  616:lvgl/lvgl/src/core/lv_indev.c **** 
  1605              		.loc 1 616 93 discriminator 1 view .LVU526
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 57
 
 
  1606 013c 2368     		ldr	r3, [r4]
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  588:lvgl/lvgl/src/core/lv_indev.c **** 
  1644              		.loc 1 588 80 discriminator 1 view .LVU543
  1645 0168 2368     		ldr	r3, [r4]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 58
 
 
  588:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1685 0198 0123     		movs	r3, #1
  1686              	.L102:
  1687              	.LVL145:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 59
 
 
  598:lvgl/lvgl/src/core/lv_indev.c ****                     /*Don't leave edit mode if there is only one object (nowhere to navigate)*/
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  594:lvgl/lvgl/src/core/lv_indev.c ****                                               lv_obj_has_flag(indev_obj_act, LV_OBJ_FLAG_SCROLLABLE
  1728              		.loc 1 594 81 discriminator 2 view .LVU573
  1729 01ce 08B9     		cbnz	r0, .L128
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 60
 
 
  594:lvgl/lvgl/src/core/lv_indev.c ****                                               lv_obj_has_flag(indev_obj_act, LV_OBJ_FLAG_SCROLLABLE
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1773              		.loc 1 622 19 view .LVU584
  1774 0206 0028     		cmp	r0, #0
  1775 0208 3FF42DAF 		beq	.L95
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 61
 
 
  1776 020c 33E7     		b	.L86
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1814 0232 0022     		movs	r2, #0
  1815 0234 6264     		str	r2, [r4, #68]
  688:lvgl/lvgl/src/core/lv_indev.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 62
 
 
  1816              		.loc 1 688 9 is_stmt 1 view .LVU601
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1858 0264 7FF407AF 		bne	.L86
  653:lvgl/lvgl/src/core/lv_indev.c ****                 if(indev_reset_check(&i->proc)) return;
  1859              		.loc 1 653 17 is_stmt 1 view .LVU614
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 63
 
 
  653:lvgl/lvgl/src/core/lv_indev.c ****                 if(indev_reset_check(&i->proc)) return;
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1902 02a2 0023     		movs	r3, #0
  1903 02a4 D0E7     		b	.L108
  1904              	.L130:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 64
 
 
  1905 02a6 0123     		movs	r3, #1
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  1949 02e2 1A68     		ldr	r2, [r3]
  1950 02e4 0821     		movs	r1, #8
  1951 02e6 3F4B     		ldr	r3, .L160+4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 65
 
 
  1952 02e8 1868     		ldr	r0, [r3]
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  671:lvgl/lvgl/src/core/lv_indev.c **** 
  1995              		.loc 1 671 23 view .LVU648
  1996 032a 0028     		cmp	r0, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 66
 
 
  1997 032c 7FF4A3AE 		bne	.L86
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2038              	.LVL189:
  695:lvgl/lvgl/src/core/lv_indev.c ****             LV_LOG_INFO("rotated by %+d (edit)", data->enc_diff);
  2039              		.loc 1 695 11 view .LVU662
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 67
 
 
  2040 0360 F8B1     		cbz	r0, .L114
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2076              		.loc 1 702 49 discriminator 3 view .LVU680
  2077 0386 F4E7     		b	.L118
  2078              	.LVL193:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 68
 
 
  2079              	.L156:
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  709:lvgl/lvgl/src/core/lv_indev.c ****                 for(s = 0; s < -data->enc_diff; s++) lv_group_focus_prev(g);
  2116              		.loc 1 709 15 view .LVU698
  2117 03a6 002B     		cmp	r3, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 69
 
 
  2118 03a8 0DDB     		blt	.L157
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  710:lvgl/lvgl/src/core/lv_indev.c ****             }
  2157              		.loc 1 710 54 is_stmt 1 discriminator 3 view .LVU714
  2158 03d4 3046     		mov	r0, r6
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 70
 
 
  2159 03d6 FFF7FEFF 		bl	lv_group_focus_prev
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2205 000e 7047     		bx	lr
  2206              		.cfi_endproc
  2207              	.LFE159:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 71
 
 
  2209              		.section	.text.lv_indev_get_act,"ax",%progbits
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  138:lvgl/lvgl/src/core/lv_indev.c **** }
  2258              		.loc 1 138 25 view .LVU733
  2259 0004 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 72
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 72
 
 
  2260              	.LVL208:
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2305              		.loc 1 145 22 is_stmt 0 view .LVU744
  2306 0010 224A     		ldr	r2, .L191
  2307 0012 1268     		ldr	r2, [r2]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 73
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 73
 
 
  145:lvgl/lvgl/src/core/lv_indev.c ****         if(obj == NULL || indev->proc.types.pointer.last_pressed == obj) {
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  152:lvgl/lvgl/src/core/lv_indev.c ****             indev->proc.types.pointer.last_obj = NULL;
  2346              		.loc 1 152 24 discriminator 1 view .LVU761
  2347 0034 A242     		cmp	r2, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 74
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 74
 
 
  2348 0036 01D1     		bne	.L170
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2388 0054 11D1     		bne	.L180
  2389              	.L181:
  162:lvgl/lvgl/src/core/lv_indev.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 75
 
 
  2390              		.loc 1 162 17 is_stmt 1 view .LVU776
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2428              		.loc 1 164 52 discriminator 1 view .LVU792
  2429 007c 436A     		ldr	r3, [r0, #36]
  164:lvgl/lvgl/src/core/lv_indev.c ****                 i->proc.types.pointer.act_obj = NULL;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 76
 
 
  2430              		.loc 1 164 28 discriminator 1 view .LVU793
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  177:lvgl/lvgl/src/core/lv_indev.c ****     indev->proc.long_pr_sent         = 0;
  2477              		.loc 1 177 1 is_stmt 1 view -0
  2478              		.cfi_startproc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 77
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 77
 
 
  2479              		@ args = 0, pretend = 0, frame = 0
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2523              		.cfi_startproc
  2524              		@ args = 0, pretend = 0, frame = 0
  2525              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 78
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 78
 
 
  184:lvgl/lvgl/src/core/lv_indev.c ****     if(indev->driver->type != LV_INDEV_TYPE_POINTER) return;
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2566              	.LVL228:
  189:lvgl/lvgl/src/core/lv_indev.c ****     lv_obj_clear_flag(indev->cursor, LV_OBJ_FLAG_CLICKABLE);
  2567              		.loc 1 189 5 is_stmt 1 view .LVU830
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 79
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 79
 
 
  2568 0020 B4F90A20 		ldrsh	r2, [r4, #10]
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2615              		.loc 1 197 9 is_stmt 1 view .LVU839
  197:lvgl/lvgl/src/core/lv_indev.c ****     }
  2616              		.loc 1 197 22 is_stmt 0 view .LVU840
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 80
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 80
 
 
  2617 000c 0165     		str	r1, [r0, #80]
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2664              		.thumb
  2665              		.thumb_func
  2666              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 81
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 81
 
 
  2668              	lv_indev_get_point:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2706 001e 4B80     		strh	r3, [r1, #2]	@ movhi
  213:lvgl/lvgl/src/core/lv_indev.c ****     }
  2707              		.loc 1 213 9 is_stmt 1 view .LVU867
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 82
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 82
 
 
  2708 0020 7047     		bx	lr
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2754              		.syntax unified
  2755              		.thumb
  2756              		.thumb_func
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 83
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 83
 
 
  2757              		.fpu fpv4-sp-d16
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2803              		.cfi_startproc
  2804              		@ args = 0, pretend = 0, frame = 0
  2805              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 84
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 84
 
 
  2806              		@ link register save eliminated.
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2847              		.section	.text.lv_indev_get_scroll_obj,"ax",%progbits
  2848              		.align	1
  2849              		.global	lv_indev_get_scroll_obj
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 85
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 85
 
 
  2850              		.syntax unified
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2892              	.LVL250:
  250:lvgl/lvgl/src/core/lv_indev.c **** 
  2893              		.loc 1 250 1 view .LVU917
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 86
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 86
 
 
  2894 0018 7047     		bx	lr
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2937              		.loc 1 260 9 is_stmt 1 view .LVU930
  260:lvgl/lvgl/src/core/lv_indev.c ****         point->y = indev->proc.types.pointer.vect.y;
  2938              		.loc 1 260 50 is_stmt 0 view .LVU931
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 87
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 87
 
 
  2939 0016 B3F91420 		ldrsh	r2, [r3, #20]
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  2985              		.global	lv_indev_get_obj_act
  2986              		.syntax unified
  2987              		.thumb
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 88
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 88
 
 
  2988              		.thumb_func
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3032              		.loc 1 277 1 is_stmt 0 view .LVU947
  3033 0000 10B5     		push	{r4, lr}
  3034              	.LCFI8:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 89
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 89
 
 
  3035              		.cfi_def_cfa_offset 8
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3079              	.L238:
  3080 0024 20000000 		.word	.LC1
  3081 0028 00000000 		.word	.LANCHOR2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 90
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 90
 
 
  3082 002c 00000000 		.word	.LC0
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3128              		.loc 1 294 9 is_stmt 1 view .LVU967
  294:lvgl/lvgl/src/core/lv_indev.c ****             lv_obj_t * child = obj->spec_attr->children[i];
  3129              		.loc 1 294 27 is_stmt 0 view .LVU968
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 91
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 91
 
 
  3130 0012 441E     		subs	r4, r0, #1
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3169              		.loc 1 304 9 is_stmt 1 view .LVU983
  304:lvgl/lvgl/src/core/lv_indev.c ****             lv_obj_t * hidden_i = obj;
  3170              		.loc 1 304 11 is_stmt 0 view .LVU984
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 92
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 92
 
 
  3171 0030 DFB9     		cbnz	r7, .L240
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3212 005a FFF7FEFF 		bl	lv_obj_get_state
  3213              	.LVL274:
  311:lvgl/lvgl/src/core/lv_indev.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 93
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 93
 
 
  3214              		.loc 1 311 33 discriminator 1 view .LVU998
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3261 0002 0446     		mov	r4, r0
  776:lvgl/lvgl/src/core/lv_indev.c ****     indev_obj_act = proc->types.pointer.act_obj;
  3262              		.loc 1 776 5 is_stmt 1 view .LVU1008
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 94
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 94
 
 
  776:lvgl/lvgl/src/core/lv_indev.c ****     indev_obj_act = proc->types.pointer.act_obj;
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3299              	.L258:
  813:lvgl/lvgl/src/core/lv_indev.c ****         proc->types.pointer.last_point.x = proc->types.pointer.act_point.x;
  3300              		.loc 1 813 5 is_stmt 1 view .LVU1027
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 95
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 95
 
 
  813:lvgl/lvgl/src/core/lv_indev.c ****         proc->types.pointer.last_point.x = proc->types.pointer.act_point.x;
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3339              	.L261:
  823:lvgl/lvgl/src/core/lv_indev.c ****         }
  3340              		.loc 1 823 15 view .LVU1044
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 96
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 96
 
 
  3341              	.LBE14:
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3376              		.loc 1 836 45 is_stmt 0 view .LVU1063
  3377 0078 02F0F002 		and	r2, r2, #240
  3378 007c 63F30712 		bfi	r2, r3, #4, #4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 97
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 97
 
 
  3379 0080 84F83C20 		strb	r2, [r4, #60]
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  847:lvgl/lvgl/src/core/lv_indev.c **** 
  3417              		.loc 1 847 16 view .LVU1080
  3418 00b4 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 98
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 98
 
 
  847:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3456 00de B4F91800 		ldrsh	r0, [r4, #24]
  861:lvgl/lvgl/src/core/lv_indev.c **** 
  3457              		.loc 1 861 5 is_stmt 1 view .LVU1098
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 99
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 99
 
 
  861:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3495              		.loc 1 872 9 is_stmt 1 view .LVU1115
  872:lvgl/lvgl/src/core/lv_indev.c **** 
  3496              		.loc 1 872 21 is_stmt 0 view .LVU1116
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 100
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 100
 
 
  3497 0112 584B     		ldr	r3, .L271+4
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3538 013e 3FF473AF 		beq	.L258
  806:lvgl/lvgl/src/core/lv_indev.c ****         proc->types.pointer.scroll_throw_vect.y = 0;
  3539              		.loc 1 806 9 is_stmt 1 view .LVU1130
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 101
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 101
 
 
  806:lvgl/lvgl/src/core/lv_indev.c ****         proc->types.pointer.scroll_throw_vect.y = 0;
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  789:lvgl/lvgl/src/core/lv_indev.c ****                                                                           &proc->types.pointer.act_
  3582              		.loc 1 789 49 discriminator 1 view .LVU1143
  3583 017a 3D4B     		ldr	r3, .L271
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 102
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 102
 
 
  3584 017c 1860     		str	r0, [r3]
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3625              		.loc 1 799 49 discriminator 1 view .LVU1156
  3626 01b6 2E4B     		ldr	r3, .L271
  3627 01b8 1860     		str	r0, [r3]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 103
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 103
 
 
  3628 01ba BEE7     		b	.L257
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3669              		.loc 1 880 31 is_stmt 0 view .LVU1169
  3670 01ee A36A     		ldr	r3, [r4, #40]
  880:lvgl/lvgl/src/core/lv_indev.c ****             /*Call the ancestor's event handler about the long press if enough time elapsed*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 104
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 104
 
 
  3671              		.loc 1 880 11 view .LVU1170
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3711 0222 0028     		cmp	r0, #0
  3712 0224 7FF47BAF 		bne	.L253
  900:lvgl/lvgl/src/core/lv_indev.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 105
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 105
 
 
  3713              		.loc 1 900 17 is_stmt 1 view .LVU1185
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  887:lvgl/lvgl/src/core/lv_indev.c **** 
  3754              		.loc 1 887 17 is_stmt 1 view .LVU1199
  887:lvgl/lvgl/src/core/lv_indev.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 106
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 106
 
 
  3755              		.loc 1 887 36 is_stmt 0 view .LVU1200
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3791              		.thumb_func
  3792              		.fpu fpv4-sp-d16
  3794              	indev_pointer_proc:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 107
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 107
 
 
  3795              	.LVL324:
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3835 001a 137A     		ldrb	r3, [r2, #8]	@ zero_extendqisi2
  3836 001c 03F01803 		and	r3, r3, #24
  334:lvgl/lvgl/src/core/lv_indev.c ****         data->point.x = disp->driver->hor_res - data->point.x - 1;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 108
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 108
 
 
  3837              		.loc 1 334 7 view .LVU1218
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3874              		.loc 1 338 30 view .LVU1235
  3875 0044 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
  3876 0046 03F01803 		and	r3, r3, #24
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 109
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 109
 
 
  338:lvgl/lvgl/src/core/lv_indev.c ****         lv_coord_t tmp = data->point.y;
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3914 006c 002B     		cmp	r3, #0
  3915 006e 2DDB     		blt	.L286
  3916              	.LVL329:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 110
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 110
 
 
  3917              	.L278:
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  3954              		.loc 1 348 131 is_stmt 1 discriminator 3 view .LVU1269
  351:lvgl/lvgl/src/core/lv_indev.c ****        (i->proc.types.pointer.last_point.x != data->point.x || i->proc.types.pointer.last_point.y !
  3955              		.loc 1 351 5 discriminator 3 view .LVU1270
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 111
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 111
 
 
  351:lvgl/lvgl/src/core/lv_indev.c ****        (i->proc.types.pointer.last_point.x != data->point.x || i->proc.types.pointer.last_point.y !
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  367:lvgl/lvgl/src/core/lv_indev.c **** }
  3993              		.loc 1 367 5 is_stmt 1 view .LVU1288
  367:lvgl/lvgl/src/core/lv_indev.c **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 112
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 112
 
 
  3994              		.loc 1 367 73 is_stmt 0 view .LVU1289
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4042 0108 1049     		ldr	r1, .L292+8
  4043 010a 0220     		movs	r0, #2
  4044 010c FFF7FEFF 		bl	_lv_log_add
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 113
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 113
 
 
  4045              	.LVL337:
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4093              		.thumb_func
  4094              		.fpu fpv4-sp-d16
  4096              	indev_button_proc:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 114
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 114
 
 
  4097              	.LVL341:
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  737:lvgl/lvgl/src/core/lv_indev.c ****         if(data->state == LV_INDEV_STATE_PRESSED) {
  4138              		.loc 1 737 26 is_stmt 0 view .LVU1312
  4139 001c AB7B     		ldrb	r3, [r5, #14]	@ zero_extendqisi2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 115
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 115
 
 
  742:lvgl/lvgl/src/core/lv_indev.c ****         }
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  763:lvgl/lvgl/src/core/lv_indev.c **** 
  4176              		.loc 1 763 8 is_stmt 0 view .LVU1331
  4177 003e 3046     		mov	r0, r6
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 116
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 116
 
 
  4178 0040 FFF7FEFF 		bl	indev_reset_check
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4219              		.loc 1 730 9 view .LVU1344
  4220 006a F2E7     		b	.L294
  4221              	.LVL354:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 117
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 117
 
 
  4222              	.L303:
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4269              		.cfi_startproc
  4270              		@ args = 0, pretend = 0, frame = 16
  4271              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 118
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 118
 
 
   66:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4309              		.loc 1 78 8 view .LVU1370
  4310 001a 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
   78:lvgl/lvgl/src/core/lv_indev.c ****     bool continue_reading;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 119
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 119
 
 
  4311              		.loc 1 78 7 view .LVU1371
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4352              	.LVL365:
  113:lvgl/lvgl/src/core/lv_indev.c **** 
  4353              		.loc 1 113 12 view .LVU1385
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 120
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 120
 
 
  113:lvgl/lvgl/src/core/lv_indev.c **** 
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4391              		.loc 1 95 26 is_stmt 0 view .LVU1402
  4392 007a 1368     		ldr	r3, [r2]
   95:lvgl/lvgl/src/core/lv_indev.c ****             indev_act->driver->disp->last_activity_time = lv_tick_get();
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 121
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 121
 
 
  4393              		.loc 1 95 34 view .LVU1403
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4433              		.loc 1 106 13 view .LVU1417
  4434 00aa 6946     		mov	r1, sp
  4435 00ac FFF7FEFF 		bl	indev_encoder_proc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 122
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 122
 
 
  4436              	.LVL372:
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4484              		.set	.LANCHOR0,. + 0
  4487              	indev_obj_act:
  4488 0000 00000000 		.space	4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 123
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 123
 
 
  4489              		.section	.rodata.__func__.10149,"a"
@@ -7378,106 +7378,106 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 1
  4537              		.file 27 "lvgl/lvgl/src/core/../hal/lv_hal_tick.h"
  4538              		.file 28 "lvgl/lvgl/src/core/lv_disp.h"
  4539              		.file 29 "lvgl/lvgl/src/core/../hal/../misc/lv_log.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 124
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 124
 
 
  4540              		.file 30 "lvgl/lvgl/src/core/lv_obj_pos.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 125
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 125
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_indev.c
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:18     .text.indev_proc_reset_query_handler:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:25     .text.indev_proc_reset_query_handler:00000000 indev_proc_reset_query_handler
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:97     .text.indev_proc_reset_query_handler:00000040 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:102    .text.indev_reset_check:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:108    .text.indev_reset_check:00000000 indev_reset_check
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:136    .text.indev_reset_check:00000014 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:141    .text.indev_proc_release:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:147    .text.indev_proc_release:00000000 indev_proc_release
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:294    .text.indev_proc_release:00000090 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:300    .text.indev_click_focus:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:306    .text.indev_click_focus:00000000 indev_click_focus
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:545    .text.indev_click_focus:000000f4 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:552    .text.indev_gesture:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:558    .text.indev_gesture:00000000 indev_gesture
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:758    .text.indev_gesture:00000108 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:763    .text.indev_keypad_proc:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:769    .text.indev_keypad_proc:00000000 indev_keypad_proc
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:1291   .text.indev_keypad_proc:0000025c $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:1297   .text.indev_encoder_proc:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:1303   .text.indev_encoder_proc:00000000 indev_encoder_proc
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:1921   .text.indev_encoder_proc:000002bc $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:1927   .text.indev_encoder_proc:000002c4 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2170   .text.indev_encoder_proc:000003e0 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2177   .text.lv_indev_enable:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2184   .text.lv_indev_enable:00000000 lv_indev_enable
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2210   .text.lv_indev_get_act:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2217   .text.lv_indev_get_act:00000000 lv_indev_get_act
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2232   .text.lv_indev_get_act:00000008 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2237   .text.lv_indev_get_type:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2244   .text.lv_indev_get_type:00000000 lv_indev_get_type
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2274   .text.lv_indev_reset:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2281   .text.lv_indev_reset:00000000 lv_indev_reset
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2461   .text.lv_indev_reset:0000009c $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2467   .text.lv_indev_reset_long_press:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2474   .text.lv_indev_reset_long_press:00000000 lv_indev_reset_long_press
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2512   .text.lv_indev_set_cursor:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2519   .text.lv_indev_set_cursor:00000000 lv_indev_set_cursor
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2588   .text.lv_indev_set_group:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2595   .text.lv_indev_set_group:00000000 lv_indev_set_group
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2625   .text.lv_indev_set_button_points:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2632   .text.lv_indev_set_button_points:00000000 lv_indev_set_button_points
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2661   .text.lv_indev_get_point:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2668   .text.lv_indev_get_point:00000000 lv_indev_get_point
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2726   .text.lv_indev_get_gesture_dir:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2733   .text.lv_indev_get_gesture_dir:00000000 lv_indev_get_gesture_dir
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2752   .text.lv_indev_get_key:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2759   .text.lv_indev_get_key:00000000 lv_indev_get_key
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2792   .text.lv_indev_get_scroll_dir:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2799   .text.lv_indev_get_scroll_dir:00000000 lv_indev_get_scroll_dir
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2848   .text.lv_indev_get_scroll_obj:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2855   .text.lv_indev_get_scroll_obj:00000000 lv_indev_get_scroll_obj
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2899   .text.lv_indev_get_vect:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2906   .text.lv_indev_get_vect:00000000 lv_indev_get_vect
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2954   .text.lv_indev_wait_release:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2961   .text.lv_indev_wait_release:00000000 lv_indev_wait_release
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 126
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:18     .text.indev_proc_reset_query_handler:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:25     .text.indev_proc_reset_query_handler:00000000 indev_proc_reset_query_handler
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:97     .text.indev_proc_reset_query_handler:00000040 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:102    .text.indev_reset_check:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:108    .text.indev_reset_check:00000000 indev_reset_check
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:136    .text.indev_reset_check:00000014 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:141    .text.indev_proc_release:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:147    .text.indev_proc_release:00000000 indev_proc_release
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:294    .text.indev_proc_release:00000090 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:300    .text.indev_click_focus:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:306    .text.indev_click_focus:00000000 indev_click_focus
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:545    .text.indev_click_focus:000000f4 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:552    .text.indev_gesture:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:558    .text.indev_gesture:00000000 indev_gesture
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:758    .text.indev_gesture:00000108 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:763    .text.indev_keypad_proc:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:769    .text.indev_keypad_proc:00000000 indev_keypad_proc
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:1291   .text.indev_keypad_proc:0000025c $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:1297   .text.indev_encoder_proc:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:1303   .text.indev_encoder_proc:00000000 indev_encoder_proc
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:1921   .text.indev_encoder_proc:000002bc $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:1927   .text.indev_encoder_proc:000002c4 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2170   .text.indev_encoder_proc:000003e0 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2177   .text.lv_indev_enable:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2184   .text.lv_indev_enable:00000000 lv_indev_enable
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2210   .text.lv_indev_get_act:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2217   .text.lv_indev_get_act:00000000 lv_indev_get_act
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2232   .text.lv_indev_get_act:00000008 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2237   .text.lv_indev_get_type:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2244   .text.lv_indev_get_type:00000000 lv_indev_get_type
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2274   .text.lv_indev_reset:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2281   .text.lv_indev_reset:00000000 lv_indev_reset
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2461   .text.lv_indev_reset:0000009c $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2467   .text.lv_indev_reset_long_press:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2474   .text.lv_indev_reset_long_press:00000000 lv_indev_reset_long_press
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2512   .text.lv_indev_set_cursor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2519   .text.lv_indev_set_cursor:00000000 lv_indev_set_cursor
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2588   .text.lv_indev_set_group:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2595   .text.lv_indev_set_group:00000000 lv_indev_set_group
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2625   .text.lv_indev_set_button_points:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2632   .text.lv_indev_set_button_points:00000000 lv_indev_set_button_points
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2661   .text.lv_indev_get_point:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2668   .text.lv_indev_get_point:00000000 lv_indev_get_point
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2726   .text.lv_indev_get_gesture_dir:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2733   .text.lv_indev_get_gesture_dir:00000000 lv_indev_get_gesture_dir
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2752   .text.lv_indev_get_key:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2759   .text.lv_indev_get_key:00000000 lv_indev_get_key
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2792   .text.lv_indev_get_scroll_dir:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2799   .text.lv_indev_get_scroll_dir:00000000 lv_indev_get_scroll_dir
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2848   .text.lv_indev_get_scroll_obj:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2855   .text.lv_indev_get_scroll_obj:00000000 lv_indev_get_scroll_obj
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2899   .text.lv_indev_get_vect:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2906   .text.lv_indev_get_vect:00000000 lv_indev_get_vect
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2954   .text.lv_indev_wait_release:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2961   .text.lv_indev_wait_release:00000000 lv_indev_wait_release
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 126
 
 
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2984   .text.lv_indev_get_obj_act:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:2991   .text.lv_indev_get_obj_act:00000000 lv_indev_get_obj_act
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3006   .text.lv_indev_get_obj_act:00000008 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3011   .rodata.lv_indev_get_read_timer.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3018   .text.lv_indev_get_read_timer:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3025   .text.lv_indev_get_read_timer:00000000 lv_indev_get_read_timer
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3080   .text.lv_indev_get_read_timer:00000024 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3087   .text.lv_indev_search_obj:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3094   .text.lv_indev_search_obj:00000000 lv_indev_search_obj
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3240   .text.indev_proc_press:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3246   .text.indev_proc_press:00000000 indev_proc_press
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3769   .text.indev_proc_press:00000270 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3775   .rodata.indev_pointer_proc.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3788   .text.indev_pointer_proc:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:3794   .text.indev_pointer_proc:00000000 indev_pointer_proc
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4076   .text.indev_pointer_proc:00000144 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4086   .rodata.indev_button_proc.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4090   .text.indev_button_proc:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4096   .text.indev_button_proc:00000000 indev_button_proc
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4251   .text.indev_button_proc:0000008c $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4258   .text.lv_indev_read_timer_cb:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4265   .text.lv_indev_read_timer_cb:00000000 lv_indev_read_timer_cb
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4470   .text.lv_indev_read_timer_cb:000000c4 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4476   .bss.indev_act:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4480   .bss.indev_act:00000000 indev_act
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4483   .bss.indev_obj_act:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4487   .bss.indev_obj_act:00000000 indev_obj_act
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4490   .rodata.__func__.10149:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4494   .rodata.__func__.10149:00000000 __func__.10149
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4497   .rodata.__func__.10171:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4501   .rodata.__func__.10171:00000000 __func__.10171
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4504   .rodata.__func__.10206:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccQaU95K.s:4508   .rodata.__func__.10206:00000000 __func__.10206
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2984   .text.lv_indev_get_obj_act:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:2991   .text.lv_indev_get_obj_act:00000000 lv_indev_get_obj_act
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3006   .text.lv_indev_get_obj_act:00000008 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3011   .rodata.lv_indev_get_read_timer.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3018   .text.lv_indev_get_read_timer:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3025   .text.lv_indev_get_read_timer:00000000 lv_indev_get_read_timer
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3080   .text.lv_indev_get_read_timer:00000024 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3087   .text.lv_indev_search_obj:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3094   .text.lv_indev_search_obj:00000000 lv_indev_search_obj
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3240   .text.indev_proc_press:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3246   .text.indev_proc_press:00000000 indev_proc_press
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3769   .text.indev_proc_press:00000270 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3775   .rodata.indev_pointer_proc.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3788   .text.indev_pointer_proc:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:3794   .text.indev_pointer_proc:00000000 indev_pointer_proc
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4076   .text.indev_pointer_proc:00000144 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4086   .rodata.indev_button_proc.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4090   .text.indev_button_proc:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4096   .text.indev_button_proc:00000000 indev_button_proc
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4251   .text.indev_button_proc:0000008c $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4258   .text.lv_indev_read_timer_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4265   .text.lv_indev_read_timer_cb:00000000 lv_indev_read_timer_cb
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4470   .text.lv_indev_read_timer_cb:000000c4 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4476   .bss.indev_act:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4480   .bss.indev_act:00000000 indev_act
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4483   .bss.indev_obj_act:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4487   .bss.indev_obj_act:00000000 indev_obj_act
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4490   .rodata.__func__.10149:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4494   .rodata.__func__.10149:00000000 __func__.10149
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4497   .rodata.__func__.10171:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4501   .rodata.__func__.10171:00000000 __func__.10171
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4504   .rodata.__func__.10206:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccQd84fp.s:4508   .rodata.__func__.10206:00000000 __func__.10206
 
 UNDEFINED SYMBOLS
 lv_event_send
@@ -7502,7 +7502,7 @@ lv_disp_get_layer_sys
 lv_obj_set_parent
 lv_obj_set_pos
 lv_obj_clear_flag
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQaU95K.s 			page 127
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccQd84fp.s 			page 127
 
 
 lv_obj_add_flag

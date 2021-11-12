@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
   28:lvgl/lvgl/src/draw/lv_draw_mask.c ****  **********************/
   29:lvgl/lvgl/src/draw/lv_draw_mask.c **** LV_ATTRIBUTE_FAST_MEM static lv_draw_mask_res_t lv_draw_mask_line(lv_opa_t * mask_buf, lv_coord_t a
   30:lvgl/lvgl/src/draw/lv_draw_mask.c ****                                                                   lv_coord_t abs_y, lv_coord_t len,
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 2
 
 
   31:lvgl/lvgl/src/draw/lv_draw_mask.c ****                                                                   lv_draw_mask_line_param_t * param
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
   85:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(i >= _LV_MASK_MAX_NUM) {
   86:lvgl/lvgl/src/draw/lv_draw_mask.c ****         LV_LOG_WARN("lv_mask_add: no place to add the mask");
   87:lvgl/lvgl/src/draw/lv_draw_mask.c ****         return LV_MASK_ID_INV;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 3
 
 
   88:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  142:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
  143:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  144:lvgl/lvgl/src/draw/lv_draw_mask.c ****     return p;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 4
 
 
  145:lvgl/lvgl/src/draw/lv_draw_mask.c **** }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  199:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  200:lvgl/lvgl/src/draw/lv_draw_mask.c **** /**
  201:lvgl/lvgl/src/draw/lv_draw_mask.c ****  * Count the currently added masks
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 5
 
 
  202:lvgl/lvgl/src/draw/lv_draw_mask.c ****  * @return number of active masks
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  256:lvgl/lvgl/src/draw/lv_draw_mask.c ****         p1y--;
  257:lvgl/lvgl/src/draw/lv_draw_mask.c ****         p2y--;
  258:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 6
 
 
  259:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  313:lvgl/lvgl/src/draw/lv_draw_mask.c ****             m = (1 << 20) / dx;  /*m is multiplier to normalize x (upscaled by 1024)*/
  314:lvgl/lvgl/src/draw/lv_draw_mask.c ****             param->yx_steep = (m * dy) >> 10;
  315:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 7
 
 
  316:lvgl/lvgl/src/draw/lv_draw_mask.c ****         param->steep = param->xy_steep;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  370:lvgl/lvgl/src/draw/lv_draw_mask.c **** void lv_draw_mask_angle_init(lv_draw_mask_angle_param_t * param, lv_coord_t vertex_x, lv_coord_t ve
  371:lvgl/lvgl/src/draw/lv_draw_mask.c ****                              lv_coord_t start_angle, lv_coord_t end_angle)
  372:lvgl/lvgl/src/draw/lv_draw_mask.c **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 8
 
 
  373:lvgl/lvgl/src/draw/lv_draw_mask.c ****     lv_draw_mask_line_side_t start_side;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  427:lvgl/lvgl/src/draw/lv_draw_mask.c **** /**
  428:lvgl/lvgl/src/draw/lv_draw_mask.c ****  * Initialize a fade mask.
  429:lvgl/lvgl/src/draw/lv_draw_mask.c ****  * @param param param pointer to a `lv_draw_mask_param_t` to initialize
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 9
 
 
  430:lvgl/lvgl/src/draw/lv_draw_mask.c ****  * @param rect coordinates of the rectangle to affect (absolute coordinates)
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  484:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  485:lvgl/lvgl/src/draw/lv_draw_mask.c ****     param->circle = entry;
  486:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 10
 
 
  487:lvgl/lvgl/src/draw/lv_draw_mask.c ****     circ_calc_aa4(param->circle, radius);
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  541:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(p->flat) {
  542:lvgl/lvgl/src/draw/lv_draw_mask.c ****             /*Non sense: Can't be on the right/left of a horizontal line*/
  543:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(p->cfg.side == LV_DRAW_MASK_LINE_SIDE_LEFT ||
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 11
 
 
  544:lvgl/lvgl/src/draw/lv_draw_mask.c ****                p->cfg.side == LV_DRAW_MASK_LINE_SIDE_RIGHT) return LV_DRAW_MASK_RES_FULL_COVER;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  598:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(p->yx_steep > 0) {
  599:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(y_at_x > abs_y) {
  600:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(p->inv) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 12
 
 
  601:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 return LV_DRAW_MASK_RES_FULL_COVER;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  655:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  656:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(xef) {
  657:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(k >= 0 && k < len) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 13
 
 
  658:lvgl/lvgl/src/draw/lv_draw_mask.c ****             m = 255 - (((255 - xef) * (255 - px_h)) >> 9);
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  712:lvgl/lvgl/src/draw/lv_draw_mask.c ****     /*At the beginning of the mask if the limit line is greater then the mask's y.
  713:lvgl/lvgl/src/draw/lv_draw_mask.c ****      *Then the mask is in the "wrong" area*/
  714:lvgl/lvgl/src/draw/lv_draw_mask.c ****     x_at_y = (int32_t)((int32_t)p->xy_steep * abs_y) >> 10;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 14
 
 
  715:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(p->xy_steep > 0) x_at_y++;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  769:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(k >= 0) lv_memset_00(&mask_buf[0], k);
  770:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  771:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 15
 
 
  772:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  826:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 if(p->inv) m = 255 - m;
  827:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 mask_buf[k] = mask_mix(mask_buf[k], m);
  828:lvgl/lvgl/src/draw/lv_draw_mask.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 16
 
 
  829:lvgl/lvgl/src/draw/lv_draw_mask.c ****             k++;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  883:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(tmp > 0) {
  884:lvgl/lvgl/src/draw/lv_draw_mask.c ****             res1 = lv_draw_mask_line(&mask_buf[0], abs_x, abs_y, tmp, &p->start_line);
  885:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(res1 == LV_DRAW_MASK_RES_TRANSP) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 17
 
 
  886:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 lv_memset_00(&mask_buf[0], tmp);
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  940:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
  941:lvgl/lvgl/src/draw/lv_draw_mask.c ****     else  {
  942:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 18
 
 
  943:lvgl/lvgl/src/draw/lv_draw_mask.c ****         lv_draw_mask_res_t res1 = LV_DRAW_MASK_RES_FULL_COVER;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  997:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if((abs_y < rect.y1 || abs_y > rect.y2)) {
  998:lvgl/lvgl/src/draw/lv_draw_mask.c ****             return LV_DRAW_MASK_RES_TRANSP;
  999:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 19
 
 
 1000:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1054:lvgl/lvgl/src/draw/lv_draw_mask.c ****     lv_coord_t cir_y;
 1055:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(abs_y < radius) {
 1056:lvgl/lvgl/src/draw/lv_draw_mask.c ****         cir_y = radius - abs_y - 1;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 20
 
 
 1057:lvgl/lvgl/src/draw/lv_draw_mask.c ****     } else {
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
   34              		.loc 1 1105 1 is_stmt 0 view .LVU1
   35 0000 F0B4     		push	{r4, r5, r6, r7}
   36              	.LCFI0:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 21
 
 
   37              		.cfi_def_cfa_offset 16
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
   85 0034 17FA83F3 		uxtah	r3, r7, r3
   86 0038 0133     		adds	r3, r3, #1
   87 003a 1BB2     		sxth	r3, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 22
 
 
   88              	.LVL2:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  125              		.loc 1 1128 12 view .LVU40
  126 0054 9142     		cmp	r1, r2
  127 0056 3CDD     		ble	.L22
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 23
 
 
  128              	.LBB66:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  169              	.LBB72:
 1142:lvgl/lvgl/src/draw/lv_draw_mask.c ****             mask_buf[i] = mask_mix(mask_buf[i], opa_act);
 1143:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 24
 
 
 1144:lvgl/lvgl/src/draw/lv_draw_mask.c ****         return LV_DRAW_MASK_RES_CHANGED;
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1198:lvgl/lvgl/src/draw/lv_draw_mask.c ****  * @return true if the circle is not ready yet
 1199:lvgl/lvgl/src/draw/lv_draw_mask.c ****  */
 1200:lvgl/lvgl/src/draw/lv_draw_mask.c **** static bool circ_cont(lv_point_t * c)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 25
 
 
 1201:lvgl/lvgl/src/draw/lv_draw_mask.c **** {
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1255:lvgl/lvgl/src/draw/lv_draw_mask.c ****     uint32_t x_fract[4];
 1256:lvgl/lvgl/src/draw/lv_draw_mask.c ****     lv_coord_t cir_size = 0;
 1257:lvgl/lvgl/src/draw/lv_draw_mask.c ****     x_int[0] = cp.x >> 2;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 26
 
 
 1258:lvgl/lvgl/src/draw/lv_draw_mask.c ****     x_fract[0] = 0;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1312:lvgl/lvgl/src/draw/lv_draw_mask.c ****             c->cir_opa[cir_size] *= 16;
 1313:lvgl/lvgl/src/draw/lv_draw_mask.c ****             cir_size++;
 1314:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 27
 
 
 1315:lvgl/lvgl/src/draw/lv_draw_mask.c ****             cir_x[cir_size] = x_int[0] - 1;
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1369:lvgl/lvgl/src/draw/lv_draw_mask.c **** static lv_opa_t * get_next_line(_lv_draw_mask_radius_circle_dsc_t * c, lv_coord_t y, lv_coord_t * l
 1370:lvgl/lvgl/src/draw/lv_draw_mask.c **** {
 1371:lvgl/lvgl/src/draw/lv_draw_mask.c ****     *len = c->opa_start_on_y[y + 1] - c->opa_start_on_y[y];
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 28
 
 
 1372:lvgl/lvgl/src/draw/lv_draw_mask.c ****     *x_start = c->x_start_on_y[y];
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1377:lvgl/lvgl/src/draw/lv_draw_mask.c **** {
  205              		.loc 1 1377 46 is_stmt 1 discriminator 3 view .LVU72
  206              	.LBB73:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 29
 
 
 1379:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(mask_new <= LV_OPA_MIN) return 0;
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  251              		.loc 1 1382 12 view .LVU87
  252              	.LBE76:
  253              	.LBE75:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 30
 
 
 1130:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  292              	.LBE77:
  293              	.LBE78:
 1129:lvgl/lvgl/src/draw/lv_draw_mask.c ****             mask_buf[i] = mask_mix(mask_buf[i], p->cfg.opa_bottom);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 31
 
 
  294              		.loc 1 1129 15 view .LVU104
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  338              	.LVL38:
  339              	.LBB70:
  340              	.LBI67:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 32
 
 
 1377:lvgl/lvgl/src/draw/lv_draw_mask.c **** {
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  382              		.cfi_def_cfa_offset 0
  383              	.LVL44:
 1146:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 33
 
 
  384              		.loc 1 1146 1 view .LVU132
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  432              		.cfi_offset 6, -12
  433              		.cfi_offset 7, -8
  434              		.cfi_offset 14, -4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 34
 
 
  435 0002 059D     		ldr	r5, [sp, #20]
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  472              		.file 2 "lvgl/lvgl/src/draw/../misc/lv_area.h"
    1:lvgl/lvgl/src/draw/../misc/lv_area.h **** /**
    2:lvgl/lvgl/src/draw/../misc/lv_area.h ****  * @file lv_area.h
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 35
 
 
    3:lvgl/lvgl/src/draw/../misc/lv_area.h ****  *
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
   57:lvgl/lvgl/src/draw/../misc/lv_area.h ****     lv_coord_t y2;
   58:lvgl/lvgl/src/draw/../misc/lv_area.h **** } lv_area_t;
   59:lvgl/lvgl/src/draw/../misc/lv_area.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 36
 
 
   60:lvgl/lvgl/src/draw/../misc/lv_area.h **** /** Alignments*/
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  114:lvgl/lvgl/src/draw/../misc/lv_area.h **** 
  115:lvgl/lvgl/src/draw/../misc/lv_area.h **** /**
  116:lvgl/lvgl/src/draw/../misc/lv_area.h ****  * Copy an area
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 37
 
 
  117:lvgl/lvgl/src/draw/../misc/lv_area.h ****  * @param dest pointer to the destination area
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1162:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  503              		.loc 1 1162 53 discriminator 1 view .LVU171
  504 0046 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 38
 
 
 1162:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  542              		.loc 1 1175 5 view .LVU188
  543 0062 0CE0     		b	.L40
  544              	.LVL63:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 39
 
 
  545              	.L38:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1176:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
  588              		.loc 1 1176 23 discriminator 3 view .LVU205
  589 0084 855C     		ldrb	r5, [r0, r2]	@ zero_extendqisi2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 40
 
 
  590 0086 A15C     		ldrb	r1, [r4, r2]	@ zero_extendqisi2
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  631              	.LVL78:
 1154:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(abs_x + len < p->cfg.coords.x1) return LV_DRAW_MASK_RES_FULL_COVER;
  632              		.loc 1 1154 41 view .LVU219
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 41
 
 
  633 009e FCE7     		b	.L36
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  677              		.loc 1 1192 10 view .LVU231
  678 000a 0A80     		strh	r2, [r1]	@ movhi
  679              	.LVL85:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 42
 
 
 1193:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  730              		.loc 1 1213 5 view .LVU239
 1213:lvgl/lvgl/src/draw/lv_draw_mask.c ****         (*tmp) += 2 * c->y + 3; /*Change in decision criterion for y -> y+1*/
  731              		.loc 1 1213 8 is_stmt 0 view .LVU240
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 43
 
 
  732 0000 B1F90030 		ldrsh	r3, [r1]
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  771              		.loc 1 1214 9 is_stmt 1 view .LVU255
 1214:lvgl/lvgl/src/draw/lv_draw_mask.c ****     } else {
  772              		.loc 1 1214 24 is_stmt 0 view .LVU256
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 44
 
 
  773 0032 4288     		ldrh	r2, [r0, #2]
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  818              		.loc 1 1371 56 view .LVU267
  819 000a 35F81150 		ldrh	r5, [r5, r1, lsl #1]
 1371:lvgl/lvgl/src/draw/lv_draw_mask.c ****     *x_start = c->x_start_on_y[y];
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 45
 
 
  820              		.loc 1 1371 37 view .LVU268
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  865              		@ frame_needed = 0, uses_anonymous_args = 0
  593:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  866              		.loc 1 593 1 is_stmt 0 view .LVU280
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 46
 
 
  867 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  907 0022 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  908              	.LVL97:
  909              	.L63:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 47
 
 
  609:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(p->inv) {
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  947 004c 13F0020F 		tst	r3, #2
  948 0050 00F0C880 		beq	.L86
  625:lvgl/lvgl/src/draw/lv_draw_mask.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 48
 
 
  949              		.loc 1 625 24 view .LVU312
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  988              	.LVL106:
  648:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  989              		.loc 1 648 5 is_stmt 1 view .LVU328
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 49
 
 
  650:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(xef == 0) px_h = 255;
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  658:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(p->inv) m = 255 - m;
  1026              		.loc 1 658 13 is_stmt 1 view .LVU347
  658:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(p->inv) m = 255 - m;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 50
 
 
  1027              		.loc 1 658 30 is_stmt 0 view .LVU348
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1066              		.loc 1 1382 5 is_stmt 1 view .LVU364
  1067              		.loc 1 1382 12 is_stmt 0 view .LVU365
  1068 00ca 04FB02F2 		mul	r2, r4, r2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 51
 
 
  1069              	.LVL114:
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1112              		.loc 1 1380 39 view .LVU379
  1113 00f0 0024     		movs	r4, #0
  1114              	.LVL123:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 52
 
 
 1380:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1154              		.loc 1 666 9 is_stmt 1 view .LVU394
  666:lvgl/lvgl/src/draw/lv_draw_mask.c ****             m = px_h - (p->spx >> 1);
  1155              		.loc 1 666 11 is_stmt 0 view .LVU395
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 53
 
 
  1156 010e 002A     		cmp	r2, #0
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1194              		.loc 1 1379 7 is_stmt 0 view .LVU411
  1195 0138 FC2C     		cmp	r4, #252
  1196 013a DDD8     		bhi	.L77
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 54
 
 
 1380:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1239              		.loc 1 678 23 is_stmt 0 view .LVU428
  1240 0166 04FB00F0 		mul	r0, r4, r0
  1241              	.LVL137:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 55
 
 
  678:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(p->yx_steep < 0) m = 255 - m;
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1280 0188 09D8     		bhi	.L84
 1380:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  1281              		.loc 1 1380 5 is_stmt 1 view .LVU445
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 56
 
 
 1380:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1324              	.LVL147:
  1325              	.L97:
  1326              	.LBB100:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 57
 
 
  679:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(p->inv) m = 255 - m;
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1367              		.loc 1 698 9 is_stmt 1 view .LVU476
  698:lvgl/lvgl/src/draw/lv_draw_mask.c ****             lv_memset_00(&mask_buf[k], len - k);
  1368              		.loc 1 698 11 is_stmt 0 view .LVU477
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 58
 
 
  1369 01d0 9342     		cmp	r3, r2
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1417              		.cfi_def_cfa_offset 24
  1418              		.cfi_offset 3, -24
  1419              		.cfi_offset 4, -20
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 59
 
 
  1420              		.cfi_offset 5, -16
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1458              	.LVL163:
  1459              	.L103:
  846:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 60
 
 
  1460              		.loc 1 846 1 view .LVU502
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1498              		.loc 1 743 39 is_stmt 0 view .LVU518
  1499 004c 02FB0552 		mla	r2, r2, r5, r5
  1500              	.LVL170:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 61
 
 
  744:lvgl/lvgl/src/draw/lv_draw_mask.c ****     int32_t xef = xe & 0xFF;
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  814:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(k >= 0 && k < len) {
  1538              		.loc 1 814 40 view .LVU536
  1539 0072 F869     		ldr	r0, [r7, #28]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 62
 
 
  1540              	.LVL176:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1578              	.LVL181:
  1579              	.LBB103:
  1580              	.LBI103:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 63
 
 
 1377:lvgl/lvgl/src/draw/lv_draw_mask.c **** {
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1622              		.loc 1 824 13 is_stmt 1 view .LVU570
  824:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 m = ((255 - y_inters) * x_inters) >> 9;
  1623              		.loc 1 824 15 is_stmt 0 view .LVU571
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 64
 
 
  1624 00ce 1CF10105 		adds	r5, ip, #1
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1662              		.loc 1 1379 7 is_stmt 0 view .LVU587
  1663 00f0 FC2A     		cmp	r2, #252
  1664 00f2 0AD8     		bhi	.L125
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 65
 
 
 1380:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  834:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  1706              		.loc 1 834 19 is_stmt 0 view .LVU606
  1707 0124 0029     		cmp	r1, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 66
 
 
  1708 0126 80F2C780 		bge	.L151
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1747              		.loc 1 759 13 is_stmt 1 view .LVU621
  759:lvgl/lvgl/src/draw/lv_draw_mask.c ****             mask_buf[k] = mask_mix(mask_buf[k], m);
  1748              		.loc 1 759 16 is_stmt 0 view .LVU622
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 67
 
 
  1749 014c 97F82800 		ldrb	r0, [r7, #40]	@ zero_extendqisi2
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1791              	.LVL212:
  1792              		.loc 1 1382 12 view .LVU639
  1793              	.LBE129:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 68
 
 
  1794              	.LBE128:
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1833              	.L152:
 1380:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  1834              		.loc 1 1380 39 view .LVU655
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 69
 
 
  1835              	.LBE130:
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1876              	.LVL223:
  1877              	.L150:
  1878              	.LBB132:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 70
 
 
  1879              	.LBB111:
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  1916 01f0 C0B2     		uxtb	r0, r0
  1917              	.LVL229:
  1918              	.L114:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 71
 
 
  786:lvgl/lvgl/src/draw/lv_draw_mask.c ****             }
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  790:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  1961              		.loc 1 790 55 view .LVU703
  1962 021a BA69     		ldr	r2, [r7, #24]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 72
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 72
 
 
  1963              	.LVL236:
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2001              	.LVL242:
  795:lvgl/lvgl/src/draw/lv_draw_mask.c ****             }
  2002              		.loc 1 795 17 is_stmt 1 view .LVU720
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 73
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 73
 
 
  795:lvgl/lvgl/src/draw/lv_draw_mask.c ****             }
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2045 026e 10D0     		beq	.L119
  801:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  2046              		.loc 1 801 17 is_stmt 1 view .LVU738
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 74
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 74
 
 
  801:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1380:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  2090              		.loc 1 1380 39 view .LVU750
  2091              	.LBE117:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 75
 
 
  2092              	.LBE119:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2134 02ac 0220     		movs	r0, #2
  2135 02ae BAE6     		b	.L103
  2136              	.LVL259:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 76
 
 
  2137              	.L141:
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  838:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 if(k == 0) return LV_DRAW_MASK_RES_TRANSP;
  2181              		.loc 1 838 31 view .LVU773
  2182 02c6 1D46     		mov	r5, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 77
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 77
 
 
  2183              	.LVL266:
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  845:lvgl/lvgl/src/draw/lv_draw_mask.c **** }
  2226              		.loc 1 845 12 view .LVU785
  2227 02ea 0220     		movs	r0, #2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 78
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 78
 
 
  2228 02ec 9BE6     		b	.L103
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2277              		.loc 1 535 22 is_stmt 0 view .LVU792
  2278 0008 A08A     		ldrh	r0, [r4, #20]
  2279              	.LVL275:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 79
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 79
 
 
  535:lvgl/lvgl/src/draw/lv_draw_mask.c ****     abs_x -= p->origo.x;
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  545:lvgl/lvgl/src/draw/lv_draw_mask.c ****             else if(p->cfg.side == LV_DRAW_MASK_LINE_SIDE_BOTTOM && abs_y > 0) return LV_DRAW_MASK_
  2317              		.loc 1 545 20 view .LVU810
  2318 0030 022B     		cmp	r3, #2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 80
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 80
 
 
  2319 0032 05D0     		beq	.L177
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  557:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 if(abs_x + len < 0) return LV_DRAW_MASK_RES_FULL_COVER;
  2359              		.loc 1 557 20 is_stmt 0 view .LVU825
  2360 005e 80B9     		cbnz	r0, .L163
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 81
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 81
 
 
  558:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 else {
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2401              	.LVL288:
  562:lvgl/lvgl/src/draw/lv_draw_mask.c ****                     return  LV_DRAW_MASK_RES_CHANGED;
  2402              		.loc 1 562 43 discriminator 2 view .LVU840
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 82
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 82
 
 
  2403 0080 F5E7     		b	.L164
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2443              		.loc 1 573 21 is_stmt 1 view .LVU854
  573:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 }
  2444              		.loc 1 573 29 is_stmt 0 view .LVU855
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 83
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 83
 
 
  2445 009c 0220     		movs	r0, #2
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2487              		.loc 1 584 9 is_stmt 1 view .LVU867
  584:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
  2488              		.loc 1 584 15 is_stmt 0 view .LVU868
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 84
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 84
 
 
  2489 00c0 0094     		str	r4, [sp]
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2537              		.cfi_def_cfa_offset 32
  2538              		.cfi_offset 4, -32
  2539              		.cfi_offset 5, -28
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 85
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 85
 
 
  2540              		.cfi_offset 6, -24
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2582 0032 00F08780 		beq	.L185
  856:lvgl/lvgl/src/draw/lv_draw_mask.c ****        p->cfg.start_angle > p->cfg.end_angle) {
  2583              		.loc 1 856 33 view .LVU889
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 86
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 86
 
 
  2584 0036 0028     		cmp	r0, #0
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  869:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else if(p->cfg.start_angle > 90 && p->cfg.start_angle < 270 && start_angle_last > 0) start_
  2623              		.loc 1 869 14 is_stmt 1 view .LVU905
  869:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else if(p->cfg.start_angle > 90 && p->cfg.start_angle < 270 && start_angle_last > 0) start_
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 87
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 87
 
 
  2624              		.loc 1 869 40 is_stmt 0 view .LVU906
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2665 0096 0FDB     		blt	.L225
  2666              	.L190:
  873:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else if(p->cfg.end_angle > 90 &&  p->cfg.end_angle < 270 && start_angle_last > 0) start_ang
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 88
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 88
 
 
  2667              		.loc 1 873 14 is_stmt 1 view .LVU920
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2707              		.loc 1 876 41 is_stmt 0 view .LVU934
  2708 00ba ACEB070A 		sub	r10, ip, r7
  2709              	.LVL321:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 89
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 89
 
 
  878:lvgl/lvgl/src/draw/lv_draw_mask.c ****         lv_draw_mask_res_t res2 = LV_DRAW_MASK_RES_FULL_COVER;
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2748              	.L196:
  892:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(res2 == LV_DRAW_MASK_RES_TRANSP) {
  2749              		.loc 1 892 9 is_stmt 1 view .LVU951
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 90
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 90
 
 
  892:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(res2 == LV_DRAW_MASK_RES_TRANSP) {
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2791              		.loc 1 884 13 is_stmt 1 view .LVU964
  884:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(res1 == LV_DRAW_MASK_RES_TRANSP) {
  2792              		.loc 1 884 20 is_stmt 0 view .LVU965
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 91
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 91
 
 
  2793 010e 04F11003 		add	r3, r4, #16
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  894:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
  2837              		.loc 1 894 13 view .LVU976
  2838              	.LBE143:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 92
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 92
 
 
  899:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2876 017a 9BB2     		uxth	r3, r3
  910:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else if(p->cfg.start_angle > 0 && p->cfg.start_angle <= 90 && start_angle_last < 0) start_a
  2877              		.loc 1 910 11 view .LVU994
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 93
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 93
 
 
  2878 017c 582B     		cmp	r3, #88
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2918 01ac 83B2     		uxth	r3, r0
  2919 01ae A3F20F12 		subw	r2, r3, #271
  2920 01b2 92B2     		uxth	r2, r2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 94
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 94
 
 
  914:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else if(p->cfg.end_angle > 0 &&   p->cfg.end_angle <= 90 && start_angle_last < 0) start_ang
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  2961              	.LVL354:
  2962              	.L237:
  914:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else if(p->cfg.end_angle > 0 &&   p->cfg.end_angle <= 90 && start_angle_last < 0) start_ang
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 95
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 95
 
 
  2963              		.loc 1 914 104 view .LVU1023
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3001 0208 C246     		mov	r10, r8
  3002              	.LVL361:
  3003              	.L207:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 96
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 96
 
 
  933:lvgl/lvgl/src/draw/lv_draw_mask.c ****         res2 = lv_draw_mask_line(&mask_buf[tmp], abs_x + tmp, abs_y, len - tmp, (lv_draw_mask_line_
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  915:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else if(p->cfg.end_angle > 90 &&  p->cfg.end_angle < 270 && start_angle_last > 0) start_ang
  3045              		.loc 1 915 108 view .LVU1053
  3046 023a 4FF0000A 		mov	r10, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 97
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 97
 
 
  3047              	.LVL368:
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3089              	.L262:
  936:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
  3090              		.loc 1 936 13 is_stmt 1 view .LVU1066
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 98
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 98
 
 
  3091 026a A8EB0A01 		sub	r1, r8, r10
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3129              		.loc 1 962 18 is_stmt 0 view .LVU1082
  3130 028e B4F90E30 		ldrsh	r3, [r4, #14]
  962:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(abs_y < p->cfg.vertex_p.y) res2 = LV_DRAW_MASK_RES_UNKNOWN;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 99
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 99
 
 
  3131              		.loc 1 962 11 view .LVU1083
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3171 02be 3146     		mov	r1, r6
  3172              	.LVL385:
  959:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 100
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 100
 
 
  3173              		.loc 1 959 20 view .LVU1098
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3215              		.loc 1 979 14 is_stmt 1 view .LVU1110
  979:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else if(res1 == LV_DRAW_MASK_RES_FULL_COVER &&  res2 == LV_DRAW_MASK_RES_FULL_COVER) return
  3216              		.loc 1 979 16 is_stmt 0 view .LVU1111
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 101
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 101
 
 
  3217 02f4 BAF1030F 		cmp	r10, #3
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3257 0324 4346     		mov	r3, r8
  3258 0326 2A46     		mov	r2, r5
  3259 0328 3146     		mov	r1, r6
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 102
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 102
 
 
  3260 032a 4846     		mov	r0, r9
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  979:lvgl/lvgl/src/draw/lv_draw_mask.c ****         else if(res1 == LV_DRAW_MASK_RES_FULL_COVER &&  res2 == LV_DRAW_MASK_RES_FULL_COVER) return
  3303              		.loc 1 979 94 view .LVU1137
  3304 034a 04E0     		b	.L186
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 103
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 103
 
 
  3305              	.LVL405:
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  981:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
  3349              		.loc 1 981 21 view .LVU1148
  3350 035e 0227     		movs	r7, #2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 104
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 104
 
 
  3351              	.LVL412:
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  993:lvgl/lvgl/src/draw/lv_draw_mask.c ****     lv_area_copy(&rect, &p->cfg.rect);
  3400              		.loc 1 993 5 is_stmt 1 view .LVU1156
  994:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 105
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 105
 
 
  3401              		.loc 1 994 5 view .LVU1157
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1007:lvgl/lvgl/src/draw/lv_draw_mask.c ****        (abs_y >= rect.y1 + radius && abs_y <= rect.y2 - radius)) {
  3438              		.loc 1 1007 26 is_stmt 0 view .LVU1175
  3439 0038 0CEB090E 		add	lr, ip, r9
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 106
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 106
 
 
 1007:lvgl/lvgl/src/draw/lv_draw_mask.c ****        (abs_y >= rect.y1 + radius && abs_y <= rect.y2 - radius)) {
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3478 0070 16DA     		bge	.L316
  3479              	.LVL421:
  3480              	.L274:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 107
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 107
 
 
 1017:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(first <= 0) return LV_DRAW_MASK_RES_TRANSP;
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3519              	.LVL424:
 1003:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
  3520              		.loc 1 1003 20 view .LVU1208
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 108
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 108
 
 
  3521 009e 1AE1     		b	.L268
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3562              		.loc 1 1029 41 is_stmt 0 view .LVU1221
  3563 00be E11B     		subs	r1, r4, r7
 1029:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 if(first + last > len) last = len - first;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 109
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 109
 
 
  3564              		.loc 1 1029 49 view .LVU1222
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3604              		.loc 1 1032 21 is_stmt 1 view .LVU1236
  3605 00e0 06EB0C00 		add	r0, r6, ip
  3606              	.LVL439:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 110
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 110
 
 
 1032:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 }
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3645              	.LBB161:
  144:lvgl/lvgl/src/draw/../misc/lv_area.h **** {
  145:lvgl/lvgl/src/draw/../misc/lv_area.h ****     return (lv_coord_t)(area_p->y2 - area_p->y1 + 1);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 111
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 111
 
 
  3646              		.loc 2 145 5 view .LVU1252
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3687              	.L280:
 1060:lvgl/lvgl/src/draw/lv_draw_mask.c ****     lv_coord_t cir_x_right = k + w - radius + x_start;
  3688              		.loc 1 1060 5 is_stmt 1 view .LVU1271
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 112
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 112
 
 
 1060:lvgl/lvgl/src/draw/lv_draw_mask.c ****     lv_coord_t cir_x_right = k + w - radius + x_start;
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1063:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  3729              		.loc 1 1063 5 is_stmt 1 view .LVU1286
 1065:lvgl/lvgl/src/draw/lv_draw_mask.c ****         for(i = 0; i < aa_len; i++) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 113
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 113
 
 
  3730              		.loc 1 1065 5 view .LVU1287
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3772              	.LBB166:
  3773              	.LBB167:
  3774              		.loc 1 1382 5 is_stmt 1 view .LVU1300
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 114
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 114
 
 
  3775              		.loc 1 1382 12 is_stmt 0 view .LVU1301
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3817              	.LVL467:
 1068:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 mask_buf[cir_x_right + i] = mask_mix(opa, mask_buf[cir_x_right + i]);
  3818              		.loc 1 1068 13 is_stmt 1 view .LVU1317
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 115
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 115
 
 
 1068:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 mask_buf[cir_x_right + i] = mask_mix(opa, mask_buf[cir_x_right + i]);
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1071:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 mask_buf[cir_x_left - i] = mask_mix(opa, mask_buf[cir_x_left - i]);
  3861              		.loc 1 1071 36 discriminator 1 view .LVU1334
  3862 01d2 AF42     		cmp	r7, r5
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 116
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 116
 
 
  3863 01d4 DBDA     		bge	.L285
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1078:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  3903              		.loc 1 1078 9 is_stmt 1 view .LVU1349
  3904 01f4 A91A     		subs	r1, r5, r2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 117
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 117
 
 
  3905 01f6 B018     		adds	r0, r6, r2
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1380:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  3949              		.loc 1 1380 39 view .LVU1360
  3950              	.LBE175:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 118
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 118
 
 
  3951              	.LBE174:
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  3994 0244 D21A     		subs	r2, r2, r3
 1085:lvgl/lvgl/src/draw/lv_draw_mask.c ****             if(cir_x_right + i >= 0 && cir_x_right + i < len) {
  3995              		.loc 1 1085 41 view .LVU1377
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 119
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 119
 
 
  3996 0246 875C     		ldrb	r7, [r0, r2]	@ zero_extendqisi2
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4038 0272 06F80820 		strb	r2, [r6, r8]
  4039              	.L288:
 1089:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 mask_buf[cir_x_left - i] = mask_mix(opa, mask_buf[cir_x_left - i]);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 120
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 120
 
 
  4040              		.loc 1 1089 13 is_stmt 1 view .LVU1394
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1094:lvgl/lvgl/src/draw/lv_draw_mask.c ****         lv_coord_t clr_len = LV_CLAMP(0, cir_x_right - clr_start, len - clr_start);
  4080              		.loc 1 1094 32 is_stmt 0 view .LVU1409
  4081 0298 0134     		adds	r4, r4, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 121
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 121
 
 
  4082              	.LVL498:
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4122 02c0 F5E7     		b	.L294
  4123              	.L296:
 1095:lvgl/lvgl/src/draw/lv_draw_mask.c ****         lv_memset_00(&mask_buf[clr_start], clr_len);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 122
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 122
 
 
  4124              		.loc 1 1095 30 discriminator 9 view .LVU1424
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  998:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
  4168              		.loc 1 998 20 view .LVU1435
  4169 02de FAE7     		b	.L268
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 123
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 123
 
 
  4170              	.LVL514:
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4211 0034 632D3E62 		.ascii	"c->buf != NULL\000"
  4211      75662021 
  4211      3D204E55 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 124
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 124
 
 
  4211      4C4C00
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4254              		.loc 1 1228 9 is_stmt 0 view .LVU1450
  4255 0012 0068     		ldr	r0, [r0]
  4256              	.LVL520:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 125
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 125
 
 
 1228:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4292              		.loc 1 1234 57 discriminator 2 view .LVU1469
  4293 003c 0432     		adds	r2, r2, #4
  4294 003e 0244     		add	r2, r2, r0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 126
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 126
 
 
 1234:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4330              		.loc 1 1257 5 view .LVU1488
 1257:lvgl/lvgl/src/draw/lv_draw_mask.c ****     x_fract[0] = 0;
  4331              		.loc 1 1257 18 is_stmt 0 view .LVU1489
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 127
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 127
 
 
  4332 0064 BDF93C30 		ldrsh	r3, [sp, #60]
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4371              		.loc 1 1238 23 is_stmt 0 view .LVU1504
  4372 0092 B422     		movs	r2, #180
  4373 0094 0270     		strb	r2, [r0]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 128
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 128
 
 
 1239:lvgl/lvgl/src/draw/lv_draw_mask.c ****         c->opa_start_on_y[1] =  1;
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1263:lvgl/lvgl/src/draw/lv_draw_mask.c ****             circ_next(&cp, &tmp);
  4410              		.loc 1 1263 28 is_stmt 0 discriminator 2 view .LVU1523
  4411 00c0 08F10108 		add	r8, r8, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 129
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 129
 
 
  4412              	.LVL531:
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4450              		.loc 1 1281 13 is_stmt 1 view .LVU1539
 1281:lvgl/lvgl/src/draw/lv_draw_mask.c ****             cir_y[cir_size] = y_8th_cnt;
  4451              		.loc 1 1281 29 is_stmt 0 view .LVU1540
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 130
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 130
 
 
  4452 00f4 27F81430 		strh	r3, [r7, r4, lsl #1]	@ movhi
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4488 0120 0899     		ldr	r1, [sp, #32]
  4489 0122 0B44     		add	r3, r3, r1
 1289:lvgl/lvgl/src/draw/lv_draw_mask.c ****             c->cir_opa[cir_size] *= 16;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 131
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 131
 
 
  4490              		.loc 1 1289 14 view .LVU1559
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1273:lvgl/lvgl/src/draw/lv_draw_mask.c ****             cir_y[cir_size] = y_8th_cnt;
  4530              		.loc 1 1273 13 is_stmt 1 view .LVU1574
 1273:lvgl/lvgl/src/draw/lv_draw_mask.c ****             cir_y[cir_size] = y_8th_cnt;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 132
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 132
 
 
  4531              		.loc 1 1273 29 is_stmt 0 view .LVU1575
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1294:lvgl/lvgl/src/draw/lv_draw_mask.c ****             cir_x[cir_size] = x_int[0];
  4569              		.loc 1 1294 14 is_stmt 1 view .LVU1592
 1294:lvgl/lvgl/src/draw/lv_draw_mask.c ****             cir_x[cir_size] = x_int[0];
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 133
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 133
 
 
  4570              		.loc 1 1294 34 is_stmt 0 view .LVU1593
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4607 01a6 013B     		subs	r3, r3, #1
 1301:lvgl/lvgl/src/draw/lv_draw_mask.c ****             cir_y[cir_size] = y_8th_cnt;
  4608              		.loc 1 1301 29 view .LVU1611
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 134
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 134
 
 
  4609 01a8 27F81230 		strh	r3, [r7, r2, lsl #1]	@ movhi
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1311:lvgl/lvgl/src/draw/lv_draw_mask.c ****             c->cir_opa[cir_size] *= 16;
  4646              		.loc 1 1311 13 is_stmt 1 view .LVU1629
 1311:lvgl/lvgl/src/draw/lv_draw_mask.c ****             c->cir_opa[cir_size] *= 16;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 135
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 135
 
 
  4647              		.loc 1 1311 47 is_stmt 0 view .LVU1630
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1317:lvgl/lvgl/src/draw/lv_draw_mask.c ****             c->cir_opa[cir_size] *= 16;
  4685              		.loc 1 1317 42 view .LVU1647
  4686 0204 099B     		ldr	r3, [sp, #36]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 136
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 136
 
 
  4687 0206 0C33     		adds	r3, r3, #12
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4726              	.LBB184:
 1329:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(tmp_val <= 512) {
  4727              		.loc 1 1329 9 is_stmt 1 view .LVU1663
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 137
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 137
 
 
  4728 0234 C3F30903 		ubfx	r3, r3, #0, #10
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4764 0256 1B01     		lsls	r3, r3, #4
  4765 0258 8B54     		strb	r3, [r1, r2]
 1344:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 138
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 138
 
 
  4766              		.loc 1 1344 9 is_stmt 1 view .LVU1682
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4805              		.loc 1 1337 13 is_stmt 1 view .LVU1697
 1337:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
  4806              		.loc 1 1337 21 is_stmt 0 view .LVU1698
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 139
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 139
 
 
  4807 0276 C3F10F03 		rsb	r3, r3, #15
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
 1348:lvgl/lvgl/src/draw/lv_draw_mask.c ****         cir_x[cir_size] = cir_y[i];
  4844              		.loc 1 1348 5 is_stmt 0 discriminator 1 view .LVU1716
  4845 0298 002B     		cmp	r3, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 140
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 140
 
 
  4846 029a EFDA     		bge	.L344
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4884 02c0 01D1     		bne	.L347
 1360:lvgl/lvgl/src/draw/lv_draw_mask.c ****             c->x_start_on_y[y] = LV_MIN(c->x_start_on_y[y], cir_x[i]);
  4885              		.loc 1 1360 29 discriminator 2 view .LVU1733
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 141
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 141
 
 
  4886 02c2 9E45     		cmp	lr, r3
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4924              	.L324:
 1367:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  4925              		.loc 1 1367 1 is_stmt 0 view .LVU1750
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 142
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 142
 
 
  4926 02f0 10B0     		add	sp, sp, #64
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  4975              		.loc 1 80 5 view .LVU1753
   81:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(LV_GC_ROOT(_lv_draw_mask_list[i]).param == NULL) break;
  4976              		.loc 1 81 5 view .LVU1754
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 143
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 143
 
 
   81:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(LV_GC_ROOT(_lv_draw_mask_list[i]).param == NULL) break;
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
   93:lvgl/lvgl/src/draw/lv_draw_mask.c **** }
  5014              		.loc 1 93 12 is_stmt 0 view .LVU1772
  5015 0024 18B2     		sxth	r0, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 144
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 144
 
 
  5016              	.LVL577:
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5060 0054 00000000 		.word	.LC0
  5061              		.cfi_endproc
  5062              	.LFE23:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 145
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 145
 
 
  5064              		.section	.text.lv_draw_mask_apply,"ax",%progbits
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5110              	.LVL585:
  5111              	.L380:
  5112              	.LBB186:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 146
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 146
 
 
  122:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  120:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  5151              		.loc 1 120 58 view .LVU1808
  5152 0038 EDE7     		b	.L380
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 147
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 147
 
 
  5153              	.LVL590:
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5202 0000 0346     		mov	r3, r0
  136:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  5203              		.loc 1 136 5 is_stmt 1 view .LVU1816
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 148
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 148
 
 
  5204              	.LVL593:
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  154:lvgl/lvgl/src/draw/lv_draw_mask.c ****     _lv_draw_mask_common_dsc_t * p = NULL;
  5249              		.loc 1 154 1 is_stmt 1 view -0
  5250              		.cfi_startproc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 149
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 149
 
 
  5251              		@ args = 0, pretend = 0, frame = 0
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  158:lvgl/lvgl/src/draw/lv_draw_mask.c ****             p = LV_GC_ROOT(_lv_draw_mask_list[i]).param;
  5291              		.loc 1 158 11 view .LVU1843
  5292 001a AB42     		cmp	r3, r5
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 150
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 150
 
 
  5293 001c F5D1     		bne	.L396
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5338 0002 022B     		cmp	r3, #2
  5339 0004 00D0     		beq	.L409
  5340 0006 7047     		bx	lr
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 151
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 151
 
 
  5341              	.L409:
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5381              	.LVL610:
  180:lvgl/lvgl/src/draw/lv_draw_mask.c ****                 lv_mem_free(radius_p->circle);
  5382              		.loc 1 180 17 is_stmt 0 view .LVU1869
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 152
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 152
 
 
  5383 0020 FFF7FEFF 		bl	lv_mem_free
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5430 000a C5EBC505 		rsb	r5, r5, r5, lsl #3
  5431 000e AB00     		lsls	r3, r5, #2
  196:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 153
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 153
 
 
  5432              		.loc 1 196 9 discriminator 2 view .LVU1879
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5477              		.thumb
  5478              		.thumb_func
  5479              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 154
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 154
 
 
  5481              	lv_draw_mask_get_cnt:
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5519              		.loc 1 209 53 is_stmt 1 discriminator 1 view .LVU1905
  209:lvgl/lvgl/src/draw/lv_draw_mask.c ****     }
  5520              		.loc 1 209 56 is_stmt 0 discriminator 1 view .LVU1906
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 155
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 155
 
 
  5521 0018 0130     		adds	r0, r0, #1
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  216:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  5569              		.loc 1 216 19 is_stmt 1 discriminator 1 view .LVU1915
  216:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 156
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 156
 
 
  5570              		.loc 1 216 59 is_stmt 0 discriminator 1 view .LVU1916
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  220:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(comm_param == NULL) continue;
  5612              		.loc 1 220 38 is_stmt 0 view .LVU1929
  5613 002c 0D4B     		ldr	r3, .L439
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 157
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 157
 
 
  5614 002e 53F83410 		ldr	r1, [r3, r4, lsl #3]
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5653              	.LBE194:
  235:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  5654              		.loc 1 235 12 view .LVU1945
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 158
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 158
 
 
  5655 0058 0020     		movs	r0, #0
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5706              		.cfi_offset 9, -8
  5707              		.cfi_offset 14, -4
  5708 0004 0446     		mov	r4, r0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 159
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 159
 
 
  5709 0006 8846     		mov	r8, r1
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5749              		.loc 1 273 21 is_stmt 0 view .LVU1964
  5750 0032 A4F80C80 		strh	r8, [r4, #12]	@ movhi
  274:lvgl/lvgl/src/draw/lv_draw_mask.c ****     param->cfg.side = side;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 160
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 160
 
 
  5751              		.loc 1 274 5 is_stmt 1 view .LVU1965
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5789 006e 0021     		movs	r1, #0
  5790 0070 E161     		str	r1, [r4, #28]
  281:lvgl/lvgl/src/draw/lv_draw_mask.c ****     param->dsc.cb = (lv_draw_mask_xcb_t)lv_draw_mask_line;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 161
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 161
 
 
  5791              		.loc 1 281 5 is_stmt 1 view .LVU1982
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5827              	.L445:
  297:lvgl/lvgl/src/draw/lv_draw_mask.c ****             m = (1 << 20) / dy;  /*m is multiplier to normalize x (upscaled by 1024)*/
  5828              		.loc 1 297 9 is_stmt 1 view .LVU2001
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 162
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 162
 
 
  297:lvgl/lvgl/src/draw/lv_draw_mask.c ****             m = (1 << 20) / dy;  /*m is multiplier to normalize x (upscaled by 1024)*/
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  330:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(param->steep < 0) param->spx = -param->spx;
  5866              		.loc 1 330 23 is_stmt 0 view .LVU2019
  5867 00bc 226A     		ldr	r2, [r4, #32]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 163
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 163
 
 
  330:lvgl/lvgl/src/draw/lv_draw_mask.c ****     if(param->steep < 0) param->spx = -param->spx;
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5906 00e0 92FBF5F2 		sdiv	r2, r2, r5
  5907              	.LVL659:
  309:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 164
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 164
 
 
  5908              		.loc 1 309 13 is_stmt 1 view .LVU2036
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  320:lvgl/lvgl/src/draw/lv_draw_mask.c ****     else if(param->cfg.side == LV_DRAW_MASK_LINE_SIDE_TOP) {
  5946              		.loc 1 320 12 is_stmt 0 view .LVU2053
  5947 0104 012B     		cmp	r3, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 165
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 165
 
 
  5948 0106 0DD0     		beq	.L460
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  5986 013c 43F00203 		orr	r3, r3, #2
  5987 0140 84F82830 		strb	r3, [r4, #40]
  5988 0144 BAE7     		b	.L451
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 166
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 166
 
 
  5989              	.L454:
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6035              	.LCFI38:
  6036              		.cfi_def_cfa_offset 24
  6037              		.cfi_offset 4, -24
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 167
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 167
 
 
  6038              		.cfi_offset 5, -20
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6079 002c 40F34F14 		sbfx	r4, r0, #5, #16
  6080              	.LVL671:
  359:lvgl/lvgl/src/draw/lv_draw_mask.c **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 168
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 168
 
 
  6081              		.loc 1 359 5 is_stmt 1 view .LVU2093
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6120 0058 656E645F 		.ascii	"end_angle >= 0 && start_angle <= 360\000"
  6120      616E676C 
  6120      65203E3D 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 169
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 169
 
 
  6120      20302026 
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  380:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  6165              		.loc 1 380 21 view .LVU2107
  6166 001a 40F26713 		movw	r3, #359
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 170
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 170
 
 
  6167 001e 00E0     		b	.L468
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6205              		.loc 1 395 5 is_stmt 1 view .LVU2123
  395:lvgl/lvgl/src/draw/lv_draw_mask.c ****     param->cfg.vertex_p.x = vertex_x;
  6206              		.loc 1 395 26 is_stmt 0 view .LVU2124
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 171
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 171
 
 
  6207 0044 E581     		strh	r5, [r4, #14]	@ movhi
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  412:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  6244              		.loc 1 412 5 is_stmt 1 discriminator 3 view .LVU2142
  6245 006a 244B     		ldr	r3, .L488+4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 172
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 172
 
 
  6246              	.LVL681:
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  401:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  6287              		.loc 1 401 5 is_stmt 1 discriminator 1 view .LVU2156
  6288 0094 1E4B     		ldr	r3, .L488+24
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 173
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 173
 
 
  6289              	.LVL689:
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  414:lvgl/lvgl/src/draw/lv_draw_mask.c ****         end_side = LV_DRAW_MASK_LINE_SIDE_RIGHT;
  6329              		.loc 1 414 7 discriminator 4 view .LVU2171
  6330 00b6 B32A     		cmp	r2, #179
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 174
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 174
 
 
  6331 00b8 06D9     		bls	.L484
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6375              	.LCFI44:
  6376              		.cfi_restore_state
  421:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 175
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 175
 
 
  6377              		.loc 1 421 18 view .LVU2182
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6426              		.loc 1 436 5 is_stmt 1 view .LVU2185
  6427              	.LVL705:
  6428              	.LBB198:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 176
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 176
 
 
  6429              	.LBI198:
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  438:lvgl/lvgl/src/draw/lv_draw_mask.c ****     int32_t short_side = LV_MIN(w, h);
  6472              		.loc 1 438 7 is_stmt 0 view .LVU2204
  6473 0022 151E     		subs	r5, r2, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 177
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 177
 
 
  6474 0024 2ADB     		blt	.L512
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6512              		.loc 2 124 19 is_stmt 0 view .LVU2220
  6513 0040 B1F90420 		ldrsh	r2, [r1, #4]
  124:lvgl/lvgl/src/draw/../misc/lv_area.h ****     dest->y2 = src->y2;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 178
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 178
 
 
  6514              		.loc 2 124 14 view .LVU2221
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  456:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(LV_GC_ROOT(_lv_circle_cache[i]).radius == radius) {
  6551              		.loc 1 456 5 is_stmt 0 discriminator 1 view .LVU2239
  6552 0062 032B     		cmp	r3, #3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 179
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 179
 
 
  6553 0064 2BD8     		bhi	.L514
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6593              		.loc 1 459 13 is_stmt 1 view .LVU2253
  6594 0096 1269     		ldr	r2, [r2, #16]
  6595 0098 0F2D     		cmp	r5, #15
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 180
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 180
 
 
  6596 009a 0EDD     		ble	.L509
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6638              	.LVL729:
  6639              	.L499:
  467:lvgl/lvgl/src/draw/lv_draw_mask.c ****         if(LV_GC_ROOT(_lv_circle_cache[i]).used_cnt == 0) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 181
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 181
 
 
  6640              		.loc 1 467 42 is_stmt 1 discriminator 2 view .LVU2266
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6679 00fe 06EB8206 		add	r6, r6, r2, lsl #2
  6680              	.LVL732:
  470:lvgl/lvgl/src/draw/lv_draw_mask.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 182
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 182
 
 
  6681              		.loc 1 470 79 discriminator 1 view .LVU2282
@@ -10918,7 +10918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6722 012a F0BD     		pop	{r4, r5, r6, r7, pc}
  6723              	.LVL735:
  6724              	.L518:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 183
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 183
 
 
  6725              	.LCFI48:
@@ -10978,7 +10978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6767              	.L504:
  476:lvgl/lvgl/src/draw/lv_draw_mask.c ****         lv_memset_00(entry, sizeof(_lv_draw_mask_radius_circle_dsc_t));
  6768              		.loc 1 476 9 is_stmt 1 discriminator 1 view .LVU2308
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 184
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 184
 
 
  476:lvgl/lvgl/src/draw/lv_draw_mask.c ****         lv_memset_00(entry, sizeof(_lv_draw_mask_radius_circle_dsc_t));
@@ -11038,7 +11038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  122:lvgl/lvgl/src/draw/../misc/lv_area.h ****     dest->y1 = src->y1;
  6817              		.loc 2 122 5 view .LVU2317
  122:lvgl/lvgl/src/draw/../misc/lv_area.h ****     dest->y1 = src->y1;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 185
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 185
 
 
  6818              		.loc 2 122 19 is_stmt 0 view .LVU2318
@@ -11098,7 +11098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  507:lvgl/lvgl/src/draw/lv_draw_mask.c ****     param->dsc.cb = (lv_draw_mask_xcb_t)lv_draw_mask_fade;
  6854              		.loc 1 507 5 is_stmt 1 view .LVU2337
  507:lvgl/lvgl/src/draw/lv_draw_mask.c ****     param->dsc.cb = (lv_draw_mask_xcb_t)lv_draw_mask_fade;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 186
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 186
 
 
  6855              		.loc 1 507 25 is_stmt 0 view .LVU2338
@@ -11158,7 +11158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  120:lvgl/lvgl/src/draw/../misc/lv_area.h **** {
  6902              		.loc 2 120 20 view .LVU2348
  6903              	.LBB207:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 187
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 187
 
 
  122:lvgl/lvgl/src/draw/../misc/lv_area.h ****     dest->y1 = src->y1;
@@ -11218,7 +11218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  524:lvgl/lvgl/src/draw/lv_draw_mask.c **** 
  6939              		.loc 1 524 1 view .LVU2368
  6940 0022 7047     		bx	lr
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 188
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 188
 
 
  6941              	.L528:
@@ -11278,7 +11278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6989              		.file 14 "lvgl/lvgl/src/draw/../misc/lv_timer.h"
  6990              		.file 15 "lvgl/lvgl/src/draw/../misc/../draw/lv_img_buf.h"
  6991              		.file 16 "lvgl/lvgl/src/draw/../misc/../draw/lv_img_decoder.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 189
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 189
 
 
  6992              		.file 17 "lvgl/lvgl/src/draw/../misc/../draw/lv_img_cache.h"
@@ -11286,91 +11286,91 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 1
  6994              		.file 19 "lvgl/lvgl/src/draw/../misc/lv_gc.h"
  6995              		.file 20 "lvgl/lvgl/src/draw/../misc/lv_log.h"
  6996              		.file 21 "lvgl/lvgl/src/draw/../misc/lv_math.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 190
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 190
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_draw_mask.c
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:18     .text.lv_draw_mask_fade:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:25     .text.lv_draw_mask_fade:00000000 lv_draw_mask_fade
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:413    .text.lv_draw_mask_map:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:419    .text.lv_draw_mask_map:00000000 lv_draw_mask_map
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:652    .text.circ_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:658    .text.circ_init:00000000 circ_init
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:686    .text.circ_cont:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:692    .text.circ_cont:00000000 circ_cont
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:716    .text.circ_next:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:722    .text.circ_next:00000000 circ_next
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:792    .text.get_next_line:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:798    .text.get_next_line:00000000 get_next_line
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:853    .text.line_mask_flat:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:859    .text.line_mask_flat:00000000 line_mask_flat
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:1401   .text.line_mask_steep:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:1407   .text.line_mask_steep:00000000 line_mask_steep
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:2250   .text.lv_draw_mask_line:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:2256   .text.lv_draw_mask_line:00000000 lv_draw_mask_line
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:2521   .text.lv_draw_mask_angle:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:2527   .text.lv_draw_mask_angle:00000000 lv_draw_mask_angle
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:3359   .text.lv_draw_mask_radius:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:3365   .text.lv_draw_mask_radius:00000000 lv_draw_mask_radius
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:4203   .rodata.circ_calc_aa4.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:4216   .text.circ_calc_aa4:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:4222   .text.circ_calc_aa4:00000000 circ_calc_aa4
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:4948   .text.circ_calc_aa4:000002f8 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:4957   .rodata.lv_draw_mask_add.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:4961   .text.lv_draw_mask_add:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:4968   .text.lv_draw_mask_add:00000000 lv_draw_mask_add
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5057   .text.lv_draw_mask_add:00000048 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5065   .text.lv_draw_mask_apply:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5072   .text.lv_draw_mask_apply:00000000 lv_draw_mask_apply
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5181   .text.lv_draw_mask_apply:00000050 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5186   .text.lv_draw_mask_remove_id:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5193   .text.lv_draw_mask_remove_id:00000000 lv_draw_mask_remove_id
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5234   .text.lv_draw_mask_remove_id:00000020 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5239   .text.lv_draw_mask_remove_custom:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5246   .text.lv_draw_mask_remove_custom:00000000 lv_draw_mask_remove_custom
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5314   .text.lv_draw_mask_remove_custom:00000030 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5319   .text.lv_draw_mask_free_param:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5326   .text.lv_draw_mask_free_param:00000000 lv_draw_mask_free_param
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5395   .text._lv_draw_mask_cleanup:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5402   .text._lv_draw_mask_cleanup:00000000 _lv_draw_mask_cleanup
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5469   .text._lv_draw_mask_cleanup:00000038 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5474   .text.lv_draw_mask_get_cnt:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5481   .text.lv_draw_mask_get_cnt:00000000 lv_draw_mask_get_cnt
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5534   .text.lv_draw_mask_get_cnt:00000020 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5539   .text.lv_draw_mask_is_any:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5546   .text.lv_draw_mask_is_any:00000000 lv_draw_mask_is_any
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5675   .text.lv_draw_mask_is_any:00000064 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5682   .text.lv_draw_mask_line_points_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:5689   .text.lv_draw_mask_line_points_init:00000000 lv_draw_mask_line_points_init
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6014   .text.lv_draw_mask_line_points_init:00000168 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6019   .text.lv_draw_mask_line_angle_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6026   .text.lv_draw_mask_line_angle_init:00000000 lv_draw_mask_line_angle_init
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s 			page 191
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:18     .text.lv_draw_mask_fade:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:25     .text.lv_draw_mask_fade:00000000 lv_draw_mask_fade
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:413    .text.lv_draw_mask_map:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:419    .text.lv_draw_mask_map:00000000 lv_draw_mask_map
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:652    .text.circ_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:658    .text.circ_init:00000000 circ_init
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:686    .text.circ_cont:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:692    .text.circ_cont:00000000 circ_cont
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:716    .text.circ_next:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:722    .text.circ_next:00000000 circ_next
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:792    .text.get_next_line:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:798    .text.get_next_line:00000000 get_next_line
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:853    .text.line_mask_flat:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:859    .text.line_mask_flat:00000000 line_mask_flat
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:1401   .text.line_mask_steep:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:1407   .text.line_mask_steep:00000000 line_mask_steep
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:2250   .text.lv_draw_mask_line:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:2256   .text.lv_draw_mask_line:00000000 lv_draw_mask_line
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:2521   .text.lv_draw_mask_angle:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:2527   .text.lv_draw_mask_angle:00000000 lv_draw_mask_angle
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:3359   .text.lv_draw_mask_radius:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:3365   .text.lv_draw_mask_radius:00000000 lv_draw_mask_radius
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:4203   .rodata.circ_calc_aa4.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:4216   .text.circ_calc_aa4:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:4222   .text.circ_calc_aa4:00000000 circ_calc_aa4
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:4948   .text.circ_calc_aa4:000002f8 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:4957   .rodata.lv_draw_mask_add.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:4961   .text.lv_draw_mask_add:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:4968   .text.lv_draw_mask_add:00000000 lv_draw_mask_add
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5057   .text.lv_draw_mask_add:00000048 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5065   .text.lv_draw_mask_apply:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5072   .text.lv_draw_mask_apply:00000000 lv_draw_mask_apply
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5181   .text.lv_draw_mask_apply:00000050 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5186   .text.lv_draw_mask_remove_id:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5193   .text.lv_draw_mask_remove_id:00000000 lv_draw_mask_remove_id
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5234   .text.lv_draw_mask_remove_id:00000020 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5239   .text.lv_draw_mask_remove_custom:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5246   .text.lv_draw_mask_remove_custom:00000000 lv_draw_mask_remove_custom
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5314   .text.lv_draw_mask_remove_custom:00000030 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5319   .text.lv_draw_mask_free_param:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5326   .text.lv_draw_mask_free_param:00000000 lv_draw_mask_free_param
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5395   .text._lv_draw_mask_cleanup:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5402   .text._lv_draw_mask_cleanup:00000000 _lv_draw_mask_cleanup
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5469   .text._lv_draw_mask_cleanup:00000038 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5474   .text.lv_draw_mask_get_cnt:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5481   .text.lv_draw_mask_get_cnt:00000000 lv_draw_mask_get_cnt
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5534   .text.lv_draw_mask_get_cnt:00000020 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5539   .text.lv_draw_mask_is_any:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5546   .text.lv_draw_mask_is_any:00000000 lv_draw_mask_is_any
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5675   .text.lv_draw_mask_is_any:00000064 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5682   .text.lv_draw_mask_line_points_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:5689   .text.lv_draw_mask_line_points_init:00000000 lv_draw_mask_line_points_init
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6014   .text.lv_draw_mask_line_points_init:00000168 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6019   .text.lv_draw_mask_line_angle_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6026   .text.lv_draw_mask_line_angle_init:00000000 lv_draw_mask_line_angle_init
+ARM GAS  C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s 			page 191
 
 
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6109   .rodata.lv_draw_mask_angle_init.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6122   .text.lv_draw_mask_angle_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6129   .text.lv_draw_mask_angle_init:00000000 lv_draw_mask_angle_init
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6383   .text.lv_draw_mask_angle_init:000000f8 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6395   .rodata.lv_draw_mask_radius_init.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6399   .text.lv_draw_mask_radius_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6406   .text.lv_draw_mask_radius_init:00000000 lv_draw_mask_radius_init
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6780   .text.lv_draw_mask_radius_init:00000168 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6791   .text.lv_draw_mask_fade_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6798   .text.lv_draw_mask_fade_init:00000000 lv_draw_mask_fade_init
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6879   .text.lv_draw_mask_fade_init:00000038 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6884   .text.lv_draw_mask_map_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6891   .text.lv_draw_mask_map_init:00000000 lv_draw_mask_map_init
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6944   .text.lv_draw_mask_map_init:00000024 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6949   .rodata.__func__.7212:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6953   .rodata.__func__.7212:00000000 __func__.7212
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6956   .rodata.__func__.7299:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6960   .rodata.__func__.7299:00000000 __func__.7299
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6963   .rodata.__func__.7319:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6967   .rodata.__func__.7319:00000000 __func__.7319
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6970   .rodata.__func__.7488:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccnPxf7M.s:6974   .rodata.__func__.7488:00000000 __func__.7488
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6109   .rodata.lv_draw_mask_angle_init.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6122   .text.lv_draw_mask_angle_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6129   .text.lv_draw_mask_angle_init:00000000 lv_draw_mask_angle_init
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6383   .text.lv_draw_mask_angle_init:000000f8 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6395   .rodata.lv_draw_mask_radius_init.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6399   .text.lv_draw_mask_radius_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6406   .text.lv_draw_mask_radius_init:00000000 lv_draw_mask_radius_init
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6780   .text.lv_draw_mask_radius_init:00000168 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6791   .text.lv_draw_mask_fade_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6798   .text.lv_draw_mask_fade_init:00000000 lv_draw_mask_fade_init
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6879   .text.lv_draw_mask_fade_init:00000038 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6884   .text.lv_draw_mask_map_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6891   .text.lv_draw_mask_map_init:00000000 lv_draw_mask_map_init
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6944   .text.lv_draw_mask_map_init:00000024 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6949   .rodata.__func__.7212:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6953   .rodata.__func__.7212:00000000 __func__.7212
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6956   .rodata.__func__.7299:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6960   .rodata.__func__.7299:00000000 __func__.7299
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6963   .rodata.__func__.7319:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6967   .rodata.__func__.7319:00000000 __func__.7319
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6970   .rodata.__func__.7488:00000000 $d
+C:\Users\gx\AppData\Local\Temp\cc8vmOxJ.s:6974   .rodata.__func__.7488:00000000 __func__.7488
 
 UNDEFINED SYMBOLS
 lv_memset_00
