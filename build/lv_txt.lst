@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
   28:lvgl/lvgl/src/misc/lv_txt.c ****  **********************/
   29:lvgl/lvgl/src/misc/lv_txt.c **** 
   30:lvgl/lvgl/src/misc/lv_txt.c **** #if LV_TXT_ENC == LV_TXT_ENC_UTF8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 2
 
 
   31:lvgl/lvgl/src/misc/lv_txt.c ****     static uint8_t lv_txt_utf8_size(const char * str);
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
   85:lvgl/lvgl/src/misc/lv_txt.c **** /**
   86:lvgl/lvgl/src/misc/lv_txt.c ****  * Get size of a text
   87:lvgl/lvgl/src/misc/lv_txt.c ****  * @param size_res pointer to a 'point_t' variable to store the result
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 3
 
 
   88:lvgl/lvgl/src/misc/lv_txt.c ****  * @param text pointer to a text
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  142:lvgl/lvgl/src/misc/lv_txt.c **** }
  143:lvgl/lvgl/src/misc/lv_txt.c **** 
  144:lvgl/lvgl/src/misc/lv_txt.c **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 4
 
 
  145:lvgl/lvgl/src/misc/lv_txt.c ****  * Get the next word of text. A word is delimited by break characters.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  199:lvgl/lvgl/src/misc/lv_txt.c ****         word_len++;
  200:lvgl/lvgl/src/misc/lv_txt.c **** 
  201:lvgl/lvgl/src/misc/lv_txt.c ****         /*Handle the recolor command*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 5
 
 
  202:lvgl/lvgl/src/misc/lv_txt.c ****         if((flag & LV_TEXT_FLAG_RECOLOR) != 0) {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  256:lvgl/lvgl/src/misc/lv_txt.c ****     /*Word is "long," but insufficient amounts can fit in provided space*/
  257:lvgl/lvgl/src/misc/lv_txt.c ****     if(break_letter_count < LV_TXT_LINE_BREAK_LONG_PRE_MIN_LEN) {
  258:lvgl/lvgl/src/misc/lv_txt.c ****         if(force) return break_index;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 6
 
 
  259:lvgl/lvgl/src/misc/lv_txt.c ****         if(word_w_ptr != NULL) *word_w_ptr = 0;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  313:lvgl/lvgl/src/misc/lv_txt.c ****     lv_text_cmd_state_t cmd_state = LV_TEXT_CMD_STATE_WAIT;
  314:lvgl/lvgl/src/misc/lv_txt.c ****     uint32_t i = 0;                                        /*Iterating index into txt*/
  315:lvgl/lvgl/src/misc/lv_txt.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 7
 
 
  316:lvgl/lvgl/src/misc/lv_txt.c ****     while(txt[i] != '\0' && max_width > 0) {
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  370:lvgl/lvgl/src/misc/lv_txt.c ****             _lv_txt_encoded_letter_next_2(txt, &letter, &letter_next, &i);
  371:lvgl/lvgl/src/misc/lv_txt.c **** 
  372:lvgl/lvgl/src/misc/lv_txt.c ****             if((flag & LV_TEXT_FLAG_RECOLOR) != 0) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 8
 
 
  373:lvgl/lvgl/src/misc/lv_txt.c ****                 if(_lv_txt_is_cmd(&cmd_state, letter) != false) {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  427:lvgl/lvgl/src/misc/lv_txt.c ****         ret = true;
  428:lvgl/lvgl/src/misc/lv_txt.c ****     }
  429:lvgl/lvgl/src/misc/lv_txt.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 9
 
 
  430:lvgl/lvgl/src/misc/lv_txt.c ****     return ret;
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  484:lvgl/lvgl/src/misc/lv_txt.c ****  * @return pointer to the allocated text string.
  485:lvgl/lvgl/src/misc/lv_txt.c ****  */
  486:lvgl/lvgl/src/misc/lv_txt.c **** LV_FORMAT_ATTRIBUTE(1, 0) char * _lv_txt_set_text_vfmt(const char * fmt, va_list ap)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 10
 
 
  487:lvgl/lvgl/src/misc/lv_txt.c **** {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  541:lvgl/lvgl/src/misc/lv_txt.c ****  * Give the size of an UTF-8 coded character
  542:lvgl/lvgl/src/misc/lv_txt.c ****  * @param str pointer to a character in a string
  543:lvgl/lvgl/src/misc/lv_txt.c ****  * @return length of the UTF-8 character (1,2,3 or 4). O on invalid code
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 11
 
 
  544:lvgl/lvgl/src/misc/lv_txt.c ****  */
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
   69              	.LVL4:
   70              	.L4:
  550:lvgl/lvgl/src/misc/lv_txt.c ****     else if((str[0] & 0xF0) == 0xE0)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 12
 
 
   71              		.loc 1 550 16 view .LVU15
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  112              		.loc 1 564 1 view .LVU24
  113 0004 82B0     		sub	sp, sp, #8
  114              	.LCFI0:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 13
 
 
  115              		.cfi_def_cfa_offset 8
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  146              		.loc 1 588 5 view .LVU41
  147              		.loc 1 588 12 is_stmt 0 view .LVU42
  148 002e 0198     		ldr	r0, [sp, #4]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 14
 
 
  589:lvgl/lvgl/src/misc/lv_txt.c **** }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  578:lvgl/lvgl/src/misc/lv_txt.c ****     }
  188              		.loc 1 578 9 is_stmt 1 view .LVU59
  578:lvgl/lvgl/src/misc/lv_txt.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 15
 
 
  189              		.loc 1 578 18 is_stmt 0 view .LVU60
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  584:lvgl/lvgl/src/misc/lv_txt.c ****     }
  226              		.loc 1 584 18 view .LVU78
  227 0098 8DF80700 		strb	r0, [sp, #7]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 16
 
 
  228 009c C7E7     		b	.L10
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
    8:lvgl/lvgl/src/misc/lv_mem.h **** 
    9:lvgl/lvgl/src/misc/lv_mem.h **** #ifdef __cplusplus
   10:lvgl/lvgl/src/misc/lv_mem.h **** extern "C" {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 17
 
 
   11:lvgl/lvgl/src/misc/lv_mem.h **** #endif
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
   65:lvgl/lvgl/src/misc/lv_mem.h **** /**
   66:lvgl/lvgl/src/misc/lv_mem.h ****  * Initialize the dyn_mem module (work memory and other variables)
   67:lvgl/lvgl/src/misc/lv_mem.h ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 18
 
 
   68:lvgl/lvgl/src/misc/lv_mem.h **** void lv_mem_init(void);
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  122:lvgl/lvgl/src/misc/lv_mem.h **** void lv_mem_buf_release(void * p);
  123:lvgl/lvgl/src/misc/lv_mem.h **** 
  124:lvgl/lvgl/src/misc/lv_mem.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 19
 
 
  125:lvgl/lvgl/src/misc/lv_mem.h ****  * Free all memory buffers
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  179:lvgl/lvgl/src/misc/lv_mem.h ****  * @param len number of byte to set
  180:lvgl/lvgl/src/misc/lv_mem.h ****  */
  181:lvgl/lvgl/src/misc/lv_mem.h **** static inline void lv_memset_ff(void * dst, size_t len)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 20
 
 
  182:lvgl/lvgl/src/misc/lv_mem.h **** {
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  290              		.loc 2 210 9 view .LVU92
  291              		.loc 2 210 12 is_stmt 0 view .LVU93
  292 001a 013B     		subs	r3, r3, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 21
 
 
  293              	.LVL23:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  338 0042 032B     		cmp	r3, #3
  339 0044 04D8     		bhi	.L27
  607:lvgl/lvgl/src/misc/lv_txt.c ****             if((swapped & 0xFF) == 0)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 22
 
 
  340              		.loc 1 607 13 is_stmt 1 view .LVU115
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  625:lvgl/lvgl/src/misc/lv_txt.c **** {
  379              		.loc 1 625 1 is_stmt 1 view -0
  380              		.cfi_startproc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 23
 
 
  381              		@ args = 0, pretend = 0, frame = 8
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  418              	.LVL34:
  643:lvgl/lvgl/src/misc/lv_txt.c ****         (*i)++;
  419              		.loc 1 643 9 is_stmt 1 view .LVU139
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 24
 
 
  420              		.loc 1 643 13 is_stmt 0 view .LVU140
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  427              	.LCFI8:
  428              		.cfi_remember_state
  429              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 25
 
 
  430              		@ sp needed
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  473              	.L44:
  649:lvgl/lvgl/src/misc/lv_txt.c ****             (*i)++;
  474              		.loc 1 649 13 is_stmt 1 view .LVU154
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 26
 
 
  649:lvgl/lvgl/src/misc/lv_txt.c ****             (*i)++;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  512              		.loc 1 658 17 is_stmt 0 view .LVU171
  513 006a 0133     		adds	r3, r3, #1
  514 006c 2360     		str	r3, [r4]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 27
 
 
  660:lvgl/lvgl/src/misc/lv_txt.c ****             result += (uint32_t)(txt[*i] & 0x3F) << 6;
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  552 0098 C0E7     		b	.L28
  553              	.LVL49:
  554              	.L46:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 28
 
 
  670:lvgl/lvgl/src/misc/lv_txt.c ****             (*i)++;
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  591              		.loc 1 678 50 is_stmt 0 view .LVU206
  592 00c4 8901     		lsls	r1, r1, #6
  593 00c6 01F47C61 		and	r1, r1, #4032
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 29
 
 
  678:lvgl/lvgl/src/misc/lv_txt.c ****             (*i)++;
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  633              	.L38:
  664:lvgl/lvgl/src/misc/lv_txt.c ****             result += (txt[*i] & 0x3F);
  634              		.loc 1 664 49 view .LVU222
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 30
 
 
  635 00ee 0020     		movs	r0, #0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  675              		.loc 1 700 1 is_stmt 0 view .LVU230
  676 0000 70B5     		push	{r4, r5, r6, lr}
  677              	.LCFI11:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 31
 
 
  678              		.cfi_def_cfa_offset 16
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  706:lvgl/lvgl/src/misc/lv_txt.c ****     do {
  714              		.loc 1 706 5 is_stmt 1 view .LVU242
  707:lvgl/lvgl/src/misc/lv_txt.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 32
 
 
  715              		.loc 1 707 9 view .LVU243
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  755 0040 3046     		mov	r0, r6
  756 0042 9847     		blx	r3
  757              	.LVL72:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 33
 
 
  721:lvgl/lvgl/src/misc/lv_txt.c **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  800              		.cfi_offset 3, -24
  801              		.cfi_offset 4, -20
  802              		.cfi_offset 5, -16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 34
 
 
  803              		.cfi_offset 6, -12
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  843 001a 054B     		ldr	r3, .L63
  844 001c 1B68     		ldr	r3, [r3]
  845 001e 9847     		blx	r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 35
 
 
  846              	.LVL80:
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  888              		.cfi_offset 4, -16
  889              		.cfi_offset 5, -12
  890              		.cfi_offset 6, -8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 36
 
 
  891              		.cfi_offset 14, -4
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  935              		.loc 1 762 1 view .LVU303
  936 0026 00BF     		.align	2
  937              	.L70:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 37
 
 
  938 0028 00000000 		.word	.LANCHOR1
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  981 000e 33B1     		cbz	r3, .L76
  776:lvgl/lvgl/src/misc/lv_txt.c ****         _lv_txt_encoded_next(txt, &i);
  982              		.loc 1 776 9 is_stmt 1 view .LVU313
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 38
 
 
  983 0010 044B     		ldr	r3, .L77
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1031              		.loc 1 404 5 is_stmt 1 view .LVU322
  1032              	.LVL95:
  406:lvgl/lvgl/src/misc/lv_txt.c ****         if(*state == LV_TEXT_CMD_STATE_WAIT) { /*Start char*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 39
 
 
  1033              		.loc 1 406 5 view .LVU323
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1071              		.loc 1 412 14 is_stmt 1 view .LVU339
  412:lvgl/lvgl/src/misc/lv_txt.c ****             *state = LV_TEXT_CMD_STATE_WAIT;
  1072              		.loc 1 412 16 is_stmt 0 view .LVU340
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 40
 
 
  1073 001a 012A     		cmp	r2, #1
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1112              		.loc 1 427 13 view .LVU355
  1113 0038 0120     		movs	r0, #1
  1114              	.LVL109:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 41
 
 
  427:lvgl/lvgl/src/misc/lv_txt.c ****     }
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1163              	.LCFI22:
  1164              		.cfi_def_cfa_offset 72
  1165 0006 0291     		str	r1, [sp, #8]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 42
 
 
  1166 0008 0392     		str	r2, [sp, #12]
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  187:lvgl/lvgl/src/misc/lv_txt.c ****     lv_coord_t cur_w = 0;  /*Pixel Width of transversed string*/
  1205              		.loc 1 187 5 view .LVU378
  188:lvgl/lvgl/src/misc/lv_txt.c ****     uint32_t word_len = 0;   /*Number of characters in the transversed word*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 43
 
 
  1206              		.loc 1 188 5 view .LVU379
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  211:lvgl/lvgl/src/misc/lv_txt.c ****         cur_w += letter_w;
  1243              		.loc 1 211 20 is_stmt 0 view .LVU397
  1244 005a 019A     		ldr	r2, [sp, #4]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 44
 
 
  1245 005c 2146     		mov	r1, r4
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  226:lvgl/lvgl/src/misc/lv_txt.c ****             /*Update the output width on the first character if it fits.
  1285              		.loc 1 226 27 discriminator 1 view .LVU412
  1286 0080 0D2C     		cmp	r4, #13
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 45
 
 
  1287 0082 3AD0     		beq	.L100
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
   50:lvgl/lvgl/src/misc/lv_txt.h **** /**
   51:lvgl/lvgl/src/misc/lv_txt.h ****  * State machine for text renderer.*/
   52:lvgl/lvgl/src/misc/lv_txt.h **** enum {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 46
 
 
   53:lvgl/lvgl/src/misc/lv_txt.h ****     LV_TEXT_CMD_STATE_WAIT, /**< Waiting for command*/
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  107:lvgl/lvgl/src/misc/lv_txt.h ****  * @param flags settings for the text from 'txt_flag_t' enum
  108:lvgl/lvgl/src/misc/lv_txt.h ****  * @return length of a char_num long text
  109:lvgl/lvgl/src/misc/lv_txt.h ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 47
 
 
  110:lvgl/lvgl/src/misc/lv_txt.h **** lv_coord_t lv_txt_get_width(const char * txt, uint32_t length, const lv_font_t * font, lv_coord_t l
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1292              		.loc 3 163 20 is_stmt 1 view .LVU413
  1293              	.LBB21:
  164:lvgl/lvgl/src/misc/lv_txt.h **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 48
 
 
  165:lvgl/lvgl/src/misc/lv_txt.h ****     uint8_t i;
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1331              		.loc 1 219 52 discriminator 1 view .LVU430
  1332 00a2 039B     		ldr	r3, [sp, #12]
  1333 00a4 EB1A     		subs	r3, r5, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 49
 
 
  219:lvgl/lvgl/src/misc/lv_txt.c ****             break_index = i;
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1374              	.L97:
  1375              	.LBB26:
  1376              	.LBB23:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 50
 
 
  166:lvgl/lvgl/src/misc/lv_txt.h **** 
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1416              		.loc 1 203 15 view .LVU459
  1417 00ea 0028     		cmp	r0, #0
  1418 00ec B5D0     		beq	.L96
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 51
 
 
  204:lvgl/lvgl/src/misc/lv_txt.c ****                 i_next = i_next_next;
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1459 0108 059B     		ldr	r3, [sp, #20]
  1460 010a 0BBB     		cbnz	r3, .L92
  277:lvgl/lvgl/src/misc/lv_txt.c ****     (void) break_letter_count;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 52
 
 
  1461              		.loc 1 277 5 is_stmt 1 view .LVU476
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1501              		.loc 1 244 26 discriminator 2 view .LVU490
  1502 0134 0CE0     		b	.L92
  1503              	.LVL155:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 53
 
 
  1504              	.L126:
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1548              	.L119:
  279:lvgl/lvgl/src/misc/lv_txt.c **** #endif
  1549              		.loc 1 279 12 view .LVU501
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 54
 
 
  1550 015e 4FF00008 		mov	r8, #0
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1600              		.loc 1 299 5 is_stmt 1 view .LVU507
  299:lvgl/lvgl/src/misc/lv_txt.c **** 
  1601              		.loc 1 299 7 is_stmt 0 view .LVU508
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 55
 
 
  1602 0016 0029     		cmp	r1, #0
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1640 0040 0593     		str	r3, [sp, #20]
  318:lvgl/lvgl/src/misc/lv_txt.c ****         max_width -= word_w;
  1641              		.loc 1 318 9 is_stmt 1 view .LVU525
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 56
 
 
  318:lvgl/lvgl/src/misc/lv_txt.c ****         max_width -= word_w;
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  330:lvgl/lvgl/src/misc/lv_txt.c ****             i++;  /*Include the following newline in the current line*/
  1683              		.loc 1 330 15 is_stmt 0 view .LVU539
  1684 007c EA5C     		ldrb	r2, [r5, r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 57
 
 
  330:lvgl/lvgl/src/misc/lv_txt.c ****             i++;  /*Include the following newline in the current line*/
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1726              	.LVL173:
  1727              	.L134:
  1728              	.LCFI28:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 58
 
 
  1729              		.cfi_restore_state
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1767 00ba F2E7     		b	.L131
  1768              	.LVL178:
  1769              	.L152:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 59
 
 
  305:lvgl/lvgl/src/misc/lv_txt.c ****             /*Just find the new line chars or string ends by incrementing `i`*/
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1814              		.global	_lv_txt_ins
  1815              		.syntax unified
  1816              		.thumb
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 60
 
 
  1817              		.thumb_func
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1860 001a 0444     		add	r4, r4, r0
  1861              	.LVL190:
  447:lvgl/lvgl/src/misc/lv_txt.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 61
 
 
  1862              		.loc 1 447 5 is_stmt 1 view .LVU592
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1900              	.LBI31:
  201:lvgl/lvgl/src/misc/lv_mem.h **** {
  1901              		.loc 2 201 44 is_stmt 1 view .LVU609
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 62
 
 
  1902              	.LBB32:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1943              		.global	_lv_txt_cut
  1944              		.syntax unified
  1945              		.thumb
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 63
 
 
  1946              		.thumb_func
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  1991 0024 3946     		mov	r1, r7
  1992 0026 2818     		adds	r0, r5, r0
  1993              	.LVL206:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 64
 
 
  472:lvgl/lvgl/src/misc/lv_txt.c **** 
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2034 0000 6C76676C 		.ascii	"lvgl/lvgl/src/misc/lv_txt.c\000"
  2034      2F6C7667 
  2034      6C2F7372 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 65
 
 
  2034      632F6D69 
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2075              		.loc 1 489 5 is_stmt 1 view .LVU651
  490:lvgl/lvgl/src/misc/lv_txt.c ****     uint32_t len = lv_vsnprintf(NULL, 0, fmt, ap_copy);
  2076              		.loc 1 490 5 view .LVU652
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 66
 
 
  490:lvgl/lvgl/src/misc/lv_txt.c ****     uint32_t len = lv_vsnprintf(NULL, 0, fmt, ap_copy);
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  521:lvgl/lvgl/src/misc/lv_txt.c **** 
  2113              		.loc 1 521 15 is_stmt 0 view .LVU671
  2114 0028 0023     		movs	r3, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 67
 
 
  2115 002a 8355     		strb	r3, [r0, r6]
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2159 005a 00BF     		.align	2
  2160              	.L177:
  2161 005c 1C000000 		.word	.LC2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 68
 
 
  2162 0060 2C000000 		.word	.LC3
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  532:lvgl/lvgl/src/misc/lv_txt.c **** }
  2211              		.loc 1 532 5 is_stmt 1 view .LVU689
  532:lvgl/lvgl/src/misc/lv_txt.c **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 69
 
 
  2212              		.loc 1 532 77 is_stmt 0 view .LVU690
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2261              		.cfi_offset 9, -8
  2262              		.cfi_offset 14, -4
  2263 0004 85B0     		sub	sp, sp, #20
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 70
 
 
  2264              	.LCFI37:
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2303              	.LBB33:
  378:lvgl/lvgl/src/misc/lv_txt.c ****             if(char_width > 0) {
  2304              		.loc 1 378 13 is_stmt 1 view .LVU713
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 71
 
 
  378:lvgl/lvgl/src/misc/lv_txt.c ****             if(char_width > 0) {
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2343 0050 01AA     		add	r2, sp, #4
  2344 0052 6946     		mov	r1, sp
  2345 0054 3846     		mov	r0, r7
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 72
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 72
 
 
  2346 0056 FFF7FEFF 		bl	_lv_txt_encoded_letter_next_2
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2387              	.L192:
  359:lvgl/lvgl/src/misc/lv_txt.c ****     if(txt[0] == '\0') return 0;
  2388              		.loc 1 359 29 view .LVU743
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 73
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 73
 
 
  2389 008c 4FF00009 		mov	r9, #0
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2433              		.cfi_offset 5, -32
  2434              		.cfi_offset 6, -28
  2435              		.cfi_offset 7, -24
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 74
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 74
 
 
  2436              		.cfi_offset 8, -20
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  107:lvgl/lvgl/src/misc/lv_txt.c ****     uint32_t new_line_start = 0;
  2478              		.loc 1 107 5 is_stmt 1 view .LVU761
  108:lvgl/lvgl/src/misc/lv_txt.c ****     uint16_t letter_height = lv_font_get_line_height(font);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 75
 
 
  2479              		.loc 1 108 5 view .LVU762
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
   49:lvgl/lvgl/src/misc/../font/lv_font.h ****     LV_FONT_SUBPX_HOR,
   50:lvgl/lvgl/src/misc/../font/lv_font.h ****     LV_FONT_SUBPX_VER,
   51:lvgl/lvgl/src/misc/../font/lv_font.h ****     LV_FONT_SUBPX_BOTH,
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 76
 
 
   52:lvgl/lvgl/src/misc/../font/lv_font.h **** };
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  106:lvgl/lvgl/src/misc/../font/lv_font.h ****  * @param font pointer to a font
  107:lvgl/lvgl/src/misc/../font/lv_font.h ****  * @param letter an UNICODE letter
  108:lvgl/lvgl/src/misc/../font/lv_font.h ****  * @param letter_next the next letter after `letter`. Used for kerning
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 77
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 77
 
 
  109:lvgl/lvgl/src/misc/../font/lv_font.h ****  * @return the width of the glyph
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2517 0058 0299     		ldr	r1, [sp, #8]
  2518 005a 3846     		mov	r0, r7
  2519 005c FFF7FEFF 		bl	_lv_txt_get_next_line
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 78
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 78
 
 
  2520              	.LVL252:
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2558              		.loc 1 129 9 is_stmt 1 view .LVU792
  2559              	.LVL255:
  129:lvgl/lvgl/src/misc/lv_txt.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 79
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 79
 
 
  2560              		.loc 1 129 21 is_stmt 0 view .LVU793
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  134:lvgl/lvgl/src/misc/lv_txt.c ****     }
  2603              		.loc 1 134 38 is_stmt 0 view .LVU805
  2604 00be 0BEB0A03 		add	r3, fp, r10
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 80
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 80
 
 
  134:lvgl/lvgl/src/misc/lv_txt.c ****     }
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2656              		.section	.data._lv_txt_encoded_get_char_id,"aw"
  2657              		.align	2
  2660              	_lv_txt_encoded_get_char_id:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 81
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 81
 
 
  2661 0000 00000000 		.word	lv_txt_utf8_get_char_id
@@ -4856,82 +4856,82 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 1
  2720              		.file 15 "lvgl/lvgl/src/misc/lv_log.h"
  2721              		.file 16 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
  2722              		.file 17 "<built-in>"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 82
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 82
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_txt.c
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:18     .text.lv_txt_utf8_size:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:25     .text.lv_txt_utf8_size:00000000 lv_txt_utf8_size
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:94     .text.lv_txt_unicode_to_utf8:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:100    .text.lv_txt_unicode_to_utf8:00000000 lv_txt_unicode_to_utf8
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:239    .text.lv_txt_utf8_conv_wc:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:245    .text.lv_txt_utf8_conv_wc:00000000 lv_txt_utf8_conv_wc
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:370    .text.lv_txt_utf8_next:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:376    .text.lv_txt_utf8_next:00000000 lv_txt_utf8_next
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:662    .text.lv_txt_utf8_prev:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:668    .text.lv_txt_utf8_prev:00000000 lv_txt_utf8_prev
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:777    .text.lv_txt_utf8_prev:0000004c $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:783    .text.lv_txt_utf8_get_byte_id:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:789    .text.lv_txt_utf8_get_byte_id:00000000 lv_txt_utf8_get_byte_id
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:866    .text.lv_txt_utf8_get_byte_id:00000030 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:871    .text.lv_txt_utf8_get_char_id:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:877    .text.lv_txt_utf8_get_char_id:00000000 lv_txt_utf8_get_char_id
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:938    .text.lv_txt_utf8_get_char_id:00000028 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:943    .text.lv_txt_utf8_get_length:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:949    .text.lv_txt_utf8_get_length:00000000 lv_txt_utf8_get_length
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1009   .text.lv_txt_utf8_get_length:00000024 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1014   .text._lv_txt_is_cmd:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1021   .text._lv_txt_is_cmd:00000000 _lv_txt_is_cmd
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1132   .rodata.lv_txt_get_next_word.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1136   .text.lv_txt_get_next_word:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1142   .text.lv_txt_get_next_word:00000000 lv_txt_get_next_word
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1557   .text.lv_txt_get_next_word:00000164 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1563   .text._lv_txt_get_next_line:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1570   .text._lv_txt_get_next_line:00000000 _lv_txt_get_next_line
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1808   .text._lv_txt_get_next_line:000000d8 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1813   .text._lv_txt_ins:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1820   .text._lv_txt_ins:00000000 _lv_txt_ins
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1937   .text._lv_txt_ins:0000004c $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1942   .text._lv_txt_cut:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:1949   .text._lv_txt_cut:00000000 _lv_txt_cut
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2027   .text._lv_txt_cut:00000040 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2032   .rodata._lv_txt_set_text_vfmt.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2045   .text._lv_txt_set_text_vfmt:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2052   .text._lv_txt_set_text_vfmt:00000000 _lv_txt_set_text_vfmt
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2161   .text._lv_txt_set_text_vfmt:0000005c $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2170   .text._lv_txt_encoded_letter_next_2:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2177   .text._lv_txt_encoded_letter_next_2:00000000 _lv_txt_encoded_letter_next_2
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2233   .text._lv_txt_encoded_letter_next_2:00000028 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2238   .text.lv_txt_get_width:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2245   .text.lv_txt_get_width:00000000 lv_txt_get_width
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2409   .rodata.lv_txt_get_size.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2414   .text.lv_txt_get_size:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2421   .text.lv_txt_get_size:00000000 lv_txt_get_size
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2629   .text.lv_txt_get_size:000000e0 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2686   .data._lv_txt_get_encoded_length:00000000 _lv_txt_get_encoded_length
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2660   .data._lv_txt_encoded_get_char_id:00000000 _lv_txt_encoded_get_char_id
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2654   .data._lv_txt_encoded_get_byte_id:00000000 _lv_txt_encoded_get_byte_id
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2673   .data._lv_txt_encoded_prev:00000000 _lv_txt_encoded_prev
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2667   .data._lv_txt_encoded_next:00000000 _lv_txt_encoded_next
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2647   .data._lv_txt_encoded_conv_wc:00000000 _lv_txt_encoded_conv_wc
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2692   .data._lv_txt_unicode_to_encoded:00000000 _lv_txt_unicode_to_encoded
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccWfGru8.s 			page 83
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:18     .text.lv_txt_utf8_size:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:25     .text.lv_txt_utf8_size:00000000 lv_txt_utf8_size
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:94     .text.lv_txt_unicode_to_utf8:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:100    .text.lv_txt_unicode_to_utf8:00000000 lv_txt_unicode_to_utf8
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:239    .text.lv_txt_utf8_conv_wc:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:245    .text.lv_txt_utf8_conv_wc:00000000 lv_txt_utf8_conv_wc
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:370    .text.lv_txt_utf8_next:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:376    .text.lv_txt_utf8_next:00000000 lv_txt_utf8_next
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:662    .text.lv_txt_utf8_prev:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:668    .text.lv_txt_utf8_prev:00000000 lv_txt_utf8_prev
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:777    .text.lv_txt_utf8_prev:0000004c $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:783    .text.lv_txt_utf8_get_byte_id:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:789    .text.lv_txt_utf8_get_byte_id:00000000 lv_txt_utf8_get_byte_id
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:866    .text.lv_txt_utf8_get_byte_id:00000030 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:871    .text.lv_txt_utf8_get_char_id:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:877    .text.lv_txt_utf8_get_char_id:00000000 lv_txt_utf8_get_char_id
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:938    .text.lv_txt_utf8_get_char_id:00000028 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:943    .text.lv_txt_utf8_get_length:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:949    .text.lv_txt_utf8_get_length:00000000 lv_txt_utf8_get_length
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1009   .text.lv_txt_utf8_get_length:00000024 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1014   .text._lv_txt_is_cmd:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1021   .text._lv_txt_is_cmd:00000000 _lv_txt_is_cmd
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1132   .rodata.lv_txt_get_next_word.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1136   .text.lv_txt_get_next_word:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1142   .text.lv_txt_get_next_word:00000000 lv_txt_get_next_word
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1557   .text.lv_txt_get_next_word:00000164 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1563   .text._lv_txt_get_next_line:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1570   .text._lv_txt_get_next_line:00000000 _lv_txt_get_next_line
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1808   .text._lv_txt_get_next_line:000000d8 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1813   .text._lv_txt_ins:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1820   .text._lv_txt_ins:00000000 _lv_txt_ins
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1937   .text._lv_txt_ins:0000004c $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1942   .text._lv_txt_cut:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:1949   .text._lv_txt_cut:00000000 _lv_txt_cut
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2027   .text._lv_txt_cut:00000040 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2032   .rodata._lv_txt_set_text_vfmt.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2045   .text._lv_txt_set_text_vfmt:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2052   .text._lv_txt_set_text_vfmt:00000000 _lv_txt_set_text_vfmt
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2161   .text._lv_txt_set_text_vfmt:0000005c $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2170   .text._lv_txt_encoded_letter_next_2:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2177   .text._lv_txt_encoded_letter_next_2:00000000 _lv_txt_encoded_letter_next_2
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2233   .text._lv_txt_encoded_letter_next_2:00000028 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2238   .text.lv_txt_get_width:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2245   .text.lv_txt_get_width:00000000 lv_txt_get_width
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2409   .rodata.lv_txt_get_size.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2414   .text.lv_txt_get_size:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2421   .text.lv_txt_get_size:00000000 lv_txt_get_size
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2629   .text.lv_txt_get_size:000000e0 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2686   .data._lv_txt_get_encoded_length:00000000 _lv_txt_get_encoded_length
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2660   .data._lv_txt_encoded_get_char_id:00000000 _lv_txt_encoded_get_char_id
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2654   .data._lv_txt_encoded_get_byte_id:00000000 _lv_txt_encoded_get_byte_id
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2673   .data._lv_txt_encoded_prev:00000000 _lv_txt_encoded_prev
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2667   .data._lv_txt_encoded_next:00000000 _lv_txt_encoded_next
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2647   .data._lv_txt_encoded_conv_wc:00000000 _lv_txt_encoded_conv_wc
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2692   .data._lv_txt_unicode_to_encoded:00000000 _lv_txt_unicode_to_encoded
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s 			page 83
 
 
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2680   .data._lv_txt_encoded_size:00000000 _lv_txt_encoded_size
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2644   .data._lv_txt_encoded_conv_wc:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2650   .data._lv_txt_encoded_get_byte_id:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2657   .data._lv_txt_encoded_get_char_id:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2663   .data._lv_txt_encoded_next:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2670   .data._lv_txt_encoded_prev:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2676   .data._lv_txt_encoded_size:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2683   .data._lv_txt_get_encoded_length:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2689   .data._lv_txt_unicode_to_encoded:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2695   .rodata.__func__.7988:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2699   .rodata.__func__.7988:00000000 __func__.7988
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2702   .rodata.__func__.8084:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccWfGru8.s:2706   .rodata.__func__.8084:00000000 __func__.8084
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2680   .data._lv_txt_encoded_size:00000000 _lv_txt_encoded_size
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2644   .data._lv_txt_encoded_conv_wc:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2650   .data._lv_txt_encoded_get_byte_id:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2657   .data._lv_txt_encoded_get_char_id:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2663   .data._lv_txt_encoded_next:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2670   .data._lv_txt_encoded_prev:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2676   .data._lv_txt_encoded_size:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2683   .data._lv_txt_get_encoded_length:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2689   .data._lv_txt_unicode_to_encoded:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2695   .rodata.__func__.7988:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2699   .rodata.__func__.7988:00000000 __func__.7988
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2702   .rodata.__func__.8084:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccVDNOyJ.s:2706   .rodata.__func__.8084:00000000 __func__.8084
 
 UNDEFINED SYMBOLS
 lv_font_get_glyph_width

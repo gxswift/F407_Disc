@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
   28:lvgl/lvgl/src/draw/lv_draw_img.c ****  **********************/
   29:lvgl/lvgl/src/draw/lv_draw_img.c **** 
   30:lvgl/lvgl/src/draw/lv_draw_img.c **** /**********************
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 2
 
 
   31:lvgl/lvgl/src/draw/lv_draw_img.c ****  *  STATIC PROTOTYPES
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
   85:lvgl/lvgl/src/draw/lv_draw_img.c **** 
   86:lvgl/lvgl/src/draw/lv_draw_img.c ****     if(res == LV_RES_INV) {
   87:lvgl/lvgl/src/draw/lv_draw_img.c ****         LV_LOG_WARN("Image draw error");
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 3
 
 
   88:lvgl/lvgl/src/draw/lv_draw_img.c ****         show_error(coords, mask, "No\ndata");
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  142:lvgl/lvgl/src/draw/lv_draw_img.c ****  */
  143:lvgl/lvgl/src/draw/lv_draw_img.c **** bool lv_img_cf_is_chroma_keyed(lv_img_cf_t cf)
  144:lvgl/lvgl/src/draw/lv_draw_img.c **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 4
 
 
  145:lvgl/lvgl/src/draw/lv_draw_img.c ****     bool is_chroma_keyed = false;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  199:lvgl/lvgl/src/draw/lv_draw_img.c ****  *  - a path to a file (e.g. "S:/folder/image.bin")
  200:lvgl/lvgl/src/draw/lv_draw_img.c ****  *  - or a symbol (e.g. LV_SYMBOL_CLOSE)
  201:lvgl/lvgl/src/draw/lv_draw_img.c ****  * @return type of the image source LV_IMG_SRC_VARIABLE/FILE/SYMBOL/UNKNOWN
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 5
 
 
  202:lvgl/lvgl/src/draw/lv_draw_img.c ****  */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  256:lvgl/lvgl/src/draw/lv_draw_img.c ****             int32_t w = lv_area_get_width(coords);
  257:lvgl/lvgl/src/draw/lv_draw_img.c ****             int32_t h = lv_area_get_height(coords);
  258:lvgl/lvgl/src/draw/lv_draw_img.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 6
 
 
  259:lvgl/lvgl/src/draw/lv_draw_img.c ****             _lv_img_buf_get_transformed_area(&map_area_rot, w, h, draw_dsc->angle, draw_dsc->zoom, 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  313:lvgl/lvgl/src/draw/lv_draw_img.c ****             }
  314:lvgl/lvgl/src/draw/lv_draw_img.c **** 
  315:lvgl/lvgl/src/draw/lv_draw_img.c ****             lv_draw_map(&line, &mask_line, buf, draw_dsc, chroma_keyed, alpha_byte);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 7
 
 
  316:lvgl/lvgl/src/draw/lv_draw_img.c ****             line.y1++;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  370:lvgl/lvgl/src/draw/lv_draw_img.c ****         _lv_blend_map(clip_area, map_area, (lv_color_t *)map_p, NULL, LV_DRAW_MASK_RES_FULL_COVER, 
  371:lvgl/lvgl/src/draw/lv_draw_img.c ****                       draw_dsc->blend_mode);
  372:lvgl/lvgl/src/draw/lv_draw_img.c ****         lv_gpu_nxp_pxp_disable_color_key();
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 8
 
 
  373:lvgl/lvgl/src/draw/lv_draw_img.c ****     }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  427:lvgl/lvgl/src/draw/lv_draw_img.c **** 
  428:lvgl/lvgl/src/draw/lv_draw_img.c ****             int32_t x;
  429:lvgl/lvgl/src/draw/lv_draw_img.c ****             int32_t y;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 9
 
 
  430:lvgl/lvgl/src/draw/lv_draw_img.c ****             for(y = 0; y < draw_area_h; y++) {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  484:lvgl/lvgl/src/draw/lv_draw_img.c ****                 if(alpha_byte) cf = LV_IMG_CF_TRUE_COLOR_ALPHA;
  485:lvgl/lvgl/src/draw/lv_draw_img.c ****                 else if(chroma_key) cf = LV_IMG_CF_TRUE_COLOR_CHROMA_KEYED;
  486:lvgl/lvgl/src/draw/lv_draw_img.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 10
 
 
  487:lvgl/lvgl/src/draw/lv_draw_img.c ****                 trans_dsc.cfg.angle = draw_dsc->angle;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  541:lvgl/lvgl/src/draw/lv_draw_img.c ****                             mask_buf[px_i] = trans_dsc.res.opa;
  542:lvgl/lvgl/src/draw/lv_draw_img.c ****                             c.full = trans_dsc.res.color.full;
  543:lvgl/lvgl/src/draw/lv_draw_img.c ****                         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 11
 
 
  544:lvgl/lvgl/src/draw/lv_draw_img.c ****                     }
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  598:lvgl/lvgl/src/draw/lv_draw_img.c ****                         mask_res = LV_DRAW_MASK_RES_CHANGED;
  599:lvgl/lvgl/src/draw/lv_draw_img.c ****                     }
  600:lvgl/lvgl/src/draw/lv_draw_img.c ****                     else if(mask_res_sub == LV_DRAW_MASK_RES_CHANGED) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 12
 
 
  601:lvgl/lvgl/src/draw/lv_draw_img.c ****                         mask_res = LV_DRAW_MASK_RES_CHANGED;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 13
 
 
   33              		.loc 1 653 1 is_stmt 0 view .LVU1
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
   80 000c 1646     		mov	r6, r2
   81 000e 1F46     		mov	r7, r3
   82 0010 0693     		str	r3, [sp, #24]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 14
 
 
   83 0012 9DF8F040 		ldrb	r4, [sp, #240]	@ zero_extendqisi2
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
   43:lvgl/lvgl/src/draw/../misc/lv_area.h **** 
   44:lvgl/lvgl/src/draw/../misc/lv_area.h **** /**
   45:lvgl/lvgl/src/draw/../misc/lv_area.h ****  * Represents a point on the screen.
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 15
 
 
   46:lvgl/lvgl/src/draw/../misc/lv_area.h ****  */
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  100:lvgl/lvgl/src/draw/../misc/lv_area.h **** 
  101:lvgl/lvgl/src/draw/../misc/lv_area.h **** /**********************
  102:lvgl/lvgl/src/draw/../misc/lv_area.h ****  * GLOBAL PROTOTYPES
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 16
 
 
  103:lvgl/lvgl/src/draw/../misc/lv_area.h ****  **********************/
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  122 003e FFF7FEFF 		bl	_lv_refr_get_disp_refreshing
  123              	.LVL6:
  345:lvgl/lvgl/src/draw/lv_draw_img.c ****     lv_disp_draw_buf_t * draw_buf = lv_disp_get_draw_buf(disp);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 17
 
 
  124              		.loc 1 345 24 view .LVU24
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  162 0078 FFF7FEFF 		bl	lv_draw_mask_is_any
  163              	.LVL10:
  359:lvgl/lvgl/src/draw/lv_draw_img.c ****        chroma_key == false && alpha_byte == false && draw_dsc->recolor_opa == LV_OPA_TRANSP) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 18
 
 
  164              		.loc 1 359 5 is_stmt 1 view .LVU41
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  203              		.loc 2 135 12 discriminator 4 view .LVU54
  204 00a6 2DB2     		sxth	r5, r5
  205              	.LVL14:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 19
 
 
  206              		.loc 2 135 12 discriminator 4 view .LVU55
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  243              		.loc 1 392 38 discriminator 4 view .LVU72
  244 00d2 ACEB0000 		sub	r0, ip, r0
  392:lvgl/lvgl/src/draw/lv_draw_img.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 20
 
 
  245              		.loc 1 392 72 discriminator 4 view .LVU73
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
   36:lvgl/lvgl/src/draw/../misc/lv_color.h ****  *      DEFINES
   37:lvgl/lvgl/src/draw/../misc/lv_color.h ****  *********************/
   38:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 21
 
 
   39:lvgl/lvgl/src/draw/../misc/lv_color.h **** /**
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
   93:lvgl/lvgl/src/draw/../misc/lv_color.h **** * see https://devblogs.microsoft.com/cppblog/msvc-now-correctly-reports-cplusplus
   94:lvgl/lvgl/src/draw/../misc/lv_color.h **** * so we use _MSC_VER macro instead of __cplusplus
   95:lvgl/lvgl/src/draw/../misc/lv_color.h **** */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 22
 
 
   96:lvgl/lvgl/src/draw/../misc/lv_color.h **** #ifdef _MSC_VER
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  150:lvgl/lvgl/src/draw/../misc/lv_color.h **** # define LV_COLOR_SET_G16(c, v) (c).ch.green = (uint8_t)((v) & 0x3FU)
  151:lvgl/lvgl/src/draw/../misc/lv_color.h **** #else
  152:lvgl/lvgl/src/draw/../misc/lv_color.h **** # define LV_COLOR_SET_G16(c, v) {(c).ch.green_h = (uint8_t)(((v) >> 3) & 0x7); (c).ch.green_l = (ui
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 23
 
 
  153:lvgl/lvgl/src/draw/../misc/lv_color.h **** #endif
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  207:lvgl/lvgl/src/draw/../misc/lv_color.h ****  *      TYPEDEFS
  208:lvgl/lvgl/src/draw/../misc/lv_color.h ****  **********************/
  209:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 24
 
 
  210:lvgl/lvgl/src/draw/../misc/lv_color.h **** typedef union {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  264:lvgl/lvgl/src/draw/../misc/lv_color.h **** /*No idea where the guard is required but else throws warnings in the docs*/
  265:lvgl/lvgl/src/draw/../misc/lv_color.h **** typedef uint8_t lv_opa_t;
  266:lvgl/lvgl/src/draw/../misc/lv_color.h **** //! @endcond
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 25
 
 
  267:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  321:lvgl/lvgl/src/draw/../misc/lv_color.h **** #if LV_COLOR_DEPTH == 1
  322:lvgl/lvgl/src/draw/../misc/lv_color.h ****     return color.full;
  323:lvgl/lvgl/src/draw/../misc/lv_color.h **** #elif LV_COLOR_DEPTH == 8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 26
 
 
  324:lvgl/lvgl/src/draw/../misc/lv_color.h ****     if((LV_COLOR_GET_R(color) & 0x4) || (LV_COLOR_GET_G(color) & 0x4) || (LV_COLOR_GET_B(color) & 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  378:lvgl/lvgl/src/draw/../misc/lv_color.h **** #elif LV_COLOR_DEPTH == 8
  379:lvgl/lvgl/src/draw/../misc/lv_color.h ****     lv_color16_t ret;
  380:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_R16(ret, LV_COLOR_GET_R(color) * 4);  /*(2^5 - 1)/(2^3 - 1) = 31/7 = 4*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 27
 
 
  381:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_G16(ret, LV_COLOR_GET_G(color) * 9);  /*(2^6 - 1)/(2^3 - 1) = 63/7 = 9*/
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  435:lvgl/lvgl/src/draw/../misc/lv_color.h ****      *       5         129     33        1       255
  436:lvgl/lvgl/src/draw/../misc/lv_color.h ****      *       6         259      3        0       255
  437:lvgl/lvgl/src/draw/../misc/lv_color.h ****      */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 28
 
 
  438:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  492:lvgl/lvgl/src/draw/../misc/lv_color.h ****     out[2] = (uint16_t) LV_COLOR_GET_B(c) * mix;
  493:lvgl/lvgl/src/draw/../misc/lv_color.h **** #else
  494:lvgl/lvgl/src/draw/../misc/lv_color.h ****     (void) mix;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 29
 
 
  495:lvgl/lvgl/src/draw/../misc/lv_color.h ****     /*Pre-multiplication can't be used with 1 bpp*/
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  549:lvgl/lvgl/src/draw/../misc/lv_color.h ****                                                                  lv_color_t fg_color, lv_opa_t fg_o
  550:lvgl/lvgl/src/draw/../misc/lv_color.h ****                                                                  lv_color_t * res_color, lv_opa_t *
  551:lvgl/lvgl/src/draw/../misc/lv_color.h **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 30
 
 
  552:lvgl/lvgl/src/draw/../misc/lv_color.h ****     /*Pick the foreground if it's fully opaque or the Background is fully transparent*/
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  606:lvgl/lvgl/src/draw/../misc/lv_color.h ****  */
  607:lvgl/lvgl/src/draw/../misc/lv_color.h **** static inline uint8_t lv_color_brightness(lv_color_t color)
  608:lvgl/lvgl/src/draw/../misc/lv_color.h **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 31
 
 
  609:lvgl/lvgl/src/draw/../misc/lv_color.h ****     lv_color32_t c32;
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  289              	.LBI78:
  133:lvgl/lvgl/src/draw/../misc/lv_area.h **** {
  290              		.loc 2 133 26 discriminator 4 view .LVU91
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 32
 
 
  291              	.LBB79:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  142:lvgl/lvgl/src/draw/../misc/lv_area.h ****  */
  143:lvgl/lvgl/src/draw/../misc/lv_area.h **** static inline lv_coord_t lv_area_get_height(const lv_area_t * area_p)
  329              		.loc 2 143 26 discriminator 4 view .LVU108
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 33
 
 
  330              	.LBB81:
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  474:lvgl/lvgl/src/draw/lv_draw_img.c ****             uint32_t mask_buf_size = lv_area_get_size(&draw_area) > hor_res ? hor_res : lv_area_get
  372              		.loc 1 474 43 view .LVU125
  373 0144 0446     		mov	r4, r0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 34
 
 
  374              	.LVL29:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  414              		.loc 1 481 13 is_stmt 0 discriminator 4 view .LVU139
  415 016a FFF7FEFF 		bl	lv_memset_00
  416              	.LVL41:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 35
 
 
  482:lvgl/lvgl/src/draw/lv_draw_img.c ****                 lv_img_cf_t cf = LV_IMG_CF_TRUE_COLOR;
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  361:lvgl/lvgl/src/draw/lv_draw_img.c ****                       draw_dsc->blend_mode);
  458              		.loc 1 361 9 is_stmt 1 view .LVU153
  362:lvgl/lvgl/src/draw/lv_draw_img.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 36
 
 
  459              		.loc 1 362 31 is_stmt 0 view .LVU154
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  504              		.loc 1 423 13 is_stmt 1 view .LVU163
  423:lvgl/lvgl/src/draw/lv_draw_img.c ****             uint32_t mask_buf_size = lv_area_get_size(&draw_area) > (uint32_t) hor_res ? hor_res : 
  505              		.loc 1 423 43 is_stmt 0 view .LVU164
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 37
 
 
  506 01e0 2046     		mov	r0, r4
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  430:lvgl/lvgl/src/draw/lv_draw_img.c ****                 map_px = map_buf_tmp;
  546              		.loc 1 430 19 is_stmt 0 discriminator 4 view .LVU179
  547 0204 0026     		movs	r6, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 38
 
 
  548              	.LVL60:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  589              		.loc 1 434 21 is_stmt 1 view .LVU192
  434:lvgl/lvgl/src/draw/lv_draw_img.c ****                     if(px_opa) {
  590              		.loc 1 434 36 is_stmt 0 view .LVU193
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 39
 
 
  591 022c A054     		strb	r0, [r4, r2]
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  628              		.loc 2 135 31 is_stmt 0 view .LVU210
  629 024a BDF8C430 		ldrh	r3, [sp, #196]
  135:lvgl/lvgl/src/draw/../misc/lv_area.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 40
 
 
  630              		.loc 2 135 44 view .LVU211
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  454:lvgl/lvgl/src/draw/lv_draw_img.c **** 
  670              		.loc 1 454 21 is_stmt 1 view .LVU226
  454:lvgl/lvgl/src/draw/lv_draw_img.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 41
 
 
  671              		.loc 1 454 124 is_stmt 0 view .LVU227
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  463:lvgl/lvgl/src/draw/lv_draw_img.c ****                 blend_area.y2--;
  712              		.loc 1 463 15 view .LVU241
  713 02b4 9A42     		cmp	r2, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 42
 
 
  714 02b6 06D1     		bne	.L59
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  758 02ee FFF7FEFF 		bl	lv_area_get_size
  759              	.LVL85:
  760 02f2 1190     		str	r0, [sp, #68]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 43
 
 
  761 02f4 2EE7     		b	.L17
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  802 0318 0133     		adds	r3, r3, #1
  803              	.LVL89:
  804              		.loc 2 145 49 view .LVU270
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 44
 
 
  805              	.LBE85:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  501:lvgl/lvgl/src/draw/lv_draw_img.c ****             lv_opa_t recolor_opa_inv = 255 - draw_dsc->recolor_opa;
  841              		.loc 1 501 22 is_stmt 0 view .LVU289
  842 0348 0023     		movs	r3, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 45
 
 
  843 034a 1993     		str	r3, [sp, #100]
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  880              	.LVL93:
  492:lvgl/lvgl/src/draw/../misc/lv_color.h **** #else
  881              		.loc 3 492 43 view .LVU307
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 46
 
 
  882 037c 03FB02F3 		mul	r3, r3, r2
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  512:lvgl/lvgl/src/draw/lv_draw_img.c ****                 lv_memset_ff(mask_buf, mask_buf_size);
  924              		.loc 1 512 15 is_stmt 0 discriminator 8 view .LVU320
  925 03a4 0F9B     		ldr	r3, [sp, #60]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 47
 
 
  926 03a6 ABB9     		cbnz	r3, .L60
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  965 03cc EAE7     		b	.L21
  966              	.L46:
  967 03ce 0123     		movs	r3, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 48
 
 
  968 03d0 1693     		str	r3, [sp, #88]
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1009              	.LVL107:
  1010              	.L28:
  542:lvgl/lvgl/src/draw/lv_draw_img.c ****                         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 49
 
 
  1011              		.loc 1 542 36 view .LVU349
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1052              		.loc 3 536 5 is_stmt 0 view .LVU362
  1053              	.LBE93:
  1054              	.LBE92:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 50
 
 
  588:lvgl/lvgl/src/draw/lv_draw_img.c ****                 }
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  551:lvgl/lvgl/src/draw/lv_draw_img.c ****                             if(px_opa == 0) {
  1093              		.loc 1 551 29 is_stmt 1 view .LVU379
  551:lvgl/lvgl/src/draw/lv_draw_img.c ****                             if(px_opa == 0) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 51
 
 
  1094              		.loc 1 551 44 is_stmt 0 view .LVU380
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1132 0486 0B99     		ldr	r1, [sp, #44]
  1133 0488 0029     		cmp	r1, #0
  1134 048a BAD0     		beq	.L28
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 52
 
 
  574:lvgl/lvgl/src/draw/lv_draw_img.c ****                                 mask_buf[px_i] = LV_OPA_TRANSP;
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1174 04b4 BDF8C020 		ldrh	r2, [sp, #192]
  135:lvgl/lvgl/src/draw/../misc/lv_area.h **** }
  1175              		.loc 2 135 36 view .LVU412
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 53
 
 
  1176 04b8 9B1A     		subs	r3, r3, r2
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  524:lvgl/lvgl/src/draw/lv_draw_img.c ****                 int32_t rot_x = disp_area->x1 + draw_area.x1 - map_area->x1;
  1217              		.loc 1 524 17 view .LVU426
  525:lvgl/lvgl/src/draw/lv_draw_img.c **** #endif
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 54
 
 
  1218              		.loc 1 525 17 view .LVU427
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1257              		.loc 1 594 107 view .LVU442
  1258 0512 0E9B     		ldr	r3, [sp, #56]
  1259 0514 198A     		ldrh	r1, [r3, #16]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 55
 
 
  594:lvgl/lvgl/src/draw/lv_draw_img.c ****                                                       lv_area_get_width(&draw_area));
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1299 053c 18B1     		cbz	r0, .L66
  600:lvgl/lvgl/src/draw/lv_draw_img.c ****                         mask_res = LV_DRAW_MASK_RES_CHANGED;
  1300              		.loc 1 600 26 is_stmt 1 view .LVU458
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 56
 
 
  600:lvgl/lvgl/src/draw/lv_draw_img.c ****                         mask_res = LV_DRAW_MASK_RES_CHANGED;
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1340 055e 1693     		str	r3, [sp, #88]
  1341 0560 A0E7     		b	.L33
  1342              	.LVL141:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 57
 
 
  1343              	.L35:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1382              		.loc 1 618 44 discriminator 2 view .LVU488
  1383 0594 0B9B     		ldr	r3, [sp, #44]
  1384 0596 6BB9     		cbnz	r3, .L49
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 58
 
 
  618:lvgl/lvgl/src/draw/lv_draw_img.c ****                                 draw_dsc->zoom != LV_IMG_ZOOM_NONE) ? LV_DRAW_MASK_RES_CHANGED : LV
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1427 05be F4E7     		b	.L37
  1428              	.LVL153:
  1429              	.L67:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 59
 
 
  623:lvgl/lvgl/src/draw/lv_draw_img.c ****                     }
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1472              		@ sp needed
  1473 05e8 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
  1474              	.LVL160:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 60
 
 
  1475              	.L68:
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1524              		.cfi_def_cfa_offset 16
  1525              		.cfi_offset 4, -16
  1526              		.cfi_offset 5, -12
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 61
 
 
  1527              		.cfi_offset 6, -8
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  655:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
  656:lvgl/lvgl/src/draw/../misc/lv_color.h **** /**
  657:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * Convert a 32-bit RGB color to HSV
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 62
 
 
  658:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * @param r8 8-bit red
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1563              		.loc 1 645 5 is_stmt 1 view .LVU531
  1564 0018 0BAA     		add	r2, sp, #44
  1565 001a 2946     		mov	r1, r5
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 63
 
 
  1566 001c 2046     		mov	r0, r4
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
   59:lvgl/lvgl/src/draw/lv_draw_img.c ****     dsc->recolor = lv_color_black();
  1615              		.loc 1 59 5 is_stmt 1 view .LVU539
  1616 0004 1821     		movs	r1, #24
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 64
 
 
  1617 0006 FFF7FEFF 		bl	lv_memset_00
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1656              		.cfi_endproc
  1657              	.LFE152:
  1659              		.section	.text.lv_img_cf_get_px_size,"ax",%progbits
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 65
 
 
  1660              		.align	1
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1706              		.loc 1 113 13 view .LVU564
  1707 001c 7047     		bx	lr
  1708              	.LVL175:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 66
 
 
  1709              	.L79:
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1745              		.loc 1 135 5 is_stmt 1 view .LVU582
  136:lvgl/lvgl/src/draw/lv_draw_img.c **** 
  1746              		.loc 1 136 1 is_stmt 0 view .LVU583
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 67
 
 
  1747 0030 7047     		bx	lr
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1794 0018 7047     		bx	lr
  1795              	.L87:
  147:lvgl/lvgl/src/draw/lv_draw_img.c ****         case LV_IMG_CF_TRUE_COLOR_CHROMA_KEYED:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 68
 
 
  1796              		.loc 1 147 5 view .LVU593
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1843              		.cfi_endproc
  1844              	.LFE156:
  1846              		.section	.rodata.lv_img_draw_core.str1.4,"aMS",%progbits,1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 69
 
 
  1847              		.align	2
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1887              		.loc 1 236 5 is_stmt 1 view .LVU605
  236:lvgl/lvgl/src/draw/lv_draw_img.c **** 
  1888              		.loc 1 236 16 is_stmt 0 view .LVU606
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 70
 
 
  1889 0008 DB7A     		ldrb	r3, [r3, #11]	@ zero_extendqisi2
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1931 002c 90F81490 		ldrb	r9, [r0, #20]	@ zero_extendqisi2
  1932 0030 09F01F09 		and	r9, r9, #31
  242:lvgl/lvgl/src/draw/lv_draw_img.c ****     bool alpha_byte   = lv_img_cf_has_alpha(cdsc->dec_dsc.header.cf);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 71
 
 
  1933              		.loc 1 242 25 view .LVU619
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  1975              		.loc 1 324 12 is_stmt 0 view .LVU631
  1976 0068 0120     		movs	r0, #1
  1977 006a D1E7     		b	.L92
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 72
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 72
 
 
  1978              	.LVL208:
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  2014              	.LVL210:
  125:lvgl/lvgl/src/draw/../misc/lv_area.h **** }
  2015              		.loc 2 125 14 view .LVU650
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 73
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 73
 
 
  2016              	.LBE127:
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  133:lvgl/lvgl/src/draw/../misc/lv_area.h **** {
  2058              		.loc 2 133 26 view .LVU663
  2059              	.LBB130:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 74
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 74
 
 
  135:lvgl/lvgl/src/draw/../misc/lv_area.h **** }
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  259:lvgl/lvgl/src/draw/lv_draw_img.c **** 
  2103              		.loc 1 259 13 view .LVU681
  2104 00e0 09B2     		sxth	r1, r1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 75
 
 
  2105              	.LVL218:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  273:lvgl/lvgl/src/draw/lv_draw_img.c ****         }
  2145              		.loc 1 273 13 is_stmt 1 view .LVU696
  273:lvgl/lvgl/src/draw/lv_draw_img.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 76
 
 
  2146              		.loc 1 273 20 is_stmt 0 view .LVU697
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  135:lvgl/lvgl/src/draw/../misc/lv_area.h **** }
  2185              		.loc 2 135 12 view .LVU713
  2186              	.LBE136:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 77
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 77
 
 
  2187              	.LBE135:
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  125:lvgl/lvgl/src/draw/../misc/lv_area.h **** }
  2223              		.loc 2 125 5 is_stmt 1 view .LVU732
  125:lvgl/lvgl/src/draw/../misc/lv_area.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 78
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 78
 
 
  2224              		.loc 2 125 19 is_stmt 0 view .LVU733
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  301:lvgl/lvgl/src/draw/lv_draw_img.c ****             lv_area_t mask_line;
  2263              		.loc 1 301 9 view .LVU749
  2264 018c 9B46     		mov	fp, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 79
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 79
 
 
  2265              	.LVL236:
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  2307              		.loc 1 312 17 view .LVU761
  312:lvgl/lvgl/src/draw/lv_draw_img.c ****             }
  2308              		.loc 1 312 24 is_stmt 0 view .LVU762
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 80
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 80
 
 
  2309 01be 0020     		movs	r0, #0
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  306:lvgl/lvgl/src/draw/lv_draw_img.c ****             if(read_res != LV_RES_OK) {
  2350              		.loc 1 306 24 view .LVU776
  2351 01ee FFF7FEFF 		bl	lv_img_decoder_read_line
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 81
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 81
 
 
  2352              	.LVL249:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  2391 0224 FFF7FEFF 		bl	lv_mem_buf_release
  2392              	.LVL253:
  2393 0228 1BE7     		b	.L94
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 82
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 82
 
 
  2394              	.LVL254:
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  2440              		.cfi_offset 5, -8
  2441              		.cfi_offset 14, -4
  2442 0002 83B0     		sub	sp, sp, #12
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 83
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 83
 
 
  2443              	.LCFI14:
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  2486              	.LVL264:
   76:lvgl/lvgl/src/draw/lv_draw_img.c ****         show_error(coords, mask, "No\ndata");
  2487              		.loc 1 76 47 is_stmt 1 view .LVU808
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 84
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 84
 
 
   77:lvgl/lvgl/src/draw/lv_draw_img.c ****         return;
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  2529              		.loc 1 89 9 view .LVU821
  2530 0056 DBE7     		b	.L116
  2531              	.L123:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 85
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 85
 
 
  2532              		.align	2
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  218:lvgl/lvgl/src/draw/lv_draw_img.c ****     }
  2577              		.loc 1 218 22 view .LVU833
  2578 0014 0020     		movs	r0, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 86
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 86
 
 
  2579              	.LVL274:
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  2625              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-none
  2626              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
  2627              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 87
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 87
 
 
  2628              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
@@ -5186,42 +5186,42 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 1
  2650              		.file 32 "lvgl/lvgl/src/draw/lv_draw_blend.h"
  2651              		.file 33 "lvgl/lvgl/src/draw/../core/lv_refr.h"
  2652              		.file 34 "lvgl/lvgl/src/draw/../hal/../misc/lv_log.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 88
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 88
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_draw_img.c
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:18     .text.draw_cleanup:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:25     .text.draw_cleanup:00000000 draw_cleanup
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:48     .text.lv_draw_map:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:54     .text.lv_draw_map:00000000 lv_draw_map
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1508   .text.show_error:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1514   .text.show_error:00000000 show_error
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1594   .text.lv_draw_img_dsc_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1601   .text.lv_draw_img_dsc_init:00000000 lv_draw_img_dsc_init
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1660   .text.lv_img_cf_get_px_size:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1667   .text.lv_img_cf_get_px_size:00000000 lv_img_cf_get_px_size
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1684   .text.lv_img_cf_get_px_size:0000000a $d
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1752   .text.lv_img_cf_is_chroma_keyed:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1759   .text.lv_img_cf_is_chroma_keyed:00000000 lv_img_cf_is_chroma_keyed
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1806   .text.lv_img_cf_has_alpha:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1813   .text.lv_img_cf_has_alpha:00000000 lv_img_cf_has_alpha
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1847   .rodata.lv_img_draw_core.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1857   .text.lv_img_draw_core:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1863   .text.lv_img_draw_core:00000000 lv_img_draw_core
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2406   .text.lv_img_draw_core:00000230 $d
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2414   .rodata.lv_draw_img.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2421   .text.lv_draw_img:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2428   .text.lv_draw_img:00000000 lv_draw_img
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2534   .text.lv_draw_img:00000058 $d
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2543   .text.lv_img_src_get_type:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2550   .text.lv_img_src_get_type:00000000 lv_img_src_get_type
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2607   .rodata.__func__.9922:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2611   .rodata.__func__.9922:00000000 __func__.9922
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2614   .rodata.__func__.9986:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:2618   .rodata.__func__.9986:00000000 __func__.9986
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1695   .text.lv_img_cf_get_px_size:00000015 $d
-C:\Users\gx\AppData\Local\Temp\ccM5vegB.s:1695   .text.lv_img_cf_get_px_size:00000016 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:18     .text.draw_cleanup:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:25     .text.draw_cleanup:00000000 draw_cleanup
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:48     .text.lv_draw_map:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:54     .text.lv_draw_map:00000000 lv_draw_map
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1508   .text.show_error:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1514   .text.show_error:00000000 show_error
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1594   .text.lv_draw_img_dsc_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1601   .text.lv_draw_img_dsc_init:00000000 lv_draw_img_dsc_init
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1660   .text.lv_img_cf_get_px_size:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1667   .text.lv_img_cf_get_px_size:00000000 lv_img_cf_get_px_size
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1684   .text.lv_img_cf_get_px_size:0000000a $d
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1752   .text.lv_img_cf_is_chroma_keyed:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1759   .text.lv_img_cf_is_chroma_keyed:00000000 lv_img_cf_is_chroma_keyed
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1806   .text.lv_img_cf_has_alpha:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1813   .text.lv_img_cf_has_alpha:00000000 lv_img_cf_has_alpha
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1847   .rodata.lv_img_draw_core.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1857   .text.lv_img_draw_core:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1863   .text.lv_img_draw_core:00000000 lv_img_draw_core
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2406   .text.lv_img_draw_core:00000230 $d
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2414   .rodata.lv_draw_img.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2421   .text.lv_draw_img:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2428   .text.lv_draw_img:00000000 lv_draw_img
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2534   .text.lv_draw_img:00000058 $d
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2543   .text.lv_img_src_get_type:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2550   .text.lv_img_src_get_type:00000000 lv_img_src_get_type
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2607   .rodata.__func__.9922:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2611   .rodata.__func__.9922:00000000 __func__.9922
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2614   .rodata.__func__.9986:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:2618   .rodata.__func__.9986:00000000 __func__.9986
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1695   .text.lv_img_cf_get_px_size:00000015 $d
+C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s:1695   .text.lv_img_cf_get_px_size:00000016 $t
 
 UNDEFINED SYMBOLS
 lv_img_decoder_close
@@ -5246,7 +5246,7 @@ _lv_img_cache_open
 _lv_log_add
 _lv_area_intersect
 _lv_img_buf_get_transformed_area
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccM5vegB.s 			page 89
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCVUNg6.s 			page 89
 
 
 lv_area_set_height

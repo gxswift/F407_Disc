@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   28:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** /**********************
   29:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  *      TYPEDEFS
   30:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  **********************/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 2
 
 
   31:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   85:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** /*=====================
   86:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  * Setter functions
   87:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  *====================*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 3
 
 
   88:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  142:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** /**
  143:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  * Set if the color mode is changed on long press on center
  144:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  * @param colorwheel pointer to color wheel object
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 4
 
 
  145:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  * @param fixed color mode cannot be changed on long press
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  199:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  */
  200:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** bool lv_colorwheel_get_color_mode_fixed(lv_obj_t * obj)
  201:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 5
 
 
  202:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_colorwheel_t * colorwheel = (lv_colorwheel_t *)obj;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  256:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_draw_mask_radius_init(&mask_out_param, &obj->coords, LV_RADIUS_CIRCLE, false);
  257:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     int16_t mask_out_id = lv_draw_mask_add(&mask_out_param, 0);
  258:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 6
 
 
  259:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_area_t mask_area;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  313:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_area_t knob_area = get_knob_area(obj);
  314:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
  315:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_draw_rect(&knob_area, clip_area, &cir_dsc);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 7
 
 
  316:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** }
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  370:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     else if(code == LV_EVENT_SIZE_CHANGED) {
  371:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         void * param = lv_event_get_param(e);
  372:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         /*Refresh extended draw area to make knob visible*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 8
 
 
  373:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         if(lv_obj_get_width(obj) != lv_area_get_width(param) ||
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  427:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     }
  428:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     else if(code == LV_EVENT_PRESSED) {
  429:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         colorwheel->last_change_time = lv_tick_get();
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 9
 
 
  430:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         lv_indev_get_point(lv_indev_get_act(), &colorwheel->last_press_point);
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  484:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****             next_color_mode(obj);
  485:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****             lv_indev_wait_release(lv_indev_get_act());
  486:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****             return;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 10
 
 
  487:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         }
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  541:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** {
  542:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     invalidate_knob(obj);
  543:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 11
 
 
  544:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_colorwheel_t * colorwheel = (lv_colorwheel_t *)obj;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  598:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  * (for that, there's lv_color_hsv_to_rgb), but we want to be fast.
  599:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  *
  600:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  * Few tricks are used here: Hue is in range [0; 6 * 256] (so that the sextant is in the high byte 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 12
 
 
  601:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****  * both s and v are in [0; 255] range (very convenient to avoid divisions).
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   70              		.loc 1 613 5 view .LVU11
   71 0022 0D46     		mov	r5, r1
   72              	.LVL5:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 13
 
 
   73              	.L5:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  117 0048 16F0010F 		tst	r6, #1
  118 004c 12D1     		bne	.L8
  624:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         /*Up slope*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 14
 
 
  625:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         ww = !h_frac ? ((uint16_t)s << 8) : (s * (uint8_t)(-h_frac)); /*Skip multiply if not requir
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  163              	.LVL20:
  164              	.L8:
  626:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     } else {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 15
 
 
  627:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         /*Down slope*/
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  213              	.LFB208:
  635:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
  636:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** static lv_color_t angle_to_mode_color_fast(lv_obj_t * obj, uint16_t angle)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 16
 
 
  637:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** {
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  648:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****               s = (uint8_t)(((uint16_t)ext->hsv.s * 51) / 20); v = (uint8_t)(((uint16_t)ext->hsv.v 
  257              		.loc 1 648 15 is_stmt 1 view .LVU77
  258              		.loc 1 648 48 is_stmt 0 view .LVU78
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 17
 
 
  259 002e 90F82630 		ldrb	r3, [r0, #38]	@ zero_extendqisi2
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  653:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         case LV_COLORWHEEL_MODE_SATURATION:
  654:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****             /*Don't recompute costly scaling if it does not change*/
  655:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****             if (m != ext->mode) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 18
 
 
  656:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****               h = (uint16_t)(((uint32_t)ext->hsv.h * 6 * 256) / 360); v = (uint8_t)(((uint16_t)ext-
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   31:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
   32:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
   33:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #include <stdint.h>
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 19
 
 
   34:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   88:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
   89:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
   90:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if defined(__cplusplus) && !defined(_LV_COLOR_HAS_MODERN_CPP)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 20
 
 
   91:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  145:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define _LV_COLOR_ZERO_INITIALIZER8 {{0x00, 0x00, 0x00}}
  146:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_MAKE8(r8, g8, b8) {{(uint8_t)((b8 >> 6) & 0x3U), (uint8_t)((g8 >> 5) & 0x7U), (ui
  147:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 21
 
 
  148:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_SET_R16(c, v) (c).ch.red = (uint8_t)((v) & 0x1FU)
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  202:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_MAKE(r8, g8, b8) LV_CONCAT(LV_COLOR_MAKE, LV_COLOR_DEPTH)(r8, g8, b8)
  203:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
  204:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_UDIV255(x) ((uint32_t)((uint32_t) (x) * 0x8081) >> 0x17)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 22
 
 
  205:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  259:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint8_t s;
  260:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint8_t v;
  261:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** } lv_color_hsv_t;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 23
 
 
  262:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  316:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *        ----------------------
  317:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *         Shift right with 5 - 3 = 2
  318:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 24
 
 
  319:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline uint8_t lv_color_to1(lv_color_t color)
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  373:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 1
  374:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     if(color.full == 0)
  375:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****         return 0;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 25
 
 
  376:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     else
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  430:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       0           4      3        3       255
  431:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       1           8      6        3       255
  432:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       2          16     12        3       255
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 26
 
 
  433:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       3          32     24        3       255
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  487:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** LV_ATTRIBUTE_FAST_MEM static inline void lv_color_premult(lv_color_t c, uint8_t mix, uint16_t * out
  488:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** {
  489:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH != 1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 27
 
 
  490:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     out[0] = (uint16_t) LV_COLOR_GET_R(c) * mix;
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  544:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param fg_opa alpha of the foreground color
  545:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param res_color the result color
  546:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param res_opa the result opacity
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 28
 
 
  547:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  */
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  601:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
  602:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** /**
  603:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * Get the brightness of a color
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 29
 
 
  604:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * @param color a color
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  354              		.loc 1 655 16 view .LVU106
  355 00b2 A342     		cmp	r3, r4
  356 00b4 19D0     		beq	.L18
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 30
 
 
  656:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****               m = ext->mode;
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  395 00f0 0DF10E03 		add	r3, sp, #14
  396 00f4 0093     		str	r3, [sp]
  397 00f6 0DF10F03 		add	r3, sp, #15
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 31
 
 
  398 00fa 1E4A     		ldr	r2, .L21+12
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  664:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****               m = ext->mode;
  438              		.loc 1 664 113 view .LVU137
  439 0134 0D48     		ldr	r0, .L21+4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 32
 
 
  440              	.LVL42:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  487              		.fpu fpv4-sp-d16
  489              	get_angle:
  490              	.LVL45:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 33
 
 
  491              	.LFB209:
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  532              	.LVL50:
  533              	.L25:
  685:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         case LV_COLORWHEEL_MODE_VALUE:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 34
 
 
  686:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****             angle = (colorwheel->hsv.v * 360) / 100 ;
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  583              		.cfi_offset 9, -8
  584              		.cfi_offset 14, -4
  585 0004 0646     		mov	r6, r0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 35
 
 
  586 0006 0C46     		mov	r4, r1
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   44:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
   45:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_Y);
   46:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 36
 
 
   47:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  101:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
  102:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
  103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_pad_left(const struct _lv_obj_t * obj, uint32_t part)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 37
 
 
  104:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  158:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
  159:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_ANIM_TIME);
  160:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (uint32_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 38
 
 
  161:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  215:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
  216:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
  217:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_color_t lv_obj_get_style_bg_grad_color_filtered(const struct _lv_obj_t * obj, uint
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 39
 
 
  218:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  272:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
  273:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_BG_IMG_TILED);
  274:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (bool)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 40
 
 
  275:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  329:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
  330:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
  331:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline const lv_font_t * lv_obj_get_style_text_font(const struct _lv_obj_t * obj, uint32_t p
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 41
 
 
  332:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  386:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
  387:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_OUTLINE_WIDTH);
  388:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 42
 
 
  389:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  443:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
  444:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
  445:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_color_t lv_obj_get_style_shadow_color_filtered(const struct _lv_obj_t * obj, uint3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 43
 
 
  446:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  594              		.loc 3 499 26 view .LVU176
  595              	.LBB55:
  500:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 44
 
 
  501:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_ARC_WIDTH);
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
  639              		.loc 3 111 5 view .LVU192
  111:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 45
 
 
  640              		.loc 3 111 26 is_stmt 0 view .LVU193
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
  682              		.loc 3 100 5 is_stmt 1 view .LVU206
  100:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 46
 
 
  683              		.loc 3 100 5 is_stmt 0 view .LVU207
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  720 0084 2A44     		add	r2, r2, r5
  341:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     knob_area.y2 = obj->coords.y1 + colorwheel->knob.pos.y + r + bottom;
  721              		.loc 1 341 64 view .LVU225
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 47
 
 
  722 0086 17FA82F7 		uxtah	r7, r7, r2
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  320:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
  767              		.loc 1 320 5 is_stmt 1 view .LVU237
  320:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 48
 
 
  768              		.loc 1 320 27 is_stmt 0 view .LVU238
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  817              	.LVL74:
  544:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_coord_t w = lv_obj_get_width(obj);
  818              		.loc 1 544 5 view .LVU246
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 49
 
 
  545:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  860              	.LVL82:
  861 002e 0746     		mov	r7, r0
  862              	.LVL83:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 50
 
 
  550:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     colorwheel->knob.pos.y = (((int32_t)r * lv_trigo_cos(angle)) >> LV_TRIGO_SHIFT);
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   31:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_math.h **** 
   32:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_math.h **** typedef struct {
   33:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_math.h ****     uint16_t i;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 51
 
 
   34:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_math.h ****     uint16_t f;
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  908 005a C5F3CF35 		ubfx	r5, r5, #15, #16
  553:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
  909              		.loc 1 553 53 view .LVU283
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 52
 
 
  910 005e 2C44     		add	r4, r4, r5
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  955 0014 02EB4202 		add	r2, r2, r2, lsl #1
  956 0018 9B1A     		subs	r3, r3, r2
  535:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     refr_knob_pos(obj);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 53
 
 
  957              		.loc 1 535 22 view .LVU295
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1007              	.LCFI13:
  1008              		.cfi_def_cfa_offset 144
  1009 0006 0446     		mov	r4, r0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 54
 
 
  235:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     const lv_area_t * clip_area = lv_event_get_param(e);
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1049 0032 A244     		add	r10, r10, r4
  1050 0034 1FFA8AFA 		uxth	r10, r10
  1051              	.LVL106:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 55
 
 
  240:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_coord_t r = w / 2;
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  250:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_coord_t cir_w = lv_obj_get_style_arc_width(obj, LV_PART_MAIN);
  1091              		.loc 1 250 5 view .LVU332
  1092              	.LVL111:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 56
 
 
  251:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1136              	.LBI70:
  1137              		.file 5 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
    1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 57
 
 
    2:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @file lv_area.h
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x2;
   57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y2;
   58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_area_t;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 58
 
 
   59:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set(lv_area_t * area_p, lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2);
  114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
  115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 59
 
 
  116:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Copy an area
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  264:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_draw_mask_radius_param_t mask_in_param;
  1174              		.loc 1 264 5 is_stmt 1 view .LVU365
  264:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_draw_mask_radius_param_t mask_in_param;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 60
 
 
  1175              		.loc 1 264 18 is_stmt 0 view .LVU366
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  278:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
  1216              		.loc 1 278 18 is_stmt 0 discriminator 3 view .LVU380
  1217 00fa C7F30F24 		ubfx	r4, r7, #8, #16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 61
 
 
  1218              	.LVL127:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1260 012c ADF81E60 		strh	r6, [sp, #30]	@ movhi
  283:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         p[1].y = cy + ((r - cir_w - cir_w_extra) * lv_trigo_cos(angle_trigo) >> LV_TRIGO_SHIFT);
  1261              		.loc 1 283 9 is_stmt 1 discriminator 3 view .LVU398
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 62
 
 
  283:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         p[1].y = cy + ((r - cir_w - cir_w_extra) * lv_trigo_cos(angle_trigo) >> LV_TRIGO_SHIFT);
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1304              	.LVL136:
  1305              	.LBE72:
  276:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         line_dsc.color = angle_to_mode_color_fast(obj, i);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 63
 
 
  1306              		.loc 1 276 26 discriminator 3 view .LVU414
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1348 0196 00BF     		.align	2
  1349              	.L43:
  1350 0198 53A45C7B 		.word	2069668947
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 64
 
 
  1351              		.cfi_endproc
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1393              		.loc 1 223 28 is_stmt 0 view .LVU440
  1394 0016 02F0FC02 		and	r2, r2, #252
  1395 001a 63F38202 		bfi	r2, r3, #2, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 65
 
 
  1396 001e 81F83C20 		strb	r2, [r1, #60]
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1437              	.LFE198:
  1439              		.section	.text.lv_colorwheel_create,"ax",%progbits
  1440              		.align	1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 66
 
 
  1441              		.global	lv_colorwheel_create
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   82:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** }
  1483              		.loc 1 82 5 view .LVU467
   83:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 67
 
 
  1484              		.loc 1 83 1 is_stmt 0 view .LVU468
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1532 0012 174A     		ldr	r2, .L61
  1533 0014 A2FB0323 		umull	r2, r3, r2, r3
  1534 0018 9B08     		lsrs	r3, r3, #2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 68
 
 
  1535 001a 4FF4B472 		mov	r2, #360
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1573 004e BDF80630 		ldrh	r3, [sp, #6]
  1574 0052 9A42     		cmp	r2, r3
  1575 0054 0AD0     		beq	.L59
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 69
 
 
  1576              	.L57:
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1621              		.thumb
  1622              		.thumb_func
  1623              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 70
 
 
  1625              	double_click_reset:
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  564:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         hsv_cur = colorwheel->hsv;
  1667              		.loc 1 564 9 is_stmt 1 view .LVU515
  565:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 71
 
 
  1668              		.loc 1 565 9 view .LVU516
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  589:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
  1708              		.loc 1 589 1 view .LVU531
  1709 0048 03B0     		add	sp, sp, #12
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 72
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 72
 
 
  1710              	.LCFI23:
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1751 006e EBD1     		bne	.L69
  1752 0070 E6E7     		b	.L64
  1753              	.LBE78:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 73
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 73
 
 
  1754              	.LBE79:
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1801              		.loc 2 441 5 is_stmt 1 view .LVU553
  1802 001e C1F34513 		ubfx	r3, r1, #5, #6
  1803 0022 03EBC312 		add	r2, r3, r3, lsl #7
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 74
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 74
 
 
  1804 0026 03EB4203 		add	r3, r3, r2, lsl #1
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1850              		.thumb_func
  1851              		.fpu fpv4-sp-d16
  1853              	lv_colorwheel_set_mode:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 75
 
 
  1854              	.LVL186:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1900              		@ args = 0, pretend = 0, frame = 0
  1901              		@ frame_needed = 0, uses_anonymous_args = 0
  1902              		@ link register save eliminated.
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 76
 
 
  149:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  1948              	.LCFI30:
  1949              		.cfi_def_cfa_offset 0
  1950              		@ sp needed
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 77
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 77
 
 
  1951 0014 7047     		bx	lr
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  298:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_obj_t * obj = lv_event_get_target(e);
  2002              		.loc 1 298 1 is_stmt 1 view -0
  2003              		.cfi_startproc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 78
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 78
 
 
  2004              		@ args = 0, pretend = 0, frame = 64
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2046              	.LVL206:
  307:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
  2047              		.loc 1 307 5 view .LVU604
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 79
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 79
 
 
  307:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2093              		.syntax unified
  2094              		.thumb
  2095              		.thumb_func
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 80
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 80
 
 
  2096              		.fpu fpv4-sp-d16
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2142              	.L130:
  2143              	.LCFI39:
  2144              		.cfi_restore_state
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 81
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 81
 
 
  356:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     lv_obj_t * obj = lv_event_get_target(e);
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2182              		.loc 1 434 10 is_stmt 1 view .LVU640
  434:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         lv_indev_t * indev = lv_indev_get_act();
  2183              		.loc 1 434 12 is_stmt 0 view .LVU641
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 82
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 82
 
 
  2184 003e 022C     		cmp	r4, #2
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2222              		.loc 1 361 9 is_stmt 1 view .LVU657
  2223              	.LBB84:
  2224              	.LBI84:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 83
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 83
 
 
  103:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
   93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
  2264              		.loc 3 93 5 view .LVU673
   93:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 84
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 84
 
 
  2265              		.loc 3 93 26 is_stmt 0 view .LVU674
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2306 00b2 4746     		movlt	r7, r8
  2307              	.LVL233:
  366:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         lv_coord_t * s = lv_event_get_param(e);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 85
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 85
 
 
  2308              		.loc 1 366 31 view .LVU688
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2349              		.loc 1 373 12 is_stmt 0 view .LVU701
  2350 00dc 3046     		mov	r0, r6
  2351              	.LVL242:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 86
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 86
 
 
  373:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****            lv_obj_get_height(obj) != lv_area_get_height(param)) {
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  137:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
  138:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
  139:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the height of an area
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 87
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 87
 
 
  140:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  383:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c **** 
  2432              		.loc 1 383 18 view .LVU729
  2433 011e 0368     		ldr	r3, [r0]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 88
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 88
 
 
  2434              	.LVL253:
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2473 014a 0199     		ldr	r1, [sp, #4]
  2474 014c 3046     		mov	r0, r6
  2475 014e FFF7FEFF 		bl	lv_colorwheel_set_hsv
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 89
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 89
 
 
  2476              	.LVL256:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2516 017c 3046     		mov	r0, r6
  2517 017e FFF7FEFF 		bl	lv_colorwheel_set_hsv
  2518              	.LVL261:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 90
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 90
 
 
  401:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****                 res = lv_event_send(obj, LV_EVENT_VALUE_CHANGED, NULL);
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2559 01be 6421     		movs	r1, #100
  2560 01c0 01FB1323 		mls	r3, r1, r3, r2
  394:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****                     break;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 91
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 91
 
 
  2561              		.loc 1 394 31 view .LVU773
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2600              		.loc 1 413 21 is_stmt 1 discriminator 4 view .LVU788
  2601 01f6 A8E7     		b	.L102
  2602              	.L100:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 92
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 92
 
 
  415:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****                     break;
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2642              	.LBE97:
  429:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         lv_indev_get_point(lv_indev_get_act(), &colorwheel->last_press_point);
  2643              		.loc 1 429 9 is_stmt 1 view .LVU804
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 93
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 93
 
 
  429:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         lv_indev_get_point(lv_indev_get_act(), &colorwheel->last_press_point);
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2684              		.loc 1 438 9 is_stmt 1 view .LVU818
  438:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         lv_point_t p;
  2685              		.loc 1 438 38 is_stmt 0 view .LVU819
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 94
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 94
 
 
  2686 0254 FFF7FEFF 		bl	lv_indev_get_type
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  448:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         if((LV_ABS(p.x - colorwheel->last_press_point.x) > drag_limit) ||
  2725              		.loc 1 448 9 is_stmt 1 view .LVU835
  448:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         if((LV_ABS(p.x - colorwheel->last_press_point.x) > drag_limit) ||
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 95
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 95
 
 
  2726              		.loc 1 448 38 is_stmt 0 view .LVU836
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2766 02c2 BDF90230 		ldrsh	r3, [sp, #2]
  453:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         }
  2767              		.loc 1 453 44 view .LVU851
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 96
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 96
 
 
  2768 02c6 7387     		strh	r3, [r6, #58]	@ movhi
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2808              	.LVL282:
  2809              		.loc 3 502 12 view .LVU868
  2810              	.LBE103:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 97
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 97
 
 
  2811              	.LBE102:
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2849              	.LVL287:
  474:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         }
  2850              		.loc 1 474 13 is_stmt 1 view .LVU885
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 98
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 98
 
 
  474:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****         }
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2889 034e 04D2     		bcs	.L117
  483:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****             next_color_mode(obj);
  2890              		.loc 1 483 65 discriminator 2 view .LVU902
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 99
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 99
 
 
  2891 0350 96F83C30 		ldrb	r3, [r6, #60]	@ zero_extendqisi2
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  2932 0396 DAB1     		cbz	r2, .L143
  2933              	.LVL295:
  2934              	.L120:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 100
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 100
 
 
  509:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****             res = lv_event_send(obj, LV_EVENT_VALUE_CHANGED, NULL);
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  484:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****             lv_indev_wait_release(lv_indev_get_act());
  2977              		.loc 1 484 13 is_stmt 0 view .LVU928
  2978 03c2 FFF7FEFF 		bl	next_color_mode
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 101
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 101
 
 
  2979              	.LVL306:
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  3019              		.loc 1 505 43 view .LVU942
  3020 03f6 104A     		ldr	r2, .L146+4
  3021 03f8 82FB0312 		smull	r1, r2, r2, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 102
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 102
 
 
  3022 03fc 1A44     		add	r2, r2, r3
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  3063 0426 FFF7FEFF 		bl	draw_disc_grad
  3064              	.LVL322:
  522:lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 103
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 103
 
 
  3065              		.loc 1 522 9 is_stmt 1 view .LVU956
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  3117              		.cfi_startproc
  3118              		@ args = 0, pretend = 0, frame = 0
  3119              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 104
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 104
 
 
  3120              		@ link register save eliminated.
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  3182              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
  3183              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\inc
  3184              		.file 8 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_types.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 105
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 105
 
 
  3185              		.file 9 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_ll.h"
@@ -6298,84 +6298,84 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 1
  3239              		.file 63 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/imgbtn/lv_imgbtn.h"
  3240              		.file 64 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/span/lv_span.h"
  3241              		.file 65 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/layouts/grid/lv_grid.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 106
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 106
 
 
  3242              		.file 66 "lvgl/lvgl/src/extra/widgets/colorwheel/lv_colorwheel.h"
  3243              		.file 67 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_indev.h"
  3244              		.file 68 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/hal/lv_hal_tick.h"
  3245              		.file 69 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/core/lv_obj_pos.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 107
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 107
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_colorwheel.c
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:18     .text.fast_hsv2rgb:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:25     .text.fast_hsv2rgb:00000000 fast_hsv2rgb
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:205    .text.angle_to_mode_color_fast:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:211    .text.angle_to_mode_color_fast:00000000 angle_to_mode_color_fast
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:473    .text.angle_to_mode_color_fast:00000168 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:483    .text.get_angle:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:489    .text.get_angle:00000000 get_angle
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:555    .text.get_angle:00000040 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:560    .text.get_knob_area:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:566    .text.get_knob_area:00000000 get_knob_area
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:744    .text.invalidate_knob:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:750    .text.invalidate_knob:00000000 invalidate_knob
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:791    .text.refr_knob_pos:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:797    .text.refr_knob_pos:00000000 refr_knob_pos
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:924    .text.next_color_mode:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:930    .text.next_color_mode:00000000 next_color_mode
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:975    .text.next_color_mode:00000030 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:980    .text.draw_disc_grad:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:986    .text.draw_disc_grad:00000000 draw_disc_grad
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1350   .text.draw_disc_grad:00000198 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1355   .text.lv_colorwheel_constructor:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1361   .text.lv_colorwheel_constructor:00000000 lv_colorwheel_constructor
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1435   .text.lv_colorwheel_constructor:00000054 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1440   .text.lv_colorwheel_create:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1447   .text.lv_colorwheel_create:00000000 lv_colorwheel_create
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1492   .text.lv_colorwheel_create:00000018 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1498   .text.lv_colorwheel_set_hsv:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1505   .text.lv_colorwheel_set_hsv:00000000 lv_colorwheel_set_hsv
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1614   .text.lv_colorwheel_set_hsv:00000070 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1619   .text.double_click_reset:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1625   .text.double_click_reset:00000000 double_click_reset
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1759   .text.lv_colorwheel_set_rgb:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1766   .text.lv_colorwheel_set_rgb:00000000 lv_colorwheel_set_rgb
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1846   .text.lv_colorwheel_set_mode:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1853   .text.lv_colorwheel_set_mode:00000000 lv_colorwheel_set_mode
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1888   .text.lv_colorwheel_set_mode_fixed:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1895   .text.lv_colorwheel_set_mode_fixed:00000000 lv_colorwheel_set_mode_fixed
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1915   .text.lv_colorwheel_get_hsv:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1922   .text.lv_colorwheel_get_hsv:00000000 lv_colorwheel_get_hsv
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1956   .text.lv_colorwheel_get_rgb:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1963   .text.lv_colorwheel_get_rgb:00000000 lv_colorwheel_get_rgb
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1993   .text.draw_knob:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:1999   .text.draw_knob:00000000 draw_knob
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:2092   .text.lv_colorwheel_event:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:2098   .text.lv_colorwheel_event:00000000 lv_colorwheel_event
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:2667   .text.lv_colorwheel_event:0000023c $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:2675   .text.lv_colorwheel_event:00000248 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3073   .text.lv_colorwheel_event:00000434 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3079   .text.lv_colorwheel_get_color_mode:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3086   .text.lv_colorwheel_get_color_mode:00000000 lv_colorwheel_get_color_mode
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3106   .text.lv_colorwheel_get_color_mode_fixed:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3113   .text.lv_colorwheel_get_color_mode_fixed:00000000 lv_colorwheel_get_color_mode_fixed
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3169   .rodata.lv_colorwheel_class:00000000 lv_colorwheel_class
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3137   .bss.create_knob_recolor:00000000 create_knob_recolor
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3138   .bss.create_knob_recolor:00000000 $d
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cczXDzXz.s 			page 108
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:18     .text.fast_hsv2rgb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:25     .text.fast_hsv2rgb:00000000 fast_hsv2rgb
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:205    .text.angle_to_mode_color_fast:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:211    .text.angle_to_mode_color_fast:00000000 angle_to_mode_color_fast
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:473    .text.angle_to_mode_color_fast:00000168 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:483    .text.get_angle:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:489    .text.get_angle:00000000 get_angle
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:555    .text.get_angle:00000040 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:560    .text.get_knob_area:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:566    .text.get_knob_area:00000000 get_knob_area
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:744    .text.invalidate_knob:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:750    .text.invalidate_knob:00000000 invalidate_knob
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:791    .text.refr_knob_pos:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:797    .text.refr_knob_pos:00000000 refr_knob_pos
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:924    .text.next_color_mode:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:930    .text.next_color_mode:00000000 next_color_mode
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:975    .text.next_color_mode:00000030 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:980    .text.draw_disc_grad:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:986    .text.draw_disc_grad:00000000 draw_disc_grad
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1350   .text.draw_disc_grad:00000198 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1355   .text.lv_colorwheel_constructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1361   .text.lv_colorwheel_constructor:00000000 lv_colorwheel_constructor
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1435   .text.lv_colorwheel_constructor:00000054 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1440   .text.lv_colorwheel_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1447   .text.lv_colorwheel_create:00000000 lv_colorwheel_create
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1492   .text.lv_colorwheel_create:00000018 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1498   .text.lv_colorwheel_set_hsv:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1505   .text.lv_colorwheel_set_hsv:00000000 lv_colorwheel_set_hsv
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1614   .text.lv_colorwheel_set_hsv:00000070 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1619   .text.double_click_reset:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1625   .text.double_click_reset:00000000 double_click_reset
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1759   .text.lv_colorwheel_set_rgb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1766   .text.lv_colorwheel_set_rgb:00000000 lv_colorwheel_set_rgb
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1846   .text.lv_colorwheel_set_mode:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1853   .text.lv_colorwheel_set_mode:00000000 lv_colorwheel_set_mode
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1888   .text.lv_colorwheel_set_mode_fixed:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1895   .text.lv_colorwheel_set_mode_fixed:00000000 lv_colorwheel_set_mode_fixed
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1915   .text.lv_colorwheel_get_hsv:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1922   .text.lv_colorwheel_get_hsv:00000000 lv_colorwheel_get_hsv
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1956   .text.lv_colorwheel_get_rgb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1963   .text.lv_colorwheel_get_rgb:00000000 lv_colorwheel_get_rgb
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1993   .text.draw_knob:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:1999   .text.draw_knob:00000000 draw_knob
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:2092   .text.lv_colorwheel_event:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:2098   .text.lv_colorwheel_event:00000000 lv_colorwheel_event
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:2667   .text.lv_colorwheel_event:0000023c $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:2675   .text.lv_colorwheel_event:00000248 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3073   .text.lv_colorwheel_event:00000434 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3079   .text.lv_colorwheel_get_color_mode:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3086   .text.lv_colorwheel_get_color_mode:00000000 lv_colorwheel_get_color_mode
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3106   .text.lv_colorwheel_get_color_mode_fixed:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3113   .text.lv_colorwheel_get_color_mode_fixed:00000000 lv_colorwheel_get_color_mode_fixed
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3169   .rodata.lv_colorwheel_class:00000000 lv_colorwheel_class
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3137   .bss.create_knob_recolor:00000000 create_knob_recolor
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3138   .bss.create_knob_recolor:00000000 $d
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s 			page 108
 
 
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3140   .bss.h.12306:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3144   .bss.h.12306:00000000 h.12306
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3150   .bss.s.12307:00000000 s.12307
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3151   .bss.s.12307:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3156   .bss.v.12308:00000000 v.12308
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3157   .bss.v.12308:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3162   .data.m.12309:00000000 m.12309
-C:\Users\gx\AppData\Local\Temp\cczXDzXz.s:3165   .rodata.lv_colorwheel_class:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3140   .bss.h.12306:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3144   .bss.h.12306:00000000 h.12306
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3150   .bss.s.12307:00000000 s.12307
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3151   .bss.s.12307:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3156   .bss.v.12308:00000000 v.12308
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3157   .bss.v.12308:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3162   .data.m.12309:00000000 m.12309
+C:\Users\gx\AppData\Local\Temp\ccCzJlmd.s:3165   .rodata.lv_colorwheel_class:00000000 $d
 
 UNDEFINED SYMBOLS
 lv_obj_get_style_prop

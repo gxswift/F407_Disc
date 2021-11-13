@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
   28:lvgl/lvgl/src/core/lv_disp.c **** static void set_y_anim(void * obj, int32_t v);
   29:lvgl/lvgl/src/core/lv_disp.c **** static void scr_anim_ready(lv_anim_t * a);
   30:lvgl/lvgl/src/core/lv_disp.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 2
 
 
   31:lvgl/lvgl/src/core/lv_disp.c **** /**********************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
   85:lvgl/lvgl/src/core/lv_disp.c ****     d->act_scr = scr;
   86:lvgl/lvgl/src/core/lv_disp.c **** 
   87:lvgl/lvgl/src/core/lv_disp.c ****     lv_obj_invalidate(scr);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 3
 
 
   88:lvgl/lvgl/src/core/lv_disp.c **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  142:lvgl/lvgl/src/core/lv_disp.c ****  * Get the theme of a display
  143:lvgl/lvgl/src/core/lv_disp.c ****  * @param disp pointer to a display
  144:lvgl/lvgl/src/core/lv_disp.c ****  * @return the display's theme (can be NULL)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 4
 
 
  145:lvgl/lvgl/src/core/lv_disp.c ****  */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  199:lvgl/lvgl/src/core/lv_disp.c **** {
  200:lvgl/lvgl/src/core/lv_disp.c ****     if(!disp) disp = lv_disp_get_default();
  201:lvgl/lvgl/src/core/lv_disp.c ****     if(!disp) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 5
 
 
  202:lvgl/lvgl/src/core/lv_disp.c ****         LV_LOG_WARN("no display registered");
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  256:lvgl/lvgl/src/core/lv_disp.c ****     lv_anim_init(&a_new);
  257:lvgl/lvgl/src/core/lv_disp.c ****     lv_anim_set_var(&a_new, new_scr);
  258:lvgl/lvgl/src/core/lv_disp.c ****     lv_anim_set_start_cb(&a_new, scr_load_anim_start);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 6
 
 
  259:lvgl/lvgl/src/core/lv_disp.c ****     lv_anim_set_ready_cb(&a_new, scr_anim_ready);
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  313:lvgl/lvgl/src/core/lv_disp.c ****             lv_anim_set_exec_cb(&a_new, set_y_anim);
  314:lvgl/lvgl/src/core/lv_disp.c ****             lv_anim_set_values(&a_new, -lv_disp_get_ver_res(d), 0);
  315:lvgl/lvgl/src/core/lv_disp.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 7
 
 
  316:lvgl/lvgl/src/core/lv_disp.c ****             lv_anim_set_exec_cb(&a_old, set_y_anim);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  370:lvgl/lvgl/src/core/lv_disp.c **** void lv_disp_clean_dcache(lv_disp_t * disp)
  371:lvgl/lvgl/src/core/lv_disp.c **** {
  372:lvgl/lvgl/src/core/lv_disp.c ****     if(!disp) disp = lv_disp_get_default();
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 8
 
 
  373:lvgl/lvgl/src/core/lv_disp.c ****     if(!disp) {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  427:lvgl/lvgl/src/core/lv_disp.c **** {
   29              		.loc 1 427 1 view -0
   30              		.cfi_startproc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 9
 
 
   31              		@ args = 0, pretend = 0, frame = 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  430:lvgl/lvgl/src/core/lv_disp.c ****     d->prev_scr = NULL;
   78              		.loc 1 430 36 is_stmt 1 discriminator 2 view .LVU15
   79 002c FFF7FEFF 		bl	lv_obj_del
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 10
 
 
   80              	.LVL7:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  131              		.loc 1 422 1 is_stmt 0 view .LVU22
  132 0000 08B5     		push	{r3, lr}
  133              	.LCFI2:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 11
 
 
  134              		.cfi_def_cfa_offset 8
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  182      2F6C7667 
  182      6C2F7372 
  182      632F636F 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 12
 
 
  182      72652F6C 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  224 000c 02B0     		add	sp, sp, #8
  225              	.LCFI6:
  226              		.cfi_remember_state
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 13
 
 
  227              		.cfi_def_cfa_offset 8
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  272      6973706C 
  272      61792072 
  272      65676973 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 14
 
 
  272      74657265 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  318              	.L25:
  319              	.LCFI11:
  320              		.cfi_restore_state
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 15
 
 
   68:lvgl/lvgl/src/core/lv_disp.c ****     if(!disp) {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  367              		.loc 1 82 1 is_stmt 1 view -0
  368              		.cfi_startproc
  369              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 16
 
 
  370              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  414              		@ frame_needed = 0, uses_anonymous_args = 0
  404:lvgl/lvgl/src/core/lv_disp.c ****     lv_disp_t * d = lv_obj_get_disp(a->var);
  415              		.loc 1 404 1 is_stmt 0 view .LVU80
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 17
 
 
  416 0000 38B5     		push	{r3, r4, r5, lr}
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
   30:lvgl/lvgl/src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_LEFT,
   31:lvgl/lvgl/src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_RIGHT,
   32:lvgl/lvgl/src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_TOP,
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 18
 
 
   33:lvgl/lvgl/src/core/lv_disp.h ****     LV_SCR_LOAD_ANIM_OVER_BOTTOM,
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
   87:lvgl/lvgl/src/core/lv_disp.h **** void lv_disp_set_theme(lv_disp_t * disp, lv_theme_t * th);
   88:lvgl/lvgl/src/core/lv_disp.h **** 
   89:lvgl/lvgl/src/core/lv_disp.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 19
 
 
   90:lvgl/lvgl/src/core/lv_disp.h ****  * Get the theme of a display
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  144:lvgl/lvgl/src/core/lv_disp.h **** void lv_disp_clean_dcache(lv_disp_t * disp);
  145:lvgl/lvgl/src/core/lv_disp.h **** 
  146:lvgl/lvgl/src/core/lv_disp.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 20
 
 
  147:lvgl/lvgl/src/core/lv_disp.h ****  * Get a pointer to the screen refresher timer to
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  464      7200
  465              		.section	.text.lv_disp_get_layer_top,"ax",%progbits
  466              		.align	1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 21
 
 
  467              		.global	lv_disp_get_layer_top
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
   97:lvgl/lvgl/src/core/lv_disp.c ****     if(!disp) {
  513              		.loc 1 97 15 is_stmt 1 discriminator 1 view .LVU102
   97:lvgl/lvgl/src/core/lv_disp.c ****     if(!disp) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 22
 
 
  514              		.loc 1 97 22 is_stmt 0 discriminator 1 view .LVU103
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  557              		.thumb
  558              		.thumb_func
  559              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 23
 
 
  561              	lv_disp_get_layer_sys:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  604              	.LVL52:
  114:lvgl/lvgl/src/core/lv_disp.c ****     if(!disp) {
  605              		.loc 1 114 22 discriminator 1 view .LVU122
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 24
 
 
  606 0014 0446     		mov	r4, r0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  654              		.cfi_def_cfa_offset 16
  655              		.cfi_offset 3, -16
  656              		.cfi_offset 4, -12
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 25
 
 
  657              		.cfi_offset 5, -8
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  696              		.loc 1 134 9 discriminator 1 view .LVU145
  697 001e FFF7FEFF 		bl	lv_obj_get_child_cnt
  698              	.LVL63:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 26
 
 
  133:lvgl/lvgl/src/core/lv_disp.c ****         lv_obj_get_child_cnt(disp->screens[0]) == 0 &&
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  743              		.loc 1 147 1 is_stmt 1 view -0
  744              		.cfi_startproc
  745              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 27
 
 
  746              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  787              		.thumb_func
  788              		.fpu fpv4-sp-d16
  790              	lv_disp_set_bg_color:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 28
 
 
  791              	.LVL72:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  831              		.loc 1 168 53 view .LVU181
  832 0016 013C     		subs	r4, r4, #1
  833 0018 A4B2     		uxth	r4, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 29
 
 
  168:lvgl/lvgl/src/core/lv_disp.c ****     _lv_inv_area(disp, &a);
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  878 0048 044B     		ldr	r3, .L69
  879 004a 0093     		str	r3, [sp]
  880 004c 044B     		ldr	r3, .L69+4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 30
 
 
  881 004e A122     		movs	r2, #161
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  930              	.LVL86:
  931              	.L72:
  181:lvgl/lvgl/src/core/lv_disp.c ****         LV_LOG_WARN("no display registered");
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 31
 
 
  932              		.loc 1 181 5 is_stmt 1 view .LVU199
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  191:lvgl/lvgl/src/core/lv_disp.c **** 
  973              		.loc 1 191 1 is_stmt 0 view .LVU213
  974 003c 05B0     		add	sp, sp, #20
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 32
 
 
  975              	.LCFI30:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1022              		.thumb_func
  1023              		.fpu fpv4-sp-d16
  1025              	lv_disp_set_bg_opa:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 33
 
 
  1026              	.LVL97:
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1066 001a A4B2     		uxth	r4, r4
  209:lvgl/lvgl/src/core/lv_disp.c ****     _lv_inv_area(disp, &a);
  1067              		.loc 1 209 58 view .LVU236
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 34
 
 
  1068 001c 2846     		mov	r0, r5
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1113 004e 044B     		ldr	r3, .L87+4
  1114 0050 CA22     		movs	r2, #202
  1115 0052 0449     		ldr	r1, .L87+8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 35
 
 
  1116 0054 0220     		movs	r0, #2
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  223:lvgl/lvgl/src/core/lv_disp.c ****     lv_obj_t * act_scr = lv_scr_act();
  1166              		.loc 1 223 21 is_stmt 0 view .LVU252
  1167 000e FFF7FEFF 		bl	lv_obj_get_disp
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 36
 
 
  1168              	.LVL109:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1210 003c FFF7FEFF 		bl	lv_anim_del
  1211              	.LVL115:
  230:lvgl/lvgl/src/core/lv_disp.c ****         lv_obj_remove_local_style_prop(d->scr_to_load, LV_STYLE_OPA, 0);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 37
 
 
  1212              		.loc 1 230 9 view .LVU269
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1253              		.loc 2 163 26 view .LVU282
  1254              	.LBB89:
  1255              		.loc 2 165 5 view .LVU283
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 38
 
 
  1256              		.loc 2 165 12 is_stmt 0 view .LVU284
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1302              		.loc 2 165 5 view .LVU295
  1303              		.loc 2 165 12 is_stmt 0 view .LVU296
  1304 00b2 FFF7FEFF 		bl	lv_disp_get_default
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 39
 
 
  1305              	.LVL127:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
   32:lvgl/lvgl/src/core/../misc/lv_anim.h ****     LV_ANIM_OFF,
   33:lvgl/lvgl/src/core/../misc/lv_anim.h ****     LV_ANIM_ON,
   34:lvgl/lvgl/src/core/../misc/lv_anim.h **** }lv_anim_enable_t;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 40
 
 
   35:lvgl/lvgl/src/core/../misc/lv_anim.h **** 
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
   89:lvgl/lvgl/src/core/../misc/lv_anim.h ****     uint8_t run_round : 1;    /**< Indicates the animation has run in this round*/
   90:lvgl/lvgl/src/core/../misc/lv_anim.h ****     uint8_t start_cb_called : 1;    /**< Indicates that the `start_cb` was already called*/
   91:lvgl/lvgl/src/core/../misc/lv_anim.h ****     uint32_t time_orig;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 41
 
 
   92:lvgl/lvgl/src/core/../misc/lv_anim.h **** } lv_anim_t;
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  133:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->exec_cb = exec_cb;
  134:lvgl/lvgl/src/core/../misc/lv_anim.h **** }
  135:lvgl/lvgl/src/core/../misc/lv_anim.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 42
 
 
  136:lvgl/lvgl/src/core/../misc/lv_anim.h **** /**
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  190:lvgl/lvgl/src/core/../misc/lv_anim.h **** {
  191:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->path_cb = path_cb;
  192:lvgl/lvgl/src/core/../misc/lv_anim.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 43
 
 
  193:lvgl/lvgl/src/core/../misc/lv_anim.h **** 
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  260:lvgl/lvgl/src/core/lv_disp.c ****     lv_anim_set_delay(&a_new, delay);
  1359              		.loc 1 260 5 is_stmt 1 view .LVU315
  1360              	.LBB100:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 44
 
 
  1361              	.LBI100:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1399              		.loc 3 121 5 view .LVU331
  121:lvgl/lvgl/src/core/../misc/lv_anim.h **** }
  1400              		.loc 3 121 12 is_stmt 0 view .LVU332
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 45
 
 
  1401 00e4 0093     		str	r3, [sp]
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1443 00fc 79       		.byte	(.L95-.L94)/2
  1444 00fd 8B       		.byte	(.L93-.L94)/2
  1445              	.LVL142:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 46
 
 
  1446              		.p2align 1
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1484              		.loc 3 166 18 is_stmt 0 view .LVU360
  1485 0112 1A93     		str	r3, [sp, #104]
  1486              	.LVL146:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 47
 
 
  1487              	.L92:
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  162:lvgl/lvgl/src/core/../misc/lv_anim.h **** {
  1530              		.loc 3 162 20 is_stmt 1 view .LVU372
  1531              	.LBB117:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 48
 
 
  164:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->current_value = start;
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1570              	.LBB120:
  1571              	.LBI120:
  162:lvgl/lvgl/src/core/../misc/lv_anim.h **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 49
 
 
  1572              		.loc 3 162 20 is_stmt 1 view .LVU389
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  162:lvgl/lvgl/src/core/../misc/lv_anim.h **** {
  1611              		.loc 3 162 20 is_stmt 1 view .LVU405
  1612              	.LBB125:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 50
 
 
  164:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->current_value = start;
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1651              	.LBB128:
  1652              	.LBI128:
  162:lvgl/lvgl/src/core/../misc/lv_anim.h **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 51
 
 
  1653              		.loc 3 162 20 is_stmt 1 view .LVU422
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  162:lvgl/lvgl/src/core/../misc/lv_anim.h **** {
  1692              		.loc 3 162 20 is_stmt 1 view .LVU438
  1693              	.LBB133:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 52
 
 
  164:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->current_value = start;
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  162:lvgl/lvgl/src/core/../misc/lv_anim.h **** {
  1732              		.loc 3 162 20 is_stmt 1 view .LVU455
  1733              	.LBB137:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 53
 
 
  164:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->current_value = start;
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1772              	.LBI140:
  162:lvgl/lvgl/src/core/../misc/lv_anim.h **** {
  1773              		.loc 3 162 20 is_stmt 1 view .LVU472
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 54
 
 
  1774              	.LBB141:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  164:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->current_value = start;
  1812              		.loc 3 164 5 view .LVU489
  164:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->current_value = start;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 55
 
 
  1813              		.loc 3 164 20 is_stmt 0 view .LVU490
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1851              		.loc 3 164 20 is_stmt 0 view .LVU506
  1852 01cc 1890     		str	r0, [sp, #96]
  165:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->end_value = end;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 56
 
 
  1853              		.loc 3 165 5 is_stmt 1 view .LVU507
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1891              		.loc 3 164 20 is_stmt 0 view .LVU523
  1892 01de 0795     		str	r5, [sp, #28]
  165:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->end_value = end;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 57
 
 
  1893              		.loc 3 165 5 is_stmt 1 view .LVU524
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  164:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->current_value = start;
  1932              		.loc 3 164 20 is_stmt 0 view .LVU540
  1933 01f2 1890     		str	r0, [sp, #96]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 58
 
 
  165:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->end_value = end;
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  1971              		.loc 3 165 5 is_stmt 1 view .LVU557
  165:lvgl/lvgl/src/core/../misc/lv_anim.h ****     a->end_value = end;
  1972              		.loc 3 165 22 is_stmt 0 view .LVU558
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 59
 
 
  1973 0204 0895     		str	r5, [sp, #32]
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2010              		.loc 3 166 18 is_stmt 0 view .LVU575
  2011 0214 FF23     		movs	r3, #255
  2012 0216 1A93     		str	r3, [sp, #104]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 60
 
 
  167:lvgl/lvgl/src/core/../misc/lv_anim.h **** 
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2061 000c 0546     		mov	r5, r0
  2062              	.L108:
  349:lvgl/lvgl/src/core/lv_disp.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 61
 
 
  2063              		.loc 1 349 1 view .LVU584
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2102 002e 2046     		mov	r0, r4
  2103              	.LVL208:
  345:lvgl/lvgl/src/core/lv_disp.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 62
 
 
  2104              		.loc 1 345 13 view .LVU600
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2149              		.loc 1 357 7 is_stmt 0 view .LVU607
  2150 0004 0446     		mov	r4, r0
  2151 0006 30B1     		cbz	r0, .L119
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 63
 
 
  2152              	.L115:
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2194              	.LVL217:
  359:lvgl/lvgl/src/core/lv_disp.c ****         return;
  2195              		.loc 1 359 68 is_stmt 1 view .LVU620
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 64
 
 
  360:lvgl/lvgl/src/core/lv_disp.c ****     }
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2241 0008 53B1     		cbz	r3, .L129
  378:lvgl/lvgl/src/core/lv_disp.c ****         disp->driver->clean_dcache_cb(disp->driver);
  2242              		.loc 1 378 5 is_stmt 1 view .LVU628
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 65
 
 
  378:lvgl/lvgl/src/core/lv_disp.c ****         disp->driver->clean_dcache_cb(disp->driver);
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2286              	.LVL226:
  374:lvgl/lvgl/src/core/lv_disp.c ****         return;
  2287              		.loc 1 374 67 is_stmt 1 view .LVU640
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 66
 
 
  375:lvgl/lvgl/src/core/lv_disp.c ****     }
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2333              		.loc 1 391 7 is_stmt 0 view .LVU647
  2334 0008 34B1     		cbz	r4, .L138
  396:lvgl/lvgl/src/core/lv_disp.c **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 67
 
 
  2335              		.loc 1 396 5 is_stmt 1 view .LVU648
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2378 002e 00BF     		.align	2
  2379              	.L139:
  2380 0030 00000000 		.word	.LC8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 68
 
 
  2381 0034 00000000 		.word	.LANCHOR9
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2427      6973705F 
  2427      7365745F 
  2427      62675F69 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 69
 
 
  2427      6D616765 
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2473              		.file 19 "lvgl/lvgl/src/core/../misc/lv_txt.h"
  2474              		.file 20 "lvgl/lvgl/src/core/../misc/lv_style.h"
  2475              		.file 21 "lvgl/lvgl/src/core/lv_obj_scroll.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 70
 
 
  2476              		.file 22 "lvgl/lvgl/src/core/lv_obj_style.h"
@@ -4151,95 +4151,95 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 1
  2483              		.file 29 "lvgl/lvgl/src/core/../hal/../misc/lv_log.h"
  2484              		.file 30 "lvgl/lvgl/src/core/../hal/lv_hal_tick.h"
  2485              		.file 31 "lvgl/lvgl/src/core/../core/lv_refr.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 71
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_disp.c
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:18     .text.scr_anim_ready:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:25     .text.scr_anim_ready:00000000 scr_anim_ready
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:86     .text.opa_scale_anim:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:92     .text.opa_scale_anim:00000000 opa_scale_anim
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:118    .text.set_y_anim:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:124    .text.set_y_anim:00000000 set_y_anim
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:149    .text.set_x_anim:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:155    .text.set_x_anim:00000000 set_x_anim
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:180    .rodata.lv_disp_get_scr_act.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:187    .text.lv_disp_get_scr_act:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:194    .text.lv_disp_get_scr_act:00000000 lv_disp_get_scr_act
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:263    .text.lv_disp_get_scr_act:0000002c $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:270    .rodata.lv_disp_get_scr_prev.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:274    .text.lv_disp_get_scr_prev:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:281    .text.lv_disp_get_scr_prev:00000000 lv_disp_get_scr_prev
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:350    .text.lv_disp_get_scr_prev:0000002c $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:357    .text.lv_disp_load_scr:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:364    .text.lv_disp_load_scr:00000000 lv_disp_load_scr
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:402    .text.scr_load_anim_start:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:408    .text.scr_load_anim_start:00000000 scr_load_anim_start
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:461    .rodata.lv_disp_get_layer_top.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:466    .text.lv_disp_get_layer_top:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:473    .text.lv_disp_get_layer_top:00000000 lv_disp_get_layer_top
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:542    .text.lv_disp_get_layer_top:0000002c $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:549    .rodata.lv_disp_get_layer_sys.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:554    .text.lv_disp_get_layer_sys:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:561    .text.lv_disp_get_layer_sys:00000000 lv_disp_get_layer_sys
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:630    .text.lv_disp_get_layer_sys:0000002c $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:637    .text.lv_disp_set_theme:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:644    .text.lv_disp_set_theme:00000000 lv_disp_set_theme
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:733    .text.lv_disp_get_theme:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:740    .text.lv_disp_get_theme:00000000 lv_disp_get_theme
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:779    .rodata.lv_disp_set_bg_color.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:783    .text.lv_disp_set_bg_color:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:790    .text.lv_disp_set_bg_color:00000000 lv_disp_set_bg_color
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:894    .text.lv_disp_set_bg_color:0000005c $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:901    .text.lv_disp_set_bg_image:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:908    .text.lv_disp_set_bg_image:00000000 lv_disp_set_bg_image
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:1011   .text.lv_disp_set_bg_image:0000005c $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:1018   .text.lv_disp_set_bg_opa:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:1025   .text.lv_disp_set_bg_opa:00000000 lv_disp_set_bg_opa
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:1127   .text.lv_disp_set_bg_opa:0000005c $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:1134   .text.lv_scr_load_anim:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:1141   .text.lv_scr_load_anim:00000000 lv_scr_load_anim
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:1435   .text.lv_scr_load_anim:000000f4 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:1446   .text.lv_scr_load_anim:000000fe $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2018   .text.lv_scr_load_anim:0000021c $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2029   .text.lv_disp_get_inactive_time:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2036   .text.lv_disp_get_inactive_time:00000000 lv_disp_get_inactive_time
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2121   .rodata.lv_disp_trig_activity.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2125   .text.lv_disp_trig_activity:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2132   .text.lv_disp_trig_activity:00000000 lv_disp_trig_activity
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2201   .text.lv_disp_trig_activity:00000034 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2208   .rodata.lv_disp_clean_dcache.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2212   .text.lv_disp_clean_dcache:00000000 $t
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s 			page 72
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:18     .text.scr_anim_ready:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:25     .text.scr_anim_ready:00000000 scr_anim_ready
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:86     .text.opa_scale_anim:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:92     .text.opa_scale_anim:00000000 opa_scale_anim
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:118    .text.set_y_anim:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:124    .text.set_y_anim:00000000 set_y_anim
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:149    .text.set_x_anim:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:155    .text.set_x_anim:00000000 set_x_anim
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:180    .rodata.lv_disp_get_scr_act.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:187    .text.lv_disp_get_scr_act:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:194    .text.lv_disp_get_scr_act:00000000 lv_disp_get_scr_act
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:263    .text.lv_disp_get_scr_act:0000002c $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:270    .rodata.lv_disp_get_scr_prev.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:274    .text.lv_disp_get_scr_prev:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:281    .text.lv_disp_get_scr_prev:00000000 lv_disp_get_scr_prev
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:350    .text.lv_disp_get_scr_prev:0000002c $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:357    .text.lv_disp_load_scr:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:364    .text.lv_disp_load_scr:00000000 lv_disp_load_scr
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:402    .text.scr_load_anim_start:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:408    .text.scr_load_anim_start:00000000 scr_load_anim_start
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:461    .rodata.lv_disp_get_layer_top.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:466    .text.lv_disp_get_layer_top:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:473    .text.lv_disp_get_layer_top:00000000 lv_disp_get_layer_top
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:542    .text.lv_disp_get_layer_top:0000002c $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:549    .rodata.lv_disp_get_layer_sys.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:554    .text.lv_disp_get_layer_sys:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:561    .text.lv_disp_get_layer_sys:00000000 lv_disp_get_layer_sys
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:630    .text.lv_disp_get_layer_sys:0000002c $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:637    .text.lv_disp_set_theme:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:644    .text.lv_disp_set_theme:00000000 lv_disp_set_theme
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:733    .text.lv_disp_get_theme:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:740    .text.lv_disp_get_theme:00000000 lv_disp_get_theme
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:779    .rodata.lv_disp_set_bg_color.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:783    .text.lv_disp_set_bg_color:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:790    .text.lv_disp_set_bg_color:00000000 lv_disp_set_bg_color
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:894    .text.lv_disp_set_bg_color:0000005c $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:901    .text.lv_disp_set_bg_image:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:908    .text.lv_disp_set_bg_image:00000000 lv_disp_set_bg_image
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:1011   .text.lv_disp_set_bg_image:0000005c $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:1018   .text.lv_disp_set_bg_opa:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:1025   .text.lv_disp_set_bg_opa:00000000 lv_disp_set_bg_opa
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:1127   .text.lv_disp_set_bg_opa:0000005c $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:1134   .text.lv_scr_load_anim:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:1141   .text.lv_scr_load_anim:00000000 lv_scr_load_anim
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:1435   .text.lv_scr_load_anim:000000f4 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:1446   .text.lv_scr_load_anim:000000fe $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2018   .text.lv_scr_load_anim:0000021c $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2029   .text.lv_disp_get_inactive_time:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2036   .text.lv_disp_get_inactive_time:00000000 lv_disp_get_inactive_time
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2121   .rodata.lv_disp_trig_activity.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2125   .text.lv_disp_trig_activity:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2132   .text.lv_disp_trig_activity:00000000 lv_disp_trig_activity
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2201   .text.lv_disp_trig_activity:00000034 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2208   .rodata.lv_disp_clean_dcache.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2212   .text.lv_disp_clean_dcache:00000000 $t
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s 			page 72
 
 
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2219   .text.lv_disp_clean_dcache:00000000 lv_disp_clean_dcache
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2293   .text.lv_disp_clean_dcache:00000034 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2300   .rodata._lv_disp_get_refr_timer.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2304   .text._lv_disp_get_refr_timer:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2311   .text._lv_disp_get_refr_timer:00000000 _lv_disp_get_refr_timer
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2380   .text._lv_disp_get_refr_timer:00000030 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2387   .rodata.__func__.10014:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2391   .rodata.__func__.10014:00000000 __func__.10014
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2394   .rodata.__func__.10018:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2398   .rodata.__func__.10018:00000000 __func__.10018
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2401   .rodata.__func__.10026:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2405   .rodata.__func__.10026:00000000 __func__.10026
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2408   .rodata.__func__.10030:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2412   .rodata.__func__.10030:00000000 __func__.10030
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2415   .rodata.__func__.10042:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2419   .rodata.__func__.10042:00000000 __func__.10042
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2422   .rodata.__func__.10048:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2426   .rodata.__func__.10048:00000000 __func__.10048
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2429   .rodata.__func__.10054:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2433   .rodata.__func__.10054:00000000 __func__.10054
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2436   .rodata.__func__.10090:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2440   .rodata.__func__.10090:00000000 __func__.10090
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2443   .rodata.__func__.10094:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2447   .rodata.__func__.10094:00000000 __func__.10094
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2450   .rodata.__func__.10098:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccJyMfSg.s:2454   .rodata.__func__.10098:00000000 __func__.10098
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2219   .text.lv_disp_clean_dcache:00000000 lv_disp_clean_dcache
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2293   .text.lv_disp_clean_dcache:00000034 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2300   .rodata._lv_disp_get_refr_timer.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2304   .text._lv_disp_get_refr_timer:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2311   .text._lv_disp_get_refr_timer:00000000 _lv_disp_get_refr_timer
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2380   .text._lv_disp_get_refr_timer:00000030 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2387   .rodata.__func__.10014:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2391   .rodata.__func__.10014:00000000 __func__.10014
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2394   .rodata.__func__.10018:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2398   .rodata.__func__.10018:00000000 __func__.10018
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2401   .rodata.__func__.10026:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2405   .rodata.__func__.10026:00000000 __func__.10026
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2408   .rodata.__func__.10030:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2412   .rodata.__func__.10030:00000000 __func__.10030
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2415   .rodata.__func__.10042:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2419   .rodata.__func__.10042:00000000 __func__.10042
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2422   .rodata.__func__.10048:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2426   .rodata.__func__.10048:00000000 __func__.10048
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2429   .rodata.__func__.10054:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2433   .rodata.__func__.10054:00000000 __func__.10054
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2436   .rodata.__func__.10090:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2440   .rodata.__func__.10090:00000000 __func__.10090
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2443   .rodata.__func__.10094:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2447   .rodata.__func__.10094:00000000 __func__.10094
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2450   .rodata.__func__.10098:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccfrJXSa.s:2454   .rodata.__func__.10098:00000000 __func__.10098
 
 UNDEFINED SYMBOLS
 lv_obj_get_disp

@@ -266,7 +266,8 @@ flash: $(BUILD_DIR)/$(TARGET).hex
 
 openocd: $(BUILD_DIR)/$(TARGET).hex
 	openocd -f openocd.cfg -c init -c halt -c \
-	"flash write_image erase build/F407.hex" -c reset -c exit
+	"flash write_image erase "$^ -c reset -c exit
+#	"flash write_image erase build/F407.hex" -c reset -c exit
 #	"flash write_image erase E:/MCU/STM32L431RC-BearPi/usart1-fpu-test/build/usart1-fpu-test.bin"
 
 #"*.bin 0x08000000"

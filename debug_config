@@ -1,0 +1,93 @@
+"executable"：编译出的二进制文件，也就是最终烧录到单片机中的，这里是elf文件。根据芯片的不同，可能产生不同的名称和后缀（例如TI的TM4C123芯片编译出来的名称是"main.axf"）
+"request"：可以选launch或attach。launch是指启动调试时同时开始执行程序；attcah是指程序已经在运行了，然后开始调试。我没测试过attach。
+"type"：调试的类型，选cortex-debug，这是我们装的插件。其实也可以填cppdbg之类的，但是那样我们就得自己配置gdb了，配置起来将会非常麻烦。
+"device"：目标芯片。如果你使用J-LINK GDB Server时必须要设置这个选项。然而我们的GDB Server是openocd，J-Link只用来连接芯片。
+"svdFile"：svd文件的路径。
+"servertype"：要选择的gdb server。我们用openocd。
+"configFiles"：gdb server的配置文件路径。其实openocd会自动读当前目录下的openocd.cfg文件，这个选项不填也行。但是如果你想把openocd.cfg放在别处，就可以用这个选项指定配置文件的路径。
+"preLaunchTask"：在启动调试前，预先执行的任务。在这里我们设置为前一篇文章里配置的build任务。这样每次调试前都会先自动编译好
+"armToolchainPath"：工具链的路径。配置了全局环境变量的情况下好像不设置也行。
+
+cortex-debug launch.json 直接运行，可以查看svd文件寄存器
+-----------------------------------------------------------------------------------------------------------------------------
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/build/F407.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            
+            "device":"STM32F407VE",        //使用J-link GDB Server时必须；其他GBD Server时可选（有可能帮助自动选择SVD文件）。支持的设备见 https://www.segger.com/downloads/supported-devices.php
+            "svdFile": "./STM32F407.svd",  //svd文件，有这个文件才能查看寄存器的值，每个单片机都不同。可以在以下地址找到 https://github.com/posborne/cmsis-svd
+            "servertype": "openocd",       //使用的GDB Server
+            "configFiles": [                  
+                "${workspaceRoot}/openocd.cfg"
+            ],
+            //"preLaunchTask": "build"
+        }
+    ]
+}
+
+
+GDB launch.json   需要先运行openocd  不能看SVD文件
+-----------------------------------------------------------------------------------------------------------------------------
+{
+
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ARM Debug",
+            "type": "cppdbg",                                                       
+            "request": "launch",                                                    
+            "program": "${workspaceFolder}/build/F407.elf",   // 要调试的程序（在下面的参数中指定了，这里的没有意义）
+            "args": [],                                                             
+            "stopAtEntry": false,                                                  
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,  
+ // 调试时是否显示控制台窗口
+
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\9 2020-q2-update\\bin\\arm-none-eabi-gdb.exe",
+ //调试工具原始路径
+
+            "targetArchitecture": "arm",                                            //目标架构，此参数必须要有
+
+            "setupCommands": [                                                      // 进入GDB以后，自动执行的一些配置  
+               {
+                    "description": "选择调试文件(.elf)到gdb",
+                    "text": "file D:/practise/F407_Disc/build/F407.elf", //此处不能使用${workspaceFolder}，因为windows下分隔符是'\\'，gdb识别不出来
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "连接GDB Server",
+                    "text": "target remote localhost:3333",                                 
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Reset MCU",
+                    "text": "monitor reset",                                              
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Halt",
+                    "text": "monitor halt",                                                  
+                    "ignoreFailures": false
+                },
+                {
+                    "description":"下载代码到MCU",
+                    "text": "load" ,              
+                    "ignoreFailures": false                                      
+                }
+            ],
+            //"preLaunchTask": "build",                                           // 在调试前预先执行的任务，此处是tasks.json中的
+        }
+    ]
+}
+

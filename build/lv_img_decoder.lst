@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
    2:lvgl/lvgl/src/draw/lv_img_decoder.c ****  * @file lv_img_decoder.c
    3:lvgl/lvgl/src/draw/lv_img_decoder.c ****  *
    4:lvgl/lvgl/src/draw/lv_img_decoder.c ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 2
 
 
    5:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
   59:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
   60:lvgl/lvgl/src/draw/lv_img_decoder.c ****     lv_img_decoder_t * decoder;
   61:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 3
 
 
   62:lvgl/lvgl/src/draw/lv_img_decoder.c ****     /*Create a decoder for the built in color format*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  116:lvgl/lvgl/src/draw/lv_img_decoder.c ****     }
  117:lvgl/lvgl/src/draw/lv_img_decoder.c ****     else {
  118:lvgl/lvgl/src/draw/lv_img_decoder.c ****         dsc->src = src;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 4
 
 
  119:lvgl/lvgl/src/draw/lv_img_decoder.c ****     }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  173:lvgl/lvgl/src/draw/lv_img_decoder.c **** void lv_img_decoder_close(lv_img_decoder_dsc_t * dsc)
  174:lvgl/lvgl/src/draw/lv_img_decoder.c **** {
  175:lvgl/lvgl/src/draw/lv_img_decoder.c ****     if(dsc->decoder) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 5
 
 
  176:lvgl/lvgl/src/draw/lv_img_decoder.c ****         if(dsc->decoder->close_cb) dsc->decoder->close_cb(dsc->decoder, dsc);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  230:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
  231:lvgl/lvgl/src/draw/lv_img_decoder.c **** /**
  232:lvgl/lvgl/src/draw/lv_img_decoder.c ****  * Set a callback to a decoded line of an image
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 6
 
 
  233:lvgl/lvgl/src/draw/lv_img_decoder.c ****  * @param decoder pointer to an image decoder
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
   67              	.LVL2:
  263:lvgl/lvgl/src/draw/lv_img_decoder.c ****     if(src_type == LV_IMG_SRC_VARIABLE) {
   68              		.loc 1 263 5 is_stmt 1 view .LVU6
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 7
 
 
   69              		.loc 1 263 7 is_stmt 0 view .LVU7
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  277:lvgl/lvgl/src/draw/lv_img_decoder.c ****         if(res == LV_FS_RES_OK) {
  278:lvgl/lvgl/src/draw/lv_img_decoder.c ****             uint32_t rn;
  279:lvgl/lvgl/src/draw/lv_img_decoder.c ****             res = lv_fs_read(&f, header, sizeof(lv_img_header_t), &rn);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 8
 
 
  280:lvgl/lvgl/src/draw/lv_img_decoder.c ****             lv_fs_close(&f);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  292:lvgl/lvgl/src/draw/lv_img_decoder.c ****         header->h = 1;
  135              		.loc 1 292 19 is_stmt 0 view .LVU29
  136 0056 2368     		ldr	r3, [r4]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 9
 
 
  137 0058 0126     		movs	r6, #1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  179              	.LVL12:
  277:lvgl/lvgl/src/draw/lv_img_decoder.c ****             uint32_t rn;
  180              		.loc 1 277 9 is_stmt 1 view .LVU42
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 10
 
 
  277:lvgl/lvgl/src/draw/lv_img_decoder.c ****             uint32_t rn;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  221              		.loc 1 281 36 discriminator 1 view .LVU56
  222 00bc 042B     		cmp	r3, #4
  223 00be E8D0     		beq	.L6
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 11
 
 
  224              	.L7:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  270              		.align	1
  271              		.global	lv_img_decoder_built_in_close
  272              		.syntax unified
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 12
 
 
  273              		.thumb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  352:lvgl/lvgl/src/draw/lv_img_decoder.c ****              *So simply give its pointer*/
  353:lvgl/lvgl/src/draw/lv_img_decoder.c ****             dsc->img_data = ((lv_img_dsc_t *)dsc->src)->data;
  354:lvgl/lvgl/src/draw/lv_img_decoder.c ****             return LV_RES_OK;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 13
 
 
  355:lvgl/lvgl/src/draw/lv_img_decoder.c ****         }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  409:lvgl/lvgl/src/draw/lv_img_decoder.c ****         }
  410:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
  411:lvgl/lvgl/src/draw/lv_img_decoder.c ****         return LV_RES_OK;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 14
 
 
  412:lvgl/lvgl/src/draw/lv_img_decoder.c ****     }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  466:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
  467:lvgl/lvgl/src/draw/lv_img_decoder.c ****     return res;
  468:lvgl/lvgl/src/draw/lv_img_decoder.c **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 15
 
 
  469:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  485:lvgl/lvgl/src/draw/lv_img_decoder.c ****         if(user_data->opa) lv_mem_free(user_data->opa);
  318              		.loc 1 485 9 view .LVU80
  319              		.loc 1 485 21 is_stmt 0 view .LVU81
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 16
 
 
  320 0016 E868     		ldr	r0, [r5, #12]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  360              	.LC6:
  361 003c 6473632D 		.ascii	"dsc->user_data != NULL\000"
  361      3E757365 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 17
 
 
  361      725F6461 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  392              		.loc 1 312 1 is_stmt 0 view .LVU92
  393 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
  394              	.LCFI5:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 18
 
 
  395              		.cfi_def_cfa_offset 32
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  436 0022 031F     		subs	r3, r0, #4
  437 0024 DBB2     		uxtb	r3, r3
  349:lvgl/lvgl/src/draw/lv_img_decoder.c ****         if(dsc->src_type == LV_IMG_SRC_VARIABLE) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 19
 
 
  438              		.loc 1 349 7 view .LVU106
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  477              		.loc 1 318 9 is_stmt 1 view .LVU121
  319:lvgl/lvgl/src/draw/lv_img_decoder.c ****         if(res != LV_FS_RES_OK) {
  478              		.loc 1 319 9 view .LVU122
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 20
 
 
  319:lvgl/lvgl/src/draw/lv_img_decoder.c ****         if(res != LV_FS_RES_OK) {
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
   22:lvgl/lvgl/src/draw/../misc/lv_mem.h **** 
   23:lvgl/lvgl/src/draw/../misc/lv_mem.h **** #if LV_MEMCPY_MEMSET_STD
   24:lvgl/lvgl/src/draw/../misc/lv_mem.h **** #include <string.h>
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 21
 
 
   25:lvgl/lvgl/src/draw/../misc/lv_mem.h **** #endif
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
   79:lvgl/lvgl/src/draw/../misc/lv_mem.h ****  * @return pointer to the allocated memory
   80:lvgl/lvgl/src/draw/../misc/lv_mem.h ****  */
   81:lvgl/lvgl/src/draw/../misc/lv_mem.h **** void * lv_mem_alloc(size_t size);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 22
 
 
   82:lvgl/lvgl/src/draw/../misc/lv_mem.h **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  136:lvgl/lvgl/src/draw/../misc/lv_mem.h ****  * @param src pointer to the source buffer
  137:lvgl/lvgl/src/draw/../misc/lv_mem.h ****  * @param len number of byte to copy
  138:lvgl/lvgl/src/draw/../misc/lv_mem.h ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 23
 
 
  139:lvgl/lvgl/src/draw/../misc/lv_mem.h **** static inline void * lv_memcpy(void * dst, const void * src, size_t len)
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  193:lvgl/lvgl/src/draw/../misc/lv_mem.h **** LV_ATTRIBUTE_FAST_MEM void * lv_memcpy(void * dst, const void * src, size_t len);
  194:lvgl/lvgl/src/draw/../misc/lv_mem.h **** 
  195:lvgl/lvgl/src/draw/../misc/lv_mem.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 24
 
 
  196:lvgl/lvgl/src/draw/../misc/lv_mem.h ****  * Same as `memcpy` but optimized to copy only a few bytes.
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  538 007a 1020     		movs	r0, #16
  539              	.LVL48:
  327:lvgl/lvgl/src/draw/lv_img_decoder.c ****             LV_ASSERT_MALLOC(dsc->user_data);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 25
 
 
  540              		.loc 1 327 30 view .LVU146
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  581              		.loc 2 207 15 is_stmt 0 view .LVU160
  582 00a8 12F8010B 		ldrb	r0, [r2], #1	@ zero_extendqisi2
  583              	.LVL53:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 26
 
 
  584              		.loc 2 207 13 view .LVU161
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  624              		.loc 1 364 9 is_stmt 1 view .LVU176
  364:lvgl/lvgl/src/draw/lv_img_decoder.c ****         uint32_t palette_size = 1 << px_size;
  625              		.loc 1 364 33 is_stmt 0 view .LVU177
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 27
 
 
  626 00d0 FFF7FEFF 		bl	lv_img_cf_get_px_size
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  663 00f4 FFF7FEFF 		bl	lv_mem_alloc
  664              	.LVL63:
  381:lvgl/lvgl/src/draw/lv_img_decoder.c ****         LV_ASSERT_MALLOC(user_data->opa);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 28
 
 
  665              		.loc 1 381 52 discriminator 2 view .LVU195
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  701              	.LBE21:
  369:lvgl/lvgl/src/draw/lv_img_decoder.c ****             LV_ASSERT_MALLOC(dsc->user_data);
  702              		.loc 1 369 13 is_stmt 1 view .LVU214
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 29
 
 
  369:lvgl/lvgl/src/draw/lv_img_decoder.c ****             LV_ASSERT_MALLOC(dsc->user_data);
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  743              	.L61:
  380:lvgl/lvgl/src/draw/lv_img_decoder.c ****         user_data->opa                             = lv_mem_alloc(palette_size * sizeof(lv_opa_t));
  744              		.loc 1 380 9 discriminator 1 view .LVU229
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 30
 
 
  745 0140 434B     		ldr	r3, .L66+16
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  789 0182 3249     		ldr	r1, .L66+12
  790 0184 0320     		movs	r0, #3
  791 0186 FFF7FEFF 		bl	_lv_log_add
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 31
 
 
  792              	.LVL73:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  832              		.loc 1 396 41 is_stmt 0 discriminator 3 view .LVU253
  833 01b2 9DF81230 		ldrb	r3, [sp, #18]	@ zero_extendqisi2
  834 01b6 9DF81120 		ldrb	r2, [sp, #17]	@ zero_extendqisi2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 32
 
 
  835 01ba 9DF81000 		ldrb	r0, [sp, #16]	@ zero_extendqisi2
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
   47:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_OPA_30     = 76,
   48:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_OPA_40     = 102,
   49:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_OPA_50     = 127,
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 33
 
 
   50:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_OPA_60     = 153,
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  104:lvgl/lvgl/src/draw/../misc/lv_color.h **** #endif
  105:lvgl/lvgl/src/draw/../misc/lv_color.h **** #endif /*__cplusplus*/
  106:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 34
 
 
  107:lvgl/lvgl/src/draw/../misc/lv_color.h **** #ifndef _LV_COLOR_HAS_MODERN_CPP
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  161:lvgl/lvgl/src/draw/../misc/lv_color.h **** # define LV_COLOR_GET_G16(c) (((c).ch.green_h << 3) + (c).ch.green_l)
  162:lvgl/lvgl/src/draw/../misc/lv_color.h **** #endif
  163:lvgl/lvgl/src/draw/../misc/lv_color.h **** # define LV_COLOR_GET_B16(c) (c).ch.blue
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 35
 
 
  164:lvgl/lvgl/src/draw/../misc/lv_color.h **** # define LV_COLOR_GET_A16(c) 0xFF
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  218:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
  219:lvgl/lvgl/src/draw/../misc/lv_color.h **** typedef union {
  220:lvgl/lvgl/src/draw/../misc/lv_color.h ****     struct {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 36
 
 
  221:lvgl/lvgl/src/draw/../misc/lv_color.h ****         uint8_t blue : 2;
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  275:lvgl/lvgl/src/draw/../misc/lv_color.h **** }lv_color_filter_dsc_t;
  276:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
  277:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 37
 
 
  278:lvgl/lvgl/src/draw/../misc/lv_color.h **** typedef enum {
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  332:lvgl/lvgl/src/draw/../misc/lv_color.h ****         return 1;
  333:lvgl/lvgl/src/draw/../misc/lv_color.h ****     }
  334:lvgl/lvgl/src/draw/../misc/lv_color.h ****     else {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 38
 
 
  335:lvgl/lvgl/src/draw/../misc/lv_color.h ****         return 0;
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  389:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_G16(ret, LV_COLOR_GET_G(color) >> 2); /*8 - 6  = 2*/
  390:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_B16(ret, LV_COLOR_GET_B(color) >> 3); /*8 - 5  = 3*/
  391:lvgl/lvgl/src/draw/../misc/lv_color.h ****     return ret.full;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 39
 
 
  392:lvgl/lvgl/src/draw/../misc/lv_color.h **** #endif
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  446:lvgl/lvgl/src/draw/../misc/lv_color.h ****     return color.full;
  447:lvgl/lvgl/src/draw/../misc/lv_color.h **** #endif
  448:lvgl/lvgl/src/draw/../misc/lv_color.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 40
 
 
  449:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  503:lvgl/lvgl/src/draw/../misc/lv_color.h **** /**
  504:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * Mix two colors with a given ratio. It runs faster then `lv_color_mix` but requires some pre comp
  505:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * @param premult_c1 The first color. Should be preprocessed with `lv_color_premult(c1)`
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 41
 
 
  506:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * @param c2 The second color. As it is no pre computation required on it
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  560:lvgl/lvgl/src/draw/../misc/lv_color.h ****         *res_opa = bg_opa;
  561:lvgl/lvgl/src/draw/../misc/lv_color.h ****     }
  562:lvgl/lvgl/src/draw/../misc/lv_color.h ****     /*Opaque background: use simple mix*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 42
 
 
  563:lvgl/lvgl/src/draw/../misc/lv_color.h ****     else if(bg_opa >= LV_OPA_MAX) {
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  843              	.LBB26:
  616:lvgl/lvgl/src/draw/../misc/lv_color.h **** {
  617:lvgl/lvgl/src/draw/../misc/lv_color.h ****     return _LV_COLOR_MAKE_TYPE_HELPER LV_COLOR_MAKE(r, g, b);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 43
 
 
  844              		.loc 3 617 5 discriminator 3 view .LVU256
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  406:lvgl/lvgl/src/draw/lv_img_decoder.c ****                 user_data->opa[i]     = palette_p[i].ch.alpha;
  887              		.loc 1 406 64 is_stmt 0 discriminator 3 view .LVU273
  888 01e6 00EB8302 		add	r2, r0, r3, lsl #2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 44
 
 
  406:lvgl/lvgl/src/draw/lv_img_decoder.c ****                 user_data->opa[i]     = palette_p[i].ch.alpha;
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  932              		.loc 1 405 13 is_stmt 0 discriminator 1 view .LVU290
  933 0212 4B45     		cmp	r3, r9
  934 0214 E7D3     		bcc	.L49
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 45
 
 
  935              	.LVL93:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  979              	.L66:
  980 0240 00000000 		.word	.LC0
  981 0244 00000000 		.word	.LC4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 46
 
 
  982 0248 00000000 		.word	.LANCHOR1
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1022              		.cfi_offset 7, -16
  1023              		.cfi_offset 8, -12
  1024              		.cfi_offset 9, -8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 47
 
 
  1025              		.cfi_offset 14, -4
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  506:lvgl/lvgl/src/draw/lv_img_decoder.c ****     if(res != LV_FS_RES_OK) {
  1072              		.loc 1 506 5 is_stmt 1 view .LVU320
  1073              		.loc 1 506 7 is_stmt 0 view .LVU321
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 48
 
 
  1074 0036 E8B9     		cbnz	r0, .L74
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  516:lvgl/lvgl/src/draw/lv_img_decoder.c ****     }
  517:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
  518:lvgl/lvgl/src/draw/lv_img_decoder.c ****     return LV_RES_OK;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 49
 
 
  519:lvgl/lvgl/src/draw/lv_img_decoder.c **** }
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1167              		.fpu fpv4-sp-d16
  1169              	lv_img_decoder_built_in_line_alpha:
  1170              	.LVL117:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 50
 
 
  1171              	.LFB68:
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  529:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
  530:lvgl/lvgl/src/draw/lv_img_decoder.c ****     /*Simply fill the buffer with the color. Later only the alpha value will be modified.*/
  531:lvgl/lvgl/src/draw/lv_img_decoder.c ****     lv_color_t bg_color = dsc->color;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 51
 
 
  1216              		.loc 1 531 5 is_stmt 1 view .LVU355
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  545:lvgl/lvgl/src/draw/lv_img_decoder.c ****     }
  546:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
  547:lvgl/lvgl/src/draw/lv_img_decoder.c ****     const lv_opa_t * opa_table = NULL;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 52
 
 
  1253              		.loc 1 547 5 is_stmt 1 view .LVU373
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1298              	.LVL129:
  1299              		.loc 1 556 32 view .LVU389
  1300 0084 0730     		adds	r0, r0, #7
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 53
 
 
  1301              		.loc 1 556 15 view .LVU390
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1329 009c 0390     		str	r0, [sp, #12]
  1330 009e FFF7FEFF 		bl	lv_mem_buf_get
  1331              	.LVL135:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 54
 
 
  582:lvgl/lvgl/src/draw/lv_img_decoder.c ****     if (fs_buf == NULL) return LV_RES_INV;
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  562:lvgl/lvgl/src/draw/lv_img_decoder.c ****             ofs += w * y + (x >> 2); /*First pixel*/
  1371              		.loc 1 562 15 view .LVU420
  1372 00be 8010     		asrs	r0, r0, #2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 55
 
 
  1373              	.LVL142:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1410              		.loc 1 569 26 view .LVU437
  1411 00e2 0AFB003A 		mla	r10, r10, r0, r3
  1412              	.LVL149:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 56
 
 
  570:lvgl/lvgl/src/draw/lv_img_decoder.c ****             opa_table = alpha4_opa_table;
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1451              		.loc 1 554 23 view .LVU453
  1452 010c A346     		mov	fp, r4
  1453 010e C3E7     		b	.L80
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 57
 
 
  1454              	.LVL156:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1491              		.loc 1 604 17 view .LVU464
  1492 013a 64B2     		sxtb	r4, r4
  1493              	.LVL164:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 58
 
 
  605:lvgl/lvgl/src/draw/lv_img_decoder.c ****             data_tmp++;
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1533              	.LVL169:
  1534              	.L89:
  599:lvgl/lvgl/src/draw/lv_img_decoder.c ****             dsc->header.cf == LV_IMG_CF_ALPHA_8BIT ? val_act : opa_table[val_act];
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 59
 
 
  1535              		.loc 1 599 15 discriminator 4 view .LVU482
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1576              		.cfi_restore_state
  582:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
  1577              		.loc 1 582 32 view .LVU495
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 60
 
 
  1578 0184 0020     		movs	r0, #0
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1628              		.loc 1 615 23 view .LVU501
  1629 0012 00F01F00 		and	r0, r0, #31
  1630 0016 FFF7FEFF 		bl	lv_img_cf_get_px_size
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 61
 
 
  1631              	.LVL179:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1676              		.loc 1 624 26 view .LVU518
  1677 004a 0BFB003B 		mla	fp, fp, r0, r3
  1678              	.LVL184:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 62
 
 
  625:lvgl/lvgl/src/draw/lv_img_decoder.c ****             ofs += 8;                /*Skip the palette*/
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1705              		.loc 1 652 5 is_stmt 1 view .LVU531
  1706              	.LVL189:
  653:lvgl/lvgl/src/draw/lv_img_decoder.c ****     if(dsc->src_type == LV_IMG_SRC_VARIABLE) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 63
 
 
  1707              		.loc 1 653 5 view .LVU532
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1747              	.LVL196:
  631:lvgl/lvgl/src/draw/lv_img_decoder.c ****             pos = 6 - (x & 0x3) * 2;
  1748              		.loc 1 631 13 is_stmt 1 view .LVU549
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 64
 
 
  631:lvgl/lvgl/src/draw/lv_img_decoder.c ****             pos = 6 - (x & 0x3) * 2;
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1787 00b6 11D1     		bne	.L116
  1788 00b8 0424     		movs	r4, #4
  1789 00ba CDE7     		b	.L103
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 65
 
 
  1790              	.LVL204:
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1829              	.LVL212:
  1830              	.L110:
  658:lvgl/lvgl/src/draw/lv_img_decoder.c ****         lv_fs_read(&user_data->f, fs_buf, w, NULL);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 66
 
 
  1831              		.loc 1 658 9 is_stmt 1 view .LVU581
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1859              		.loc 1 683 17 view .LVU589
  1860 0102 64B2     		sxtb	r4, r4
  1861              	.LVL219:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 67
 
 
  684:lvgl/lvgl/src/draw/lv_img_decoder.c ****             data_tmp++;
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  672:lvgl/lvgl/src/draw/lv_img_decoder.c ****         buf[i * LV_IMG_PX_SIZE_ALPHA_BYTE + 1] = (color.full >> 8) & 0xFF;
  1900              		.loc 1 672 44 view .LVU608
  1901 0124 A954     		strb	r1, [r5, r2]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 68
 
 
  673:lvgl/lvgl/src/draw/lv_img_decoder.c **** #elif LV_COLOR_DEPTH == 32
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  688:lvgl/lvgl/src/draw/lv_img_decoder.c ****     return LV_RES_OK;
  1939              		.loc 1 688 5 is_stmt 1 view .LVU625
  1940              		.loc 1 688 12 is_stmt 0 view .LVU626
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 69
 
 
  1941 014a 0120     		movs	r0, #1
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  1987              	.LCFI20:
  1988              		.cfi_def_cfa_offset 12
  1989              		.cfi_offset 4, -12
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 70
 
 
  1990              		.cfi_offset 5, -8
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  459:lvgl/lvgl/src/draw/lv_img_decoder.c ****         res = lv_img_decoder_built_in_line_indexed(dsc, x, y, len, buf);
  2029              		.loc 1 459 54 is_stmt 0 view .LVU648
  2030 002a 073C     		subs	r4, r4, #7
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 71
 
 
  2031 002c E4B2     		uxtb	r4, r4
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2073 0050 F8E7     		b	.L124
  2074              	.LVL243:
  2075              	.L129:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 72
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 72
 
 
  456:lvgl/lvgl/src/draw/lv_img_decoder.c ****     }
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2123              		.cfi_startproc
  2124              		@ args = 0, pretend = 0, frame = 0
  2125              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 73
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 73
 
 
   84:lvgl/lvgl/src/draw/lv_img_decoder.c ****    lv_memset_00(header, sizeof(lv_img_header_t));
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2169              		.loc 1 89 5 discriminator 1 view .LVU680
  2170 0024 4CB1     		cbz	r4, .L136
   90:lvgl/lvgl/src/draw/lv_img_decoder.c ****             res = d->info_cb(d, src, header);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 74
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 74
 
 
  2171              		.loc 1 90 9 view .LVU681
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2211              		.section	.text.lv_img_decoder_open,"ax",%progbits
  2212              		.align	1
  2213              		.global	lv_img_decoder_open
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 75
 
 
  2214              		.syntax unified
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2259              		.loc 1 104 19 view .LVU702
  2260 001c 3074     		strb	r0, [r6, #16]
  105:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 76
 
 
  2261              		.loc 1 105 5 is_stmt 1 view .LVU703
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2300              	.LVL273:
  109:lvgl/lvgl/src/draw/lv_img_decoder.c ****         LV_ASSERT_MALLOC(dsc->src);
  2301              		.loc 1 109 18 view .LVU719
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 77
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 77
 
 
  2302 0040 7060     		str	r0, [r6, #4]
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2343 006a FFF7FEFF 		bl	_lv_ll_get_next
  2344              	.LVL277:
  2345 006e 0446     		mov	r4, r0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 78
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 78
 
 
  2346              	.LVL278:
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2383              		.loc 1 132 15 view .LVU749
  2384 0094 3146     		mov	r1, r6
  2385 0096 2046     		mov	r0, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 79
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 79
 
 
  2386              	.LVL281:
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2424 00b8 03D0     		beq	.L154
  2425              	.LVL287:
  2426              	.L148:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 80
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 80
 
 
  150:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2478              		.cfi_offset 5, -12
  2479              		.cfi_offset 6, -8
  2480              		.cfi_offset 14, -4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 81
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 81
 
 
  2481 0002 82B0     		sub	sp, sp, #8
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2523              		.cfi_restore_state
  163:lvgl/lvgl/src/draw/lv_img_decoder.c ****     if(dsc->decoder->read_line_cb) res = dsc->decoder->read_line_cb(dsc->decoder, dsc, x, y, len, b
  2524              		.loc 1 163 14 view .LVU783
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 82
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 82
 
 
  2525 001e 0020     		movs	r0, #0
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2570 0010 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
  178:lvgl/lvgl/src/draw/lv_img_decoder.c ****             lv_mem_free((void*)dsc->src);
  2571              		.loc 1 178 11 view .LVU795
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 83
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 83
 
 
  2572 0012 012B     		cmp	r3, #1
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2618              		.loc 1 191 5 view .LVU802
  192:lvgl/lvgl/src/draw/lv_img_decoder.c ****     LV_ASSERT_MALLOC(decoder);
  2619              		.loc 1 192 5 view .LVU803
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 84
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 84
 
 
  192:lvgl/lvgl/src/draw/lv_img_decoder.c ****     LV_ASSERT_MALLOC(decoder);
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2663              	.L168:
  193:lvgl/lvgl/src/draw/lv_img_decoder.c ****     if(decoder == NULL) return NULL;
  2664              		.loc 1 193 5 is_stmt 1 discriminator 1 view .LVU815
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 85
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 85
 
 
  193:lvgl/lvgl/src/draw/lv_img_decoder.c ****     if(decoder == NULL) return NULL;
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2713              	.LVL312:
  209:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
  2714              		.loc 1 209 1 is_stmt 0 view .LVU824
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 86
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 86
 
 
  2715 0012 10BD     		pop	{r4, pc}
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  228:lvgl/lvgl/src/draw/lv_img_decoder.c **** }
  2766              		.loc 1 228 22 is_stmt 0 view .LVU832
  2767 0000 4160     		str	r1, [r0, #4]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 87
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 87
 
 
  229:lvgl/lvgl/src/draw/lv_img_decoder.c **** 
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2817 0002 7047     		bx	lr
  2818              		.cfi_endproc
  2819              	.LFE62:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 88
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 88
 
 
  2821              		.section	.text._lv_img_decoder_init,"ax",%progbits
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2864              		.loc 1 71 5 view .LVU853
  2865 001a 0F49     		ldr	r1, .L186+8
  2866 001c 2046     		mov	r0, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 89
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 89
 
 
  2867 001e FFF7FEFF 		bl	lv_img_decoder_set_open_cb
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2912              		.align	2
  2913              	.L186:
  2914 0050 00000000 		.word	_lv_img_decoder_ll
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 90
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 90
 
 
  2915 0054 00000000 		.word	lv_img_decoder_built_in_info
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  2959      75696C74 
  2960              		.section	.rodata.__func__.8142,"a"
  2961              		.align	2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 91
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 91
 
 
  2962              		.set	.LANCHOR1,. + 0
@@ -5450,85 +5450,85 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 1
  3002              		.file 23 "lvgl/lvgl/src/draw/../draw/lv_draw_img.h"
  3003              		.file 24 "lvgl/lvgl/src/draw/../misc/lv_log.h"
  3004              		.file 25 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 92
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 92
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_img_decoder.c
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:18     .rodata.lv_img_decoder_built_in_info.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:31     .text.lv_img_decoder_built_in_info:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:39     .text.lv_img_decoder_built_in_info:00000000 lv_img_decoder_built_in_info
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:261    .text.lv_img_decoder_built_in_info:000000ec $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:270    .text.lv_img_decoder_built_in_close:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:277    .text.lv_img_decoder_built_in_close:00000000 lv_img_decoder_built_in_close
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:353    .rodata.lv_img_decoder_built_in_open.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:378    .text.lv_img_decoder_built_in_open:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:385    .text.lv_img_decoder_built_in_open:00000000 lv_img_decoder_built_in_open
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:980    .text.lv_img_decoder_built_in_open:00000240 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:995    .rodata.lv_img_decoder_built_in_line_true_color.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1002   .text.lv_img_decoder_built_in_line_true_color:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1008   .text.lv_img_decoder_built_in_line_true_color:00000000 lv_img_decoder_built_in_line_true_color
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1155   .text.lv_img_decoder_built_in_line_true_color:00000090 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1163   .text.lv_img_decoder_built_in_line_alpha:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1169   .text.lv_img_decoder_built_in_line_alpha:00000000 lv_img_decoder_built_in_line_alpha
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1288   .text.lv_img_decoder_built_in_line_alpha:0000007a $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1292   .text.lv_img_decoder_built_in_line_alpha:0000007e $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1585   .text.lv_img_decoder_built_in_line_alpha:00000188 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1590   .text.lv_img_decoder_built_in_line_indexed:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1596   .text.lv_img_decoder_built_in_line_indexed:00000000 lv_img_decoder_built_in_line_indexed
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1657   .text.lv_img_decoder_built_in_line_indexed:00000038 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1661   .text.lv_img_decoder_built_in_line_indexed:0000003c $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1966   .rodata.lv_img_decoder_built_in_read_line.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1971   .text.lv_img_decoder_built_in_read_line:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:1978   .text.lv_img_decoder_built_in_read_line:00000000 lv_img_decoder_built_in_read_line
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2105   .text.lv_img_decoder_built_in_read_line:00000074 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2112   .text.lv_img_decoder_get_info:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2119   .text.lv_img_decoder_get_info:00000000 lv_img_decoder_get_info
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2203   .text.lv_img_decoder_get_info:00000040 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2208   .rodata.lv_img_decoder_open.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2212   .text.lv_img_decoder_open:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2219   .text.lv_img_decoder_open:00000000 lv_img_decoder_open
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2449   .text.lv_img_decoder_open:000000cc $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2459   .text.lv_img_decoder_read_line:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2466   .text.lv_img_decoder_read_line:00000000 lv_img_decoder_read_line
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2531   .text.lv_img_decoder_close:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2538   .text.lv_img_decoder_close:00000000 lv_img_decoder_close
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2593   .rodata.lv_img_decoder_create.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2597   .text.lv_img_decoder_create:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2604   .text.lv_img_decoder_create:00000000 lv_img_decoder_create
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2672   .text.lv_img_decoder_create:00000034 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2682   .text.lv_img_decoder_delete:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2689   .text.lv_img_decoder_delete:00000000 lv_img_decoder_delete
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2721   .text.lv_img_decoder_delete:00000014 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2726   .text.lv_img_decoder_set_info_cb:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2733   .text.lv_img_decoder_set_info_cb:00000000 lv_img_decoder_set_info_cb
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2750   .text.lv_img_decoder_set_open_cb:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2757   .text.lv_img_decoder_set_open_cb:00000000 lv_img_decoder_set_open_cb
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2774   .text.lv_img_decoder_set_read_line_cb:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2781   .text.lv_img_decoder_set_read_line_cb:00000000 lv_img_decoder_set_read_line_cb
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2798   .text.lv_img_decoder_set_close_cb:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2805   .text.lv_img_decoder_set_close_cb:00000000 lv_img_decoder_set_close_cb
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2822   .text._lv_img_decoder_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2829   .text._lv_img_decoder_init:00000000 _lv_img_decoder_init
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s 			page 93
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:18     .rodata.lv_img_decoder_built_in_info.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:31     .text.lv_img_decoder_built_in_info:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:39     .text.lv_img_decoder_built_in_info:00000000 lv_img_decoder_built_in_info
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:261    .text.lv_img_decoder_built_in_info:000000ec $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:270    .text.lv_img_decoder_built_in_close:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:277    .text.lv_img_decoder_built_in_close:00000000 lv_img_decoder_built_in_close
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:353    .rodata.lv_img_decoder_built_in_open.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:378    .text.lv_img_decoder_built_in_open:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:385    .text.lv_img_decoder_built_in_open:00000000 lv_img_decoder_built_in_open
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:980    .text.lv_img_decoder_built_in_open:00000240 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:995    .rodata.lv_img_decoder_built_in_line_true_color.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1002   .text.lv_img_decoder_built_in_line_true_color:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1008   .text.lv_img_decoder_built_in_line_true_color:00000000 lv_img_decoder_built_in_line_true_color
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1155   .text.lv_img_decoder_built_in_line_true_color:00000090 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1163   .text.lv_img_decoder_built_in_line_alpha:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1169   .text.lv_img_decoder_built_in_line_alpha:00000000 lv_img_decoder_built_in_line_alpha
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1288   .text.lv_img_decoder_built_in_line_alpha:0000007a $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1292   .text.lv_img_decoder_built_in_line_alpha:0000007e $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1585   .text.lv_img_decoder_built_in_line_alpha:00000188 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1590   .text.lv_img_decoder_built_in_line_indexed:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1596   .text.lv_img_decoder_built_in_line_indexed:00000000 lv_img_decoder_built_in_line_indexed
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1657   .text.lv_img_decoder_built_in_line_indexed:00000038 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1661   .text.lv_img_decoder_built_in_line_indexed:0000003c $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1966   .rodata.lv_img_decoder_built_in_read_line.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1971   .text.lv_img_decoder_built_in_read_line:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:1978   .text.lv_img_decoder_built_in_read_line:00000000 lv_img_decoder_built_in_read_line
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2105   .text.lv_img_decoder_built_in_read_line:00000074 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2112   .text.lv_img_decoder_get_info:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2119   .text.lv_img_decoder_get_info:00000000 lv_img_decoder_get_info
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2203   .text.lv_img_decoder_get_info:00000040 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2208   .rodata.lv_img_decoder_open.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2212   .text.lv_img_decoder_open:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2219   .text.lv_img_decoder_open:00000000 lv_img_decoder_open
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2449   .text.lv_img_decoder_open:000000cc $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2459   .text.lv_img_decoder_read_line:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2466   .text.lv_img_decoder_read_line:00000000 lv_img_decoder_read_line
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2531   .text.lv_img_decoder_close:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2538   .text.lv_img_decoder_close:00000000 lv_img_decoder_close
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2593   .rodata.lv_img_decoder_create.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2597   .text.lv_img_decoder_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2604   .text.lv_img_decoder_create:00000000 lv_img_decoder_create
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2672   .text.lv_img_decoder_create:00000034 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2682   .text.lv_img_decoder_delete:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2689   .text.lv_img_decoder_delete:00000000 lv_img_decoder_delete
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2721   .text.lv_img_decoder_delete:00000014 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2726   .text.lv_img_decoder_set_info_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2733   .text.lv_img_decoder_set_info_cb:00000000 lv_img_decoder_set_info_cb
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2750   .text.lv_img_decoder_set_open_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2757   .text.lv_img_decoder_set_open_cb:00000000 lv_img_decoder_set_open_cb
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2774   .text.lv_img_decoder_set_read_line_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2781   .text.lv_img_decoder_set_read_line_cb:00000000 lv_img_decoder_set_read_line_cb
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2798   .text.lv_img_decoder_set_close_cb:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2805   .text.lv_img_decoder_set_close_cb:00000000 lv_img_decoder_set_close_cb
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2822   .text._lv_img_decoder_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2829   .text._lv_img_decoder_init:00000000 _lv_img_decoder_init
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s 			page 93
 
 
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2914   .text._lv_img_decoder_init:00000050 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2928   .rodata:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2933   .rodata.__func__.8063:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2937   .rodata.__func__.8063:00000000 __func__.8063
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2940   .rodata.__func__.8081:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2944   .rodata.__func__.8081:00000000 __func__.8081
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2947   .rodata.__func__.8104:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2951   .rodata.__func__.8104:00000000 __func__.8104
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2954   .rodata.__func__.8135:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2958   .rodata.__func__.8135:00000000 __func__.8135
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2961   .rodata.__func__.8142:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2965   .rodata.__func__.8142:00000000 __func__.8142
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2968   .rodata.__func__.8171:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2972   .rodata.__func__.8171:00000000 __func__.8171
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2975   .rodata.__func__.8188:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cc5nw5N9.s:2979   .rodata.__func__.8188:00000000 __func__.8188
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2914   .text._lv_img_decoder_init:00000050 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2928   .rodata:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2933   .rodata.__func__.8063:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2937   .rodata.__func__.8063:00000000 __func__.8063
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2940   .rodata.__func__.8081:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2944   .rodata.__func__.8081:00000000 __func__.8081
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2947   .rodata.__func__.8104:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2951   .rodata.__func__.8104:00000000 __func__.8104
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2954   .rodata.__func__.8135:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2958   .rodata.__func__.8135:00000000 __func__.8135
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2961   .rodata.__func__.8142:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2965   .rodata.__func__.8142:00000000 __func__.8142
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2968   .rodata.__func__.8171:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2972   .rodata.__func__.8171:00000000 __func__.8171
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2975   .rodata.__func__.8188:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEJfW4K.s:2979   .rodata.__func__.8188:00000000 __func__.8188
 
 UNDEFINED SYMBOLS
 lv_img_src_get_type
