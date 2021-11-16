@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   28:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** static void draw_ticks_and_labels(lv_obj_t * obj, const lv_area_t * clip_area, const lv_area_t * sc
   29:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** static void draw_needles(lv_obj_t * obj, const lv_area_t * clip_area, const lv_area_t * scale_area)
   30:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** static void inv_arc(lv_obj_t * obj, lv_meter_indicator_t * indic, int32_t old_value, int32_t new_va
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 2
 
 
   31:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** static void inv_line(lv_obj_t * obj, lv_meter_indicator_t * indic, int32_t value);
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   85:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** {
   86:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     scale->tick_cnt = cnt;
   87:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     scale->tick_width = width;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 3
 
 
   88:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     scale->tick_length = len;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  142:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
  143:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     indic->type = LV_METER_INDICATOR_TYPE_NEEDLE_IMG;
  144:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     indic->type_data.needle_img.src = src;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 4
 
 
  145:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     indic->type_data.needle_img.pivot.x = pivot_x;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  199:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
  200:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     if(indic->type == LV_METER_INDICATOR_TYPE_ARC) {
  201:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         inv_arc(obj, indic, old_start, value);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 5
 
 
  202:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         inv_arc(obj, indic, old_end, value);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  256:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     lv_meter_t * meter = (lv_meter_t *)obj;
  257:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
  258:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     _lv_ll_init(&meter->scale_ll, sizeof(lv_meter_scale_t));
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 6
 
 
  259:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     _lv_ll_init(&meter->indicator_ll, sizeof(lv_meter_indicator_t));
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 96
   32              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 7
 
 
   33              		.loc 1 311 1 is_stmt 0 view .LVU1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   17:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
   18:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
   19:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_height(const struct _lv_obj_t * obj, uint32_t part)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 8
 
 
   20:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   74:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
   75:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSLATE_Y);
   76:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 9
 
 
   77:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  131:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
  132:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
  133:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline bool lv_obj_get_style_clip_corner(const struct _lv_obj_t * obj, uint32_t part)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 10
 
 
  134:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  188:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
  189:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_BASE_DIR);
  190:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_base_dir_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 11
 
 
  191:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  245:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
  246:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
  247:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_opa_t lv_obj_get_style_bg_img_opa(const struct _lv_obj_t * obj, uint32_t part)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 12
 
 
  248:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  302:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
  303:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_BORDER_SIDE);
  304:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_border_side_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 13
 
 
  305:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  359:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
  360:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
  361:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_opa_t lv_obj_get_style_img_opa(const struct _lv_obj_t * obj, uint32_t part)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 14
 
 
  362:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  416:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
  417:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_SHADOW_WIDTH);
  418:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 15
 
 
  419:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  473:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** }
  474:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** 
  475:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_line_rounded(const struct _lv_obj_t * obj, uint32_t part)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 16
 
 
  476:d:\practise\f407_disc\lvgl\lvgl\src/core\lv_obj_style_gen.h **** {
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   85              	.LBB55:
   86              	.LBI55:
   87              		.file 3 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 17
 
 
    1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   55:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y1;
   56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x2;
   57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y2;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 18
 
 
   58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_area_t;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  112:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
  113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set(lv_area_t * area_p, lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2);
  114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 19
 
 
  115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  321:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     scale_center.y = scale_area->y1 + r_out;
  119              		.loc 1 321 5 is_stmt 1 view .LVU27
  120              		.loc 1 321 32 is_stmt 0 view .LVU28
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 20
 
 
  121 0048 6B88     		ldrh	r3, [r5, #2]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  160 006c 4FF40033 		mov	r3, #131072
  161 0070 1393     		str	r3, [sp, #76]
  330:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     part_draw_dsc.class_p = MY_CLASS;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 21
 
 
  162              		.loc 1 330 5 is_stmt 1 view .LVU46
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  204 009e 0097     		str	r7, [sp]
  205 00a0 FFF7FEFF 		bl	lv_map
  206              	.LVL20:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 22
 
 
  207 00a4 0746     		mov	r7, r0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  253 00dc 19AB     		add	r3, sp, #100
  254 00de 0293     		str	r3, [sp, #8]
  255 00e0 CDF804A0 		str	r10, [sp, #4]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 23
 
 
  256 00e4 ADB2     		uxth	r5, r5
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  299              		.loc 1 337 23 view .LVU93
  300 011e ADF86630 		strh	r3, [sp, #102]	@ movhi
  338:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 24
 
 
  301              		.loc 1 338 9 is_stmt 1 view .LVU94
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  348              		.loc 1 356 1 is_stmt 0 view .LVU102
  349 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
  350              	.LCFI3:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 25
 
 
  351              		.cfi_def_cfa_offset 36
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  139:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the height of an area
  140:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
  141:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return the height of the area (if y1 == y2 -> height = 1)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 26
 
 
  142:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  */
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  440              		.loc 1 367 5 discriminator 4 view .LVU132
  441 004c 54AC     		add	r4, sp, #336
  442 004e 2046     		mov	r0, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 27
 
 
  443 0050 FFF7FEFF 		bl	lv_draw_line_dsc_init
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  481 008a 2A93     		str	r3, [sp, #168]
  384:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     part_draw_dsc.part = LV_PART_TICKS;
  482              		.loc 1 384 5 is_stmt 1 discriminator 4 view .LVU147
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 28
 
 
  483              		.loc 1 384 24 is_stmt 0 discriminator 4 view .LVU148
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  414:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         lv_draw_mask_radius_init(&outer_mask, &area_outer, LV_RADIUS_CIRCLE, false);
  415:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         int16_t outer_mask_id = lv_draw_mask_add(&outer_mask, NULL);
  416:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 29
 
 
  417:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         int16_t inner_act_mask_id = LV_MASK_ID_INV; /*Will be added later*/
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  533              	.LVL54:
  534              		.loc 1 444 36 view .LVU162
  535 00c2 1EE0     		b	.L21
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 30
 
 
  536              	.LVL55:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   26:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #error "LV_COLOR_SCREEN_TRANSP requires LV_COLOR_DEPTH == 32. Set it in lv_conf.h"
   27:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
   28:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 31
 
 
   29:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH != 16 && LV_COLOR_16_SWAP != 0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   83:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #if LV_COLOR_DEPTH == 32
   84:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_MIX_ROUND_OFS 0
   85:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #else
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 32
 
 
   86:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_MIX_ROUND_OFS 128
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  140:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_R8(c) (c).ch.red
  141:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_G8(c) (c).ch.green
  142:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_B8(c) (c).ch.blue
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 33
 
 
  143:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** # define LV_COLOR_GET_A8(c) 0xFF
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  197:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_GET_G(c) LV_CONCAT(LV_COLOR_GET_G, LV_COLOR_DEPTH)(c)
  198:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_GET_B(c) LV_CONCAT(LV_COLOR_GET_B, LV_COLOR_DEPTH)(c)
  199:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #define LV_COLOR_GET_A(c) LV_CONCAT(LV_COLOR_GET_A, LV_COLOR_DEPTH)(c)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 34
 
 
  200:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  254:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef LV_CONCAT3(uint, LV_COLOR_SIZE, _t) lv_color_int_t;
  255:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef LV_CONCAT3(lv_color, LV_COLOR_DEPTH, _t) lv_color_t;
  256:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 35
 
 
  257:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** typedef struct {
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  311:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *        8 bit red LSB = (2^5 - 1) / (2^3 - 1) = 31 / 7 = 4
  312:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *
  313:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  * - When calculating to smaller color type simply shift out the LSBs
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 36
 
 
  314:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****  *   E.g.  8 bit Red has 3 bits
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  368:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** #endif
  369:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** }
  370:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 37
 
 
  371:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h **** static inline uint16_t lv_color_to16(lv_color_t color)
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  425:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       4         131     19        1       255
  426:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *       5         263      7        0       255
  427:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      *
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 38
 
 
  428:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****      * 6-bit to 8-bit: 255 = ( 63 * multiplier + adder ) >> divisor
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  572              	.LVL59:
  467:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_color.h ****     uint32_t fg = (uint32_t)((uint32_t)c1.full | (uint32_t)(c1.full << 16)) & 0x7E0F81F;
  573              		.loc 4 467 5 is_stmt 1 view .LVU175
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 39
 
 
  574              		.loc 4 467 42 is_stmt 0 view .LVU176
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  610 010a 0446     		mov	r4, r0
  611              	.LVL67:
  612              	.L20:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 40
 
 
  438:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****                 if(indic->type != LV_METER_INDICATOR_TYPE_SCALE_LINES) continue;
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  650              	.LBB70:
  446:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****                         if(indic->type_data.scale_lines.local_grad) {
  651              		.loc 1 446 25 is_stmt 1 view .LVU206
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 41
 
 
  447:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****                             ratio = lv_map(value_of_line, indic->start_value, indic->end_value, LV_
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  690              		.loc 1 460 13 is_stmt 1 view .LVU222
  691              		.loc 1 460 21 is_stmt 0 view .LVU223
  692 0162 2612     		asrs	r6, r4, #8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 42
 
 
  693              	.LVL75:
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  740              	.LVL87:
  741              		.loc 1 467 21 view .LVU243
  742 0196 4FEA2A2A 		asr	r10, r10, #8
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 43
 
 
  743              	.LVL88:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
   42:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_math.h **** /**
   43:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_math.h ****  * Return with sinus of an angle
   44:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_math.h ****  * @param angle
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 44
 
 
   45:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_math.h ****  * @return sinus of 'angle'. sin(-90) = -32767, sin(90) = 32767
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  798              		.loc 1 471 71 is_stmt 0 view .LVU264
  799 01bc 00FB04F4 		mul	r4, r0, r4
  800              	.LVL99:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 45
 
 
  801              		.loc 1 471 60 view .LVU265
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  483:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****             part_draw_dsc.id = i;
  844              		.loc 1 483 13 is_stmt 1 view .LVU288
  845              		.loc 1 483 30 is_stmt 0 view .LVU289
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 46
 
 
  846 0200 059B     		ldr	r3, [sp, #20]
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  891              	.LVL106:
  892              		.loc 1 492 95 view .LVU309
  893 023a 05EBE333 		add	r3, r5, r3, asr #15
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 47
 
 
  894 023e 9DB2     		uxth	r5, r3
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  934 0272 BDF94231 		ldrsh	r3, [sp, #322]
  935 0276 0093     		str	r3, [sp]
  936 0278 BDF94431 		ldrsh	r3, [sp, #324]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 48
 
 
  937 027c 4C9A     		ldr	r2, [sp, #304]
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  517:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****                 outer_mask_id = lv_draw_mask_add(&outer_mask, NULL);
  981              		.loc 1 517 17 view .LVU341
  982              		.loc 1 517 33 is_stmt 0 view .LVU342
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 49
 
 
  983 02c8 3146     		mov	r1, r6
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1025              	.LVL121:
  1026              		.loc 1 529 28 discriminator 4 view .LVU352
  1027 0302 ADF85031 		strh	r3, [sp, #336]	@ movhi
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 50
 
 
  530:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****             line_dsc.width = line_width_ori;
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1068 0334 0693     		str	r3, [sp, #24]
  1069              	.L15:
  1070              	.LVL125:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 51
 
 
  428:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****             part_draw_dsc.value = value_of_line;
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  438:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****                 if(indic->type != LV_METER_INDICATOR_TYPE_SCALE_LINES) continue;
  1111              		.loc 1 438 13 discriminator 4 view .LVU383
  1112 036e 079B     		ldr	r3, [sp, #28]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 52
 
 
  1113 0370 03F13006 		add	r6, r3, #48
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  524:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****             lv_draw_line(&p_outer, &p_center, clip_area, &line_dsc);
  1157              		.loc 1 524 33 view .LVU394
  1158              	.LBE76:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 53
 
 
  419:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         for(i = 0; i < scale->tick_cnt; i++) {
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  391:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         lv_coord_t r_in_minor = r_out - scale->tick_length;
  1200              		.loc 1 391 35 view .LVU406
  1201 03dc 109A     		ldr	r2, [sp, #64]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 54
 
 
  1202 03de 1344     		add	r3, r3, r2
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1240              		.loc 1 397 42 view .LVU422
  1241 040c 0344     		add	r3, r3, r0
  397:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         area_inner_minor.x2 = p_center.x + r_in_minor;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 55
 
 
  1242              		.loc 1 397 29 view .LVU423
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1279              		.loc 1 405 9 is_stmt 1 view .LVU440
  405:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         area_inner_major.y2 = p_center.y + r_in_major - 1;
  1280              		.loc 1 405 42 is_stmt 0 view .LVU441
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 56
 
 
  1281 0444 B318     		adds	r3, r6, r2
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  412:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         area_outer.y2 = p_center.y + r_out - 1;
  1318              		.loc 1 412 36 is_stmt 0 view .LVU459
  1319 047a 2344     		add	r3, r3, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 57
 
 
  1320 047c 9BB2     		uxth	r3, r3
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1359              		.loc 1 419 80 discriminator 2 view .LVU474
  1360 04b4 0023     		movs	r3, #0
  1361 04b6 0593     		str	r3, [sp, #20]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 58
 
 
  1362 04b8 2CE7     		b	.L29
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1410              	.LVL158:
  544:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
  545:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     lv_coord_t r_edge = lv_area_get_width(scale_area) / 2;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 59
 
 
  1411              		.loc 1 545 5 view .LVU481
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  550:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     lv_draw_line_dsc_t line_dsc;
  1454              		.loc 1 550 5 is_stmt 1 view .LVU500
  551:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     lv_draw_line_dsc_init(&line_dsc);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 60
 
 
  1455              		.loc 1 551 5 view .LVU501
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1497              	.LBE81:
  1498              	.LBE80:
  558:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 61
 
 
  559:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     lv_obj_draw_part_dsc_t part_draw_dsc;
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1541 0096 FFF7FEFF 		bl	lv_map
  1542              	.LVL177:
  1543 009a 8146     		mov	r9, r0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 62
 
 
  1544              	.LVL178:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1593              		.loc 5 51 12 view .LVU549
  1594              	.LBE85:
  1595              	.LBE84:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 63
 
 
  1596              		.loc 1 574 44 view .LVU550
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1643 011e 05AF     		add	r7, sp, #20
  1644 0120 1197     		str	r7, [sp, #68]
  582:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 64
 
 
  583:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****             lv_event_send(obj, LV_EVENT_DRAW_PART_BEGIN, &part_draw_dsc);
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1680 014a 8DF86B30 		strb	r3, [sp, #107]
  600:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****             img_dsc.pivot.x = indic->type_data.needle_img.pivot.x;
  1681              		.loc 1 600 13 is_stmt 1 discriminator 4 view .LVU579
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 65
 
 
  1682              		.loc 1 600 29 is_stmt 0 discriminator 4 view .LVU580
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1726 0188 1B21     		movs	r1, #27
  1727 018a 3046     		mov	r0, r6
  1728 018c FFF7FEFF 		bl	lv_event_send
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 66
 
 
  1729              	.LVL195:
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1769 01b2 EDD0     		beq	.L46
  590:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****             lv_img_header_t info;
  1770              		.loc 1 590 13 is_stmt 1 view .LVU612
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 67
 
 
  590:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****             lv_img_header_t info;
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1809 01e8 BDF88610 		ldrh	r1, [sp, #134]
  595:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****             a.x2 = a.x1 + info.w - 1;
  1810              		.loc 1 595 70 view .LVU629
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 68
 
 
  1811 01ec B4F91600 		ldrsh	r0, [r4, #22]
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1848              		.loc 1 599 25 discriminator 1 view .LVU646
  1849 022c 1B0A     		lsrs	r3, r3, #8
  1850 022e 8CE7     		b	.L48
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 69
 
 
  1851              	.LVL204:
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1900              		.loc 1 275 5 is_stmt 1 view .LVU652
  277:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     if(res != LV_RES_OK) return;
  1901              		.loc 1 277 5 view .LVU653
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 70
 
 
  277:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     if(res != LV_RES_OK) return;
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1944 002a F2D1     		bne	.L58
  1945              	.LBB90:
  283:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         lv_area_t scale_area;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 71
 
 
  1946              		.loc 1 283 9 is_stmt 1 view .LVU666
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  1988 005a BDF80840 		ldrh	r4, [sp, #8]
  1989              	.LVL224:
  135:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 72
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 72
 
 
  1990              		.loc 3 135 44 view .LVU679
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2029 0088 4FF40031 		mov	r1, #131072
  2030 008c 2846     		mov	r0, r5
  2031 008e FFF7FEFF 		bl	lv_obj_init_draw_rect_dsc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 73
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 73
 
 
  2032              	.LVL231:
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2072 00be 03FA80F0 		sxtah	r0, r3, r0
  2073              	.LVL235:
  301:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         nm_cord.x1 = scale_center.x - w;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 74
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 74
 
 
  2074              		.loc 1 301 9 is_stmt 1 view .LVU709
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2115              		.align	1
  2116              		.syntax unified
  2117              		.thumb
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 75
 
 
  2118              		.thumb_func
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2165              		.cfi_startproc
  2166              		@ args = 0, pretend = 0, frame = 0
  2167              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 76
 
 
  252:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     LV_UNUSED(class_p);
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2206              		.section	.text.inv_arc,"ax",%progbits
  2207              		.align	1
  2208              		.syntax unified
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 77
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 77
 
 
  2209              		.thumb
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2255              	.LVL253:
  2256              		.loc 2 508 5 is_stmt 1 view .LVU759
  2257              		.loc 2 508 12 is_stmt 0 view .LVU760
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 78
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 78
 
 
  2258 0018 0FFA80FA 		sxth	r10, r0
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2298              		.loc 1 624 5 view .LVU775
  2299              		.loc 1 624 36 is_stmt 0 view .LVU776
  2300 0044 C4F34F04 		ubfx	r4, r4, #1, #16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 79
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 79
 
 
  2301              	.LVL259:
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2347              		.loc 1 632 103 view .LVU795
  2348 007e 1844     		add	r0, r0, r3
  2349              		.loc 1 632 25 view .LVU796
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 80
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 80
 
 
  2350 0080 B269     		ldr	r2, [r6, #24]
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2399              	.LFE207:
  2401              		.section	.text.inv_line,"ax",%progbits
  2402              		.align	1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 81
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 81
 
 
  2403              		.syntax unified
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2447              		.loc 3 135 31 is_stmt 0 view .LVU815
  2448 0012 BDF82440 		ldrh	r4, [sp, #36]
  135:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 82
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 82
 
 
  2449              		.loc 3 135 44 view .LVU816
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  655:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         lv_point_t p_end;
  656:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         p_end.y = (lv_trigo_sin(angle) * (r_out)) / LV_TRIGO_SIN_MAX + scale_center.y;
  657:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         p_end.x = (lv_trigo_cos(angle) * (r_out)) / LV_TRIGO_SIN_MAX + scale_center.x;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 83
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 83
 
 
  658:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2514 0054 BBF92030 		ldrsh	r3, [fp, #32]
  653:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         int32_t angle = lv_map(value, scale->min, scale->max, scale->rotation, scale->rotation + sc
  2515              		.loc 1 653 103 view .LVU840
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 84
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 84
 
 
  2516 0058 BBF81E00 		ldrh	r0, [fp, #30]
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2555 0090 0344     		add	r3, r3, r0
  2556 0092 C017     		asrs	r0, r0, #31
  2557 0094 C0EBA330 		rsb	r0, r0, r3, asr #14
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 85
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 85
 
 
  656:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         p_end.x = (lv_trigo_cos(angle) * (r_out)) / LV_TRIGO_SIN_MAX + scale_center.x;
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2601 00ca 89B2     		uxth	r1, r1
  660:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         a.y1 = LV_MIN(scale_center.y, p_end.y) - indic->type_data.needle_line.width - 2;
  2602              		.loc 1 660 85 view .LVU871
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 86
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 86
 
 
  2603 00cc 0239     		subs	r1, r1, #2
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  663:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
  2642              		.loc 1 663 14 view .LVU887
  2643 0106 ADF81E30 		strh	r3, [sp, #30]	@ movhi
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 87
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 87
 
 
  665:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     }
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2685              		.loc 1 673 9 is_stmt 1 view .LVU900
  673:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
  2686              		.loc 1 673 11 is_stmt 0 view .LVU901
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 88
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 88
 
 
  2687 0140 B0F5616F 		cmp	r0, #3600
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2726              		.loc 1 679 9 is_stmt 1 discriminator 2 view .LVU916
  679:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         a.y1 += scale_center.y - 2;
  2727              		.loc 1 679 14 is_stmt 0 discriminator 2 view .LVU917
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 89
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 89
 
 
  2728 017e BDF81830 		ldrh	r3, [sp, #24]
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2776              		.loc 1 53 1 is_stmt 1 view -0
  2777              		.cfi_startproc
  2778              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 90
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 90
 
 
  2779              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2819      632F6578 
  2819      7472612F 
  2820 002d 000000   		.align	2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 91
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 91
 
 
  2821              	.LC2:
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2860 0006 FFF7FEFF 		bl	_lv_ll_ins_head
  2861              	.LVL314:
   69:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     lv_memset_00(scale, sizeof(lv_meter_scale_t));
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 92
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 92
 
 
  2862              		.loc 1 69 5 is_stmt 1 view .LVU945
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2898 002e 0223     		movs	r3, #2
  2899 0030 E380     		strh	r3, [r4, #6]	@ movhi
   79:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 93
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 93
 
 
  2900              		.loc 1 79 5 is_stmt 1 discriminator 2 view .LVU964
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2945              		.cfi_endproc
  2946              	.LFE190:
  2948              		.section	.text.lv_meter_set_scale_ticks,"ax",%progbits
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 94
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 94
 
 
  2949              		.align	1
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  2990              		.loc 1 91 1 view .LVU987
  2991              		.cfi_endproc
  2992              	.LFE191:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 95
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 95
 
 
  2994              		.section	.text.lv_meter_set_scale_major_ticks,"ax",%progbits
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3035              		.loc 1 100 5 is_stmt 1 view .LVU1001
  3036 0018 FFF7FEFF 		bl	lv_obj_invalidate
  3037              	.LVL324:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 96
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 96
 
 
  101:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  109:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** }
  3081              		.loc 1 109 5 is_stmt 1 view .LVU1015
  3082 000e FFF7FEFF 		bl	lv_obj_invalidate
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 97
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 97
 
 
  3083              	.LVL327:
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3129              		.loc 1 119 36 is_stmt 0 view .LVU1022
  3130 000e 3030     		adds	r0, r0, #48
  3131              	.LVL330:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 98
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 98
 
 
  119:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     LV_ASSERT_MALLOC(indic);
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3167              		.loc 1 129 5 is_stmt 1 discriminator 2 view .LVU1041
  3168 0034 2846     		mov	r0, r5
  3169 0036 FFF7FEFF 		bl	lv_obj_invalidate
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 99
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 99
 
 
  3170              	.LVL334:
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3217              		.align	1
  3218              		.global	lv_meter_add_needle_img
  3219              		.syntax unified
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 100
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 100
 
 
  3220              		.thumb
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3264 0018 1C21     		movs	r1, #28
  3265 001a FFF7FEFF 		bl	lv_memset_00
  3266              	.LVL342:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 101
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 101
 
 
  140:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     indic->opa = LV_OPA_COVER;
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3305              		.loc 1 138 5 is_stmt 1 discriminator 1 view .LVU1076
  3306 0042 064B     		ldr	r3, .L108
  3307 0044 0293     		str	r3, [sp, #8]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 102
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 102
 
 
  3308 0046 064B     		ldr	r3, .L108+4
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3357              		.cfi_offset 5, -20
  3358              		.cfi_offset 6, -16
  3359              		.cfi_offset 7, -12
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 103
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 103
 
 
  3360              		.cfi_offset 8, -8
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  162:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     indic->type_data.arc.color = color;
  3399              		.loc 1 162 5 is_stmt 1 discriminator 2 view .LVU1099
  162:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     indic->type_data.arc.color = color;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 104
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 104
 
 
  3400              		.loc 1 162 32 is_stmt 0 discriminator 2 view .LVU1100
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  156:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     lv_memset_00(indic, sizeof(lv_meter_indicator_t));
  3444              		.loc 1 156 5 discriminator 1 view .LVU1111
  156:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     lv_memset_00(indic, sizeof(lv_meter_indicator_t));
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 105
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 105
 
 
  3445              		.loc 1 156 5 discriminator 1 view .LVU1112
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3495              		.loc 1 173 5 view .LVU1118
  173:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     LV_ASSERT_MALLOC(indic);
  3496              		.loc 1 173 36 is_stmt 0 view .LVU1119
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 106
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 106
 
 
  3497 000e 3030     		adds	r0, r0, #48
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3533 002e A37D     		ldrb	r3, [r4, #22]	@ zero_extendqisi2
  3534 0030 9DF82820 		ldrb	r2, [sp, #40]	@ zero_extendqisi2
  3535 0034 62F30003 		bfi	r3, r2, #0, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 107
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 107
 
 
  3536 0038 A375     		strb	r3, [r4, #22]
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3579              	.L123:
  3580              		.align	2
  3581              	.L122:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 108
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 108
 
 
  3582 0068 30000000 		.word	.LC2
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3629              		.loc 1 198 5 is_stmt 1 view .LVU1157
  198:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c **** 
  3630              		.loc 1 198 22 is_stmt 0 view .LVU1158
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 109
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 109
 
 
  3631 000e CD60     		str	r5, [r1, #12]
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3673              		.loc 1 207 9 view .LVU1170
  3674 0042 2A46     		mov	r2, r5
  3675 0044 2146     		mov	r1, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 110
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 110
 
 
  3676 0046 3046     		mov	r0, r6
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3722              		.loc 1 221 10 is_stmt 1 view .LVU1180
  221:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****         inv_line(obj, indic, old_value);
  3723              		.loc 1 221 12 is_stmt 0 view .LVU1181
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 111
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 111
 
 
  3724 0012 012B     		cmp	r3, #1
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3772              	.LCFI48:
  3773              		.cfi_def_cfa_offset 16
  3774              		.cfi_offset 4, -16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 112
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 112
 
 
  3775              		.cfi_offset 5, -12
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3815 0024 FFF7FEFF 		bl	inv_line
  3816              	.LVL394:
  240:lvgl/lvgl/src/extra/widgets/meter/lv_meter.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 113
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 113
 
 
  3817              		.loc 1 240 9 view .LVU1204
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3862      6C655F6C 
  3863              		.section	.rodata.lv_meter_class,"a"
  3864              		.align	2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 114
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 114
 
 
  3865              		.set	.LANCHOR0,. + 0
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3921              		.file 46 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/widgets/lv_switch.h"
  3922              		.file 47 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/animimg/lv_animimg.h"
  3923              		.file 48 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 115
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 115
 
 
  3924              		.file 49 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/extra/widgets/calendar/lv_calendar_header_arrow
@@ -6864,81 +6864,81 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 1
  3944              		.file 69 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_mem.h"
  3945              		.file 70 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_printf.h"
  3946              		.file 71 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src/misc/lv_log.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 116
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 116
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_meter.c
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:18     .text.draw_arcs:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:25     .text.draw_arcs:00000000 draw_arcs
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:326    .text.draw_arcs:0000013c $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:331    .rodata.draw_ticks_and_labels.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:335    .text.draw_ticks_and_labels:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:341    .text.draw_ticks_and_labels:00000000 draw_ticks_and_labels
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:1147   .text.draw_ticks_and_labels:00000394 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:1153   .text.draw_ticks_and_labels:000003a0 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:1378   .text.draw_needles:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:1384   .text.draw_needles:00000000 draw_needles
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:1867   .text.draw_needles:00000238 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:1873   .text.lv_meter_event:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:1879   .text.lv_meter_event:00000000 lv_meter_event
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2109   .text.lv_meter_event:000000f0 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2115   .text.lv_meter_destructor:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2121   .text.lv_meter_destructor:00000000 lv_meter_destructor
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2155   .text.lv_meter_constructor:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2161   .text.lv_meter_constructor:00000000 lv_meter_constructor
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2207   .text.inv_arc:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2213   .text.inv_arc:00000000 inv_arc
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2402   .text.inv_line:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2408   .text.inv_line:00000000 inv_line
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2761   .text.inv_line:000001bc $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2766   .text.lv_meter_create:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2773   .text.lv_meter_create:00000000 lv_meter_create
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2812   .text.lv_meter_create:00000014 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2817   .rodata.lv_meter_add_scale.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2830   .text.lv_meter_add_scale:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2837   .text.lv_meter_add_scale:00000000 lv_meter_add_scale
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2940   .text.lv_meter_add_scale:00000054 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2949   .text.lv_meter_set_scale_ticks:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2956   .text.lv_meter_set_scale_ticks:00000000 lv_meter_set_scale_ticks
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:2995   .text.lv_meter_set_scale_major_ticks:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3002   .text.lv_meter_set_scale_major_ticks:00000000 lv_meter_set_scale_major_ticks
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3045   .text.lv_meter_set_scale_range:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3052   .text.lv_meter_set_scale_range:00000000 lv_meter_set_scale_range
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3091   .rodata.lv_meter_add_needle_line.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3095   .text.lv_meter_add_needle_line:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3102   .text.lv_meter_add_needle_line:00000000 lv_meter_add_needle_line
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3208   .text.lv_meter_add_needle_line:0000005c $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3217   .text.lv_meter_add_needle_img:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3224   .text.lv_meter_add_needle_img:00000000 lv_meter_add_needle_img
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3329   .text.lv_meter_add_needle_img:0000005c $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3338   .text.lv_meter_add_arc:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3345   .text.lv_meter_add_arc:00000000 lv_meter_add_arc
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3451   .text.lv_meter_add_arc:0000005c $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3460   .text.lv_meter_add_scale_lines:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3467   .text.lv_meter_add_scale_lines:00000000 lv_meter_add_scale_lines
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3582   .text.lv_meter_add_scale_lines:00000068 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3591   .text.lv_meter_set_indicator_value:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3598   .text.lv_meter_set_indicator_value:00000000 lv_meter_set_indicator_value
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3684   .text.lv_meter_set_indicator_start_value:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3691   .text.lv_meter_set_indicator_start_value:00000000 lv_meter_set_indicator_start_value
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3756   .text.lv_meter_set_indicator_end_value:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3763   .text.lv_meter_set_indicator_end_value:00000000 lv_meter_set_indicator_end_value
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 117
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:18     .text.draw_arcs:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:25     .text.draw_arcs:00000000 draw_arcs
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:326    .text.draw_arcs:0000013c $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:331    .rodata.draw_ticks_and_labels.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:335    .text.draw_ticks_and_labels:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:341    .text.draw_ticks_and_labels:00000000 draw_ticks_and_labels
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:1147   .text.draw_ticks_and_labels:00000394 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:1153   .text.draw_ticks_and_labels:000003a0 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:1378   .text.draw_needles:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:1384   .text.draw_needles:00000000 draw_needles
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:1867   .text.draw_needles:00000238 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:1873   .text.lv_meter_event:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:1879   .text.lv_meter_event:00000000 lv_meter_event
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2109   .text.lv_meter_event:000000f0 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2115   .text.lv_meter_destructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2121   .text.lv_meter_destructor:00000000 lv_meter_destructor
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2155   .text.lv_meter_constructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2161   .text.lv_meter_constructor:00000000 lv_meter_constructor
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2207   .text.inv_arc:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2213   .text.inv_arc:00000000 inv_arc
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2402   .text.inv_line:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2408   .text.inv_line:00000000 inv_line
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2761   .text.inv_line:000001bc $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2766   .text.lv_meter_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2773   .text.lv_meter_create:00000000 lv_meter_create
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2812   .text.lv_meter_create:00000014 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2817   .rodata.lv_meter_add_scale.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2830   .text.lv_meter_add_scale:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2837   .text.lv_meter_add_scale:00000000 lv_meter_add_scale
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2940   .text.lv_meter_add_scale:00000054 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2949   .text.lv_meter_set_scale_ticks:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2956   .text.lv_meter_set_scale_ticks:00000000 lv_meter_set_scale_ticks
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:2995   .text.lv_meter_set_scale_major_ticks:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3002   .text.lv_meter_set_scale_major_ticks:00000000 lv_meter_set_scale_major_ticks
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3045   .text.lv_meter_set_scale_range:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3052   .text.lv_meter_set_scale_range:00000000 lv_meter_set_scale_range
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3091   .rodata.lv_meter_add_needle_line.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3095   .text.lv_meter_add_needle_line:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3102   .text.lv_meter_add_needle_line:00000000 lv_meter_add_needle_line
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3208   .text.lv_meter_add_needle_line:0000005c $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3217   .text.lv_meter_add_needle_img:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3224   .text.lv_meter_add_needle_img:00000000 lv_meter_add_needle_img
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3329   .text.lv_meter_add_needle_img:0000005c $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3338   .text.lv_meter_add_arc:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3345   .text.lv_meter_add_arc:00000000 lv_meter_add_arc
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3451   .text.lv_meter_add_arc:0000005c $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3460   .text.lv_meter_add_scale_lines:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3467   .text.lv_meter_add_scale_lines:00000000 lv_meter_add_scale_lines
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3582   .text.lv_meter_add_scale_lines:00000068 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3591   .text.lv_meter_set_indicator_value:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3598   .text.lv_meter_set_indicator_value:00000000 lv_meter_set_indicator_value
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3684   .text.lv_meter_set_indicator_start_value:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3691   .text.lv_meter_set_indicator_start_value:00000000 lv_meter_set_indicator_start_value
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3756   .text.lv_meter_set_indicator_end_value:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3763   .text.lv_meter_set_indicator_end_value:00000000 lv_meter_set_indicator_end_value
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 117
 
 
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3868   .rodata.lv_meter_class:00000000 lv_meter_class
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3829   .rodata.__func__.12128:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3833   .rodata.__func__.12128:00000000 __func__.12128
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3836   .rodata.__func__.12164:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3840   .rodata.__func__.12164:00000000 __func__.12164
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3843   .rodata.__func__.12175:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3847   .rodata.__func__.12175:00000000 __func__.12175
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3850   .rodata.__func__.12186:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3854   .rodata.__func__.12186:00000000 __func__.12186
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3857   .rodata.__func__.12198:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3861   .rodata.__func__.12198:00000000 __func__.12198
-C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s:3864   .rodata.lv_meter_class:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3868   .rodata.lv_meter_class:00000000 lv_meter_class
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3829   .rodata.__func__.12128:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3833   .rodata.__func__.12128:00000000 __func__.12128
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3836   .rodata.__func__.12164:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3840   .rodata.__func__.12164:00000000 __func__.12164
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3843   .rodata.__func__.12175:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3847   .rodata.__func__.12175:00000000 __func__.12175
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3850   .rodata.__func__.12186:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3854   .rodata.__func__.12186:00000000 __func__.12186
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3857   .rodata.__func__.12198:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3861   .rodata.__func__.12198:00000000 __func__.12198
+C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s:3864   .rodata.lv_meter_class:00000000 $d
 
 UNDEFINED SYMBOLS
 lv_draw_arc_dsc_init
@@ -6984,7 +6984,7 @@ lv_obj_class_create_obj
 lv_obj_class_init_obj
 _lv_ll_ins_head
 lv_memset_00
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccp1XU2g.s 			page 118
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccMYWx6c.s 			page 118
 
 
 _lv_log_add

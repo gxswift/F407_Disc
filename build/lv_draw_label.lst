@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   28:lvgl/lvgl/src/draw/lv_draw_label.c ****     CMD_STATE_IN,
   29:lvgl/lvgl/src/draw/lv_draw_label.c **** };
   30:lvgl/lvgl/src/draw/lv_draw_label.c **** typedef uint8_t cmd_state_t;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 2
 
 
   31:lvgl/lvgl/src/draw/lv_draw_label.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   85:lvgl/lvgl/src/draw/lv_draw_label.c ****  **********************/
   86:lvgl/lvgl/src/draw/lv_draw_label.c **** 
   87:lvgl/lvgl/src/draw/lv_draw_label.c **** /**********************
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 3
 
 
   88:lvgl/lvgl/src/draw/lv_draw_label.c ****  *   GLOBAL FUNCTIONS
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  142:lvgl/lvgl/src/draw/lv_draw_label.c ****         lv_point_t p;
  143:lvgl/lvgl/src/draw/lv_draw_label.c ****         lv_txt_get_size(&p, txt, dsc->font, dsc->letter_space, dsc->line_space, LV_COORD_MAX,
  144:lvgl/lvgl/src/draw/lv_draw_label.c ****                          dsc->flag);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 4
 
 
  145:lvgl/lvgl/src/draw/lv_draw_label.c ****         w = p.x;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  199:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  200:lvgl/lvgl/src/draw/lv_draw_label.c ****     /*Align to middle*/
  201:lvgl/lvgl/src/draw/lv_draw_label.c ****     if(align == LV_TEXT_ALIGN_CENTER) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 5
 
 
  202:lvgl/lvgl/src/draw/lv_draw_label.c ****         line_width = lv_txt_get_width(&txt[line_start], line_end - line_start, font, dsc->letter_sp
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  256:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  257:lvgl/lvgl/src/draw/lv_draw_label.c ****         while(i < line_end - line_start) {
  258:lvgl/lvgl/src/draw/lv_draw_label.c ****             uint32_t logical_char_pos = 0;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 6
 
 
  259:lvgl/lvgl/src/draw/lv_draw_label.c ****             if(sel_start != 0xFFFF && sel_end != 0xFFFF) {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  313:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  314:lvgl/lvgl/src/draw/lv_draw_label.c ****             if(cmd_state == CMD_STATE_IN) color = recolor;
  315:lvgl/lvgl/src/draw/lv_draw_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 7
 
 
  316:lvgl/lvgl/src/draw/lv_draw_label.c ****             letter_w = lv_font_get_glyph_width(font, letter, letter_next);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  370:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  371:lvgl/lvgl/src/draw/lv_draw_label.c ****             pos.x += (lv_area_get_width(coords) - line_width) / 2;
  372:lvgl/lvgl/src/draw/lv_draw_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 8
 
 
  373:lvgl/lvgl/src/draw/lv_draw_label.c ****         }
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  427:lvgl/lvgl/src/draw/lv_draw_label.c ****     }
  428:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  429:lvgl/lvgl/src/draw/lv_draw_label.c ****     /*Don't draw anything if the character is empty. E.g. space*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 9
 
 
  430:lvgl/lvgl/src/draw/lv_draw_label.c ****     if((g.box_h == 0) || (g.box_w == 0)) return;
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  484:lvgl/lvgl/src/draw/lv_draw_label.c ****             bitmask_init  = 0xF0;
  485:lvgl/lvgl/src/draw/lv_draw_label.c ****             shades = 16;
  486:lvgl/lvgl/src/draw/lv_draw_label.c ****             break;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 10
 
 
  487:lvgl/lvgl/src/draw/lv_draw_label.c ****         case 8:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  541:lvgl/lvgl/src/draw/lv_draw_label.c **** #if LV_DRAW_COMPLEX
  542:lvgl/lvgl/src/draw/lv_draw_label.c ****     bool mask_any = lv_draw_mask_is_any(&fill_area);
  543:lvgl/lvgl/src/draw/lv_draw_label.c **** #endif
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 11
 
 
  544:lvgl/lvgl/src/draw/lv_draw_label.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  598:lvgl/lvgl/src/draw/lv_draw_label.c ****             fill_area.y2 = fill_area.y1;
  599:lvgl/lvgl/src/draw/lv_draw_label.c ****             mask_p = 0;
  600:lvgl/lvgl/src/draw/lv_draw_label.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 12
 
 
  601:lvgl/lvgl/src/draw/lv_draw_label.c **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  655:lvgl/lvgl/src/draw/lv_draw_label.c ****     int32_t width_bit = box_w * bpp; /*Letter width in bits*/
  656:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  657:lvgl/lvgl/src/draw/lv_draw_label.c ****     /*Calculate the col/row start/end on the map*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 13
 
 
  658:lvgl/lvgl/src/draw/lv_draw_label.c ****     int32_t col_start = pos_x >= clip_area->x1 ? 0 : (clip_area->x1 - pos_x) * 3;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  712:lvgl/lvgl/src/draw/lv_draw_label.c ****         for(col = col_start; col < col_end; col++) {
  713:lvgl/lvgl/src/draw/lv_draw_label.c ****             /*Load the pixel's opacity into the mask*/
  714:lvgl/lvgl/src/draw/lv_draw_label.c ****             letter_px = (*map_p & bitmask) >> (8 - col_bit - bpp);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 14
 
 
  715:lvgl/lvgl/src/draw/lv_draw_label.c ****             if(letter_px != 0) {
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  769:lvgl/lvgl/src/draw/lv_draw_label.c ****                 mask_p++;
  770:lvgl/lvgl/src/draw/lv_draw_label.c ****                 disp_buf_buf_tmp++;
  771:lvgl/lvgl/src/draw/lv_draw_label.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 15
 
 
  772:lvgl/lvgl/src/draw/lv_draw_label.c **** 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  826:lvgl/lvgl/src/draw/lv_draw_label.c ****  * Convert a hexadecimal characters to a number (0..15)
  827:lvgl/lvgl/src/draw/lv_draw_label.c ****  * @param hex Pointer to a hexadecimal character (0..9, A..F)
  828:lvgl/lvgl/src/draw/lv_draw_label.c ****  * @return the numerical value of `hex` or 0 on error
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 16
 
 
  829:lvgl/lvgl/src/draw/lv_draw_label.c ****  */
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   71              		.p2align 1
   72              	.L10:
  841:lvgl/lvgl/src/draw/lv_draw_label.c ****             case 'A':
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 17
 
 
  842:lvgl/lvgl/src/draw/lv_draw_label.c ****                 result = 10;
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   99 0030 7047     		bx	lr
  100              	.LVL8:
  101              	.L5:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 18
 
 
  102              		.loc 1 857 17 is_stmt 1 view .LVU26
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  137              		.thumb
  138              		.thumb_func
  139              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 19
 
 
  141              	draw_letter_normal:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  183              		.loc 1 469 7 is_stmt 0 view .LVU48
  184 001a B8F1030F 		cmp	r8, #3
  185 001e 23D0     		beq	.L42
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 20
 
 
  471:lvgl/lvgl/src/draw/lv_draw_label.c ****         case 1:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  491:lvgl/lvgl/src/draw/lv_draw_label.c ****         default:
  228              		.loc 1 491 13 view .LVU61
  229 0052 0FE0     		b	.L13
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 21
 
 
  230              	.LVL17:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  269 007a 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
  501:lvgl/lvgl/src/draw/lv_draw_label.c ****             uint32_t i;
  270              		.loc 1 501 11 view .LVU77
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 22
 
 
  271 007c 8142     		cmp	r1, r0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  313 00a8 04D9     		bls	.L22
  504:lvgl/lvgl/src/draw/lv_draw_label.c ****             }
  314              		.loc 1 504 17 is_stmt 1 view .LVU90
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 23
 
 
  504:lvgl/lvgl/src/draw/lv_draw_label.c ****             }
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  352              		.loc 1 515 31 is_stmt 0 view .LVU107
  353 00c6 08FB03F4 		mul	r4, r8, r3
  354              	.LVL32:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 24
 
 
  518:lvgl/lvgl/src/draw/lv_draw_label.c ****     int32_t col_end   = pos_x + box_w <= clip_area->x2 ? box_w : clip_area->x2 - pos_x + 1;
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  394 00f6 4B45     		cmp	r3, r9
  395 00f8 53DD     		ble	.L49
  520:lvgl/lvgl/src/draw/lv_draw_label.c ****     int32_t row_end   = pos_y + box_h <= clip_area->y2 ? box_h : clip_area->y2 - pos_y + 1;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 25
 
 
  396              		.loc 1 520 52 discriminator 1 view .LVU123
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  435              	.LVL41:
  531:lvgl/lvgl/src/draw/lv_draw_label.c ****     uint32_t mask_buf_size = box_w * box_h > hor_res ? hor_res : box_w * box_h;
  436              		.loc 1 531 5 is_stmt 1 discriminator 4 view .LVU139
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 26
 
 
  531:lvgl/lvgl/src/draw/lv_draw_label.c ****     uint32_t mask_buf_size = box_w * box_h > hor_res ? hor_res : box_w * box_h;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  475 0156 9BB2     		uxth	r3, r3
  538:lvgl/lvgl/src/draw/lv_draw_label.c ****     fill_area.y1 = row_start + pos_y;
  476              		.loc 1 538 37 discriminator 4 view .LVU156
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 27
 
 
  477 0158 013B     		subs	r3, r3, #1
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  514              		.loc 1 534 13 is_stmt 0 discriminator 4 view .LVU173
  515 0188 4FF0000C 		mov	ip, #0
  516 018c CDF814A0 		str	r10, [sp, #20]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 28
 
 
  517              	.LVL54:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  570:lvgl/lvgl/src/draw/lv_draw_label.c ****                 map_p++;
  560              		.loc 1 570 17 view .LVU185
  571:lvgl/lvgl/src/draw/lv_draw_label.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 29
 
 
  561              		.loc 1 571 17 view .LVU186
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  598              		.loc 1 557 17 is_stmt 1 view .LVU203
  557:lvgl/lvgl/src/draw/lv_draw_label.c ****             }
  599              		.loc 1 557 51 is_stmt 0 view .LVU204
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 30
 
 
  600 01d2 DBB2     		uxtb	r3, r3
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  590:lvgl/lvgl/src/draw/lv_draw_label.c ****         }
  639              		.loc 1 590 13 is_stmt 1 view .LVU220
  590:lvgl/lvgl/src/draw/lv_draw_label.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 31
 
 
  640              		.loc 1 590 22 is_stmt 0 view .LVU221
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  552:lvgl/lvgl/src/draw/lv_draw_label.c ****         for(col = col_start; col < col_end; col++) {
  680              		.loc 1 552 17 is_stmt 0 view .LVU236
  681 021e 059B     		ldr	r3, [sp, #20]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 32
 
 
  682 0220 23FA04F1 		lsr	r1, r3, r4
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   28:lvgl/lvgl/src/draw/../misc/lv_area.h **** typedef int32_t lv_coord_t;
   29:lvgl/lvgl/src/draw/../misc/lv_area.h **** #else
   30:lvgl/lvgl/src/draw/../misc/lv_area.h **** typedef int16_t lv_coord_t;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 33
 
 
   31:lvgl/lvgl/src/draw/../misc/lv_area.h **** #endif
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   85:lvgl/lvgl/src/draw/../misc/lv_area.h **** };
   86:lvgl/lvgl/src/draw/../misc/lv_area.h **** typedef uint8_t lv_align_t;
   87:lvgl/lvgl/src/draw/../misc/lv_area.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 34
 
 
   88:lvgl/lvgl/src/draw/../misc/lv_area.h **** enum {
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  709 0238 8AB2     		uxth	r2, r1
  710              	.LVL83:
  711              		.loc 2 135 36 view .LVU247
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 35
 
 
  712 023a 9B1A     		subs	r3, r3, r2
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  758              		.loc 1 584 17 view .LVU263
  759              	.LBE47:
  593:lvgl/lvgl/src/draw/lv_draw_label.c ****                            color, mask_buf, LV_DRAW_MASK_RES_CHANGED, LV_OPA_COVER,
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 36
 
 
  760              		.loc 1 593 13 is_stmt 1 view .LVU264
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  801 02a0 05D1     		bne	.L57
  802              	.LVL94:
  803              	.L41:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 37
 
 
  616:lvgl/lvgl/src/draw/lv_draw_label.c **** }
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  851 02f0 00000000 		.word	.LANCHOR7
  852 02f4 00000000 		.word	.LANCHOR4
  853              		.cfi_endproc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 38
 
 
  854              	.LFE155:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   15:lvgl/lvgl/src/draw/../misc/lv_color.h ****  *********************/
   16:lvgl/lvgl/src/draw/../misc/lv_color.h **** #include "../lv_conf_internal.h"
   17:lvgl/lvgl/src/draw/../misc/lv_color.h **** #include "lv_math.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 39
 
 
   18:lvgl/lvgl/src/draw/../misc/lv_color.h **** #include "lv_types.h"
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   72:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
   73:lvgl/lvgl/src/draw/../misc/lv_color.h **** /**
   74:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * Adjust color mix functions rounding.
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 40
 
 
   75:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * GPUs might calculate color mix (blending) differently.
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  129:lvgl/lvgl/src/draw/../misc/lv_color.h **** # define LV_COLOR_GET_B1(c) (c).ch.blue
  130:lvgl/lvgl/src/draw/../misc/lv_color.h **** # define LV_COLOR_GET_A1(c) 0xFF
  131:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 41
 
 
  132:lvgl/lvgl/src/draw/../misc/lv_color.h **** # define _LV_COLOR_ZERO_INITIALIZER1 {0x00}
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  186:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
  187:lvgl/lvgl/src/draw/../misc/lv_color.h **** /*---------------------------------------
  188:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * Macros for the current color depth
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 42
 
 
  189:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * to set/get values of the color channels
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  243:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
  244:lvgl/lvgl/src/draw/../misc/lv_color.h **** typedef union {
  245:lvgl/lvgl/src/draw/../misc/lv_color.h ****     struct {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 43
 
 
  246:lvgl/lvgl/src/draw/../misc/lv_color.h ****         uint8_t blue;
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  300:lvgl/lvgl/src/draw/../misc/lv_color.h **** }lv_palette_t;
  301:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
  302:lvgl/lvgl/src/draw/../misc/lv_color.h **** /**********************
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 44
 
 
  303:lvgl/lvgl/src/draw/../misc/lv_color.h ****  * GLOBAL PROTOTYPES
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  357:lvgl/lvgl/src/draw/../misc/lv_color.h ****     lv_color8_t ret;
  358:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_R8(ret, LV_COLOR_GET_R(color) >> 2); /*5 - 3  = 2*/
  359:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_G8(ret, LV_COLOR_GET_G(color) >> 3); /*6 - 3  = 3*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 45
 
 
  360:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_B8(ret, LV_COLOR_GET_B(color) >> 3); /*5 - 2  = 3*/
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  414:lvgl/lvgl/src/draw/../misc/lv_color.h ****      *  valueto = ( valuefrom * multiplier + adder ) >> divisor
  415:lvgl/lvgl/src/draw/../misc/lv_color.h ****      *   multiplier = FLOOR( ( (2^bitsto - 1) << divisor ) / (float)(2^bitsfrom - 1) )
  416:lvgl/lvgl/src/draw/../misc/lv_color.h ****      *
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 46
 
 
  417:lvgl/lvgl/src/draw/../misc/lv_color.h ****      * Find the first divisor where ( adder >> divisor ) <= 0
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  471:lvgl/lvgl/src/draw/../misc/lv_color.h ****     /*LV_COLOR_DEPTH == 8, 16 or 32*/
  472:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_R(ret, LV_UDIV255((uint16_t) LV_COLOR_GET_R(c1) * mix + LV_COLOR_GET_R(c2) *
  473:lvgl/lvgl/src/draw/../misc/lv_color.h ****                                         (255 - mix) + LV_COLOR_MIX_ROUND_OFS));
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 47
 
 
  474:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_G(ret, LV_UDIV255((uint16_t) LV_COLOR_GET_G(c1) * mix + LV_COLOR_GET_G(c2) *
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  528:lvgl/lvgl/src/draw/../misc/lv_color.h ****     /*Restore color1*/
  529:lvgl/lvgl/src/draw/../misc/lv_color.h ****     lv_color_t c1;
  530:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_R(c1, premult_c1[0]);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 48
 
 
  531:lvgl/lvgl/src/draw/../misc/lv_color.h ****     LV_COLOR_SET_G(c1, premult_c1[1]);
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  585:lvgl/lvgl/src/draw/../misc/lv_color.h ****             res_opa_saved = 255 - ((uint16_t)((uint16_t)(255 - fg_opa) * (255 - bg_opa)) >> 8);
  586:lvgl/lvgl/src/draw/../misc/lv_color.h ****             if(res_opa_saved == 0) {
  587:lvgl/lvgl/src/draw/../misc/lv_color.h ****                 while(1)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 49
 
 
  588:lvgl/lvgl/src/draw/../misc/lv_color.h ****                     ;
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  642:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
  643:lvgl/lvgl/src/draw/../misc/lv_color.h **** lv_color_t lv_color_darken(lv_color_t c, lv_opa_t lvl);
  644:lvgl/lvgl/src/draw/../misc/lv_color.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 50
 
 
  645:lvgl/lvgl/src/draw/../misc/lv_color.h **** lv_color_t lv_color_change_lightness(lv_color_t c, lv_opa_t lvl);
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  617:lvgl/lvgl/src/draw/../misc/lv_color.h **** }
  899              		.loc 3 617 5 view .LVU294
  617:lvgl/lvgl/src/draw/../misc/lv_color.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 51
 
 
  900              		.loc 3 617 12 is_stmt 0 view .LVU295
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  940              		.loc 1 99 22 view .LVU311
  941 0024 E381     		strh	r3, [r4, #14]	@ movhi
  100:lvgl/lvgl/src/draw/lv_draw_label.c ****     dsc->bidi_dir = LV_BASE_DIR_LTR;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 52
 
 
  942              		.loc 1 100 5 is_stmt 1 view .LVU312
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  976 00b3 5F464F4E 		.ascii	"_FONT_SUBPX == 0 in lv_conf.h\000"
  976      545F5355 
  976      42505820 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 53
 
 
  976      3D3D2030 
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  411:lvgl/lvgl/src/draw/lv_draw_label.c ****         LV_LOG_WARN("lv_draw_letter: font is NULL");
  1023              		.loc 1 411 5 is_stmt 1 view .LVU325
  411:lvgl/lvgl/src/draw/lv_draw_label.c ****         LV_LOG_WARN("lv_draw_letter: font is NULL");
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 54
 
 
  1024              		.loc 1 411 7 is_stmt 0 view .LVU326
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  432:lvgl/lvgl/src/draw/lv_draw_label.c ****     int32_t pos_y = pos_p->y + (font_p->line_height - font_p->base_line) - g.box_h - g.ofs_y;
  1062              		.loc 1 432 33 view .LVU343
  1063 0044 BDF91A10 		ldrsh	r1, [sp, #26]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 55
 
 
  432:lvgl/lvgl/src/draw/lv_draw_label.c ****     int32_t pos_y = pos_p->y + (font_p->line_height - font_p->base_line) - g.box_h - g.ofs_y;
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1101 0078 4344     		add	r3, r3, r8
  438:lvgl/lvgl/src/draw/lv_draw_label.c ****        pos_y > clip_area->y2)  {
  1102              		.loc 1 438 35 view .LVU361
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 56
 
 
  1103 007a B7F90220 		ldrsh	r2, [r7, #2]
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1143 00b0 214B     		ldr	r3, .L79+12
  1144              	.LVL121:
  412:lvgl/lvgl/src/draw/lv_draw_label.c ****         return;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 57
 
 
  1145              		.loc 1 412 9 is_stmt 0 view .LVU376
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1188 00e0 0093     		str	r3, [sp]
  1189 00e2 134B     		ldr	r3, .L79+4
  1190 00e4 4FF4D472 		mov	r2, #424
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 58
 
 
  1191 00e8 1249     		ldr	r1, .L79+8
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1235              	.L80:
  1236 012a 00BF     		.align	2
  1237              	.L79:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 59
 
 
  1238 012c 80000000 		.word	.LC5
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1289 0014 05D9     		bls	.L81
  1290 0016 1546     		mov	r5, r2
  120:lvgl/lvgl/src/draw/lv_draw_label.c ****     int32_t w;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 60
 
 
  1291              		.loc 1 120 5 is_stmt 1 view .LVU403
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  129:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  1331              		.loc 1 129 7 is_stmt 0 view .LVU418
  1332 0032 0028     		cmp	r0, #0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 61
 
 
  1333 0034 F5D0     		beq	.L81
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   40:lvgl/lvgl/src/draw/../misc/lv_bidi.h **** };
   41:lvgl/lvgl/src/draw/../misc/lv_bidi.h **** 
   42:lvgl/lvgl/src/draw/../misc/lv_bidi.h **** typedef uint8_t lv_base_dir_t;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 62
 
 
   43:lvgl/lvgl/src/draw/../misc/lv_bidi.h **** 
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   97:lvgl/lvgl/src/draw/../misc/lv_bidi.h ****  * @param str_in the string to process
   98:lvgl/lvgl/src/draw/../misc/lv_bidi.h ****  * @param str_out store the result here
   99:lvgl/lvgl/src/draw/../misc/lv_bidi.h ****  * @param len length of the text
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 63
 
 
  100:lvgl/lvgl/src/draw/../misc/lv_bidi.h ****  * @param base_dir base dir of the text
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1362              		.loc 1 136 12 is_stmt 0 view .LVU432
  1363 0040 6B7F     		ldrb	r3, [r5, #29]	@ zero_extendqisi2
  136:lvgl/lvgl/src/draw/lv_draw_label.c ****         /*Normally use the label's width as width*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 64
 
 
  1364              		.loc 1 136 7 view .LVU433
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   21:lvgl/lvgl/src/draw/../misc/../font/lv_font.h **** #include "lv_symbol_def.h"
   22:lvgl/lvgl/src/draw/../misc/../font/lv_font.h **** #include "../misc/lv_area.h"
   23:lvgl/lvgl/src/draw/../misc/../font/lv_font.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 65
 
 
   24:lvgl/lvgl/src/draw/../misc/../font/lv_font.h **** /*********************
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   78:lvgl/lvgl/src/draw/../misc/../font/lv_font.h **** 
   79:lvgl/lvgl/src/draw/../misc/../font/lv_font.h **** } lv_font_t;
   80:lvgl/lvgl/src/draw/../misc/../font/lv_font.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 66
 
 
   81:lvgl/lvgl/src/draw/../misc/../font/lv_font.h **** /**********************
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  149:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  1407              		.loc 1 149 13 view .LVU450
  1408 005e 9719     		adds	r7, r2, r6
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 67
 
 
  1409 0060 0B97     		str	r7, [sp, #44]
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  167:lvgl/lvgl/src/draw/lv_draw_label.c ****         /*If the label changed too much recalculate the hint.*/
  1444              		.loc 1 167 13 discriminator 1 view .LVU470
  1445 0082 49BB     		cbnz	r1, .L121
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 68
 
 
  167:lvgl/lvgl/src/draw/lv_draw_label.c ****         /*If the label changed too much recalculate the hint.*/
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  169:lvgl/lvgl/src/draw/lv_draw_label.c ****             hint->line_start = -1;
  1487              		.loc 1 169 12 is_stmt 0 view .LVU484
  1488 00b4 A168     		ldr	r1, [r4, #8]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 69
 
 
  1489              	.LVL162:
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1529 00de 002F     		cmp	r7, #0
  1530 00e0 1BDB     		blt	.L124
  177:lvgl/lvgl/src/draw/lv_draw_label.c ****         pos.y += hint->y;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 70
 
 
  1531              		.loc 1 177 9 is_stmt 1 view .LVU499
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1574              	.L124:
  163:lvgl/lvgl/src/draw/lv_draw_label.c ****     int32_t last_line_start = -1;
  1575              		.loc 1 163 14 view .LVU511
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 71
 
 
  1576 011a 0027     		movs	r7, #0
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1616 014a FFF7FEFF 		bl	_lv_txt_get_next_line
  1617              	.LVL182:
  187:lvgl/lvgl/src/draw/lv_draw_label.c ****         pos.y += line_height;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 72
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 72
 
 
  1618              		.loc 1 187 18 view .LVU526
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  194:lvgl/lvgl/src/draw/lv_draw_label.c ****         }
  1656              		.loc 1 194 30 view .LVU543
  1657 0184 A360     		str	r3, [r4, #8]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 73
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 73
 
 
  1658 0186 CAE7     		b	.L90
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1698              	.L94:
  222:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  1699              		.loc 1 222 5 is_stmt 1 view .LVU558
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 74
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 74
 
 
  224:lvgl/lvgl/src/draw/lv_draw_label.c ****         lv_draw_line_dsc_init(&line_dsc);
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1736              		.loc 1 244 10 view .LVU576
  1737 01cc 54E1     		b	.L97
  1738              	.LVL196:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 75
 
 
  1739              	.L134:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  209:lvgl/lvgl/src/draw/lv_draw_label.c ****         pos.x += lv_area_get_width(coords) - line_width;
  1785              		.loc 1 209 22 is_stmt 0 view .LVU592
  1786 0206 6B7F     		ldrb	r3, [r5, #29]	@ zero_extendqisi2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 76
 
 
  1787 0208 0093     		str	r3, [sp]
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  227:lvgl/lvgl/src/draw/lv_draw_label.c ****         line_dsc.opa = dsc->opa;
  1834              		.loc 1 227 9 is_stmt 1 view .LVU607
  227:lvgl/lvgl/src/draw/lv_draw_label.c ****         line_dsc.opa = dsc->opa;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 77
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 77
 
 
  1835              		.loc 1 227 30 is_stmt 0 view .LVU608
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  275:lvgl/lvgl/src/draw/lv_draw_label.c ****                         par_start = i;
  1877              		.loc 1 275 23 is_stmt 0 view .LVU621
  1878 027a 37B1     		cbz	r7, .L137
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 78
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 78
 
 
  280:lvgl/lvgl/src/draw/lv_draw_label.c ****                         cmd_state = CMD_STATE_WAIT;
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1916              		.loc 1 293 27 view .LVU638
  1917 029e 072B     		cmp	r3, #7
  1918 02a0 04D0     		beq	.L138
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 79
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 79
 
 
  304:lvgl/lvgl/src/draw/lv_draw_label.c ****                         }
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   24:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** #include <string.h>
   25:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** #endif
   26:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 80
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 80
 
 
   27:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** /*********************
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
   81:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** void * lv_mem_alloc(size_t size);
   82:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** 
   83:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 81
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 81
 
 
   84:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h ****  * Free an allocated data
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  138:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h ****  */
  139:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** static inline void * lv_memcpy(void * dst, const void * src, size_t len)
  140:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 82
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 82
 
 
  141:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h ****     return memcpy(dst, src, len);
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  195:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h **** /**
  196:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h ****  * Same as `memcpy` but optimized to copy only a few bytes.
  197:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h ****  * @param dst pointer to the destination buffer
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 83
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 83
 
 
  198:lvgl/lvgl/src/draw/../hal/../misc/lv_mem.h ****  * @param src pointer to the source buffer
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  1977              		.loc 1 296 29 is_stmt 1 view .LVU663
  297:lvgl/lvgl/src/draw/lv_draw_label.c ****                             r       = (hex_char_to_num(buf[0]) << 4) + hex_char_to_num(buf[1]);
  1978              		.loc 1 297 29 view .LVU664
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 84
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 84
 
 
  298:lvgl/lvgl/src/draw/lv_draw_label.c ****                             g       = (hex_char_to_num(buf[2]) << 4) + hex_char_to_num(buf[3]);
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2019              	.LVL229:
  300:lvgl/lvgl/src/draw/lv_draw_label.c ****                             recolor = lv_color_make(r, g, b);
  2020              		.loc 1 300 37 view .LVU679
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 85
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 85
 
 
  2021 0300 0AEB0003 		add	r3, r10, r0
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2063              		.loc 1 314 43 is_stmt 1 discriminator 1 view .LVU691
  314:lvgl/lvgl/src/draw/lv_draw_label.c **** 
  2064              		.loc 1 314 49 is_stmt 0 discriminator 1 view .LVU692
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 86
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 86
 
 
  2065 0332 BDF83AA0 		ldrh	r10, [sp, #58]
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  325:lvgl/lvgl/src/draw/lv_draw_label.c ****                     color = dsc->sel_color;
  2102              		.loc 1 325 21 is_stmt 1 view .LVU710
  2103 0368 18AA     		add	r2, sp, #96
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 87
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 87
 
 
  2104 036a 0699     		ldr	r1, [sp, #24]
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2144 03a0 ADF8A440 		strh	r4, [sp, #164]	@ movhi
  2145              	.LVL243:
  2146              	.L98:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 88
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 88
 
 
  333:lvgl/lvgl/src/draw/lv_draw_label.c ****             }
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2187 03d2 0898     		ldr	r0, [sp, #32]
  2188 03d4 FFF7FEFF 		bl	_lv_txt_encoded_letter_next_2
  2189              	.LVL248:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 89
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 89
 
 
  273:lvgl/lvgl/src/draw/lv_draw_label.c ****                 if(letter == (uint32_t)LV_TXT_COLOR_CMD[0]) {
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2228              		.loc 1 318 15 is_stmt 0 view .LVU754
  2229 0402 4FF6FF73 		movw	r3, #65535
  2230 0406 9845     		cmp	r8, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 90
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 90
 
 
  2231 0408 B5D0     		beq	.L109
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2271 0434 0D9B     		ldr	r3, [sp, #52]
  2272 0436 B5F91420 		ldrsh	r2, [r5, #20]
  2273 043a 4946     		mov	r1, r9
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 91
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 91
 
 
  2274 043c 2046     		mov	r0, r4
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2313              		.loc 1 363 18 view .LVU783
  2314 0476 3E46     		mov	r6, r7
  2315              	.LVL257:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 92
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 92
 
 
  2316              	.L97:
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2354 049c 129B     		ldr	r3, [sp, #72]
  2355 049e ADF85430 		strh	r3, [sp, #84]	@ movhi
  341:lvgl/lvgl/src/draw/lv_draw_label.c ****             p2.x = pos.x;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 93
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 93
 
 
  2356              		.loc 1 341 13 is_stmt 1 view .LVU800
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2395              		.loc 1 348 13 is_stmt 1 view .LVU815
  349:lvgl/lvgl/src/draw/lv_draw_label.c ****             p1.x = pos_x_start;
  2396              		.loc 1 349 13 view .LVU816
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 94
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 94
 
 
  350:lvgl/lvgl/src/draw/lv_draw_label.c ****             p1.y = pos.y + dsc->font->line_height - dsc->font->base_line - font->underline_position
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2433 0514 26AB     		add	r3, sp, #152
  2434 0516 069A     		ldr	r2, [sp, #24]
  2435 0518 16A9     		add	r1, sp, #88
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 95
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 95
 
 
  2436 051a 15A8     		add	r0, sp, #84
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2482 0548 BDF8A430 		ldrh	r3, [sp, #164]
  2483 054c 03EB6000 		add	r0, r3, r0, asr #1
  2484 0550 ADF8A400 		strh	r0, [sp, #164]	@ movhi
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 96
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 96
 
 
  2485 0554 81E7     		b	.L116
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2534              		.global	_lv_bpp8_opa_table
  2535              		.global	_lv_bpp4_opa_table
  2536              		.global	_lv_bpp3_opa_table
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 97
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 97
 
 
  2537              		.global	_lv_bpp2_opa_table
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2595              		.set	.LANCHOR0,. + 0
  2598              	_lv_bpp4_opa_table:
  2599 0000 00112233 		.ascii	"\000\021\"3DUfw\210\231\252\273\314\335\356\377"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 98
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 98
 
 
  2599      44556677 
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2617 00d5 D5D6D7D8 		.ascii	"\325\326\327\330\331\332\333\334\335\336\337\340\341"
  2617      D9DADBDC 
  2617      DDDEDFE0 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 99
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 99
 
 
  2617      E1
@@ -5916,51 +5916,51 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 1
  2643              		.file 27 "lvgl/lvgl/src/draw/../hal/../misc/lv_log.h"
  2644              		.file 28 "lvgl/lvgl/src/draw/../core/lv_refr.h"
  2645              		.file 29 "lvgl/lvgl/src/draw/../hal/lv_hal_disp.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 100
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 100
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_draw_label.c
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:18     .text.hex_char_to_num:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:25     .text.hex_char_to_num:00000000 hex_char_to_num
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:65     .text.hex_char_to_num:0000001c $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:71     .text.hex_char_to_num:00000022 $t
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:128    .rodata.draw_letter_normal.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:135    .text.draw_letter_normal:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:141    .text.draw_letter_normal:00000000 draw_letter_normal
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:193    .text.draw_letter_normal:0000002c $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:201    .text.draw_letter_normal:00000034 $t
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:843    .text.draw_letter_normal:000002d0 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:857    .text.lv_draw_label_dsc_init:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:864    .text.lv_draw_label_dsc_init:00000000 lv_draw_label_dsc_init
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:959    .text.lv_draw_label_dsc_init:00000034 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:964    .rodata.lv_draw_letter.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:978    .text.lv_draw_letter:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:985    .text.lv_draw_letter:00000000 lv_draw_letter
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:1238   .text.lv_draw_letter:0000012c $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:1248   .text.lv_draw_label:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:1255   .text.lv_draw_label:00000000 lv_draw_label
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2529   .text.lv_draw_label:00000584 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2605   .rodata._lv_bpp8_opa_table:00000000 _lv_bpp8_opa_table
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2598   .rodata._lv_bpp4_opa_table:00000000 _lv_bpp4_opa_table
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2591   .rodata._lv_bpp3_opa_table:00000000 _lv_bpp3_opa_table
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2585   .rodata._lv_bpp2_opa_table:00000000 _lv_bpp2_opa_table
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2578   .rodata._lv_bpp1_opa_table:00000000 _lv_bpp1_opa_table
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2540   .bss.opa_table.10014:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2544   .bss.opa_table.10014:00000000 opa_table.10014
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2547   .bss.prev_bpp.10016:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2551   .bss.prev_bpp.10016:00000000 prev_bpp.10016
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2557   .bss.prev_opa.10015:00000000 prev_opa.10015
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2558   .bss.prev_opa.10015:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2560   .rodata.__func__.10013:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2564   .rodata.__func__.10013:00000000 __func__.10013
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2567   .rodata.__func__.9986:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2571   .rodata.__func__.9986:00000000 __func__.9986
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2574   .rodata._lv_bpp1_opa_table:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2581   .rodata._lv_bpp2_opa_table:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2588   .rodata._lv_bpp3_opa_table:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2594   .rodata._lv_bpp4_opa_table:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s:2601   .rodata._lv_bpp8_opa_table:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:18     .text.hex_char_to_num:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:25     .text.hex_char_to_num:00000000 hex_char_to_num
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:65     .text.hex_char_to_num:0000001c $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:71     .text.hex_char_to_num:00000022 $t
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:128    .rodata.draw_letter_normal.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:135    .text.draw_letter_normal:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:141    .text.draw_letter_normal:00000000 draw_letter_normal
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:193    .text.draw_letter_normal:0000002c $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:201    .text.draw_letter_normal:00000034 $t
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:843    .text.draw_letter_normal:000002d0 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:857    .text.lv_draw_label_dsc_init:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:864    .text.lv_draw_label_dsc_init:00000000 lv_draw_label_dsc_init
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:959    .text.lv_draw_label_dsc_init:00000034 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:964    .rodata.lv_draw_letter.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:978    .text.lv_draw_letter:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:985    .text.lv_draw_letter:00000000 lv_draw_letter
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:1238   .text.lv_draw_letter:0000012c $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:1248   .text.lv_draw_label:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:1255   .text.lv_draw_label:00000000 lv_draw_label
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2529   .text.lv_draw_label:00000584 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2605   .rodata._lv_bpp8_opa_table:00000000 _lv_bpp8_opa_table
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2598   .rodata._lv_bpp4_opa_table:00000000 _lv_bpp4_opa_table
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2591   .rodata._lv_bpp3_opa_table:00000000 _lv_bpp3_opa_table
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2585   .rodata._lv_bpp2_opa_table:00000000 _lv_bpp2_opa_table
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2578   .rodata._lv_bpp1_opa_table:00000000 _lv_bpp1_opa_table
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2540   .bss.opa_table.10014:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2544   .bss.opa_table.10014:00000000 opa_table.10014
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2547   .bss.prev_bpp.10016:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2551   .bss.prev_bpp.10016:00000000 prev_bpp.10016
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2557   .bss.prev_opa.10015:00000000 prev_opa.10015
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2558   .bss.prev_opa.10015:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2560   .rodata.__func__.10013:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2564   .rodata.__func__.10013:00000000 __func__.10013
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2567   .rodata.__func__.9986:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2571   .rodata.__func__.9986:00000000 __func__.9986
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2574   .rodata._lv_bpp1_opa_table:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2581   .rodata._lv_bpp2_opa_table:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2588   .rodata._lv_bpp3_opa_table:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2594   .rodata._lv_bpp4_opa_table:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s:2601   .rodata._lv_bpp8_opa_table:00000000 $d
 
 UNDEFINED SYMBOLS
 _lv_log_add
@@ -5976,7 +5976,7 @@ lv_palette_main
 lv_font_montserrat_14
 lv_font_get_glyph_dsc
 lv_font_get_glyph_bitmap
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccH1ThP7.s 			page 101
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccLAmSXN.s 			page 101
 
 
 _lv_area_intersect

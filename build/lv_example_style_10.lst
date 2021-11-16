@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
   11:lvgl/lvgl/examples/styles/lv_example_style_10.c ****     /* A default transition
   12:lvgl/lvgl/examples/styles/lv_example_style_10.c ****      * Make it fast (100ms) and start with some delay (200 ms)*/
   13:lvgl/lvgl/examples/styles/lv_example_style_10.c ****     static lv_style_transition_dsc_t trans_def;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 2
 
 
   46              		.loc 1 13 5 view .LVU2
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
   87 004a FFF7FEFF 		bl	lv_style_init
   88              	.LVL4:
   27:lvgl/lvgl/examples/styles/lv_example_style_10.c ****     lv_style_set_bg_color(&style_pr, lv_palette_main(LV_PALETTE_RED));
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 3
 
 
   89              		.loc 1 27 5 view .LVU11
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
   18:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h **** #include "lv_theme.h"
   19:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h **** 
   20:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h **** /*********************
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 4
 
 
   21:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h ****  *      DEFINES
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
   75:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h ****  * Return with the sys. layer. (Same on every screen and it is above the normal screen and the top
   76:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h ****  * layer)
   77:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h ****  * @param disp pointer to display which sys. layer  should be get. (NULL to use the default screen)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 5
 
 
   78:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h ****  * @return pointer to the sys layer object  (transparent screen sized lv_obj)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
  132:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h **** uint32_t lv_disp_get_inactive_time(const lv_disp_t * disp);
  133:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h **** 
  134:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 6
 
 
  135:lvgl/lvgl/examples/styles/../../src/core/lv_disp.h ****  * Manually trigger an activity on a display
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
  141 0092 2022     		movs	r2, #32
  142 0094 2946     		mov	r1, r5
  143 0096 3046     		mov	r0, r6
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 7
 
 
  144 0098 FFF7FEFF 		bl	lv_obj_add_style
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
   47:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
   48:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  * @param x         new distance from the left side from the parent plus the parent's left padding
   49:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 8
 
 
   50:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h **** void lv_obj_set_x(struct _lv_obj_t * obj, lv_coord_t x);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
  104:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  * Set the width reduced by the left and right padding and the border width.
  105:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object
  106:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  * @param w         the width without paddings in pixels
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 9
 
 
  107:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
  161:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  * lv_obj_set_align(obj, align);
  162:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  * lv_obj_set_pos(obj, x_ofs, y_ofs);
  163:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  * @param obj       pointer to an object to align
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 10
 
 
  164:lvgl/lvgl/examples/styles/../../src/core/lv_obj_pos.h ****  * @param align     type of alignment (see 'lv_align_t' enum) `LV_ALIGN_OUT_...` can't be used.
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
  178 00c4 00000000 		.word	lv_anim_path_linear
  179              		.cfi_endproc
  180              	.LFE189:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 11
 
 
  182              		.section	.bss.style_def.12316,"aw",%nobits
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
  236              		.file 18 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style.h"
  237              		.file 19 "lvgl/lvgl/examples/styles/../../src/core/lv_obj_scroll.h"
  238              		.file 20 "lvgl/lvgl/examples/styles/../../src/core/lv_obj_style.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 12
 
 
  239              		.file 21 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\draw\\lv_draw_label.h"
@@ -701,24 +701,24 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 1
  276              		.file 58 "lvgl/lvgl/examples/styles/../../src/extra/layouts/grid/lv_grid.h"
  277              		.file 59 "lvgl/lvgl/examples/styles/../../src/hal/lv_hal_disp.h"
  278              		.file 60 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_style_gen.h"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_example_style_10.c
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:18     .text.lv_example_style_10:00000000 $t
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:26     .text.lv_example_style_10:00000000 lv_example_style_10
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:173    .text.lv_example_style_10:000000b0 $d
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:183    .bss.style_def.12316:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:187    .bss.style_def.12316:00000000 style_def.12316
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:190    .bss.style_pr.12317:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:194    .bss.style_pr.12317:00000000 style_pr.12317
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:197    .bss.trans_def.12314:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:201    .bss.trans_def.12314:00000000 trans_def.12314
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:204    .bss.trans_pr.12315:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:208    .bss.trans_pr.12315:00000000 trans_pr.12315
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:211    .rodata.props.12313:00000000 $d
-C:\Users\gx\AppData\Local\Temp\ccgLMk1j.s:215    .rodata.props.12313:00000000 props.12313
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:18     .text.lv_example_style_10:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:26     .text.lv_example_style_10:00000000 lv_example_style_10
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:173    .text.lv_example_style_10:000000b0 $d
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:183    .bss.style_def.12316:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:187    .bss.style_def.12316:00000000 style_def.12316
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:190    .bss.style_pr.12317:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:194    .bss.style_pr.12317:00000000 style_pr.12317
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:197    .bss.trans_def.12314:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:201    .bss.trans_def.12314:00000000 trans_def.12314
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:204    .bss.trans_pr.12315:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:208    .bss.trans_pr.12315:00000000 trans_pr.12315
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:211    .rodata.props.12313:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccEfbk1S.s:215    .rodata.props.12313:00000000 props.12313
 
 UNDEFINED SYMBOLS
 lv_style_transition_dsc_init

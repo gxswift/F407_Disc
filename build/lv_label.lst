@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   28:lvgl/lvgl/src/widgets/lv_label.c **** #define LV_LABEL_DOT_END_INV 0xFFFFFFFF
   29:lvgl/lvgl/src/widgets/lv_label.c **** #define LV_LABEL_HINT_HEIGHT_LIMIT 1024 /*Enable "hint" to buffer info about labels larger than thi
   30:lvgl/lvgl/src/widgets/lv_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 2
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 2
 
 
   31:lvgl/lvgl/src/widgets/lv_label.c **** /**********************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   85:lvgl/lvgl/src/widgets/lv_label.c **** void lv_label_set_text(lv_obj_t * obj, const char * text)
   86:lvgl/lvgl/src/widgets/lv_label.c **** {
   87:lvgl/lvgl/src/widgets/lv_label.c ****     LV_ASSERT_OBJ(obj, MY_CLASS);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 3
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 3
 
 
   88:lvgl/lvgl/src/widgets/lv_label.c ****     lv_label_t * label = (lv_label_t *)obj;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  142:lvgl/lvgl/src/widgets/lv_label.c ****     }
  143:lvgl/lvgl/src/widgets/lv_label.c **** 
  144:lvgl/lvgl/src/widgets/lv_label.c ****     lv_label_refr_text(obj);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 4
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 4
 
 
  145:lvgl/lvgl/src/widgets/lv_label.c **** }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  199:lvgl/lvgl/src/widgets/lv_label.c ****     /*Delete the old animation (if exists)*/
  200:lvgl/lvgl/src/widgets/lv_label.c ****     lv_anim_del(obj, set_ofs_x_anim);
  201:lvgl/lvgl/src/widgets/lv_label.c ****     lv_anim_del(obj, set_ofs_y_anim);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 5
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 5
 
 
  202:lvgl/lvgl/src/widgets/lv_label.c ****     label->offset.x = 0;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  256:lvgl/lvgl/src/widgets/lv_label.c ****     (void)index;    /*Unused*/
  257:lvgl/lvgl/src/widgets/lv_label.c **** #endif
  258:lvgl/lvgl/src/widgets/lv_label.c **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 6
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 6
 
 
  259:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  313:lvgl/lvgl/src/widgets/lv_label.c **** 
  314:lvgl/lvgl/src/widgets/lv_label.c ****     uint32_t line_start      = 0;
  315:lvgl/lvgl/src/widgets/lv_label.c ****     uint32_t new_line_start  = 0;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 7
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 7
 
 
  316:lvgl/lvgl/src/widgets/lv_label.c ****     lv_coord_t max_w         = lv_area_get_width(&txt_coords);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  370:lvgl/lvgl/src/widgets/lv_label.c ****     visual_byte_pos = byte_id - line_start;
  371:lvgl/lvgl/src/widgets/lv_label.c **** #endif
  372:lvgl/lvgl/src/widgets/lv_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 8
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 8
 
 
  373:lvgl/lvgl/src/widgets/lv_label.c ****     /*Calculate the x coordinate*/
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  427:lvgl/lvgl/src/widgets/lv_label.c **** 
  428:lvgl/lvgl/src/widgets/lv_label.c ****     /*Search the line of the index letter*/;
  429:lvgl/lvgl/src/widgets/lv_label.c ****     while(txt[line_start] != '\0') {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 9
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 9
 
 
  430:lvgl/lvgl/src/widgets/lv_label.c ****         new_line_start += _lv_txt_get_next_line(&txt[line_start], font, letter_space, max_w, flag);
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  484:lvgl/lvgl/src/widgets/lv_label.c ****                     continue; /*Skip the letter is it is part of a command*/
  485:lvgl/lvgl/src/widgets/lv_label.c ****                 }
  486:lvgl/lvgl/src/widgets/lv_label.c ****             }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 10
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 10
 
 
  487:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  541:lvgl/lvgl/src/widgets/lv_label.c **** 
  542:lvgl/lvgl/src/widgets/lv_label.c ****     if(label->recolor != 0) flag |= LV_TEXT_FLAG_RECOLOR;
  543:lvgl/lvgl/src/widgets/lv_label.c ****     if(label->expand != 0) flag |= LV_TEXT_FLAG_EXPAND;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 11
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 11
 
 
  544:lvgl/lvgl/src/widgets/lv_label.c ****     if(lv_obj_get_style_width(obj, LV_PART_MAIN) == LV_SIZE_CONTENT && !obj->w_layout) flag |= LV_T
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  598:lvgl/lvgl/src/widgets/lv_label.c ****     }
  599:lvgl/lvgl/src/widgets/lv_label.c **** 
  600:lvgl/lvgl/src/widgets/lv_label.c ****     int32_t max_diff = lv_font_get_glyph_width(font, letter, letter_next) + letter_space + 1;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 12
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 12
 
 
  601:lvgl/lvgl/src/widgets/lv_label.c ****     return (pos->x >= (last_x - letter_space) && pos->x <= (last_x + max_diff));
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  655:lvgl/lvgl/src/widgets/lv_label.c ****     if(pos == LV_LABEL_POS_LAST) {
  656:lvgl/lvgl/src/widgets/lv_label.c ****         pos = _lv_txt_get_encoded_length(label->text);
  657:lvgl/lvgl/src/widgets/lv_label.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 13
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 13
 
 
  658:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  712:lvgl/lvgl/src/widgets/lv_label.c ****     label->hint.line_start = -1;
  713:lvgl/lvgl/src/widgets/lv_label.c ****     label->hint.coord_y    = 0;
  714:lvgl/lvgl/src/widgets/lv_label.c ****     label->hint.y          = 0;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 14
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 14
 
 
  715:lvgl/lvgl/src/widgets/lv_label.c **** #endif
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  769:lvgl/lvgl/src/widgets/lv_label.c ****         lv_coord_t line_space = lv_obj_get_style_text_line_space(obj, LV_PART_MAIN);
  770:lvgl/lvgl/src/widgets/lv_label.c ****         lv_text_flag_t flag = LV_TEXT_FLAG_NONE;
  771:lvgl/lvgl/src/widgets/lv_label.c ****         if(label->recolor != 0) flag |= LV_TEXT_FLAG_RECOLOR;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 15
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 15
 
 
  772:lvgl/lvgl/src/widgets/lv_label.c ****         if(label->expand != 0) flag |= LV_TEXT_FLAG_EXPAND;
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  826:lvgl/lvgl/src/widgets/lv_label.c ****         lv_txt_get_size(&size, label->text, label_draw_dsc.font, label_draw_dsc.letter_space, label
  827:lvgl/lvgl/src/widgets/lv_label.c ****                          LV_COORD_MAX, flag);
  828:lvgl/lvgl/src/widgets/lv_label.c ****         if(size.x > lv_area_get_width(&txt_coords)) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 16
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 16
 
 
  829:lvgl/lvgl/src/widgets/lv_label.c ****             label_draw_dsc.align = LV_TEXT_ALIGN_LEFT;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  883:lvgl/lvgl/src/widgets/lv_label.c **** {
  884:lvgl/lvgl/src/widgets/lv_label.c ****     lv_label_t * label = (lv_label_t *)obj;
  885:lvgl/lvgl/src/widgets/lv_label.c ****     if(label->text == NULL) return;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 17
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 17
 
 
  886:lvgl/lvgl/src/widgets/lv_label.c **** #if LV_LABEL_LONG_TXT_HINT
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  940:lvgl/lvgl/src/widgets/lv_label.c ****             lv_anim_set_exec_cb(&a, set_ofs_x_anim);
  941:lvgl/lvgl/src/widgets/lv_label.c **** #endif
  942:lvgl/lvgl/src/widgets/lv_label.c ****             lv_anim_set_exec_cb(&a, set_ofs_x_anim);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 18
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 18
 
 
  943:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  997:lvgl/lvgl/src/widgets/lv_label.c ****             }
  998:lvgl/lvgl/src/widgets/lv_label.c **** 
  999:lvgl/lvgl/src/widgets/lv_label.c ****             lv_anim_set_time(&a, lv_anim_speed_to_time(anim_speed, a.start_value, a.end_value));
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 19
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 19
 
 
 1000:lvgl/lvgl/src/widgets/lv_label.c ****             lv_anim_set_playback_time(&a, a.time);
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
 1054:lvgl/lvgl/src/widgets/lv_label.c ****             /*Delete the offset animation if not required*/
 1055:lvgl/lvgl/src/widgets/lv_label.c ****             lv_anim_del(obj, set_ofs_x_anim);
 1056:lvgl/lvgl/src/widgets/lv_label.c ****             label->offset.x = 0;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 20
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 20
 
 
 1057:lvgl/lvgl/src/widgets/lv_label.c ****         }
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
 1111:lvgl/lvgl/src/widgets/lv_label.c ****                 letter_id--;
 1112:lvgl/lvgl/src/widgets/lv_label.c ****             }
 1113:lvgl/lvgl/src/widgets/lv_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 21
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 21
 
 
 1114:lvgl/lvgl/src/widgets/lv_label.c ****             /*Save letters under the dots and replace them with dots*/
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
 1168:lvgl/lvgl/src/widgets/lv_label.c ****  * @return true on success.
 1169:lvgl/lvgl/src/widgets/lv_label.c ****  */
 1170:lvgl/lvgl/src/widgets/lv_label.c **** static bool lv_label_set_dot_tmp(lv_obj_t * obj, char * data, uint32_t len)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 22
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 22
 
 
 1171:lvgl/lvgl/src/widgets/lv_label.c **** {
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
 1205:lvgl/lvgl/src/widgets/lv_label.c ****     }
 1206:lvgl/lvgl/src/widgets/lv_label.c ****     else {
 1207:lvgl/lvgl/src/widgets/lv_label.c ****         return label->dot.tmp;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 23
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 23
 
 
   49              		.loc 1 1207 9 is_stmt 1 view .LVU8
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   92              		.loc 1 1220 9 is_stmt 1 view .LVU19
   93 0012 FFF7FEFF 		bl	lv_mem_free
   94              	.LVL7:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 24
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 24
 
 
   95              	.L5:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  141              		.loc 1 1145 7 view .LVU31
  142 000a 012B     		cmp	r3, #1
  143 000c 21D1     		bne	.L7
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 25
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 25
 
 
  144 000e 0446     		mov	r4, r0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  182              	.L10:
 1154:lvgl/lvgl/src/widgets/lv_label.c ****         i++;
  183              		.loc 1 1154 9 is_stmt 1 view .LVU48
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 26
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 26
 
 
 1154:lvgl/lvgl/src/widgets/lv_label.c ****         i++;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  221 004c 4FF0FF33 		mov	r3, #-1
  222 0050 E362     		str	r3, [r4, #44]
  223              	.LVL23:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 27
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 27
 
 
  224              	.L7:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  270              	.L15:
  739:lvgl/lvgl/src/widgets/lv_label.c **** }
  271              		.loc 1 739 5 is_stmt 1 view .LVU76
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 28
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 28
 
 
  739:lvgl/lvgl/src/widgets/lv_label.c **** }
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
 1238:lvgl/lvgl/src/widgets/lv_label.c ****     lv_obj_invalidate(obj);
  312              		.loc 1 1238 5 is_stmt 1 view .LVU85
  313 0006 FFF7FEFF 		bl	lv_obj_invalidate
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 29
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 29
 
 
  314              	.LVL32:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  359 0024 4661696C 		.ascii	"Failed to allocate memory for dot_tmp_ptr\000"
  359      65642074 
  359      6F20616C 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 30
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 30
 
 
  359      6C6F6361 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
 1179:lvgl/lvgl/src/widgets/lv_label.c ****             LV_LOG_ERROR("Failed to allocate memory for dot_tmp_ptr");
  404              		.loc 1 1179 9 is_stmt 1 view .LVU103
 1179:lvgl/lvgl/src/widgets/lv_label.c ****             LV_LOG_ERROR("Failed to allocate memory for dot_tmp_ptr");
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 31
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 31
 
 
  405              		.loc 1 1179 11 is_stmt 0 view .LVU104
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  446 0058 84F84830 		strb	r3, [r4, #72]
 1190:lvgl/lvgl/src/widgets/lv_label.c ****     }
  447              		.loc 1 1190 9 is_stmt 1 view .LVU118
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 32
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 32
 
 
  448 005c 2A46     		mov	r2, r5
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   75:lvgl/lvgl/src/widgets/lv_label.c ****     lv_obj_t * obj = lv_obj_class_create_obj(MY_CLASS, parent);
  497              		.loc 1 75 5 view .LVU126
   76:lvgl/lvgl/src/widgets/lv_label.c ****     lv_obj_class_init_obj(obj);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 33
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 33
 
 
  498              		.loc 1 76 5 view .LVU127
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  234:lvgl/lvgl/src/widgets/lv_label.c **** 
  545              		.loc 1 234 5 is_stmt 1 view .LVU137
  234:lvgl/lvgl/src/widgets/lv_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 34
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 34
 
 
  546              		.loc 1 234 5 view .LVU138
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  588              		.loc 1 252 24 is_stmt 0 view .LVU152
  589 0002 0164     		str	r1, [r0, #64]
  253:lvgl/lvgl/src/widgets/lv_label.c **** #else
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 35
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 35
 
 
  590              		.loc 1 253 5 is_stmt 1 view .LVU153
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  638              		.loc 1 272 1 is_stmt 1 view -0
  639              		.cfi_startproc
  640              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 36
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 36
 
 
  641              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  682 0004 C0F30010 		ubfx	r0, r0, #4, #1
  683 0008 7047     		bx	lr
  684              		.cfi_endproc
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 37
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 37
 
 
  685              	.LFE162:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  729              		.loc 1 288 5 is_stmt 1 view .LVU181
  288:lvgl/lvgl/src/widgets/lv_label.c ****     LV_ASSERT_NULL(pos);
  730              		.loc 1 288 5 view .LVU182
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 38
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 38
 
 
  288:lvgl/lvgl/src/widgets/lv_label.c ****     LV_ASSERT_NULL(pos);
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  767 0024 ABF80230 		strh	r3, [fp, #2]	@ movhi
  297:lvgl/lvgl/src/widgets/lv_label.c ****             case LV_TEXT_ALIGN_LEFT:
  768              		.loc 1 297 9 is_stmt 1 view .LVU201
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 39
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 39
 
 
  769 0028 0228     		cmp	r0, #2
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  810              		.loc 1 302 26 is_stmt 0 view .LVU214
  811 0058 2846     		mov	r0, r5
  812              	.LVL75:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 40
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 40
 
 
  302:lvgl/lvgl/src/widgets/lv_label.c ****                 break;
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  851              	.LBI185:
  852              		.file 2 "d:\\practise\\f407_disc\\lvgl\\lvgl\\src\\misc\\lv_area.h"
    1:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 41
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 41
 
 
    2:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @file lv_area.h
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   56:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t x2;
   57:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****     lv_coord_t y2;
   58:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** } lv_area_t;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 42
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 42
 
 
   59:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  113:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** void lv_area_set(lv_area_t * area_p, lv_coord_t x1, lv_coord_t y1, lv_coord_t x2, lv_coord_t y2);
  114:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** 
  115:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 43
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 43
 
 
  116:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Copy an area
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   11:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
   12:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
   13:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_max_width(const struct _lv_obj_t * obj, uint32_t part)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 44
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 44
 
 
   14:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   68:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
   69:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_TRANSLATE_X);
   70:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 45
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 45
 
 
   71:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  125:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
  126:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
  127:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline lv_coord_t lv_obj_get_style_radius(const struct _lv_obj_t * obj, uint32_t part)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 46
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 46
 
 
  128:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  182:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
  183:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_LAYOUT);
  184:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (uint16_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 47
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 47
 
 
  185:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  239:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
  240:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
  241:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** static inline const void * lv_obj_get_style_bg_img_src(const struct _lv_obj_t * obj, uint32_t part)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 48
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 48
 
 
  242:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  296:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
  297:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     lv_style_value_t v = lv_obj_get_style_prop(obj, part, LV_STYLE_BORDER_WIDTH);
  298:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 49
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 49
 
 
  299:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  893              	.LBB189:
  894              	.LBI189:
  335:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 50
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 50
 
 
  336:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** 
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  931              	.LBE192:
  932              	.LBE191:
  320:lvgl/lvgl/src/widgets/lv_label.c ****     lv_coord_t y             = 0;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 51
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 51
 
 
  933              		.loc 1 320 5 is_stmt 1 view .LVU259
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   51:d:\practise\f407_disc\lvgl\lvgl\src\font\lv_font.h ****     LV_FONT_SUBPX_BOTH,
   52:d:\practise\f407_disc\lvgl\lvgl\src\font\lv_font.h **** };
   53:d:\practise\f407_disc\lvgl\lvgl\src\font\lv_font.h **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 52
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 52
 
 
   54:d:\practise\f407_disc\lvgl\lvgl\src\font\lv_font.h **** typedef uint8_t lv_font_subpx_t;
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  108:d:\practise\f407_disc\lvgl\lvgl\src\font\lv_font.h ****  * @param letter_next the next letter after `letter`. Used for kerning
  109:d:\practise\f407_disc\lvgl\lvgl\src\font\lv_font.h ****  * @return the width of the glyph
  110:d:\practise\f407_disc\lvgl\lvgl\src\font\lv_font.h ****  */
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 53
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 53
 
 
  111:d:\practise\f407_disc\lvgl\lvgl\src\font\lv_font.h **** uint16_t lv_font_get_glyph_width(const lv_font_t * font, uint32_t letter, uint32_t letter_next);
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  326:lvgl/lvgl/src/widgets/lv_label.c **** 
  970              		.loc 1 326 5 is_stmt 1 view .LVU275
  971              	.LBB195:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 54
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 54
 
 
  972              	.LBI195:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1012 0102 2F46     		mov	r7, r5
  1013              	.LVL100:
  1014              	.L52:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 55
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 55
 
 
  331:lvgl/lvgl/src/widgets/lv_label.c ****         new_line_start += _lv_txt_get_next_line(&txt[line_start], font, letter_space, max_w, flag);
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1053 0130 4746     		mov	r7, r8
  1054 0132 E7E7     		b	.L52
  1055              	.LVL105:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 56
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 56
 
 
  1056              	.L63:
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  374:lvgl/lvgl/src/widgets/lv_label.c ****     if(char_id != line_start) x += letter_space;
  1093              		.loc 1 374 20 is_stmt 0 view .LVU323
  1094 015c 0096     		str	r6, [sp]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 57
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 57
 
 
  1095 015e 059B     		ldr	r3, [sp, #20]
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1134 018c ABF80250 		strh	r5, [fp, #2]	@ movhi
  1135              	.LVL114:
  1136              	.L41:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 58
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 58
 
 
  395:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1179 01ba FFF7FEFF 		bl	lv_txt_get_width
  1180              	.LVL119:
  380:lvgl/lvgl/src/widgets/lv_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 59
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 59
 
 
  1181              		.loc 1 380 9 is_stmt 1 view .LVU351
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1224 01e8 0096     		str	r6, [sp]
  1225 01ea 059B     		ldr	r3, [sp, #20]
  1226 01ec 069A     		ldr	r2, [sp, #24]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 60
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 60
 
 
  1227 01ee A8EB0701 		sub	r1, r8, r7
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1276              		.align	2
  1277              	.LC5:
  1278 0000 706F735F 		.ascii	"pos_in != NULL\000"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 61
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 61
 
 
  1278      696E2021 
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1321              		.loc 1 401 5 discriminator 2 view .LVU391
  1322              	.LVL129:
  403:lvgl/lvgl/src/widgets/lv_label.c ****     pos.x = pos_in->x - lv_obj_get_style_pad_left(obj, LV_PART_MAIN);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 62
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 62
 
 
  1323              		.loc 1 403 5 discriminator 2 view .LVU392
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1362 002a 2046     		mov	r0, r4
  1363 002c FFF7FEFF 		bl	lv_obj_get_style_prop
  1364              	.LVL134:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 63
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 63
 
 
   94:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1407 0058 0893     		str	r3, [sp, #32]
  1408              	.LVL138:
  1409              		.loc 2 135 12 discriminator 2 view .LVU426
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 64
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 64
 
 
  1410              	.LBE208:
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  415:lvgl/lvgl/src/widgets/lv_label.c ****     lv_coord_t letter_height    = lv_font_get_line_height(font);
  1452              		.loc 1 415 5 is_stmt 1 discriminator 2 view .LVU441
  1453              	.LBB213:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 65
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 65
 
 
  1454              	.LBI213:
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1493 0092 13F01007 		ands	r7, r3, #16
  1494 0096 00D0     		beq	.L71
  422:lvgl/lvgl/src/widgets/lv_label.c ****     if(label->expand != 0) flag |= LV_TEXT_FLAG_EXPAND;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 66
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 66
 
 
  1495              		.loc 1 422 34 view .LVU460
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1535 00bc 0021     		movs	r1, #0
  1536 00be 2046     		mov	r0, r4
  1537 00c0 FFF7FEFF 		bl	lv_obj_calculate_style_text_align
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 67
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 67
 
 
  1538              	.LVL152:
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1578 00f0 1EDD     		ble	.L94
  441:lvgl/lvgl/src/widgets/lv_label.c **** 
  1579              		.loc 1 441 9 is_stmt 1 view .LVU489
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 68
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 68
 
 
  441:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1621              		.loc 1 424 72 is_stmt 0 discriminator 1 view .LVU502
  1622 0120 94F82330 		ldrb	r3, [r4, #35]	@ zero_extendqisi2
  424:lvgl/lvgl/src/widgets/lv_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 69
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 69
 
 
  1623              		.loc 1 424 69 discriminator 1 view .LVU503
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1661              		.loc 1 439 13 is_stmt 0 discriminator 2 view .LVU519
  1662              	.LBE219:
  452:lvgl/lvgl/src/widgets/lv_label.c **** #endif
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 70
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 70
 
 
  1663              		.loc 1 452 5 is_stmt 1 view .LVU520
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1701 0168 4846     		mov	r0, r9
  1702 016a 9847     		blx	r3
  1703              	.LVL173:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 71
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 71
 
 
  1704 016c 0446     		mov	r4, r0
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1749 0194 9B1A     		subs	r3, r3, r2
  1750 0196 9BB2     		uxth	r3, r3
  1751              		.loc 2 135 49 view .LVU550
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 72
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 72
 
 
  1752 0198 0133     		adds	r3, r3, #1
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1796              		.loc 2 135 36 view .LVU565
  1797 01ca 9B1A     		subs	r3, r3, r2
  1798 01cc 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 73
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 73
 
 
  1799              		.loc 2 135 49 view .LVU566
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  491:lvgl/lvgl/src/widgets/lv_label.c ****                 i = i_act;
  1841              		.loc 1 491 67 discriminator 2 view .LVU580
  1842 01fc E9B1     		cbz	r1, .L85
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 74
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 74
 
 
  495:lvgl/lvgl/src/widgets/lv_label.c ****             x += letter_space;
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1881 0220 17F0010F 		tst	r7, #1
  1882 0224 D9D0     		beq	.L83
  483:lvgl/lvgl/src/widgets/lv_label.c ****                     continue; /*Skip the letter is it is part of a command*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 75
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 75
 
 
  1883              		.loc 1 483 17 is_stmt 1 view .LVU597
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1931              	.LVL198:
  1932              	.LFB174:
  883:lvgl/lvgl/src/widgets/lv_label.c ****     lv_label_t * label = (lv_label_t *)obj;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 76
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 76
 
 
  1933              		.loc 1 883 1 is_stmt 1 view -0
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  1976 001c BDF86450 		ldrh	r5, [sp, #100]
  1977              		.loc 2 135 44 view .LVU620
  1978 0020 BDF86030 		ldrh	r3, [sp, #96]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 77
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 77
 
 
  1979              		.loc 2 135 36 view .LVU621
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2023 0048 0FFA80F9 		sxth	r9, r0
  2024              	.LVL204:
  2025              		.loc 3 346 12 view .LVU637
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 78
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 78
 
 
  2026              	.LBE233:
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  901:lvgl/lvgl/src/widgets/lv_label.c ****     if(lv_obj_get_style_width(obj, LV_PART_MAIN) == LV_SIZE_CONTENT && !obj->w_layout) flag |= LV_T
  2064              		.loc 1 901 33 is_stmt 0 discriminator 1 view .LVU654
  2065 006e 4AF0020A 		orr	r10, r10, #2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 79
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 79
 
 
  2066              	.LVL208:
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2108 00a4 94F84830 		ldrb	r3, [r4, #72]	@ zero_extendqisi2
  2109 00a8 03F00703 		and	r3, r3, #7
  909:lvgl/lvgl/src/widgets/lv_label.c ****         uint16_t anim_speed = lv_obj_get_style_anim_speed(obj, LV_PART_MAIN);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 80
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 80
 
 
  2110              		.loc 1 909 7 view .LVU667
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  910:lvgl/lvgl/src/widgets/lv_label.c ****         if(anim_speed == 0) anim_speed = LV_LABEL_DEF_SCROLL_SPEED;
  2152              		.loc 1 910 9 is_stmt 1 view .LVU680
  2153              	.LVL217:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 81
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 81
 
 
  2154              	.LBB239:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   12:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** 
   13:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** /*********************
   14:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****  *      INCLUDES
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 82
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 82
 
 
   15:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****  *********************/
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   69:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****     lv_anim_start_cb_t start_cb;         /**< Call it when the animation is starts (considering `de
   70:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****     lv_anim_ready_cb_t ready_cb;         /**< Call it when the animation is ready*/
   71:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****     lv_anim_get_value_cb_t get_value_cb; /**< Get the current value in relative mode*/
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 83
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 83
 
 
   72:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** #if LV_USE_USER_DATA
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2190 00ee 0694     		str	r4, [sp, #24]
  2191              	.LVL221:
  2192              		.loc 5 121 12 view .LVU695
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 84
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 84
 
 
  2193              	.LBE242:
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  170:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****  * Similar to `lv_anim_set_exec_cb` but `lv_anim_custom_exec_cb_t` receives
  171:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****  * `lv_anim_t * ` as its first parameter instead of `void *`.
  172:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****  * This function might be used when LVGL is binded to other languages because
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 85
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 85
 
 
  173:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****  * it's more consistent to have `lv_anim_t *` as first parameter.
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  227:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****  * @param time      the duration of the playback animation in in milliseconds. 0: disable playback
  228:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****  */
  229:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** static inline void lv_anim_set_playback_time(lv_anim_t * a, uint32_t time)
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 86
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 86
 
 
  230:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** {
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  252:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** }
  253:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** 
  254:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** /**
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 87
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 87
 
 
  255:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****  * Set a delay before repeating the animation.
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2264              		.loc 1 939 13 is_stmt 0 view .LVU724
  2265              	.LBE251:
  2266              	.LBE238:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 88
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 88
 
 
  2267              		.loc 2 135 5 is_stmt 1 view .LVU725
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2305              		.loc 1 942 13 is_stmt 0 view .LVU741
  2306              	.LBE261:
  2307              	.LBE280:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 89
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 89
 
 
  133:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** }
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2344              	.LVL234:
  953:lvgl/lvgl/src/widgets/lv_label.c ****                 if(playback_now) {
  2345              		.loc 1 953 31 view .LVU760
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 90
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 90
 
 
  2346 0146 6FF30002 		bfc	r2, #0, #1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2384              	.LBB257:
  2385              	.LBI257:
  141:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 91
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 91
 
 
  2386              		.loc 5 141 20 is_stmt 1 view .LVU777
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  138:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** /**
  139:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * Get the height of an area
  140:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @param area_p pointer to an area
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 92
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 92
 
 
  141:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h ****  * @return the height of the area (if y1 == y2 -> height = 1)
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2466              	.LVL249:
  911:lvgl/lvgl/src/widgets/lv_label.c ****         lv_anim_t a;
  2467              		.loc 1 911 40 discriminator 1 view .LVU807
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 93
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 93
 
 
  2468 01ac A5F1AA35 		sub	r5, r5, #-1431655766
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2510              		.loc 2 145 5 is_stmt 1 view .LVU820
  2511              	.LBB282:
  2512              	.LBB278:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 94
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 94
 
 
  976:lvgl/lvgl/src/widgets/lv_label.c ****             lv_anim_set_exec_cb(&a, set_ofs_y_anim);
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  133:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** }
  2553              		.loc 5 133 16 is_stmt 0 view .LVU838
  2554 01e2 6D49     		ldr	r1, .L156+4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 95
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 95
 
 
  2555 01e4 0791     		str	r1, [sp, #28]
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2591              		.loc 1 988 17 is_stmt 1 view .LVU856
  988:lvgl/lvgl/src/widgets/lv_label.c ****                 if(playback_now) {
  2592              		.loc 1 988 31 is_stmt 0 view .LVU857
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 96
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 96
 
 
  2593 0200 9DF85630 		ldrb	r3, [sp, #86]	@ zero_extendqisi2
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2631              	.LVL270:
  2632              	.LBB274:
  2633              	.LBI274:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 97
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 97
 
 
  141:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** {
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2674              		.loc 1 1011 9 is_stmt 1 view .LVU887
  2675              	.LBB284:
  2676              	.LBI284:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 98
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 98
 
 
  163:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** {
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2715              		.loc 1 1016 9 is_stmt 1 view .LVU903
  2716              	.LBB288:
  2717              	.LBI288:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 99
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 99
 
 
  249:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** {
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2756              	.LBB292:
 1038:lvgl/lvgl/src/widgets/lv_label.c **** #endif
  2757              		.loc 1 1038 13 is_stmt 1 view .LVU920
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 100
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 100
 
 
 1038:lvgl/lvgl/src/widgets/lv_label.c **** #endif
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2796 028e 414F     		ldr	r7, .L156
  2797              	.LVL286:
  133:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h **** }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 101
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 101
 
 
  2798              		.loc 5 133 16 view .LVU937
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
 1046:lvgl/lvgl/src/widgets/lv_label.c ****                 a.early_apply = 0;
  2838              		.loc 1 1046 17 is_stmt 1 view .LVU952
 1046:lvgl/lvgl/src/widgets/lv_label.c ****                 a.early_apply = 0;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 102
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 102
 
 
  2839              		.loc 1 1046 28 is_stmt 0 view .LVU953
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2882 02d4 1BB2     		sxth	r3, r3
  2883              	.LVL298:
  2884              		.loc 2 145 12 view .LVU971
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 103
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 103
 
 
  2885              	.LBE300:
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2927              	.L140:
  2928              	.LBB301:
 1044:lvgl/lvgl/src/widgets/lv_label.c ****             if(act_time < a.time) {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 104
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 104
 
 
  2929              		.loc 1 1044 62 view .LVU984
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  2972 0322 0D91     		str	r1, [sp, #52]
  165:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****     a->end_value = end;
  2973              		.loc 5 165 5 is_stmt 1 view .LVU999
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 105
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 105
 
 
  165:lvgl/lvgl/src/widgets/../core/../misc/lv_anim.h ****     a->end_value = end;
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3012              		.loc 1 1064 36 is_stmt 0 view .LVU1015
  3013 0334 3146     		mov	r1, r6
  3014 0336 2046     		mov	r0, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 106
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 106
 
 
  3015 0338 FFF7FEFF 		bl	lv_anim_get
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3054              		.loc 1 1065 62 view .LVU1030
  3055 035c 0023     		movs	r3, #0
  3056 035e EFE7     		b	.L123
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 107
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 107
 
 
  3057              	.LVL324:
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
 1083:lvgl/lvgl/src/widgets/lv_label.c ****             label->dot_end = LV_LABEL_DOT_END_INV;
  3102              		.loc 1 1083 16 view .LVU1047
  3103 0388 0328     		cmp	r0, #3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 108
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 108
 
 
  3104 038a 09D8     		bhi	.L127
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3145 03b4 3046     		mov	r0, r6
  3146 03b6 FFF7FEFF 		bl	lv_font_get_glyph_width
  3147              	.LVL331:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 109
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 109
 
 
 1090:lvgl/lvgl/src/widgets/lv_label.c ****                   LV_LABEL_DOT_NUM; /*Shrink with dots*/
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3193              		.loc 1 1093 28 view .LVU1079
  3194 03de 93FBF9F1 		sdiv	r1, r3, r9
  3195 03e2 09FB1133 		mls	r3, r9, r1, r3
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 110
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 110
 
 
 1093:lvgl/lvgl/src/widgets/lv_label.c ****                        (lv_font_get_line_height(font) + line_space); /*Round down to the last line*
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3234              		.loc 1 1107 42 is_stmt 0 view .LVU1097
  3235 0402 666A     		ldr	r6, [r4, #36]
 1107:lvgl/lvgl/src/widgets/lv_label.c ****             uint32_t byte_id     = _lv_txt_encoded_get_byte_id(label->text, letter_id);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 111
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 111
 
 
  3236              		.loc 1 1107 30 view .LVU1098
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3277 042c F4E7     		b	.L130
  3278              	.LVL348:
  3279              	.L128:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 112
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 112
 
 
 1100:lvgl/lvgl/src/widgets/lv_label.c ****                 p.y -= line_space;
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3321              		.loc 1 1118 47 discriminator 3 view .LVU1124
 1118:lvgl/lvgl/src/widgets/lv_label.c ****                 len += _lv_txt_encoded_size(&label->text[byte_id]);
  3322              		.loc 1 1118 48 is_stmt 0 discriminator 3 view .LVU1125
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 113
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 113
 
 
  3323 0460 08F10108 		add	r8, r8, #1
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3362 048a 022B     		cmp	r3, #2
  3363 048c F8D9     		bls	.L136
 1127:lvgl/lvgl/src/widgets/lv_label.c ****                 label->dot_end                              = letter_id + LV_LABEL_DOT_NUM;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 114
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 114
 
 
  3364              		.loc 1 1127 17 is_stmt 1 view .LVU1141
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3409      6C2D3E74 
  3409      65787420 
  3409      213D204E 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 115
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 115
 
 
  3409      554C4C00 
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   95:lvgl/lvgl/src/widgets/lv_label.c ****         /*If set its own text then reallocate it (maybe its size changed)*/
  3453              		.loc 1 95 7 view .LVU1159
  3454 0010 AE42     		cmp	r6, r5
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 116
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 116
 
 
  3455 0012 1DD0     		beq	.L170
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  141:lvgl/lvgl/src/widgets/lv_label.c ****     }
  3492              		.loc 1 141 27 is_stmt 0 view .LVU1177
  3493 0036 94F84830 		ldrb	r3, [r4, #72]	@ zero_extendqisi2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 117
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 117
 
 
  3494 003a 6FF3C303 		bfc	r3, #3, #1
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3536              		.loc 1 107 21 view .LVU1189
  3537 0068 6062     		str	r0, [r4, #36]
  110:lvgl/lvgl/src/widgets/lv_label.c ****         if(label->text == NULL) return;
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 118
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 118
 
 
  3538              		.loc 1 110 9 is_stmt 1 view .LVU1190
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3582 00a4 0649     		ldr	r1, .L173+16
  3583 00a6 0320     		movs	r0, #3
  3584 00a8 FFF7FEFF 		bl	_lv_log_add
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 119
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 119
 
 
  3585              	.LVL376:
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3633              		.cfi_offset 4, -24
  3634              		.cfi_offset 5, -20
  3635              		.cfi_offset 14, -16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 120
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 120
 
 
  3636 0004 86B0     		sub	sp, sp, #24
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3671 0022 2846     		mov	r0, r5
  3672 0024 FFF7FEFF 		bl	_lv_txt_set_text_vfmt
  3673              	.LVL379:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 121
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 121
 
 
  168:lvgl/lvgl/src/widgets/lv_label.c ****     va_end(args);
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3720 0056 0949     		ldr	r1, .L182+16
  3721 0058 0320     		movs	r0, #3
  3722              	.LVL383:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 122
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 122
 
 
  150:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3769 0000 38B5     		push	{r3, r4, r5, lr}
  3770              	.LCFI35:
  3771              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 123
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 123
 
 
  3772              		.cfi_offset 3, -16
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  187:lvgl/lvgl/src/widgets/lv_label.c ****     }
  3810              		.loc 1 187 9 is_stmt 1 view .LVU1260
  187:lvgl/lvgl/src/widgets/lv_label.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 124
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 124
 
 
  3811              		.loc 1 187 27 is_stmt 0 view .LVU1261
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  200:lvgl/lvgl/src/widgets/lv_label.c ****     lv_anim_del(obj, set_ofs_y_anim);
  3857              		.loc 1 200 5 is_stmt 0 view .LVU1272
  3858 0008 FFF7FEFF 		bl	lv_anim_del
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 125
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 125
 
 
  3859              	.LVL395:
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  216:lvgl/lvgl/src/widgets/lv_label.c **** }
  3898              		.loc 1 216 5 is_stmt 1 view .LVU1288
  3899 004a 2046     		mov	r0, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 126
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 126
 
 
  3900 004c FFF7FEFF 		bl	lv_label_refr_text
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  3948              		@ frame_needed = 0, uses_anonymous_args = 0
  697:lvgl/lvgl/src/widgets/lv_label.c ****     LV_UNUSED(class_p);
  3949              		.loc 1 697 1 is_stmt 0 view .LVU1296
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 127
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 127
 
 
  3950 0000 38B5     		push	{r3, r4, r5, lr}
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  712:lvgl/lvgl/src/widgets/lv_label.c ****     label->hint.coord_y    = 0;
  3985              		.loc 1 712 28 is_stmt 0 view .LVU1316
  3986 001a 0A63     		str	r2, [r1, #48]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 128
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 128
 
 
  713:lvgl/lvgl/src/widgets/lv_label.c ****     label->hint.y          = 0;
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4024 0048 2046     		mov	r0, r4
  4025 004a FFF7FEFF 		bl	lv_label_set_text
  4026              	.LVL406:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 129
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 129
 
 
  729:lvgl/lvgl/src/widgets/lv_label.c **** }
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4069              		.loc 1 224 13 is_stmt 0 view .LVU1347
  4070 0002 90F84830 		ldrb	r3, [r0, #72]	@ zero_extendqisi2
  4071 0006 C3F30013 		ubfx	r3, r3, #4, #1
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 130
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 130
 
 
  224:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4120              		.loc 1 523 5 is_stmt 1 view .LVU1355
  523:lvgl/lvgl/src/widgets/lv_label.c ****     LV_ASSERT_NULL(pos);
  4121              		.loc 1 523 5 view .LVU1356
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 131
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 131
 
 
  523:lvgl/lvgl/src/widgets/lv_label.c ****     LV_ASSERT_NULL(pos);
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  135:d:\practise\f407_disc\lvgl\lvgl\src\misc\lv_area.h **** }
  4158              		.loc 2 135 36 discriminator 2 view .LVU1375
  4159 0024 9B1A     		subs	r3, r3, r2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 132
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 132
 
 
  4160 0026 9BB2     		uxth	r3, r3
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4200              	.LVL420:
  345:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
  4201              		.loc 3 345 26 discriminator 2 view .LVU1390
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 133
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 133
 
 
  4202 0044 FFF7FEFF 		bl	lv_obj_get_style_prop
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4245 0062 626A     		ldr	r2, [r4, #36]
  4246 0064 0021     		movs	r1, #0
  4247 0066 2046     		mov	r0, r4
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 134
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 134
 
 
  4248 0068 FFF7FEFF 		bl	lv_obj_calculate_style_text_align
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4286              		.loc 3 4 12 is_stmt 0 view .LVU1422
  4287 0090 03B2     		sxth	r3, r0
  4288              	.LVL431:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 135
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 135
 
 
    4:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4330 00c6 1CDD     		ble	.L209
  551:lvgl/lvgl/src/widgets/lv_label.c **** 
  4331              		.loc 1 551 9 is_stmt 1 view .LVU1436
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 136
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 136
 
 
  551:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4373 00f2 94F82330 		ldrb	r3, [r4, #35]	@ zero_extendqisi2
  544:lvgl/lvgl/src/widgets/lv_label.c **** 
  4374              		.loc 1 544 69 discriminator 1 view .LVU1450
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 137
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 137
 
 
  4375 00f6 13F0040F 		tst	r3, #4
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4412 0118 0B93     		str	r3, [sp, #44]
  575:lvgl/lvgl/src/widgets/lv_label.c **** 
  4413              		.loc 1 575 5 is_stmt 1 view .LVU1468
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 138
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 138
 
 
  575:lvgl/lvgl/src/widgets/lv_label.c **** 
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4453              		.loc 1 601 47 view .LVU1483
  4454 0148 0020     		movs	r0, #0
  4455 014a 5EE0     		b	.L220
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 139
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 139
 
 
  4456              	.LVL452:
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4496              	.LVL456:
  562:lvgl/lvgl/src/widgets/lv_label.c ****     }
  4497              		.loc 1 562 11 view .LVU1498
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 140
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 140
 
 
  4498 017a C6EB6303 		rsb	r3, r6, r3, asr #1
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4539 01a4 1EB2     		sxth	r6, r3
  4540              	.LVL461:
  567:lvgl/lvgl/src/widgets/lv_label.c ****     }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 141
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 141
 
 
  4541              		.loc 1 567 11 view .LVU1512
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4580              		.loc 1 595 15 view .LVU1527
  4581 01ca 1EB2     		sxth	r6, r3
  4582              	.LVL468:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 142
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 142
 
 
  4583              	.L214:
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4622              		.loc 1 593 17 view .LVU1542
  4623 0200 90E7     		b	.L215
  4624              	.LVL472:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 143
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 143
 
 
  4625              	.L223:
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  606:lvgl/lvgl/src/widgets/lv_label.c **** 
  4676              		.loc 1 606 5 view .LVU1548
  606:lvgl/lvgl/src/widgets/lv_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 144
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 144
 
 
  4677              		.loc 1 606 5 view .LVU1549
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4721              		.thumb
  4722              		.thumb_func
  4723              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 145
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 145
 
 
  4725              	draw_main:
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4767              		.loc 1 797 5 is_stmt 0 view .LVU1574
  4768 0018 FFF7FEFF 		bl	lv_obj_get_content_coords
  4769              	.LVL487:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 146
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 146
 
 
  799:lvgl/lvgl/src/widgets/lv_label.c ****     if(label->recolor != 0) flag |= LV_TEXT_FLAG_RECOLOR;
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
    4:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h **** }
  4808              		.loc 3 4 12 view .LVU1591
  4809              	.LBE344:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 147
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 147
 
 
  4810              	.LBE343:
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
    8:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h **** 
    9:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h **** #ifdef __cplusplus
   10:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h **** extern "C" {
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 148
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 148
 
 
   11:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h **** #endif
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
   65:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h **** /**
   66:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h ****  * Get the logical position of a character in a line
   67:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h ****  * @param str_in the input string. Can be only one line.
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 149
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 149
 
 
   68:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h ****  * @param bidi_txt internally the text is bidi processed which buffer can be get here.
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  122:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h **** /**
  123:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h ****  * For compatibility if LV_USE_BIDI = 0
  124:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h ****  * Get the real text alignment from the a text alignment, base direction and a text.
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 150
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 150
 
 
  125:lvgl/lvgl/src/widgets/../core/../misc/lv_bidi.h ****  * @param align     For LV_TEXT_ALIGN_AUTO give LV_TEXT_ALIGN_LEFT else leave unchanged, write back
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4881 0090 01D0     		beq	.L241
  816:lvgl/lvgl/src/widgets/lv_label.c ****         label_draw_dsc.sel_color = lv_obj_get_style_text_color_filtered(obj, LV_PART_SELECTED);
  4882              		.loc 1 816 61 discriminator 1 view .LVU1622
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 151
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 151
 
 
  4883 0092 9842     		cmp	r0, r3
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  834:lvgl/lvgl/src/widgets/lv_label.c ****         hint = NULL;
  4927              		.loc 1 834 58 view .LVU1640
  4928 00c2 B3F5806F 		cmp	r3, #1024
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 152
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 152
 
 
  4929 00c6 40DA     		bge	.L244
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  4968              		.loc 1 818 9 is_stmt 1 view .LVU1655
  4969              	.LVL506:
  4970              	.LBB351:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 153
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 153
 
 
  4971              	.LBI351:
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5012              	.LVL508:
  828:lvgl/lvgl/src/widgets/lv_label.c ****             label_draw_dsc.align = LV_TEXT_ALIGN_LEFT;
  5013              		.loc 1 828 9 is_stmt 1 view .LVU1669
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 154
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 154
 
 
  828:lvgl/lvgl/src/widgets/lv_label.c ****             label_draw_dsc.align = LV_TEXT_ALIGN_LEFT;
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5053              		.loc 1 842 5 is_stmt 1 view .LVU1684
  843:lvgl/lvgl/src/widgets/lv_label.c ****     if(!is_common) return;
  5054              		.loc 1 843 5 view .LVU1685
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 155
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 155
 
 
  843:lvgl/lvgl/src/widgets/lv_label.c ****     if(!is_common) return;
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5096              		@ sp needed
  5097 017c F0BD     		pop	{r4, r5, r6, r7, pc}
  5098              	.LVL517:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 156
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 156
 
 
  5099              	.L258:
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5140 01ae 089A     		ldr	r2, [sp, #32]
  5141 01b0 05A8     		add	r0, sp, #20
  5142 01b2 FFF7FEFF 		bl	lv_txt_get_size
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 157
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 157
 
 
  5143              	.LVL522:
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5183 01d2 BDF84630 		ldrh	r3, [sp, #70]
  5184              		.loc 2 145 44 view .LVU1728
  5185 01d6 BDF84210 		ldrh	r1, [sp, #66]
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 158
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 158
 
 
  5186              		.loc 2 145 36 view .LVU1729
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5228              		.loc 1 871 34 view .LVU1747
  5229 0202 ADF83820 		strh	r2, [sp, #56]	@ movhi
  873:lvgl/lvgl/src/widgets/lv_label.c ****         }
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 159
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 159
 
 
  5230              		.loc 1 873 13 is_stmt 1 view .LVU1748
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5270 023e 0097     		str	r7, [sp]
  5271 0240 08AA     		add	r2, sp, #32
  5272 0242 06A9     		add	r1, sp, #24
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 160
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 160
 
 
  5273 0244 10A8     		add	r0, sp, #64
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5320              		.loc 1 750 7 is_stmt 0 view .LVU1771
  5321 000e 0128     		cmp	r0, #1
  5322 0010 02D0     		beq	.L272
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 161
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 161
 
 
  5323              	.LVL538:
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5364 0032 262E     		cmp	r6, #38
  5365 0034 11D0     		beq	.L275
  784:lvgl/lvgl/src/widgets/lv_label.c ****         draw_main(e);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 162
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 162
 
 
  5366              		.loc 1 784 10 is_stmt 1 view .LVU1785
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  333:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (const lv_font_t *)v.ptr;
  5408              		.loc 3 333 26 is_stmt 0 view .LVU1798
  5409 005a 41F25942 		movw	r2, #5209
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 163
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 163
 
 
  5410 005e 0021     		movs	r1, #0
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5449 007a 0021     		movs	r1, #0
  5450 007c 3846     		mov	r0, r7
  5451 007e FFF7FEFF 		bl	lv_obj_get_style_prop
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 164
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 164
 
 
  5452              	.LVL559:
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5492              	.LBB372:
    3:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
  5493              		.loc 3 3 5 view .LVU1831
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 165
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 165
 
 
    3:lvgl/lvgl/src/widgets/../core/lv_obj_style_gen.h ****     return (lv_coord_t)v.num;
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5535 00da FFF7FEFF 		bl	lv_txt_get_size
  5536              	.LVL569:
  780:lvgl/lvgl/src/widgets/lv_label.c ****         self_size->x = LV_MAX(self_size->x, size.x);
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 166
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 166
 
 
  5537              		.loc 1 780 9 is_stmt 1 view .LVU1845
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5582              		.global	lv_label_ins_text
  5583              		.syntax unified
  5584              		.thumb
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 167
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 167
 
 
  5585              		.thumb_func
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5627              	.LVL574:
  5628              	.L278:
  672:lvgl/lvgl/src/widgets/lv_label.c **** 
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 168
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 168
 
 
  5629              		.loc 1 672 1 view .LVU1867
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5672 003e D4F82480 		ldr	r8, [r4, #36]
  648:lvgl/lvgl/src/widgets/lv_label.c ****     size_t ins_len = strlen(txt);
  5673              		.loc 1 648 22 view .LVU1879
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 169
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 169
 
 
  5674 0042 4046     		mov	r0, r8
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5711 0062 9D42     		cmp	r5, r3
  5712 0064 17D0     		beq	.L289
  5713              	.L284:
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 170
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 170
 
 
  669:lvgl/lvgl/src/widgets/lv_label.c **** #endif
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5758              		.align	2
  5759              	.L290:
  5760 00a0 00000000 		.word	.LC2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 171
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 171
 
 
  5761 00a4 00000000 		.word	.LC10
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5808 0012 1646     		mov	r6, r2
  682:lvgl/lvgl/src/widgets/lv_label.c **** 
  5809              		.loc 1 682 5 is_stmt 1 view .LVU1916
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 172
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 172
 
 
  5810 0014 FFF7FEFF 		bl	lv_obj_invalidate
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5853      7465725F 
  5854              		.section	.rodata.__func__.10124,"a"
  5855              		.align	2
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 173
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 173
 
 
  5856              		.set	.LANCHOR6,. + 0
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5904              		.file 10 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\lib\\gcc\\arm-non
  5905              		.file 11 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
  5906              		.file 12 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 174
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 174
 
 
  5907              		.file 13 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
@@ -10403,110 +10403,110 @@ ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 1
  5926              		.file 32 "c:\\program files (x86)\\gnu arm embedded toolchain\\9 2020-q2-update\\arm-none-eabi\\in
  5927              		.file 33 "lvgl/lvgl/src/widgets/../core/lv_obj_draw.h"
  5928              		.file 34 "<built-in>"
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 175
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 175
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lv_label.c
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:18     .text.lv_label_get_dot_tmp:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:25     .text.lv_label_get_dot_tmp:00000000 lv_label_get_dot_tmp
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:59     .text.lv_label_dot_tmp_free:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:65     .text.lv_label_dot_tmp_free:00000000 lv_label_dot_tmp_free
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:112    .text.lv_label_revert_dots:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:118    .text.lv_label_revert_dots:00000000 lv_label_revert_dots
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:230    .text.lv_label_revert_dots:00000054 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:235    .text.lv_label_destructor:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:241    .text.lv_label_destructor:00000000 lv_label_destructor
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:288    .text.set_ofs_y_anim:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:294    .text.set_ofs_y_anim:00000000 set_ofs_y_anim
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:321    .text.set_ofs_x_anim:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:327    .text.set_ofs_x_anim:00000000 set_ofs_x_anim
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:354    .rodata.lv_label_set_dot_tmp.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:361    .text.lv_label_set_dot_tmp:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:367    .text.lv_label_set_dot_tmp:00000000 lv_label_set_dot_tmp
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:467    .text.lv_label_set_dot_tmp:00000070 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:474    .text.lv_label_create:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:481    .text.lv_label_create:00000000 lv_label_create
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:520    .text.lv_label_create:00000014 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:525    .text.lv_label_set_text_sel_start:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:532    .text.lv_label_set_text_sel_start:00000000 lv_label_set_text_sel_start
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:562    .text.lv_label_set_text_sel_end:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:569    .text.lv_label_set_text_sel_end:00000000 lv_label_set_text_sel_end
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:599    .text.lv_label_get_text:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:606    .text.lv_label_get_text:00000000 lv_label_get_text
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:628    .text.lv_label_get_long_mode:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:635    .text.lv_label_get_long_mode:00000000 lv_label_get_long_mode
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:658    .text.lv_label_get_recolor:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:665    .text.lv_label_get_recolor:00000000 lv_label_get_recolor
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:688    .rodata.lv_label_get_letter_pos.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:698    .text.lv_label_get_letter_pos:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:705    .text.lv_label_get_letter_pos:00000000 lv_label_get_letter_pos
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:1265   .text.lv_label_get_letter_pos:00000214 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:1276   .rodata.lv_label_get_letter_on.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:1280   .text.lv_label_get_letter_on:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:1287   .text.lv_label_get_letter_on:00000000 lv_label_get_letter_on
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:1913   .text.lv_label_get_letter_on:00000248 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:1924   .text.lv_label_refr_text:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:1930   .text.lv_label_refr_text:00000000 lv_label_refr_text
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3113   .text.lv_label_refr_text:00000394 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3128   .text.lv_label_refr_text:000003a0 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3395   .text.lv_label_refr_text:0000049c $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3404   .rodata.lv_label_set_text.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3411   .text.lv_label_set_text:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3418   .text.lv_label_set_text:00000000 lv_label_set_text
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3595   .text.lv_label_set_text:000000b0 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3605   .rodata.lv_label_set_text_fmt.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3609   .text.lv_label_set_text_fmt:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3616   .text.lv_label_set_text_fmt:00000000 lv_label_set_text_fmt
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3745   .text.lv_label_set_text_fmt:0000006c $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3754   .text.lv_label_set_text_static:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3761   .text.lv_label_set_text_static:00000000 lv_label_set_text_static
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3825   .text.lv_label_set_long_mode:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3832   .text.lv_label_set_long_mode:00000000 lv_label_set_long_mode
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 176
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:18     .text.lv_label_get_dot_tmp:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:25     .text.lv_label_get_dot_tmp:00000000 lv_label_get_dot_tmp
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:59     .text.lv_label_dot_tmp_free:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:65     .text.lv_label_dot_tmp_free:00000000 lv_label_dot_tmp_free
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:112    .text.lv_label_revert_dots:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:118    .text.lv_label_revert_dots:00000000 lv_label_revert_dots
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:230    .text.lv_label_revert_dots:00000054 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:235    .text.lv_label_destructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:241    .text.lv_label_destructor:00000000 lv_label_destructor
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:288    .text.set_ofs_y_anim:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:294    .text.set_ofs_y_anim:00000000 set_ofs_y_anim
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:321    .text.set_ofs_x_anim:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:327    .text.set_ofs_x_anim:00000000 set_ofs_x_anim
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:354    .rodata.lv_label_set_dot_tmp.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:361    .text.lv_label_set_dot_tmp:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:367    .text.lv_label_set_dot_tmp:00000000 lv_label_set_dot_tmp
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:467    .text.lv_label_set_dot_tmp:00000070 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:474    .text.lv_label_create:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:481    .text.lv_label_create:00000000 lv_label_create
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:520    .text.lv_label_create:00000014 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:525    .text.lv_label_set_text_sel_start:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:532    .text.lv_label_set_text_sel_start:00000000 lv_label_set_text_sel_start
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:562    .text.lv_label_set_text_sel_end:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:569    .text.lv_label_set_text_sel_end:00000000 lv_label_set_text_sel_end
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:599    .text.lv_label_get_text:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:606    .text.lv_label_get_text:00000000 lv_label_get_text
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:628    .text.lv_label_get_long_mode:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:635    .text.lv_label_get_long_mode:00000000 lv_label_get_long_mode
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:658    .text.lv_label_get_recolor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:665    .text.lv_label_get_recolor:00000000 lv_label_get_recolor
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:688    .rodata.lv_label_get_letter_pos.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:698    .text.lv_label_get_letter_pos:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:705    .text.lv_label_get_letter_pos:00000000 lv_label_get_letter_pos
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:1265   .text.lv_label_get_letter_pos:00000214 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:1276   .rodata.lv_label_get_letter_on.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:1280   .text.lv_label_get_letter_on:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:1287   .text.lv_label_get_letter_on:00000000 lv_label_get_letter_on
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:1913   .text.lv_label_get_letter_on:00000248 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:1924   .text.lv_label_refr_text:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:1930   .text.lv_label_refr_text:00000000 lv_label_refr_text
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3113   .text.lv_label_refr_text:00000394 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3128   .text.lv_label_refr_text:000003a0 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3395   .text.lv_label_refr_text:0000049c $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3404   .rodata.lv_label_set_text.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3411   .text.lv_label_set_text:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3418   .text.lv_label_set_text:00000000 lv_label_set_text
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3595   .text.lv_label_set_text:000000b0 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3605   .rodata.lv_label_set_text_fmt.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3609   .text.lv_label_set_text_fmt:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3616   .text.lv_label_set_text_fmt:00000000 lv_label_set_text_fmt
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3745   .text.lv_label_set_text_fmt:0000006c $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3754   .text.lv_label_set_text_static:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3761   .text.lv_label_set_text_static:00000000 lv_label_set_text_static
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3825   .text.lv_label_set_long_mode:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3832   .text.lv_label_set_long_mode:00000000 lv_label_set_long_mode
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 176
 
 
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3926   .text.lv_label_set_long_mode:00000070 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3932   .rodata.lv_label_constructor.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3936   .text.lv_label_constructor:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:3942   .text.lv_label_constructor:00000000 lv_label_constructor
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4038   .text.lv_label_constructor:00000050 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4043   .text.lv_label_set_recolor:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4050   .text.lv_label_set_recolor:00000000 lv_label_set_recolor
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4090   .text.lv_label_is_char_under_pos:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4097   .text.lv_label_is_char_under_pos:00000000 lv_label_is_char_under_pos
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4652   .text.lv_label_is_char_under_pos:00000214 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4661   .text.lv_label_get_text_selection_start:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4668   .text.lv_label_get_text_selection_start:00000000 lv_label_get_text_selection_start
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4690   .text.lv_label_get_text_selection_end:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4697   .text.lv_label_get_text_selection_end:00000000 lv_label_get_text_selection_end
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4719   .text.draw_main:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:4725   .text.draw_main:00000000 draw_main
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5282   .text.lv_label_event:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5288   .text.lv_label_event:00000000 lv_label_event
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5571   .text.lv_label_event:0000010c $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5577   .rodata.lv_label_ins_text.str1.4:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5581   .text.lv_label_ins_text:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5588   .text.lv_label_ins_text:00000000 lv_label_ins_text
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5760   .text.lv_label_ins_text:000000a0 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5772   .text.lv_label_cut_text:00000000 $t
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5779   .text.lv_label_cut_text:00000000 lv_label_cut_text
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5887   .rodata.lv_label_class:00000000 lv_label_class
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5834   .rodata.__func__.10007:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5838   .rodata.__func__.10007:00000000 __func__.10007
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5841   .rodata.__func__.10053:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5845   .rodata.__func__.10053:00000000 __func__.10053
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5848   .rodata.__func__.10085:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5852   .rodata.__func__.10085:00000000 __func__.10085
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5855   .rodata.__func__.10124:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5859   .rodata.__func__.10124:00000000 __func__.10124
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5862   .rodata.__func__.10168:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5866   .rodata.__func__.10168:00000000 __func__.10168
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5869   .rodata.__func__.10285:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5873   .rodata.__func__.10285:00000000 __func__.10285
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5876   .rodata.__func__.9999:00000000 $d
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5880   .rodata.__func__.9999:00000000 __func__.9999
-C:\Users\gx\AppData\Local\Temp\cco70Sm1.s:5883   .rodata.lv_label_class:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3926   .text.lv_label_set_long_mode:00000070 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3932   .rodata.lv_label_constructor.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3936   .text.lv_label_constructor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:3942   .text.lv_label_constructor:00000000 lv_label_constructor
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4038   .text.lv_label_constructor:00000050 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4043   .text.lv_label_set_recolor:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4050   .text.lv_label_set_recolor:00000000 lv_label_set_recolor
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4090   .text.lv_label_is_char_under_pos:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4097   .text.lv_label_is_char_under_pos:00000000 lv_label_is_char_under_pos
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4652   .text.lv_label_is_char_under_pos:00000214 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4661   .text.lv_label_get_text_selection_start:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4668   .text.lv_label_get_text_selection_start:00000000 lv_label_get_text_selection_start
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4690   .text.lv_label_get_text_selection_end:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4697   .text.lv_label_get_text_selection_end:00000000 lv_label_get_text_selection_end
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4719   .text.draw_main:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:4725   .text.draw_main:00000000 draw_main
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5282   .text.lv_label_event:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5288   .text.lv_label_event:00000000 lv_label_event
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5571   .text.lv_label_event:0000010c $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5577   .rodata.lv_label_ins_text.str1.4:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5581   .text.lv_label_ins_text:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5588   .text.lv_label_ins_text:00000000 lv_label_ins_text
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5760   .text.lv_label_ins_text:000000a0 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5772   .text.lv_label_cut_text:00000000 $t
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5779   .text.lv_label_cut_text:00000000 lv_label_cut_text
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5887   .rodata.lv_label_class:00000000 lv_label_class
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5834   .rodata.__func__.10007:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5838   .rodata.__func__.10007:00000000 __func__.10007
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5841   .rodata.__func__.10053:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5845   .rodata.__func__.10053:00000000 __func__.10053
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5848   .rodata.__func__.10085:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5852   .rodata.__func__.10085:00000000 __func__.10085
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5855   .rodata.__func__.10124:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5859   .rodata.__func__.10124:00000000 __func__.10124
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5862   .rodata.__func__.10168:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5866   .rodata.__func__.10168:00000000 __func__.10168
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5869   .rodata.__func__.10285:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5873   .rodata.__func__.10285:00000000 __func__.10285
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5876   .rodata.__func__.9999:00000000 $d
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5880   .rodata.__func__.9999:00000000 __func__.9999
+C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s:5883   .rodata.lv_label_class:00000000 $d
 
 UNDEFINED SYMBOLS
 lv_mem_free
@@ -10523,7 +10523,7 @@ lv_obj_get_content_coords
 lv_obj_get_style_prop
 _lv_txt_get_next_line
 lv_txt_get_width
-ARM GAS  C:\Users\gx\AppData\Local\Temp\cco70Sm1.s 			page 177
+ARM GAS  C:\Users\gx\AppData\Local\Temp\ccDuLaoy.s 			page 177
 
 
 lv_font_get_glyph_width
