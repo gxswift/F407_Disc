@@ -176,11 +176,13 @@ CC = $(GCC_PATH)/$(PREFIX)gcc
 AS = $(GCC_PATH)/$(PREFIX)gcc -x assembler-with-cpp
 CP = $(GCC_PATH)/$(PREFIX)objcopy
 SZ = $(GCC_PATH)/$(PREFIX)size
+DB = $(GCC_PATH)/$(PREFIX)gdb
 else
 CC = $(PREFIX)gcc
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
 SZ = $(PREFIX)size
+DB = $(PREFIX)gdb
 endif
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
@@ -269,9 +271,13 @@ flash: $(BUILD_DIR)/$(TARGET).hex
 	"program $^ verify reset exit"
 #	"flash write_image erase build/F407.hex" -c reset -c exit
 #	"flash write_image erase E:/MCU/STM32L431RC-BearPi/usart1-fpu-test/build/usart1-fpu-test.bin"
-
 #"*.bin 0x08000000"
+debug: #$(BUILD_DIR)/$(TARGET).hex
+	openocd -f interface/cmsis-dap.cfg -f target/stm32f4x.cfg -c "transport select swd" &
+	$(DB) $(BUILD_DIR)/$(TARGET).elf -ex "target remote localhost:3333"
 
+exit:
+	taskkill -f -im openocd.exe
 #######################################
 # build the application
 #######################################
